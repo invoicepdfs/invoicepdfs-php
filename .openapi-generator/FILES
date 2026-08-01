@@ -433,13 +433,3 @@ lib/Model/WorkspaceResponse.php
 lib/Model/WorkspacesListResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/AppDocumentsSchemasDocumentRenderRequestTest.php
-test/Model/AppSchemasV1DocumentRenderRequestTest.php
-test/Model/DocumentCreateRequestTest.php
-test/Model/DocumentOutTest.php
-test/Model/DocumentPatchRequestTest.php
-test/Model/DocumentResponseTest.php
-test/Model/DocumentsListResponseTest.php
-test/Model/LineItemDiscountInputTest.php
-test/Model/LineItemTaxInputTest.php
-test/Model/StandardLineItemInputTest.php

@@ -8,6 +8,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**calculateDocumentApiV1DocumentsCalculatePost()**](DocumentsApi.md#calculateDocumentApiV1DocumentsCalculatePost) | **POST** /api/v1/documents/calculate | Calculate Document |
 | [**createDocumentApiV1DocumentsPost()**](DocumentsApi.md#createDocumentApiV1DocumentsPost) | **POST** /api/v1/documents | Create Document |
 | [**deleteDocumentApiV1DocumentsDocumentIdDelete()**](DocumentsApi.md#deleteDocumentApiV1DocumentsDocumentIdDelete) | **DELETE** /api/v1/documents/{document_id} | Delete Document |
+| [**duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost()**](DocumentsApi.md#duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost) | **POST** /api/v1/documents/{document_id}/duplicate | Duplicate Document |
 | [**finalizeDocumentApiV1DocumentsDocumentIdFinalizePost()**](DocumentsApi.md#finalizeDocumentApiV1DocumentsDocumentIdFinalizePost) | **POST** /api/v1/documents/{document_id}/finalize | Finalize Document |
 | [**getDocumentApiV1DocumentsDocumentIdGet()**](DocumentsApi.md#getDocumentApiV1DocumentsDocumentIdGet) | **GET** /api/v1/documents/{document_id} | Get Document |
 | [**listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet()**](DocumentsApi.md#listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet) | **GET** /api/v1/documents/{document_id}/deliveries | List Document Deliveries |
@@ -244,6 +245,64 @@ try {
 ### Return type
 
 [**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost()`
+
+```php
+duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost($document_id): \InvoicePDFs\Model\DocumentResponse
+```
+
+Duplicate Document
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new InvoicePDFs\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$document_id = 'document_id_example'; // string
+
+try {
+    $result = $apiInstance->duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost($document_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **document_id** | **string**|  | |
+
+### Return type
+
+[**\InvoicePDFs\Model\DocumentResponse**](../Model/DocumentResponse.md)
 
 ### Authorization
 

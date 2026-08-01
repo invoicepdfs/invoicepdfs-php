@@ -83,6 +83,9 @@ class DocumentsApi
         'deleteDocumentApiV1DocumentsDocumentIdDelete' => [
             'application/json',
         ],
+        'duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost' => [
+            'application/json',
+        ],
         'finalizeDocumentApiV1DocumentsDocumentIdFinalizePost' => [
             'application/json',
         ],
@@ -1559,6 +1562,352 @@ class DocumentsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost
+     *
+     * Duplicate Document
+     *
+     * @param  string $document_id document_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\HTTPValidationError
+     */
+    public function duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost($document_id, string $contentType = self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'][0])
+    {
+        list($response) = $this->duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostWithHttpInfo($document_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostWithHttpInfo
+     *
+     * Duplicate Document
+     *
+     * @param  string $document_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostWithHttpInfo($document_id, string $contentType = self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'][0])
+    {
+        $request = $this->duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest($document_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\DocumentResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\DocumentResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\DocumentResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\DocumentResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\DocumentResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostAsync
+     *
+     * Duplicate Document
+     *
+     * @param  string $document_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostAsync($document_id, string $contentType = self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'][0])
+    {
+        return $this->duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostAsyncWithHttpInfo($document_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostAsyncWithHttpInfo
+     *
+     * Duplicate Document
+     *
+     * @param  string $document_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\DocumentResponse';
+        $request = $this->duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest($document_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'
+     *
+     * @param  string $document_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest($document_id, string $contentType = self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'][0])
+    {
+
+        // verify the required parameter 'document_id' is set
+        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $document_id when calling duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/documents/{document_id}/duplicate';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($document_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'document_id' . '}',
+                ObjectSerializer::toPathValue($document_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
