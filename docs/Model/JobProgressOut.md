@@ -1,0 +1,11 @@
+# # JobProgressOut
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**current** | **int** |  |
+**total** | **int** |  |
+**percentage** | **int** |  |
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
