@@ -4,15 +4,15 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createAttachmentApiV1InvoicesInvoiceIdAttachmentsPost()**](InvoiceAttachmentsApi.md#createAttachmentApiV1InvoicesInvoiceIdAttachmentsPost) | **POST** /api/v1/invoices/{invoice_id}/attachments | Create Attachment |
-| [**deleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete()**](InvoiceAttachmentsApi.md#deleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete) | **DELETE** /api/v1/invoices/{invoice_id}/attachments/{attachment_id} | Delete Attachment |
-| [**listAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet()**](InvoiceAttachmentsApi.md#listAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet) | **GET** /api/v1/invoices/{invoice_id}/attachments | List Attachments |
+| [**createAttachmentApiV1DocumentsInvoiceIdAttachmentsPost()**](InvoiceAttachmentsApi.md#createAttachmentApiV1DocumentsInvoiceIdAttachmentsPost) | **POST** /api/v1/documents/{invoice_id}/attachments | Create Attachment |
+| [**deleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete()**](InvoiceAttachmentsApi.md#deleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete) | **DELETE** /api/v1/documents/{invoice_id}/attachments/{attachment_id} | Delete Attachment |
+| [**listAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet()**](InvoiceAttachmentsApi.md#listAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet) | **GET** /api/v1/documents/{invoice_id}/attachments | List Attachments |
 
 
-## `createAttachmentApiV1InvoicesInvoiceIdAttachmentsPost()`
+## `createAttachmentApiV1DocumentsInvoiceIdAttachmentsPost()`
 
 ```php
-createAttachmentApiV1InvoicesInvoiceIdAttachmentsPost($invoice_id, $invoice_attachment_create_request): \InvoicePDFs\Model\InvoiceAttachmentResponse
+createAttachmentApiV1DocumentsInvoiceIdAttachmentsPost($invoice_id, $invoice_attachment_create_request): \InvoicePDFs\Model\InvoiceAttachmentResponse
 ```
 
 Create Attachment
@@ -38,10 +38,10 @@ $invoice_id = 'invoice_id_example'; // string
 $invoice_attachment_create_request = new \InvoicePDFs\Model\InvoiceAttachmentCreateRequest(); // \InvoicePDFs\Model\InvoiceAttachmentCreateRequest
 
 try {
-    $result = $apiInstance->createAttachmentApiV1InvoicesInvoiceIdAttachmentsPost($invoice_id, $invoice_attachment_create_request);
+    $result = $apiInstance->createAttachmentApiV1DocumentsInvoiceIdAttachmentsPost($invoice_id, $invoice_attachment_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InvoiceAttachmentsApi->createAttachmentApiV1InvoicesInvoiceIdAttachmentsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InvoiceAttachmentsApi->createAttachmentApiV1DocumentsInvoiceIdAttachmentsPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -69,10 +69,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete()`
+## `deleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete()`
 
 ```php
-deleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete($invoice_id, $attachment_id): \InvoicePDFs\Model\SimpleBoolResponse
+deleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete($invoice_id, $attachment_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Attachment
@@ -98,10 +98,10 @@ $invoice_id = 'invoice_id_example'; // string
 $attachment_id = 'attachment_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete($invoice_id, $attachment_id);
+    $result = $apiInstance->deleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete($invoice_id, $attachment_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InvoiceAttachmentsApi->deleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InvoiceAttachmentsApi->deleteAttachmentApiV1DocumentsInvoiceIdAttachmentsAttachmentIdDelete: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -129,10 +129,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet()`
+## `listAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet()`
 
 ```php
-listAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet($invoice_id): \InvoicePDFs\Model\InvoiceAttachmentsListResponse
+listAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet($invoice_id): \InvoicePDFs\Model\InvoiceAttachmentsListResponse
 ```
 
 List Attachments
@@ -157,10 +157,10 @@ $apiInstance = new InvoicePDFs\Api\InvoiceAttachmentsApi(
 $invoice_id = 'invoice_id_example'; // string
 
 try {
-    $result = $apiInstance->listAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet($invoice_id);
+    $result = $apiInstance->listAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet($invoice_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling InvoiceAttachmentsApi->listAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InvoiceAttachmentsApi->listAttachmentsApiV1DocumentsInvoiceIdAttachmentsGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

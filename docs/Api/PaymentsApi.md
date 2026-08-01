@@ -4,17 +4,17 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createPaymentApiV1InvoicesInvoiceIdPaymentsPost()**](PaymentsApi.md#createPaymentApiV1InvoicesInvoiceIdPaymentsPost) | **POST** /api/v1/invoices/{invoice_id}/payments | Create Payment |
+| [**createPaymentApiV1DocumentsInvoiceIdPaymentsPost()**](PaymentsApi.md#createPaymentApiV1DocumentsInvoiceIdPaymentsPost) | **POST** /api/v1/documents/{invoice_id}/payments | Create Payment |
 | [**deletePaymentApiV1PaymentsPaymentIdDelete()**](PaymentsApi.md#deletePaymentApiV1PaymentsPaymentIdDelete) | **DELETE** /api/v1/payments/{payment_id} | Delete Payment |
 | [**getPaymentApiV1PaymentsPaymentIdGet()**](PaymentsApi.md#getPaymentApiV1PaymentsPaymentIdGet) | **GET** /api/v1/payments/{payment_id} | Get Payment |
-| [**listInvoicePaymentsApiV1InvoicesInvoiceIdPaymentsGet()**](PaymentsApi.md#listInvoicePaymentsApiV1InvoicesInvoiceIdPaymentsGet) | **GET** /api/v1/invoices/{invoice_id}/payments | List Invoice Payments |
+| [**listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet()**](PaymentsApi.md#listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet) | **GET** /api/v1/documents/{invoice_id}/payments | List Invoice Payments |
 | [**updatePaymentApiV1PaymentsPaymentIdPatch()**](PaymentsApi.md#updatePaymentApiV1PaymentsPaymentIdPatch) | **PATCH** /api/v1/payments/{payment_id} | Update Payment |
 
 
-## `createPaymentApiV1InvoicesInvoiceIdPaymentsPost()`
+## `createPaymentApiV1DocumentsInvoiceIdPaymentsPost()`
 
 ```php
-createPaymentApiV1InvoicesInvoiceIdPaymentsPost($invoice_id, $payment_create_request): \InvoicePDFs\Model\PaymentResponse
+createPaymentApiV1DocumentsInvoiceIdPaymentsPost($invoice_id, $payment_create_request): \InvoicePDFs\Model\PaymentResponse
 ```
 
 Create Payment
@@ -40,10 +40,10 @@ $invoice_id = 'invoice_id_example'; // string
 $payment_create_request = new \InvoicePDFs\Model\PaymentCreateRequest(); // \InvoicePDFs\Model\PaymentCreateRequest
 
 try {
-    $result = $apiInstance->createPaymentApiV1InvoicesInvoiceIdPaymentsPost($invoice_id, $payment_create_request);
+    $result = $apiInstance->createPaymentApiV1DocumentsInvoiceIdPaymentsPost($invoice_id, $payment_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->createPaymentApiV1InvoicesInvoiceIdPaymentsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentsApi->createPaymentApiV1DocumentsInvoiceIdPaymentsPost: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -187,10 +187,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listInvoicePaymentsApiV1InvoicesInvoiceIdPaymentsGet()`
+## `listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet()`
 
 ```php
-listInvoicePaymentsApiV1InvoicesInvoiceIdPaymentsGet($invoice_id, $limit, $cursor): \InvoicePDFs\Model\PaymentsListResponse
+listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet($invoice_id, $limit, $cursor): \InvoicePDFs\Model\PaymentsListResponse
 ```
 
 List Invoice Payments
@@ -217,10 +217,10 @@ $limit = 50; // int
 $cursor = 'cursor_example'; // string
 
 try {
-    $result = $apiInstance->listInvoicePaymentsApiV1InvoicesInvoiceIdPaymentsGet($invoice_id, $limit, $cursor);
+    $result = $apiInstance->listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet($invoice_id, $limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->listInvoicePaymentsApiV1InvoicesInvoiceIdPaymentsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentsApi->listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

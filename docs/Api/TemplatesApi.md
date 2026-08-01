@@ -487,7 +487,7 @@ try {
 ## `previewTemplateApiV1TemplatesTemplateIdPreviewPost()`
 
 ```php
-previewTemplateApiV1TemplatesTemplateIdPreviewPost($template_id, $document_render_request, $idempotency_key): mixed
+previewTemplateApiV1TemplatesTemplateIdPreviewPost($template_id, $app_schemas_v1_document_render_request, $idempotency_key): mixed
 ```
 
 Preview Template
@@ -510,11 +510,11 @@ $apiInstance = new InvoicePDFs\Api\TemplatesApi(
     $config
 );
 $template_id = 'template_id_example'; // string
-$document_render_request = new \InvoicePDFs\Model\DocumentRenderRequest(); // \InvoicePDFs\Model\DocumentRenderRequest
+$app_schemas_v1_document_render_request = new \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest(); // \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->previewTemplateApiV1TemplatesTemplateIdPreviewPost($template_id, $document_render_request, $idempotency_key);
+    $result = $apiInstance->previewTemplateApiV1TemplatesTemplateIdPreviewPost($template_id, $app_schemas_v1_document_render_request, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->previewTemplateApiV1TemplatesTemplateIdPreviewPost: ', $e->getMessage(), PHP_EOL;
@@ -526,7 +526,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**|  | |
-| **document_render_request** | [**\InvoicePDFs\Model\DocumentRenderRequest**](../Model/DocumentRenderRequest.md)|  | |
+| **app_schemas_v1_document_render_request** | [**\InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest**](../Model/AppSchemasV1DocumentRenderRequest.md)|  | |
 | **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
