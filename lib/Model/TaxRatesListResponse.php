@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * TaxRatesListResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class TaxRatesListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\TaxRateOut[]',
-        'pagination' => '\OpenAPI\Client\Model\CursorPagination'
+        'data' => '\InvoicePDFs\Model\TaxRateOut[]',
+        'pagination' => '\InvoicePDFs\Model\CursorPagination'
     ];
 
     /**
@@ -302,7 +302,7 @@ class TaxRatesListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\TaxRateOut[]
+     * @return \InvoicePDFs\Model\TaxRateOut[]
      */
     public function getData()
     {
@@ -312,7 +312,7 @@ class TaxRatesListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\TaxRateOut[] $data data
+     * @param \InvoicePDFs\Model\TaxRateOut[] $data data
      *
      * @return self
      */
@@ -329,7 +329,7 @@ class TaxRatesListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets pagination
      *
-     * @return \OpenAPI\Client\Model\CursorPagination|null
+     * @return \InvoicePDFs\Model\CursorPagination|null
      */
     public function getPagination()
     {
@@ -339,7 +339,7 @@ class TaxRatesListResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets pagination
      *
-     * @param \OpenAPI\Client\Model\CursorPagination|null $pagination pagination
+     * @param \InvoicePDFs\Model\CursorPagination|null $pagination pagination
      *
      * @return self
      */

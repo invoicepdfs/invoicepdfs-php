@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **status** | **string** |  |
 **reason** | **string** |  | [optional]
 **currency** | **string** |  |
-**totals** | [**\OpenAPI\Client\Model\InvoiceTotalsOut**](InvoiceTotalsOut.md) |  |
+**totals** | [**\InvoicePDFs\Model\InvoiceTotalsOut**](InvoiceTotalsOut.md) |  |
 **issue_date** | **\DateTime** |  |
 **created_at** | **string** |  |
 **updated_at** | **string** |  |

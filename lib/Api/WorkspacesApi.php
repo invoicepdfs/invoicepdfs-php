@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * WorkspacesApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -152,13 +152,13 @@ class WorkspacesApi
      * Create Member
      *
      * @param  string $workspace_id workspace_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspaceMemberCreateRequest $workspace_member_create_request workspace_member_create_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberCreateRequest $workspace_member_create_request workspace_member_create_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WorkspaceMembersListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WorkspaceMembersListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function createMemberApiV1WorkspacesWorkspaceIdMembersPost($workspace_id, $workspace_member_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'][0])
     {
@@ -172,13 +172,13 @@ class WorkspacesApi
      * Create Member
      *
      * @param  string $workspace_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspaceMemberCreateRequest $workspace_member_create_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberCreateRequest $workspace_member_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WorkspaceMembersListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WorkspaceMembersListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createMemberApiV1WorkspacesWorkspaceIdMembersPostWithHttpInfo($workspace_id, $workspace_member_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'][0])
     {
@@ -221,11 +221,11 @@ class WorkspacesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WorkspaceMembersListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WorkspaceMembersListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WorkspaceMembersListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WorkspaceMembersListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -243,16 +243,16 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WorkspaceMembersListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WorkspaceMembersListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -270,13 +270,13 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WorkspaceMembersListResponse';
+            $returnType = '\InvoicePDFs\Model\WorkspaceMembersListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -309,7 +309,7 @@ class WorkspacesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WorkspaceMembersListResponse',
+                        '\InvoicePDFs\Model\WorkspaceMembersListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -317,7 +317,7 @@ class WorkspacesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -333,7 +333,7 @@ class WorkspacesApi
      * Create Member
      *
      * @param  string $workspace_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspaceMemberCreateRequest $workspace_member_create_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberCreateRequest $workspace_member_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'] to see the possible values for this operation
      *
@@ -356,7 +356,7 @@ class WorkspacesApi
      * Create Member
      *
      * @param  string $workspace_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspaceMemberCreateRequest $workspace_member_create_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberCreateRequest $workspace_member_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'] to see the possible values for this operation
      *
@@ -365,7 +365,7 @@ class WorkspacesApi
      */
     public function createMemberApiV1WorkspacesWorkspaceIdMembersPostAsyncWithHttpInfo($workspace_id, $workspace_member_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WorkspaceMembersListResponse';
+        $returnType = '\InvoicePDFs\Model\WorkspaceMembersListResponse';
         $request = $this->createMemberApiV1WorkspacesWorkspaceIdMembersPostRequest($workspace_id, $workspace_member_create_request, $idempotency_key, $contentType);
 
         return $this->client
@@ -408,7 +408,7 @@ class WorkspacesApi
      * Create request for operation 'createMemberApiV1WorkspacesWorkspaceIdMembersPost'
      *
      * @param  string $workspace_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspaceMemberCreateRequest $workspace_member_create_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberCreateRequest $workspace_member_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'] to see the possible values for this operation
      *
@@ -526,13 +526,13 @@ class WorkspacesApi
      *
      * Create Workspace
      *
-     * @param  \OpenAPI\Client\Model\WorkspaceCreateRequest $workspace_create_request workspace_create_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceCreateRequest $workspace_create_request workspace_create_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspaceApiV1WorkspacesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WorkspaceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WorkspaceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function createWorkspaceApiV1WorkspacesPost($workspace_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createWorkspaceApiV1WorkspacesPost'][0])
     {
@@ -545,13 +545,13 @@ class WorkspacesApi
      *
      * Create Workspace
      *
-     * @param  \OpenAPI\Client\Model\WorkspaceCreateRequest $workspace_create_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceCreateRequest $workspace_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspaceApiV1WorkspacesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WorkspaceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WorkspaceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createWorkspaceApiV1WorkspacesPostWithHttpInfo($workspace_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createWorkspaceApiV1WorkspacesPost'][0])
     {
@@ -594,11 +594,11 @@ class WorkspacesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WorkspaceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WorkspaceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WorkspaceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WorkspaceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -616,16 +616,16 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WorkspaceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WorkspaceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -643,13 +643,13 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WorkspaceResponse';
+            $returnType = '\InvoicePDFs\Model\WorkspaceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -682,7 +682,7 @@ class WorkspacesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WorkspaceResponse',
+                        '\InvoicePDFs\Model\WorkspaceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -690,7 +690,7 @@ class WorkspacesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -705,7 +705,7 @@ class WorkspacesApi
      *
      * Create Workspace
      *
-     * @param  \OpenAPI\Client\Model\WorkspaceCreateRequest $workspace_create_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceCreateRequest $workspace_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspaceApiV1WorkspacesPost'] to see the possible values for this operation
      *
@@ -727,7 +727,7 @@ class WorkspacesApi
      *
      * Create Workspace
      *
-     * @param  \OpenAPI\Client\Model\WorkspaceCreateRequest $workspace_create_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceCreateRequest $workspace_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspaceApiV1WorkspacesPost'] to see the possible values for this operation
      *
@@ -736,7 +736,7 @@ class WorkspacesApi
      */
     public function createWorkspaceApiV1WorkspacesPostAsyncWithHttpInfo($workspace_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createWorkspaceApiV1WorkspacesPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WorkspaceResponse';
+        $returnType = '\InvoicePDFs\Model\WorkspaceResponse';
         $request = $this->createWorkspaceApiV1WorkspacesPostRequest($workspace_create_request, $idempotency_key, $contentType);
 
         return $this->client
@@ -778,7 +778,7 @@ class WorkspacesApi
     /**
      * Create request for operation 'createWorkspaceApiV1WorkspacesPost'
      *
-     * @param  \OpenAPI\Client\Model\WorkspaceCreateRequest $workspace_create_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceCreateRequest $workspace_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspaceApiV1WorkspacesPost'] to see the possible values for this operation
      *
@@ -885,9 +885,9 @@ class WorkspacesApi
      * @param  string $member_id member_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SimpleBoolResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete($workspace_id, $member_id, string $contentType = self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'][0])
     {
@@ -904,9 +904,9 @@ class WorkspacesApi
      * @param  string $member_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SimpleBoolResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteWithHttpInfo($workspace_id, $member_id, string $contentType = self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'][0])
     {
@@ -949,11 +949,11 @@ class WorkspacesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SimpleBoolResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\SimpleBoolResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\SimpleBoolResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\SimpleBoolResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -971,16 +971,16 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SimpleBoolResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\SimpleBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -998,13 +998,13 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+            $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1037,7 +1037,7 @@ class WorkspacesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SimpleBoolResponse',
+                        '\InvoicePDFs\Model\SimpleBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1045,7 +1045,7 @@ class WorkspacesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1091,7 +1091,7 @@ class WorkspacesApi
      */
     public function deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteAsyncWithHttpInfo($workspace_id, $member_id, string $contentType = self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+        $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
         $request = $this->deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteRequest($workspace_id, $member_id, $contentType);
 
         return $this->client
@@ -1250,9 +1250,9 @@ class WorkspacesApi
      * @param  string $workspace_id workspace_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SimpleBoolResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete($workspace_id, string $contentType = self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'][0])
     {
@@ -1268,9 +1268,9 @@ class WorkspacesApi
      * @param  string $workspace_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SimpleBoolResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteWithHttpInfo($workspace_id, string $contentType = self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'][0])
     {
@@ -1313,11 +1313,11 @@ class WorkspacesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SimpleBoolResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\SimpleBoolResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\SimpleBoolResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\SimpleBoolResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1335,16 +1335,16 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SimpleBoolResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\SimpleBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1362,13 +1362,13 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+            $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1401,7 +1401,7 @@ class WorkspacesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SimpleBoolResponse',
+                        '\InvoicePDFs\Model\SimpleBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1409,7 +1409,7 @@ class WorkspacesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1453,7 +1453,7 @@ class WorkspacesApi
      */
     public function deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteAsyncWithHttpInfo($workspace_id, string $contentType = self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+        $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
         $request = $this->deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteRequest($workspace_id, $contentType);
 
         return $this->client
@@ -1596,9 +1596,9 @@ class WorkspacesApi
      * @param  string $workspace_id workspace_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WorkspaceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WorkspaceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function getWorkspaceApiV1WorkspacesWorkspaceIdGet($workspace_id, string $contentType = self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'][0])
     {
@@ -1614,9 +1614,9 @@ class WorkspacesApi
      * @param  string $workspace_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WorkspaceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WorkspaceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWorkspaceApiV1WorkspacesWorkspaceIdGetWithHttpInfo($workspace_id, string $contentType = self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'][0])
     {
@@ -1659,11 +1659,11 @@ class WorkspacesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WorkspaceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WorkspaceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WorkspaceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WorkspaceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1681,16 +1681,16 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WorkspaceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WorkspaceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1708,13 +1708,13 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WorkspaceResponse';
+            $returnType = '\InvoicePDFs\Model\WorkspaceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1747,7 +1747,7 @@ class WorkspacesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WorkspaceResponse',
+                        '\InvoicePDFs\Model\WorkspaceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1755,7 +1755,7 @@ class WorkspacesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1799,7 +1799,7 @@ class WorkspacesApi
      */
     public function getWorkspaceApiV1WorkspacesWorkspaceIdGetAsyncWithHttpInfo($workspace_id, string $contentType = self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WorkspaceResponse';
+        $returnType = '\InvoicePDFs\Model\WorkspaceResponse';
         $request = $this->getWorkspaceApiV1WorkspacesWorkspaceIdGetRequest($workspace_id, $contentType);
 
         return $this->client
@@ -1942,9 +1942,9 @@ class WorkspacesApi
      * @param  string $workspace_id workspace_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WorkspaceMembersListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WorkspaceMembersListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listMembersApiV1WorkspacesWorkspaceIdMembersGet($workspace_id, string $contentType = self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'][0])
     {
@@ -1960,9 +1960,9 @@ class WorkspacesApi
      * @param  string $workspace_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WorkspaceMembersListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WorkspaceMembersListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listMembersApiV1WorkspacesWorkspaceIdMembersGetWithHttpInfo($workspace_id, string $contentType = self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'][0])
     {
@@ -2005,11 +2005,11 @@ class WorkspacesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WorkspaceMembersListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WorkspaceMembersListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WorkspaceMembersListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WorkspaceMembersListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2027,16 +2027,16 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WorkspaceMembersListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WorkspaceMembersListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2054,13 +2054,13 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WorkspaceMembersListResponse';
+            $returnType = '\InvoicePDFs\Model\WorkspaceMembersListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2093,7 +2093,7 @@ class WorkspacesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WorkspaceMembersListResponse',
+                        '\InvoicePDFs\Model\WorkspaceMembersListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2101,7 +2101,7 @@ class WorkspacesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2145,7 +2145,7 @@ class WorkspacesApi
      */
     public function listMembersApiV1WorkspacesWorkspaceIdMembersGetAsyncWithHttpInfo($workspace_id, string $contentType = self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WorkspaceMembersListResponse';
+        $returnType = '\InvoicePDFs\Model\WorkspaceMembersListResponse';
         $request = $this->listMembersApiV1WorkspacesWorkspaceIdMembersGetRequest($workspace_id, $contentType);
 
         return $this->client
@@ -2289,9 +2289,9 @@ class WorkspacesApi
      * @param  string $cursor cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspacesApiV1WorkspacesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WorkspacesListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WorkspacesListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listWorkspacesApiV1WorkspacesGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWorkspacesApiV1WorkspacesGet'][0])
     {
@@ -2308,9 +2308,9 @@ class WorkspacesApi
      * @param  string $cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspacesApiV1WorkspacesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WorkspacesListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WorkspacesListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listWorkspacesApiV1WorkspacesGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWorkspacesApiV1WorkspacesGet'][0])
     {
@@ -2353,11 +2353,11 @@ class WorkspacesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WorkspacesListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WorkspacesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WorkspacesListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WorkspacesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2375,16 +2375,16 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WorkspacesListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WorkspacesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2402,13 +2402,13 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WorkspacesListResponse';
+            $returnType = '\InvoicePDFs\Model\WorkspacesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2441,7 +2441,7 @@ class WorkspacesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WorkspacesListResponse',
+                        '\InvoicePDFs\Model\WorkspacesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2449,7 +2449,7 @@ class WorkspacesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2495,7 +2495,7 @@ class WorkspacesApi
      */
     public function listWorkspacesApiV1WorkspacesGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWorkspacesApiV1WorkspacesGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WorkspacesListResponse';
+        $returnType = '\InvoicePDFs\Model\WorkspacesListResponse';
         $request = $this->listWorkspacesApiV1WorkspacesGetRequest($limit, $cursor, $contentType);
 
         return $this->client
@@ -2649,12 +2649,12 @@ class WorkspacesApi
      *
      * @param  string $workspace_id workspace_id (required)
      * @param  string $member_id member_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request workspace_member_patch_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request workspace_member_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WorkspaceMemberOut|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WorkspaceMemberOut|\InvoicePDFs\Model\HTTPValidationError
      */
     public function patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch($workspace_id, $member_id, $workspace_member_patch_request, string $contentType = self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'][0])
     {
@@ -2669,12 +2669,12 @@ class WorkspacesApi
      *
      * @param  string $workspace_id (required)
      * @param  string $member_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WorkspaceMemberOut|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WorkspaceMemberOut|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchWithHttpInfo($workspace_id, $member_id, $workspace_member_patch_request, string $contentType = self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'][0])
     {
@@ -2717,11 +2717,11 @@ class WorkspacesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WorkspaceMemberOut' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WorkspaceMemberOut' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WorkspaceMemberOut' !== 'string') {
+                        if ('\InvoicePDFs\Model\WorkspaceMemberOut' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2739,16 +2739,16 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WorkspaceMemberOut', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WorkspaceMemberOut', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2766,13 +2766,13 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WorkspaceMemberOut';
+            $returnType = '\InvoicePDFs\Model\WorkspaceMemberOut';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2805,7 +2805,7 @@ class WorkspacesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WorkspaceMemberOut',
+                        '\InvoicePDFs\Model\WorkspaceMemberOut',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2813,7 +2813,7 @@ class WorkspacesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2830,7 +2830,7 @@ class WorkspacesApi
      *
      * @param  string $workspace_id (required)
      * @param  string $member_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2853,7 +2853,7 @@ class WorkspacesApi
      *
      * @param  string $workspace_id (required)
      * @param  string $member_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2861,7 +2861,7 @@ class WorkspacesApi
      */
     public function patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchAsyncWithHttpInfo($workspace_id, $member_id, $workspace_member_patch_request, string $contentType = self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WorkspaceMemberOut';
+        $returnType = '\InvoicePDFs\Model\WorkspaceMemberOut';
         $request = $this->patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchRequest($workspace_id, $member_id, $workspace_member_patch_request, $contentType);
 
         return $this->client
@@ -2905,7 +2905,7 @@ class WorkspacesApi
      *
      * @param  string $workspace_id (required)
      * @param  string $member_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3033,13 +3033,13 @@ class WorkspacesApi
      * Patch Workspace
      *
      * @param  string $workspace_id workspace_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspacePatchRequest $workspace_patch_request workspace_patch_request (required)
+     * @param  \InvoicePDFs\Model\WorkspacePatchRequest $workspace_patch_request workspace_patch_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WorkspaceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WorkspaceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function patchWorkspaceApiV1WorkspacesWorkspaceIdPatch($workspace_id, $workspace_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'][0])
     {
@@ -3053,13 +3053,13 @@ class WorkspacesApi
      * Patch Workspace
      *
      * @param  string $workspace_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspacePatchRequest $workspace_patch_request (required)
+     * @param  \InvoicePDFs\Model\WorkspacePatchRequest $workspace_patch_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WorkspaceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WorkspaceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchWorkspaceApiV1WorkspacesWorkspaceIdPatchWithHttpInfo($workspace_id, $workspace_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'][0])
     {
@@ -3102,11 +3102,11 @@ class WorkspacesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WorkspaceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WorkspaceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WorkspaceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WorkspaceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3124,16 +3124,16 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WorkspaceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WorkspaceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3151,13 +3151,13 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WorkspaceResponse';
+            $returnType = '\InvoicePDFs\Model\WorkspaceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3190,7 +3190,7 @@ class WorkspacesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WorkspaceResponse',
+                        '\InvoicePDFs\Model\WorkspaceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3198,7 +3198,7 @@ class WorkspacesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3214,7 +3214,7 @@ class WorkspacesApi
      * Patch Workspace
      *
      * @param  string $workspace_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspacePatchRequest $workspace_patch_request (required)
+     * @param  \InvoicePDFs\Model\WorkspacePatchRequest $workspace_patch_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'] to see the possible values for this operation
      *
@@ -3237,7 +3237,7 @@ class WorkspacesApi
      * Patch Workspace
      *
      * @param  string $workspace_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspacePatchRequest $workspace_patch_request (required)
+     * @param  \InvoicePDFs\Model\WorkspacePatchRequest $workspace_patch_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'] to see the possible values for this operation
      *
@@ -3246,7 +3246,7 @@ class WorkspacesApi
      */
     public function patchWorkspaceApiV1WorkspacesWorkspaceIdPatchAsyncWithHttpInfo($workspace_id, $workspace_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WorkspaceResponse';
+        $returnType = '\InvoicePDFs\Model\WorkspaceResponse';
         $request = $this->patchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest($workspace_id, $workspace_patch_request, $idempotency_key, $contentType);
 
         return $this->client
@@ -3289,7 +3289,7 @@ class WorkspacesApi
      * Create request for operation 'patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'
      *
      * @param  string $workspace_id (required)
-     * @param  \OpenAPI\Client\Model\WorkspacePatchRequest $workspace_patch_request (required)
+     * @param  \InvoicePDFs\Model\WorkspacePatchRequest $workspace_patch_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'] to see the possible values for this operation
      *

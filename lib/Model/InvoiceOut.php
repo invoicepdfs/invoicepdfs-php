@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * InvoiceOut Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -68,7 +68,7 @@ class InvoiceOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'business_profile_id' => 'string',
         'customer_id' => 'string',
         'invoice' => 'array<string,mixed>',
-        'totals' => '\OpenAPI\Client\Model\InvoiceTotalsOut',
+        'totals' => '\InvoicePDFs\Model\InvoiceTotalsOut',
         'created_at' => 'string',
         'updated_at' => 'string',
         'finalized_at' => 'string'
@@ -823,7 +823,7 @@ class InvoiceOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets totals
      *
-     * @return \OpenAPI\Client\Model\InvoiceTotalsOut
+     * @return \InvoicePDFs\Model\InvoiceTotalsOut
      */
     public function getTotals()
     {
@@ -833,7 +833,7 @@ class InvoiceOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets totals
      *
-     * @param \OpenAPI\Client\Model\InvoiceTotalsOut $totals totals
+     * @param \InvoicePDFs\Model\InvoiceTotalsOut $totals totals
      *
      * @return self
      */

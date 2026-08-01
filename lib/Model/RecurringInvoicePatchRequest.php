@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * RecurringInvoicePatchRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,7 +63,7 @@ class RecurringInvoicePatchRequest implements ModelInterface, ArrayAccess, \Json
         'max_occurrences' => 'int',
         'numbering_sequence_id' => 'string',
         'auto_finalize' => 'bool',
-        'invoice_template' => '\OpenAPI\Client\Model\InvoiceDraftRequest'
+        'invoice_template' => '\InvoicePDFs\Model\InvoiceDraftRequest'
     ];
 
     /**
@@ -556,7 +556,7 @@ class RecurringInvoicePatchRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets invoice_template
      *
-     * @return \OpenAPI\Client\Model\InvoiceDraftRequest|null
+     * @return \InvoicePDFs\Model\InvoiceDraftRequest|null
      */
     public function getInvoiceTemplate()
     {
@@ -566,7 +566,7 @@ class RecurringInvoicePatchRequest implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets invoice_template
      *
-     * @param \OpenAPI\Client\Model\InvoiceDraftRequest|null $invoice_template invoice_template
+     * @param \InvoicePDFs\Model\InvoiceDraftRequest|null $invoice_template invoice_template
      *
      * @return self
      */

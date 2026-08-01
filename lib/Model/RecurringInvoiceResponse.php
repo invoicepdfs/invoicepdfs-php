@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * RecurringInvoiceResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class RecurringInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\RecurringInvoiceOut'
+        'data' => '\InvoicePDFs\Model\RecurringInvoiceOut'
     ];
 
     /**
@@ -295,7 +295,7 @@ class RecurringInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\RecurringInvoiceOut
+     * @return \InvoicePDFs\Model\RecurringInvoiceOut
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class RecurringInvoiceResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\RecurringInvoiceOut $data data
+     * @param \InvoicePDFs\Model\RecurringInvoiceOut $data data
      *
      * @return self
      */

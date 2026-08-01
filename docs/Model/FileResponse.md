@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\OpenAPI\Client\Model\FileOut**](FileOut.md) |  |
+**data** | [**\InvoicePDFs\Model\FileOut**](FileOut.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

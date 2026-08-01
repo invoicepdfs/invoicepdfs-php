@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * AuthApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -148,12 +148,12 @@ class AuthApi
      *
      * Forgot Password
      *
-     * @param  \OpenAPI\Client\Model\AuthForgotPasswordRequest $auth_forgot_password_request auth_forgot_password_request (required)
+     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request auth_forgot_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AuthMessageResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\AuthMessageResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function forgotPasswordApiV1AuthForgotPasswordPost($auth_forgot_password_request, string $contentType = self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'][0])
     {
@@ -166,12 +166,12 @@ class AuthApi
      *
      * Forgot Password
      *
-     * @param  \OpenAPI\Client\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
+     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AuthMessageResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\AuthMessageResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function forgotPasswordApiV1AuthForgotPasswordPostWithHttpInfo($auth_forgot_password_request, string $contentType = self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'][0])
     {
@@ -214,11 +214,11 @@ class AuthApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\AuthMessageResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\AuthMessageResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\AuthMessageResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\AuthMessageResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -236,16 +236,16 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AuthMessageResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMessageResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -263,13 +263,13 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AuthMessageResponse';
+            $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -302,7 +302,7 @@ class AuthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AuthMessageResponse',
+                        '\InvoicePDFs\Model\AuthMessageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -310,7 +310,7 @@ class AuthApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -325,7 +325,7 @@ class AuthApi
      *
      * Forgot Password
      *
-     * @param  \OpenAPI\Client\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
+     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -346,7 +346,7 @@ class AuthApi
      *
      * Forgot Password
      *
-     * @param  \OpenAPI\Client\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
+     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -354,7 +354,7 @@ class AuthApi
      */
     public function forgotPasswordApiV1AuthForgotPasswordPostAsyncWithHttpInfo($auth_forgot_password_request, string $contentType = self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AuthMessageResponse';
+        $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
         $request = $this->forgotPasswordApiV1AuthForgotPasswordPostRequest($auth_forgot_password_request, $contentType);
 
         return $this->client
@@ -396,7 +396,7 @@ class AuthApi
     /**
      * Create request for operation 'forgotPasswordApiV1AuthForgotPasswordPost'
      *
-     * @param  \OpenAPI\Client\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
+     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -491,9 +491,9 @@ class AuthApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logoutApiV1AuthLogoutPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AuthMessageResponse
+     * @return \InvoicePDFs\Model\AuthMessageResponse
      */
     public function logoutApiV1AuthLogoutPost(string $contentType = self::contentTypes['logoutApiV1AuthLogoutPost'][0])
     {
@@ -508,9 +508,9 @@ class AuthApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logoutApiV1AuthLogoutPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AuthMessageResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\AuthMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function logoutApiV1AuthLogoutPostWithHttpInfo(string $contentType = self::contentTypes['logoutApiV1AuthLogoutPost'][0])
     {
@@ -553,11 +553,11 @@ class AuthApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\AuthMessageResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\AuthMessageResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\AuthMessageResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\AuthMessageResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -575,13 +575,13 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AuthMessageResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMessageResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AuthMessageResponse';
+            $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -614,7 +614,7 @@ class AuthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AuthMessageResponse',
+                        '\InvoicePDFs\Model\AuthMessageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -656,7 +656,7 @@ class AuthApi
      */
     public function logoutApiV1AuthLogoutPostAsyncWithHttpInfo(string $contentType = self::contentTypes['logoutApiV1AuthLogoutPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AuthMessageResponse';
+        $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
         $request = $this->logoutApiV1AuthLogoutPostRequest($contentType);
 
         return $this->client
@@ -782,9 +782,9 @@ class AuthApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['meApiV1AuthMeGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AuthMeResponse
+     * @return \InvoicePDFs\Model\AuthMeResponse
      */
     public function meApiV1AuthMeGet(string $contentType = self::contentTypes['meApiV1AuthMeGet'][0])
     {
@@ -799,9 +799,9 @@ class AuthApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['meApiV1AuthMeGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AuthMeResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\AuthMeResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function meApiV1AuthMeGetWithHttpInfo(string $contentType = self::contentTypes['meApiV1AuthMeGet'][0])
     {
@@ -844,11 +844,11 @@ class AuthApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\AuthMeResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\AuthMeResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\AuthMeResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\AuthMeResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -866,13 +866,13 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AuthMeResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMeResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AuthMeResponse';
+            $returnType = '\InvoicePDFs\Model\AuthMeResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -905,7 +905,7 @@ class AuthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AuthMeResponse',
+                        '\InvoicePDFs\Model\AuthMeResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -947,7 +947,7 @@ class AuthApi
      */
     public function meApiV1AuthMeGetAsyncWithHttpInfo(string $contentType = self::contentTypes['meApiV1AuthMeGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AuthMeResponse';
+        $returnType = '\InvoicePDFs\Model\AuthMeResponse';
         $request = $this->meApiV1AuthMeGetRequest($contentType);
 
         return $this->client
@@ -1071,12 +1071,12 @@ class AuthApi
      *
      * Patch Me
      *
-     * @param  \OpenAPI\Client\Model\AuthMePatchRequest $auth_me_patch_request auth_me_patch_request (required)
+     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request auth_me_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMeApiV1AuthMePatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AuthMeResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\AuthMeResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function patchMeApiV1AuthMePatch($auth_me_patch_request, string $contentType = self::contentTypes['patchMeApiV1AuthMePatch'][0])
     {
@@ -1089,12 +1089,12 @@ class AuthApi
      *
      * Patch Me
      *
-     * @param  \OpenAPI\Client\Model\AuthMePatchRequest $auth_me_patch_request (required)
+     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMeApiV1AuthMePatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AuthMeResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\AuthMeResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchMeApiV1AuthMePatchWithHttpInfo($auth_me_patch_request, string $contentType = self::contentTypes['patchMeApiV1AuthMePatch'][0])
     {
@@ -1137,11 +1137,11 @@ class AuthApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\AuthMeResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\AuthMeResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\AuthMeResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\AuthMeResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1159,16 +1159,16 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AuthMeResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMeResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1186,13 +1186,13 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AuthMeResponse';
+            $returnType = '\InvoicePDFs\Model\AuthMeResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1225,7 +1225,7 @@ class AuthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AuthMeResponse',
+                        '\InvoicePDFs\Model\AuthMeResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1233,7 +1233,7 @@ class AuthApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1248,7 +1248,7 @@ class AuthApi
      *
      * Patch Me
      *
-     * @param  \OpenAPI\Client\Model\AuthMePatchRequest $auth_me_patch_request (required)
+     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMeApiV1AuthMePatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1269,7 +1269,7 @@ class AuthApi
      *
      * Patch Me
      *
-     * @param  \OpenAPI\Client\Model\AuthMePatchRequest $auth_me_patch_request (required)
+     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMeApiV1AuthMePatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1277,7 +1277,7 @@ class AuthApi
      */
     public function patchMeApiV1AuthMePatchAsyncWithHttpInfo($auth_me_patch_request, string $contentType = self::contentTypes['patchMeApiV1AuthMePatch'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AuthMeResponse';
+        $returnType = '\InvoicePDFs\Model\AuthMeResponse';
         $request = $this->patchMeApiV1AuthMePatchRequest($auth_me_patch_request, $contentType);
 
         return $this->client
@@ -1319,7 +1319,7 @@ class AuthApi
     /**
      * Create request for operation 'patchMeApiV1AuthMePatch'
      *
-     * @param  \OpenAPI\Client\Model\AuthMePatchRequest $auth_me_patch_request (required)
+     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMeApiV1AuthMePatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1416,12 +1416,12 @@ class AuthApi
      *
      * Refresh
      *
-     * @param  \OpenAPI\Client\Model\AuthRefreshRequest $auth_refresh_request auth_refresh_request (required)
+     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request auth_refresh_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshApiV1AuthRefreshPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AuthRefreshResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\AuthRefreshResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function refreshApiV1AuthRefreshPost($auth_refresh_request, string $contentType = self::contentTypes['refreshApiV1AuthRefreshPost'][0])
     {
@@ -1434,12 +1434,12 @@ class AuthApi
      *
      * Refresh
      *
-     * @param  \OpenAPI\Client\Model\AuthRefreshRequest $auth_refresh_request (required)
+     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshApiV1AuthRefreshPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AuthRefreshResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\AuthRefreshResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function refreshApiV1AuthRefreshPostWithHttpInfo($auth_refresh_request, string $contentType = self::contentTypes['refreshApiV1AuthRefreshPost'][0])
     {
@@ -1482,11 +1482,11 @@ class AuthApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\AuthRefreshResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\AuthRefreshResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\AuthRefreshResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\AuthRefreshResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1504,16 +1504,16 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AuthRefreshResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthRefreshResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1531,13 +1531,13 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AuthRefreshResponse';
+            $returnType = '\InvoicePDFs\Model\AuthRefreshResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1570,7 +1570,7 @@ class AuthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AuthRefreshResponse',
+                        '\InvoicePDFs\Model\AuthRefreshResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1578,7 +1578,7 @@ class AuthApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1593,7 +1593,7 @@ class AuthApi
      *
      * Refresh
      *
-     * @param  \OpenAPI\Client\Model\AuthRefreshRequest $auth_refresh_request (required)
+     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshApiV1AuthRefreshPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1614,7 +1614,7 @@ class AuthApi
      *
      * Refresh
      *
-     * @param  \OpenAPI\Client\Model\AuthRefreshRequest $auth_refresh_request (required)
+     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshApiV1AuthRefreshPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1622,7 +1622,7 @@ class AuthApi
      */
     public function refreshApiV1AuthRefreshPostAsyncWithHttpInfo($auth_refresh_request, string $contentType = self::contentTypes['refreshApiV1AuthRefreshPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AuthRefreshResponse';
+        $returnType = '\InvoicePDFs\Model\AuthRefreshResponse';
         $request = $this->refreshApiV1AuthRefreshPostRequest($auth_refresh_request, $contentType);
 
         return $this->client
@@ -1664,7 +1664,7 @@ class AuthApi
     /**
      * Create request for operation 'refreshApiV1AuthRefreshPost'
      *
-     * @param  \OpenAPI\Client\Model\AuthRefreshRequest $auth_refresh_request (required)
+     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshApiV1AuthRefreshPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1757,12 +1757,12 @@ class AuthApi
      *
      * Register
      *
-     * @param  \OpenAPI\Client\Model\AuthRegisterRequest $auth_register_request auth_register_request (required)
+     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request auth_register_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerApiV1AuthRegisterPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AuthRegisterResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\AuthRegisterResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function registerApiV1AuthRegisterPost($auth_register_request, string $contentType = self::contentTypes['registerApiV1AuthRegisterPost'][0])
     {
@@ -1775,12 +1775,12 @@ class AuthApi
      *
      * Register
      *
-     * @param  \OpenAPI\Client\Model\AuthRegisterRequest $auth_register_request (required)
+     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerApiV1AuthRegisterPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AuthRegisterResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\AuthRegisterResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function registerApiV1AuthRegisterPostWithHttpInfo($auth_register_request, string $contentType = self::contentTypes['registerApiV1AuthRegisterPost'][0])
     {
@@ -1823,11 +1823,11 @@ class AuthApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\AuthRegisterResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\AuthRegisterResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\AuthRegisterResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\AuthRegisterResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1845,16 +1845,16 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AuthRegisterResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthRegisterResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1872,13 +1872,13 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AuthRegisterResponse';
+            $returnType = '\InvoicePDFs\Model\AuthRegisterResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1911,7 +1911,7 @@ class AuthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AuthRegisterResponse',
+                        '\InvoicePDFs\Model\AuthRegisterResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1919,7 +1919,7 @@ class AuthApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1934,7 +1934,7 @@ class AuthApi
      *
      * Register
      *
-     * @param  \OpenAPI\Client\Model\AuthRegisterRequest $auth_register_request (required)
+     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerApiV1AuthRegisterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1955,7 +1955,7 @@ class AuthApi
      *
      * Register
      *
-     * @param  \OpenAPI\Client\Model\AuthRegisterRequest $auth_register_request (required)
+     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerApiV1AuthRegisterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1963,7 +1963,7 @@ class AuthApi
      */
     public function registerApiV1AuthRegisterPostAsyncWithHttpInfo($auth_register_request, string $contentType = self::contentTypes['registerApiV1AuthRegisterPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AuthRegisterResponse';
+        $returnType = '\InvoicePDFs\Model\AuthRegisterResponse';
         $request = $this->registerApiV1AuthRegisterPostRequest($auth_register_request, $contentType);
 
         return $this->client
@@ -2005,7 +2005,7 @@ class AuthApi
     /**
      * Create request for operation 'registerApiV1AuthRegisterPost'
      *
-     * @param  \OpenAPI\Client\Model\AuthRegisterRequest $auth_register_request (required)
+     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerApiV1AuthRegisterPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2098,12 +2098,12 @@ class AuthApi
      *
      * Reset Password
      *
-     * @param  \OpenAPI\Client\Model\AuthResetPasswordRequest $auth_reset_password_request auth_reset_password_request (required)
+     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request auth_reset_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AuthMessageResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\AuthMessageResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function resetPasswordApiV1AuthResetPasswordPost($auth_reset_password_request, string $contentType = self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'][0])
     {
@@ -2116,12 +2116,12 @@ class AuthApi
      *
      * Reset Password
      *
-     * @param  \OpenAPI\Client\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
+     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AuthMessageResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\AuthMessageResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function resetPasswordApiV1AuthResetPasswordPostWithHttpInfo($auth_reset_password_request, string $contentType = self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'][0])
     {
@@ -2164,11 +2164,11 @@ class AuthApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\AuthMessageResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\AuthMessageResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\AuthMessageResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\AuthMessageResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2186,16 +2186,16 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AuthMessageResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMessageResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2213,13 +2213,13 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AuthMessageResponse';
+            $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2252,7 +2252,7 @@ class AuthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AuthMessageResponse',
+                        '\InvoicePDFs\Model\AuthMessageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2260,7 +2260,7 @@ class AuthApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2275,7 +2275,7 @@ class AuthApi
      *
      * Reset Password
      *
-     * @param  \OpenAPI\Client\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
+     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2296,7 +2296,7 @@ class AuthApi
      *
      * Reset Password
      *
-     * @param  \OpenAPI\Client\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
+     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2304,7 +2304,7 @@ class AuthApi
      */
     public function resetPasswordApiV1AuthResetPasswordPostAsyncWithHttpInfo($auth_reset_password_request, string $contentType = self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AuthMessageResponse';
+        $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
         $request = $this->resetPasswordApiV1AuthResetPasswordPostRequest($auth_reset_password_request, $contentType);
 
         return $this->client
@@ -2346,7 +2346,7 @@ class AuthApi
     /**
      * Create request for operation 'resetPasswordApiV1AuthResetPasswordPost'
      *
-     * @param  \OpenAPI\Client\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
+     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2439,12 +2439,12 @@ class AuthApi
      *
      * Token Exchange
      *
-     * @param  \OpenAPI\Client\Model\AuthTokenRequest $auth_token_request auth_token_request (required)
+     * @param  \InvoicePDFs\Model\AuthTokenRequest $auth_token_request auth_token_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tokenExchangeApiV1AuthTokenPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AuthTokenResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\AuthTokenResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function tokenExchangeApiV1AuthTokenPost($auth_token_request, string $contentType = self::contentTypes['tokenExchangeApiV1AuthTokenPost'][0])
     {
@@ -2457,12 +2457,12 @@ class AuthApi
      *
      * Token Exchange
      *
-     * @param  \OpenAPI\Client\Model\AuthTokenRequest $auth_token_request (required)
+     * @param  \InvoicePDFs\Model\AuthTokenRequest $auth_token_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tokenExchangeApiV1AuthTokenPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AuthTokenResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\AuthTokenResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function tokenExchangeApiV1AuthTokenPostWithHttpInfo($auth_token_request, string $contentType = self::contentTypes['tokenExchangeApiV1AuthTokenPost'][0])
     {
@@ -2505,11 +2505,11 @@ class AuthApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\AuthTokenResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\AuthTokenResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\AuthTokenResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\AuthTokenResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2527,16 +2527,16 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AuthTokenResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthTokenResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2554,13 +2554,13 @@ class AuthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AuthTokenResponse';
+            $returnType = '\InvoicePDFs\Model\AuthTokenResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2593,7 +2593,7 @@ class AuthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AuthTokenResponse',
+                        '\InvoicePDFs\Model\AuthTokenResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2601,7 +2601,7 @@ class AuthApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2616,7 +2616,7 @@ class AuthApi
      *
      * Token Exchange
      *
-     * @param  \OpenAPI\Client\Model\AuthTokenRequest $auth_token_request (required)
+     * @param  \InvoicePDFs\Model\AuthTokenRequest $auth_token_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tokenExchangeApiV1AuthTokenPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2637,7 +2637,7 @@ class AuthApi
      *
      * Token Exchange
      *
-     * @param  \OpenAPI\Client\Model\AuthTokenRequest $auth_token_request (required)
+     * @param  \InvoicePDFs\Model\AuthTokenRequest $auth_token_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tokenExchangeApiV1AuthTokenPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2645,7 +2645,7 @@ class AuthApi
      */
     public function tokenExchangeApiV1AuthTokenPostAsyncWithHttpInfo($auth_token_request, string $contentType = self::contentTypes['tokenExchangeApiV1AuthTokenPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AuthTokenResponse';
+        $returnType = '\InvoicePDFs\Model\AuthTokenResponse';
         $request = $this->tokenExchangeApiV1AuthTokenPostRequest($auth_token_request, $contentType);
 
         return $this->client
@@ -2687,7 +2687,7 @@ class AuthApi
     /**
      * Create request for operation 'tokenExchangeApiV1AuthTokenPost'
      *
-     * @param  \OpenAPI\Client\Model\AuthTokenRequest $auth_token_request (required)
+     * @param  \InvoicePDFs\Model\AuthTokenRequest $auth_token_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tokenExchangeApiV1AuthTokenPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * ApiKeyDetailResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ApiKeyDetailResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\ApiKeyListItem'
+        'data' => '\InvoicePDFs\Model\ApiKeyListItem'
     ];
 
     /**
@@ -295,7 +295,7 @@ class ApiKeyDetailResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\ApiKeyListItem
+     * @return \InvoicePDFs\Model\ApiKeyListItem
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class ApiKeyDetailResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\ApiKeyListItem $data data
+     * @param \InvoicePDFs\Model\ApiKeyListItem $data data
      *
      * @return self
      */

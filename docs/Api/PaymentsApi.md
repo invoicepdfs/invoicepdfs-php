@@ -1,4 +1,4 @@
-# OpenAPI\Client\PaymentsApi
+# InvoicePDFs\PaymentsApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -14,7 +14,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createPaymentApiV1InvoicesInvoiceIdPaymentsPost()`
 
 ```php
-createPaymentApiV1InvoicesInvoiceIdPaymentsPost($invoice_id, $payment_create_request): \OpenAPI\Client\Model\PaymentResponse
+createPaymentApiV1InvoicesInvoiceIdPaymentsPost($invoice_id, $payment_create_request): \InvoicePDFs\Model\PaymentResponse
 ```
 
 Create Payment
@@ -27,17 +27,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentsApi(
+$apiInstance = new InvoicePDFs\Api\PaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $invoice_id = 'invoice_id_example'; // string
-$payment_create_request = new \OpenAPI\Client\Model\PaymentCreateRequest(); // \OpenAPI\Client\Model\PaymentCreateRequest
+$payment_create_request = new \InvoicePDFs\Model\PaymentCreateRequest(); // \InvoicePDFs\Model\PaymentCreateRequest
 
 try {
     $result = $apiInstance->createPaymentApiV1InvoicesInvoiceIdPaymentsPost($invoice_id, $payment_create_request);
@@ -52,11 +52,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **invoice_id** | **string**|  | |
-| **payment_create_request** | [**\OpenAPI\Client\Model\PaymentCreateRequest**](../Model/PaymentCreateRequest.md)|  | |
+| **payment_create_request** | [**\InvoicePDFs\Model\PaymentCreateRequest**](../Model/PaymentCreateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PaymentResponse**](../Model/PaymentResponse.md)
+[**\InvoicePDFs\Model\PaymentResponse**](../Model/PaymentResponse.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ try {
 ## `deletePaymentApiV1PaymentsPaymentIdDelete()`
 
 ```php
-deletePaymentApiV1PaymentsPaymentIdDelete($payment_id): \OpenAPI\Client\Model\SimpleBoolResponse
+deletePaymentApiV1PaymentsPaymentIdDelete($payment_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Payment
@@ -87,10 +87,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentsApi(
+$apiInstance = new InvoicePDFs\Api\PaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -114,7 +114,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
+[**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ try {
 ## `getPaymentApiV1PaymentsPaymentIdGet()`
 
 ```php
-getPaymentApiV1PaymentsPaymentIdGet($payment_id): \OpenAPI\Client\Model\PaymentResponse
+getPaymentApiV1PaymentsPaymentIdGet($payment_id): \InvoicePDFs\Model\PaymentResponse
 ```
 
 Get Payment
@@ -145,10 +145,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentsApi(
+$apiInstance = new InvoicePDFs\Api\PaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -172,7 +172,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PaymentResponse**](../Model/PaymentResponse.md)
+[**\InvoicePDFs\Model\PaymentResponse**](../Model/PaymentResponse.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ try {
 ## `listInvoicePaymentsApiV1InvoicesInvoiceIdPaymentsGet()`
 
 ```php
-listInvoicePaymentsApiV1InvoicesInvoiceIdPaymentsGet($invoice_id, $limit, $cursor): \OpenAPI\Client\Model\PaymentsListResponse
+listInvoicePaymentsApiV1InvoicesInvoiceIdPaymentsGet($invoice_id, $limit, $cursor): \InvoicePDFs\Model\PaymentsListResponse
 ```
 
 List Invoice Payments
@@ -203,10 +203,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentsApi(
+$apiInstance = new InvoicePDFs\Api\PaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -234,7 +234,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PaymentsListResponse**](../Model/PaymentsListResponse.md)
+[**\InvoicePDFs\Model\PaymentsListResponse**](../Model/PaymentsListResponse.md)
 
 ### Authorization
 
@@ -252,7 +252,7 @@ try {
 ## `updatePaymentApiV1PaymentsPaymentIdPatch()`
 
 ```php
-updatePaymentApiV1PaymentsPaymentIdPatch($payment_id, $payment_patch_request): \OpenAPI\Client\Model\PaymentResponse
+updatePaymentApiV1PaymentsPaymentIdPatch($payment_id, $payment_patch_request): \InvoicePDFs\Model\PaymentResponse
 ```
 
 Update Payment
@@ -265,17 +265,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentsApi(
+$apiInstance = new InvoicePDFs\Api\PaymentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $payment_id = 'payment_id_example'; // string
-$payment_patch_request = new \OpenAPI\Client\Model\PaymentPatchRequest(); // \OpenAPI\Client\Model\PaymentPatchRequest
+$payment_patch_request = new \InvoicePDFs\Model\PaymentPatchRequest(); // \InvoicePDFs\Model\PaymentPatchRequest
 
 try {
     $result = $apiInstance->updatePaymentApiV1PaymentsPaymentIdPatch($payment_id, $payment_patch_request);
@@ -290,11 +290,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **payment_id** | **string**|  | |
-| **payment_patch_request** | [**\OpenAPI\Client\Model\PaymentPatchRequest**](../Model/PaymentPatchRequest.md)|  | |
+| **payment_patch_request** | [**\InvoicePDFs\Model\PaymentPatchRequest**](../Model/PaymentPatchRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PaymentResponse**](../Model/PaymentResponse.md)
+[**\InvoicePDFs\Model\PaymentResponse**](../Model/PaymentResponse.md)
 
 ### Authorization
 

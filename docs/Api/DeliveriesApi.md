@@ -1,4 +1,4 @@
-# OpenAPI\Client\DeliveriesApi
+# InvoicePDFs\DeliveriesApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -11,7 +11,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `getDeliveryApiV1DeliveriesDeliveryIdGet()`
 
 ```php
-getDeliveryApiV1DeliveriesDeliveryIdGet($delivery_id): \OpenAPI\Client\Model\DeliveryResponse
+getDeliveryApiV1DeliveriesDeliveryIdGet($delivery_id): \InvoicePDFs\Model\DeliveryResponse
 ```
 
 Get Delivery
@@ -24,10 +24,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\DeliveriesApi(
+$apiInstance = new InvoicePDFs\Api\DeliveriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -51,7 +51,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\DeliveryResponse**](../Model/DeliveryResponse.md)
+[**\InvoicePDFs\Model\DeliveryResponse**](../Model/DeliveryResponse.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ try {
 ## `retryDeliveryApiV1DeliveriesDeliveryIdRetryPost()`
 
 ```php
-retryDeliveryApiV1DeliveriesDeliveryIdRetryPost($delivery_id): \OpenAPI\Client\Model\DeliveryResponse
+retryDeliveryApiV1DeliveriesDeliveryIdRetryPost($delivery_id): \InvoicePDFs\Model\DeliveryResponse
 ```
 
 Retry Delivery
@@ -82,10 +82,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\DeliveriesApi(
+$apiInstance = new InvoicePDFs\Api\DeliveriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -109,7 +109,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\DeliveryResponse**](../Model/DeliveryResponse.md)
+[**\InvoicePDFs\Model\DeliveryResponse**](../Model/DeliveryResponse.md)
 
 ### Authorization
 

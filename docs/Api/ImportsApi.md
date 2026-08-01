@@ -1,4 +1,4 @@
-# OpenAPI\Client\ImportsApi
+# InvoicePDFs\ImportsApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -13,7 +13,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `cancelImportApiV1ImportsImportIdCancelPost()`
 
 ```php
-cancelImportApiV1ImportsImportIdCancelPost($import_id): \OpenAPI\Client\Model\ImportResponse
+cancelImportApiV1ImportsImportIdCancelPost($import_id): \InvoicePDFs\Model\ImportResponse
 ```
 
 Cancel Import
@@ -26,10 +26,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ImportsApi(
+$apiInstance = new InvoicePDFs\Api\ImportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -53,7 +53,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ImportResponse**](../Model/ImportResponse.md)
+[**\InvoicePDFs\Model\ImportResponse**](../Model/ImportResponse.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ try {
 ## `confirmImportApiV1ImportsImportIdConfirmPost()`
 
 ```php
-confirmImportApiV1ImportsImportIdConfirmPost($import_id): \OpenAPI\Client\Model\ImportResponse
+confirmImportApiV1ImportsImportIdConfirmPost($import_id): \InvoicePDFs\Model\ImportResponse
 ```
 
 Confirm Import
@@ -84,10 +84,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ImportsApi(
+$apiInstance = new InvoicePDFs\Api\ImportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -111,7 +111,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ImportResponse**](../Model/ImportResponse.md)
+[**\InvoicePDFs\Model\ImportResponse**](../Model/ImportResponse.md)
 
 ### Authorization
 
@@ -129,7 +129,7 @@ try {
 ## `createImportApiV1ImportsPost()`
 
 ```php
-createImportApiV1ImportsPost($import_create_request): \OpenAPI\Client\Model\ImportResponse
+createImportApiV1ImportsPost($import_create_request): \InvoicePDFs\Model\ImportResponse
 ```
 
 Create Import
@@ -142,16 +142,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ImportsApi(
+$apiInstance = new InvoicePDFs\Api\ImportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$import_create_request = new \OpenAPI\Client\Model\ImportCreateRequest(); // \OpenAPI\Client\Model\ImportCreateRequest
+$import_create_request = new \InvoicePDFs\Model\ImportCreateRequest(); // \InvoicePDFs\Model\ImportCreateRequest
 
 try {
     $result = $apiInstance->createImportApiV1ImportsPost($import_create_request);
@@ -165,11 +165,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **import_create_request** | [**\OpenAPI\Client\Model\ImportCreateRequest**](../Model/ImportCreateRequest.md)|  | |
+| **import_create_request** | [**\InvoicePDFs\Model\ImportCreateRequest**](../Model/ImportCreateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ImportResponse**](../Model/ImportResponse.md)
+[**\InvoicePDFs\Model\ImportResponse**](../Model/ImportResponse.md)
 
 ### Authorization
 
@@ -187,7 +187,7 @@ try {
 ## `getImportApiV1ImportsImportIdGet()`
 
 ```php
-getImportApiV1ImportsImportIdGet($import_id): \OpenAPI\Client\Model\ImportResponse
+getImportApiV1ImportsImportIdGet($import_id): \InvoicePDFs\Model\ImportResponse
 ```
 
 Get Import
@@ -200,10 +200,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ImportsApi(
+$apiInstance = new InvoicePDFs\Api\ImportsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -227,7 +227,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ImportResponse**](../Model/ImportResponse.md)
+[**\InvoicePDFs\Model\ImportResponse**](../Model/ImportResponse.md)
 
 ### Authorization
 

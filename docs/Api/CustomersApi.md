@@ -1,4 +1,4 @@
-# OpenAPI\Client\CustomersApi
+# InvoicePDFs\CustomersApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -14,7 +14,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createCustomerApiV1CustomersPost()`
 
 ```php
-createCustomerApiV1CustomersPost($customer_create, $idempotency_key): \OpenAPI\Client\Model\CustomerResponse
+createCustomerApiV1CustomersPost($customer_create, $idempotency_key): \InvoicePDFs\Model\CustomerResponse
 ```
 
 Create Customer
@@ -27,16 +27,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+$apiInstance = new InvoicePDFs\Api\CustomersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$customer_create = new \OpenAPI\Client\Model\CustomerCreate(); // \OpenAPI\Client\Model\CustomerCreate
+$customer_create = new \InvoicePDFs\Model\CustomerCreate(); // \InvoicePDFs\Model\CustomerCreate
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
@@ -51,12 +51,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **customer_create** | [**\OpenAPI\Client\Model\CustomerCreate**](../Model/CustomerCreate.md)|  | |
+| **customer_create** | [**\InvoicePDFs\Model\CustomerCreate**](../Model/CustomerCreate.md)|  | |
 | **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomerResponse**](../Model/CustomerResponse.md)
+[**\InvoicePDFs\Model\CustomerResponse**](../Model/CustomerResponse.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ try {
 ## `deleteCustomerApiV1CustomersCustomerIdDelete()`
 
 ```php
-deleteCustomerApiV1CustomersCustomerIdDelete($customer_id): \OpenAPI\Client\Model\SimpleBoolResponse
+deleteCustomerApiV1CustomersCustomerIdDelete($customer_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Customer
@@ -87,10 +87,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+$apiInstance = new InvoicePDFs\Api\CustomersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -114,7 +114,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
+[**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ try {
 ## `getCustomerApiV1CustomersCustomerIdGet()`
 
 ```php
-getCustomerApiV1CustomersCustomerIdGet($customer_id): \OpenAPI\Client\Model\CustomerResponse
+getCustomerApiV1CustomersCustomerIdGet($customer_id): \InvoicePDFs\Model\CustomerResponse
 ```
 
 Get Customer
@@ -145,10 +145,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+$apiInstance = new InvoicePDFs\Api\CustomersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -172,7 +172,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomerResponse**](../Model/CustomerResponse.md)
+[**\InvoicePDFs\Model\CustomerResponse**](../Model/CustomerResponse.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ try {
 ## `listCustomersApiV1CustomersGet()`
 
 ```php
-listCustomersApiV1CustomersGet($limit, $cursor): \OpenAPI\Client\Model\CustomersListResponse
+listCustomersApiV1CustomersGet($limit, $cursor): \InvoicePDFs\Model\CustomersListResponse
 ```
 
 List Customers
@@ -203,10 +203,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+$apiInstance = new InvoicePDFs\Api\CustomersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -232,7 +232,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomersListResponse**](../Model/CustomersListResponse.md)
+[**\InvoicePDFs\Model\CustomersListResponse**](../Model/CustomersListResponse.md)
 
 ### Authorization
 
@@ -250,7 +250,7 @@ try {
 ## `patchCustomerApiV1CustomersCustomerIdPatch()`
 
 ```php
-patchCustomerApiV1CustomersCustomerIdPatch($customer_id, $customer_patch, $idempotency_key): \OpenAPI\Client\Model\CustomerResponse
+patchCustomerApiV1CustomersCustomerIdPatch($customer_id, $customer_patch, $idempotency_key): \InvoicePDFs\Model\CustomerResponse
 ```
 
 Patch Customer
@@ -263,17 +263,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CustomersApi(
+$apiInstance = new InvoicePDFs\Api\CustomersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $customer_id = 'customer_id_example'; // string
-$customer_patch = new \OpenAPI\Client\Model\CustomerPatch(); // \OpenAPI\Client\Model\CustomerPatch
+$customer_patch = new \InvoicePDFs\Model\CustomerPatch(); // \InvoicePDFs\Model\CustomerPatch
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
@@ -289,12 +289,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **customer_id** | **string**|  | |
-| **customer_patch** | [**\OpenAPI\Client\Model\CustomerPatch**](../Model/CustomerPatch.md)|  | |
+| **customer_patch** | [**\InvoicePDFs\Model\CustomerPatch**](../Model/CustomerPatch.md)|  | |
 | **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomerResponse**](../Model/CustomerResponse.md)
+[**\InvoicePDFs\Model\CustomerResponse**](../Model/CustomerResponse.md)
 
 ### Authorization
 

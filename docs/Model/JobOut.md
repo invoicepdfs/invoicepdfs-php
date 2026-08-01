@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** |  |
 **type** | **string** |  |
 **status** | **string** |  |
-**progress** | [**\OpenAPI\Client\Model\JobProgressOut**](JobProgressOut.md) |  |
+**progress** | [**\InvoicePDFs\Model\JobProgressOut**](JobProgressOut.md) |  |
 **result** | **array<string,mixed>** |  | [optional]
 **error** | **string** |  | [optional]
 **created_at** | **string** |  |

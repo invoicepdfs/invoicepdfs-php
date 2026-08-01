@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * WorkspaceMembersListResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class WorkspaceMembersListResponse implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\WorkspaceMemberOut[]'
+        'data' => '\InvoicePDFs\Model\WorkspaceMemberOut[]'
     ];
 
     /**
@@ -295,7 +295,7 @@ class WorkspaceMembersListResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\WorkspaceMemberOut[]
+     * @return \InvoicePDFs\Model\WorkspaceMemberOut[]
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class WorkspaceMembersListResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\WorkspaceMemberOut[] $data data
+     * @param \InvoicePDFs\Model\WorkspaceMemberOut[] $data data
      *
      * @return self
      */

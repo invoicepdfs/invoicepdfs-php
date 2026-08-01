@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * TemplatesListResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class TemplatesListResponse implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\TemplateSummary[]',
-        'pagination' => '\OpenAPI\Client\Model\CursorPagination'
+        'data' => '\InvoicePDFs\Model\TemplateSummary[]',
+        'pagination' => '\InvoicePDFs\Model\CursorPagination'
     ];
 
     /**
@@ -302,7 +302,7 @@ class TemplatesListResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\TemplateSummary[]
+     * @return \InvoicePDFs\Model\TemplateSummary[]
      */
     public function getData()
     {
@@ -312,7 +312,7 @@ class TemplatesListResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\TemplateSummary[] $data data
+     * @param \InvoicePDFs\Model\TemplateSummary[] $data data
      *
      * @return self
      */
@@ -329,7 +329,7 @@ class TemplatesListResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets pagination
      *
-     * @return \OpenAPI\Client\Model\CursorPagination|null
+     * @return \InvoicePDFs\Model\CursorPagination|null
      */
     public function getPagination()
     {
@@ -339,7 +339,7 @@ class TemplatesListResponse implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets pagination
      *
-     * @param \OpenAPI\Client\Model\CursorPagination|null $pagination pagination
+     * @param \InvoicePDFs\Model\CursorPagination|null $pagination pagination
      *
      * @return self
      */

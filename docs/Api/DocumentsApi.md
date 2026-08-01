@@ -1,4 +1,4 @@
-# OpenAPI\Client\DocumentsApi
+# InvoicePDFs\DocumentsApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -12,7 +12,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `calculateDocumentApiV1DocumentsCalculatePost()`
 
 ```php
-calculateDocumentApiV1DocumentsCalculatePost($document_calculate_request): \OpenAPI\Client\Model\DocumentCalculateResponse
+calculateDocumentApiV1DocumentsCalculatePost($document_calculate_request): \InvoicePDFs\Model\DocumentCalculateResponse
 ```
 
 Calculate Document
@@ -25,16 +25,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\DocumentsApi(
+$apiInstance = new InvoicePDFs\Api\DocumentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$document_calculate_request = new \OpenAPI\Client\Model\DocumentCalculateRequest(); // \OpenAPI\Client\Model\DocumentCalculateRequest
+$document_calculate_request = new \InvoicePDFs\Model\DocumentCalculateRequest(); // \InvoicePDFs\Model\DocumentCalculateRequest
 
 try {
     $result = $apiInstance->calculateDocumentApiV1DocumentsCalculatePost($document_calculate_request);
@@ -48,11 +48,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **document_calculate_request** | [**\OpenAPI\Client\Model\DocumentCalculateRequest**](../Model/DocumentCalculateRequest.md)|  | |
+| **document_calculate_request** | [**\InvoicePDFs\Model\DocumentCalculateRequest**](../Model/DocumentCalculateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\DocumentCalculateResponse**](../Model/DocumentCalculateResponse.md)
+[**\InvoicePDFs\Model\DocumentCalculateResponse**](../Model/DocumentCalculateResponse.md)
 
 ### Authorization
 
@@ -83,16 +83,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\DocumentsApi(
+$apiInstance = new InvoicePDFs\Api\DocumentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$document_render_request = new \OpenAPI\Client\Model\DocumentRenderRequest(); // \OpenAPI\Client\Model\DocumentRenderRequest
+$document_render_request = new \InvoicePDFs\Model\DocumentRenderRequest(); // \InvoicePDFs\Model\DocumentRenderRequest
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
@@ -107,7 +107,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **document_render_request** | [**\OpenAPI\Client\Model\DocumentRenderRequest**](../Model/DocumentRenderRequest.md)|  | |
+| **document_render_request** | [**\InvoicePDFs\Model\DocumentRenderRequest**](../Model/DocumentRenderRequest.md)|  | |
 | **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
@@ -130,7 +130,7 @@ try {
 ## `validateDocumentApiV1DocumentsValidatePost()`
 
 ```php
-validateDocumentApiV1DocumentsValidatePost($document_validate_request): \OpenAPI\Client\Model\DocumentValidateResponse
+validateDocumentApiV1DocumentsValidatePost($document_validate_request): \InvoicePDFs\Model\DocumentValidateResponse
 ```
 
 Validate Document
@@ -143,16 +143,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\DocumentsApi(
+$apiInstance = new InvoicePDFs\Api\DocumentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$document_validate_request = new \OpenAPI\Client\Model\DocumentValidateRequest(); // \OpenAPI\Client\Model\DocumentValidateRequest
+$document_validate_request = new \InvoicePDFs\Model\DocumentValidateRequest(); // \InvoicePDFs\Model\DocumentValidateRequest
 
 try {
     $result = $apiInstance->validateDocumentApiV1DocumentsValidatePost($document_validate_request);
@@ -166,11 +166,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **document_validate_request** | [**\OpenAPI\Client\Model\DocumentValidateRequest**](../Model/DocumentValidateRequest.md)|  | |
+| **document_validate_request** | [**\InvoicePDFs\Model\DocumentValidateRequest**](../Model/DocumentValidateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\DocumentValidateResponse**](../Model/DocumentValidateResponse.md)
+[**\InvoicePDFs\Model\DocumentValidateResponse**](../Model/DocumentValidateResponse.md)
 
 ### Authorization
 

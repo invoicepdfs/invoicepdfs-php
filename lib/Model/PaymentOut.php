@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * PaymentOut Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class PaymentOut implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'id' => 'string',
         'invoice_id' => 'string',
-        'amount' => '\OpenAPI\Client\Model\MoneyOut',
+        'amount' => '\InvoicePDFs\Model\MoneyOut',
         'paid_at' => 'string',
         'method' => 'string',
         'reference' => 'string',
@@ -420,7 +420,7 @@ class PaymentOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets amount
      *
-     * @return \OpenAPI\Client\Model\MoneyOut
+     * @return \InvoicePDFs\Model\MoneyOut
      */
     public function getAmount()
     {
@@ -430,7 +430,7 @@ class PaymentOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount
      *
-     * @param \OpenAPI\Client\Model\MoneyOut $amount amount
+     * @param \InvoicePDFs\Model\MoneyOut $amount amount
      *
      * @return self
      */

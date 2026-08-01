@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * DocumentRenderRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPITypes = [
         'document_type' => 'string',
-        'data' => '\OpenAPI\Client\Model\DocumentInvoiceDataInput',
-        'template' => '\OpenAPI\Client\Model\DocumentTemplateRef',
-        'output' => '\OpenAPI\Client\Model\DocumentOutputOptions'
+        'data' => '\InvoicePDFs\Model\DocumentInvoiceDataInput',
+        'template' => '\InvoicePDFs\Model\DocumentTemplateRef',
+        'output' => '\InvoicePDFs\Model\DocumentOutputOptions'
     ];
 
     /**
@@ -378,7 +378,7 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\DocumentInvoiceDataInput
+     * @return \InvoicePDFs\Model\DocumentInvoiceDataInput
      */
     public function getData()
     {
@@ -388,7 +388,7 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\DocumentInvoiceDataInput $data data
+     * @param \InvoicePDFs\Model\DocumentInvoiceDataInput $data data
      *
      * @return self
      */
@@ -405,7 +405,7 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets template
      *
-     * @return \OpenAPI\Client\Model\DocumentTemplateRef
+     * @return \InvoicePDFs\Model\DocumentTemplateRef
      */
     public function getTemplate()
     {
@@ -415,7 +415,7 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets template
      *
-     * @param \OpenAPI\Client\Model\DocumentTemplateRef $template template
+     * @param \InvoicePDFs\Model\DocumentTemplateRef $template template
      *
      * @return self
      */
@@ -432,7 +432,7 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets output
      *
-     * @return \OpenAPI\Client\Model\DocumentOutputOptions|null
+     * @return \InvoicePDFs\Model\DocumentOutputOptions|null
      */
     public function getOutput()
     {
@@ -442,7 +442,7 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets output
      *
-     * @param \OpenAPI\Client\Model\DocumentOutputOptions|null $output output
+     * @param \InvoicePDFs\Model\DocumentOutputOptions|null $output output
      *
      * @return self
      */

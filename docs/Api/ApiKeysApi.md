@@ -1,4 +1,4 @@
-# OpenAPI\Client\ApiKeysApi
+# InvoicePDFs\ApiKeysApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -15,7 +15,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createApiKeyApiV1ApiKeysPost()`
 
 ```php
-createApiKeyApiV1ApiKeysPost($api_key_create_request): \OpenAPI\Client\Model\ApiKeyCreateResponse
+createApiKeyApiV1ApiKeysPost($api_key_create_request): \InvoicePDFs\Model\ApiKeyCreateResponse
 ```
 
 Create Api Key
@@ -28,16 +28,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ApiKeysApi(
+$apiInstance = new InvoicePDFs\Api\ApiKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$api_key_create_request = new \OpenAPI\Client\Model\ApiKeyCreateRequest(); // \OpenAPI\Client\Model\ApiKeyCreateRequest
+$api_key_create_request = new \InvoicePDFs\Model\ApiKeyCreateRequest(); // \InvoicePDFs\Model\ApiKeyCreateRequest
 
 try {
     $result = $apiInstance->createApiKeyApiV1ApiKeysPost($api_key_create_request);
@@ -51,11 +51,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **api_key_create_request** | [**\OpenAPI\Client\Model\ApiKeyCreateRequest**](../Model/ApiKeyCreateRequest.md)|  | |
+| **api_key_create_request** | [**\InvoicePDFs\Model\ApiKeyCreateRequest**](../Model/ApiKeyCreateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ApiKeyCreateResponse**](../Model/ApiKeyCreateResponse.md)
+[**\InvoicePDFs\Model\ApiKeyCreateResponse**](../Model/ApiKeyCreateResponse.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ try {
 ## `getApiKeyApiV1ApiKeysApiKeyIdGet()`
 
 ```php
-getApiKeyApiV1ApiKeysApiKeyIdGet($api_key_id): \OpenAPI\Client\Model\ApiKeyDetailResponse
+getApiKeyApiV1ApiKeysApiKeyIdGet($api_key_id): \InvoicePDFs\Model\ApiKeyDetailResponse
 ```
 
 Get Api Key
@@ -86,10 +86,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ApiKeysApi(
+$apiInstance = new InvoicePDFs\Api\ApiKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -113,7 +113,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ApiKeyDetailResponse**](../Model/ApiKeyDetailResponse.md)
+[**\InvoicePDFs\Model\ApiKeyDetailResponse**](../Model/ApiKeyDetailResponse.md)
 
 ### Authorization
 
@@ -131,7 +131,7 @@ try {
 ## `listApiKeysApiV1ApiKeysGet()`
 
 ```php
-listApiKeysApiV1ApiKeysGet(): \OpenAPI\Client\Model\ApiKeyListResponse
+listApiKeysApiV1ApiKeysGet(): \InvoicePDFs\Model\ApiKeyListResponse
 ```
 
 List Api Keys
@@ -144,10 +144,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ApiKeysApi(
+$apiInstance = new InvoicePDFs\Api\ApiKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -168,7 +168,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ApiKeyListResponse**](../Model/ApiKeyListResponse.md)
+[**\InvoicePDFs\Model\ApiKeyListResponse**](../Model/ApiKeyListResponse.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ This endpoint does not need any parameter.
 ## `patchApiKeyApiV1ApiKeysApiKeyIdPatch()`
 
 ```php
-patchApiKeyApiV1ApiKeysApiKeyIdPatch($api_key_id, $api_key_patch_request): \OpenAPI\Client\Model\ApiKeyDetailResponse
+patchApiKeyApiV1ApiKeysApiKeyIdPatch($api_key_id, $api_key_patch_request): \InvoicePDFs\Model\ApiKeyDetailResponse
 ```
 
 Patch Api Key
@@ -199,17 +199,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ApiKeysApi(
+$apiInstance = new InvoicePDFs\Api\ApiKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $api_key_id = 'api_key_id_example'; // string
-$api_key_patch_request = new \OpenAPI\Client\Model\ApiKeyPatchRequest(); // \OpenAPI\Client\Model\ApiKeyPatchRequest
+$api_key_patch_request = new \InvoicePDFs\Model\ApiKeyPatchRequest(); // \InvoicePDFs\Model\ApiKeyPatchRequest
 
 try {
     $result = $apiInstance->patchApiKeyApiV1ApiKeysApiKeyIdPatch($api_key_id, $api_key_patch_request);
@@ -224,11 +224,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **api_key_id** | **string**|  | |
-| **api_key_patch_request** | [**\OpenAPI\Client\Model\ApiKeyPatchRequest**](../Model/ApiKeyPatchRequest.md)|  | |
+| **api_key_patch_request** | [**\InvoicePDFs\Model\ApiKeyPatchRequest**](../Model/ApiKeyPatchRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ApiKeyDetailResponse**](../Model/ApiKeyDetailResponse.md)
+[**\InvoicePDFs\Model\ApiKeyDetailResponse**](../Model/ApiKeyDetailResponse.md)
 
 ### Authorization
 
@@ -246,7 +246,7 @@ try {
 ## `revokeApiKeyApiV1ApiKeysApiKeyIdDelete()`
 
 ```php
-revokeApiKeyApiV1ApiKeysApiKeyIdDelete($api_key_id): \OpenAPI\Client\Model\ApiKeyRevokeResponse
+revokeApiKeyApiV1ApiKeysApiKeyIdDelete($api_key_id): \InvoicePDFs\Model\ApiKeyRevokeResponse
 ```
 
 Revoke Api Key
@@ -259,10 +259,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ApiKeysApi(
+$apiInstance = new InvoicePDFs\Api\ApiKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -286,7 +286,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ApiKeyRevokeResponse**](../Model/ApiKeyRevokeResponse.md)
+[**\InvoicePDFs\Model\ApiKeyRevokeResponse**](../Model/ApiKeyRevokeResponse.md)
 
 ### Authorization
 
@@ -304,7 +304,7 @@ try {
 ## `rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost()`
 
 ```php
-rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost($api_key_id): \OpenAPI\Client\Model\ApiKeyRotateResponse
+rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost($api_key_id): \InvoicePDFs\Model\ApiKeyRotateResponse
 ```
 
 Rotate Api Key
@@ -319,10 +319,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ApiKeysApi(
+$apiInstance = new InvoicePDFs\Api\ApiKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -346,7 +346,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ApiKeyRotateResponse**](../Model/ApiKeyRotateResponse.md)
+[**\InvoicePDFs\Model\ApiKeyRotateResponse**](../Model/ApiKeyRotateResponse.md)
 
 ### Authorization
 

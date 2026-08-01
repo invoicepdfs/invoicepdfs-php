@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * AuditLogApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -133,9 +133,9 @@ class AuditLogApi
      * @param  string $audit_event_id audit_event_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AuditEventResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\AuditEventResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function getAuditEventApiV1AuditEventsAuditEventIdGet($audit_event_id, string $contentType = self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'][0])
     {
@@ -151,9 +151,9 @@ class AuditLogApi
      * @param  string $audit_event_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AuditEventResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\AuditEventResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAuditEventApiV1AuditEventsAuditEventIdGetWithHttpInfo($audit_event_id, string $contentType = self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'][0])
     {
@@ -196,11 +196,11 @@ class AuditLogApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\AuditEventResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\AuditEventResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\AuditEventResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\AuditEventResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -218,16 +218,16 @@ class AuditLogApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AuditEventResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuditEventResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -245,13 +245,13 @@ class AuditLogApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AuditEventResponse';
+            $returnType = '\InvoicePDFs\Model\AuditEventResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -284,7 +284,7 @@ class AuditLogApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AuditEventResponse',
+                        '\InvoicePDFs\Model\AuditEventResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -292,7 +292,7 @@ class AuditLogApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -336,7 +336,7 @@ class AuditLogApi
      */
     public function getAuditEventApiV1AuditEventsAuditEventIdGetAsyncWithHttpInfo($audit_event_id, string $contentType = self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AuditEventResponse';
+        $returnType = '\InvoicePDFs\Model\AuditEventResponse';
         $request = $this->getAuditEventApiV1AuditEventsAuditEventIdGetRequest($audit_event_id, $contentType);
 
         return $this->client
@@ -483,9 +483,9 @@ class AuditLogApi
      * @param  string $resource_id resource_id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAuditEventsApiV1AuditEventsGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\AuditEventsListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\AuditEventsListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listAuditEventsApiV1AuditEventsGet($limit = 50, $cursor = null, $action = null, $resource_type = null, $resource_id = null, string $contentType = self::contentTypes['listAuditEventsApiV1AuditEventsGet'][0])
     {
@@ -505,9 +505,9 @@ class AuditLogApi
      * @param  string $resource_id (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAuditEventsApiV1AuditEventsGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\AuditEventsListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\AuditEventsListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listAuditEventsApiV1AuditEventsGetWithHttpInfo($limit = 50, $cursor = null, $action = null, $resource_type = null, $resource_id = null, string $contentType = self::contentTypes['listAuditEventsApiV1AuditEventsGet'][0])
     {
@@ -550,11 +550,11 @@ class AuditLogApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\AuditEventsListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\AuditEventsListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\AuditEventsListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\AuditEventsListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -572,16 +572,16 @@ class AuditLogApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\AuditEventsListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuditEventsListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -599,13 +599,13 @@ class AuditLogApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\AuditEventsListResponse';
+            $returnType = '\InvoicePDFs\Model\AuditEventsListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -638,7 +638,7 @@ class AuditLogApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\AuditEventsListResponse',
+                        '\InvoicePDFs\Model\AuditEventsListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -646,7 +646,7 @@ class AuditLogApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -698,7 +698,7 @@ class AuditLogApi
      */
     public function listAuditEventsApiV1AuditEventsGetAsyncWithHttpInfo($limit = 50, $cursor = null, $action = null, $resource_type = null, $resource_id = null, string $contentType = self::contentTypes['listAuditEventsApiV1AuditEventsGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\AuditEventsListResponse';
+        $returnType = '\InvoicePDFs\Model\AuditEventsListResponse';
         $request = $this->listAuditEventsApiV1AuditEventsGetRequest($limit, $cursor, $action, $resource_type, $resource_id, $contentType);
 
         return $this->client

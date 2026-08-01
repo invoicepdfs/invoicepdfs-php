@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\OpenAPI\Client\Model\AuditEventOut**](AuditEventOut.md) |  |
+**data** | [**\InvoicePDFs\Model\AuditEventOut**](AuditEventOut.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

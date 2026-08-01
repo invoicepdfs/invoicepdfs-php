@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * ValidationError Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'loc' => '\OpenAPI\Client\Model\LocationInner[]',
+        'loc' => '\InvoicePDFs\Model\LocationInner[]',
         'msg' => 'string',
         'type' => 'string',
         'input' => 'mixed',
@@ -329,7 +329,7 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets loc
      *
-     * @return \OpenAPI\Client\Model\LocationInner[]
+     * @return \InvoicePDFs\Model\LocationInner[]
      */
     public function getLoc()
     {
@@ -339,7 +339,7 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets loc
      *
-     * @param \OpenAPI\Client\Model\LocationInner[] $loc loc
+     * @param \InvoicePDFs\Model\LocationInner[] $loc loc
      *
      * @return self
      */

@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * RecurringInvoicesApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -151,9 +151,9 @@ class RecurringInvoicesApi
      * @param  string $recurring_id recurring_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RecurringInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete($recurring_id, string $contentType = self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'][0])
     {
@@ -169,9 +169,9 @@ class RecurringInvoicesApi
      * @param  string $recurring_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RecurringInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteWithHttpInfo($recurring_id, string $contentType = self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'][0])
     {
@@ -214,11 +214,11 @@ class RecurringInvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\RecurringInvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\RecurringInvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\RecurringInvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\RecurringInvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -236,16 +236,16 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RecurringInvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\RecurringInvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -263,13 +263,13 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\RecurringInvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -302,7 +302,7 @@ class RecurringInvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\RecurringInvoiceResponse',
+                        '\InvoicePDFs\Model\RecurringInvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -310,7 +310,7 @@ class RecurringInvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -354,7 +354,7 @@ class RecurringInvoicesApi
      */
     public function cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteAsyncWithHttpInfo($recurring_id, string $contentType = self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\RecurringInvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
         $request = $this->cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteRequest($recurring_id, $contentType);
 
         return $this->client
@@ -494,12 +494,12 @@ class RecurringInvoicesApi
      *
      * Create Recurring Invoice
      *
-     * @param  \OpenAPI\Client\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request recurring_invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request recurring_invoice_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RecurringInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function createRecurringInvoiceApiV1RecurringInvoicesPost($recurring_invoice_create_request, string $contentType = self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'][0])
     {
@@ -512,12 +512,12 @@ class RecurringInvoicesApi
      *
      * Create Recurring Invoice
      *
-     * @param  \OpenAPI\Client\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RecurringInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createRecurringInvoiceApiV1RecurringInvoicesPostWithHttpInfo($recurring_invoice_create_request, string $contentType = self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'][0])
     {
@@ -560,11 +560,11 @@ class RecurringInvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\RecurringInvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\RecurringInvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\RecurringInvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\RecurringInvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -582,16 +582,16 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RecurringInvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\RecurringInvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -609,13 +609,13 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\RecurringInvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -648,7 +648,7 @@ class RecurringInvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\RecurringInvoiceResponse',
+                        '\InvoicePDFs\Model\RecurringInvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -656,7 +656,7 @@ class RecurringInvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -671,7 +671,7 @@ class RecurringInvoicesApi
      *
      * Create Recurring Invoice
      *
-     * @param  \OpenAPI\Client\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -692,7 +692,7 @@ class RecurringInvoicesApi
      *
      * Create Recurring Invoice
      *
-     * @param  \OpenAPI\Client\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -700,7 +700,7 @@ class RecurringInvoicesApi
      */
     public function createRecurringInvoiceApiV1RecurringInvoicesPostAsyncWithHttpInfo($recurring_invoice_create_request, string $contentType = self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\RecurringInvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
         $request = $this->createRecurringInvoiceApiV1RecurringInvoicesPostRequest($recurring_invoice_create_request, $contentType);
 
         return $this->client
@@ -742,7 +742,7 @@ class RecurringInvoicesApi
     /**
      * Create request for operation 'createRecurringInvoiceApiV1RecurringInvoicesPost'
      *
-     * @param  \OpenAPI\Client\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -842,9 +842,9 @@ class RecurringInvoicesApi
      * @param  string $recurring_id recurring_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RecurringInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet($recurring_id, string $contentType = self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'][0])
     {
@@ -860,9 +860,9 @@ class RecurringInvoicesApi
      * @param  string $recurring_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RecurringInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetWithHttpInfo($recurring_id, string $contentType = self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'][0])
     {
@@ -905,11 +905,11 @@ class RecurringInvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\RecurringInvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\RecurringInvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\RecurringInvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\RecurringInvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -927,16 +927,16 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RecurringInvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\RecurringInvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -954,13 +954,13 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\RecurringInvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -993,7 +993,7 @@ class RecurringInvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\RecurringInvoiceResponse',
+                        '\InvoicePDFs\Model\RecurringInvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1001,7 +1001,7 @@ class RecurringInvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1045,7 +1045,7 @@ class RecurringInvoicesApi
      */
     public function getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetAsyncWithHttpInfo($recurring_id, string $contentType = self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\RecurringInvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
         $request = $this->getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetRequest($recurring_id, $contentType);
 
         return $this->client
@@ -1190,9 +1190,9 @@ class RecurringInvoicesApi
      * @param  string $cursor cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoicesListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\InvoicesListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet($recurring_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'][0])
     {
@@ -1210,9 +1210,9 @@ class RecurringInvoicesApi
      * @param  string $cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoicesListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\InvoicesListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetWithHttpInfo($recurring_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'][0])
     {
@@ -1255,11 +1255,11 @@ class RecurringInvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoicesListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\InvoicesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\InvoicesListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\InvoicesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1277,16 +1277,16 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoicesListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\InvoicesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1304,13 +1304,13 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoicesListResponse';
+            $returnType = '\InvoicePDFs\Model\InvoicesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1343,7 +1343,7 @@ class RecurringInvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoicesListResponse',
+                        '\InvoicePDFs\Model\InvoicesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1351,7 +1351,7 @@ class RecurringInvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1399,7 +1399,7 @@ class RecurringInvoicesApi
      */
     public function listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetAsyncWithHttpInfo($recurring_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\InvoicesListResponse';
+        $returnType = '\InvoicePDFs\Model\InvoicesListResponse';
         $request = $this->listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest($recurring_id, $limit, $cursor, $contentType);
 
         return $this->client
@@ -1572,9 +1572,9 @@ class RecurringInvoicesApi
      * @param  string $status status (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RecurringInvoicesListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\RecurringInvoicesListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listRecurringInvoicesApiV1RecurringInvoicesGet($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'][0])
     {
@@ -1592,9 +1592,9 @@ class RecurringInvoicesApi
      * @param  string $status (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RecurringInvoicesListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\RecurringInvoicesListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listRecurringInvoicesApiV1RecurringInvoicesGetWithHttpInfo($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'][0])
     {
@@ -1637,11 +1637,11 @@ class RecurringInvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\RecurringInvoicesListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\RecurringInvoicesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\RecurringInvoicesListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\RecurringInvoicesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1659,16 +1659,16 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RecurringInvoicesListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\RecurringInvoicesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1686,13 +1686,13 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\RecurringInvoicesListResponse';
+            $returnType = '\InvoicePDFs\Model\RecurringInvoicesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1725,7 +1725,7 @@ class RecurringInvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\RecurringInvoicesListResponse',
+                        '\InvoicePDFs\Model\RecurringInvoicesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1733,7 +1733,7 @@ class RecurringInvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1781,7 +1781,7 @@ class RecurringInvoicesApi
      */
     public function listRecurringInvoicesApiV1RecurringInvoicesGetAsyncWithHttpInfo($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\RecurringInvoicesListResponse';
+        $returnType = '\InvoicePDFs\Model\RecurringInvoicesListResponse';
         $request = $this->listRecurringInvoicesApiV1RecurringInvoicesGetRequest($limit, $cursor, $status, $contentType);
 
         return $this->client
@@ -1945,12 +1945,12 @@ class RecurringInvoicesApi
      * Patch Recurring Invoice
      *
      * @param  string $recurring_id recurring_id (required)
-     * @param  \OpenAPI\Client\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request recurring_invoice_patch_request (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request recurring_invoice_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RecurringInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch($recurring_id, $recurring_invoice_patch_request, string $contentType = self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'][0])
     {
@@ -1964,12 +1964,12 @@ class RecurringInvoicesApi
      * Patch Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  \OpenAPI\Client\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RecurringInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchWithHttpInfo($recurring_id, $recurring_invoice_patch_request, string $contentType = self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'][0])
     {
@@ -2012,11 +2012,11 @@ class RecurringInvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\RecurringInvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\RecurringInvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\RecurringInvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\RecurringInvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2034,16 +2034,16 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RecurringInvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\RecurringInvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2061,13 +2061,13 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\RecurringInvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2100,7 +2100,7 @@ class RecurringInvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\RecurringInvoiceResponse',
+                        '\InvoicePDFs\Model\RecurringInvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2108,7 +2108,7 @@ class RecurringInvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2124,7 +2124,7 @@ class RecurringInvoicesApi
      * Patch Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  \OpenAPI\Client\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2146,7 +2146,7 @@ class RecurringInvoicesApi
      * Patch Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  \OpenAPI\Client\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2154,7 +2154,7 @@ class RecurringInvoicesApi
      */
     public function patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchAsyncWithHttpInfo($recurring_id, $recurring_invoice_patch_request, string $contentType = self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\RecurringInvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
         $request = $this->patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchRequest($recurring_id, $recurring_invoice_patch_request, $contentType);
 
         return $this->client
@@ -2197,7 +2197,7 @@ class RecurringInvoicesApi
      * Create request for operation 'patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'
      *
      * @param  string $recurring_id (required)
-     * @param  \OpenAPI\Client\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2312,9 +2312,9 @@ class RecurringInvoicesApi
      * @param  string $recurring_id recurring_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RecurringInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost($recurring_id, string $contentType = self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'][0])
     {
@@ -2330,9 +2330,9 @@ class RecurringInvoicesApi
      * @param  string $recurring_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RecurringInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostWithHttpInfo($recurring_id, string $contentType = self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'][0])
     {
@@ -2375,11 +2375,11 @@ class RecurringInvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\RecurringInvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\RecurringInvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\RecurringInvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\RecurringInvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2397,16 +2397,16 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RecurringInvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\RecurringInvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2424,13 +2424,13 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\RecurringInvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2463,7 +2463,7 @@ class RecurringInvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\RecurringInvoiceResponse',
+                        '\InvoicePDFs\Model\RecurringInvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2471,7 +2471,7 @@ class RecurringInvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2515,7 +2515,7 @@ class RecurringInvoicesApi
      */
     public function pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostAsyncWithHttpInfo($recurring_id, string $contentType = self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\RecurringInvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
         $request = $this->pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostRequest($recurring_id, $contentType);
 
         return $this->client
@@ -2658,9 +2658,9 @@ class RecurringInvoicesApi
      * @param  string $recurring_id recurring_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\RecurringInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost($recurring_id, string $contentType = self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'][0])
     {
@@ -2676,9 +2676,9 @@ class RecurringInvoicesApi
      * @param  string $recurring_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\RecurringInvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostWithHttpInfo($recurring_id, string $contentType = self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'][0])
     {
@@ -2721,11 +2721,11 @@ class RecurringInvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\RecurringInvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\RecurringInvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\RecurringInvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\RecurringInvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2743,16 +2743,16 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\RecurringInvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\RecurringInvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2770,13 +2770,13 @@ class RecurringInvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\RecurringInvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2809,7 +2809,7 @@ class RecurringInvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\RecurringInvoiceResponse',
+                        '\InvoicePDFs\Model\RecurringInvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2817,7 +2817,7 @@ class RecurringInvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2861,7 +2861,7 @@ class RecurringInvoicesApi
      */
     public function resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostAsyncWithHttpInfo($recurring_id, string $contentType = self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\RecurringInvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
         $request = $this->resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostRequest($recurring_id, $contentType);
 
         return $this->client

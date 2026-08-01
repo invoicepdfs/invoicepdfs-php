@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * CustomerOut Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,8 +61,8 @@ class CustomerOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'email' => 'string',
         'phone' => 'string',
         'tax_id' => 'string',
-        'billing_address' => '\OpenAPI\Client\Model\PostalAddress',
-        'shipping_address' => '\OpenAPI\Client\Model\PostalAddress',
+        'billing_address' => '\InvoicePDFs\Model\PostalAddress',
+        'shipping_address' => '\InvoicePDFs\Model\PostalAddress',
         'metadata' => 'array<string,mixed>',
         'id' => 'string',
         'created_at' => 'string',
@@ -496,7 +496,7 @@ class CustomerOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets billing_address
      *
-     * @return \OpenAPI\Client\Model\PostalAddress|null
+     * @return \InvoicePDFs\Model\PostalAddress|null
      */
     public function getBillingAddress()
     {
@@ -506,7 +506,7 @@ class CustomerOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets billing_address
      *
-     * @param \OpenAPI\Client\Model\PostalAddress|null $billing_address billing_address
+     * @param \InvoicePDFs\Model\PostalAddress|null $billing_address billing_address
      *
      * @return self
      */
@@ -530,7 +530,7 @@ class CustomerOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets shipping_address
      *
-     * @return \OpenAPI\Client\Model\PostalAddress|null
+     * @return \InvoicePDFs\Model\PostalAddress|null
      */
     public function getShippingAddress()
     {
@@ -540,7 +540,7 @@ class CustomerOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shipping_address
      *
-     * @param \OpenAPI\Client\Model\PostalAddress|null $shipping_address shipping_address
+     * @param \InvoicePDFs\Model\PostalAddress|null $shipping_address shipping_address
      *
      * @return self
      */

@@ -1,4 +1,4 @@
-# OpenAPI\Client\JobsApi
+# InvoicePDFs\JobsApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -12,7 +12,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `cancelJobApiV1JobsJobIdCancelPost()`
 
 ```php
-cancelJobApiV1JobsJobIdCancelPost($job_id): \OpenAPI\Client\Model\JobResponse
+cancelJobApiV1JobsJobIdCancelPost($job_id): \InvoicePDFs\Model\JobResponse
 ```
 
 Cancel Job
@@ -25,10 +25,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\JobsApi(
+$apiInstance = new InvoicePDFs\Api\JobsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -52,7 +52,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\JobResponse**](../Model/JobResponse.md)
+[**\InvoicePDFs\Model\JobResponse**](../Model/JobResponse.md)
 
 ### Authorization
 
@@ -70,7 +70,7 @@ try {
 ## `getJobApiV1JobsJobIdGet()`
 
 ```php
-getJobApiV1JobsJobIdGet($job_id): \OpenAPI\Client\Model\JobResponse
+getJobApiV1JobsJobIdGet($job_id): \InvoicePDFs\Model\JobResponse
 ```
 
 Get Job
@@ -83,10 +83,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\JobsApi(
+$apiInstance = new InvoicePDFs\Api\JobsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -110,7 +110,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\JobResponse**](../Model/JobResponse.md)
+[**\InvoicePDFs\Model\JobResponse**](../Model/JobResponse.md)
 
 ### Authorization
 
@@ -128,7 +128,7 @@ try {
 ## `retryJobApiV1JobsJobIdRetryPost()`
 
 ```php
-retryJobApiV1JobsJobIdRetryPost($job_id): \OpenAPI\Client\Model\JobResponse
+retryJobApiV1JobsJobIdRetryPost($job_id): \InvoicePDFs\Model\JobResponse
 ```
 
 Retry Job
@@ -141,10 +141,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\JobsApi(
+$apiInstance = new InvoicePDFs\Api\JobsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -168,7 +168,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\JobResponse**](../Model/JobResponse.md)
+[**\InvoicePDFs\Model\JobResponse**](../Model/JobResponse.md)
 
 ### Authorization
 

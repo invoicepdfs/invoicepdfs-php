@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * BatchItemsListResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class BatchItemsListResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\BatchItemOut[]',
-        'pagination' => '\OpenAPI\Client\Model\CursorPagination'
+        'data' => '\InvoicePDFs\Model\BatchItemOut[]',
+        'pagination' => '\InvoicePDFs\Model\CursorPagination'
     ];
 
     /**
@@ -302,7 +302,7 @@ class BatchItemsListResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\BatchItemOut[]
+     * @return \InvoicePDFs\Model\BatchItemOut[]
      */
     public function getData()
     {
@@ -312,7 +312,7 @@ class BatchItemsListResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\BatchItemOut[] $data data
+     * @param \InvoicePDFs\Model\BatchItemOut[] $data data
      *
      * @return self
      */
@@ -329,7 +329,7 @@ class BatchItemsListResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets pagination
      *
-     * @return \OpenAPI\Client\Model\CursorPagination|null
+     * @return \InvoicePDFs\Model\CursorPagination|null
      */
     public function getPagination()
     {
@@ -339,7 +339,7 @@ class BatchItemsListResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets pagination
      *
-     * @param \OpenAPI\Client\Model\CursorPagination|null $pagination pagination
+     * @param \InvoicePDFs\Model\CursorPagination|null $pagination pagination
      *
      * @return self
      */

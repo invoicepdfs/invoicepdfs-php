@@ -1,4 +1,4 @@
-# OpenAPI\Client\HealthApi
+# InvoicePDFs\HealthApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -12,7 +12,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `healthHealthGet()`
 
 ```php
-healthHealthGet(): \OpenAPI\Client\Model\HealthResponse
+healthHealthGet(): \InvoicePDFs\Model\HealthResponse
 ```
 
 Health
@@ -25,7 +25,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\HealthApi(
+$apiInstance = new InvoicePDFs\Api\HealthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -45,7 +45,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\HealthResponse**](../Model/HealthResponse.md)
+[**\InvoicePDFs\Model\HealthResponse**](../Model/HealthResponse.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ No authorization required
 ## `readyReadyGet()`
 
 ```php
-readyReadyGet(): \OpenAPI\Client\Model\ReadyResponse
+readyReadyGet(): \InvoicePDFs\Model\ReadyResponse
 ```
 
 Ready
@@ -76,7 +76,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\HealthApi(
+$apiInstance = new InvoicePDFs\Api\HealthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -96,7 +96,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ReadyResponse**](../Model/ReadyResponse.md)
+[**\InvoicePDFs\Model\ReadyResponse**](../Model/ReadyResponse.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ No authorization required
 ## `versionVersionGet()`
 
 ```php
-versionVersionGet(): \OpenAPI\Client\Model\VersionResponse
+versionVersionGet(): \InvoicePDFs\Model\VersionResponse
 ```
 
 Version
@@ -127,7 +127,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\HealthApi(
+$apiInstance = new InvoicePDFs\Api\HealthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -147,7 +147,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\VersionResponse**](../Model/VersionResponse.md)
+[**\InvoicePDFs\Model\VersionResponse**](../Model/VersionResponse.md)
 
 ### Authorization
 

@@ -1,4 +1,4 @@
-# OpenAPI\Client\InvoiceAttachmentsApi
+# InvoicePDFs\InvoiceAttachmentsApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -12,7 +12,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createAttachmentApiV1InvoicesInvoiceIdAttachmentsPost()`
 
 ```php
-createAttachmentApiV1InvoicesInvoiceIdAttachmentsPost($invoice_id, $invoice_attachment_create_request): \OpenAPI\Client\Model\InvoiceAttachmentResponse
+createAttachmentApiV1InvoicesInvoiceIdAttachmentsPost($invoice_id, $invoice_attachment_create_request): \InvoicePDFs\Model\InvoiceAttachmentResponse
 ```
 
 Create Attachment
@@ -25,17 +25,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceAttachmentsApi(
+$apiInstance = new InvoicePDFs\Api\InvoiceAttachmentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $invoice_id = 'invoice_id_example'; // string
-$invoice_attachment_create_request = new \OpenAPI\Client\Model\InvoiceAttachmentCreateRequest(); // \OpenAPI\Client\Model\InvoiceAttachmentCreateRequest
+$invoice_attachment_create_request = new \InvoicePDFs\Model\InvoiceAttachmentCreateRequest(); // \InvoicePDFs\Model\InvoiceAttachmentCreateRequest
 
 try {
     $result = $apiInstance->createAttachmentApiV1InvoicesInvoiceIdAttachmentsPost($invoice_id, $invoice_attachment_create_request);
@@ -50,11 +50,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **invoice_id** | **string**|  | |
-| **invoice_attachment_create_request** | [**\OpenAPI\Client\Model\InvoiceAttachmentCreateRequest**](../Model/InvoiceAttachmentCreateRequest.md)|  | |
+| **invoice_attachment_create_request** | [**\InvoicePDFs\Model\InvoiceAttachmentCreateRequest**](../Model/InvoiceAttachmentCreateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InvoiceAttachmentResponse**](../Model/InvoiceAttachmentResponse.md)
+[**\InvoicePDFs\Model\InvoiceAttachmentResponse**](../Model/InvoiceAttachmentResponse.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ try {
 ## `deleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete()`
 
 ```php
-deleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete($invoice_id, $attachment_id): \OpenAPI\Client\Model\SimpleBoolResponse
+deleteAttachmentApiV1InvoicesInvoiceIdAttachmentsAttachmentIdDelete($invoice_id, $attachment_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Attachment
@@ -85,10 +85,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceAttachmentsApi(
+$apiInstance = new InvoicePDFs\Api\InvoiceAttachmentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -114,7 +114,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
+[**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ try {
 ## `listAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet()`
 
 ```php
-listAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet($invoice_id): \OpenAPI\Client\Model\InvoiceAttachmentsListResponse
+listAttachmentsApiV1InvoicesInvoiceIdAttachmentsGet($invoice_id): \InvoicePDFs\Model\InvoiceAttachmentsListResponse
 ```
 
 List Attachments
@@ -145,10 +145,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\InvoiceAttachmentsApi(
+$apiInstance = new InvoicePDFs\Api\InvoiceAttachmentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -172,7 +172,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InvoiceAttachmentsListResponse**](../Model/InvoiceAttachmentsListResponse.md)
+[**\InvoicePDFs\Model\InvoiceAttachmentsListResponse**](../Model/InvoiceAttachmentsListResponse.md)
 
 ### Authorization
 

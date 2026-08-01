@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * DocumentCalculateResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class DocumentCalculateResponse implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => 'array<string,\OpenAPI\Client\Model\CalculationBreakdown>'
+        'data' => 'array<string,\InvoicePDFs\Model\CalculationBreakdown>'
     ];
 
     /**
@@ -295,7 +295,7 @@ class DocumentCalculateResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets data
      *
-     * @return array<string,\OpenAPI\Client\Model\CalculationBreakdown>
+     * @return array<string,\InvoicePDFs\Model\CalculationBreakdown>
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class DocumentCalculateResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets data
      *
-     * @param array<string,\OpenAPI\Client\Model\CalculationBreakdown> $data data
+     * @param array<string,\InvoicePDFs\Model\CalculationBreakdown> $data data
      *
      * @return self
      */

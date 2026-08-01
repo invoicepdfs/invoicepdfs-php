@@ -13,6 +13,6 @@ Name | Type | Description | Notes
 **max_occurrences** | **int** |  | [optional]
 **numbering_sequence_id** | **string** |  | [optional]
 **auto_finalize** | **bool** | Automatically finalize generated invoices | [optional] [default to false]
-**invoice_template** | [**\OpenAPI\Client\Model\InvoiceDraftRequest**](InvoiceDraftRequest.md) |  |
+**invoice_template** | [**\InvoicePDFs\Model\InvoiceDraftRequest**](InvoiceDraftRequest.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * BatchCreateRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'operation' => 'string',
-        'items' => '\OpenAPI\Client\Model\BatchItemInput[]',
+        'items' => '\InvoicePDFs\Model\BatchItemInput[]',
         'template_id' => 'string',
-        'output' => '\OpenAPI\Client\Model\BatchOutputOptions'
+        'output' => '\InvoicePDFs\Model\BatchOutputOptions'
     ];
 
     /**
@@ -379,7 +379,7 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets items
      *
-     * @return \OpenAPI\Client\Model\BatchItemInput[]
+     * @return \InvoicePDFs\Model\BatchItemInput[]
      */
     public function getItems()
     {
@@ -389,7 +389,7 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets items
      *
-     * @param \OpenAPI\Client\Model\BatchItemInput[] $items items
+     * @param \InvoicePDFs\Model\BatchItemInput[] $items items
      *
      * @return self
      */
@@ -438,7 +438,7 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets output
      *
-     * @return \OpenAPI\Client\Model\BatchOutputOptions|null
+     * @return \InvoicePDFs\Model\BatchOutputOptions|null
      */
     public function getOutput()
     {
@@ -448,7 +448,7 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets output
      *
-     * @param \OpenAPI\Client\Model\BatchOutputOptions|null $output output
+     * @param \InvoicePDFs\Model\BatchOutputOptions|null $output output
      *
      * @return self
      */

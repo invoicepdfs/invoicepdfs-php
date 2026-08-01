@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * WebhooksApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -154,12 +154,12 @@ class WebhooksApi
      *
      * Create Webhook Endpoint
      *
-     * @param  \OpenAPI\Client\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request webhook_endpoint_create_request (required)
+     * @param  \InvoicePDFs\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request webhook_endpoint_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WebhookEndpointResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function createWebhookEndpointApiV1WebhookEndpointsPost($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'][0])
     {
@@ -172,12 +172,12 @@ class WebhooksApi
      *
      * Create Webhook Endpoint
      *
-     * @param  \OpenAPI\Client\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request (required)
+     * @param  \InvoicePDFs\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WebhookEndpointResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createWebhookEndpointApiV1WebhookEndpointsPostWithHttpInfo($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'][0])
     {
@@ -220,11 +220,11 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WebhookEndpointResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WebhookEndpointResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WebhookEndpointResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WebhookEndpointResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -242,16 +242,16 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WebhookEndpointResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WebhookEndpointResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -269,13 +269,13 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WebhookEndpointResponse';
+            $returnType = '\InvoicePDFs\Model\WebhookEndpointResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -308,7 +308,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WebhookEndpointResponse',
+                        '\InvoicePDFs\Model\WebhookEndpointResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -316,7 +316,7 @@ class WebhooksApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -331,7 +331,7 @@ class WebhooksApi
      *
      * Create Webhook Endpoint
      *
-     * @param  \OpenAPI\Client\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request (required)
+     * @param  \InvoicePDFs\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -352,7 +352,7 @@ class WebhooksApi
      *
      * Create Webhook Endpoint
      *
-     * @param  \OpenAPI\Client\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request (required)
+     * @param  \InvoicePDFs\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -360,7 +360,7 @@ class WebhooksApi
      */
     public function createWebhookEndpointApiV1WebhookEndpointsPostAsyncWithHttpInfo($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WebhookEndpointResponse';
+        $returnType = '\InvoicePDFs\Model\WebhookEndpointResponse';
         $request = $this->createWebhookEndpointApiV1WebhookEndpointsPostRequest($webhook_endpoint_create_request, $contentType);
 
         return $this->client
@@ -402,7 +402,7 @@ class WebhooksApi
     /**
      * Create request for operation 'createWebhookEndpointApiV1WebhookEndpointsPost'
      *
-     * @param  \OpenAPI\Client\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request (required)
+     * @param  \InvoicePDFs\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -502,9 +502,9 @@ class WebhooksApi
      * @param  string $endpoint_id endpoint_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SimpleBoolResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete($endpoint_id, string $contentType = self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'][0])
     {
@@ -520,9 +520,9 @@ class WebhooksApi
      * @param  string $endpoint_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SimpleBoolResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'][0])
     {
@@ -565,11 +565,11 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SimpleBoolResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\SimpleBoolResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\SimpleBoolResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\SimpleBoolResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -587,16 +587,16 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SimpleBoolResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\SimpleBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -614,13 +614,13 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+            $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -653,7 +653,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SimpleBoolResponse',
+                        '\InvoicePDFs\Model\SimpleBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -661,7 +661,7 @@ class WebhooksApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -705,7 +705,7 @@ class WebhooksApi
      */
     public function deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteAsyncWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+        $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
         $request = $this->deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteRequest($endpoint_id, $contentType);
 
         return $this->client
@@ -848,9 +848,9 @@ class WebhooksApi
      * @param  string $delivery_id delivery_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WebhookDeliveryResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WebhookDeliveryResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet($delivery_id, string $contentType = self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'][0])
     {
@@ -866,9 +866,9 @@ class WebhooksApi
      * @param  string $delivery_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WebhookDeliveryResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WebhookDeliveryResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetWithHttpInfo($delivery_id, string $contentType = self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'][0])
     {
@@ -911,11 +911,11 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WebhookDeliveryResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WebhookDeliveryResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WebhookDeliveryResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WebhookDeliveryResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -933,16 +933,16 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WebhookDeliveryResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WebhookDeliveryResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -960,13 +960,13 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WebhookDeliveryResponse';
+            $returnType = '\InvoicePDFs\Model\WebhookDeliveryResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -999,7 +999,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WebhookDeliveryResponse',
+                        '\InvoicePDFs\Model\WebhookDeliveryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1007,7 +1007,7 @@ class WebhooksApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1051,7 +1051,7 @@ class WebhooksApi
      */
     public function getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetAsyncWithHttpInfo($delivery_id, string $contentType = self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WebhookDeliveryResponse';
+        $returnType = '\InvoicePDFs\Model\WebhookDeliveryResponse';
         $request = $this->getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetRequest($delivery_id, $contentType);
 
         return $this->client
@@ -1194,9 +1194,9 @@ class WebhooksApi
      * @param  string $endpoint_id endpoint_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WebhookEndpointResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet($endpoint_id, string $contentType = self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'][0])
     {
@@ -1212,9 +1212,9 @@ class WebhooksApi
      * @param  string $endpoint_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WebhookEndpointResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'][0])
     {
@@ -1257,11 +1257,11 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WebhookEndpointResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WebhookEndpointResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WebhookEndpointResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WebhookEndpointResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1279,16 +1279,16 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WebhookEndpointResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WebhookEndpointResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1306,13 +1306,13 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WebhookEndpointResponse';
+            $returnType = '\InvoicePDFs\Model\WebhookEndpointResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1345,7 +1345,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WebhookEndpointResponse',
+                        '\InvoicePDFs\Model\WebhookEndpointResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1353,7 +1353,7 @@ class WebhooksApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1397,7 +1397,7 @@ class WebhooksApi
      */
     public function getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetAsyncWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WebhookEndpointResponse';
+        $returnType = '\InvoicePDFs\Model\WebhookEndpointResponse';
         $request = $this->getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetRequest($endpoint_id, $contentType);
 
         return $this->client
@@ -1541,9 +1541,9 @@ class WebhooksApi
      * @param  string $cursor cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WebhookDeliveriesListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WebhookDeliveriesListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listWebhookDeliveriesApiV1WebhookDeliveriesGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'][0])
     {
@@ -1560,9 +1560,9 @@ class WebhooksApi
      * @param  string $cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WebhookDeliveriesListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WebhookDeliveriesListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listWebhookDeliveriesApiV1WebhookDeliveriesGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'][0])
     {
@@ -1605,11 +1605,11 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WebhookDeliveriesListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WebhookDeliveriesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WebhookDeliveriesListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WebhookDeliveriesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1627,16 +1627,16 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WebhookDeliveriesListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WebhookDeliveriesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1654,13 +1654,13 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WebhookDeliveriesListResponse';
+            $returnType = '\InvoicePDFs\Model\WebhookDeliveriesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1693,7 +1693,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WebhookDeliveriesListResponse',
+                        '\InvoicePDFs\Model\WebhookDeliveriesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1701,7 +1701,7 @@ class WebhooksApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1747,7 +1747,7 @@ class WebhooksApi
      */
     public function listWebhookDeliveriesApiV1WebhookDeliveriesGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WebhookDeliveriesListResponse';
+        $returnType = '\InvoicePDFs\Model\WebhookDeliveriesListResponse';
         $request = $this->listWebhookDeliveriesApiV1WebhookDeliveriesGetRequest($limit, $cursor, $contentType);
 
         return $this->client
@@ -1903,9 +1903,9 @@ class WebhooksApi
      * @param  string $cursor cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WebhookEndpointsListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WebhookEndpointsListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listWebhookEndpointsApiV1WebhookEndpointsGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'][0])
     {
@@ -1922,9 +1922,9 @@ class WebhooksApi
      * @param  string $cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WebhookEndpointsListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WebhookEndpointsListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listWebhookEndpointsApiV1WebhookEndpointsGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'][0])
     {
@@ -1967,11 +1967,11 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WebhookEndpointsListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WebhookEndpointsListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WebhookEndpointsListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WebhookEndpointsListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1989,16 +1989,16 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WebhookEndpointsListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WebhookEndpointsListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2016,13 +2016,13 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WebhookEndpointsListResponse';
+            $returnType = '\InvoicePDFs\Model\WebhookEndpointsListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2055,7 +2055,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WebhookEndpointsListResponse',
+                        '\InvoicePDFs\Model\WebhookEndpointsListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2063,7 +2063,7 @@ class WebhooksApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2109,7 +2109,7 @@ class WebhooksApi
      */
     public function listWebhookEndpointsApiV1WebhookEndpointsGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WebhookEndpointsListResponse';
+        $returnType = '\InvoicePDFs\Model\WebhookEndpointsListResponse';
         $request = $this->listWebhookEndpointsApiV1WebhookEndpointsGetRequest($limit, $cursor, $contentType);
 
         return $this->client
@@ -2264,9 +2264,9 @@ class WebhooksApi
      * @param  string $delivery_id delivery_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WebhookDeliveryResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WebhookDeliveryResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost($delivery_id, string $contentType = self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'][0])
     {
@@ -2282,9 +2282,9 @@ class WebhooksApi
      * @param  string $delivery_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WebhookDeliveryResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WebhookDeliveryResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostWithHttpInfo($delivery_id, string $contentType = self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'][0])
     {
@@ -2327,11 +2327,11 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WebhookDeliveryResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WebhookDeliveryResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WebhookDeliveryResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WebhookDeliveryResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2349,16 +2349,16 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WebhookDeliveryResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WebhookDeliveryResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2376,13 +2376,13 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WebhookDeliveryResponse';
+            $returnType = '\InvoicePDFs\Model\WebhookDeliveryResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2415,7 +2415,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WebhookDeliveryResponse',
+                        '\InvoicePDFs\Model\WebhookDeliveryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2423,7 +2423,7 @@ class WebhooksApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2467,7 +2467,7 @@ class WebhooksApi
      */
     public function retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostAsyncWithHttpInfo($delivery_id, string $contentType = self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WebhookDeliveryResponse';
+        $returnType = '\InvoicePDFs\Model\WebhookDeliveryResponse';
         $request = $this->retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostRequest($delivery_id, $contentType);
 
         return $this->client
@@ -2610,9 +2610,9 @@ class WebhooksApi
      * @param  string $endpoint_id endpoint_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WebhookSecretResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WebhookSecretResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost($endpoint_id, string $contentType = self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'][0])
     {
@@ -2628,9 +2628,9 @@ class WebhooksApi
      * @param  string $endpoint_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WebhookSecretResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WebhookSecretResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'][0])
     {
@@ -2673,11 +2673,11 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WebhookSecretResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WebhookSecretResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WebhookSecretResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WebhookSecretResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2695,16 +2695,16 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WebhookSecretResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WebhookSecretResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2722,13 +2722,13 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WebhookSecretResponse';
+            $returnType = '\InvoicePDFs\Model\WebhookSecretResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2761,7 +2761,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WebhookSecretResponse',
+                        '\InvoicePDFs\Model\WebhookSecretResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2769,7 +2769,7 @@ class WebhooksApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2813,7 +2813,7 @@ class WebhooksApi
      */
     public function rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostAsyncWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WebhookSecretResponse';
+        $returnType = '\InvoicePDFs\Model\WebhookSecretResponse';
         $request = $this->rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostRequest($endpoint_id, $contentType);
 
         return $this->client
@@ -2956,9 +2956,9 @@ class WebhooksApi
      * @param  string $endpoint_id endpoint_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WebhookDeliveryResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WebhookDeliveryResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost($endpoint_id, string $contentType = self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'][0])
     {
@@ -2974,9 +2974,9 @@ class WebhooksApi
      * @param  string $endpoint_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WebhookDeliveryResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WebhookDeliveryResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'][0])
     {
@@ -3019,11 +3019,11 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WebhookDeliveryResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WebhookDeliveryResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WebhookDeliveryResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WebhookDeliveryResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3041,16 +3041,16 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WebhookDeliveryResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WebhookDeliveryResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3068,13 +3068,13 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WebhookDeliveryResponse';
+            $returnType = '\InvoicePDFs\Model\WebhookDeliveryResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3107,7 +3107,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WebhookDeliveryResponse',
+                        '\InvoicePDFs\Model\WebhookDeliveryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3115,7 +3115,7 @@ class WebhooksApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3159,7 +3159,7 @@ class WebhooksApi
      */
     public function testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostAsyncWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WebhookDeliveryResponse';
+        $returnType = '\InvoicePDFs\Model\WebhookDeliveryResponse';
         $request = $this->testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostRequest($endpoint_id, $contentType);
 
         return $this->client
@@ -3300,12 +3300,12 @@ class WebhooksApi
      * Update Webhook Endpoint
      *
      * @param  string $endpoint_id endpoint_id (required)
-     * @param  \OpenAPI\Client\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request webhook_endpoint_patch_request (required)
+     * @param  \InvoicePDFs\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request webhook_endpoint_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\WebhookEndpointResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch($endpoint_id, $webhook_endpoint_patch_request, string $contentType = self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'][0])
     {
@@ -3319,12 +3319,12 @@ class WebhooksApi
      * Update Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
-     * @param  \OpenAPI\Client\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request (required)
+     * @param  \InvoicePDFs\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\WebhookEndpointResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchWithHttpInfo($endpoint_id, $webhook_endpoint_patch_request, string $contentType = self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'][0])
     {
@@ -3367,11 +3367,11 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\WebhookEndpointResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WebhookEndpointResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\WebhookEndpointResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WebhookEndpointResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3389,16 +3389,16 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\WebhookEndpointResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WebhookEndpointResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3416,13 +3416,13 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\WebhookEndpointResponse';
+            $returnType = '\InvoicePDFs\Model\WebhookEndpointResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3455,7 +3455,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\WebhookEndpointResponse',
+                        '\InvoicePDFs\Model\WebhookEndpointResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3463,7 +3463,7 @@ class WebhooksApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3479,7 +3479,7 @@ class WebhooksApi
      * Update Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
-     * @param  \OpenAPI\Client\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request (required)
+     * @param  \InvoicePDFs\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3501,7 +3501,7 @@ class WebhooksApi
      * Update Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
-     * @param  \OpenAPI\Client\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request (required)
+     * @param  \InvoicePDFs\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3509,7 +3509,7 @@ class WebhooksApi
      */
     public function updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchAsyncWithHttpInfo($endpoint_id, $webhook_endpoint_patch_request, string $contentType = self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\WebhookEndpointResponse';
+        $returnType = '\InvoicePDFs\Model\WebhookEndpointResponse';
         $request = $this->updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchRequest($endpoint_id, $webhook_endpoint_patch_request, $contentType);
 
         return $this->client
@@ -3552,7 +3552,7 @@ class WebhooksApi
      * Create request for operation 'updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'
      *
      * @param  string $endpoint_id (required)
-     * @param  \OpenAPI\Client\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request (required)
+     * @param  \InvoicePDFs\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

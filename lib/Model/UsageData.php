@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * UsageData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class UsageData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'period' => '\OpenAPI\Client\Model\UsagePeriod',
-        'renders' => '\OpenAPI\Client\Model\UsageRenders'
+        'period' => '\InvoicePDFs\Model\UsagePeriod',
+        'renders' => '\InvoicePDFs\Model\UsageRenders'
     ];
 
     /**
@@ -305,7 +305,7 @@ class UsageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets period
      *
-     * @return \OpenAPI\Client\Model\UsagePeriod
+     * @return \InvoicePDFs\Model\UsagePeriod
      */
     public function getPeriod()
     {
@@ -315,7 +315,7 @@ class UsageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets period
      *
-     * @param \OpenAPI\Client\Model\UsagePeriod $period period
+     * @param \InvoicePDFs\Model\UsagePeriod $period period
      *
      * @return self
      */
@@ -332,7 +332,7 @@ class UsageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets renders
      *
-     * @return \OpenAPI\Client\Model\UsageRenders
+     * @return \InvoicePDFs\Model\UsageRenders
      */
     public function getRenders()
     {
@@ -342,7 +342,7 @@ class UsageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets renders
      *
-     * @param \OpenAPI\Client\Model\UsageRenders $renders renders
+     * @param \InvoicePDFs\Model\UsageRenders $renders renders
      *
      * @return self
      */

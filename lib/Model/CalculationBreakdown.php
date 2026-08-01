@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * CalculationBreakdown Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,11 +57,11 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'subtotal' => '\OpenAPI\Client\Model\Money',
-        'discount_total' => '\OpenAPI\Client\Model\Money',
-        'tax_total' => '\OpenAPI\Client\Model\Money',
-        'shipping_total' => '\OpenAPI\Client\Model\Money',
-        'total' => '\OpenAPI\Client\Model\Money'
+        'subtotal' => '\InvoicePDFs\Model\Money',
+        'discount_total' => '\InvoicePDFs\Model\Money',
+        'tax_total' => '\InvoicePDFs\Model\Money',
+        'shipping_total' => '\InvoicePDFs\Model\Money',
+        'total' => '\InvoicePDFs\Model\Money'
     ];
 
     /**
@@ -335,7 +335,7 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets subtotal
      *
-     * @return \OpenAPI\Client\Model\Money
+     * @return \InvoicePDFs\Model\Money
      */
     public function getSubtotal()
     {
@@ -345,7 +345,7 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets subtotal
      *
-     * @param \OpenAPI\Client\Model\Money $subtotal subtotal
+     * @param \InvoicePDFs\Model\Money $subtotal subtotal
      *
      * @return self
      */
@@ -362,7 +362,7 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets discount_total
      *
-     * @return \OpenAPI\Client\Model\Money
+     * @return \InvoicePDFs\Model\Money
      */
     public function getDiscountTotal()
     {
@@ -372,7 +372,7 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets discount_total
      *
-     * @param \OpenAPI\Client\Model\Money $discount_total discount_total
+     * @param \InvoicePDFs\Model\Money $discount_total discount_total
      *
      * @return self
      */
@@ -389,7 +389,7 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets tax_total
      *
-     * @return \OpenAPI\Client\Model\Money
+     * @return \InvoicePDFs\Model\Money
      */
     public function getTaxTotal()
     {
@@ -399,7 +399,7 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets tax_total
      *
-     * @param \OpenAPI\Client\Model\Money $tax_total tax_total
+     * @param \InvoicePDFs\Model\Money $tax_total tax_total
      *
      * @return self
      */
@@ -416,7 +416,7 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets shipping_total
      *
-     * @return \OpenAPI\Client\Model\Money
+     * @return \InvoicePDFs\Model\Money
      */
     public function getShippingTotal()
     {
@@ -426,7 +426,7 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets shipping_total
      *
-     * @param \OpenAPI\Client\Model\Money $shipping_total shipping_total
+     * @param \InvoicePDFs\Model\Money $shipping_total shipping_total
      *
      * @return self
      */
@@ -443,7 +443,7 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets total
      *
-     * @return \OpenAPI\Client\Model\Money
+     * @return \InvoicePDFs\Model\Money
      */
     public function getTotal()
     {
@@ -453,7 +453,7 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets total
      *
-     * @param \OpenAPI\Client\Model\Money $total total
+     * @param \InvoicePDFs\Model\Money $total total
      *
      * @return self
      */

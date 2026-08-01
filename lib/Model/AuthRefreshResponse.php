@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * AuthRefreshResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class AuthRefreshResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\AuthRefreshData'
+        'data' => '\InvoicePDFs\Model\AuthRefreshData'
     ];
 
     /**
@@ -295,7 +295,7 @@ class AuthRefreshResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\AuthRefreshData
+     * @return \InvoicePDFs\Model\AuthRefreshData
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class AuthRefreshResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\AuthRefreshData $data data
+     * @param \InvoicePDFs\Model\AuthRefreshData $data data
      *
      * @return self
      */

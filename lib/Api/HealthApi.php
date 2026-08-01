@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * HealthApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -135,9 +135,9 @@ class HealthApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthHealthGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\HealthResponse
+     * @return \InvoicePDFs\Model\HealthResponse
      */
     public function healthHealthGet(string $contentType = self::contentTypes['healthHealthGet'][0])
     {
@@ -152,9 +152,9 @@ class HealthApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthHealthGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\HealthResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\HealthResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function healthHealthGetWithHttpInfo(string $contentType = self::contentTypes['healthHealthGet'][0])
     {
@@ -197,11 +197,11 @@ class HealthApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\HealthResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HealthResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HealthResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\HealthResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -219,13 +219,13 @@ class HealthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HealthResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HealthResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\HealthResponse';
+            $returnType = '\InvoicePDFs\Model\HealthResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -258,7 +258,7 @@ class HealthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HealthResponse',
+                        '\InvoicePDFs\Model\HealthResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -300,7 +300,7 @@ class HealthApi
      */
     public function healthHealthGetAsyncWithHttpInfo(string $contentType = self::contentTypes['healthHealthGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\HealthResponse';
+        $returnType = '\InvoicePDFs\Model\HealthResponse';
         $request = $this->healthHealthGetRequest($contentType);
 
         return $this->client
@@ -422,9 +422,9 @@ class HealthApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['readyReadyGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ReadyResponse
+     * @return \InvoicePDFs\Model\ReadyResponse
      */
     public function readyReadyGet(string $contentType = self::contentTypes['readyReadyGet'][0])
     {
@@ -439,9 +439,9 @@ class HealthApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['readyReadyGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ReadyResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\ReadyResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function readyReadyGetWithHttpInfo(string $contentType = self::contentTypes['readyReadyGet'][0])
     {
@@ -484,11 +484,11 @@ class HealthApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\ReadyResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ReadyResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\ReadyResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\ReadyResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -506,13 +506,13 @@ class HealthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ReadyResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ReadyResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\ReadyResponse';
+            $returnType = '\InvoicePDFs\Model\ReadyResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -545,7 +545,7 @@ class HealthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\ReadyResponse',
+                        '\InvoicePDFs\Model\ReadyResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -587,7 +587,7 @@ class HealthApi
      */
     public function readyReadyGetAsyncWithHttpInfo(string $contentType = self::contentTypes['readyReadyGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\ReadyResponse';
+        $returnType = '\InvoicePDFs\Model\ReadyResponse';
         $request = $this->readyReadyGetRequest($contentType);
 
         return $this->client
@@ -709,9 +709,9 @@ class HealthApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['versionVersionGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\VersionResponse
+     * @return \InvoicePDFs\Model\VersionResponse
      */
     public function versionVersionGet(string $contentType = self::contentTypes['versionVersionGet'][0])
     {
@@ -726,9 +726,9 @@ class HealthApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['versionVersionGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\VersionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\VersionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function versionVersionGetWithHttpInfo(string $contentType = self::contentTypes['versionVersionGet'][0])
     {
@@ -771,11 +771,11 @@ class HealthApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\VersionResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\VersionResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\VersionResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\VersionResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -793,13 +793,13 @@ class HealthApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\VersionResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\VersionResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\VersionResponse';
+            $returnType = '\InvoicePDFs\Model\VersionResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -832,7 +832,7 @@ class HealthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\VersionResponse',
+                        '\InvoicePDFs\Model\VersionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -874,7 +874,7 @@ class HealthApi
      */
     public function versionVersionGetAsyncWithHttpInfo(string $contentType = self::contentTypes['versionVersionGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\VersionResponse';
+        $returnType = '\InvoicePDFs\Model\VersionResponse';
         $request = $this->versionVersionGetRequest($contentType);
 
         return $this->client

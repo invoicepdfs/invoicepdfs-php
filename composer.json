@@ -1,4 +1,5 @@
 {
+    "name": "invoicepdfs/invoicepdfs",
     "description": "InvoicePDFs turns a JSON document into a polished PDF — invoices, credit notes, quotes, receipts, proformas, purchase orders and delivery notes. The API validates your data, computes totals correctly (tax, discounts, shipping), and returns a downloadable, professional PDF.  This package is the official client for the InvoicePDFs API, generated from the OpenAPI specification.  Documentation: https://invoicepdfs.com",
     "keywords": [
         "openapitools",
@@ -30,9 +31,9 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": { "OpenAPI\\Client\\" : "lib/" }
+        "psr-4": { "InvoicePDFs\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "OpenAPI\\Client\\Test\\" : "test/" }
+        "psr-4": { "InvoicePDFs\\Test\\" : "test/" }
     }
 }

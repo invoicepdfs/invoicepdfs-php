@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * DocumentInvoiceDataInput Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,15 +61,15 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'issue_date' => '\DateTime',
         'due_date' => '\DateTime',
         'currency' => 'string',
-        'seller' => '\OpenAPI\Client\Model\DocumentPartyInput',
-        'buyer' => '\OpenAPI\Client\Model\DocumentPartyInput',
-        'ship_to' => '\OpenAPI\Client\Model\DocumentPartyInput',
-        'line_items' => '\OpenAPI\Client\Model\DocumentLineItemInput[]',
-        'discounts' => '\OpenAPI\Client\Model\DocumentDiscountInput[]',
-        'shipping' => '\OpenAPI\Client\Model\DocumentShippingInput',
-        'custom_fields' => '\OpenAPI\Client\Model\DocumentCustomFieldInput[]',
-        'payment' => '\OpenAPI\Client\Model\DocumentPaymentInput',
-        'branding' => '\OpenAPI\Client\Model\DocumentBrandingInput'
+        'seller' => '\InvoicePDFs\Model\DocumentPartyInput',
+        'buyer' => '\InvoicePDFs\Model\DocumentPartyInput',
+        'ship_to' => '\InvoicePDFs\Model\DocumentPartyInput',
+        'line_items' => '\InvoicePDFs\Model\DocumentLineItemInput[]',
+        'discounts' => '\InvoicePDFs\Model\DocumentDiscountInput[]',
+        'shipping' => '\InvoicePDFs\Model\DocumentShippingInput',
+        'custom_fields' => '\InvoicePDFs\Model\DocumentCustomFieldInput[]',
+        'payment' => '\InvoicePDFs\Model\DocumentPaymentInput',
+        'branding' => '\InvoicePDFs\Model\DocumentBrandingInput'
     ];
 
     /**
@@ -509,7 +509,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets seller
      *
-     * @return \OpenAPI\Client\Model\DocumentPartyInput
+     * @return \InvoicePDFs\Model\DocumentPartyInput
      */
     public function getSeller()
     {
@@ -519,7 +519,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets seller
      *
-     * @param \OpenAPI\Client\Model\DocumentPartyInput $seller seller
+     * @param \InvoicePDFs\Model\DocumentPartyInput $seller seller
      *
      * @return self
      */
@@ -536,7 +536,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets buyer
      *
-     * @return \OpenAPI\Client\Model\DocumentPartyInput
+     * @return \InvoicePDFs\Model\DocumentPartyInput
      */
     public function getBuyer()
     {
@@ -546,7 +546,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets buyer
      *
-     * @param \OpenAPI\Client\Model\DocumentPartyInput $buyer buyer
+     * @param \InvoicePDFs\Model\DocumentPartyInput $buyer buyer
      *
      * @return self
      */
@@ -563,7 +563,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets ship_to
      *
-     * @return \OpenAPI\Client\Model\DocumentPartyInput|null
+     * @return \InvoicePDFs\Model\DocumentPartyInput|null
      */
     public function getShipTo()
     {
@@ -573,7 +573,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets ship_to
      *
-     * @param \OpenAPI\Client\Model\DocumentPartyInput|null $ship_to ship_to
+     * @param \InvoicePDFs\Model\DocumentPartyInput|null $ship_to ship_to
      *
      * @return self
      */
@@ -597,7 +597,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets line_items
      *
-     * @return \OpenAPI\Client\Model\DocumentLineItemInput[]
+     * @return \InvoicePDFs\Model\DocumentLineItemInput[]
      */
     public function getLineItems()
     {
@@ -607,7 +607,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets line_items
      *
-     * @param \OpenAPI\Client\Model\DocumentLineItemInput[] $line_items line_items
+     * @param \InvoicePDFs\Model\DocumentLineItemInput[] $line_items line_items
      *
      * @return self
      */
@@ -624,7 +624,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets discounts
      *
-     * @return \OpenAPI\Client\Model\DocumentDiscountInput[]|null
+     * @return \InvoicePDFs\Model\DocumentDiscountInput[]|null
      */
     public function getDiscounts()
     {
@@ -634,7 +634,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets discounts
      *
-     * @param \OpenAPI\Client\Model\DocumentDiscountInput[]|null $discounts discounts
+     * @param \InvoicePDFs\Model\DocumentDiscountInput[]|null $discounts discounts
      *
      * @return self
      */
@@ -651,7 +651,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets shipping
      *
-     * @return \OpenAPI\Client\Model\DocumentShippingInput|null
+     * @return \InvoicePDFs\Model\DocumentShippingInput|null
      */
     public function getShipping()
     {
@@ -661,7 +661,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets shipping
      *
-     * @param \OpenAPI\Client\Model\DocumentShippingInput|null $shipping shipping
+     * @param \InvoicePDFs\Model\DocumentShippingInput|null $shipping shipping
      *
      * @return self
      */
@@ -685,7 +685,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets custom_fields
      *
-     * @return \OpenAPI\Client\Model\DocumentCustomFieldInput[]|null
+     * @return \InvoicePDFs\Model\DocumentCustomFieldInput[]|null
      */
     public function getCustomFields()
     {
@@ -695,7 +695,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets custom_fields
      *
-     * @param \OpenAPI\Client\Model\DocumentCustomFieldInput[]|null $custom_fields custom_fields
+     * @param \InvoicePDFs\Model\DocumentCustomFieldInput[]|null $custom_fields custom_fields
      *
      * @return self
      */
@@ -712,7 +712,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets payment
      *
-     * @return \OpenAPI\Client\Model\DocumentPaymentInput|null
+     * @return \InvoicePDFs\Model\DocumentPaymentInput|null
      */
     public function getPayment()
     {
@@ -722,7 +722,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets payment
      *
-     * @param \OpenAPI\Client\Model\DocumentPaymentInput|null $payment payment
+     * @param \InvoicePDFs\Model\DocumentPaymentInput|null $payment payment
      *
      * @return self
      */
@@ -746,7 +746,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets branding
      *
-     * @return \OpenAPI\Client\Model\DocumentBrandingInput|null
+     * @return \InvoicePDFs\Model\DocumentBrandingInput|null
      */
     public function getBranding()
     {
@@ -756,7 +756,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets branding
      *
-     * @param \OpenAPI\Client\Model\DocumentBrandingInput|null $branding branding
+     * @param \InvoicePDFs\Model\DocumentBrandingInput|null $branding branding
      *
      * @return self
      */

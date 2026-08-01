@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * InvoicesApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -187,9 +187,9 @@ class InvoicesApi
      * @param  string $invoice_id invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['archiveInvoiceApiV1InvoicesInvoiceIdArchivePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function archiveInvoiceApiV1InvoicesInvoiceIdArchivePost($invoice_id, string $contentType = self::contentTypes['archiveInvoiceApiV1InvoicesInvoiceIdArchivePost'][0])
     {
@@ -205,9 +205,9 @@ class InvoicesApi
      * @param  string $invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['archiveInvoiceApiV1InvoicesInvoiceIdArchivePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function archiveInvoiceApiV1InvoicesInvoiceIdArchivePostWithHttpInfo($invoice_id, string $contentType = self::contentTypes['archiveInvoiceApiV1InvoicesInvoiceIdArchivePost'][0])
     {
@@ -250,11 +250,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\InvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\InvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\InvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -272,16 +272,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\InvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -299,13 +299,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\InvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -338,7 +338,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoiceResponse',
+                        '\InvoicePDFs\Model\InvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -346,7 +346,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -390,7 +390,7 @@ class InvoicesApi
      */
     public function archiveInvoiceApiV1InvoicesInvoiceIdArchivePostAsyncWithHttpInfo($invoice_id, string $contentType = self::contentTypes['archiveInvoiceApiV1InvoicesInvoiceIdArchivePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\InvoiceResponse';
         $request = $this->archiveInvoiceApiV1InvoicesInvoiceIdArchivePostRequest($invoice_id, $contentType);
 
         return $this->client
@@ -530,12 +530,12 @@ class InvoicesApi
      *
      * Calculate Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoiceDraftRequest $invoice_draft_request invoice_draft_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceDraftRequest $invoice_draft_request invoice_draft_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateInvoiceApiV1InvoicesCalculatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\OpenAPI\Client\Model\HTTPValidationError
+     * @return array<string,mixed>|\InvoicePDFs\Model\HTTPValidationError
      */
     public function calculateInvoiceApiV1InvoicesCalculatePost($invoice_draft_request, string $contentType = self::contentTypes['calculateInvoiceApiV1InvoicesCalculatePost'][0])
     {
@@ -548,12 +548,12 @@ class InvoicesApi
      *
      * Calculate Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoiceDraftRequest $invoice_draft_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceDraftRequest $invoice_draft_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateInvoiceApiV1InvoicesCalculatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,mixed>|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function calculateInvoiceApiV1InvoicesCalculatePostWithHttpInfo($invoice_draft_request, string $contentType = self::contentTypes['calculateInvoiceApiV1InvoicesCalculatePost'][0])
     {
@@ -623,11 +623,11 @@ class InvoicesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -645,7 +645,7 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -692,7 +692,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -707,7 +707,7 @@ class InvoicesApi
      *
      * Calculate Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoiceDraftRequest $invoice_draft_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceDraftRequest $invoice_draft_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateInvoiceApiV1InvoicesCalculatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -728,7 +728,7 @@ class InvoicesApi
      *
      * Calculate Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoiceDraftRequest $invoice_draft_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceDraftRequest $invoice_draft_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateInvoiceApiV1InvoicesCalculatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -778,7 +778,7 @@ class InvoicesApi
     /**
      * Create request for operation 'calculateInvoiceApiV1InvoicesCalculatePost'
      *
-     * @param  \OpenAPI\Client\Model\InvoiceDraftRequest $invoice_draft_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceDraftRequest $invoice_draft_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateInvoiceApiV1InvoicesCalculatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -875,13 +875,13 @@ class InvoicesApi
      *
      * Create Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoiceCreateRequest $invoice_create_request invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceCreateRequest $invoice_create_request invoice_create_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInvoiceApiV1InvoicesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function createInvoiceApiV1InvoicesPost($invoice_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createInvoiceApiV1InvoicesPost'][0])
     {
@@ -894,13 +894,13 @@ class InvoicesApi
      *
      * Create Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoiceCreateRequest $invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceCreateRequest $invoice_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInvoiceApiV1InvoicesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createInvoiceApiV1InvoicesPostWithHttpInfo($invoice_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createInvoiceApiV1InvoicesPost'][0])
     {
@@ -943,11 +943,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\InvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\InvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\InvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -965,16 +965,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\InvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -992,13 +992,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\InvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1031,7 +1031,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoiceResponse',
+                        '\InvoicePDFs\Model\InvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1039,7 +1039,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1054,7 +1054,7 @@ class InvoicesApi
      *
      * Create Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoiceCreateRequest $invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceCreateRequest $invoice_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInvoiceApiV1InvoicesPost'] to see the possible values for this operation
      *
@@ -1076,7 +1076,7 @@ class InvoicesApi
      *
      * Create Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoiceCreateRequest $invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceCreateRequest $invoice_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInvoiceApiV1InvoicesPost'] to see the possible values for this operation
      *
@@ -1085,7 +1085,7 @@ class InvoicesApi
      */
     public function createInvoiceApiV1InvoicesPostAsyncWithHttpInfo($invoice_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createInvoiceApiV1InvoicesPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\InvoiceResponse';
         $request = $this->createInvoiceApiV1InvoicesPostRequest($invoice_create_request, $idempotency_key, $contentType);
 
         return $this->client
@@ -1127,7 +1127,7 @@ class InvoicesApi
     /**
      * Create request for operation 'createInvoiceApiV1InvoicesPost'
      *
-     * @param  \OpenAPI\Client\Model\InvoiceCreateRequest $invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceCreateRequest $invoice_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInvoiceApiV1InvoicesPost'] to see the possible values for this operation
      *
@@ -1233,9 +1233,9 @@ class InvoicesApi
      * @param  string $invoice_id invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteInvoiceApiV1InvoicesInvoiceIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SimpleBoolResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function deleteInvoiceApiV1InvoicesInvoiceIdDelete($invoice_id, string $contentType = self::contentTypes['deleteInvoiceApiV1InvoicesInvoiceIdDelete'][0])
     {
@@ -1251,9 +1251,9 @@ class InvoicesApi
      * @param  string $invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteInvoiceApiV1InvoicesInvoiceIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SimpleBoolResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteInvoiceApiV1InvoicesInvoiceIdDeleteWithHttpInfo($invoice_id, string $contentType = self::contentTypes['deleteInvoiceApiV1InvoicesInvoiceIdDelete'][0])
     {
@@ -1296,11 +1296,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SimpleBoolResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\SimpleBoolResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\SimpleBoolResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\SimpleBoolResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1318,16 +1318,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SimpleBoolResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\SimpleBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1345,13 +1345,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+            $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1384,7 +1384,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SimpleBoolResponse',
+                        '\InvoicePDFs\Model\SimpleBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1392,7 +1392,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1436,7 +1436,7 @@ class InvoicesApi
      */
     public function deleteInvoiceApiV1InvoicesInvoiceIdDeleteAsyncWithHttpInfo($invoice_id, string $contentType = self::contentTypes['deleteInvoiceApiV1InvoicesInvoiceIdDelete'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+        $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
         $request = $this->deleteInvoiceApiV1InvoicesInvoiceIdDeleteRequest($invoice_id, $contentType);
 
         return $this->client
@@ -1579,9 +1579,9 @@ class InvoicesApi
      * @param  string $invoice_id invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateInvoiceApiV1InvoicesInvoiceIdDuplicatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function duplicateInvoiceApiV1InvoicesInvoiceIdDuplicatePost($invoice_id, string $contentType = self::contentTypes['duplicateInvoiceApiV1InvoicesInvoiceIdDuplicatePost'][0])
     {
@@ -1597,9 +1597,9 @@ class InvoicesApi
      * @param  string $invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateInvoiceApiV1InvoicesInvoiceIdDuplicatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function duplicateInvoiceApiV1InvoicesInvoiceIdDuplicatePostWithHttpInfo($invoice_id, string $contentType = self::contentTypes['duplicateInvoiceApiV1InvoicesInvoiceIdDuplicatePost'][0])
     {
@@ -1642,11 +1642,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\InvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\InvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\InvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1664,16 +1664,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\InvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1691,13 +1691,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\InvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1730,7 +1730,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoiceResponse',
+                        '\InvoicePDFs\Model\InvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1738,7 +1738,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1782,7 +1782,7 @@ class InvoicesApi
      */
     public function duplicateInvoiceApiV1InvoicesInvoiceIdDuplicatePostAsyncWithHttpInfo($invoice_id, string $contentType = self::contentTypes['duplicateInvoiceApiV1InvoicesInvoiceIdDuplicatePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\InvoiceResponse';
         $request = $this->duplicateInvoiceApiV1InvoicesInvoiceIdDuplicatePostRequest($invoice_id, $contentType);
 
         return $this->client
@@ -1926,9 +1926,9 @@ class InvoicesApi
      * @param  string $idempotency_key idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeInvoiceApiV1InvoicesInvoiceIdFinalizePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\OpenAPI\Client\Model\HTTPValidationError
+     * @return array<string,mixed>|\InvoicePDFs\Model\HTTPValidationError
      */
     public function finalizeInvoiceApiV1InvoicesInvoiceIdFinalizePost($invoice_id, $idempotency_key = null, string $contentType = self::contentTypes['finalizeInvoiceApiV1InvoicesInvoiceIdFinalizePost'][0])
     {
@@ -1945,9 +1945,9 @@ class InvoicesApi
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeInvoiceApiV1InvoicesInvoiceIdFinalizePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,mixed>|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function finalizeInvoiceApiV1InvoicesInvoiceIdFinalizePostWithHttpInfo($invoice_id, $idempotency_key = null, string $contentType = self::contentTypes['finalizeInvoiceApiV1InvoicesInvoiceIdFinalizePost'][0])
     {
@@ -2017,11 +2017,11 @@ class InvoicesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2039,7 +2039,7 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2086,7 +2086,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2281,9 +2281,9 @@ class InvoicesApi
      * @param  string $invoice_id invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceApiV1InvoicesInvoiceIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function getInvoiceApiV1InvoicesInvoiceIdGet($invoice_id, string $contentType = self::contentTypes['getInvoiceApiV1InvoicesInvoiceIdGet'][0])
     {
@@ -2299,9 +2299,9 @@ class InvoicesApi
      * @param  string $invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInvoiceApiV1InvoicesInvoiceIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getInvoiceApiV1InvoicesInvoiceIdGetWithHttpInfo($invoice_id, string $contentType = self::contentTypes['getInvoiceApiV1InvoicesInvoiceIdGet'][0])
     {
@@ -2344,11 +2344,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\InvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\InvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\InvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2366,16 +2366,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\InvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2393,13 +2393,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\InvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2432,7 +2432,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoiceResponse',
+                        '\InvoicePDFs\Model\InvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2440,7 +2440,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2484,7 +2484,7 @@ class InvoicesApi
      */
     public function getInvoiceApiV1InvoicesInvoiceIdGetAsyncWithHttpInfo($invoice_id, string $contentType = self::contentTypes['getInvoiceApiV1InvoicesInvoiceIdGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\InvoiceResponse';
         $request = $this->getInvoiceApiV1InvoicesInvoiceIdGetRequest($invoice_id, $contentType);
 
         return $this->client
@@ -2629,9 +2629,9 @@ class InvoicesApi
      * @param  string $cursor cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listInvoiceDeliveriesApiV1InvoicesInvoiceIdDeliveriesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\DeliveriesListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\DeliveriesListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listInvoiceDeliveriesApiV1InvoicesInvoiceIdDeliveriesGet($invoice_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listInvoiceDeliveriesApiV1InvoicesInvoiceIdDeliveriesGet'][0])
     {
@@ -2649,9 +2649,9 @@ class InvoicesApi
      * @param  string $cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listInvoiceDeliveriesApiV1InvoicesInvoiceIdDeliveriesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\DeliveriesListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\DeliveriesListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listInvoiceDeliveriesApiV1InvoicesInvoiceIdDeliveriesGetWithHttpInfo($invoice_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listInvoiceDeliveriesApiV1InvoicesInvoiceIdDeliveriesGet'][0])
     {
@@ -2694,11 +2694,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\DeliveriesListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\DeliveriesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\DeliveriesListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\DeliveriesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2716,16 +2716,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DeliveriesListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\DeliveriesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2743,13 +2743,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\DeliveriesListResponse';
+            $returnType = '\InvoicePDFs\Model\DeliveriesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2782,7 +2782,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\DeliveriesListResponse',
+                        '\InvoicePDFs\Model\DeliveriesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2790,7 +2790,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2838,7 +2838,7 @@ class InvoicesApi
      */
     public function listInvoiceDeliveriesApiV1InvoicesInvoiceIdDeliveriesGetAsyncWithHttpInfo($invoice_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listInvoiceDeliveriesApiV1InvoicesInvoiceIdDeliveriesGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\DeliveriesListResponse';
+        $returnType = '\InvoicePDFs\Model\DeliveriesListResponse';
         $request = $this->listInvoiceDeliveriesApiV1InvoicesInvoiceIdDeliveriesGetRequest($invoice_id, $limit, $cursor, $contentType);
 
         return $this->client
@@ -3011,9 +3011,9 @@ class InvoicesApi
      * @param  string $status status (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listInvoicesApiV1InvoicesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoicesListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\InvoicesListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listInvoicesApiV1InvoicesGet($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listInvoicesApiV1InvoicesGet'][0])
     {
@@ -3031,9 +3031,9 @@ class InvoicesApi
      * @param  string $status (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listInvoicesApiV1InvoicesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoicesListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\InvoicesListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listInvoicesApiV1InvoicesGetWithHttpInfo($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listInvoicesApiV1InvoicesGet'][0])
     {
@@ -3076,11 +3076,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoicesListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\InvoicesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\InvoicesListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\InvoicesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3098,16 +3098,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoicesListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\InvoicesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3125,13 +3125,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoicesListResponse';
+            $returnType = '\InvoicePDFs\Model\InvoicesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3164,7 +3164,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoicesListResponse',
+                        '\InvoicePDFs\Model\InvoicesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3172,7 +3172,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3220,7 +3220,7 @@ class InvoicesApi
      */
     public function listInvoicesApiV1InvoicesGetAsyncWithHttpInfo($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listInvoicesApiV1InvoicesGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\InvoicesListResponse';
+        $returnType = '\InvoicePDFs\Model\InvoicesListResponse';
         $request = $this->listInvoicesApiV1InvoicesGetRequest($limit, $cursor, $status, $contentType);
 
         return $this->client
@@ -3386,9 +3386,9 @@ class InvoicesApi
      * @param  string $invoice_id invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markPaidApiV1InvoicesInvoiceIdMarkPaidPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function markPaidApiV1InvoicesInvoiceIdMarkPaidPost($invoice_id, string $contentType = self::contentTypes['markPaidApiV1InvoicesInvoiceIdMarkPaidPost'][0])
     {
@@ -3404,9 +3404,9 @@ class InvoicesApi
      * @param  string $invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markPaidApiV1InvoicesInvoiceIdMarkPaidPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function markPaidApiV1InvoicesInvoiceIdMarkPaidPostWithHttpInfo($invoice_id, string $contentType = self::contentTypes['markPaidApiV1InvoicesInvoiceIdMarkPaidPost'][0])
     {
@@ -3449,11 +3449,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\InvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\InvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\InvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3471,16 +3471,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\InvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3498,13 +3498,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\InvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3537,7 +3537,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoiceResponse',
+                        '\InvoicePDFs\Model\InvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3545,7 +3545,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3589,7 +3589,7 @@ class InvoicesApi
      */
     public function markPaidApiV1InvoicesInvoiceIdMarkPaidPostAsyncWithHttpInfo($invoice_id, string $contentType = self::contentTypes['markPaidApiV1InvoicesInvoiceIdMarkPaidPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\InvoiceResponse';
         $request = $this->markPaidApiV1InvoicesInvoiceIdMarkPaidPostRequest($invoice_id, $contentType);
 
         return $this->client
@@ -3732,9 +3732,9 @@ class InvoicesApi
      * @param  string $invoice_id invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markSentApiV1InvoicesInvoiceIdMarkSentPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function markSentApiV1InvoicesInvoiceIdMarkSentPost($invoice_id, string $contentType = self::contentTypes['markSentApiV1InvoicesInvoiceIdMarkSentPost'][0])
     {
@@ -3750,9 +3750,9 @@ class InvoicesApi
      * @param  string $invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markSentApiV1InvoicesInvoiceIdMarkSentPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function markSentApiV1InvoicesInvoiceIdMarkSentPostWithHttpInfo($invoice_id, string $contentType = self::contentTypes['markSentApiV1InvoicesInvoiceIdMarkSentPost'][0])
     {
@@ -3795,11 +3795,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\InvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\InvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\InvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3817,16 +3817,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\InvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3844,13 +3844,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\InvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3883,7 +3883,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoiceResponse',
+                        '\InvoicePDFs\Model\InvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3891,7 +3891,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3935,7 +3935,7 @@ class InvoicesApi
      */
     public function markSentApiV1InvoicesInvoiceIdMarkSentPostAsyncWithHttpInfo($invoice_id, string $contentType = self::contentTypes['markSentApiV1InvoicesInvoiceIdMarkSentPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\InvoiceResponse';
         $request = $this->markSentApiV1InvoicesInvoiceIdMarkSentPostRequest($invoice_id, $contentType);
 
         return $this->client
@@ -4078,9 +4078,9 @@ class InvoicesApi
      * @param  string $invoice_id invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markUnpaidApiV1InvoicesInvoiceIdMarkUnpaidPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function markUnpaidApiV1InvoicesInvoiceIdMarkUnpaidPost($invoice_id, string $contentType = self::contentTypes['markUnpaidApiV1InvoicesInvoiceIdMarkUnpaidPost'][0])
     {
@@ -4096,9 +4096,9 @@ class InvoicesApi
      * @param  string $invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markUnpaidApiV1InvoicesInvoiceIdMarkUnpaidPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function markUnpaidApiV1InvoicesInvoiceIdMarkUnpaidPostWithHttpInfo($invoice_id, string $contentType = self::contentTypes['markUnpaidApiV1InvoicesInvoiceIdMarkUnpaidPost'][0])
     {
@@ -4141,11 +4141,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\InvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\InvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\InvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4163,16 +4163,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\InvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4190,13 +4190,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\InvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4229,7 +4229,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoiceResponse',
+                        '\InvoicePDFs\Model\InvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4237,7 +4237,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4281,7 +4281,7 @@ class InvoicesApi
      */
     public function markUnpaidApiV1InvoicesInvoiceIdMarkUnpaidPostAsyncWithHttpInfo($invoice_id, string $contentType = self::contentTypes['markUnpaidApiV1InvoicesInvoiceIdMarkUnpaidPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\InvoiceResponse';
         $request = $this->markUnpaidApiV1InvoicesInvoiceIdMarkUnpaidPostRequest($invoice_id, $contentType);
 
         return $this->client
@@ -4422,13 +4422,13 @@ class InvoicesApi
      * Patch Invoice
      *
      * @param  string $invoice_id invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoicePatchRequest $invoice_patch_request invoice_patch_request (required)
+     * @param  \InvoicePDFs\Model\InvoicePatchRequest $invoice_patch_request invoice_patch_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceApiV1InvoicesInvoiceIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function patchInvoiceApiV1InvoicesInvoiceIdPatch($invoice_id, $invoice_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['patchInvoiceApiV1InvoicesInvoiceIdPatch'][0])
     {
@@ -4442,13 +4442,13 @@ class InvoicesApi
      * Patch Invoice
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoicePatchRequest $invoice_patch_request (required)
+     * @param  \InvoicePDFs\Model\InvoicePatchRequest $invoice_patch_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceApiV1InvoicesInvoiceIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchInvoiceApiV1InvoicesInvoiceIdPatchWithHttpInfo($invoice_id, $invoice_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['patchInvoiceApiV1InvoicesInvoiceIdPatch'][0])
     {
@@ -4491,11 +4491,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\InvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\InvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\InvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4513,16 +4513,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\InvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4540,13 +4540,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\InvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4579,7 +4579,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoiceResponse',
+                        '\InvoicePDFs\Model\InvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4587,7 +4587,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4603,7 +4603,7 @@ class InvoicesApi
      * Patch Invoice
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoicePatchRequest $invoice_patch_request (required)
+     * @param  \InvoicePDFs\Model\InvoicePatchRequest $invoice_patch_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceApiV1InvoicesInvoiceIdPatch'] to see the possible values for this operation
      *
@@ -4626,7 +4626,7 @@ class InvoicesApi
      * Patch Invoice
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoicePatchRequest $invoice_patch_request (required)
+     * @param  \InvoicePDFs\Model\InvoicePatchRequest $invoice_patch_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceApiV1InvoicesInvoiceIdPatch'] to see the possible values for this operation
      *
@@ -4635,7 +4635,7 @@ class InvoicesApi
      */
     public function patchInvoiceApiV1InvoicesInvoiceIdPatchAsyncWithHttpInfo($invoice_id, $invoice_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['patchInvoiceApiV1InvoicesInvoiceIdPatch'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\InvoiceResponse';
         $request = $this->patchInvoiceApiV1InvoicesInvoiceIdPatchRequest($invoice_id, $invoice_patch_request, $idempotency_key, $contentType);
 
         return $this->client
@@ -4678,7 +4678,7 @@ class InvoicesApi
      * Create request for operation 'patchInvoiceApiV1InvoicesInvoiceIdPatch'
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoicePatchRequest $invoice_patch_request (required)
+     * @param  \InvoicePDFs\Model\InvoicePatchRequest $invoice_patch_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchInvoiceApiV1InvoicesInvoiceIdPatch'] to see the possible values for this operation
      *
@@ -4796,12 +4796,12 @@ class InvoicesApi
      *
      * Preview Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoicePreviewRequest $invoice_preview_request invoice_preview_request (required)
+     * @param  \InvoicePDFs\Model\InvoicePreviewRequest $invoice_preview_request invoice_preview_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewInvoiceApiV1InvoicesPreviewPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
+     * @return mixed|\InvoicePDFs\Model\HTTPValidationError
      */
     public function previewInvoiceApiV1InvoicesPreviewPost($invoice_preview_request, string $contentType = self::contentTypes['previewInvoiceApiV1InvoicesPreviewPost'][0])
     {
@@ -4814,12 +4814,12 @@ class InvoicesApi
      *
      * Preview Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoicePreviewRequest $invoice_preview_request (required)
+     * @param  \InvoicePDFs\Model\InvoicePreviewRequest $invoice_preview_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewInvoiceApiV1InvoicesPreviewPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function previewInvoiceApiV1InvoicesPreviewPostWithHttpInfo($invoice_preview_request, string $contentType = self::contentTypes['previewInvoiceApiV1InvoicesPreviewPost'][0])
     {
@@ -4889,11 +4889,11 @@ class InvoicesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4911,7 +4911,7 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4958,7 +4958,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4973,7 +4973,7 @@ class InvoicesApi
      *
      * Preview Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoicePreviewRequest $invoice_preview_request (required)
+     * @param  \InvoicePDFs\Model\InvoicePreviewRequest $invoice_preview_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewInvoiceApiV1InvoicesPreviewPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4994,7 +4994,7 @@ class InvoicesApi
      *
      * Preview Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoicePreviewRequest $invoice_preview_request (required)
+     * @param  \InvoicePDFs\Model\InvoicePreviewRequest $invoice_preview_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewInvoiceApiV1InvoicesPreviewPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5044,7 +5044,7 @@ class InvoicesApi
     /**
      * Create request for operation 'previewInvoiceApiV1InvoicesPreviewPost'
      *
-     * @param  \OpenAPI\Client\Model\InvoicePreviewRequest $invoice_preview_request (required)
+     * @param  \InvoicePDFs\Model\InvoicePreviewRequest $invoice_preview_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewInvoiceApiV1InvoicesPreviewPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -5142,13 +5142,13 @@ class InvoicesApi
      * Render Invoice
      *
      * @param  string $invoice_id invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoiceRenderRequest $invoice_render_request invoice_render_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceRenderRequest $invoice_render_request invoice_render_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderInvoiceApiV1InvoicesInvoiceIdRendersPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
+     * @return mixed|\InvoicePDFs\Model\HTTPValidationError
      */
     public function renderInvoiceApiV1InvoicesInvoiceIdRendersPost($invoice_id, $invoice_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderInvoiceApiV1InvoicesInvoiceIdRendersPost'][0])
     {
@@ -5162,13 +5162,13 @@ class InvoicesApi
      * Render Invoice
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoiceRenderRequest $invoice_render_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceRenderRequest $invoice_render_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderInvoiceApiV1InvoicesInvoiceIdRendersPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function renderInvoiceApiV1InvoicesInvoiceIdRendersPostWithHttpInfo($invoice_id, $invoice_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderInvoiceApiV1InvoicesInvoiceIdRendersPost'][0])
     {
@@ -5238,11 +5238,11 @@ class InvoicesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -5260,7 +5260,7 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -5307,7 +5307,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5323,7 +5323,7 @@ class InvoicesApi
      * Render Invoice
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoiceRenderRequest $invoice_render_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceRenderRequest $invoice_render_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderInvoiceApiV1InvoicesInvoiceIdRendersPost'] to see the possible values for this operation
      *
@@ -5346,7 +5346,7 @@ class InvoicesApi
      * Render Invoice
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoiceRenderRequest $invoice_render_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceRenderRequest $invoice_render_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderInvoiceApiV1InvoicesInvoiceIdRendersPost'] to see the possible values for this operation
      *
@@ -5398,7 +5398,7 @@ class InvoicesApi
      * Create request for operation 'renderInvoiceApiV1InvoicesInvoiceIdRendersPost'
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoiceRenderRequest $invoice_render_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceRenderRequest $invoice_render_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderInvoiceApiV1InvoicesInvoiceIdRendersPost'] to see the possible values for this operation
      *
@@ -5517,13 +5517,13 @@ class InvoicesApi
      * Replace Invoice
      *
      * @param  string $invoice_id invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoiceCreateRequest $invoice_create_request invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceCreateRequest $invoice_create_request invoice_create_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['replaceInvoiceApiV1InvoicesInvoiceIdPut'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function replaceInvoiceApiV1InvoicesInvoiceIdPut($invoice_id, $invoice_create_request, $idempotency_key = null, string $contentType = self::contentTypes['replaceInvoiceApiV1InvoicesInvoiceIdPut'][0])
     {
@@ -5537,13 +5537,13 @@ class InvoicesApi
      * Replace Invoice
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoiceCreateRequest $invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceCreateRequest $invoice_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['replaceInvoiceApiV1InvoicesInvoiceIdPut'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function replaceInvoiceApiV1InvoicesInvoiceIdPutWithHttpInfo($invoice_id, $invoice_create_request, $idempotency_key = null, string $contentType = self::contentTypes['replaceInvoiceApiV1InvoicesInvoiceIdPut'][0])
     {
@@ -5586,11 +5586,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\InvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\InvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\InvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -5608,16 +5608,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\InvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -5635,13 +5635,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\InvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5674,7 +5674,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoiceResponse',
+                        '\InvoicePDFs\Model\InvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5682,7 +5682,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5698,7 +5698,7 @@ class InvoicesApi
      * Replace Invoice
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoiceCreateRequest $invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceCreateRequest $invoice_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['replaceInvoiceApiV1InvoicesInvoiceIdPut'] to see the possible values for this operation
      *
@@ -5721,7 +5721,7 @@ class InvoicesApi
      * Replace Invoice
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoiceCreateRequest $invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceCreateRequest $invoice_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['replaceInvoiceApiV1InvoicesInvoiceIdPut'] to see the possible values for this operation
      *
@@ -5730,7 +5730,7 @@ class InvoicesApi
      */
     public function replaceInvoiceApiV1InvoicesInvoiceIdPutAsyncWithHttpInfo($invoice_id, $invoice_create_request, $idempotency_key = null, string $contentType = self::contentTypes['replaceInvoiceApiV1InvoicesInvoiceIdPut'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\InvoiceResponse';
         $request = $this->replaceInvoiceApiV1InvoicesInvoiceIdPutRequest($invoice_id, $invoice_create_request, $idempotency_key, $contentType);
 
         return $this->client
@@ -5773,7 +5773,7 @@ class InvoicesApi
      * Create request for operation 'replaceInvoiceApiV1InvoicesInvoiceIdPut'
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\InvoiceCreateRequest $invoice_create_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceCreateRequest $invoice_create_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['replaceInvoiceApiV1InvoicesInvoiceIdPut'] to see the possible values for this operation
      *
@@ -5894,9 +5894,9 @@ class InvoicesApi
      * @param  string $invoice_id invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreInvoiceApiV1InvoicesInvoiceIdRestorePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function restoreInvoiceApiV1InvoicesInvoiceIdRestorePost($invoice_id, string $contentType = self::contentTypes['restoreInvoiceApiV1InvoicesInvoiceIdRestorePost'][0])
     {
@@ -5912,9 +5912,9 @@ class InvoicesApi
      * @param  string $invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreInvoiceApiV1InvoicesInvoiceIdRestorePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function restoreInvoiceApiV1InvoicesInvoiceIdRestorePostWithHttpInfo($invoice_id, string $contentType = self::contentTypes['restoreInvoiceApiV1InvoicesInvoiceIdRestorePost'][0])
     {
@@ -5957,11 +5957,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\InvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\InvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\InvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -5979,16 +5979,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\InvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6006,13 +6006,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\InvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6045,7 +6045,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoiceResponse',
+                        '\InvoicePDFs\Model\InvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6053,7 +6053,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6097,7 +6097,7 @@ class InvoicesApi
      */
     public function restoreInvoiceApiV1InvoicesInvoiceIdRestorePostAsyncWithHttpInfo($invoice_id, string $contentType = self::contentTypes['restoreInvoiceApiV1InvoicesInvoiceIdRestorePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\InvoiceResponse';
         $request = $this->restoreInvoiceApiV1InvoicesInvoiceIdRestorePostRequest($invoice_id, $contentType);
 
         return $this->client
@@ -6238,12 +6238,12 @@ class InvoicesApi
      * Send Invoice
      *
      * @param  string $invoice_id invoice_id (required)
-     * @param  \OpenAPI\Client\Model\DeliverySendRequest $delivery_send_request delivery_send_request (required)
+     * @param  \InvoicePDFs\Model\DeliverySendRequest $delivery_send_request delivery_send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendInvoiceApiV1InvoicesInvoiceIdSendPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\DeliveryResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\DeliveryResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function sendInvoiceApiV1InvoicesInvoiceIdSendPost($invoice_id, $delivery_send_request, string $contentType = self::contentTypes['sendInvoiceApiV1InvoicesInvoiceIdSendPost'][0])
     {
@@ -6257,12 +6257,12 @@ class InvoicesApi
      * Send Invoice
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\DeliverySendRequest $delivery_send_request (required)
+     * @param  \InvoicePDFs\Model\DeliverySendRequest $delivery_send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendInvoiceApiV1InvoicesInvoiceIdSendPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\DeliveryResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\DeliveryResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendInvoiceApiV1InvoicesInvoiceIdSendPostWithHttpInfo($invoice_id, $delivery_send_request, string $contentType = self::contentTypes['sendInvoiceApiV1InvoicesInvoiceIdSendPost'][0])
     {
@@ -6305,11 +6305,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\DeliveryResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\DeliveryResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\DeliveryResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\DeliveryResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6327,16 +6327,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DeliveryResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\DeliveryResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6354,13 +6354,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\DeliveryResponse';
+            $returnType = '\InvoicePDFs\Model\DeliveryResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6393,7 +6393,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\DeliveryResponse',
+                        '\InvoicePDFs\Model\DeliveryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6401,7 +6401,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6417,7 +6417,7 @@ class InvoicesApi
      * Send Invoice
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\DeliverySendRequest $delivery_send_request (required)
+     * @param  \InvoicePDFs\Model\DeliverySendRequest $delivery_send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendInvoiceApiV1InvoicesInvoiceIdSendPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6439,7 +6439,7 @@ class InvoicesApi
      * Send Invoice
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\DeliverySendRequest $delivery_send_request (required)
+     * @param  \InvoicePDFs\Model\DeliverySendRequest $delivery_send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendInvoiceApiV1InvoicesInvoiceIdSendPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6447,7 +6447,7 @@ class InvoicesApi
      */
     public function sendInvoiceApiV1InvoicesInvoiceIdSendPostAsyncWithHttpInfo($invoice_id, $delivery_send_request, string $contentType = self::contentTypes['sendInvoiceApiV1InvoicesInvoiceIdSendPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\DeliveryResponse';
+        $returnType = '\InvoicePDFs\Model\DeliveryResponse';
         $request = $this->sendInvoiceApiV1InvoicesInvoiceIdSendPostRequest($invoice_id, $delivery_send_request, $contentType);
 
         return $this->client
@@ -6490,7 +6490,7 @@ class InvoicesApi
      * Create request for operation 'sendInvoiceApiV1InvoicesInvoiceIdSendPost'
      *
      * @param  string $invoice_id (required)
-     * @param  \OpenAPI\Client\Model\DeliverySendRequest $delivery_send_request (required)
+     * @param  \InvoicePDFs\Model\DeliverySendRequest $delivery_send_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendInvoiceApiV1InvoicesInvoiceIdSendPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6602,12 +6602,12 @@ class InvoicesApi
      *
      * Validate Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoiceDraftRequest $invoice_draft_request invoice_draft_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceDraftRequest $invoice_draft_request invoice_draft_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateInvoiceApiV1InvoicesValidatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\OpenAPI\Client\Model\HTTPValidationError
+     * @return array<string,mixed>|\InvoicePDFs\Model\HTTPValidationError
      */
     public function validateInvoiceApiV1InvoicesValidatePost($invoice_draft_request, string $contentType = self::contentTypes['validateInvoiceApiV1InvoicesValidatePost'][0])
     {
@@ -6620,12 +6620,12 @@ class InvoicesApi
      *
      * Validate Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoiceDraftRequest $invoice_draft_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceDraftRequest $invoice_draft_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateInvoiceApiV1InvoicesValidatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,mixed>|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function validateInvoiceApiV1InvoicesValidatePostWithHttpInfo($invoice_draft_request, string $contentType = self::contentTypes['validateInvoiceApiV1InvoicesValidatePost'][0])
     {
@@ -6695,11 +6695,11 @@ class InvoicesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6717,7 +6717,7 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -6764,7 +6764,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6779,7 +6779,7 @@ class InvoicesApi
      *
      * Validate Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoiceDraftRequest $invoice_draft_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceDraftRequest $invoice_draft_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateInvoiceApiV1InvoicesValidatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6800,7 +6800,7 @@ class InvoicesApi
      *
      * Validate Invoice
      *
-     * @param  \OpenAPI\Client\Model\InvoiceDraftRequest $invoice_draft_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceDraftRequest $invoice_draft_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateInvoiceApiV1InvoicesValidatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6850,7 +6850,7 @@ class InvoicesApi
     /**
      * Create request for operation 'validateInvoiceApiV1InvoicesValidatePost'
      *
-     * @param  \OpenAPI\Client\Model\InvoiceDraftRequest $invoice_draft_request (required)
+     * @param  \InvoicePDFs\Model\InvoiceDraftRequest $invoice_draft_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateInvoiceApiV1InvoicesValidatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6950,9 +6950,9 @@ class InvoicesApi
      * @param  string $invoice_id invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voidInvoiceApiV1InvoicesInvoiceIdVoidPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function voidInvoiceApiV1InvoicesInvoiceIdVoidPost($invoice_id, string $contentType = self::contentTypes['voidInvoiceApiV1InvoicesInvoiceIdVoidPost'][0])
     {
@@ -6968,9 +6968,9 @@ class InvoicesApi
      * @param  string $invoice_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voidInvoiceApiV1InvoicesInvoiceIdVoidPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InvoiceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\InvoiceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function voidInvoiceApiV1InvoicesInvoiceIdVoidPostWithHttpInfo($invoice_id, string $contentType = self::contentTypes['voidInvoiceApiV1InvoicesInvoiceIdVoidPost'][0])
     {
@@ -7013,11 +7013,11 @@ class InvoicesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InvoiceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\InvoiceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\InvoiceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\InvoiceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -7035,16 +7035,16 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InvoiceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\InvoiceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -7062,13 +7062,13 @@ class InvoicesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+            $returnType = '\InvoicePDFs\Model\InvoiceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7101,7 +7101,7 @@ class InvoicesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InvoiceResponse',
+                        '\InvoicePDFs\Model\InvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7109,7 +7109,7 @@ class InvoicesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7153,7 +7153,7 @@ class InvoicesApi
      */
     public function voidInvoiceApiV1InvoicesInvoiceIdVoidPostAsyncWithHttpInfo($invoice_id, string $contentType = self::contentTypes['voidInvoiceApiV1InvoicesInvoiceIdVoidPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\InvoiceResponse';
+        $returnType = '\InvoicePDFs\Model\InvoiceResponse';
         $request = $this->voidInvoiceApiV1InvoicesInvoiceIdVoidPostRequest($invoice_id, $contentType);
 
         return $this->client

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **business_profile_id** | **string** |  |
 **customer_id** | **string** |  |
 **invoice** | **array<string,mixed>** |  |
-**totals** | [**\OpenAPI\Client\Model\InvoiceTotalsOut**](InvoiceTotalsOut.md) |  |
+**totals** | [**\InvoicePDFs\Model\InvoiceTotalsOut**](InvoiceTotalsOut.md) |  |
 **created_at** | **string** |  |
 **updated_at** | **string** |  |
 **finalized_at** | **string** |  | [optional]

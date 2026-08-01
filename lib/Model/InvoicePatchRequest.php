@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * InvoicePatchRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -65,15 +65,15 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'locale' => 'string',
         'business_profile_id' => 'string',
         'customer_id' => 'string',
-        'ship_to' => '\OpenAPI\Client\Model\PostalAddress',
-        'line_items' => '\OpenAPI\Client\Model\InvoiceLineItemInput[]',
-        'discounts' => '\OpenAPI\Client\Model\InvoiceDiscountInput[]',
-        'shipping' => '\OpenAPI\Client\Model\InvoiceShippingInput',
-        'notes' => '\OpenAPI\Client\Model\InvoiceNoteInput[]',
-        'terms' => '\OpenAPI\Client\Model\InvoiceTermInput[]',
-        'custom_fields' => '\OpenAPI\Client\Model\InvoiceCustomFieldInput[]',
-        'payment' => '\OpenAPI\Client\Model\InvoicePaymentInput',
-        'branding' => '\OpenAPI\Client\Model\InvoiceBrandingInput'
+        'ship_to' => '\InvoicePDFs\Model\PostalAddress',
+        'line_items' => '\InvoicePDFs\Model\InvoiceLineItemInput[]',
+        'discounts' => '\InvoicePDFs\Model\InvoiceDiscountInput[]',
+        'shipping' => '\InvoicePDFs\Model\InvoiceShippingInput',
+        'notes' => '\InvoicePDFs\Model\InvoiceNoteInput[]',
+        'terms' => '\InvoicePDFs\Model\InvoiceTermInput[]',
+        'custom_fields' => '\InvoicePDFs\Model\InvoiceCustomFieldInput[]',
+        'payment' => '\InvoicePDFs\Model\InvoicePaymentInput',
+        'branding' => '\InvoicePDFs\Model\InvoiceBrandingInput'
     ];
 
     /**
@@ -720,7 +720,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets ship_to
      *
-     * @return \OpenAPI\Client\Model\PostalAddress|null
+     * @return \InvoicePDFs\Model\PostalAddress|null
      */
     public function getShipTo()
     {
@@ -730,7 +730,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets ship_to
      *
-     * @param \OpenAPI\Client\Model\PostalAddress|null $ship_to ship_to
+     * @param \InvoicePDFs\Model\PostalAddress|null $ship_to ship_to
      *
      * @return self
      */
@@ -754,7 +754,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets line_items
      *
-     * @return \OpenAPI\Client\Model\InvoiceLineItemInput[]|null
+     * @return \InvoicePDFs\Model\InvoiceLineItemInput[]|null
      */
     public function getLineItems()
     {
@@ -764,7 +764,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets line_items
      *
-     * @param \OpenAPI\Client\Model\InvoiceLineItemInput[]|null $line_items line_items
+     * @param \InvoicePDFs\Model\InvoiceLineItemInput[]|null $line_items line_items
      *
      * @return self
      */
@@ -788,7 +788,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets discounts
      *
-     * @return \OpenAPI\Client\Model\InvoiceDiscountInput[]|null
+     * @return \InvoicePDFs\Model\InvoiceDiscountInput[]|null
      */
     public function getDiscounts()
     {
@@ -798,7 +798,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets discounts
      *
-     * @param \OpenAPI\Client\Model\InvoiceDiscountInput[]|null $discounts discounts
+     * @param \InvoicePDFs\Model\InvoiceDiscountInput[]|null $discounts discounts
      *
      * @return self
      */
@@ -822,7 +822,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets shipping
      *
-     * @return \OpenAPI\Client\Model\InvoiceShippingInput|null
+     * @return \InvoicePDFs\Model\InvoiceShippingInput|null
      */
     public function getShipping()
     {
@@ -832,7 +832,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets shipping
      *
-     * @param \OpenAPI\Client\Model\InvoiceShippingInput|null $shipping shipping
+     * @param \InvoicePDFs\Model\InvoiceShippingInput|null $shipping shipping
      *
      * @return self
      */
@@ -856,7 +856,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets notes
      *
-     * @return \OpenAPI\Client\Model\InvoiceNoteInput[]|null
+     * @return \InvoicePDFs\Model\InvoiceNoteInput[]|null
      */
     public function getNotes()
     {
@@ -866,7 +866,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets notes
      *
-     * @param \OpenAPI\Client\Model\InvoiceNoteInput[]|null $notes notes
+     * @param \InvoicePDFs\Model\InvoiceNoteInput[]|null $notes notes
      *
      * @return self
      */
@@ -890,7 +890,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets terms
      *
-     * @return \OpenAPI\Client\Model\InvoiceTermInput[]|null
+     * @return \InvoicePDFs\Model\InvoiceTermInput[]|null
      */
     public function getTerms()
     {
@@ -900,7 +900,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets terms
      *
-     * @param \OpenAPI\Client\Model\InvoiceTermInput[]|null $terms terms
+     * @param \InvoicePDFs\Model\InvoiceTermInput[]|null $terms terms
      *
      * @return self
      */
@@ -924,7 +924,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets custom_fields
      *
-     * @return \OpenAPI\Client\Model\InvoiceCustomFieldInput[]|null
+     * @return \InvoicePDFs\Model\InvoiceCustomFieldInput[]|null
      */
     public function getCustomFields()
     {
@@ -934,7 +934,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets custom_fields
      *
-     * @param \OpenAPI\Client\Model\InvoiceCustomFieldInput[]|null $custom_fields custom_fields
+     * @param \InvoicePDFs\Model\InvoiceCustomFieldInput[]|null $custom_fields custom_fields
      *
      * @return self
      */
@@ -958,7 +958,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets payment
      *
-     * @return \OpenAPI\Client\Model\InvoicePaymentInput|null
+     * @return \InvoicePDFs\Model\InvoicePaymentInput|null
      */
     public function getPayment()
     {
@@ -968,7 +968,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets payment
      *
-     * @param \OpenAPI\Client\Model\InvoicePaymentInput|null $payment payment
+     * @param \InvoicePDFs\Model\InvoicePaymentInput|null $payment payment
      *
      * @return self
      */
@@ -992,7 +992,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets branding
      *
-     * @return \OpenAPI\Client\Model\InvoiceBrandingInput|null
+     * @return \InvoicePDFs\Model\InvoiceBrandingInput|null
      */
     public function getBranding()
     {
@@ -1002,7 +1002,7 @@ class InvoicePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets branding
      *
-     * @param \OpenAPI\Client\Model\InvoiceBrandingInput|null $branding branding
+     * @param \InvoicePDFs\Model\InvoiceBrandingInput|null $branding branding
      *
      * @return self
      */

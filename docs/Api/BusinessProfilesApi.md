@@ -1,4 +1,4 @@
-# OpenAPI\Client\BusinessProfilesApi
+# InvoicePDFs\BusinessProfilesApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -14,7 +14,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createBusinessProfileApiV1BusinessProfilesPost()`
 
 ```php
-createBusinessProfileApiV1BusinessProfilesPost($business_profile_create, $idempotency_key): \OpenAPI\Client\Model\BusinessProfileResponse
+createBusinessProfileApiV1BusinessProfilesPost($business_profile_create, $idempotency_key): \InvoicePDFs\Model\BusinessProfileResponse
 ```
 
 Create Business Profile
@@ -27,16 +27,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessProfilesApi(
+$apiInstance = new InvoicePDFs\Api\BusinessProfilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$business_profile_create = new \OpenAPI\Client\Model\BusinessProfileCreate(); // \OpenAPI\Client\Model\BusinessProfileCreate
+$business_profile_create = new \InvoicePDFs\Model\BusinessProfileCreate(); // \InvoicePDFs\Model\BusinessProfileCreate
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
@@ -51,12 +51,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **business_profile_create** | [**\OpenAPI\Client\Model\BusinessProfileCreate**](../Model/BusinessProfileCreate.md)|  | |
+| **business_profile_create** | [**\InvoicePDFs\Model\BusinessProfileCreate**](../Model/BusinessProfileCreate.md)|  | |
 | **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BusinessProfileResponse**](../Model/BusinessProfileResponse.md)
+[**\InvoicePDFs\Model\BusinessProfileResponse**](../Model/BusinessProfileResponse.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ try {
 ## `deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete()`
 
 ```php
-deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete($business_profile_id): \OpenAPI\Client\Model\SimpleBoolResponse
+deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete($business_profile_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Business Profile
@@ -87,10 +87,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessProfilesApi(
+$apiInstance = new InvoicePDFs\Api\BusinessProfilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -114,7 +114,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
+[**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ try {
 ## `getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet()`
 
 ```php
-getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet($business_profile_id): \OpenAPI\Client\Model\BusinessProfileResponse
+getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet($business_profile_id): \InvoicePDFs\Model\BusinessProfileResponse
 ```
 
 Get Business Profile
@@ -145,10 +145,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessProfilesApi(
+$apiInstance = new InvoicePDFs\Api\BusinessProfilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -172,7 +172,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BusinessProfileResponse**](../Model/BusinessProfileResponse.md)
+[**\InvoicePDFs\Model\BusinessProfileResponse**](../Model/BusinessProfileResponse.md)
 
 ### Authorization
 
@@ -190,7 +190,7 @@ try {
 ## `listBusinessProfilesApiV1BusinessProfilesGet()`
 
 ```php
-listBusinessProfilesApiV1BusinessProfilesGet($limit, $cursor): \OpenAPI\Client\Model\BusinessProfilesListResponse
+listBusinessProfilesApiV1BusinessProfilesGet($limit, $cursor): \InvoicePDFs\Model\BusinessProfilesListResponse
 ```
 
 List Business Profiles
@@ -203,10 +203,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessProfilesApi(
+$apiInstance = new InvoicePDFs\Api\BusinessProfilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -232,7 +232,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BusinessProfilesListResponse**](../Model/BusinessProfilesListResponse.md)
+[**\InvoicePDFs\Model\BusinessProfilesListResponse**](../Model/BusinessProfilesListResponse.md)
 
 ### Authorization
 
@@ -250,7 +250,7 @@ try {
 ## `patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch()`
 
 ```php
-patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch($business_profile_id, $business_profile_patch, $idempotency_key): \OpenAPI\Client\Model\BusinessProfileResponse
+patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch($business_profile_id, $business_profile_patch, $idempotency_key): \InvoicePDFs\Model\BusinessProfileResponse
 ```
 
 Patch Business Profile
@@ -263,17 +263,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BusinessProfilesApi(
+$apiInstance = new InvoicePDFs\Api\BusinessProfilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $business_profile_id = 'business_profile_id_example'; // string
-$business_profile_patch = new \OpenAPI\Client\Model\BusinessProfilePatch(); // \OpenAPI\Client\Model\BusinessProfilePatch
+$business_profile_patch = new \InvoicePDFs\Model\BusinessProfilePatch(); // \InvoicePDFs\Model\BusinessProfilePatch
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
@@ -289,12 +289,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **business_profile_id** | **string**|  | |
-| **business_profile_patch** | [**\OpenAPI\Client\Model\BusinessProfilePatch**](../Model/BusinessProfilePatch.md)|  | |
+| **business_profile_patch** | [**\InvoicePDFs\Model\BusinessProfilePatch**](../Model/BusinessProfilePatch.md)|  | |
 | **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BusinessProfileResponse**](../Model/BusinessProfileResponse.md)
+[**\InvoicePDFs\Model\BusinessProfileResponse**](../Model/BusinessProfileResponse.md)
 
 ### Authorization
 

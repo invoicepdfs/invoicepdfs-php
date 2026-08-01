@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**loc** | [**\OpenAPI\Client\Model\LocationInner[]**](LocationInner.md) |  |
+**loc** | [**\InvoicePDFs\Model\LocationInner[]**](LocationInner.md) |  |
 **msg** | **string** |  |
 **type** | **string** |  |
 **input** | **mixed** |  | [optional]

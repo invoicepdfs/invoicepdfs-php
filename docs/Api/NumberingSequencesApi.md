@@ -1,4 +1,4 @@
-# OpenAPI\Client\NumberingSequencesApi
+# InvoicePDFs\NumberingSequencesApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -16,7 +16,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `consumeNextApiV1NumberingSequencesSequenceIdNextPost()`
 
 ```php
-consumeNextApiV1NumberingSequencesSequenceIdNextPost($sequence_id): \OpenAPI\Client\Model\NumberingSequenceResponse
+consumeNextApiV1NumberingSequencesSequenceIdNextPost($sequence_id): \InvoicePDFs\Model\NumberingSequenceResponse
 ```
 
 Consume Next
@@ -31,10 +31,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NumberingSequencesApi(
+$apiInstance = new InvoicePDFs\Api\NumberingSequencesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -58,7 +58,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NumberingSequenceResponse**](../Model/NumberingSequenceResponse.md)
+[**\InvoicePDFs\Model\NumberingSequenceResponse**](../Model/NumberingSequenceResponse.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ try {
 ## `createSequenceApiV1NumberingSequencesPost()`
 
 ```php
-createSequenceApiV1NumberingSequencesPost($numbering_sequence_create_request): \OpenAPI\Client\Model\NumberingSequenceResponse
+createSequenceApiV1NumberingSequencesPost($numbering_sequence_create_request): \InvoicePDFs\Model\NumberingSequenceResponse
 ```
 
 Create Sequence
@@ -89,16 +89,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NumberingSequencesApi(
+$apiInstance = new InvoicePDFs\Api\NumberingSequencesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$numbering_sequence_create_request = new \OpenAPI\Client\Model\NumberingSequenceCreateRequest(); // \OpenAPI\Client\Model\NumberingSequenceCreateRequest
+$numbering_sequence_create_request = new \InvoicePDFs\Model\NumberingSequenceCreateRequest(); // \InvoicePDFs\Model\NumberingSequenceCreateRequest
 
 try {
     $result = $apiInstance->createSequenceApiV1NumberingSequencesPost($numbering_sequence_create_request);
@@ -112,11 +112,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **numbering_sequence_create_request** | [**\OpenAPI\Client\Model\NumberingSequenceCreateRequest**](../Model/NumberingSequenceCreateRequest.md)|  | |
+| **numbering_sequence_create_request** | [**\InvoicePDFs\Model\NumberingSequenceCreateRequest**](../Model/NumberingSequenceCreateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NumberingSequenceResponse**](../Model/NumberingSequenceResponse.md)
+[**\InvoicePDFs\Model\NumberingSequenceResponse**](../Model/NumberingSequenceResponse.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ try {
 ## `deleteSequenceApiV1NumberingSequencesSequenceIdDelete()`
 
 ```php
-deleteSequenceApiV1NumberingSequencesSequenceIdDelete($sequence_id): \OpenAPI\Client\Model\SimpleBoolResponse
+deleteSequenceApiV1NumberingSequencesSequenceIdDelete($sequence_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Sequence
@@ -147,10 +147,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NumberingSequencesApi(
+$apiInstance = new InvoicePDFs\Api\NumberingSequencesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -174,7 +174,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
+[**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -192,7 +192,7 @@ try {
 ## `getSequenceApiV1NumberingSequencesSequenceIdGet()`
 
 ```php
-getSequenceApiV1NumberingSequencesSequenceIdGet($sequence_id): \OpenAPI\Client\Model\NumberingSequenceResponse
+getSequenceApiV1NumberingSequencesSequenceIdGet($sequence_id): \InvoicePDFs\Model\NumberingSequenceResponse
 ```
 
 Get Sequence
@@ -205,10 +205,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NumberingSequencesApi(
+$apiInstance = new InvoicePDFs\Api\NumberingSequencesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -232,7 +232,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NumberingSequenceResponse**](../Model/NumberingSequenceResponse.md)
+[**\InvoicePDFs\Model\NumberingSequenceResponse**](../Model/NumberingSequenceResponse.md)
 
 ### Authorization
 
@@ -250,7 +250,7 @@ try {
 ## `listSequencesApiV1NumberingSequencesGet()`
 
 ```php
-listSequencesApiV1NumberingSequencesGet($limit, $cursor): \OpenAPI\Client\Model\NumberingSequencesListResponse
+listSequencesApiV1NumberingSequencesGet($limit, $cursor): \InvoicePDFs\Model\NumberingSequencesListResponse
 ```
 
 List Sequences
@@ -263,10 +263,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NumberingSequencesApi(
+$apiInstance = new InvoicePDFs\Api\NumberingSequencesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -292,7 +292,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NumberingSequencesListResponse**](../Model/NumberingSequencesListResponse.md)
+[**\InvoicePDFs\Model\NumberingSequencesListResponse**](../Model/NumberingSequencesListResponse.md)
 
 ### Authorization
 
@@ -310,7 +310,7 @@ try {
 ## `previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost()`
 
 ```php
-previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost($sequence_id): \OpenAPI\Client\Model\NumberingSequencePreviewResponse
+previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost($sequence_id): \InvoicePDFs\Model\NumberingSequencePreviewResponse
 ```
 
 Preview Sequence
@@ -323,10 +323,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NumberingSequencesApi(
+$apiInstance = new InvoicePDFs\Api\NumberingSequencesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -350,7 +350,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NumberingSequencePreviewResponse**](../Model/NumberingSequencePreviewResponse.md)
+[**\InvoicePDFs\Model\NumberingSequencePreviewResponse**](../Model/NumberingSequencePreviewResponse.md)
 
 ### Authorization
 
@@ -368,7 +368,7 @@ try {
 ## `updateSequenceApiV1NumberingSequencesSequenceIdPatch()`
 
 ```php
-updateSequenceApiV1NumberingSequencesSequenceIdPatch($sequence_id, $numbering_sequence_patch_request): \OpenAPI\Client\Model\NumberingSequenceResponse
+updateSequenceApiV1NumberingSequencesSequenceIdPatch($sequence_id, $numbering_sequence_patch_request): \InvoicePDFs\Model\NumberingSequenceResponse
 ```
 
 Update Sequence
@@ -381,17 +381,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\NumberingSequencesApi(
+$apiInstance = new InvoicePDFs\Api\NumberingSequencesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $sequence_id = 'sequence_id_example'; // string
-$numbering_sequence_patch_request = new \OpenAPI\Client\Model\NumberingSequencePatchRequest(); // \OpenAPI\Client\Model\NumberingSequencePatchRequest
+$numbering_sequence_patch_request = new \InvoicePDFs\Model\NumberingSequencePatchRequest(); // \InvoicePDFs\Model\NumberingSequencePatchRequest
 
 try {
     $result = $apiInstance->updateSequenceApiV1NumberingSequencesSequenceIdPatch($sequence_id, $numbering_sequence_patch_request);
@@ -406,11 +406,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **sequence_id** | **string**|  | |
-| **numbering_sequence_patch_request** | [**\OpenAPI\Client\Model\NumberingSequencePatchRequest**](../Model/NumberingSequencePatchRequest.md)|  | |
+| **numbering_sequence_patch_request** | [**\InvoicePDFs\Model\NumberingSequencePatchRequest**](../Model/NumberingSequencePatchRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NumberingSequenceResponse**](../Model/NumberingSequenceResponse.md)
+[**\InvoicePDFs\Model\NumberingSequenceResponse**](../Model/NumberingSequenceResponse.md)
 
 ### Authorization
 

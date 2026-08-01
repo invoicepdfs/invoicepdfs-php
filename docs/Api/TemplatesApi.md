@@ -1,4 +1,4 @@
-# OpenAPI\Client\TemplatesApi
+# InvoicePDFs\TemplatesApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -20,7 +20,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createTemplateApiV1TemplatesCustomPost()`
 
 ```php
-createTemplateApiV1TemplatesCustomPost($template_create_request): \OpenAPI\Client\Model\CustomTemplateResponse
+createTemplateApiV1TemplatesCustomPost($template_create_request): \InvoicePDFs\Model\CustomTemplateResponse
 ```
 
 Create Template
@@ -33,16 +33,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TemplatesApi(
+$apiInstance = new InvoicePDFs\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$template_create_request = new \OpenAPI\Client\Model\TemplateCreateRequest(); // \OpenAPI\Client\Model\TemplateCreateRequest
+$template_create_request = new \InvoicePDFs\Model\TemplateCreateRequest(); // \InvoicePDFs\Model\TemplateCreateRequest
 
 try {
     $result = $apiInstance->createTemplateApiV1TemplatesCustomPost($template_create_request);
@@ -56,11 +56,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **template_create_request** | [**\OpenAPI\Client\Model\TemplateCreateRequest**](../Model/TemplateCreateRequest.md)|  | |
+| **template_create_request** | [**\InvoicePDFs\Model\TemplateCreateRequest**](../Model/TemplateCreateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomTemplateResponse**](../Model/CustomTemplateResponse.md)
+[**\InvoicePDFs\Model\CustomTemplateResponse**](../Model/CustomTemplateResponse.md)
 
 ### Authorization
 
@@ -91,10 +91,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TemplatesApi(
+$apiInstance = new InvoicePDFs\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -135,7 +135,7 @@ void (empty response body)
 ## `duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost()`
 
 ```php
-duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost($template_id): \OpenAPI\Client\Model\CustomTemplateResponse
+duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost($template_id): \InvoicePDFs\Model\CustomTemplateResponse
 ```
 
 Duplicate Template
@@ -148,10 +148,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TemplatesApi(
+$apiInstance = new InvoicePDFs\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -175,7 +175,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomTemplateResponse**](../Model/CustomTemplateResponse.md)
+[**\InvoicePDFs\Model\CustomTemplateResponse**](../Model/CustomTemplateResponse.md)
 
 ### Authorization
 
@@ -193,7 +193,7 @@ try {
 ## `getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet()`
 
 ```php
-getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet($template_id): \OpenAPI\Client\Model\TemplateDetailResponse
+getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet($template_id): \InvoicePDFs\Model\TemplateDetailResponse
 ```
 
 Get Builtin Template
@@ -206,10 +206,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TemplatesApi(
+$apiInstance = new InvoicePDFs\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -233,7 +233,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TemplateDetailResponse**](../Model/TemplateDetailResponse.md)
+[**\InvoicePDFs\Model\TemplateDetailResponse**](../Model/TemplateDetailResponse.md)
 
 ### Authorization
 
@@ -251,7 +251,7 @@ try {
 ## `getCustomTemplateApiV1TemplatesCustomTemplateIdGet()`
 
 ```php
-getCustomTemplateApiV1TemplatesCustomTemplateIdGet($template_id): \OpenAPI\Client\Model\CustomTemplateResponse
+getCustomTemplateApiV1TemplatesCustomTemplateIdGet($template_id): \InvoicePDFs\Model\CustomTemplateResponse
 ```
 
 Get Custom Template
@@ -264,10 +264,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TemplatesApi(
+$apiInstance = new InvoicePDFs\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -291,7 +291,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomTemplateResponse**](../Model/CustomTemplateResponse.md)
+[**\InvoicePDFs\Model\CustomTemplateResponse**](../Model/CustomTemplateResponse.md)
 
 ### Authorization
 
@@ -309,7 +309,7 @@ try {
 ## `getTemplateApiV1TemplatesTemplateIdGet()`
 
 ```php
-getTemplateApiV1TemplatesTemplateIdGet($template_id): \OpenAPI\Client\Model\TemplateDetailResponse
+getTemplateApiV1TemplatesTemplateIdGet($template_id): \InvoicePDFs\Model\TemplateDetailResponse
 ```
 
 Get Template
@@ -322,10 +322,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TemplatesApi(
+$apiInstance = new InvoicePDFs\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -349,7 +349,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TemplateDetailResponse**](../Model/TemplateDetailResponse.md)
+[**\InvoicePDFs\Model\TemplateDetailResponse**](../Model/TemplateDetailResponse.md)
 
 ### Authorization
 
@@ -367,7 +367,7 @@ try {
 ## `listCustomTemplatesApiV1TemplatesCustomGet()`
 
 ```php
-listCustomTemplatesApiV1TemplatesCustomGet($limit, $cursor): \OpenAPI\Client\Model\CustomTemplatesListResponse
+listCustomTemplatesApiV1TemplatesCustomGet($limit, $cursor): \InvoicePDFs\Model\CustomTemplatesListResponse
 ```
 
 List Custom Templates
@@ -380,10 +380,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TemplatesApi(
+$apiInstance = new InvoicePDFs\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -409,7 +409,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomTemplatesListResponse**](../Model/CustomTemplatesListResponse.md)
+[**\InvoicePDFs\Model\CustomTemplatesListResponse**](../Model/CustomTemplatesListResponse.md)
 
 ### Authorization
 
@@ -427,7 +427,7 @@ try {
 ## `patchTemplateApiV1TemplatesCustomTemplateIdPatch()`
 
 ```php
-patchTemplateApiV1TemplatesCustomTemplateIdPatch($template_id, $template_patch_request): \OpenAPI\Client\Model\CustomTemplateResponse
+patchTemplateApiV1TemplatesCustomTemplateIdPatch($template_id, $template_patch_request): \InvoicePDFs\Model\CustomTemplateResponse
 ```
 
 Patch Template
@@ -440,17 +440,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TemplatesApi(
+$apiInstance = new InvoicePDFs\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $template_id = 'template_id_example'; // string
-$template_patch_request = new \OpenAPI\Client\Model\TemplatePatchRequest(); // \OpenAPI\Client\Model\TemplatePatchRequest
+$template_patch_request = new \InvoicePDFs\Model\TemplatePatchRequest(); // \InvoicePDFs\Model\TemplatePatchRequest
 
 try {
     $result = $apiInstance->patchTemplateApiV1TemplatesCustomTemplateIdPatch($template_id, $template_patch_request);
@@ -465,11 +465,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**|  | |
-| **template_patch_request** | [**\OpenAPI\Client\Model\TemplatePatchRequest**](../Model/TemplatePatchRequest.md)|  | |
+| **template_patch_request** | [**\InvoicePDFs\Model\TemplatePatchRequest**](../Model/TemplatePatchRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomTemplateResponse**](../Model/CustomTemplateResponse.md)
+[**\InvoicePDFs\Model\CustomTemplateResponse**](../Model/CustomTemplateResponse.md)
 
 ### Authorization
 
@@ -500,17 +500,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TemplatesApi(
+$apiInstance = new InvoicePDFs\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $template_id = 'template_id_example'; // string
-$document_render_request = new \OpenAPI\Client\Model\DocumentRenderRequest(); // \OpenAPI\Client\Model\DocumentRenderRequest
+$document_render_request = new \InvoicePDFs\Model\DocumentRenderRequest(); // \InvoicePDFs\Model\DocumentRenderRequest
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
@@ -526,7 +526,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**|  | |
-| **document_render_request** | [**\OpenAPI\Client\Model\DocumentRenderRequest**](../Model/DocumentRenderRequest.md)|  | |
+| **document_render_request** | [**\InvoicePDFs\Model\DocumentRenderRequest**](../Model/DocumentRenderRequest.md)|  | |
 | **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
@@ -549,7 +549,7 @@ try {
 ## `publishTemplateApiV1TemplatesCustomTemplateIdPublishPost()`
 
 ```php
-publishTemplateApiV1TemplatesCustomTemplateIdPublishPost($template_id): \OpenAPI\Client\Model\CustomTemplateResponse
+publishTemplateApiV1TemplatesCustomTemplateIdPublishPost($template_id): \InvoicePDFs\Model\CustomTemplateResponse
 ```
 
 Publish Template
@@ -562,10 +562,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TemplatesApi(
+$apiInstance = new InvoicePDFs\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -589,7 +589,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CustomTemplateResponse**](../Model/CustomTemplateResponse.md)
+[**\InvoicePDFs\Model\CustomTemplateResponse**](../Model/CustomTemplateResponse.md)
 
 ### Authorization
 
@@ -607,7 +607,7 @@ try {
 ## `templatesApiV1TemplatesGet()`
 
 ```php
-templatesApiV1TemplatesGet(): \OpenAPI\Client\Model\TemplatesListResponse
+templatesApiV1TemplatesGet(): \InvoicePDFs\Model\TemplatesListResponse
 ```
 
 Templates
@@ -620,10 +620,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TemplatesApi(
+$apiInstance = new InvoicePDFs\Api\TemplatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -644,7 +644,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TemplatesListResponse**](../Model/TemplatesListResponse.md)
+[**\InvoicePDFs\Model\TemplatesListResponse**](../Model/TemplatesListResponse.md)
 
 ### Authorization
 

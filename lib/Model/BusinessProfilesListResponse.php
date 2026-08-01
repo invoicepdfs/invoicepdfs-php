@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * BusinessProfilesListResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class BusinessProfilesListResponse implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\BusinessProfileOut[]',
-        'pagination' => '\OpenAPI\Client\Model\CursorPagination'
+        'data' => '\InvoicePDFs\Model\BusinessProfileOut[]',
+        'pagination' => '\InvoicePDFs\Model\CursorPagination'
     ];
 
     /**
@@ -302,7 +302,7 @@ class BusinessProfilesListResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\BusinessProfileOut[]
+     * @return \InvoicePDFs\Model\BusinessProfileOut[]
      */
     public function getData()
     {
@@ -312,7 +312,7 @@ class BusinessProfilesListResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\BusinessProfileOut[] $data data
+     * @param \InvoicePDFs\Model\BusinessProfileOut[] $data data
      *
      * @return self
      */
@@ -329,7 +329,7 @@ class BusinessProfilesListResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets pagination
      *
-     * @return \OpenAPI\Client\Model\CursorPagination|null
+     * @return \InvoicePDFs\Model\CursorPagination|null
      */
     public function getPagination()
     {
@@ -339,7 +339,7 @@ class BusinessProfilesListResponse implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets pagination
      *
-     * @param \OpenAPI\Client\Model\CursorPagination|null $pagination pagination
+     * @param \InvoicePDFs\Model\CursorPagination|null $pagination pagination
      *
      * @return self
      */

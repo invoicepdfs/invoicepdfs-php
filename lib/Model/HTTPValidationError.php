@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * HTTPValidationError Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class HTTPValidationError implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'detail' => '\OpenAPI\Client\Model\ValidationError[]'
+        'detail' => '\InvoicePDFs\Model\ValidationError[]'
     ];
 
     /**
@@ -292,7 +292,7 @@ class HTTPValidationError implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets detail
      *
-     * @return \OpenAPI\Client\Model\ValidationError[]|null
+     * @return \InvoicePDFs\Model\ValidationError[]|null
      */
     public function getDetail()
     {
@@ -302,7 +302,7 @@ class HTTPValidationError implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets detail
      *
-     * @param \OpenAPI\Client\Model\ValidationError[]|null $detail detail
+     * @param \InvoicePDFs\Model\ValidationError[]|null $detail detail
      *
      * @return self
      */

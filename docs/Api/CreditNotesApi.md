@@ -1,4 +1,4 @@
-# OpenAPI\Client\CreditNotesApi
+# InvoicePDFs\CreditNotesApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -14,7 +14,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createCreditNoteApiV1CreditNotesPost()`
 
 ```php
-createCreditNoteApiV1CreditNotesPost($credit_note_create_request): \OpenAPI\Client\Model\CreditNoteResponse
+createCreditNoteApiV1CreditNotesPost($credit_note_create_request): \InvoicePDFs\Model\CreditNoteResponse
 ```
 
 Create Credit Note
@@ -27,16 +27,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CreditNotesApi(
+$apiInstance = new InvoicePDFs\Api\CreditNotesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$credit_note_create_request = new \OpenAPI\Client\Model\CreditNoteCreateRequest(); // \OpenAPI\Client\Model\CreditNoteCreateRequest
+$credit_note_create_request = new \InvoicePDFs\Model\CreditNoteCreateRequest(); // \InvoicePDFs\Model\CreditNoteCreateRequest
 
 try {
     $result = $apiInstance->createCreditNoteApiV1CreditNotesPost($credit_note_create_request);
@@ -50,11 +50,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **credit_note_create_request** | [**\OpenAPI\Client\Model\CreditNoteCreateRequest**](../Model/CreditNoteCreateRequest.md)|  | |
+| **credit_note_create_request** | [**\InvoicePDFs\Model\CreditNoteCreateRequest**](../Model/CreditNoteCreateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreditNoteResponse**](../Model/CreditNoteResponse.md)
+[**\InvoicePDFs\Model\CreditNoteResponse**](../Model/CreditNoteResponse.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ try {
 ## `finalizeCreditNoteApiV1CreditNotesCreditNoteIdFinalizePost()`
 
 ```php
-finalizeCreditNoteApiV1CreditNotesCreditNoteIdFinalizePost($credit_note_id): \OpenAPI\Client\Model\CreditNoteResponse
+finalizeCreditNoteApiV1CreditNotesCreditNoteIdFinalizePost($credit_note_id): \InvoicePDFs\Model\CreditNoteResponse
 ```
 
 Finalize Credit Note
@@ -85,10 +85,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CreditNotesApi(
+$apiInstance = new InvoicePDFs\Api\CreditNotesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -112,7 +112,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreditNoteResponse**](../Model/CreditNoteResponse.md)
+[**\InvoicePDFs\Model\CreditNoteResponse**](../Model/CreditNoteResponse.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ try {
 ## `getCreditNoteApiV1CreditNotesCreditNoteIdGet()`
 
 ```php
-getCreditNoteApiV1CreditNotesCreditNoteIdGet($credit_note_id): \OpenAPI\Client\Model\CreditNoteResponse
+getCreditNoteApiV1CreditNotesCreditNoteIdGet($credit_note_id): \InvoicePDFs\Model\CreditNoteResponse
 ```
 
 Get Credit Note
@@ -143,10 +143,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CreditNotesApi(
+$apiInstance = new InvoicePDFs\Api\CreditNotesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -170,7 +170,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreditNoteResponse**](../Model/CreditNoteResponse.md)
+[**\InvoicePDFs\Model\CreditNoteResponse**](../Model/CreditNoteResponse.md)
 
 ### Authorization
 
@@ -188,7 +188,7 @@ try {
 ## `listCreditNotesApiV1CreditNotesGet()`
 
 ```php
-listCreditNotesApiV1CreditNotesGet($limit, $cursor): \OpenAPI\Client\Model\CreditNotesListResponse
+listCreditNotesApiV1CreditNotesGet($limit, $cursor): \InvoicePDFs\Model\CreditNotesListResponse
 ```
 
 List Credit Notes
@@ -201,10 +201,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CreditNotesApi(
+$apiInstance = new InvoicePDFs\Api\CreditNotesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -230,7 +230,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreditNotesListResponse**](../Model/CreditNotesListResponse.md)
+[**\InvoicePDFs\Model\CreditNotesListResponse**](../Model/CreditNotesListResponse.md)
 
 ### Authorization
 
@@ -261,17 +261,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CreditNotesApi(
+$apiInstance = new InvoicePDFs\Api\CreditNotesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $credit_note_id = 'credit_note_id_example'; // string
-$credit_note_render_request = new \OpenAPI\Client\Model\CreditNoteRenderRequest(); // \OpenAPI\Client\Model\CreditNoteRenderRequest
+$credit_note_render_request = new \InvoicePDFs\Model\CreditNoteRenderRequest(); // \InvoicePDFs\Model\CreditNoteRenderRequest
 
 try {
     $result = $apiInstance->renderCreditNoteApiV1CreditNotesCreditNoteIdRendersPost($credit_note_id, $credit_note_render_request);
@@ -286,7 +286,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **credit_note_id** | **string**|  | |
-| **credit_note_render_request** | [**\OpenAPI\Client\Model\CreditNoteRenderRequest**](../Model/CreditNoteRenderRequest.md)|  | [optional] |
+| **credit_note_render_request** | [**\InvoicePDFs\Model\CreditNoteRenderRequest**](../Model/CreditNoteRenderRequest.md)|  | [optional] |
 
 ### Return type
 

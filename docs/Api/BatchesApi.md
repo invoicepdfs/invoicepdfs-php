@@ -1,4 +1,4 @@
-# OpenAPI\Client\BatchesApi
+# InvoicePDFs\BatchesApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -15,7 +15,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `cancelBatchApiV1BatchesBatchIdCancelPost()`
 
 ```php
-cancelBatchApiV1BatchesBatchIdCancelPost($batch_id): \OpenAPI\Client\Model\BatchResponse
+cancelBatchApiV1BatchesBatchIdCancelPost($batch_id): \InvoicePDFs\Model\BatchResponse
 ```
 
 Cancel Batch
@@ -28,10 +28,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BatchesApi(
+$apiInstance = new InvoicePDFs\Api\BatchesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -55,7 +55,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BatchResponse**](../Model/BatchResponse.md)
+[**\InvoicePDFs\Model\BatchResponse**](../Model/BatchResponse.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ try {
 ## `createBatchApiV1BatchesPost()`
 
 ```php
-createBatchApiV1BatchesPost($batch_create_request): \OpenAPI\Client\Model\BatchResponse
+createBatchApiV1BatchesPost($batch_create_request): \InvoicePDFs\Model\BatchResponse
 ```
 
 Create Batch
@@ -86,16 +86,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BatchesApi(
+$apiInstance = new InvoicePDFs\Api\BatchesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$batch_create_request = new \OpenAPI\Client\Model\BatchCreateRequest(); // \OpenAPI\Client\Model\BatchCreateRequest
+$batch_create_request = new \InvoicePDFs\Model\BatchCreateRequest(); // \InvoicePDFs\Model\BatchCreateRequest
 
 try {
     $result = $apiInstance->createBatchApiV1BatchesPost($batch_create_request);
@@ -109,11 +109,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **batch_create_request** | [**\OpenAPI\Client\Model\BatchCreateRequest**](../Model/BatchCreateRequest.md)|  | |
+| **batch_create_request** | [**\InvoicePDFs\Model\BatchCreateRequest**](../Model/BatchCreateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BatchResponse**](../Model/BatchResponse.md)
+[**\InvoicePDFs\Model\BatchResponse**](../Model/BatchResponse.md)
 
 ### Authorization
 
@@ -144,10 +144,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BatchesApi(
+$apiInstance = new InvoicePDFs\Api\BatchesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -189,7 +189,7 @@ try {
 ## `getBatchApiV1BatchesBatchIdGet()`
 
 ```php
-getBatchApiV1BatchesBatchIdGet($batch_id): \OpenAPI\Client\Model\BatchResponse
+getBatchApiV1BatchesBatchIdGet($batch_id): \InvoicePDFs\Model\BatchResponse
 ```
 
 Get Batch
@@ -202,10 +202,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BatchesApi(
+$apiInstance = new InvoicePDFs\Api\BatchesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -229,7 +229,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BatchResponse**](../Model/BatchResponse.md)
+[**\InvoicePDFs\Model\BatchResponse**](../Model/BatchResponse.md)
 
 ### Authorization
 
@@ -247,7 +247,7 @@ try {
 ## `listBatchItemsApiV1BatchesBatchIdItemsGet()`
 
 ```php
-listBatchItemsApiV1BatchesBatchIdItemsGet($batch_id, $limit, $cursor): \OpenAPI\Client\Model\BatchItemsListResponse
+listBatchItemsApiV1BatchesBatchIdItemsGet($batch_id, $limit, $cursor): \InvoicePDFs\Model\BatchItemsListResponse
 ```
 
 List Batch Items
@@ -260,10 +260,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BatchesApi(
+$apiInstance = new InvoicePDFs\Api\BatchesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -291,7 +291,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BatchItemsListResponse**](../Model/BatchItemsListResponse.md)
+[**\InvoicePDFs\Model\BatchItemsListResponse**](../Model/BatchItemsListResponse.md)
 
 ### Authorization
 
@@ -309,7 +309,7 @@ try {
 ## `listBatchesApiV1BatchesGet()`
 
 ```php
-listBatchesApiV1BatchesGet($limit, $cursor): \OpenAPI\Client\Model\BatchesListResponse
+listBatchesApiV1BatchesGet($limit, $cursor): \InvoicePDFs\Model\BatchesListResponse
 ```
 
 List Batches
@@ -322,10 +322,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BatchesApi(
+$apiInstance = new InvoicePDFs\Api\BatchesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -351,7 +351,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BatchesListResponse**](../Model/BatchesListResponse.md)
+[**\InvoicePDFs\Model\BatchesListResponse**](../Model/BatchesListResponse.md)
 
 ### Authorization
 

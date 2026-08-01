@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\OpenAPI\Client\Model\AuthMeData**](AuthMeData.md) |  |
+**data** | [**\InvoicePDFs\Model\AuthMeData**](AuthMeData.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

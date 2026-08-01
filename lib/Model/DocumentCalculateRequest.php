@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * DocumentCalculateRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class DocumentCalculateRequest implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'document_type' => 'string',
-        'data' => '\OpenAPI\Client\Model\DocumentInvoiceDataInput'
+        'data' => '\InvoicePDFs\Model\DocumentInvoiceDataInput'
     ];
 
     /**
@@ -361,7 +361,7 @@ class DocumentCalculateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\DocumentInvoiceDataInput
+     * @return \InvoicePDFs\Model\DocumentInvoiceDataInput
      */
     public function getData()
     {
@@ -371,7 +371,7 @@ class DocumentCalculateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\DocumentInvoiceDataInput $data data
+     * @param \InvoicePDFs\Model\DocumentInvoiceDataInput $data data
      *
      * @return self
      */

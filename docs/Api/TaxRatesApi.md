@@ -1,4 +1,4 @@
-# OpenAPI\Client\TaxRatesApi
+# InvoicePDFs\TaxRatesApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -14,7 +14,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createTaxRateApiV1TaxRatesPost()`
 
 ```php
-createTaxRateApiV1TaxRatesPost($tax_rate_create_request): \OpenAPI\Client\Model\TaxRateResponse
+createTaxRateApiV1TaxRatesPost($tax_rate_create_request): \InvoicePDFs\Model\TaxRateResponse
 ```
 
 Create Tax Rate
@@ -27,16 +27,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TaxRatesApi(
+$apiInstance = new InvoicePDFs\Api\TaxRatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$tax_rate_create_request = new \OpenAPI\Client\Model\TaxRateCreateRequest(); // \OpenAPI\Client\Model\TaxRateCreateRequest
+$tax_rate_create_request = new \InvoicePDFs\Model\TaxRateCreateRequest(); // \InvoicePDFs\Model\TaxRateCreateRequest
 
 try {
     $result = $apiInstance->createTaxRateApiV1TaxRatesPost($tax_rate_create_request);
@@ -50,11 +50,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tax_rate_create_request** | [**\OpenAPI\Client\Model\TaxRateCreateRequest**](../Model/TaxRateCreateRequest.md)|  | |
+| **tax_rate_create_request** | [**\InvoicePDFs\Model\TaxRateCreateRequest**](../Model/TaxRateCreateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TaxRateResponse**](../Model/TaxRateResponse.md)
+[**\InvoicePDFs\Model\TaxRateResponse**](../Model/TaxRateResponse.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ try {
 ## `deleteTaxRateApiV1TaxRatesTaxRateIdDelete()`
 
 ```php
-deleteTaxRateApiV1TaxRatesTaxRateIdDelete($tax_rate_id): \OpenAPI\Client\Model\SimpleBoolResponse
+deleteTaxRateApiV1TaxRatesTaxRateIdDelete($tax_rate_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Tax Rate
@@ -85,10 +85,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TaxRatesApi(
+$apiInstance = new InvoicePDFs\Api\TaxRatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -112,7 +112,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
+[**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ try {
 ## `getTaxRateApiV1TaxRatesTaxRateIdGet()`
 
 ```php
-getTaxRateApiV1TaxRatesTaxRateIdGet($tax_rate_id): \OpenAPI\Client\Model\TaxRateResponse
+getTaxRateApiV1TaxRatesTaxRateIdGet($tax_rate_id): \InvoicePDFs\Model\TaxRateResponse
 ```
 
 Get Tax Rate
@@ -143,10 +143,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TaxRatesApi(
+$apiInstance = new InvoicePDFs\Api\TaxRatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -170,7 +170,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TaxRateResponse**](../Model/TaxRateResponse.md)
+[**\InvoicePDFs\Model\TaxRateResponse**](../Model/TaxRateResponse.md)
 
 ### Authorization
 
@@ -188,7 +188,7 @@ try {
 ## `listTaxRatesApiV1TaxRatesGet()`
 
 ```php
-listTaxRatesApiV1TaxRatesGet($limit, $cursor): \OpenAPI\Client\Model\TaxRatesListResponse
+listTaxRatesApiV1TaxRatesGet($limit, $cursor): \InvoicePDFs\Model\TaxRatesListResponse
 ```
 
 List Tax Rates
@@ -201,10 +201,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TaxRatesApi(
+$apiInstance = new InvoicePDFs\Api\TaxRatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -230,7 +230,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TaxRatesListResponse**](../Model/TaxRatesListResponse.md)
+[**\InvoicePDFs\Model\TaxRatesListResponse**](../Model/TaxRatesListResponse.md)
 
 ### Authorization
 
@@ -248,7 +248,7 @@ try {
 ## `updateTaxRateApiV1TaxRatesTaxRateIdPatch()`
 
 ```php
-updateTaxRateApiV1TaxRatesTaxRateIdPatch($tax_rate_id, $tax_rate_patch_request): \OpenAPI\Client\Model\TaxRateResponse
+updateTaxRateApiV1TaxRatesTaxRateIdPatch($tax_rate_id, $tax_rate_patch_request): \InvoicePDFs\Model\TaxRateResponse
 ```
 
 Update Tax Rate
@@ -261,17 +261,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\TaxRatesApi(
+$apiInstance = new InvoicePDFs\Api\TaxRatesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $tax_rate_id = 'tax_rate_id_example'; // string
-$tax_rate_patch_request = new \OpenAPI\Client\Model\TaxRatePatchRequest(); // \OpenAPI\Client\Model\TaxRatePatchRequest
+$tax_rate_patch_request = new \InvoicePDFs\Model\TaxRatePatchRequest(); // \InvoicePDFs\Model\TaxRatePatchRequest
 
 try {
     $result = $apiInstance->updateTaxRateApiV1TaxRatesTaxRateIdPatch($tax_rate_id, $tax_rate_patch_request);
@@ -286,11 +286,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tax_rate_id** | **string**|  | |
-| **tax_rate_patch_request** | [**\OpenAPI\Client\Model\TaxRatePatchRequest**](../Model/TaxRatePatchRequest.md)|  | |
+| **tax_rate_patch_request** | [**\InvoicePDFs\Model\TaxRatePatchRequest**](../Model/TaxRatePatchRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\TaxRateResponse**](../Model/TaxRateResponse.md)
+[**\InvoicePDFs\Model\TaxRateResponse**](../Model/TaxRateResponse.md)
 
 ### Authorization
 

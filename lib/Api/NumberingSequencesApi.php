@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * NumberingSequencesApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -148,9 +148,9 @@ class NumberingSequencesApi
      * @param  string $sequence_id sequence_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\NumberingSequenceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function consumeNextApiV1NumberingSequencesSequenceIdNextPost($sequence_id, string $contentType = self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'][0])
     {
@@ -166,9 +166,9 @@ class NumberingSequencesApi
      * @param  string $sequence_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\NumberingSequenceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function consumeNextApiV1NumberingSequencesSequenceIdNextPostWithHttpInfo($sequence_id, string $contentType = self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'][0])
     {
@@ -211,11 +211,11 @@ class NumberingSequencesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\NumberingSequenceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\NumberingSequenceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\NumberingSequenceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\NumberingSequenceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -233,16 +233,16 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NumberingSequenceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\NumberingSequenceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -260,13 +260,13 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\NumberingSequenceResponse';
+            $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -299,7 +299,7 @@ class NumberingSequencesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NumberingSequenceResponse',
+                        '\InvoicePDFs\Model\NumberingSequenceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -307,7 +307,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -351,7 +351,7 @@ class NumberingSequencesApi
      */
     public function consumeNextApiV1NumberingSequencesSequenceIdNextPostAsyncWithHttpInfo($sequence_id, string $contentType = self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\NumberingSequenceResponse';
+        $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
         $request = $this->consumeNextApiV1NumberingSequencesSequenceIdNextPostRequest($sequence_id, $contentType);
 
         return $this->client
@@ -491,12 +491,12 @@ class NumberingSequencesApi
      *
      * Create Sequence
      *
-     * @param  \OpenAPI\Client\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request numbering_sequence_create_request (required)
+     * @param  \InvoicePDFs\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request numbering_sequence_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequenceApiV1NumberingSequencesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\NumberingSequenceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function createSequenceApiV1NumberingSequencesPost($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequenceApiV1NumberingSequencesPost'][0])
     {
@@ -509,12 +509,12 @@ class NumberingSequencesApi
      *
      * Create Sequence
      *
-     * @param  \OpenAPI\Client\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request (required)
+     * @param  \InvoicePDFs\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequenceApiV1NumberingSequencesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\NumberingSequenceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createSequenceApiV1NumberingSequencesPostWithHttpInfo($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequenceApiV1NumberingSequencesPost'][0])
     {
@@ -557,11 +557,11 @@ class NumberingSequencesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\NumberingSequenceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\NumberingSequenceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\NumberingSequenceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\NumberingSequenceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -579,16 +579,16 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NumberingSequenceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\NumberingSequenceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -606,13 +606,13 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\NumberingSequenceResponse';
+            $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -645,7 +645,7 @@ class NumberingSequencesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NumberingSequenceResponse',
+                        '\InvoicePDFs\Model\NumberingSequenceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -653,7 +653,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -668,7 +668,7 @@ class NumberingSequencesApi
      *
      * Create Sequence
      *
-     * @param  \OpenAPI\Client\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request (required)
+     * @param  \InvoicePDFs\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequenceApiV1NumberingSequencesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -689,7 +689,7 @@ class NumberingSequencesApi
      *
      * Create Sequence
      *
-     * @param  \OpenAPI\Client\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request (required)
+     * @param  \InvoicePDFs\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequenceApiV1NumberingSequencesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -697,7 +697,7 @@ class NumberingSequencesApi
      */
     public function createSequenceApiV1NumberingSequencesPostAsyncWithHttpInfo($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequenceApiV1NumberingSequencesPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\NumberingSequenceResponse';
+        $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
         $request = $this->createSequenceApiV1NumberingSequencesPostRequest($numbering_sequence_create_request, $contentType);
 
         return $this->client
@@ -739,7 +739,7 @@ class NumberingSequencesApi
     /**
      * Create request for operation 'createSequenceApiV1NumberingSequencesPost'
      *
-     * @param  \OpenAPI\Client\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request (required)
+     * @param  \InvoicePDFs\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequenceApiV1NumberingSequencesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -839,9 +839,9 @@ class NumberingSequencesApi
      * @param  string $sequence_id sequence_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SimpleBoolResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function deleteSequenceApiV1NumberingSequencesSequenceIdDelete($sequence_id, string $contentType = self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'][0])
     {
@@ -857,9 +857,9 @@ class NumberingSequencesApi
      * @param  string $sequence_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SimpleBoolResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteSequenceApiV1NumberingSequencesSequenceIdDeleteWithHttpInfo($sequence_id, string $contentType = self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'][0])
     {
@@ -902,11 +902,11 @@ class NumberingSequencesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SimpleBoolResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\SimpleBoolResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\SimpleBoolResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\SimpleBoolResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -924,16 +924,16 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SimpleBoolResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\SimpleBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -951,13 +951,13 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+            $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -990,7 +990,7 @@ class NumberingSequencesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SimpleBoolResponse',
+                        '\InvoicePDFs\Model\SimpleBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -998,7 +998,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1042,7 +1042,7 @@ class NumberingSequencesApi
      */
     public function deleteSequenceApiV1NumberingSequencesSequenceIdDeleteAsyncWithHttpInfo($sequence_id, string $contentType = self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+        $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
         $request = $this->deleteSequenceApiV1NumberingSequencesSequenceIdDeleteRequest($sequence_id, $contentType);
 
         return $this->client
@@ -1185,9 +1185,9 @@ class NumberingSequencesApi
      * @param  string $sequence_id sequence_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\NumberingSequenceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function getSequenceApiV1NumberingSequencesSequenceIdGet($sequence_id, string $contentType = self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'][0])
     {
@@ -1203,9 +1203,9 @@ class NumberingSequencesApi
      * @param  string $sequence_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\NumberingSequenceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSequenceApiV1NumberingSequencesSequenceIdGetWithHttpInfo($sequence_id, string $contentType = self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'][0])
     {
@@ -1248,11 +1248,11 @@ class NumberingSequencesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\NumberingSequenceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\NumberingSequenceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\NumberingSequenceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\NumberingSequenceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1270,16 +1270,16 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NumberingSequenceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\NumberingSequenceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1297,13 +1297,13 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\NumberingSequenceResponse';
+            $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1336,7 +1336,7 @@ class NumberingSequencesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NumberingSequenceResponse',
+                        '\InvoicePDFs\Model\NumberingSequenceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1344,7 +1344,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1388,7 +1388,7 @@ class NumberingSequencesApi
      */
     public function getSequenceApiV1NumberingSequencesSequenceIdGetAsyncWithHttpInfo($sequence_id, string $contentType = self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\NumberingSequenceResponse';
+        $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
         $request = $this->getSequenceApiV1NumberingSequencesSequenceIdGetRequest($sequence_id, $contentType);
 
         return $this->client
@@ -1532,9 +1532,9 @@ class NumberingSequencesApi
      * @param  string $cursor cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSequencesApiV1NumberingSequencesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\NumberingSequencesListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\NumberingSequencesListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listSequencesApiV1NumberingSequencesGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequencesApiV1NumberingSequencesGet'][0])
     {
@@ -1551,9 +1551,9 @@ class NumberingSequencesApi
      * @param  string $cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSequencesApiV1NumberingSequencesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\NumberingSequencesListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\NumberingSequencesListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listSequencesApiV1NumberingSequencesGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequencesApiV1NumberingSequencesGet'][0])
     {
@@ -1596,11 +1596,11 @@ class NumberingSequencesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\NumberingSequencesListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\NumberingSequencesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\NumberingSequencesListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\NumberingSequencesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1618,16 +1618,16 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NumberingSequencesListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\NumberingSequencesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1645,13 +1645,13 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\NumberingSequencesListResponse';
+            $returnType = '\InvoicePDFs\Model\NumberingSequencesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1684,7 +1684,7 @@ class NumberingSequencesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NumberingSequencesListResponse',
+                        '\InvoicePDFs\Model\NumberingSequencesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1692,7 +1692,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1738,7 +1738,7 @@ class NumberingSequencesApi
      */
     public function listSequencesApiV1NumberingSequencesGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequencesApiV1NumberingSequencesGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\NumberingSequencesListResponse';
+        $returnType = '\InvoicePDFs\Model\NumberingSequencesListResponse';
         $request = $this->listSequencesApiV1NumberingSequencesGetRequest($limit, $cursor, $contentType);
 
         return $this->client
@@ -1893,9 +1893,9 @@ class NumberingSequencesApi
      * @param  string $sequence_id sequence_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\NumberingSequencePreviewResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\NumberingSequencePreviewResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost($sequence_id, string $contentType = self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'][0])
     {
@@ -1911,9 +1911,9 @@ class NumberingSequencesApi
      * @param  string $sequence_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\NumberingSequencePreviewResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\NumberingSequencePreviewResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostWithHttpInfo($sequence_id, string $contentType = self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'][0])
     {
@@ -1956,11 +1956,11 @@ class NumberingSequencesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\NumberingSequencePreviewResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\NumberingSequencePreviewResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\NumberingSequencePreviewResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\NumberingSequencePreviewResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1978,16 +1978,16 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NumberingSequencePreviewResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\NumberingSequencePreviewResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2005,13 +2005,13 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\NumberingSequencePreviewResponse';
+            $returnType = '\InvoicePDFs\Model\NumberingSequencePreviewResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2044,7 +2044,7 @@ class NumberingSequencesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NumberingSequencePreviewResponse',
+                        '\InvoicePDFs\Model\NumberingSequencePreviewResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2052,7 +2052,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2096,7 +2096,7 @@ class NumberingSequencesApi
      */
     public function previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostAsyncWithHttpInfo($sequence_id, string $contentType = self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\NumberingSequencePreviewResponse';
+        $returnType = '\InvoicePDFs\Model\NumberingSequencePreviewResponse';
         $request = $this->previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostRequest($sequence_id, $contentType);
 
         return $this->client
@@ -2237,12 +2237,12 @@ class NumberingSequencesApi
      * Update Sequence
      *
      * @param  string $sequence_id sequence_id (required)
-     * @param  \OpenAPI\Client\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request numbering_sequence_patch_request (required)
+     * @param  \InvoicePDFs\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request numbering_sequence_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\NumberingSequenceResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function updateSequenceApiV1NumberingSequencesSequenceIdPatch($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'][0])
     {
@@ -2256,12 +2256,12 @@ class NumberingSequencesApi
      * Update Sequence
      *
      * @param  string $sequence_id (required)
-     * @param  \OpenAPI\Client\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request (required)
+     * @param  \InvoicePDFs\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\NumberingSequenceResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateSequenceApiV1NumberingSequencesSequenceIdPatchWithHttpInfo($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'][0])
     {
@@ -2304,11 +2304,11 @@ class NumberingSequencesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\NumberingSequenceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\NumberingSequenceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\NumberingSequenceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\NumberingSequenceResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2326,16 +2326,16 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NumberingSequenceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\NumberingSequenceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2353,13 +2353,13 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\NumberingSequenceResponse';
+            $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2392,7 +2392,7 @@ class NumberingSequencesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NumberingSequenceResponse',
+                        '\InvoicePDFs\Model\NumberingSequenceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2400,7 +2400,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2416,7 +2416,7 @@ class NumberingSequencesApi
      * Update Sequence
      *
      * @param  string $sequence_id (required)
-     * @param  \OpenAPI\Client\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request (required)
+     * @param  \InvoicePDFs\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2438,7 +2438,7 @@ class NumberingSequencesApi
      * Update Sequence
      *
      * @param  string $sequence_id (required)
-     * @param  \OpenAPI\Client\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request (required)
+     * @param  \InvoicePDFs\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2446,7 +2446,7 @@ class NumberingSequencesApi
      */
     public function updateSequenceApiV1NumberingSequencesSequenceIdPatchAsyncWithHttpInfo($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\NumberingSequenceResponse';
+        $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
         $request = $this->updateSequenceApiV1NumberingSequencesSequenceIdPatchRequest($sequence_id, $numbering_sequence_patch_request, $contentType);
 
         return $this->client
@@ -2489,7 +2489,7 @@ class NumberingSequencesApi
      * Create request for operation 'updateSequenceApiV1NumberingSequencesSequenceIdPatch'
      *
      * @param  string $sequence_id (required)
-     * @param  \OpenAPI\Client\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request (required)
+     * @param  \InvoicePDFs\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

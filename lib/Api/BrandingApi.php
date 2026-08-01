@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * BrandingApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -138,9 +138,9 @@ class BrandingApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLogoApiV1BrandingLogoDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SimpleBoolResponse
+     * @return \InvoicePDFs\Model\SimpleBoolResponse
      */
     public function deleteLogoApiV1BrandingLogoDelete(string $contentType = self::contentTypes['deleteLogoApiV1BrandingLogoDelete'][0])
     {
@@ -155,9 +155,9 @@ class BrandingApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLogoApiV1BrandingLogoDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SimpleBoolResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\SimpleBoolResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteLogoApiV1BrandingLogoDeleteWithHttpInfo(string $contentType = self::contentTypes['deleteLogoApiV1BrandingLogoDelete'][0])
     {
@@ -200,11 +200,11 @@ class BrandingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SimpleBoolResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\SimpleBoolResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\SimpleBoolResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\SimpleBoolResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -222,13 +222,13 @@ class BrandingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SimpleBoolResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\SimpleBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+            $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -261,7 +261,7 @@ class BrandingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SimpleBoolResponse',
+                        '\InvoicePDFs\Model\SimpleBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -303,7 +303,7 @@ class BrandingApi
      */
     public function deleteLogoApiV1BrandingLogoDeleteAsyncWithHttpInfo(string $contentType = self::contentTypes['deleteLogoApiV1BrandingLogoDelete'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+        $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
         $request = $this->deleteLogoApiV1BrandingLogoDeleteRequest($contentType);
 
         return $this->client
@@ -429,9 +429,9 @@ class BrandingApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBrandingApiV1BrandingGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BrandingResponse
+     * @return \InvoicePDFs\Model\BrandingResponse
      */
     public function getBrandingApiV1BrandingGet(string $contentType = self::contentTypes['getBrandingApiV1BrandingGet'][0])
     {
@@ -446,9 +446,9 @@ class BrandingApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBrandingApiV1BrandingGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BrandingResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\BrandingResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBrandingApiV1BrandingGetWithHttpInfo(string $contentType = self::contentTypes['getBrandingApiV1BrandingGet'][0])
     {
@@ -491,11 +491,11 @@ class BrandingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BrandingResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\BrandingResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\BrandingResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\BrandingResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -513,13 +513,13 @@ class BrandingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BrandingResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\BrandingResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BrandingResponse';
+            $returnType = '\InvoicePDFs\Model\BrandingResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -552,7 +552,7 @@ class BrandingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BrandingResponse',
+                        '\InvoicePDFs\Model\BrandingResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -594,7 +594,7 @@ class BrandingApi
      */
     public function getBrandingApiV1BrandingGetAsyncWithHttpInfo(string $contentType = self::contentTypes['getBrandingApiV1BrandingGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\BrandingResponse';
+        $returnType = '\InvoicePDFs\Model\BrandingResponse';
         $request = $this->getBrandingApiV1BrandingGetRequest($contentType);
 
         return $this->client
@@ -718,12 +718,12 @@ class BrandingApi
      *
      * Update Branding
      *
-     * @param  \OpenAPI\Client\Model\BrandingUpdateRequest $branding_update_request branding_update_request (required)
+     * @param  \InvoicePDFs\Model\BrandingUpdateRequest $branding_update_request branding_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBrandingApiV1BrandingPut'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BrandingResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\BrandingResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function updateBrandingApiV1BrandingPut($branding_update_request, string $contentType = self::contentTypes['updateBrandingApiV1BrandingPut'][0])
     {
@@ -736,12 +736,12 @@ class BrandingApi
      *
      * Update Branding
      *
-     * @param  \OpenAPI\Client\Model\BrandingUpdateRequest $branding_update_request (required)
+     * @param  \InvoicePDFs\Model\BrandingUpdateRequest $branding_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBrandingApiV1BrandingPut'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BrandingResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\BrandingResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateBrandingApiV1BrandingPutWithHttpInfo($branding_update_request, string $contentType = self::contentTypes['updateBrandingApiV1BrandingPut'][0])
     {
@@ -784,11 +784,11 @@ class BrandingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BrandingResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\BrandingResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\BrandingResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\BrandingResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -806,16 +806,16 @@ class BrandingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BrandingResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\BrandingResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -833,13 +833,13 @@ class BrandingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BrandingResponse';
+            $returnType = '\InvoicePDFs\Model\BrandingResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -872,7 +872,7 @@ class BrandingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BrandingResponse',
+                        '\InvoicePDFs\Model\BrandingResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -880,7 +880,7 @@ class BrandingApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -895,7 +895,7 @@ class BrandingApi
      *
      * Update Branding
      *
-     * @param  \OpenAPI\Client\Model\BrandingUpdateRequest $branding_update_request (required)
+     * @param  \InvoicePDFs\Model\BrandingUpdateRequest $branding_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBrandingApiV1BrandingPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -916,7 +916,7 @@ class BrandingApi
      *
      * Update Branding
      *
-     * @param  \OpenAPI\Client\Model\BrandingUpdateRequest $branding_update_request (required)
+     * @param  \InvoicePDFs\Model\BrandingUpdateRequest $branding_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBrandingApiV1BrandingPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -924,7 +924,7 @@ class BrandingApi
      */
     public function updateBrandingApiV1BrandingPutAsyncWithHttpInfo($branding_update_request, string $contentType = self::contentTypes['updateBrandingApiV1BrandingPut'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\BrandingResponse';
+        $returnType = '\InvoicePDFs\Model\BrandingResponse';
         $request = $this->updateBrandingApiV1BrandingPutRequest($branding_update_request, $contentType);
 
         return $this->client
@@ -966,7 +966,7 @@ class BrandingApi
     /**
      * Create request for operation 'updateBrandingApiV1BrandingPut'
      *
-     * @param  \OpenAPI\Client\Model\BrandingUpdateRequest $branding_update_request (required)
+     * @param  \InvoicePDFs\Model\BrandingUpdateRequest $branding_update_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBrandingApiV1BrandingPut'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1066,9 +1066,9 @@ class BrandingApi
      * @param  \SplFileObject $file file (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadLogoApiV1BrandingLogoPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BrandingResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\BrandingResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function uploadLogoApiV1BrandingLogoPost($file, string $contentType = self::contentTypes['uploadLogoApiV1BrandingLogoPost'][0])
     {
@@ -1084,9 +1084,9 @@ class BrandingApi
      * @param  \SplFileObject $file (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadLogoApiV1BrandingLogoPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BrandingResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\BrandingResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function uploadLogoApiV1BrandingLogoPostWithHttpInfo($file, string $contentType = self::contentTypes['uploadLogoApiV1BrandingLogoPost'][0])
     {
@@ -1129,11 +1129,11 @@ class BrandingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BrandingResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\BrandingResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\BrandingResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\BrandingResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1151,16 +1151,16 @@ class BrandingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BrandingResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\BrandingResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1178,13 +1178,13 @@ class BrandingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BrandingResponse';
+            $returnType = '\InvoicePDFs\Model\BrandingResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1217,7 +1217,7 @@ class BrandingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BrandingResponse',
+                        '\InvoicePDFs\Model\BrandingResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1225,7 +1225,7 @@ class BrandingApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1269,7 +1269,7 @@ class BrandingApi
      */
     public function uploadLogoApiV1BrandingLogoPostAsyncWithHttpInfo($file, string $contentType = self::contentTypes['uploadLogoApiV1BrandingLogoPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\BrandingResponse';
+        $returnType = '\InvoicePDFs\Model\BrandingResponse';
         $request = $this->uploadLogoApiV1BrandingLogoPostRequest($file, $contentType);
 
         return $this->client

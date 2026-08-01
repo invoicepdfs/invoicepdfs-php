@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * BusinessProfileResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class BusinessProfileResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\BusinessProfileOut'
+        'data' => '\InvoicePDFs\Model\BusinessProfileOut'
     ];
 
     /**
@@ -295,7 +295,7 @@ class BusinessProfileResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\BusinessProfileOut
+     * @return \InvoicePDFs\Model\BusinessProfileOut
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class BusinessProfileResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\BusinessProfileOut $data data
+     * @param \InvoicePDFs\Model\BusinessProfileOut $data data
      *
      * @return self
      */

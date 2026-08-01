@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * CreditNoteLineItemInput Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,7 +61,7 @@ class CreditNoteLineItemInput implements ModelInterface, ArrayAccess, \JsonSeria
         'description' => 'string',
         'quantity' => 'string',
         'unit_price' => 'string',
-        'taxes' => '\OpenAPI\Client\Model\InvoiceLineItemTaxInput[]'
+        'taxes' => '\InvoicePDFs\Model\InvoiceLineItemTaxInput[]'
     ];
 
     /**
@@ -444,7 +444,7 @@ class CreditNoteLineItemInput implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets taxes
      *
-     * @return \OpenAPI\Client\Model\InvoiceLineItemTaxInput[]|null
+     * @return \InvoicePDFs\Model\InvoiceLineItemTaxInput[]|null
      */
     public function getTaxes()
     {
@@ -454,7 +454,7 @@ class CreditNoteLineItemInput implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets taxes
      *
-     * @param \OpenAPI\Client\Model\InvoiceLineItemTaxInput[]|null $taxes taxes
+     * @param \InvoicePDFs\Model\InvoiceLineItemTaxInput[]|null $taxes taxes
      *
      * @return self
      */

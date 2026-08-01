@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * UsageApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -135,7 +135,7 @@ class UsageApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLimitsApiV1UsageLimitsGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>
      */
@@ -152,7 +152,7 @@ class UsageApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLimitsApiV1UsageLimitsGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
      */
@@ -428,9 +428,9 @@ class UsageApi
      * @param  string $cursor cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listUsageEventsApiV1UsageEventsGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\OpenAPI\Client\Model\HTTPValidationError
+     * @return array<string,mixed>|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listUsageEventsApiV1UsageEventsGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEventsApiV1UsageEventsGet'][0])
     {
@@ -447,9 +447,9 @@ class UsageApi
      * @param  string $cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listUsageEventsApiV1UsageEventsGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,mixed>|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listUsageEventsApiV1UsageEventsGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEventsApiV1UsageEventsGet'][0])
     {
@@ -519,11 +519,11 @@ class UsageApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -541,7 +541,7 @@ class UsageApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -588,7 +588,7 @@ class UsageApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -788,9 +788,9 @@ class UsageApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['usageApiV1UsageGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\UsageResponse
+     * @return \InvoicePDFs\Model\UsageResponse
      */
     public function usageApiV1UsageGet(string $contentType = self::contentTypes['usageApiV1UsageGet'][0])
     {
@@ -805,9 +805,9 @@ class UsageApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['usageApiV1UsageGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\UsageResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\UsageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function usageApiV1UsageGetWithHttpInfo(string $contentType = self::contentTypes['usageApiV1UsageGet'][0])
     {
@@ -850,11 +850,11 @@ class UsageApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\UsageResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\UsageResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\UsageResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\UsageResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -872,13 +872,13 @@ class UsageApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\UsageResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\UsageResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\UsageResponse';
+            $returnType = '\InvoicePDFs\Model\UsageResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -911,7 +911,7 @@ class UsageApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\UsageResponse',
+                        '\InvoicePDFs\Model\UsageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -953,7 +953,7 @@ class UsageApi
      */
     public function usageApiV1UsageGetAsyncWithHttpInfo(string $contentType = self::contentTypes['usageApiV1UsageGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\UsageResponse';
+        $returnType = '\InvoicePDFs\Model\UsageResponse';
         $request = $this->usageApiV1UsageGetRequest($contentType);
 
         return $this->client

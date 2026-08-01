@@ -1,4 +1,4 @@
-# OpenAPI\Client\BrandingApi
+# InvoicePDFs\BrandingApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -13,7 +13,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `deleteLogoApiV1BrandingLogoDelete()`
 
 ```php
-deleteLogoApiV1BrandingLogoDelete(): \OpenAPI\Client\Model\SimpleBoolResponse
+deleteLogoApiV1BrandingLogoDelete(): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Logo
@@ -26,10 +26,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BrandingApi(
+$apiInstance = new InvoicePDFs\Api\BrandingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -50,7 +50,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
+[**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ This endpoint does not need any parameter.
 ## `getBrandingApiV1BrandingGet()`
 
 ```php
-getBrandingApiV1BrandingGet(): \OpenAPI\Client\Model\BrandingResponse
+getBrandingApiV1BrandingGet(): \InvoicePDFs\Model\BrandingResponse
 ```
 
 Get Branding
@@ -81,10 +81,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BrandingApi(
+$apiInstance = new InvoicePDFs\Api\BrandingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -105,7 +105,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BrandingResponse**](../Model/BrandingResponse.md)
+[**\InvoicePDFs\Model\BrandingResponse**](../Model/BrandingResponse.md)
 
 ### Authorization
 
@@ -123,7 +123,7 @@ This endpoint does not need any parameter.
 ## `updateBrandingApiV1BrandingPut()`
 
 ```php
-updateBrandingApiV1BrandingPut($branding_update_request): \OpenAPI\Client\Model\BrandingResponse
+updateBrandingApiV1BrandingPut($branding_update_request): \InvoicePDFs\Model\BrandingResponse
 ```
 
 Update Branding
@@ -136,16 +136,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BrandingApi(
+$apiInstance = new InvoicePDFs\Api\BrandingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$branding_update_request = new \OpenAPI\Client\Model\BrandingUpdateRequest(); // \OpenAPI\Client\Model\BrandingUpdateRequest
+$branding_update_request = new \InvoicePDFs\Model\BrandingUpdateRequest(); // \InvoicePDFs\Model\BrandingUpdateRequest
 
 try {
     $result = $apiInstance->updateBrandingApiV1BrandingPut($branding_update_request);
@@ -159,11 +159,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **branding_update_request** | [**\OpenAPI\Client\Model\BrandingUpdateRequest**](../Model/BrandingUpdateRequest.md)|  | |
+| **branding_update_request** | [**\InvoicePDFs\Model\BrandingUpdateRequest**](../Model/BrandingUpdateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BrandingResponse**](../Model/BrandingResponse.md)
+[**\InvoicePDFs\Model\BrandingResponse**](../Model/BrandingResponse.md)
 
 ### Authorization
 
@@ -181,7 +181,7 @@ try {
 ## `uploadLogoApiV1BrandingLogoPost()`
 
 ```php
-uploadLogoApiV1BrandingLogoPost($file): \OpenAPI\Client\Model\BrandingResponse
+uploadLogoApiV1BrandingLogoPost($file): \InvoicePDFs\Model\BrandingResponse
 ```
 
 Upload Logo
@@ -194,10 +194,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BrandingApi(
+$apiInstance = new InvoicePDFs\Api\BrandingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -221,7 +221,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BrandingResponse**](../Model/BrandingResponse.md)
+[**\InvoicePDFs\Model\BrandingResponse**](../Model/BrandingResponse.md)
 
 ### Authorization
 

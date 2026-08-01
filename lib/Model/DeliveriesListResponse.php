@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * DeliveriesListResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class DeliveriesListResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\DeliveryOut[]',
-        'pagination' => '\OpenAPI\Client\Model\CursorPagination'
+        'data' => '\InvoicePDFs\Model\DeliveryOut[]',
+        'pagination' => '\InvoicePDFs\Model\CursorPagination'
     ];
 
     /**
@@ -302,7 +302,7 @@ class DeliveriesListResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\DeliveryOut[]
+     * @return \InvoicePDFs\Model\DeliveryOut[]
      */
     public function getData()
     {
@@ -312,7 +312,7 @@ class DeliveriesListResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\DeliveryOut[] $data data
+     * @param \InvoicePDFs\Model\DeliveryOut[] $data data
      *
      * @return self
      */
@@ -329,7 +329,7 @@ class DeliveriesListResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets pagination
      *
-     * @return \OpenAPI\Client\Model\CursorPagination|null
+     * @return \InvoicePDFs\Model\CursorPagination|null
      */
     public function getPagination()
     {
@@ -339,7 +339,7 @@ class DeliveriesListResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets pagination
      *
-     * @param \OpenAPI\Client\Model\CursorPagination|null $pagination pagination
+     * @param \InvoicePDFs\Model\CursorPagination|null $pagination pagination
      *
      * @return self
      */

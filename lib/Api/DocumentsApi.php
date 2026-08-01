@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * DocumentsApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -133,12 +133,12 @@ class DocumentsApi
      *
      * Calculate Document
      *
-     * @param  \OpenAPI\Client\Model\DocumentCalculateRequest $document_calculate_request document_calculate_request (required)
+     * @param  \InvoicePDFs\Model\DocumentCalculateRequest $document_calculate_request document_calculate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\DocumentCalculateResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\DocumentCalculateResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function calculateDocumentApiV1DocumentsCalculatePost($document_calculate_request, string $contentType = self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'][0])
     {
@@ -151,12 +151,12 @@ class DocumentsApi
      *
      * Calculate Document
      *
-     * @param  \OpenAPI\Client\Model\DocumentCalculateRequest $document_calculate_request (required)
+     * @param  \InvoicePDFs\Model\DocumentCalculateRequest $document_calculate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\DocumentCalculateResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\DocumentCalculateResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function calculateDocumentApiV1DocumentsCalculatePostWithHttpInfo($document_calculate_request, string $contentType = self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'][0])
     {
@@ -199,11 +199,11 @@ class DocumentsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\DocumentCalculateResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\DocumentCalculateResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\DocumentCalculateResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\DocumentCalculateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -221,16 +221,16 @@ class DocumentsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DocumentCalculateResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\DocumentCalculateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -248,13 +248,13 @@ class DocumentsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\DocumentCalculateResponse';
+            $returnType = '\InvoicePDFs\Model\DocumentCalculateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -287,7 +287,7 @@ class DocumentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\DocumentCalculateResponse',
+                        '\InvoicePDFs\Model\DocumentCalculateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -295,7 +295,7 @@ class DocumentsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -310,7 +310,7 @@ class DocumentsApi
      *
      * Calculate Document
      *
-     * @param  \OpenAPI\Client\Model\DocumentCalculateRequest $document_calculate_request (required)
+     * @param  \InvoicePDFs\Model\DocumentCalculateRequest $document_calculate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -331,7 +331,7 @@ class DocumentsApi
      *
      * Calculate Document
      *
-     * @param  \OpenAPI\Client\Model\DocumentCalculateRequest $document_calculate_request (required)
+     * @param  \InvoicePDFs\Model\DocumentCalculateRequest $document_calculate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -339,7 +339,7 @@ class DocumentsApi
      */
     public function calculateDocumentApiV1DocumentsCalculatePostAsyncWithHttpInfo($document_calculate_request, string $contentType = self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\DocumentCalculateResponse';
+        $returnType = '\InvoicePDFs\Model\DocumentCalculateResponse';
         $request = $this->calculateDocumentApiV1DocumentsCalculatePostRequest($document_calculate_request, $contentType);
 
         return $this->client
@@ -381,7 +381,7 @@ class DocumentsApi
     /**
      * Create request for operation 'calculateDocumentApiV1DocumentsCalculatePost'
      *
-     * @param  \OpenAPI\Client\Model\DocumentCalculateRequest $document_calculate_request (required)
+     * @param  \InvoicePDFs\Model\DocumentCalculateRequest $document_calculate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -478,13 +478,13 @@ class DocumentsApi
      *
      * Render Document
      *
-     * @param  \OpenAPI\Client\Model\DocumentRenderRequest $document_render_request document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request document_render_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsRenderPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
+     * @return mixed|\InvoicePDFs\Model\HTTPValidationError
      */
     public function renderDocumentApiV1DocumentsRenderPost($document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocumentApiV1DocumentsRenderPost'][0])
     {
@@ -497,13 +497,13 @@ class DocumentsApi
      *
      * Render Document
      *
-     * @param  \OpenAPI\Client\Model\DocumentRenderRequest $document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsRenderPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function renderDocumentApiV1DocumentsRenderPostWithHttpInfo($document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocumentApiV1DocumentsRenderPost'][0])
     {
@@ -573,11 +573,11 @@ class DocumentsApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -595,7 +595,7 @@ class DocumentsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -642,7 +642,7 @@ class DocumentsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -657,7 +657,7 @@ class DocumentsApi
      *
      * Render Document
      *
-     * @param  \OpenAPI\Client\Model\DocumentRenderRequest $document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsRenderPost'] to see the possible values for this operation
      *
@@ -679,7 +679,7 @@ class DocumentsApi
      *
      * Render Document
      *
-     * @param  \OpenAPI\Client\Model\DocumentRenderRequest $document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsRenderPost'] to see the possible values for this operation
      *
@@ -730,7 +730,7 @@ class DocumentsApi
     /**
      * Create request for operation 'renderDocumentApiV1DocumentsRenderPost'
      *
-     * @param  \OpenAPI\Client\Model\DocumentRenderRequest $document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsRenderPost'] to see the possible values for this operation
      *
@@ -833,12 +833,12 @@ class DocumentsApi
      *
      * Validate Document
      *
-     * @param  \OpenAPI\Client\Model\DocumentValidateRequest $document_validate_request document_validate_request (required)
+     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request document_validate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocumentApiV1DocumentsValidatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\DocumentValidateResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\DocumentValidateResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function validateDocumentApiV1DocumentsValidatePost($document_validate_request, string $contentType = self::contentTypes['validateDocumentApiV1DocumentsValidatePost'][0])
     {
@@ -851,12 +851,12 @@ class DocumentsApi
      *
      * Validate Document
      *
-     * @param  \OpenAPI\Client\Model\DocumentValidateRequest $document_validate_request (required)
+     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocumentApiV1DocumentsValidatePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\DocumentValidateResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\DocumentValidateResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function validateDocumentApiV1DocumentsValidatePostWithHttpInfo($document_validate_request, string $contentType = self::contentTypes['validateDocumentApiV1DocumentsValidatePost'][0])
     {
@@ -899,11 +899,11 @@ class DocumentsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\DocumentValidateResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\DocumentValidateResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\DocumentValidateResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\DocumentValidateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -921,16 +921,16 @@ class DocumentsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DocumentValidateResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\DocumentValidateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -948,13 +948,13 @@ class DocumentsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\DocumentValidateResponse';
+            $returnType = '\InvoicePDFs\Model\DocumentValidateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -987,7 +987,7 @@ class DocumentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\DocumentValidateResponse',
+                        '\InvoicePDFs\Model\DocumentValidateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -995,7 +995,7 @@ class DocumentsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1010,7 +1010,7 @@ class DocumentsApi
      *
      * Validate Document
      *
-     * @param  \OpenAPI\Client\Model\DocumentValidateRequest $document_validate_request (required)
+     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocumentApiV1DocumentsValidatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1031,7 +1031,7 @@ class DocumentsApi
      *
      * Validate Document
      *
-     * @param  \OpenAPI\Client\Model\DocumentValidateRequest $document_validate_request (required)
+     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocumentApiV1DocumentsValidatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1039,7 +1039,7 @@ class DocumentsApi
      */
     public function validateDocumentApiV1DocumentsValidatePostAsyncWithHttpInfo($document_validate_request, string $contentType = self::contentTypes['validateDocumentApiV1DocumentsValidatePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\DocumentValidateResponse';
+        $returnType = '\InvoicePDFs\Model\DocumentValidateResponse';
         $request = $this->validateDocumentApiV1DocumentsValidatePostRequest($document_validate_request, $contentType);
 
         return $this->client
@@ -1081,7 +1081,7 @@ class DocumentsApi
     /**
      * Create request for operation 'validateDocumentApiV1DocumentsValidatePost'
      *
-     * @param  \OpenAPI\Client\Model\DocumentValidateRequest $document_validate_request (required)
+     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocumentApiV1DocumentsValidatePost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

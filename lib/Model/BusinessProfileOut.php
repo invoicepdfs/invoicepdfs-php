@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * BusinessProfileOut Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,7 +63,7 @@ class BusinessProfileOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'phone' => 'string',
         'website' => 'string',
         'tax_id' => 'string',
-        'address' => '\OpenAPI\Client\Model\PostalAddress',
+        'address' => '\InvoicePDFs\Model\PostalAddress',
         'default_currency' => 'string',
         'default_locale' => 'string',
         'default_timezone' => 'string',
@@ -592,7 +592,7 @@ class BusinessProfileOut implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\PostalAddress|null
+     * @return \InvoicePDFs\Model\PostalAddress|null
      */
     public function getAddress()
     {
@@ -602,7 +602,7 @@ class BusinessProfileOut implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\PostalAddress|null $address address
+     * @param \InvoicePDFs\Model\PostalAddress|null $address address
      *
      * @return self
      */

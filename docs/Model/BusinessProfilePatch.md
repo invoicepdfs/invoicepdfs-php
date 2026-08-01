@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **phone** | **string** |  | [optional]
 **website** | **string** |  | [optional]
 **tax_id** | **string** |  | [optional]
-**address** | [**\OpenAPI\Client\Model\PostalAddress**](PostalAddress.md) |  | [optional]
+**address** | [**\InvoicePDFs\Model\PostalAddress**](PostalAddress.md) |  | [optional]
 **default_currency** | **string** |  | [optional]
 **default_locale** | **string** |  | [optional]
 **default_timezone** | **string** |  | [optional]

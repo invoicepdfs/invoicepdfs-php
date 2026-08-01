@@ -1,4 +1,4 @@
-# OpenAPI\Client\RecurringInvoicesApi
+# InvoicePDFs\RecurringInvoicesApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -17,7 +17,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete()`
 
 ```php
-cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete($recurring_id): \OpenAPI\Client\Model\RecurringInvoiceResponse
+cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete($recurring_id): \InvoicePDFs\Model\RecurringInvoiceResponse
 ```
 
 Cancel Recurring Invoice
@@ -30,10 +30,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\RecurringInvoicesApi(
+$apiInstance = new InvoicePDFs\Api\RecurringInvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -57,7 +57,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RecurringInvoiceResponse**](../Model/RecurringInvoiceResponse.md)
+[**\InvoicePDFs\Model\RecurringInvoiceResponse**](../Model/RecurringInvoiceResponse.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ try {
 ## `createRecurringInvoiceApiV1RecurringInvoicesPost()`
 
 ```php
-createRecurringInvoiceApiV1RecurringInvoicesPost($recurring_invoice_create_request): \OpenAPI\Client\Model\RecurringInvoiceResponse
+createRecurringInvoiceApiV1RecurringInvoicesPost($recurring_invoice_create_request): \InvoicePDFs\Model\RecurringInvoiceResponse
 ```
 
 Create Recurring Invoice
@@ -88,16 +88,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\RecurringInvoicesApi(
+$apiInstance = new InvoicePDFs\Api\RecurringInvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$recurring_invoice_create_request = new \OpenAPI\Client\Model\RecurringInvoiceCreateRequest(); // \OpenAPI\Client\Model\RecurringInvoiceCreateRequest
+$recurring_invoice_create_request = new \InvoicePDFs\Model\RecurringInvoiceCreateRequest(); // \InvoicePDFs\Model\RecurringInvoiceCreateRequest
 
 try {
     $result = $apiInstance->createRecurringInvoiceApiV1RecurringInvoicesPost($recurring_invoice_create_request);
@@ -111,11 +111,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **recurring_invoice_create_request** | [**\OpenAPI\Client\Model\RecurringInvoiceCreateRequest**](../Model/RecurringInvoiceCreateRequest.md)|  | |
+| **recurring_invoice_create_request** | [**\InvoicePDFs\Model\RecurringInvoiceCreateRequest**](../Model/RecurringInvoiceCreateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RecurringInvoiceResponse**](../Model/RecurringInvoiceResponse.md)
+[**\InvoicePDFs\Model\RecurringInvoiceResponse**](../Model/RecurringInvoiceResponse.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ try {
 ## `getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet()`
 
 ```php
-getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet($recurring_id): \OpenAPI\Client\Model\RecurringInvoiceResponse
+getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet($recurring_id): \InvoicePDFs\Model\RecurringInvoiceResponse
 ```
 
 Get Recurring Invoice
@@ -146,10 +146,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\RecurringInvoicesApi(
+$apiInstance = new InvoicePDFs\Api\RecurringInvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -173,7 +173,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RecurringInvoiceResponse**](../Model/RecurringInvoiceResponse.md)
+[**\InvoicePDFs\Model\RecurringInvoiceResponse**](../Model/RecurringInvoiceResponse.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ try {
 ## `listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet()`
 
 ```php
-listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet($recurring_id, $limit, $cursor): \OpenAPI\Client\Model\InvoicesListResponse
+listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet($recurring_id, $limit, $cursor): \InvoicePDFs\Model\InvoicesListResponse
 ```
 
 List Generated Invoices
@@ -204,10 +204,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\RecurringInvoicesApi(
+$apiInstance = new InvoicePDFs\Api\RecurringInvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -235,7 +235,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InvoicesListResponse**](../Model/InvoicesListResponse.md)
+[**\InvoicePDFs\Model\InvoicesListResponse**](../Model/InvoicesListResponse.md)
 
 ### Authorization
 
@@ -253,7 +253,7 @@ try {
 ## `listRecurringInvoicesApiV1RecurringInvoicesGet()`
 
 ```php
-listRecurringInvoicesApiV1RecurringInvoicesGet($limit, $cursor, $status): \OpenAPI\Client\Model\RecurringInvoicesListResponse
+listRecurringInvoicesApiV1RecurringInvoicesGet($limit, $cursor, $status): \InvoicePDFs\Model\RecurringInvoicesListResponse
 ```
 
 List Recurring Invoices
@@ -266,10 +266,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\RecurringInvoicesApi(
+$apiInstance = new InvoicePDFs\Api\RecurringInvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -297,7 +297,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RecurringInvoicesListResponse**](../Model/RecurringInvoicesListResponse.md)
+[**\InvoicePDFs\Model\RecurringInvoicesListResponse**](../Model/RecurringInvoicesListResponse.md)
 
 ### Authorization
 
@@ -315,7 +315,7 @@ try {
 ## `patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch()`
 
 ```php
-patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch($recurring_id, $recurring_invoice_patch_request): \OpenAPI\Client\Model\RecurringInvoiceResponse
+patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch($recurring_id, $recurring_invoice_patch_request): \InvoicePDFs\Model\RecurringInvoiceResponse
 ```
 
 Patch Recurring Invoice
@@ -328,17 +328,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\RecurringInvoicesApi(
+$apiInstance = new InvoicePDFs\Api\RecurringInvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $recurring_id = 'recurring_id_example'; // string
-$recurring_invoice_patch_request = new \OpenAPI\Client\Model\RecurringInvoicePatchRequest(); // \OpenAPI\Client\Model\RecurringInvoicePatchRequest
+$recurring_invoice_patch_request = new \InvoicePDFs\Model\RecurringInvoicePatchRequest(); // \InvoicePDFs\Model\RecurringInvoicePatchRequest
 
 try {
     $result = $apiInstance->patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch($recurring_id, $recurring_invoice_patch_request);
@@ -353,11 +353,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **recurring_id** | **string**|  | |
-| **recurring_invoice_patch_request** | [**\OpenAPI\Client\Model\RecurringInvoicePatchRequest**](../Model/RecurringInvoicePatchRequest.md)|  | |
+| **recurring_invoice_patch_request** | [**\InvoicePDFs\Model\RecurringInvoicePatchRequest**](../Model/RecurringInvoicePatchRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RecurringInvoiceResponse**](../Model/RecurringInvoiceResponse.md)
+[**\InvoicePDFs\Model\RecurringInvoiceResponse**](../Model/RecurringInvoiceResponse.md)
 
 ### Authorization
 
@@ -375,7 +375,7 @@ try {
 ## `pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost()`
 
 ```php
-pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost($recurring_id): \OpenAPI\Client\Model\RecurringInvoiceResponse
+pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost($recurring_id): \InvoicePDFs\Model\RecurringInvoiceResponse
 ```
 
 Pause Recurring Invoice
@@ -388,10 +388,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\RecurringInvoicesApi(
+$apiInstance = new InvoicePDFs\Api\RecurringInvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -415,7 +415,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RecurringInvoiceResponse**](../Model/RecurringInvoiceResponse.md)
+[**\InvoicePDFs\Model\RecurringInvoiceResponse**](../Model/RecurringInvoiceResponse.md)
 
 ### Authorization
 
@@ -433,7 +433,7 @@ try {
 ## `resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost()`
 
 ```php
-resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost($recurring_id): \OpenAPI\Client\Model\RecurringInvoiceResponse
+resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost($recurring_id): \InvoicePDFs\Model\RecurringInvoiceResponse
 ```
 
 Resume Recurring Invoice
@@ -446,10 +446,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\RecurringInvoicesApi(
+$apiInstance = new InvoicePDFs\Api\RecurringInvoicesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -473,7 +473,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\RecurringInvoiceResponse**](../Model/RecurringInvoiceResponse.md)
+[**\InvoicePDFs\Model\RecurringInvoiceResponse**](../Model/RecurringInvoiceResponse.md)
 
 ### Authorization
 

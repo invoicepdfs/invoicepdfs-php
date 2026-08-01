@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * JobOut Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class JobOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'type' => 'string',
         'status' => 'string',
-        'progress' => '\OpenAPI\Client\Model\JobProgressOut',
+        'progress' => '\InvoicePDFs\Model\JobProgressOut',
         'result' => 'array<string,mixed>',
         'error' => 'string',
         'created_at' => 'string',
@@ -484,7 +484,7 @@ class JobOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets progress
      *
-     * @return \OpenAPI\Client\Model\JobProgressOut
+     * @return \InvoicePDFs\Model\JobProgressOut
      */
     public function getProgress()
     {
@@ -494,7 +494,7 @@ class JobOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets progress
      *
-     * @param \OpenAPI\Client\Model\JobProgressOut $progress progress
+     * @param \InvoicePDFs\Model\JobProgressOut $progress progress
      *
      * @return self
      */

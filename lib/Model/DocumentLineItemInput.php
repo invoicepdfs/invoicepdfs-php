@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * DocumentLineItemInput Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -63,8 +63,8 @@ class DocumentLineItemInput implements ModelInterface, ArrayAccess, \JsonSeriali
         'unit_price' => 'string',
         'unit' => 'string',
         'sku' => 'string',
-        'discount' => '\OpenAPI\Client\Model\DocumentDiscountInput',
-        'taxes' => '\OpenAPI\Client\Model\DocumentLineItemTaxInput[]'
+        'discount' => '\InvoicePDFs\Model\DocumentDiscountInput',
+        'taxes' => '\InvoicePDFs\Model\DocumentLineItemTaxInput[]'
     ];
 
     /**
@@ -533,7 +533,7 @@ class DocumentLineItemInput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets discount
      *
-     * @return \OpenAPI\Client\Model\DocumentDiscountInput|null
+     * @return \InvoicePDFs\Model\DocumentDiscountInput|null
      */
     public function getDiscount()
     {
@@ -543,7 +543,7 @@ class DocumentLineItemInput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets discount
      *
-     * @param \OpenAPI\Client\Model\DocumentDiscountInput|null $discount discount
+     * @param \InvoicePDFs\Model\DocumentDiscountInput|null $discount discount
      *
      * @return self
      */
@@ -567,7 +567,7 @@ class DocumentLineItemInput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets taxes
      *
-     * @return \OpenAPI\Client\Model\DocumentLineItemTaxInput[]|null
+     * @return \InvoicePDFs\Model\DocumentLineItemTaxInput[]|null
      */
     public function getTaxes()
     {
@@ -577,7 +577,7 @@ class DocumentLineItemInput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets taxes
      *
-     * @param \OpenAPI\Client\Model\DocumentLineItemTaxInput[]|null $taxes taxes
+     * @param \InvoicePDFs\Model\DocumentLineItemTaxInput[]|null $taxes taxes
      *
      * @return self
      */

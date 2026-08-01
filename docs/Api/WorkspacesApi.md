@@ -1,4 +1,4 @@
-# OpenAPI\Client\WorkspacesApi
+# InvoicePDFs\WorkspacesApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -18,7 +18,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createMemberApiV1WorkspacesWorkspaceIdMembersPost()`
 
 ```php
-createMemberApiV1WorkspacesWorkspaceIdMembersPost($workspace_id, $workspace_member_create_request, $idempotency_key): \OpenAPI\Client\Model\WorkspaceMembersListResponse
+createMemberApiV1WorkspacesWorkspaceIdMembersPost($workspace_id, $workspace_member_create_request, $idempotency_key): \InvoicePDFs\Model\WorkspaceMembersListResponse
 ```
 
 Create Member
@@ -31,17 +31,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WorkspacesApi(
+$apiInstance = new InvoicePDFs\Api\WorkspacesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $workspace_id = 'workspace_id_example'; // string
-$workspace_member_create_request = new \OpenAPI\Client\Model\WorkspaceMemberCreateRequest(); // \OpenAPI\Client\Model\WorkspaceMemberCreateRequest
+$workspace_member_create_request = new \InvoicePDFs\Model\WorkspaceMemberCreateRequest(); // \InvoicePDFs\Model\WorkspaceMemberCreateRequest
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
@@ -57,12 +57,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **workspace_id** | **string**|  | |
-| **workspace_member_create_request** | [**\OpenAPI\Client\Model\WorkspaceMemberCreateRequest**](../Model/WorkspaceMemberCreateRequest.md)|  | |
+| **workspace_member_create_request** | [**\InvoicePDFs\Model\WorkspaceMemberCreateRequest**](../Model/WorkspaceMemberCreateRequest.md)|  | |
 | **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WorkspaceMembersListResponse**](../Model/WorkspaceMembersListResponse.md)
+[**\InvoicePDFs\Model\WorkspaceMembersListResponse**](../Model/WorkspaceMembersListResponse.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ try {
 ## `createWorkspaceApiV1WorkspacesPost()`
 
 ```php
-createWorkspaceApiV1WorkspacesPost($workspace_create_request, $idempotency_key): \OpenAPI\Client\Model\WorkspaceResponse
+createWorkspaceApiV1WorkspacesPost($workspace_create_request, $idempotency_key): \InvoicePDFs\Model\WorkspaceResponse
 ```
 
 Create Workspace
@@ -93,16 +93,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WorkspacesApi(
+$apiInstance = new InvoicePDFs\Api\WorkspacesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$workspace_create_request = new \OpenAPI\Client\Model\WorkspaceCreateRequest(); // \OpenAPI\Client\Model\WorkspaceCreateRequest
+$workspace_create_request = new \InvoicePDFs\Model\WorkspaceCreateRequest(); // \InvoicePDFs\Model\WorkspaceCreateRequest
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
@@ -117,12 +117,12 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **workspace_create_request** | [**\OpenAPI\Client\Model\WorkspaceCreateRequest**](../Model/WorkspaceCreateRequest.md)|  | |
+| **workspace_create_request** | [**\InvoicePDFs\Model\WorkspaceCreateRequest**](../Model/WorkspaceCreateRequest.md)|  | |
 | **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WorkspaceResponse**](../Model/WorkspaceResponse.md)
+[**\InvoicePDFs\Model\WorkspaceResponse**](../Model/WorkspaceResponse.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ try {
 ## `deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete()`
 
 ```php
-deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete($workspace_id, $member_id): \OpenAPI\Client\Model\SimpleBoolResponse
+deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete($workspace_id, $member_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Member
@@ -153,10 +153,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WorkspacesApi(
+$apiInstance = new InvoicePDFs\Api\WorkspacesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -182,7 +182,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
+[**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -200,7 +200,7 @@ try {
 ## `deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete()`
 
 ```php
-deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete($workspace_id): \OpenAPI\Client\Model\SimpleBoolResponse
+deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete($workspace_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Workspace
@@ -213,10 +213,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WorkspacesApi(
+$apiInstance = new InvoicePDFs\Api\WorkspacesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -240,7 +240,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
+[**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -258,7 +258,7 @@ try {
 ## `getWorkspaceApiV1WorkspacesWorkspaceIdGet()`
 
 ```php
-getWorkspaceApiV1WorkspacesWorkspaceIdGet($workspace_id): \OpenAPI\Client\Model\WorkspaceResponse
+getWorkspaceApiV1WorkspacesWorkspaceIdGet($workspace_id): \InvoicePDFs\Model\WorkspaceResponse
 ```
 
 Get Workspace
@@ -271,10 +271,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WorkspacesApi(
+$apiInstance = new InvoicePDFs\Api\WorkspacesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -298,7 +298,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WorkspaceResponse**](../Model/WorkspaceResponse.md)
+[**\InvoicePDFs\Model\WorkspaceResponse**](../Model/WorkspaceResponse.md)
 
 ### Authorization
 
@@ -316,7 +316,7 @@ try {
 ## `listMembersApiV1WorkspacesWorkspaceIdMembersGet()`
 
 ```php
-listMembersApiV1WorkspacesWorkspaceIdMembersGet($workspace_id): \OpenAPI\Client\Model\WorkspaceMembersListResponse
+listMembersApiV1WorkspacesWorkspaceIdMembersGet($workspace_id): \InvoicePDFs\Model\WorkspaceMembersListResponse
 ```
 
 List Members
@@ -329,10 +329,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WorkspacesApi(
+$apiInstance = new InvoicePDFs\Api\WorkspacesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -356,7 +356,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WorkspaceMembersListResponse**](../Model/WorkspaceMembersListResponse.md)
+[**\InvoicePDFs\Model\WorkspaceMembersListResponse**](../Model/WorkspaceMembersListResponse.md)
 
 ### Authorization
 
@@ -374,7 +374,7 @@ try {
 ## `listWorkspacesApiV1WorkspacesGet()`
 
 ```php
-listWorkspacesApiV1WorkspacesGet($limit, $cursor): \OpenAPI\Client\Model\WorkspacesListResponse
+listWorkspacesApiV1WorkspacesGet($limit, $cursor): \InvoicePDFs\Model\WorkspacesListResponse
 ```
 
 List Workspaces
@@ -387,10 +387,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WorkspacesApi(
+$apiInstance = new InvoicePDFs\Api\WorkspacesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -416,7 +416,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WorkspacesListResponse**](../Model/WorkspacesListResponse.md)
+[**\InvoicePDFs\Model\WorkspacesListResponse**](../Model/WorkspacesListResponse.md)
 
 ### Authorization
 
@@ -434,7 +434,7 @@ try {
 ## `patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch()`
 
 ```php
-patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch($workspace_id, $member_id, $workspace_member_patch_request): \OpenAPI\Client\Model\WorkspaceMemberOut
+patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch($workspace_id, $member_id, $workspace_member_patch_request): \InvoicePDFs\Model\WorkspaceMemberOut
 ```
 
 Patch Member
@@ -447,10 +447,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WorkspacesApi(
+$apiInstance = new InvoicePDFs\Api\WorkspacesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -458,7 +458,7 @@ $apiInstance = new OpenAPI\Client\Api\WorkspacesApi(
 );
 $workspace_id = 'workspace_id_example'; // string
 $member_id = 'member_id_example'; // string
-$workspace_member_patch_request = new \OpenAPI\Client\Model\WorkspaceMemberPatchRequest(); // \OpenAPI\Client\Model\WorkspaceMemberPatchRequest
+$workspace_member_patch_request = new \InvoicePDFs\Model\WorkspaceMemberPatchRequest(); // \InvoicePDFs\Model\WorkspaceMemberPatchRequest
 
 try {
     $result = $apiInstance->patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch($workspace_id, $member_id, $workspace_member_patch_request);
@@ -474,11 +474,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **workspace_id** | **string**|  | |
 | **member_id** | **string**|  | |
-| **workspace_member_patch_request** | [**\OpenAPI\Client\Model\WorkspaceMemberPatchRequest**](../Model/WorkspaceMemberPatchRequest.md)|  | |
+| **workspace_member_patch_request** | [**\InvoicePDFs\Model\WorkspaceMemberPatchRequest**](../Model/WorkspaceMemberPatchRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WorkspaceMemberOut**](../Model/WorkspaceMemberOut.md)
+[**\InvoicePDFs\Model\WorkspaceMemberOut**](../Model/WorkspaceMemberOut.md)
 
 ### Authorization
 
@@ -496,7 +496,7 @@ try {
 ## `patchWorkspaceApiV1WorkspacesWorkspaceIdPatch()`
 
 ```php
-patchWorkspaceApiV1WorkspacesWorkspaceIdPatch($workspace_id, $workspace_patch_request, $idempotency_key): \OpenAPI\Client\Model\WorkspaceResponse
+patchWorkspaceApiV1WorkspacesWorkspaceIdPatch($workspace_id, $workspace_patch_request, $idempotency_key): \InvoicePDFs\Model\WorkspaceResponse
 ```
 
 Patch Workspace
@@ -509,17 +509,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WorkspacesApi(
+$apiInstance = new InvoicePDFs\Api\WorkspacesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $workspace_id = 'workspace_id_example'; // string
-$workspace_patch_request = new \OpenAPI\Client\Model\WorkspacePatchRequest(); // \OpenAPI\Client\Model\WorkspacePatchRequest
+$workspace_patch_request = new \InvoicePDFs\Model\WorkspacePatchRequest(); // \InvoicePDFs\Model\WorkspacePatchRequest
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
@@ -535,12 +535,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **workspace_id** | **string**|  | |
-| **workspace_patch_request** | [**\OpenAPI\Client\Model\WorkspacePatchRequest**](../Model/WorkspacePatchRequest.md)|  | |
+| **workspace_patch_request** | [**\InvoicePDFs\Model\WorkspacePatchRequest**](../Model/WorkspacePatchRequest.md)|  | |
 | **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WorkspaceResponse**](../Model/WorkspaceResponse.md)
+[**\InvoicePDFs\Model\WorkspaceResponse**](../Model/WorkspaceResponse.md)
 
 ### Authorization
 

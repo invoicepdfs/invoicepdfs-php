@@ -1,4 +1,4 @@
-# OpenAPI\Client\BillingApi
+# InvoicePDFs\BillingApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -12,7 +12,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createCheckoutApiV1BillingCheckoutSessionPost()`
 
 ```php
-createCheckoutApiV1BillingCheckoutSessionPost($billing_checkout_request): \OpenAPI\Client\Model\BillingCheckoutResponse
+createCheckoutApiV1BillingCheckoutSessionPost($billing_checkout_request): \InvoicePDFs\Model\BillingCheckoutResponse
 ```
 
 Create Checkout
@@ -27,16 +27,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BillingApi(
+$apiInstance = new InvoicePDFs\Api\BillingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$billing_checkout_request = new \OpenAPI\Client\Model\BillingCheckoutRequest(); // \OpenAPI\Client\Model\BillingCheckoutRequest
+$billing_checkout_request = new \InvoicePDFs\Model\BillingCheckoutRequest(); // \InvoicePDFs\Model\BillingCheckoutRequest
 
 try {
     $result = $apiInstance->createCheckoutApiV1BillingCheckoutSessionPost($billing_checkout_request);
@@ -50,11 +50,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **billing_checkout_request** | [**\OpenAPI\Client\Model\BillingCheckoutRequest**](../Model/BillingCheckoutRequest.md)|  | |
+| **billing_checkout_request** | [**\InvoicePDFs\Model\BillingCheckoutRequest**](../Model/BillingCheckoutRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BillingCheckoutResponse**](../Model/BillingCheckoutResponse.md)
+[**\InvoicePDFs\Model\BillingCheckoutResponse**](../Model/BillingCheckoutResponse.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ try {
 ## `createPortalApiV1BillingPortalSessionPost()`
 
 ```php
-createPortalApiV1BillingPortalSessionPost(): \OpenAPI\Client\Model\BillingPortalResponse
+createPortalApiV1BillingPortalSessionPost(): \InvoicePDFs\Model\BillingPortalResponse
 ```
 
 Create Portal
@@ -87,10 +87,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BillingApi(
+$apiInstance = new InvoicePDFs\Api\BillingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -111,7 +111,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BillingPortalResponse**](../Model/BillingPortalResponse.md)
+[**\InvoicePDFs\Model\BillingPortalResponse**](../Model/BillingPortalResponse.md)
 
 ### Authorization
 
@@ -129,7 +129,7 @@ This endpoint does not need any parameter.
 ## `getSubscriptionApiV1BillingSubscriptionGet()`
 
 ```php
-getSubscriptionApiV1BillingSubscriptionGet(): \OpenAPI\Client\Model\BillingSubscriptionResponse
+getSubscriptionApiV1BillingSubscriptionGet(): \InvoicePDFs\Model\BillingSubscriptionResponse
 ```
 
 Get Subscription
@@ -144,10 +144,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\BillingApi(
+$apiInstance = new InvoicePDFs\Api\BillingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -168,7 +168,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\BillingSubscriptionResponse**](../Model/BillingSubscriptionResponse.md)
+[**\InvoicePDFs\Model\BillingSubscriptionResponse**](../Model/BillingSubscriptionResponse.md)
 
 ### Authorization
 

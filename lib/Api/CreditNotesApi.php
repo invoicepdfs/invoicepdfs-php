@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * CreditNotesApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -139,12 +139,12 @@ class CreditNotesApi
      *
      * Create Credit Note
      *
-     * @param  \OpenAPI\Client\Model\CreditNoteCreateRequest $credit_note_create_request credit_note_create_request (required)
+     * @param  \InvoicePDFs\Model\CreditNoteCreateRequest $credit_note_create_request credit_note_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCreditNoteApiV1CreditNotesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreditNoteResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\CreditNoteResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function createCreditNoteApiV1CreditNotesPost($credit_note_create_request, string $contentType = self::contentTypes['createCreditNoteApiV1CreditNotesPost'][0])
     {
@@ -157,12 +157,12 @@ class CreditNotesApi
      *
      * Create Credit Note
      *
-     * @param  \OpenAPI\Client\Model\CreditNoteCreateRequest $credit_note_create_request (required)
+     * @param  \InvoicePDFs\Model\CreditNoteCreateRequest $credit_note_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCreditNoteApiV1CreditNotesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreditNoteResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\CreditNoteResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCreditNoteApiV1CreditNotesPostWithHttpInfo($credit_note_create_request, string $contentType = self::contentTypes['createCreditNoteApiV1CreditNotesPost'][0])
     {
@@ -205,11 +205,11 @@ class CreditNotesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreditNoteResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\CreditNoteResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreditNoteResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\CreditNoteResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -227,16 +227,16 @@ class CreditNotesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreditNoteResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\CreditNoteResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -254,13 +254,13 @@ class CreditNotesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreditNoteResponse';
+            $returnType = '\InvoicePDFs\Model\CreditNoteResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -293,7 +293,7 @@ class CreditNotesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreditNoteResponse',
+                        '\InvoicePDFs\Model\CreditNoteResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -301,7 +301,7 @@ class CreditNotesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -316,7 +316,7 @@ class CreditNotesApi
      *
      * Create Credit Note
      *
-     * @param  \OpenAPI\Client\Model\CreditNoteCreateRequest $credit_note_create_request (required)
+     * @param  \InvoicePDFs\Model\CreditNoteCreateRequest $credit_note_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCreditNoteApiV1CreditNotesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -337,7 +337,7 @@ class CreditNotesApi
      *
      * Create Credit Note
      *
-     * @param  \OpenAPI\Client\Model\CreditNoteCreateRequest $credit_note_create_request (required)
+     * @param  \InvoicePDFs\Model\CreditNoteCreateRequest $credit_note_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCreditNoteApiV1CreditNotesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -345,7 +345,7 @@ class CreditNotesApi
      */
     public function createCreditNoteApiV1CreditNotesPostAsyncWithHttpInfo($credit_note_create_request, string $contentType = self::contentTypes['createCreditNoteApiV1CreditNotesPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreditNoteResponse';
+        $returnType = '\InvoicePDFs\Model\CreditNoteResponse';
         $request = $this->createCreditNoteApiV1CreditNotesPostRequest($credit_note_create_request, $contentType);
 
         return $this->client
@@ -387,7 +387,7 @@ class CreditNotesApi
     /**
      * Create request for operation 'createCreditNoteApiV1CreditNotesPost'
      *
-     * @param  \OpenAPI\Client\Model\CreditNoteCreateRequest $credit_note_create_request (required)
+     * @param  \InvoicePDFs\Model\CreditNoteCreateRequest $credit_note_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCreditNoteApiV1CreditNotesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -487,9 +487,9 @@ class CreditNotesApi
      * @param  string $credit_note_id credit_note_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeCreditNoteApiV1CreditNotesCreditNoteIdFinalizePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreditNoteResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\CreditNoteResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function finalizeCreditNoteApiV1CreditNotesCreditNoteIdFinalizePost($credit_note_id, string $contentType = self::contentTypes['finalizeCreditNoteApiV1CreditNotesCreditNoteIdFinalizePost'][0])
     {
@@ -505,9 +505,9 @@ class CreditNotesApi
      * @param  string $credit_note_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeCreditNoteApiV1CreditNotesCreditNoteIdFinalizePost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreditNoteResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\CreditNoteResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function finalizeCreditNoteApiV1CreditNotesCreditNoteIdFinalizePostWithHttpInfo($credit_note_id, string $contentType = self::contentTypes['finalizeCreditNoteApiV1CreditNotesCreditNoteIdFinalizePost'][0])
     {
@@ -550,11 +550,11 @@ class CreditNotesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreditNoteResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\CreditNoteResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreditNoteResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\CreditNoteResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -572,16 +572,16 @@ class CreditNotesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreditNoteResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\CreditNoteResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -599,13 +599,13 @@ class CreditNotesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreditNoteResponse';
+            $returnType = '\InvoicePDFs\Model\CreditNoteResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -638,7 +638,7 @@ class CreditNotesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreditNoteResponse',
+                        '\InvoicePDFs\Model\CreditNoteResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -646,7 +646,7 @@ class CreditNotesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -690,7 +690,7 @@ class CreditNotesApi
      */
     public function finalizeCreditNoteApiV1CreditNotesCreditNoteIdFinalizePostAsyncWithHttpInfo($credit_note_id, string $contentType = self::contentTypes['finalizeCreditNoteApiV1CreditNotesCreditNoteIdFinalizePost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreditNoteResponse';
+        $returnType = '\InvoicePDFs\Model\CreditNoteResponse';
         $request = $this->finalizeCreditNoteApiV1CreditNotesCreditNoteIdFinalizePostRequest($credit_note_id, $contentType);
 
         return $this->client
@@ -833,9 +833,9 @@ class CreditNotesApi
      * @param  string $credit_note_id credit_note_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditNoteApiV1CreditNotesCreditNoteIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreditNoteResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\CreditNoteResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function getCreditNoteApiV1CreditNotesCreditNoteIdGet($credit_note_id, string $contentType = self::contentTypes['getCreditNoteApiV1CreditNotesCreditNoteIdGet'][0])
     {
@@ -851,9 +851,9 @@ class CreditNotesApi
      * @param  string $credit_note_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditNoteApiV1CreditNotesCreditNoteIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreditNoteResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\CreditNoteResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCreditNoteApiV1CreditNotesCreditNoteIdGetWithHttpInfo($credit_note_id, string $contentType = self::contentTypes['getCreditNoteApiV1CreditNotesCreditNoteIdGet'][0])
     {
@@ -896,11 +896,11 @@ class CreditNotesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreditNoteResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\CreditNoteResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreditNoteResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\CreditNoteResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -918,16 +918,16 @@ class CreditNotesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreditNoteResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\CreditNoteResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -945,13 +945,13 @@ class CreditNotesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreditNoteResponse';
+            $returnType = '\InvoicePDFs\Model\CreditNoteResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -984,7 +984,7 @@ class CreditNotesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreditNoteResponse',
+                        '\InvoicePDFs\Model\CreditNoteResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -992,7 +992,7 @@ class CreditNotesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1036,7 +1036,7 @@ class CreditNotesApi
      */
     public function getCreditNoteApiV1CreditNotesCreditNoteIdGetAsyncWithHttpInfo($credit_note_id, string $contentType = self::contentTypes['getCreditNoteApiV1CreditNotesCreditNoteIdGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreditNoteResponse';
+        $returnType = '\InvoicePDFs\Model\CreditNoteResponse';
         $request = $this->getCreditNoteApiV1CreditNotesCreditNoteIdGetRequest($credit_note_id, $contentType);
 
         return $this->client
@@ -1180,9 +1180,9 @@ class CreditNotesApi
      * @param  string $cursor cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCreditNotesApiV1CreditNotesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CreditNotesListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\CreditNotesListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listCreditNotesApiV1CreditNotesGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCreditNotesApiV1CreditNotesGet'][0])
     {
@@ -1199,9 +1199,9 @@ class CreditNotesApi
      * @param  string $cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCreditNotesApiV1CreditNotesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CreditNotesListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\CreditNotesListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listCreditNotesApiV1CreditNotesGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCreditNotesApiV1CreditNotesGet'][0])
     {
@@ -1244,11 +1244,11 @@ class CreditNotesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CreditNotesListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\CreditNotesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\CreditNotesListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\CreditNotesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1266,16 +1266,16 @@ class CreditNotesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreditNotesListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\CreditNotesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1293,13 +1293,13 @@ class CreditNotesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CreditNotesListResponse';
+            $returnType = '\InvoicePDFs\Model\CreditNotesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1332,7 +1332,7 @@ class CreditNotesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreditNotesListResponse',
+                        '\InvoicePDFs\Model\CreditNotesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1340,7 +1340,7 @@ class CreditNotesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1386,7 +1386,7 @@ class CreditNotesApi
      */
     public function listCreditNotesApiV1CreditNotesGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCreditNotesApiV1CreditNotesGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\CreditNotesListResponse';
+        $returnType = '\InvoicePDFs\Model\CreditNotesListResponse';
         $request = $this->listCreditNotesApiV1CreditNotesGetRequest($limit, $cursor, $contentType);
 
         return $this->client
@@ -1539,12 +1539,12 @@ class CreditNotesApi
      * Render Credit Note
      *
      * @param  string $credit_note_id credit_note_id (required)
-     * @param  \OpenAPI\Client\Model\CreditNoteRenderRequest $credit_note_render_request credit_note_render_request (optional)
+     * @param  \InvoicePDFs\Model\CreditNoteRenderRequest $credit_note_render_request credit_note_render_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderCreditNoteApiV1CreditNotesCreditNoteIdRendersPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
+     * @return mixed|\InvoicePDFs\Model\HTTPValidationError
      */
     public function renderCreditNoteApiV1CreditNotesCreditNoteIdRendersPost($credit_note_id, $credit_note_render_request = null, string $contentType = self::contentTypes['renderCreditNoteApiV1CreditNotesCreditNoteIdRendersPost'][0])
     {
@@ -1558,12 +1558,12 @@ class CreditNotesApi
      * Render Credit Note
      *
      * @param  string $credit_note_id (required)
-     * @param  \OpenAPI\Client\Model\CreditNoteRenderRequest $credit_note_render_request (optional)
+     * @param  \InvoicePDFs\Model\CreditNoteRenderRequest $credit_note_render_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderCreditNoteApiV1CreditNotesCreditNoteIdRendersPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function renderCreditNoteApiV1CreditNotesCreditNoteIdRendersPostWithHttpInfo($credit_note_id, $credit_note_render_request = null, string $contentType = self::contentTypes['renderCreditNoteApiV1CreditNotesCreditNoteIdRendersPost'][0])
     {
@@ -1633,11 +1633,11 @@ class CreditNotesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1655,7 +1655,7 @@ class CreditNotesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1702,7 +1702,7 @@ class CreditNotesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1718,7 +1718,7 @@ class CreditNotesApi
      * Render Credit Note
      *
      * @param  string $credit_note_id (required)
-     * @param  \OpenAPI\Client\Model\CreditNoteRenderRequest $credit_note_render_request (optional)
+     * @param  \InvoicePDFs\Model\CreditNoteRenderRequest $credit_note_render_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderCreditNoteApiV1CreditNotesCreditNoteIdRendersPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1740,7 +1740,7 @@ class CreditNotesApi
      * Render Credit Note
      *
      * @param  string $credit_note_id (required)
-     * @param  \OpenAPI\Client\Model\CreditNoteRenderRequest $credit_note_render_request (optional)
+     * @param  \InvoicePDFs\Model\CreditNoteRenderRequest $credit_note_render_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderCreditNoteApiV1CreditNotesCreditNoteIdRendersPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1791,7 +1791,7 @@ class CreditNotesApi
      * Create request for operation 'renderCreditNoteApiV1CreditNotesCreditNoteIdRendersPost'
      *
      * @param  string $credit_note_id (required)
-     * @param  \OpenAPI\Client\Model\CreditNoteRenderRequest $credit_note_render_request (optional)
+     * @param  \InvoicePDFs\Model\CreditNoteRenderRequest $credit_note_render_request (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderCreditNoteApiV1CreditNotesCreditNoteIdRendersPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

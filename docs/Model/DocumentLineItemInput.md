@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **unit_price** | **string** | Decimal string in major units |
 **unit** | **string** |  | [optional]
 **sku** | **string** |  | [optional]
-**discount** | [**\OpenAPI\Client\Model\DocumentDiscountInput**](DocumentDiscountInput.md) |  | [optional]
-**taxes** | [**\OpenAPI\Client\Model\DocumentLineItemTaxInput[]**](DocumentLineItemTaxInput.md) |  | [optional]
+**discount** | [**\InvoicePDFs\Model\DocumentDiscountInput**](DocumentDiscountInput.md) |  | [optional]
+**taxes** | [**\InvoicePDFs\Model\DocumentLineItemTaxInput[]**](DocumentLineItemTaxInput.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

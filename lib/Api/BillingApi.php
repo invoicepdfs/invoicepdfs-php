@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * BillingApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -133,12 +133,12 @@ class BillingApi
      *
      * Create Checkout
      *
-     * @param  \OpenAPI\Client\Model\BillingCheckoutRequest $billing_checkout_request billing_checkout_request (required)
+     * @param  \InvoicePDFs\Model\BillingCheckoutRequest $billing_checkout_request billing_checkout_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCheckoutApiV1BillingCheckoutSessionPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BillingCheckoutResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\BillingCheckoutResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function createCheckoutApiV1BillingCheckoutSessionPost($billing_checkout_request, string $contentType = self::contentTypes['createCheckoutApiV1BillingCheckoutSessionPost'][0])
     {
@@ -151,12 +151,12 @@ class BillingApi
      *
      * Create Checkout
      *
-     * @param  \OpenAPI\Client\Model\BillingCheckoutRequest $billing_checkout_request (required)
+     * @param  \InvoicePDFs\Model\BillingCheckoutRequest $billing_checkout_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCheckoutApiV1BillingCheckoutSessionPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BillingCheckoutResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\BillingCheckoutResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createCheckoutApiV1BillingCheckoutSessionPostWithHttpInfo($billing_checkout_request, string $contentType = self::contentTypes['createCheckoutApiV1BillingCheckoutSessionPost'][0])
     {
@@ -199,11 +199,11 @@ class BillingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BillingCheckoutResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\BillingCheckoutResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\BillingCheckoutResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\BillingCheckoutResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -221,16 +221,16 @@ class BillingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BillingCheckoutResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\BillingCheckoutResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -248,13 +248,13 @@ class BillingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BillingCheckoutResponse';
+            $returnType = '\InvoicePDFs\Model\BillingCheckoutResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -287,7 +287,7 @@ class BillingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BillingCheckoutResponse',
+                        '\InvoicePDFs\Model\BillingCheckoutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -295,7 +295,7 @@ class BillingApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -310,7 +310,7 @@ class BillingApi
      *
      * Create Checkout
      *
-     * @param  \OpenAPI\Client\Model\BillingCheckoutRequest $billing_checkout_request (required)
+     * @param  \InvoicePDFs\Model\BillingCheckoutRequest $billing_checkout_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCheckoutApiV1BillingCheckoutSessionPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -331,7 +331,7 @@ class BillingApi
      *
      * Create Checkout
      *
-     * @param  \OpenAPI\Client\Model\BillingCheckoutRequest $billing_checkout_request (required)
+     * @param  \InvoicePDFs\Model\BillingCheckoutRequest $billing_checkout_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCheckoutApiV1BillingCheckoutSessionPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -339,7 +339,7 @@ class BillingApi
      */
     public function createCheckoutApiV1BillingCheckoutSessionPostAsyncWithHttpInfo($billing_checkout_request, string $contentType = self::contentTypes['createCheckoutApiV1BillingCheckoutSessionPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\BillingCheckoutResponse';
+        $returnType = '\InvoicePDFs\Model\BillingCheckoutResponse';
         $request = $this->createCheckoutApiV1BillingCheckoutSessionPostRequest($billing_checkout_request, $contentType);
 
         return $this->client
@@ -381,7 +381,7 @@ class BillingApi
     /**
      * Create request for operation 'createCheckoutApiV1BillingCheckoutSessionPost'
      *
-     * @param  \OpenAPI\Client\Model\BillingCheckoutRequest $billing_checkout_request (required)
+     * @param  \InvoicePDFs\Model\BillingCheckoutRequest $billing_checkout_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCheckoutApiV1BillingCheckoutSessionPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -480,9 +480,9 @@ class BillingApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPortalApiV1BillingPortalSessionPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BillingPortalResponse
+     * @return \InvoicePDFs\Model\BillingPortalResponse
      */
     public function createPortalApiV1BillingPortalSessionPost(string $contentType = self::contentTypes['createPortalApiV1BillingPortalSessionPost'][0])
     {
@@ -497,9 +497,9 @@ class BillingApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPortalApiV1BillingPortalSessionPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BillingPortalResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\BillingPortalResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createPortalApiV1BillingPortalSessionPostWithHttpInfo(string $contentType = self::contentTypes['createPortalApiV1BillingPortalSessionPost'][0])
     {
@@ -542,11 +542,11 @@ class BillingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BillingPortalResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\BillingPortalResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\BillingPortalResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\BillingPortalResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -564,13 +564,13 @@ class BillingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BillingPortalResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\BillingPortalResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BillingPortalResponse';
+            $returnType = '\InvoicePDFs\Model\BillingPortalResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -603,7 +603,7 @@ class BillingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BillingPortalResponse',
+                        '\InvoicePDFs\Model\BillingPortalResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -645,7 +645,7 @@ class BillingApi
      */
     public function createPortalApiV1BillingPortalSessionPostAsyncWithHttpInfo(string $contentType = self::contentTypes['createPortalApiV1BillingPortalSessionPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\BillingPortalResponse';
+        $returnType = '\InvoicePDFs\Model\BillingPortalResponse';
         $request = $this->createPortalApiV1BillingPortalSessionPostRequest($contentType);
 
         return $this->client
@@ -771,9 +771,9 @@ class BillingApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionApiV1BillingSubscriptionGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BillingSubscriptionResponse
+     * @return \InvoicePDFs\Model\BillingSubscriptionResponse
      */
     public function getSubscriptionApiV1BillingSubscriptionGet(string $contentType = self::contentTypes['getSubscriptionApiV1BillingSubscriptionGet'][0])
     {
@@ -788,9 +788,9 @@ class BillingApi
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubscriptionApiV1BillingSubscriptionGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BillingSubscriptionResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\BillingSubscriptionResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSubscriptionApiV1BillingSubscriptionGetWithHttpInfo(string $contentType = self::contentTypes['getSubscriptionApiV1BillingSubscriptionGet'][0])
     {
@@ -833,11 +833,11 @@ class BillingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BillingSubscriptionResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\BillingSubscriptionResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\BillingSubscriptionResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\BillingSubscriptionResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -855,13 +855,13 @@ class BillingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BillingSubscriptionResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\BillingSubscriptionResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BillingSubscriptionResponse';
+            $returnType = '\InvoicePDFs\Model\BillingSubscriptionResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -894,7 +894,7 @@ class BillingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BillingSubscriptionResponse',
+                        '\InvoicePDFs\Model\BillingSubscriptionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -936,7 +936,7 @@ class BillingApi
      */
     public function getSubscriptionApiV1BillingSubscriptionGetAsyncWithHttpInfo(string $contentType = self::contentTypes['getSubscriptionApiV1BillingSubscriptionGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\BillingSubscriptionResponse';
+        $returnType = '\InvoicePDFs\Model\BillingSubscriptionResponse';
         $request = $this->getSubscriptionApiV1BillingSubscriptionGetRequest($contentType);
 
         return $this->client

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * CreditNoteCreateRequest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,7 +61,7 @@ class CreditNoteCreateRequest implements ModelInterface, ArrayAccess, \JsonSeria
         'credit_note_number' => 'string',
         'issue_date' => '\DateTime',
         'reason' => 'string',
-        'line_items' => '\OpenAPI\Client\Model\CreditNoteLineItemInput[]'
+        'line_items' => '\InvoicePDFs\Model\CreditNoteLineItemInput[]'
     ];
 
     /**
@@ -447,7 +447,7 @@ class CreditNoteCreateRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets line_items
      *
-     * @return \OpenAPI\Client\Model\CreditNoteLineItemInput[]
+     * @return \InvoicePDFs\Model\CreditNoteLineItemInput[]
      */
     public function getLineItems()
     {
@@ -457,7 +457,7 @@ class CreditNoteCreateRequest implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets line_items
      *
-     * @param \OpenAPI\Client\Model\CreditNoteLineItemInput[] $line_items line_items
+     * @param \InvoicePDFs\Model\CreditNoteLineItemInput[] $line_items line_items
      *
      * @return self
      */

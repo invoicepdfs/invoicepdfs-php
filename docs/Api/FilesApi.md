@@ -1,4 +1,4 @@
-# OpenAPI\Client\FilesApi
+# InvoicePDFs\FilesApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -12,7 +12,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `deleteFileApiV1FilesFileIdDelete()`
 
 ```php
-deleteFileApiV1FilesFileIdDelete($file_id): \OpenAPI\Client\Model\SimpleBoolResponse
+deleteFileApiV1FilesFileIdDelete($file_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete File
@@ -25,10 +25,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\FilesApi(
+$apiInstance = new InvoicePDFs\Api\FilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -52,7 +52,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
+[**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -70,7 +70,7 @@ try {
 ## `getFileApiV1FilesFileIdGet()`
 
 ```php
-getFileApiV1FilesFileIdGet($file_id): \OpenAPI\Client\Model\FileResponse
+getFileApiV1FilesFileIdGet($file_id): \InvoicePDFs\Model\FileResponse
 ```
 
 Get File
@@ -83,10 +83,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\FilesApi(
+$apiInstance = new InvoicePDFs\Api\FilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -110,7 +110,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\FileResponse**](../Model/FileResponse.md)
+[**\InvoicePDFs\Model\FileResponse**](../Model/FileResponse.md)
 
 ### Authorization
 
@@ -128,7 +128,7 @@ try {
 ## `uploadFileApiV1FilesPost()`
 
 ```php
-uploadFileApiV1FilesPost($file, $idempotency_key): \OpenAPI\Client\Model\FileResponse
+uploadFileApiV1FilesPost($file, $idempotency_key): \InvoicePDFs\Model\FileResponse
 ```
 
 Upload File
@@ -141,10 +141,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\FilesApi(
+$apiInstance = new InvoicePDFs\Api\FilesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -170,7 +170,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\FileResponse**](../Model/FileResponse.md)
+[**\InvoicePDFs\Model\FileResponse**](../Model/FileResponse.md)
 
 ### Authorization
 

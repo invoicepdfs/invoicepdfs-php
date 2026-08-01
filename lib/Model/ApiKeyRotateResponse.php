@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * ApiKeyRotateResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,7 +57,7 @@ class ApiKeyRotateResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\ApiKeyCreated'
+        'data' => '\InvoicePDFs\Model\ApiKeyCreated'
     ];
 
     /**
@@ -295,7 +295,7 @@ class ApiKeyRotateResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\ApiKeyCreated
+     * @return \InvoicePDFs\Model\ApiKeyCreated
      */
     public function getData()
     {
@@ -305,7 +305,7 @@ class ApiKeyRotateResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\ApiKeyCreated $data data
+     * @param \InvoicePDFs\Model\ApiKeyCreated $data data
      *
      * @return self
      */

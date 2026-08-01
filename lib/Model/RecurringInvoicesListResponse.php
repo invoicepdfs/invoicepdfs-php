@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * RecurringInvoicesListResponse Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,8 +57,8 @@ class RecurringInvoicesListResponse implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\OpenAPI\Client\Model\RecurringInvoiceOut[]',
-        'pagination' => '\OpenAPI\Client\Model\CursorPagination'
+        'data' => '\InvoicePDFs\Model\RecurringInvoiceOut[]',
+        'pagination' => '\InvoicePDFs\Model\CursorPagination'
     ];
 
     /**
@@ -305,7 +305,7 @@ class RecurringInvoicesListResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets data
      *
-     * @return \OpenAPI\Client\Model\RecurringInvoiceOut[]
+     * @return \InvoicePDFs\Model\RecurringInvoiceOut[]
      */
     public function getData()
     {
@@ -315,7 +315,7 @@ class RecurringInvoicesListResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets data
      *
-     * @param \OpenAPI\Client\Model\RecurringInvoiceOut[] $data data
+     * @param \InvoicePDFs\Model\RecurringInvoiceOut[] $data data
      *
      * @return self
      */
@@ -332,7 +332,7 @@ class RecurringInvoicesListResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets pagination
      *
-     * @return \OpenAPI\Client\Model\CursorPagination
+     * @return \InvoicePDFs\Model\CursorPagination
      */
     public function getPagination()
     {
@@ -342,7 +342,7 @@ class RecurringInvoicesListResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets pagination
      *
-     * @param \OpenAPI\Client\Model\CursorPagination $pagination pagination
+     * @param \InvoicePDFs\Model\CursorPagination $pagination pagination
      *
      * @return self
      */

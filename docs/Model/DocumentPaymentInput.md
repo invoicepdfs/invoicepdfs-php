@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bank_account** | [**\OpenAPI\Client\Model\InvoiceBankAccountInput**](InvoiceBankAccountInput.md) |  | [optional]
+**bank_account** | [**\InvoicePDFs\Model\InvoiceBankAccountInput**](InvoiceBankAccountInput.md) |  | [optional]
 **payment_url** | **string** |  | [optional]
 **accepted_methods** | **string[]** |  | [optional]
 **instructions** | **string** |  | [optional]

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  |
 **invoice_id** | **string** |  |
-**amount** | [**\OpenAPI\Client\Model\MoneyOut**](MoneyOut.md) |  |
+**amount** | [**\InvoicePDFs\Model\MoneyOut**](MoneyOut.md) |  |
 **paid_at** | **string** |  |
 **method** | **string** |  | [optional]
 **reference** | **string** |  | [optional]

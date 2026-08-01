@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * DocumentPartyInput Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -64,8 +64,8 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
         'website' => 'string',
         'tax_id' => 'string',
         'registration_number' => 'string',
-        'address' => '\OpenAPI\Client\Model\PostalAddress',
-        'bank_account' => '\OpenAPI\Client\Model\InvoiceBankAccountInput'
+        'address' => '\InvoicePDFs\Model\PostalAddress',
+        'bank_account' => '\InvoicePDFs\Model\InvoiceBankAccountInput'
     ];
 
     /**
@@ -582,7 +582,7 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets address
      *
-     * @return \OpenAPI\Client\Model\PostalAddress|null
+     * @return \InvoicePDFs\Model\PostalAddress|null
      */
     public function getAddress()
     {
@@ -592,7 +592,7 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets address
      *
-     * @param \OpenAPI\Client\Model\PostalAddress|null $address address
+     * @param \InvoicePDFs\Model\PostalAddress|null $address address
      *
      * @return self
      */
@@ -616,7 +616,7 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets bank_account
      *
-     * @return \OpenAPI\Client\Model\InvoiceBankAccountInput|null
+     * @return \InvoicePDFs\Model\InvoiceBankAccountInput|null
      */
     public function getBankAccount()
     {
@@ -626,7 +626,7 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets bank_account
      *
-     * @param \OpenAPI\Client\Model\InvoiceBankAccountInput|null $bank_account bank_account
+     * @param \InvoicePDFs\Model\InvoiceBankAccountInput|null $bank_account bank_account
      *
      * @return self
      */

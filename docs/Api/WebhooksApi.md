@@ -1,4 +1,4 @@
-# OpenAPI\Client\WebhooksApi
+# InvoicePDFs\WebhooksApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -19,7 +19,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createWebhookEndpointApiV1WebhookEndpointsPost()`
 
 ```php
-createWebhookEndpointApiV1WebhookEndpointsPost($webhook_endpoint_create_request): \OpenAPI\Client\Model\WebhookEndpointResponse
+createWebhookEndpointApiV1WebhookEndpointsPost($webhook_endpoint_create_request): \InvoicePDFs\Model\WebhookEndpointResponse
 ```
 
 Create Webhook Endpoint
@@ -32,16 +32,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WebhooksApi(
+$apiInstance = new InvoicePDFs\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$webhook_endpoint_create_request = new \OpenAPI\Client\Model\WebhookEndpointCreateRequest(); // \OpenAPI\Client\Model\WebhookEndpointCreateRequest
+$webhook_endpoint_create_request = new \InvoicePDFs\Model\WebhookEndpointCreateRequest(); // \InvoicePDFs\Model\WebhookEndpointCreateRequest
 
 try {
     $result = $apiInstance->createWebhookEndpointApiV1WebhookEndpointsPost($webhook_endpoint_create_request);
@@ -55,11 +55,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **webhook_endpoint_create_request** | [**\OpenAPI\Client\Model\WebhookEndpointCreateRequest**](../Model/WebhookEndpointCreateRequest.md)|  | |
+| **webhook_endpoint_create_request** | [**\InvoicePDFs\Model\WebhookEndpointCreateRequest**](../Model/WebhookEndpointCreateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WebhookEndpointResponse**](../Model/WebhookEndpointResponse.md)
+[**\InvoicePDFs\Model\WebhookEndpointResponse**](../Model/WebhookEndpointResponse.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ try {
 ## `deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete()`
 
 ```php
-deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete($endpoint_id): \OpenAPI\Client\Model\SimpleBoolResponse
+deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete($endpoint_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Webhook Endpoint
@@ -90,10 +90,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WebhooksApi(
+$apiInstance = new InvoicePDFs\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -117,7 +117,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
+[**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ try {
 ## `getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet()`
 
 ```php
-getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet($delivery_id): \OpenAPI\Client\Model\WebhookDeliveryResponse
+getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet($delivery_id): \InvoicePDFs\Model\WebhookDeliveryResponse
 ```
 
 Get Webhook Delivery
@@ -148,10 +148,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WebhooksApi(
+$apiInstance = new InvoicePDFs\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -175,7 +175,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WebhookDeliveryResponse**](../Model/WebhookDeliveryResponse.md)
+[**\InvoicePDFs\Model\WebhookDeliveryResponse**](../Model/WebhookDeliveryResponse.md)
 
 ### Authorization
 
@@ -193,7 +193,7 @@ try {
 ## `getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet()`
 
 ```php
-getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet($endpoint_id): \OpenAPI\Client\Model\WebhookEndpointResponse
+getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet($endpoint_id): \InvoicePDFs\Model\WebhookEndpointResponse
 ```
 
 Get Webhook Endpoint
@@ -206,10 +206,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WebhooksApi(
+$apiInstance = new InvoicePDFs\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -233,7 +233,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WebhookEndpointResponse**](../Model/WebhookEndpointResponse.md)
+[**\InvoicePDFs\Model\WebhookEndpointResponse**](../Model/WebhookEndpointResponse.md)
 
 ### Authorization
 
@@ -251,7 +251,7 @@ try {
 ## `listWebhookDeliveriesApiV1WebhookDeliveriesGet()`
 
 ```php
-listWebhookDeliveriesApiV1WebhookDeliveriesGet($limit, $cursor): \OpenAPI\Client\Model\WebhookDeliveriesListResponse
+listWebhookDeliveriesApiV1WebhookDeliveriesGet($limit, $cursor): \InvoicePDFs\Model\WebhookDeliveriesListResponse
 ```
 
 List Webhook Deliveries
@@ -264,10 +264,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WebhooksApi(
+$apiInstance = new InvoicePDFs\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -293,7 +293,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WebhookDeliveriesListResponse**](../Model/WebhookDeliveriesListResponse.md)
+[**\InvoicePDFs\Model\WebhookDeliveriesListResponse**](../Model/WebhookDeliveriesListResponse.md)
 
 ### Authorization
 
@@ -311,7 +311,7 @@ try {
 ## `listWebhookEndpointsApiV1WebhookEndpointsGet()`
 
 ```php
-listWebhookEndpointsApiV1WebhookEndpointsGet($limit, $cursor): \OpenAPI\Client\Model\WebhookEndpointsListResponse
+listWebhookEndpointsApiV1WebhookEndpointsGet($limit, $cursor): \InvoicePDFs\Model\WebhookEndpointsListResponse
 ```
 
 List Webhook Endpoints
@@ -324,10 +324,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WebhooksApi(
+$apiInstance = new InvoicePDFs\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -353,7 +353,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WebhookEndpointsListResponse**](../Model/WebhookEndpointsListResponse.md)
+[**\InvoicePDFs\Model\WebhookEndpointsListResponse**](../Model/WebhookEndpointsListResponse.md)
 
 ### Authorization
 
@@ -371,7 +371,7 @@ try {
 ## `retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost()`
 
 ```php
-retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost($delivery_id): \OpenAPI\Client\Model\WebhookDeliveryResponse
+retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost($delivery_id): \InvoicePDFs\Model\WebhookDeliveryResponse
 ```
 
 Retry Webhook Delivery
@@ -384,10 +384,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WebhooksApi(
+$apiInstance = new InvoicePDFs\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -411,7 +411,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WebhookDeliveryResponse**](../Model/WebhookDeliveryResponse.md)
+[**\InvoicePDFs\Model\WebhookDeliveryResponse**](../Model/WebhookDeliveryResponse.md)
 
 ### Authorization
 
@@ -429,7 +429,7 @@ try {
 ## `rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost()`
 
 ```php
-rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost($endpoint_id): \OpenAPI\Client\Model\WebhookSecretResponse
+rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost($endpoint_id): \InvoicePDFs\Model\WebhookSecretResponse
 ```
 
 Rotate Webhook Secret
@@ -442,10 +442,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WebhooksApi(
+$apiInstance = new InvoicePDFs\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -469,7 +469,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WebhookSecretResponse**](../Model/WebhookSecretResponse.md)
+[**\InvoicePDFs\Model\WebhookSecretResponse**](../Model/WebhookSecretResponse.md)
 
 ### Authorization
 
@@ -487,7 +487,7 @@ try {
 ## `testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost()`
 
 ```php
-testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost($endpoint_id): \OpenAPI\Client\Model\WebhookDeliveryResponse
+testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost($endpoint_id): \InvoicePDFs\Model\WebhookDeliveryResponse
 ```
 
 Test Webhook Endpoint
@@ -500,10 +500,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WebhooksApi(
+$apiInstance = new InvoicePDFs\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -527,7 +527,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WebhookDeliveryResponse**](../Model/WebhookDeliveryResponse.md)
+[**\InvoicePDFs\Model\WebhookDeliveryResponse**](../Model/WebhookDeliveryResponse.md)
 
 ### Authorization
 
@@ -545,7 +545,7 @@ try {
 ## `updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch()`
 
 ```php
-updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch($endpoint_id, $webhook_endpoint_patch_request): \OpenAPI\Client\Model\WebhookEndpointResponse
+updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch($endpoint_id, $webhook_endpoint_patch_request): \InvoicePDFs\Model\WebhookEndpointResponse
 ```
 
 Update Webhook Endpoint
@@ -558,17 +558,17 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\WebhooksApi(
+$apiInstance = new InvoicePDFs\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $endpoint_id = 'endpoint_id_example'; // string
-$webhook_endpoint_patch_request = new \OpenAPI\Client\Model\WebhookEndpointPatchRequest(); // \OpenAPI\Client\Model\WebhookEndpointPatchRequest
+$webhook_endpoint_patch_request = new \InvoicePDFs\Model\WebhookEndpointPatchRequest(); // \InvoicePDFs\Model\WebhookEndpointPatchRequest
 
 try {
     $result = $apiInstance->updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch($endpoint_id, $webhook_endpoint_patch_request);
@@ -583,11 +583,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **endpoint_id** | **string**|  | |
-| **webhook_endpoint_patch_request** | [**\OpenAPI\Client\Model\WebhookEndpointPatchRequest**](../Model/WebhookEndpointPatchRequest.md)|  | |
+| **webhook_endpoint_patch_request** | [**\InvoicePDFs\Model\WebhookEndpointPatchRequest**](../Model/WebhookEndpointPatchRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\WebhookEndpointResponse**](../Model/WebhookEndpointResponse.md)
+[**\InvoicePDFs\Model\WebhookEndpointResponse**](../Model/WebhookEndpointResponse.md)
 
 ### Authorization
 

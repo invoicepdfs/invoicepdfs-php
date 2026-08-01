@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * BatchesApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -145,9 +145,9 @@ class BatchesApi
      * @param  string $batch_id batch_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BatchResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\BatchResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function cancelBatchApiV1BatchesBatchIdCancelPost($batch_id, string $contentType = self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'][0])
     {
@@ -163,9 +163,9 @@ class BatchesApi
      * @param  string $batch_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BatchResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\BatchResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function cancelBatchApiV1BatchesBatchIdCancelPostWithHttpInfo($batch_id, string $contentType = self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'][0])
     {
@@ -208,11 +208,11 @@ class BatchesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BatchResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\BatchResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\BatchResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\BatchResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -230,16 +230,16 @@ class BatchesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BatchResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\BatchResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -257,13 +257,13 @@ class BatchesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BatchResponse';
+            $returnType = '\InvoicePDFs\Model\BatchResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -296,7 +296,7 @@ class BatchesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BatchResponse',
+                        '\InvoicePDFs\Model\BatchResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -304,7 +304,7 @@ class BatchesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -348,7 +348,7 @@ class BatchesApi
      */
     public function cancelBatchApiV1BatchesBatchIdCancelPostAsyncWithHttpInfo($batch_id, string $contentType = self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\BatchResponse';
+        $returnType = '\InvoicePDFs\Model\BatchResponse';
         $request = $this->cancelBatchApiV1BatchesBatchIdCancelPostRequest($batch_id, $contentType);
 
         return $this->client
@@ -488,12 +488,12 @@ class BatchesApi
      *
      * Create Batch
      *
-     * @param  \OpenAPI\Client\Model\BatchCreateRequest $batch_create_request batch_create_request (required)
+     * @param  \InvoicePDFs\Model\BatchCreateRequest $batch_create_request batch_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatchApiV1BatchesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BatchResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\BatchResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function createBatchApiV1BatchesPost($batch_create_request, string $contentType = self::contentTypes['createBatchApiV1BatchesPost'][0])
     {
@@ -506,12 +506,12 @@ class BatchesApi
      *
      * Create Batch
      *
-     * @param  \OpenAPI\Client\Model\BatchCreateRequest $batch_create_request (required)
+     * @param  \InvoicePDFs\Model\BatchCreateRequest $batch_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatchApiV1BatchesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BatchResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\BatchResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBatchApiV1BatchesPostWithHttpInfo($batch_create_request, string $contentType = self::contentTypes['createBatchApiV1BatchesPost'][0])
     {
@@ -554,11 +554,11 @@ class BatchesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BatchResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\BatchResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\BatchResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\BatchResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -576,16 +576,16 @@ class BatchesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BatchResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\BatchResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -603,13 +603,13 @@ class BatchesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BatchResponse';
+            $returnType = '\InvoicePDFs\Model\BatchResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -642,7 +642,7 @@ class BatchesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BatchResponse',
+                        '\InvoicePDFs\Model\BatchResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -650,7 +650,7 @@ class BatchesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -665,7 +665,7 @@ class BatchesApi
      *
      * Create Batch
      *
-     * @param  \OpenAPI\Client\Model\BatchCreateRequest $batch_create_request (required)
+     * @param  \InvoicePDFs\Model\BatchCreateRequest $batch_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatchApiV1BatchesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -686,7 +686,7 @@ class BatchesApi
      *
      * Create Batch
      *
-     * @param  \OpenAPI\Client\Model\BatchCreateRequest $batch_create_request (required)
+     * @param  \InvoicePDFs\Model\BatchCreateRequest $batch_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatchApiV1BatchesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -694,7 +694,7 @@ class BatchesApi
      */
     public function createBatchApiV1BatchesPostAsyncWithHttpInfo($batch_create_request, string $contentType = self::contentTypes['createBatchApiV1BatchesPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\BatchResponse';
+        $returnType = '\InvoicePDFs\Model\BatchResponse';
         $request = $this->createBatchApiV1BatchesPostRequest($batch_create_request, $contentType);
 
         return $this->client
@@ -736,7 +736,7 @@ class BatchesApi
     /**
      * Create request for operation 'createBatchApiV1BatchesPost'
      *
-     * @param  \OpenAPI\Client\Model\BatchCreateRequest $batch_create_request (required)
+     * @param  \InvoicePDFs\Model\BatchCreateRequest $batch_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatchApiV1BatchesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -836,9 +836,9 @@ class BatchesApi
      * @param  string $batch_id batch_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\OpenAPI\Client\Model\HTTPValidationError
+     * @return mixed|\InvoicePDFs\Model\HTTPValidationError
      */
     public function downloadBatchApiV1BatchesBatchIdDownloadGet($batch_id, string $contentType = self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'][0])
     {
@@ -854,9 +854,9 @@ class BatchesApi
      * @param  string $batch_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of mixed|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function downloadBatchApiV1BatchesBatchIdDownloadGetWithHttpInfo($batch_id, string $contentType = self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'][0])
     {
@@ -926,11 +926,11 @@ class BatchesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -948,7 +948,7 @@ class BatchesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -995,7 +995,7 @@ class BatchesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1182,9 +1182,9 @@ class BatchesApi
      * @param  string $batch_id batch_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatchApiV1BatchesBatchIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BatchResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\BatchResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function getBatchApiV1BatchesBatchIdGet($batch_id, string $contentType = self::contentTypes['getBatchApiV1BatchesBatchIdGet'][0])
     {
@@ -1200,9 +1200,9 @@ class BatchesApi
      * @param  string $batch_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatchApiV1BatchesBatchIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BatchResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\BatchResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getBatchApiV1BatchesBatchIdGetWithHttpInfo($batch_id, string $contentType = self::contentTypes['getBatchApiV1BatchesBatchIdGet'][0])
     {
@@ -1245,11 +1245,11 @@ class BatchesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BatchResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\BatchResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\BatchResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\BatchResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1267,16 +1267,16 @@ class BatchesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BatchResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\BatchResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1294,13 +1294,13 @@ class BatchesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BatchResponse';
+            $returnType = '\InvoicePDFs\Model\BatchResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1333,7 +1333,7 @@ class BatchesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BatchResponse',
+                        '\InvoicePDFs\Model\BatchResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1341,7 +1341,7 @@ class BatchesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1385,7 +1385,7 @@ class BatchesApi
      */
     public function getBatchApiV1BatchesBatchIdGetAsyncWithHttpInfo($batch_id, string $contentType = self::contentTypes['getBatchApiV1BatchesBatchIdGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\BatchResponse';
+        $returnType = '\InvoicePDFs\Model\BatchResponse';
         $request = $this->getBatchApiV1BatchesBatchIdGetRequest($batch_id, $contentType);
 
         return $this->client
@@ -1530,9 +1530,9 @@ class BatchesApi
      * @param  string $cursor cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BatchItemsListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\BatchItemsListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listBatchItemsApiV1BatchesBatchIdItemsGet($batch_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'][0])
     {
@@ -1550,9 +1550,9 @@ class BatchesApi
      * @param  string $cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BatchItemsListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\BatchItemsListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listBatchItemsApiV1BatchesBatchIdItemsGetWithHttpInfo($batch_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'][0])
     {
@@ -1595,11 +1595,11 @@ class BatchesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BatchItemsListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\BatchItemsListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\BatchItemsListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\BatchItemsListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1617,16 +1617,16 @@ class BatchesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BatchItemsListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\BatchItemsListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1644,13 +1644,13 @@ class BatchesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BatchItemsListResponse';
+            $returnType = '\InvoicePDFs\Model\BatchItemsListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1683,7 +1683,7 @@ class BatchesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BatchItemsListResponse',
+                        '\InvoicePDFs\Model\BatchItemsListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1691,7 +1691,7 @@ class BatchesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1739,7 +1739,7 @@ class BatchesApi
      */
     public function listBatchItemsApiV1BatchesBatchIdItemsGetAsyncWithHttpInfo($batch_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\BatchItemsListResponse';
+        $returnType = '\InvoicePDFs\Model\BatchItemsListResponse';
         $request = $this->listBatchItemsApiV1BatchesBatchIdItemsGetRequest($batch_id, $limit, $cursor, $contentType);
 
         return $this->client
@@ -1911,9 +1911,9 @@ class BatchesApi
      * @param  string $cursor cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchesApiV1BatchesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\BatchesListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\BatchesListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listBatchesApiV1BatchesGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchesApiV1BatchesGet'][0])
     {
@@ -1930,9 +1930,9 @@ class BatchesApi
      * @param  string $cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchesApiV1BatchesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\BatchesListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\BatchesListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listBatchesApiV1BatchesGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchesApiV1BatchesGet'][0])
     {
@@ -1975,11 +1975,11 @@ class BatchesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\BatchesListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\BatchesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\BatchesListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\BatchesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1997,16 +1997,16 @@ class BatchesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\BatchesListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\BatchesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2024,13 +2024,13 @@ class BatchesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\BatchesListResponse';
+            $returnType = '\InvoicePDFs\Model\BatchesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2063,7 +2063,7 @@ class BatchesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\BatchesListResponse',
+                        '\InvoicePDFs\Model\BatchesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2071,7 +2071,7 @@ class BatchesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2117,7 +2117,7 @@ class BatchesApi
      */
     public function listBatchesApiV1BatchesGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchesApiV1BatchesGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\BatchesListResponse';
+        $returnType = '\InvoicePDFs\Model\BatchesListResponse';
         $request = $this->listBatchesApiV1BatchesGetRequest($limit, $cursor, $contentType);
 
         return $this->client

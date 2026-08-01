@@ -1,4 +1,4 @@
-# OpenAPI\Client\AuthApi
+# InvoicePDFs\AuthApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
@@ -17,7 +17,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `forgotPasswordApiV1AuthForgotPasswordPost()`
 
 ```php
-forgotPasswordApiV1AuthForgotPasswordPost($auth_forgot_password_request): \OpenAPI\Client\Model\AuthMessageResponse
+forgotPasswordApiV1AuthForgotPasswordPost($auth_forgot_password_request): \InvoicePDFs\Model\AuthMessageResponse
 ```
 
 Forgot Password
@@ -32,12 +32,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AuthApi(
+$apiInstance = new InvoicePDFs\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$auth_forgot_password_request = new \OpenAPI\Client\Model\AuthForgotPasswordRequest(); // \OpenAPI\Client\Model\AuthForgotPasswordRequest
+$auth_forgot_password_request = new \InvoicePDFs\Model\AuthForgotPasswordRequest(); // \InvoicePDFs\Model\AuthForgotPasswordRequest
 
 try {
     $result = $apiInstance->forgotPasswordApiV1AuthForgotPasswordPost($auth_forgot_password_request);
@@ -51,11 +51,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **auth_forgot_password_request** | [**\OpenAPI\Client\Model\AuthForgotPasswordRequest**](../Model/AuthForgotPasswordRequest.md)|  | |
+| **auth_forgot_password_request** | [**\InvoicePDFs\Model\AuthForgotPasswordRequest**](../Model/AuthForgotPasswordRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthMessageResponse**](../Model/AuthMessageResponse.md)
+[**\InvoicePDFs\Model\AuthMessageResponse**](../Model/AuthMessageResponse.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ No authorization required
 ## `logoutApiV1AuthLogoutPost()`
 
 ```php
-logoutApiV1AuthLogoutPost(): \OpenAPI\Client\Model\AuthMessageResponse
+logoutApiV1AuthLogoutPost(): \InvoicePDFs\Model\AuthMessageResponse
 ```
 
 Logout
@@ -88,10 +88,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\AuthApi(
+$apiInstance = new InvoicePDFs\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -112,7 +112,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthMessageResponse**](../Model/AuthMessageResponse.md)
+[**\InvoicePDFs\Model\AuthMessageResponse**](../Model/AuthMessageResponse.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ This endpoint does not need any parameter.
 ## `meApiV1AuthMeGet()`
 
 ```php
-meApiV1AuthMeGet(): \OpenAPI\Client\Model\AuthMeResponse
+meApiV1AuthMeGet(): \InvoicePDFs\Model\AuthMeResponse
 ```
 
 Me
@@ -143,10 +143,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\AuthApi(
+$apiInstance = new InvoicePDFs\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -167,7 +167,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthMeResponse**](../Model/AuthMeResponse.md)
+[**\InvoicePDFs\Model\AuthMeResponse**](../Model/AuthMeResponse.md)
 
 ### Authorization
 
@@ -185,7 +185,7 @@ This endpoint does not need any parameter.
 ## `patchMeApiV1AuthMePatch()`
 
 ```php
-patchMeApiV1AuthMePatch($auth_me_patch_request): \OpenAPI\Client\Model\AuthMeResponse
+patchMeApiV1AuthMePatch($auth_me_patch_request): \InvoicePDFs\Model\AuthMeResponse
 ```
 
 Patch Me
@@ -200,16 +200,16 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure Bearer authorization: HTTPBearer
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\AuthApi(
+$apiInstance = new InvoicePDFs\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$auth_me_patch_request = new \OpenAPI\Client\Model\AuthMePatchRequest(); // \OpenAPI\Client\Model\AuthMePatchRequest
+$auth_me_patch_request = new \InvoicePDFs\Model\AuthMePatchRequest(); // \InvoicePDFs\Model\AuthMePatchRequest
 
 try {
     $result = $apiInstance->patchMeApiV1AuthMePatch($auth_me_patch_request);
@@ -223,11 +223,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **auth_me_patch_request** | [**\OpenAPI\Client\Model\AuthMePatchRequest**](../Model/AuthMePatchRequest.md)|  | |
+| **auth_me_patch_request** | [**\InvoicePDFs\Model\AuthMePatchRequest**](../Model/AuthMePatchRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthMeResponse**](../Model/AuthMeResponse.md)
+[**\InvoicePDFs\Model\AuthMeResponse**](../Model/AuthMeResponse.md)
 
 ### Authorization
 
@@ -245,7 +245,7 @@ try {
 ## `refreshApiV1AuthRefreshPost()`
 
 ```php
-refreshApiV1AuthRefreshPost($auth_refresh_request): \OpenAPI\Client\Model\AuthRefreshResponse
+refreshApiV1AuthRefreshPost($auth_refresh_request): \InvoicePDFs\Model\AuthRefreshResponse
 ```
 
 Refresh
@@ -260,12 +260,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AuthApi(
+$apiInstance = new InvoicePDFs\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$auth_refresh_request = new \OpenAPI\Client\Model\AuthRefreshRequest(); // \OpenAPI\Client\Model\AuthRefreshRequest
+$auth_refresh_request = new \InvoicePDFs\Model\AuthRefreshRequest(); // \InvoicePDFs\Model\AuthRefreshRequest
 
 try {
     $result = $apiInstance->refreshApiV1AuthRefreshPost($auth_refresh_request);
@@ -279,11 +279,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **auth_refresh_request** | [**\OpenAPI\Client\Model\AuthRefreshRequest**](../Model/AuthRefreshRequest.md)|  | |
+| **auth_refresh_request** | [**\InvoicePDFs\Model\AuthRefreshRequest**](../Model/AuthRefreshRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthRefreshResponse**](../Model/AuthRefreshResponse.md)
+[**\InvoicePDFs\Model\AuthRefreshResponse**](../Model/AuthRefreshResponse.md)
 
 ### Authorization
 
@@ -301,7 +301,7 @@ No authorization required
 ## `registerApiV1AuthRegisterPost()`
 
 ```php
-registerApiV1AuthRegisterPost($auth_register_request): \OpenAPI\Client\Model\AuthRegisterResponse
+registerApiV1AuthRegisterPost($auth_register_request): \InvoicePDFs\Model\AuthRegisterResponse
 ```
 
 Register
@@ -316,12 +316,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AuthApi(
+$apiInstance = new InvoicePDFs\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$auth_register_request = new \OpenAPI\Client\Model\AuthRegisterRequest(); // \OpenAPI\Client\Model\AuthRegisterRequest
+$auth_register_request = new \InvoicePDFs\Model\AuthRegisterRequest(); // \InvoicePDFs\Model\AuthRegisterRequest
 
 try {
     $result = $apiInstance->registerApiV1AuthRegisterPost($auth_register_request);
@@ -335,11 +335,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **auth_register_request** | [**\OpenAPI\Client\Model\AuthRegisterRequest**](../Model/AuthRegisterRequest.md)|  | |
+| **auth_register_request** | [**\InvoicePDFs\Model\AuthRegisterRequest**](../Model/AuthRegisterRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthRegisterResponse**](../Model/AuthRegisterResponse.md)
+[**\InvoicePDFs\Model\AuthRegisterResponse**](../Model/AuthRegisterResponse.md)
 
 ### Authorization
 
@@ -357,7 +357,7 @@ No authorization required
 ## `resetPasswordApiV1AuthResetPasswordPost()`
 
 ```php
-resetPasswordApiV1AuthResetPasswordPost($auth_reset_password_request): \OpenAPI\Client\Model\AuthMessageResponse
+resetPasswordApiV1AuthResetPasswordPost($auth_reset_password_request): \InvoicePDFs\Model\AuthMessageResponse
 ```
 
 Reset Password
@@ -372,12 +372,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AuthApi(
+$apiInstance = new InvoicePDFs\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$auth_reset_password_request = new \OpenAPI\Client\Model\AuthResetPasswordRequest(); // \OpenAPI\Client\Model\AuthResetPasswordRequest
+$auth_reset_password_request = new \InvoicePDFs\Model\AuthResetPasswordRequest(); // \InvoicePDFs\Model\AuthResetPasswordRequest
 
 try {
     $result = $apiInstance->resetPasswordApiV1AuthResetPasswordPost($auth_reset_password_request);
@@ -391,11 +391,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **auth_reset_password_request** | [**\OpenAPI\Client\Model\AuthResetPasswordRequest**](../Model/AuthResetPasswordRequest.md)|  | |
+| **auth_reset_password_request** | [**\InvoicePDFs\Model\AuthResetPasswordRequest**](../Model/AuthResetPasswordRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthMessageResponse**](../Model/AuthMessageResponse.md)
+[**\InvoicePDFs\Model\AuthMessageResponse**](../Model/AuthMessageResponse.md)
 
 ### Authorization
 
@@ -413,7 +413,7 @@ No authorization required
 ## `tokenExchangeApiV1AuthTokenPost()`
 
 ```php
-tokenExchangeApiV1AuthTokenPost($auth_token_request): \OpenAPI\Client\Model\AuthTokenResponse
+tokenExchangeApiV1AuthTokenPost($auth_token_request): \InvoicePDFs\Model\AuthTokenResponse
 ```
 
 Token Exchange
@@ -428,12 +428,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AuthApi(
+$apiInstance = new InvoicePDFs\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$auth_token_request = new \OpenAPI\Client\Model\AuthTokenRequest(); // \OpenAPI\Client\Model\AuthTokenRequest
+$auth_token_request = new \InvoicePDFs\Model\AuthTokenRequest(); // \InvoicePDFs\Model\AuthTokenRequest
 
 try {
     $result = $apiInstance->tokenExchangeApiV1AuthTokenPost($auth_token_request);
@@ -447,11 +447,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **auth_token_request** | [**\OpenAPI\Client\Model\AuthTokenRequest**](../Model/AuthTokenRequest.md)|  | |
+| **auth_token_request** | [**\InvoicePDFs\Model\AuthTokenRequest**](../Model/AuthTokenRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\AuthTokenResponse**](../Model/AuthTokenResponse.md)
+[**\InvoicePDFs\Model\AuthTokenResponse**](../Model/AuthTokenResponse.md)
 
 ### Authorization
 

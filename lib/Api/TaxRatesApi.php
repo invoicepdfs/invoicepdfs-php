@@ -4,7 +4,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace InvoicePDFs\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use InvoicePDFs\ApiException;
+use InvoicePDFs\Configuration;
+use InvoicePDFs\HeaderSelector;
+use InvoicePDFs\ObjectSerializer;
 
 /**
  * TaxRatesApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -139,12 +139,12 @@ class TaxRatesApi
      *
      * Create Tax Rate
      *
-     * @param  \OpenAPI\Client\Model\TaxRateCreateRequest $tax_rate_create_request tax_rate_create_request (required)
+     * @param  \InvoicePDFs\Model\TaxRateCreateRequest $tax_rate_create_request tax_rate_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRateApiV1TaxRatesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TaxRateResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\TaxRateResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function createTaxRateApiV1TaxRatesPost($tax_rate_create_request, string $contentType = self::contentTypes['createTaxRateApiV1TaxRatesPost'][0])
     {
@@ -157,12 +157,12 @@ class TaxRatesApi
      *
      * Create Tax Rate
      *
-     * @param  \OpenAPI\Client\Model\TaxRateCreateRequest $tax_rate_create_request (required)
+     * @param  \InvoicePDFs\Model\TaxRateCreateRequest $tax_rate_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRateApiV1TaxRatesPost'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TaxRateResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\TaxRateResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTaxRateApiV1TaxRatesPostWithHttpInfo($tax_rate_create_request, string $contentType = self::contentTypes['createTaxRateApiV1TaxRatesPost'][0])
     {
@@ -205,11 +205,11 @@ class TaxRatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TaxRateResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\TaxRateResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\TaxRateResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\TaxRateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -227,16 +227,16 @@ class TaxRatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TaxRateResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\TaxRateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -254,13 +254,13 @@ class TaxRatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TaxRateResponse';
+            $returnType = '\InvoicePDFs\Model\TaxRateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -293,7 +293,7 @@ class TaxRatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TaxRateResponse',
+                        '\InvoicePDFs\Model\TaxRateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -301,7 +301,7 @@ class TaxRatesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -316,7 +316,7 @@ class TaxRatesApi
      *
      * Create Tax Rate
      *
-     * @param  \OpenAPI\Client\Model\TaxRateCreateRequest $tax_rate_create_request (required)
+     * @param  \InvoicePDFs\Model\TaxRateCreateRequest $tax_rate_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRateApiV1TaxRatesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -337,7 +337,7 @@ class TaxRatesApi
      *
      * Create Tax Rate
      *
-     * @param  \OpenAPI\Client\Model\TaxRateCreateRequest $tax_rate_create_request (required)
+     * @param  \InvoicePDFs\Model\TaxRateCreateRequest $tax_rate_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRateApiV1TaxRatesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -345,7 +345,7 @@ class TaxRatesApi
      */
     public function createTaxRateApiV1TaxRatesPostAsyncWithHttpInfo($tax_rate_create_request, string $contentType = self::contentTypes['createTaxRateApiV1TaxRatesPost'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\TaxRateResponse';
+        $returnType = '\InvoicePDFs\Model\TaxRateResponse';
         $request = $this->createTaxRateApiV1TaxRatesPostRequest($tax_rate_create_request, $contentType);
 
         return $this->client
@@ -387,7 +387,7 @@ class TaxRatesApi
     /**
      * Create request for operation 'createTaxRateApiV1TaxRatesPost'
      *
-     * @param  \OpenAPI\Client\Model\TaxRateCreateRequest $tax_rate_create_request (required)
+     * @param  \InvoicePDFs\Model\TaxRateCreateRequest $tax_rate_create_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRateApiV1TaxRatesPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -487,9 +487,9 @@ class TaxRatesApi
      * @param  string $tax_rate_id tax_rate_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SimpleBoolResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function deleteTaxRateApiV1TaxRatesTaxRateIdDelete($tax_rate_id, string $contentType = self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'][0])
     {
@@ -505,9 +505,9 @@ class TaxRatesApi
      * @param  string $tax_rate_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SimpleBoolResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteTaxRateApiV1TaxRatesTaxRateIdDeleteWithHttpInfo($tax_rate_id, string $contentType = self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'][0])
     {
@@ -550,11 +550,11 @@ class TaxRatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SimpleBoolResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\SimpleBoolResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\SimpleBoolResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\SimpleBoolResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -572,16 +572,16 @@ class TaxRatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SimpleBoolResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\SimpleBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -599,13 +599,13 @@ class TaxRatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+            $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -638,7 +638,7 @@ class TaxRatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SimpleBoolResponse',
+                        '\InvoicePDFs\Model\SimpleBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -646,7 +646,7 @@ class TaxRatesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -690,7 +690,7 @@ class TaxRatesApi
      */
     public function deleteTaxRateApiV1TaxRatesTaxRateIdDeleteAsyncWithHttpInfo($tax_rate_id, string $contentType = self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\SimpleBoolResponse';
+        $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
         $request = $this->deleteTaxRateApiV1TaxRatesTaxRateIdDeleteRequest($tax_rate_id, $contentType);
 
         return $this->client
@@ -833,9 +833,9 @@ class TaxRatesApi
      * @param  string $tax_rate_id tax_rate_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TaxRateResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\TaxRateResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function getTaxRateApiV1TaxRatesTaxRateIdGet($tax_rate_id, string $contentType = self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'][0])
     {
@@ -851,9 +851,9 @@ class TaxRatesApi
      * @param  string $tax_rate_id (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TaxRateResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\TaxRateResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxRateApiV1TaxRatesTaxRateIdGetWithHttpInfo($tax_rate_id, string $contentType = self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'][0])
     {
@@ -896,11 +896,11 @@ class TaxRatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TaxRateResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\TaxRateResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\TaxRateResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\TaxRateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -918,16 +918,16 @@ class TaxRatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TaxRateResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\TaxRateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -945,13 +945,13 @@ class TaxRatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TaxRateResponse';
+            $returnType = '\InvoicePDFs\Model\TaxRateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -984,7 +984,7 @@ class TaxRatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TaxRateResponse',
+                        '\InvoicePDFs\Model\TaxRateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -992,7 +992,7 @@ class TaxRatesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1036,7 +1036,7 @@ class TaxRatesApi
      */
     public function getTaxRateApiV1TaxRatesTaxRateIdGetAsyncWithHttpInfo($tax_rate_id, string $contentType = self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\TaxRateResponse';
+        $returnType = '\InvoicePDFs\Model\TaxRateResponse';
         $request = $this->getTaxRateApiV1TaxRatesTaxRateIdGetRequest($tax_rate_id, $contentType);
 
         return $this->client
@@ -1180,9 +1180,9 @@ class TaxRatesApi
      * @param  string $cursor cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTaxRatesApiV1TaxRatesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TaxRatesListResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\TaxRatesListResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function listTaxRatesApiV1TaxRatesGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listTaxRatesApiV1TaxRatesGet'][0])
     {
@@ -1199,9 +1199,9 @@ class TaxRatesApi
      * @param  string $cursor (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTaxRatesApiV1TaxRatesGet'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TaxRatesListResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\TaxRatesListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function listTaxRatesApiV1TaxRatesGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listTaxRatesApiV1TaxRatesGet'][0])
     {
@@ -1244,11 +1244,11 @@ class TaxRatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TaxRatesListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\TaxRatesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\TaxRatesListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\TaxRatesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1266,16 +1266,16 @@ class TaxRatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TaxRatesListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\TaxRatesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1293,13 +1293,13 @@ class TaxRatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TaxRatesListResponse';
+            $returnType = '\InvoicePDFs\Model\TaxRatesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1332,7 +1332,7 @@ class TaxRatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TaxRatesListResponse',
+                        '\InvoicePDFs\Model\TaxRatesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1340,7 +1340,7 @@ class TaxRatesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1386,7 +1386,7 @@ class TaxRatesApi
      */
     public function listTaxRatesApiV1TaxRatesGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listTaxRatesApiV1TaxRatesGet'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\TaxRatesListResponse';
+        $returnType = '\InvoicePDFs\Model\TaxRatesListResponse';
         $request = $this->listTaxRatesApiV1TaxRatesGetRequest($limit, $cursor, $contentType);
 
         return $this->client
@@ -1539,12 +1539,12 @@ class TaxRatesApi
      * Update Tax Rate
      *
      * @param  string $tax_rate_id tax_rate_id (required)
-     * @param  \OpenAPI\Client\Model\TaxRatePatchRequest $tax_rate_patch_request tax_rate_patch_request (required)
+     * @param  \InvoicePDFs\Model\TaxRatePatchRequest $tax_rate_patch_request tax_rate_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\TaxRateResponse|\OpenAPI\Client\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\TaxRateResponse|\InvoicePDFs\Model\HTTPValidationError
      */
     public function updateTaxRateApiV1TaxRatesTaxRateIdPatch($tax_rate_id, $tax_rate_patch_request, string $contentType = self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'][0])
     {
@@ -1558,12 +1558,12 @@ class TaxRatesApi
      * Update Tax Rate
      *
      * @param  string $tax_rate_id (required)
-     * @param  \OpenAPI\Client\Model\TaxRatePatchRequest $tax_rate_patch_request (required)
+     * @param  \InvoicePDFs\Model\TaxRatePatchRequest $tax_rate_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'] to see the possible values for this operation
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\TaxRateResponse|\OpenAPI\Client\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\TaxRateResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaxRateApiV1TaxRatesTaxRateIdPatchWithHttpInfo($tax_rate_id, $tax_rate_patch_request, string $contentType = self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'][0])
     {
@@ -1606,11 +1606,11 @@ class TaxRatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\TaxRateResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\TaxRateResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\TaxRateResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\TaxRateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1628,16 +1628,16 @@ class TaxRatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\TaxRateResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\TaxRateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\OpenAPI\Client\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1655,13 +1655,13 @@ class TaxRatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\TaxRateResponse';
+            $returnType = '\InvoicePDFs\Model\TaxRateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1694,7 +1694,7 @@ class TaxRatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\TaxRateResponse',
+                        '\InvoicePDFs\Model\TaxRateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1702,7 +1702,7 @@ class TaxRatesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\HTTPValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1718,7 +1718,7 @@ class TaxRatesApi
      * Update Tax Rate
      *
      * @param  string $tax_rate_id (required)
-     * @param  \OpenAPI\Client\Model\TaxRatePatchRequest $tax_rate_patch_request (required)
+     * @param  \InvoicePDFs\Model\TaxRatePatchRequest $tax_rate_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1740,7 +1740,7 @@ class TaxRatesApi
      * Update Tax Rate
      *
      * @param  string $tax_rate_id (required)
-     * @param  \OpenAPI\Client\Model\TaxRatePatchRequest $tax_rate_patch_request (required)
+     * @param  \InvoicePDFs\Model\TaxRatePatchRequest $tax_rate_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1748,7 +1748,7 @@ class TaxRatesApi
      */
     public function updateTaxRateApiV1TaxRatesTaxRateIdPatchAsyncWithHttpInfo($tax_rate_id, $tax_rate_patch_request, string $contentType = self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\TaxRateResponse';
+        $returnType = '\InvoicePDFs\Model\TaxRateResponse';
         $request = $this->updateTaxRateApiV1TaxRatesTaxRateIdPatchRequest($tax_rate_id, $tax_rate_patch_request, $contentType);
 
         return $this->client
@@ -1791,7 +1791,7 @@ class TaxRatesApi
      * Create request for operation 'updateTaxRateApiV1TaxRatesTaxRateIdPatch'
      *
      * @param  string $tax_rate_id (required)
-     * @param  \OpenAPI\Client\Model\TaxRatePatchRequest $tax_rate_patch_request (required)
+     * @param  \InvoicePDFs\Model\TaxRatePatchRequest $tax_rate_patch_request (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

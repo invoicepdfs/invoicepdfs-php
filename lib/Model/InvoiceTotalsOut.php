@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace InvoicePDFs\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \InvoicePDFs\ObjectSerializer;
 
 /**
  * InvoiceTotalsOut Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -57,11 +57,11 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'subtotal' => '\OpenAPI\Client\Model\MoneyOut',
-        'discount_total' => '\OpenAPI\Client\Model\MoneyOut',
-        'tax_total' => '\OpenAPI\Client\Model\MoneyOut',
-        'shipping_total' => '\OpenAPI\Client\Model\MoneyOut',
-        'total' => '\OpenAPI\Client\Model\MoneyOut'
+        'subtotal' => '\InvoicePDFs\Model\MoneyOut',
+        'discount_total' => '\InvoicePDFs\Model\MoneyOut',
+        'tax_total' => '\InvoicePDFs\Model\MoneyOut',
+        'shipping_total' => '\InvoicePDFs\Model\MoneyOut',
+        'total' => '\InvoicePDFs\Model\MoneyOut'
     ];
 
     /**
@@ -335,7 +335,7 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets subtotal
      *
-     * @return \OpenAPI\Client\Model\MoneyOut
+     * @return \InvoicePDFs\Model\MoneyOut
      */
     public function getSubtotal()
     {
@@ -345,7 +345,7 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets subtotal
      *
-     * @param \OpenAPI\Client\Model\MoneyOut $subtotal subtotal
+     * @param \InvoicePDFs\Model\MoneyOut $subtotal subtotal
      *
      * @return self
      */
@@ -362,7 +362,7 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets discount_total
      *
-     * @return \OpenAPI\Client\Model\MoneyOut
+     * @return \InvoicePDFs\Model\MoneyOut
      */
     public function getDiscountTotal()
     {
@@ -372,7 +372,7 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets discount_total
      *
-     * @param \OpenAPI\Client\Model\MoneyOut $discount_total discount_total
+     * @param \InvoicePDFs\Model\MoneyOut $discount_total discount_total
      *
      * @return self
      */
@@ -389,7 +389,7 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tax_total
      *
-     * @return \OpenAPI\Client\Model\MoneyOut
+     * @return \InvoicePDFs\Model\MoneyOut
      */
     public function getTaxTotal()
     {
@@ -399,7 +399,7 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tax_total
      *
-     * @param \OpenAPI\Client\Model\MoneyOut $tax_total tax_total
+     * @param \InvoicePDFs\Model\MoneyOut $tax_total tax_total
      *
      * @return self
      */
@@ -416,7 +416,7 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets shipping_total
      *
-     * @return \OpenAPI\Client\Model\MoneyOut
+     * @return \InvoicePDFs\Model\MoneyOut
      */
     public function getShippingTotal()
     {
@@ -426,7 +426,7 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shipping_total
      *
-     * @param \OpenAPI\Client\Model\MoneyOut $shipping_total shipping_total
+     * @param \InvoicePDFs\Model\MoneyOut $shipping_total shipping_total
      *
      * @return self
      */
@@ -443,7 +443,7 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets total
      *
-     * @return \OpenAPI\Client\Model\MoneyOut
+     * @return \InvoicePDFs\Model\MoneyOut
      */
     public function getTotal()
     {
@@ -453,7 +453,7 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets total
      *
-     * @param \OpenAPI\Client\Model\MoneyOut $total total
+     * @param \InvoicePDFs\Model\MoneyOut $total total
      *
      * @return self
      */
