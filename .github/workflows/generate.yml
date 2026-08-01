@@ -34,7 +34,7 @@ jobs:
           docker run --rm -v "${{ github.workspace }}:/local" \
             openapitools/openapi-generator-cli:v7.7.0 generate \
             -i /local/openapi.json -g php -o /local \
-            --additional-properties="invoiceProjectName=invoicepdfs,composerVendorName=invoicepdfs,composerProjectName=invoicepdfs,licenseName=MIT"
+            --additional-properties="composerPackageName=invoicepdfs/invoicepdfs,invokerPackage=InvoicePDFs,licenseName=MIT"
 
       - name: Commit regenerated client
         run: |
