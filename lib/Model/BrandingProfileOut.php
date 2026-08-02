@@ -1,6 +1,6 @@
 <?php
 /**
- * InvoiceBrandingInput
+ * BrandingProfileOut
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \InvoicePDFs\ObjectSerializer;
 
 /**
- * InvoiceBrandingInput Class Doc Comment
+ * BrandingProfileOut Class Doc Comment
  *
  * @category Class
  * @package  InvoicePDFs
@@ -40,7 +40,7 @@ use \InvoicePDFs\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializable
+class BrandingProfileOut implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
       *
       * @var string
       */
-    protected static $openAPIModelName = 'InvoiceBrandingInput';
+    protected static $openAPIModelName = 'BrandingProfileOut';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,18 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
+        'name' => 'string',
+        'is_default' => 'bool',
         'logo_file_id' => 'string',
         'primary_color' => 'string',
         'accent_color' => 'string',
         'font_family' => 'string',
         'header_text' => 'string',
-        'footer_text' => 'string'
+        'footer_text' => 'string',
+        'hide_invoicepdfs_branding' => 'bool',
+        'created_at' => 'string',
+        'updated_at' => 'string'
     ];
 
     /**
@@ -73,12 +79,18 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
+        'name' => null,
+        'is_default' => null,
         'logo_file_id' => null,
         'primary_color' => null,
         'accent_color' => null,
         'font_family' => null,
         'header_text' => null,
-        'footer_text' => null
+        'footer_text' => null,
+        'hide_invoicepdfs_branding' => null,
+        'created_at' => null,
+        'updated_at' => null
     ];
 
     /**
@@ -87,12 +99,18 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'id' => false,
+        'name' => false,
+        'is_default' => false,
         'logo_file_id' => true,
         'primary_color' => false,
         'accent_color' => false,
         'font_family' => true,
         'header_text' => true,
-        'footer_text' => false
+        'footer_text' => false,
+        'hide_invoicepdfs_branding' => false,
+        'created_at' => false,
+        'updated_at' => false
     ];
 
     /**
@@ -181,12 +199,18 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
+        'name' => 'name',
+        'is_default' => 'is_default',
         'logo_file_id' => 'logo_file_id',
         'primary_color' => 'primary_color',
         'accent_color' => 'accent_color',
         'font_family' => 'font_family',
         'header_text' => 'header_text',
-        'footer_text' => 'footer_text'
+        'footer_text' => 'footer_text',
+        'hide_invoicepdfs_branding' => 'hide_invoicepdfs_branding',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at'
     ];
 
     /**
@@ -195,12 +219,18 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
+        'name' => 'setName',
+        'is_default' => 'setIsDefault',
         'logo_file_id' => 'setLogoFileId',
         'primary_color' => 'setPrimaryColor',
         'accent_color' => 'setAccentColor',
         'font_family' => 'setFontFamily',
         'header_text' => 'setHeaderText',
-        'footer_text' => 'setFooterText'
+        'footer_text' => 'setFooterText',
+        'hide_invoicepdfs_branding' => 'setHideInvoicepdfsBranding',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -209,12 +239,18 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
+        'name' => 'getName',
+        'is_default' => 'getIsDefault',
         'logo_file_id' => 'getLogoFileId',
         'primary_color' => 'getPrimaryColor',
         'accent_color' => 'getAccentColor',
         'font_family' => 'getFontFamily',
         'header_text' => 'getHeaderText',
-        'footer_text' => 'getFooterText'
+        'footer_text' => 'getFooterText',
+        'hide_invoicepdfs_branding' => 'getHideInvoicepdfsBranding',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -274,12 +310,18 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('is_default', $data ?? [], null);
         $this->setIfExists('logo_file_id', $data ?? [], null);
-        $this->setIfExists('primary_color', $data ?? [], '#111827');
-        $this->setIfExists('accent_color', $data ?? [], '#111827');
+        $this->setIfExists('primary_color', $data ?? [], null);
+        $this->setIfExists('accent_color', $data ?? [], null);
         $this->setIfExists('font_family', $data ?? [], null);
         $this->setIfExists('header_text', $data ?? [], null);
-        $this->setIfExists('footer_text', $data ?? [], 'Generated by InvoicePDFs');
+        $this->setIfExists('footer_text', $data ?? [], null);
+        $this->setIfExists('hide_invoicepdfs_branding', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
     }
 
     /**
@@ -309,6 +351,33 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['is_default'] === null) {
+            $invalidProperties[] = "'is_default' can't be null";
+        }
+        if ($this->container['primary_color'] === null) {
+            $invalidProperties[] = "'primary_color' can't be null";
+        }
+        if ($this->container['accent_color'] === null) {
+            $invalidProperties[] = "'accent_color' can't be null";
+        }
+        if ($this->container['footer_text'] === null) {
+            $invalidProperties[] = "'footer_text' can't be null";
+        }
+        if ($this->container['hide_invoicepdfs_branding'] === null) {
+            $invalidProperties[] = "'hide_invoicepdfs_branding' can't be null";
+        }
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
+        }
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -323,6 +392,87 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_default
+     *
+     * @return bool
+     */
+    public function getIsDefault()
+    {
+        return $this->container['is_default'];
+    }
+
+    /**
+     * Sets is_default
+     *
+     * @param bool $is_default is_default
+     *
+     * @return self
+     */
+    public function setIsDefault($is_default)
+    {
+        if (is_null($is_default)) {
+            throw new \InvalidArgumentException('non-nullable is_default cannot be null');
+        }
+        $this->container['is_default'] = $is_default;
+
+        return $this;
+    }
 
     /**
      * Gets logo_file_id
@@ -361,7 +511,7 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets primary_color
      *
-     * @return string|null
+     * @return string
      */
     public function getPrimaryColor()
     {
@@ -371,7 +521,7 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets primary_color
      *
-     * @param string|null $primary_color primary_color
+     * @param string $primary_color primary_color
      *
      * @return self
      */
@@ -388,7 +538,7 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets accent_color
      *
-     * @return string|null
+     * @return string
      */
     public function getAccentColor()
     {
@@ -398,7 +548,7 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets accent_color
      *
-     * @param string|null $accent_color accent_color
+     * @param string $accent_color accent_color
      *
      * @return self
      */
@@ -483,7 +633,7 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets footer_text
      *
-     * @return string|null
+     * @return string
      */
     public function getFooterText()
     {
@@ -493,7 +643,7 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets footer_text
      *
-     * @param string|null $footer_text footer_text
+     * @param string $footer_text footer_text
      *
      * @return self
      */
@@ -503,6 +653,87 @@ class InvoiceBrandingInput implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable footer_text cannot be null');
         }
         $this->container['footer_text'] = $footer_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets hide_invoicepdfs_branding
+     *
+     * @return bool
+     */
+    public function getHideInvoicepdfsBranding()
+    {
+        return $this->container['hide_invoicepdfs_branding'];
+    }
+
+    /**
+     * Sets hide_invoicepdfs_branding
+     *
+     * @param bool $hide_invoicepdfs_branding hide_invoicepdfs_branding
+     *
+     * @return self
+     */
+    public function setHideInvoicepdfsBranding($hide_invoicepdfs_branding)
+    {
+        if (is_null($hide_invoicepdfs_branding)) {
+            throw new \InvalidArgumentException('non-nullable hide_invoicepdfs_branding cannot be null');
+        }
+        $this->container['hide_invoicepdfs_branding'] = $hide_invoicepdfs_branding;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return string
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param string $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
+        }
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return string
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param string $updated_at updated_at
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        }
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

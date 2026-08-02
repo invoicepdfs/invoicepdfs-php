@@ -7,7 +7,7 @@ docs/Api/AuditLogApi.md
 docs/Api/AuthApi.md
 docs/Api/BatchesApi.md
 docs/Api/BillingApi.md
-docs/Api/BrandingApi.md
+docs/Api/BrandingProfilesApi.md
 docs/Api/BusinessProfilesApi.md
 docs/Api/CustomersApi.md
 docs/Api/DeliveriesApi.md
@@ -76,9 +76,11 @@ docs/Model/BillingPortalData.md
 docs/Model/BillingPortalResponse.md
 docs/Model/BillingSubscriptionData.md
 docs/Model/BillingSubscriptionResponse.md
-docs/Model/BrandingOut.md
-docs/Model/BrandingResponse.md
-docs/Model/BrandingUpdateRequest.md
+docs/Model/BrandingProfileCreateRequest.md
+docs/Model/BrandingProfileOut.md
+docs/Model/BrandingProfilePatchRequest.md
+docs/Model/BrandingProfileResponse.md
+docs/Model/BrandingProfilesListResponse.md
 docs/Model/BusinessProfileCreate.md
 docs/Model/BusinessProfileOut.md
 docs/Model/BusinessProfilePatch.md
@@ -220,7 +222,7 @@ lib/Api/AuditLogApi.php
 lib/Api/AuthApi.php
 lib/Api/BatchesApi.php
 lib/Api/BillingApi.php
-lib/Api/BrandingApi.php
+lib/Api/BrandingProfilesApi.php
 lib/Api/BusinessProfilesApi.php
 lib/Api/CustomersApi.php
 lib/Api/DeliveriesApi.php
@@ -292,9 +294,11 @@ lib/Model/BillingPortalData.php
 lib/Model/BillingPortalResponse.php
 lib/Model/BillingSubscriptionData.php
 lib/Model/BillingSubscriptionResponse.php
-lib/Model/BrandingOut.php
-lib/Model/BrandingResponse.php
-lib/Model/BrandingUpdateRequest.php
+lib/Model/BrandingProfileCreateRequest.php
+lib/Model/BrandingProfileOut.php
+lib/Model/BrandingProfilePatchRequest.php
+lib/Model/BrandingProfileResponse.php
+lib/Model/BrandingProfilesListResponse.php
 lib/Model/BusinessProfileCreate.php
 lib/Model/BusinessProfileOut.php
 lib/Model/BusinessProfilePatch.php
@@ -433,3 +437,9 @@ lib/Model/WorkspaceResponse.php
 lib/Model/WorkspacesListResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/BrandingProfilesApiTest.php
+test/Model/BrandingProfileCreateRequestTest.php
+test/Model/BrandingProfileOutTest.php
+test/Model/BrandingProfilePatchRequestTest.php
+test/Model/BrandingProfileResponseTest.php
+test/Model/BrandingProfilesListResponseTest.php

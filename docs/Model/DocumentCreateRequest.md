@@ -23,5 +23,6 @@ Name | Type | Description | Notes
 **custom_fields** | [**\InvoicePDFs\Model\InvoiceCustomFieldInput[]**](InvoiceCustomFieldInput.md) |  | [optional]
 **payment** | [**\InvoicePDFs\Model\InvoicePaymentInput**](InvoicePaymentInput.md) |  | [optional]
 **branding** | [**\InvoicePDFs\Model\InvoiceBrandingInput**](InvoiceBrandingInput.md) |  | [optional]
+**branding_profile_id** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

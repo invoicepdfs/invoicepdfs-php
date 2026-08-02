@@ -75,7 +75,8 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'terms' => '\InvoicePDFs\Model\InvoiceTermInput[]',
         'custom_fields' => '\InvoicePDFs\Model\InvoiceCustomFieldInput[]',
         'payment' => '\InvoicePDFs\Model\InvoicePaymentInput',
-        'branding' => '\InvoicePDFs\Model\InvoiceBrandingInput'
+        'branding' => '\InvoicePDFs\Model\InvoiceBrandingInput',
+        'branding_profile_id' => 'string'
     ];
 
     /**
@@ -104,7 +105,8 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'terms' => null,
         'custom_fields' => null,
         'payment' => null,
-        'branding' => null
+        'branding' => null,
+        'branding_profile_id' => null
     ];
 
     /**
@@ -131,7 +133,8 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'terms' => false,
         'custom_fields' => false,
         'payment' => true,
-        'branding' => true
+        'branding' => true,
+        'branding_profile_id' => true
     ];
 
     /**
@@ -238,7 +241,8 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'terms' => 'terms',
         'custom_fields' => 'custom_fields',
         'payment' => 'payment',
-        'branding' => 'branding'
+        'branding' => 'branding',
+        'branding_profile_id' => 'branding_profile_id'
     ];
 
     /**
@@ -265,7 +269,8 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'terms' => 'setTerms',
         'custom_fields' => 'setCustomFields',
         'payment' => 'setPayment',
-        'branding' => 'setBranding'
+        'branding' => 'setBranding',
+        'branding_profile_id' => 'setBrandingProfileId'
     ];
 
     /**
@@ -292,7 +297,8 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'terms' => 'getTerms',
         'custom_fields' => 'getCustomFields',
         'payment' => 'getPayment',
-        'branding' => 'getBranding'
+        'branding' => 'getBranding',
+        'branding_profile_id' => 'getBrandingProfileId'
     ];
 
     /**
@@ -396,6 +402,7 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('custom_fields', $data ?? [], null);
         $this->setIfExists('payment', $data ?? [], null);
         $this->setIfExists('branding', $data ?? [], null);
+        $this->setIfExists('branding_profile_id', $data ?? [], null);
     }
 
     /**
@@ -1057,6 +1064,40 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         $this->container['branding'] = $branding;
+
+        return $this;
+    }
+
+    /**
+     * Gets branding_profile_id
+     *
+     * @return string|null
+     */
+    public function getBrandingProfileId()
+    {
+        return $this->container['branding_profile_id'];
+    }
+
+    /**
+     * Sets branding_profile_id
+     *
+     * @param string|null $branding_profile_id branding_profile_id
+     *
+     * @return self
+     */
+    public function setBrandingProfileId($branding_profile_id)
+    {
+        if (is_null($branding_profile_id)) {
+            array_push($this->openAPINullablesSetToNull, 'branding_profile_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('branding_profile_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['branding_profile_id'] = $branding_profile_id;
 
         return $this;
     }
