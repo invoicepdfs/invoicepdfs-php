@@ -441,5 +441,3 @@ lib/Model/WorkspaceResponse.php
 lib/Model/WorkspacesListResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/BillingPlanTest.php
-test/Model/BillingPlansListResponseTest.php
