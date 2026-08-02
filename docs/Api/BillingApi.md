@@ -7,6 +7,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**createCheckoutApiV1BillingCheckoutSessionPost()**](BillingApi.md#createCheckoutApiV1BillingCheckoutSessionPost) | **POST** /api/v1/billing/checkout-session | Create Checkout |
 | [**createPortalApiV1BillingPortalSessionPost()**](BillingApi.md#createPortalApiV1BillingPortalSessionPost) | **POST** /api/v1/billing/portal-session | Create Portal |
 | [**getSubscriptionApiV1BillingSubscriptionGet()**](BillingApi.md#getSubscriptionApiV1BillingSubscriptionGet) | **GET** /api/v1/billing/subscription | Get Subscription |
+| [**listPlansApiV1BillingPlansGet()**](BillingApi.md#listPlansApiV1BillingPlansGet) | **GET** /api/v1/billing/plans | List Plans |
 
 
 ## `createCheckoutApiV1BillingCheckoutSessionPost()`
@@ -169,6 +170,63 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\InvoicePDFs\Model\BillingSubscriptionResponse**](../Model/BillingSubscriptionResponse.md)
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listPlansApiV1BillingPlansGet()`
+
+```php
+listPlansApiV1BillingPlansGet(): \InvoicePDFs\Model\BillingPlansListResponse
+```
+
+List Plans
+
+Purchasable plans — the ones wired to a Stripe price.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new InvoicePDFs\Api\BillingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->listPlansApiV1BillingPlansGet();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BillingApi->listPlansApiV1BillingPlansGet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\InvoicePDFs\Model\BillingPlansListResponse**](../Model/BillingPlansListResponse.md)
 
 ### Authorization
 

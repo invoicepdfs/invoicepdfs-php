@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingSubscriptionData
+ * BillingPlan
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \InvoicePDFs\ObjectSerializer;
 
 /**
- * BillingSubscriptionData Class Doc Comment
+ * BillingPlan Class Doc Comment
  *
  * @category Class
  * @package  InvoicePDFs
@@ -40,7 +40,7 @@ use \InvoicePDFs\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSerializable
+class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BillingSubscriptionData';
+    protected static $openAPIModelName = 'BillingPlan';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,10 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'subscription_id' => 'string',
-        'status' => 'string',
-        'plan_id' => 'string',
-        'plan_name' => 'string',
-        'stripe_configured' => 'bool',
-        'has_billing_account' => 'bool'
+        'id' => 'string',
+        'name' => 'string',
+        'price_id' => 'string',
+        'monthly_render_quota' => 'int'
     ];
 
     /**
@@ -73,12 +71,10 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'subscription_id' => null,
-        'status' => null,
-        'plan_id' => null,
-        'plan_name' => null,
-        'stripe_configured' => null,
-        'has_billing_account' => null
+        'id' => null,
+        'name' => null,
+        'price_id' => null,
+        'monthly_render_quota' => null
     ];
 
     /**
@@ -87,12 +83,10 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'subscription_id' => true,
-        'status' => true,
-        'plan_id' => false,
-        'plan_name' => false,
-        'stripe_configured' => false,
-        'has_billing_account' => false
+        'id' => false,
+        'name' => false,
+        'price_id' => false,
+        'monthly_render_quota' => false
     ];
 
     /**
@@ -181,12 +175,10 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'subscription_id' => 'subscription_id',
-        'status' => 'status',
-        'plan_id' => 'plan_id',
-        'plan_name' => 'plan_name',
-        'stripe_configured' => 'stripe_configured',
-        'has_billing_account' => 'has_billing_account'
+        'id' => 'id',
+        'name' => 'name',
+        'price_id' => 'price_id',
+        'monthly_render_quota' => 'monthly_render_quota'
     ];
 
     /**
@@ -195,12 +187,10 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'subscription_id' => 'setSubscriptionId',
-        'status' => 'setStatus',
-        'plan_id' => 'setPlanId',
-        'plan_name' => 'setPlanName',
-        'stripe_configured' => 'setStripeConfigured',
-        'has_billing_account' => 'setHasBillingAccount'
+        'id' => 'setId',
+        'name' => 'setName',
+        'price_id' => 'setPriceId',
+        'monthly_render_quota' => 'setMonthlyRenderQuota'
     ];
 
     /**
@@ -209,12 +199,10 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'subscription_id' => 'getSubscriptionId',
-        'status' => 'getStatus',
-        'plan_id' => 'getPlanId',
-        'plan_name' => 'getPlanName',
-        'stripe_configured' => 'getStripeConfigured',
-        'has_billing_account' => 'getHasBillingAccount'
+        'id' => 'getId',
+        'name' => 'getName',
+        'price_id' => 'getPriceId',
+        'monthly_render_quota' => 'getMonthlyRenderQuota'
     ];
 
     /**
@@ -274,12 +262,10 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('subscription_id', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('plan_id', $data ?? [], null);
-        $this->setIfExists('plan_name', $data ?? [], null);
-        $this->setIfExists('stripe_configured', $data ?? [], false);
-        $this->setIfExists('has_billing_account', $data ?? [], false);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('price_id', $data ?? [], null);
+        $this->setIfExists('monthly_render_quota', $data ?? [], null);
     }
 
     /**
@@ -309,11 +295,17 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['plan_id'] === null) {
-            $invalidProperties[] = "'plan_id' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['plan_name'] === null) {
-            $invalidProperties[] = "'plan_name' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['price_id'] === null) {
+            $invalidProperties[] = "'price_id' can't be null";
+        }
+        if ($this->container['monthly_render_quota'] === null) {
+            $invalidProperties[] = "'monthly_render_quota' can't be null";
         }
         return $invalidProperties;
     }
@@ -331,177 +323,109 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets subscription_id
-     *
-     * @return string|null
-     */
-    public function getSubscriptionId()
-    {
-        return $this->container['subscription_id'];
-    }
-
-    /**
-     * Sets subscription_id
-     *
-     * @param string|null $subscription_id subscription_id
-     *
-     * @return self
-     */
-    public function setSubscriptionId($subscription_id)
-    {
-        if (is_null($subscription_id)) {
-            array_push($this->openAPINullablesSetToNull, 'subscription_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('subscription_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['subscription_id'] = $subscription_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            array_push($this->openAPINullablesSetToNull, 'status');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('status', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets plan_id
+     * Gets id
      *
      * @return string
      */
-    public function getPlanId()
+    public function getId()
     {
-        return $this->container['plan_id'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets plan_id
+     * Sets id
      *
-     * @param string $plan_id plan_id
+     * @param string $id id
      *
      * @return self
      */
-    public function setPlanId($plan_id)
+    public function setId($id)
     {
-        if (is_null($plan_id)) {
-            throw new \InvalidArgumentException('non-nullable plan_id cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['plan_id'] = $plan_id;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets plan_name
+     * Gets name
      *
      * @return string
      */
-    public function getPlanName()
+    public function getName()
     {
-        return $this->container['plan_name'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets plan_name
+     * Sets name
      *
-     * @param string $plan_name plan_name
+     * @param string $name name
      *
      * @return self
      */
-    public function setPlanName($plan_name)
+    public function setName($name)
     {
-        if (is_null($plan_name)) {
-            throw new \InvalidArgumentException('non-nullable plan_name cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['plan_name'] = $plan_name;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets stripe_configured
+     * Gets price_id
      *
-     * @return bool|null
+     * @return string
      */
-    public function getStripeConfigured()
+    public function getPriceId()
     {
-        return $this->container['stripe_configured'];
+        return $this->container['price_id'];
     }
 
     /**
-     * Sets stripe_configured
+     * Sets price_id
      *
-     * @param bool|null $stripe_configured stripe_configured
+     * @param string $price_id price_id
      *
      * @return self
      */
-    public function setStripeConfigured($stripe_configured)
+    public function setPriceId($price_id)
     {
-        if (is_null($stripe_configured)) {
-            throw new \InvalidArgumentException('non-nullable stripe_configured cannot be null');
+        if (is_null($price_id)) {
+            throw new \InvalidArgumentException('non-nullable price_id cannot be null');
         }
-        $this->container['stripe_configured'] = $stripe_configured;
+        $this->container['price_id'] = $price_id;
 
         return $this;
     }
 
     /**
-     * Gets has_billing_account
+     * Gets monthly_render_quota
      *
-     * @return bool|null
+     * @return int
      */
-    public function getHasBillingAccount()
+    public function getMonthlyRenderQuota()
     {
-        return $this->container['has_billing_account'];
+        return $this->container['monthly_render_quota'];
     }
 
     /**
-     * Sets has_billing_account
+     * Sets monthly_render_quota
      *
-     * @param bool|null $has_billing_account has_billing_account
+     * @param int $monthly_render_quota monthly_render_quota
      *
      * @return self
      */
-    public function setHasBillingAccount($has_billing_account)
+    public function setMonthlyRenderQuota($monthly_render_quota)
     {
-        if (is_null($has_billing_account)) {
-            throw new \InvalidArgumentException('non-nullable has_billing_account cannot be null');
+        if (is_null($monthly_render_quota)) {
+            throw new \InvalidArgumentException('non-nullable monthly_render_quota cannot be null');
         }
-        $this->container['has_billing_account'] = $has_billing_account;
+        $this->container['monthly_render_quota'] = $monthly_render_quota;
 
         return $this;
     }

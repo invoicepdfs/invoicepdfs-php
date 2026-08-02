@@ -72,6 +72,8 @@ docs/Model/BatchesListResponse.md
 docs/Model/BillingCheckoutData.md
 docs/Model/BillingCheckoutRequest.md
 docs/Model/BillingCheckoutResponse.md
+docs/Model/BillingPlan.md
+docs/Model/BillingPlansListResponse.md
 docs/Model/BillingPortalData.md
 docs/Model/BillingPortalResponse.md
 docs/Model/BillingSubscriptionData.md
@@ -290,6 +292,8 @@ lib/Model/BatchesListResponse.php
 lib/Model/BillingCheckoutData.php
 lib/Model/BillingCheckoutRequest.php
 lib/Model/BillingCheckoutResponse.php
+lib/Model/BillingPlan.php
+lib/Model/BillingPlansListResponse.php
 lib/Model/BillingPortalData.php
 lib/Model/BillingPortalResponse.php
 lib/Model/BillingSubscriptionData.php
@@ -437,3 +441,5 @@ lib/Model/WorkspaceResponse.php
 lib/Model/WorkspacesListResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/BillingPlanTest.php
+test/Model/BillingPlansListResponseTest.php

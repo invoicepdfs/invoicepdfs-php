@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingSubscriptionData
+ * BillingPlansListResponse
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \InvoicePDFs\ObjectSerializer;
 
 /**
- * BillingSubscriptionData Class Doc Comment
+ * BillingPlansListResponse Class Doc Comment
  *
  * @category Class
  * @package  InvoicePDFs
@@ -40,7 +40,7 @@ use \InvoicePDFs\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSerializable
+class BillingPlansListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BillingSubscriptionData';
+    protected static $openAPIModelName = 'BillingPlansListResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,7 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'subscription_id' => 'string',
-        'status' => 'string',
-        'plan_id' => 'string',
-        'plan_name' => 'string',
-        'stripe_configured' => 'bool',
-        'has_billing_account' => 'bool'
+        'data' => '\InvoicePDFs\Model\BillingPlan[]'
     ];
 
     /**
@@ -73,12 +68,7 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'subscription_id' => null,
-        'status' => null,
-        'plan_id' => null,
-        'plan_name' => null,
-        'stripe_configured' => null,
-        'has_billing_account' => null
+        'data' => null
     ];
 
     /**
@@ -87,12 +77,7 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'subscription_id' => true,
-        'status' => true,
-        'plan_id' => false,
-        'plan_name' => false,
-        'stripe_configured' => false,
-        'has_billing_account' => false
+        'data' => false
     ];
 
     /**
@@ -181,12 +166,7 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'subscription_id' => 'subscription_id',
-        'status' => 'status',
-        'plan_id' => 'plan_id',
-        'plan_name' => 'plan_name',
-        'stripe_configured' => 'stripe_configured',
-        'has_billing_account' => 'has_billing_account'
+        'data' => 'data'
     ];
 
     /**
@@ -195,12 +175,7 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'subscription_id' => 'setSubscriptionId',
-        'status' => 'setStatus',
-        'plan_id' => 'setPlanId',
-        'plan_name' => 'setPlanName',
-        'stripe_configured' => 'setStripeConfigured',
-        'has_billing_account' => 'setHasBillingAccount'
+        'data' => 'setData'
     ];
 
     /**
@@ -209,12 +184,7 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'subscription_id' => 'getSubscriptionId',
-        'status' => 'getStatus',
-        'plan_id' => 'getPlanId',
-        'plan_name' => 'getPlanName',
-        'stripe_configured' => 'getStripeConfigured',
-        'has_billing_account' => 'getHasBillingAccount'
+        'data' => 'getData'
     ];
 
     /**
@@ -274,12 +244,7 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('subscription_id', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('plan_id', $data ?? [], null);
-        $this->setIfExists('plan_name', $data ?? [], null);
-        $this->setIfExists('stripe_configured', $data ?? [], false);
-        $this->setIfExists('has_billing_account', $data ?? [], false);
+        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -309,11 +274,8 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['plan_id'] === null) {
-            $invalidProperties[] = "'plan_id' can't be null";
-        }
-        if ($this->container['plan_name'] === null) {
-            $invalidProperties[] = "'plan_name' can't be null";
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
         }
         return $invalidProperties;
     }
@@ -331,177 +293,28 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets subscription_id
+     * Gets data
      *
-     * @return string|null
+     * @return \InvoicePDFs\Model\BillingPlan[]
      */
-    public function getSubscriptionId()
+    public function getData()
     {
-        return $this->container['subscription_id'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets subscription_id
+     * Sets data
      *
-     * @param string|null $subscription_id subscription_id
+     * @param \InvoicePDFs\Model\BillingPlan[] $data data
      *
      * @return self
      */
-    public function setSubscriptionId($subscription_id)
+    public function setData($data)
     {
-        if (is_null($subscription_id)) {
-            array_push($this->openAPINullablesSetToNull, 'subscription_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('subscription_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
-        $this->container['subscription_id'] = $subscription_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            array_push($this->openAPINullablesSetToNull, 'status');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('status', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets plan_id
-     *
-     * @return string
-     */
-    public function getPlanId()
-    {
-        return $this->container['plan_id'];
-    }
-
-    /**
-     * Sets plan_id
-     *
-     * @param string $plan_id plan_id
-     *
-     * @return self
-     */
-    public function setPlanId($plan_id)
-    {
-        if (is_null($plan_id)) {
-            throw new \InvalidArgumentException('non-nullable plan_id cannot be null');
-        }
-        $this->container['plan_id'] = $plan_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets plan_name
-     *
-     * @return string
-     */
-    public function getPlanName()
-    {
-        return $this->container['plan_name'];
-    }
-
-    /**
-     * Sets plan_name
-     *
-     * @param string $plan_name plan_name
-     *
-     * @return self
-     */
-    public function setPlanName($plan_name)
-    {
-        if (is_null($plan_name)) {
-            throw new \InvalidArgumentException('non-nullable plan_name cannot be null');
-        }
-        $this->container['plan_name'] = $plan_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets stripe_configured
-     *
-     * @return bool|null
-     */
-    public function getStripeConfigured()
-    {
-        return $this->container['stripe_configured'];
-    }
-
-    /**
-     * Sets stripe_configured
-     *
-     * @param bool|null $stripe_configured stripe_configured
-     *
-     * @return self
-     */
-    public function setStripeConfigured($stripe_configured)
-    {
-        if (is_null($stripe_configured)) {
-            throw new \InvalidArgumentException('non-nullable stripe_configured cannot be null');
-        }
-        $this->container['stripe_configured'] = $stripe_configured;
-
-        return $this;
-    }
-
-    /**
-     * Gets has_billing_account
-     *
-     * @return bool|null
-     */
-    public function getHasBillingAccount()
-    {
-        return $this->container['has_billing_account'];
-    }
-
-    /**
-     * Sets has_billing_account
-     *
-     * @param bool|null $has_billing_account has_billing_account
-     *
-     * @return self
-     */
-    public function setHasBillingAccount($has_billing_account)
-    {
-        if (is_null($has_billing_account)) {
-            throw new \InvalidArgumentException('non-nullable has_billing_account cannot be null');
-        }
-        $this->container['has_billing_account'] = $has_billing_account;
+        $this->container['data'] = $data;
 
         return $this;
     }
