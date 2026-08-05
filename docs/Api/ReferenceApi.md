@@ -122,6 +122,8 @@ listDocumentTypesApiV1ReferenceDocumentTypesGet(): array<string,mixed>
 
 List Document Types
 
+List every supported document type with the metadata a client needs to build a type-aware create form: the number prefix, whether it is payable / takes a source document / supports a reason, which line-item shape it uses (``standard`` = priced, ``shipped`` = quantities only), and the lifecycle actions available to it.
+
 ### Example
 
 ```php
