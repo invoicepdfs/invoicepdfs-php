@@ -57,6 +57,7 @@ class ApiErrorResponseError implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
+        'status' => 'int',
         'code' => 'string',
         'message' => 'string',
         'request_id' => 'string',
@@ -71,6 +72,7 @@ class ApiErrorResponseError implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'status' => null,
         'code' => null,
         'message' => null,
         'request_id' => null,
@@ -83,6 +85,7 @@ class ApiErrorResponseError implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'status' => false,
         'code' => false,
         'message' => false,
         'request_id' => true,
@@ -175,6 +178,7 @@ class ApiErrorResponseError implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
+        'status' => 'status',
         'code' => 'code',
         'message' => 'message',
         'request_id' => 'request_id',
@@ -187,6 +191,7 @@ class ApiErrorResponseError implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
+        'status' => 'setStatus',
         'code' => 'setCode',
         'message' => 'setMessage',
         'request_id' => 'setRequestId',
@@ -199,6 +204,7 @@ class ApiErrorResponseError implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
+        'status' => 'getStatus',
         'code' => 'getCode',
         'message' => 'getMessage',
         'request_id' => 'getRequestId',
@@ -262,6 +268,7 @@ class ApiErrorResponseError implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('message', $data ?? [], null);
         $this->setIfExists('request_id', $data ?? [], null);
@@ -295,6 +302,9 @@ class ApiErrorResponseError implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
         if ($this->container['code'] === null) {
             $invalidProperties[] = "'code' can't be null";
         }
@@ -315,6 +325,33 @@ class ApiErrorResponseError implements ModelInterface, ArrayAccess, \JsonSeriali
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets status
+     *
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param int $status HTTP status, mirroring the response status line.
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
 
     /**
      * Gets code

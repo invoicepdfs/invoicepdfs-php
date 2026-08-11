@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**status** | **int** | HTTP status, mirroring the response status line. |
 **code** | **string** |  |
 **message** | **string** |  |
 **request_id** | **string** | Trace id for this request; also returned as X-Trace-Id. | [optional]
