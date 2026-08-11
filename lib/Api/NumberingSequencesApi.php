@@ -150,7 +150,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function consumeNextApiV1NumberingSequencesSequenceIdNextPost($sequence_id, string $contentType = self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'][0])
     {
@@ -168,7 +168,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function consumeNextApiV1NumberingSequencesSequenceIdNextPostWithHttpInfo($sequence_id, string $contentType = self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'][0])
     {
@@ -238,11 +238,11 @@ class NumberingSequencesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -260,7 +260,7 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -307,7 +307,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -496,7 +496,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function createSequenceApiV1NumberingSequencesPost($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequenceApiV1NumberingSequencesPost'][0])
     {
@@ -514,7 +514,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createSequenceApiV1NumberingSequencesPostWithHttpInfo($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequenceApiV1NumberingSequencesPost'][0])
     {
@@ -584,11 +584,11 @@ class NumberingSequencesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -606,7 +606,7 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -653,7 +653,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -841,7 +841,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function deleteSequenceApiV1NumberingSequencesSequenceIdDelete($sequence_id, string $contentType = self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'][0])
     {
@@ -859,7 +859,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteSequenceApiV1NumberingSequencesSequenceIdDeleteWithHttpInfo($sequence_id, string $contentType = self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'][0])
     {
@@ -929,11 +929,11 @@ class NumberingSequencesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -951,7 +951,7 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -998,7 +998,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1187,7 +1187,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function getSequenceApiV1NumberingSequencesSequenceIdGet($sequence_id, string $contentType = self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'][0])
     {
@@ -1205,7 +1205,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSequenceApiV1NumberingSequencesSequenceIdGetWithHttpInfo($sequence_id, string $contentType = self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'][0])
     {
@@ -1275,11 +1275,11 @@ class NumberingSequencesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1297,7 +1297,7 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1344,7 +1344,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1534,7 +1534,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\NumberingSequencesListResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\NumberingSequencesListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function listSequencesApiV1NumberingSequencesGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequencesApiV1NumberingSequencesGet'][0])
     {
@@ -1553,7 +1553,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\NumberingSequencesListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\NumberingSequencesListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listSequencesApiV1NumberingSequencesGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequencesApiV1NumberingSequencesGet'][0])
     {
@@ -1623,11 +1623,11 @@ class NumberingSequencesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1645,7 +1645,7 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1692,7 +1692,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1895,7 +1895,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\NumberingSequencePreviewResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\NumberingSequencePreviewResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost($sequence_id, string $contentType = self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'][0])
     {
@@ -1913,7 +1913,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\NumberingSequencePreviewResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\NumberingSequencePreviewResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostWithHttpInfo($sequence_id, string $contentType = self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'][0])
     {
@@ -1983,11 +1983,11 @@ class NumberingSequencesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2005,7 +2005,7 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2052,7 +2052,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2242,7 +2242,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function updateSequenceApiV1NumberingSequencesSequenceIdPatch($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'][0])
     {
@@ -2261,7 +2261,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateSequenceApiV1NumberingSequencesSequenceIdPatchWithHttpInfo($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'][0])
     {
@@ -2331,11 +2331,11 @@ class NumberingSequencesApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2353,7 +2353,7 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2400,7 +2400,7 @@ class NumberingSequencesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

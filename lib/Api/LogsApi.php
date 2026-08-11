@@ -133,7 +133,7 @@ class LogsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\ApiRequestLogsListResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\ApiRequestLogsListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function listLogsApiV1LogsGet($status = '', $limit = 100, string $contentType = self::contentTypes['listLogsApiV1LogsGet'][0])
     {
@@ -152,7 +152,7 @@ class LogsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\ApiRequestLogsListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\ApiRequestLogsListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listLogsApiV1LogsGetWithHttpInfo($status = '', $limit = 100, string $contentType = self::contentTypes['listLogsApiV1LogsGet'][0])
     {
@@ -222,11 +222,11 @@ class LogsApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -244,7 +244,7 @@ class LogsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -291,7 +291,7 @@ class LogsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

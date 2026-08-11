@@ -138,7 +138,7 @@ class JobsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function cancelJobApiV1JobsJobIdCancelPost($job_id, string $contentType = self::contentTypes['cancelJobApiV1JobsJobIdCancelPost'][0])
     {
@@ -156,7 +156,7 @@ class JobsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function cancelJobApiV1JobsJobIdCancelPostWithHttpInfo($job_id, string $contentType = self::contentTypes['cancelJobApiV1JobsJobIdCancelPost'][0])
     {
@@ -226,11 +226,11 @@ class JobsApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -248,7 +248,7 @@ class JobsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -295,7 +295,7 @@ class JobsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -484,7 +484,7 @@ class JobsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function getJobApiV1JobsJobIdGet($job_id, string $contentType = self::contentTypes['getJobApiV1JobsJobIdGet'][0])
     {
@@ -502,7 +502,7 @@ class JobsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getJobApiV1JobsJobIdGetWithHttpInfo($job_id, string $contentType = self::contentTypes['getJobApiV1JobsJobIdGet'][0])
     {
@@ -572,11 +572,11 @@ class JobsApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -594,7 +594,7 @@ class JobsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -641,7 +641,7 @@ class JobsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -830,7 +830,7 @@ class JobsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function retryJobApiV1JobsJobIdRetryPost($job_id, string $contentType = self::contentTypes['retryJobApiV1JobsJobIdRetryPost'][0])
     {
@@ -848,7 +848,7 @@ class JobsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function retryJobApiV1JobsJobIdRetryPostWithHttpInfo($job_id, string $contentType = self::contentTypes['retryJobApiV1JobsJobIdRetryPost'][0])
     {
@@ -918,11 +918,11 @@ class JobsApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -940,7 +940,7 @@ class JobsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -987,7 +987,7 @@ class JobsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

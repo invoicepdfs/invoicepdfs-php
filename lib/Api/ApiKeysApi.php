@@ -147,7 +147,7 @@ class ApiKeysApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\ApiKeyCreateResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\ApiKeyCreateResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function createApiKeyApiV1ApiKeysPost($api_key_create_request, string $contentType = self::contentTypes['createApiKeyApiV1ApiKeysPost'][0])
     {
@@ -165,7 +165,7 @@ class ApiKeysApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\ApiKeyCreateResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\ApiKeyCreateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createApiKeyApiV1ApiKeysPostWithHttpInfo($api_key_create_request, string $contentType = self::contentTypes['createApiKeyApiV1ApiKeysPost'][0])
     {
@@ -235,11 +235,11 @@ class ApiKeysApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -257,7 +257,7 @@ class ApiKeysApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -304,7 +304,7 @@ class ApiKeysApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -492,7 +492,7 @@ class ApiKeysApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function getApiKeyApiV1ApiKeysApiKeyIdGet($api_key_id, string $contentType = self::contentTypes['getApiKeyApiV1ApiKeysApiKeyIdGet'][0])
     {
@@ -510,7 +510,7 @@ class ApiKeysApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getApiKeyApiV1ApiKeysApiKeyIdGetWithHttpInfo($api_key_id, string $contentType = self::contentTypes['getApiKeyApiV1ApiKeysApiKeyIdGet'][0])
     {
@@ -580,11 +580,11 @@ class ApiKeysApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -602,7 +602,7 @@ class ApiKeysApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -649,7 +649,7 @@ class ApiKeysApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1130,7 +1130,7 @@ class ApiKeysApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function patchApiKeyApiV1ApiKeysApiKeyIdPatch($api_key_id, $api_key_patch_request, string $contentType = self::contentTypes['patchApiKeyApiV1ApiKeysApiKeyIdPatch'][0])
     {
@@ -1149,7 +1149,7 @@ class ApiKeysApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchApiKeyApiV1ApiKeysApiKeyIdPatchWithHttpInfo($api_key_id, $api_key_patch_request, string $contentType = self::contentTypes['patchApiKeyApiV1ApiKeysApiKeyIdPatch'][0])
     {
@@ -1219,11 +1219,11 @@ class ApiKeysApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1241,7 +1241,7 @@ class ApiKeysApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1288,7 +1288,7 @@ class ApiKeysApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1494,7 +1494,7 @@ class ApiKeysApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\ApiKeyRevokeResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\ApiKeyRevokeResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function revokeApiKeyApiV1ApiKeysApiKeyIdDelete($api_key_id, string $contentType = self::contentTypes['revokeApiKeyApiV1ApiKeysApiKeyIdDelete'][0])
     {
@@ -1512,7 +1512,7 @@ class ApiKeysApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\ApiKeyRevokeResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\ApiKeyRevokeResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function revokeApiKeyApiV1ApiKeysApiKeyIdDeleteWithHttpInfo($api_key_id, string $contentType = self::contentTypes['revokeApiKeyApiV1ApiKeysApiKeyIdDelete'][0])
     {
@@ -1582,11 +1582,11 @@ class ApiKeysApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1604,7 +1604,7 @@ class ApiKeysApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1651,7 +1651,7 @@ class ApiKeysApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1840,7 +1840,7 @@ class ApiKeysApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\ApiKeyRotateResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\ApiKeyRotateResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost($api_key_id, string $contentType = self::contentTypes['rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'][0])
     {
@@ -1858,7 +1858,7 @@ class ApiKeysApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\ApiKeyRotateResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\ApiKeyRotateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function rotateApiKeyApiV1ApiKeysApiKeyIdRotatePostWithHttpInfo($api_key_id, string $contentType = self::contentTypes['rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'][0])
     {
@@ -1928,11 +1928,11 @@ class ApiKeysApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1950,7 +1950,7 @@ class ApiKeysApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1997,7 +1997,7 @@ class ApiKeysApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

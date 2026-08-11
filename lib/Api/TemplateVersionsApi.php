@@ -139,7 +139,7 @@ class TemplateVersionsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\TemplateVersionResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\TemplateVersionResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function createTemplateVersionApiV1TemplatesTemplateIdVersionsPost($template_id, $template_version_create_request, string $contentType = self::contentTypes['createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'][0])
     {
@@ -158,7 +158,7 @@ class TemplateVersionsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\TemplateVersionResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\TemplateVersionResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createTemplateVersionApiV1TemplatesTemplateIdVersionsPostWithHttpInfo($template_id, $template_version_create_request, string $contentType = self::contentTypes['createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'][0])
     {
@@ -228,11 +228,11 @@ class TemplateVersionsApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -250,7 +250,7 @@ class TemplateVersionsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -297,7 +297,7 @@ class TemplateVersionsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -504,7 +504,7 @@ class TemplateVersionsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\TemplateVersionResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\TemplateVersionResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet($template_id, $version, string $contentType = self::contentTypes['getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'][0])
     {
@@ -523,7 +523,7 @@ class TemplateVersionsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\TemplateVersionResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\TemplateVersionResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetWithHttpInfo($template_id, $version, string $contentType = self::contentTypes['getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'][0])
     {
@@ -593,11 +593,11 @@ class TemplateVersionsApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -615,7 +615,7 @@ class TemplateVersionsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -662,7 +662,7 @@ class TemplateVersionsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -869,7 +869,7 @@ class TemplateVersionsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\TemplateVersionsListResponse|\InvoicePDFs\Model\HTTPValidationError
+     * @return \InvoicePDFs\Model\TemplateVersionsListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet($template_id, string $contentType = self::contentTypes['listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'][0])
     {
@@ -887,7 +887,7 @@ class TemplateVersionsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\TemplateVersionsListResponse|\InvoicePDFs\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\TemplateVersionsListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listTemplateVersionsApiV1TemplatesTemplateIdVersionsGetWithHttpInfo($template_id, string $contentType = self::contentTypes['listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'][0])
     {
@@ -957,11 +957,11 @@ class TemplateVersionsApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\InvoicePDFs\Model\HTTPValidationError' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\HTTPValidationError' !== 'string') {
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -979,7 +979,7 @@ class TemplateVersionsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\HTTPValidationError', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1026,7 +1026,7 @@ class TemplateVersionsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\HTTPValidationError',
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

@@ -30,6 +30,8 @@ docs/Api/TemplatesApi.md
 docs/Api/UsageApi.md
 docs/Api/WebhooksApi.md
 docs/Api/WorkspacesApi.md
+docs/Model/ApiErrorResponse.md
+docs/Model/ApiErrorResponseError.md
 docs/Model/ApiKeyCreateRequest.md
 docs/Model/ApiKeyCreateResponse.md
 docs/Model/ApiKeyCreated.md
@@ -124,7 +126,6 @@ docs/Model/DocumentValidateResponse.md
 docs/Model/DocumentsListResponse.md
 docs/Model/FileOut.md
 docs/Model/FileResponse.md
-docs/Model/HTTPValidationError.md
 docs/Model/HealthResponse.md
 docs/Model/ImportCreateRequest.md
 docs/Model/ImportOut.md
@@ -152,7 +153,6 @@ docs/Model/JobProgressOut.md
 docs/Model/JobResponse.md
 docs/Model/LineItemDiscountInput.md
 docs/Model/LineItemTaxInput.md
-docs/Model/LocationInner.md
 docs/Model/Money.md
 docs/Model/MoneyOut.md
 docs/Model/NumberingSequenceCreateRequest.md
@@ -198,7 +198,6 @@ docs/Model/UsageData.md
 docs/Model/UsagePeriod.md
 docs/Model/UsageRenders.md
 docs/Model/UsageResponse.md
-docs/Model/ValidationError.md
 docs/Model/VersionResponse.md
 docs/Model/WebhookDeliveriesListResponse.md
 docs/Model/WebhookDeliveryOut.md
@@ -250,6 +249,8 @@ lib/Api/WorkspacesApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
+lib/Model/ApiErrorResponse.php
+lib/Model/ApiErrorResponseError.php
 lib/Model/ApiKeyCreateRequest.php
 lib/Model/ApiKeyCreateResponse.php
 lib/Model/ApiKeyCreated.php
@@ -344,7 +345,6 @@ lib/Model/DocumentValidateResponse.php
 lib/Model/DocumentsListResponse.php
 lib/Model/FileOut.php
 lib/Model/FileResponse.php
-lib/Model/HTTPValidationError.php
 lib/Model/HealthResponse.php
 lib/Model/ImportCreateRequest.php
 lib/Model/ImportOut.php
@@ -372,7 +372,6 @@ lib/Model/JobProgressOut.php
 lib/Model/JobResponse.php
 lib/Model/LineItemDiscountInput.php
 lib/Model/LineItemTaxInput.php
-lib/Model/LocationInner.php
 lib/Model/ModelInterface.php
 lib/Model/Money.php
 lib/Model/MoneyOut.php
@@ -419,7 +418,6 @@ lib/Model/UsageData.php
 lib/Model/UsagePeriod.php
 lib/Model/UsageRenders.php
 lib/Model/UsageResponse.php
-lib/Model/ValidationError.php
 lib/Model/VersionResponse.php
 lib/Model/WebhookDeliveriesListResponse.php
 lib/Model/WebhookDeliveryOut.php
@@ -441,3 +439,5 @@ lib/Model/WorkspaceResponse.php
 lib/Model/WorkspacesListResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/ApiErrorResponseErrorTest.php
+test/Model/ApiErrorResponseTest.php
