@@ -4,20 +4,20 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createPaymentApiV1DocumentsInvoiceIdPaymentsPost()**](PaymentsApi.md#createPaymentApiV1DocumentsInvoiceIdPaymentsPost) | **POST** /api/v1/documents/{invoice_id}/payments | Create Payment |
-| [**deletePaymentApiV1PaymentsPaymentIdDelete()**](PaymentsApi.md#deletePaymentApiV1PaymentsPaymentIdDelete) | **DELETE** /api/v1/payments/{payment_id} | Delete Payment |
-| [**getPaymentApiV1PaymentsPaymentIdGet()**](PaymentsApi.md#getPaymentApiV1PaymentsPaymentIdGet) | **GET** /api/v1/payments/{payment_id} | Get Payment |
-| [**listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet()**](PaymentsApi.md#listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet) | **GET** /api/v1/documents/{invoice_id}/payments | List Invoice Payments |
-| [**updatePaymentApiV1PaymentsPaymentIdPatch()**](PaymentsApi.md#updatePaymentApiV1PaymentsPaymentIdPatch) | **PATCH** /api/v1/payments/{payment_id} | Update Payment |
+| [**createDocumentPayment()**](PaymentsApi.md#createDocumentPayment) | **POST** /api/v1/documents/{document_id}/payments | Create Document Payment |
+| [**deletePayment()**](PaymentsApi.md#deletePayment) | **DELETE** /api/v1/payments/{payment_id} | Delete Payment |
+| [**getPayment()**](PaymentsApi.md#getPayment) | **GET** /api/v1/payments/{payment_id} | Get Payment |
+| [**listDocumentPayments()**](PaymentsApi.md#listDocumentPayments) | **GET** /api/v1/documents/{document_id}/payments | List Document Payments |
+| [**updatePayment()**](PaymentsApi.md#updatePayment) | **PATCH** /api/v1/payments/{payment_id} | Update Payment |
 
 
-## `createPaymentApiV1DocumentsInvoiceIdPaymentsPost()`
+## `createDocumentPayment()`
 
 ```php
-createPaymentApiV1DocumentsInvoiceIdPaymentsPost($invoice_id, $payment_create_request): \InvoicePDFs\Model\PaymentResponse
+createDocumentPayment($document_id, $payment_create_request): \InvoicePDFs\Model\PaymentResponse
 ```
 
-Create Payment
+Create Document Payment
 
 ### Example
 
@@ -36,14 +36,14 @@ $apiInstance = new InvoicePDFs\Api\PaymentsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$invoice_id = 'invoice_id_example'; // string
+$document_id = 'document_id_example'; // string
 $payment_create_request = new \InvoicePDFs\Model\PaymentCreateRequest(); // \InvoicePDFs\Model\PaymentCreateRequest
 
 try {
-    $result = $apiInstance->createPaymentApiV1DocumentsInvoiceIdPaymentsPost($invoice_id, $payment_create_request);
+    $result = $apiInstance->createDocumentPayment($document_id, $payment_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->createPaymentApiV1DocumentsInvoiceIdPaymentsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentsApi->createDocumentPayment: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -51,7 +51,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **invoice_id** | **string**|  | |
+| **document_id** | **string**|  | |
 | **payment_create_request** | [**\InvoicePDFs\Model\PaymentCreateRequest**](../Model/PaymentCreateRequest.md)|  | |
 
 ### Return type
@@ -71,10 +71,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deletePaymentApiV1PaymentsPaymentIdDelete()`
+## `deletePayment()`
 
 ```php
-deletePaymentApiV1PaymentsPaymentIdDelete($payment_id): \InvoicePDFs\Model\SimpleBoolResponse
+deletePayment($payment_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Payment
@@ -99,10 +99,10 @@ $apiInstance = new InvoicePDFs\Api\PaymentsApi(
 $payment_id = 'payment_id_example'; // string
 
 try {
-    $result = $apiInstance->deletePaymentApiV1PaymentsPaymentIdDelete($payment_id);
+    $result = $apiInstance->deletePayment($payment_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->deletePaymentApiV1PaymentsPaymentIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentsApi->deletePayment: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -129,10 +129,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getPaymentApiV1PaymentsPaymentIdGet()`
+## `getPayment()`
 
 ```php
-getPaymentApiV1PaymentsPaymentIdGet($payment_id): \InvoicePDFs\Model\PaymentResponse
+getPayment($payment_id): \InvoicePDFs\Model\PaymentResponse
 ```
 
 Get Payment
@@ -157,10 +157,10 @@ $apiInstance = new InvoicePDFs\Api\PaymentsApi(
 $payment_id = 'payment_id_example'; // string
 
 try {
-    $result = $apiInstance->getPaymentApiV1PaymentsPaymentIdGet($payment_id);
+    $result = $apiInstance->getPayment($payment_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->getPaymentApiV1PaymentsPaymentIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentsApi->getPayment: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -187,13 +187,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet()`
+## `listDocumentPayments()`
 
 ```php
-listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet($invoice_id, $limit, $cursor): \InvoicePDFs\Model\PaymentsListResponse
+listDocumentPayments($document_id, $limit, $cursor): \InvoicePDFs\Model\PaymentsListResponse
 ```
 
-List Invoice Payments
+List Document Payments
 
 ### Example
 
@@ -212,15 +212,15 @@ $apiInstance = new InvoicePDFs\Api\PaymentsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$invoice_id = 'invoice_id_example'; // string
+$document_id = 'document_id_example'; // string
 $limit = 50; // int
 $cursor = 'cursor_example'; // string
 
 try {
-    $result = $apiInstance->listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet($invoice_id, $limit, $cursor);
+    $result = $apiInstance->listDocumentPayments($document_id, $limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentsApi->listDocumentPayments: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -228,7 +228,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **invoice_id** | **string**|  | |
+| **document_id** | **string**|  | |
 | **limit** | **int**|  | [optional] [default to 50] |
 | **cursor** | **string**|  | [optional] |
 
@@ -249,10 +249,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updatePaymentApiV1PaymentsPaymentIdPatch()`
+## `updatePayment()`
 
 ```php
-updatePaymentApiV1PaymentsPaymentIdPatch($payment_id, $payment_patch_request): \InvoicePDFs\Model\PaymentResponse
+updatePayment($payment_id, $payment_patch_request): \InvoicePDFs\Model\PaymentResponse
 ```
 
 Update Payment
@@ -278,10 +278,10 @@ $payment_id = 'payment_id_example'; // string
 $payment_patch_request = new \InvoicePDFs\Model\PaymentPatchRequest(); // \InvoicePDFs\Model\PaymentPatchRequest
 
 try {
-    $result = $apiInstance->updatePaymentApiV1PaymentsPaymentIdPatch($payment_id, $payment_patch_request);
+    $result = $apiInstance->updatePayment($payment_id, $payment_patch_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentsApi->updatePaymentApiV1PaymentsPaymentIdPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentsApi->updatePayment: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

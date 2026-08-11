@@ -4,24 +4,24 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createMemberApiV1WorkspacesWorkspaceIdMembersPost()**](WorkspacesApi.md#createMemberApiV1WorkspacesWorkspaceIdMembersPost) | **POST** /api/v1/workspaces/{workspace_id}/members | Create Member |
-| [**createWorkspaceApiV1WorkspacesPost()**](WorkspacesApi.md#createWorkspaceApiV1WorkspacesPost) | **POST** /api/v1/workspaces | Create Workspace |
-| [**deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete()**](WorkspacesApi.md#deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete) | **DELETE** /api/v1/workspaces/{workspace_id}/members/{member_id} | Delete Member |
-| [**deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete()**](WorkspacesApi.md#deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete) | **DELETE** /api/v1/workspaces/{workspace_id} | Delete Workspace |
-| [**getWorkspaceApiV1WorkspacesWorkspaceIdGet()**](WorkspacesApi.md#getWorkspaceApiV1WorkspacesWorkspaceIdGet) | **GET** /api/v1/workspaces/{workspace_id} | Get Workspace |
-| [**listMembersApiV1WorkspacesWorkspaceIdMembersGet()**](WorkspacesApi.md#listMembersApiV1WorkspacesWorkspaceIdMembersGet) | **GET** /api/v1/workspaces/{workspace_id}/members | List Members |
-| [**listWorkspacesApiV1WorkspacesGet()**](WorkspacesApi.md#listWorkspacesApiV1WorkspacesGet) | **GET** /api/v1/workspaces | List Workspaces |
-| [**patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch()**](WorkspacesApi.md#patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch) | **PATCH** /api/v1/workspaces/{workspace_id}/members/{member_id} | Patch Member |
-| [**patchWorkspaceApiV1WorkspacesWorkspaceIdPatch()**](WorkspacesApi.md#patchWorkspaceApiV1WorkspacesWorkspaceIdPatch) | **PATCH** /api/v1/workspaces/{workspace_id} | Patch Workspace |
+| [**addWorkspaceMember()**](WorkspacesApi.md#addWorkspaceMember) | **POST** /api/v1/workspaces/{workspace_id}/members | Add Workspace Member |
+| [**createWorkspace()**](WorkspacesApi.md#createWorkspace) | **POST** /api/v1/workspaces | Create Workspace |
+| [**deleteWorkspace()**](WorkspacesApi.md#deleteWorkspace) | **DELETE** /api/v1/workspaces/{workspace_id} | Delete Workspace |
+| [**getWorkspace()**](WorkspacesApi.md#getWorkspace) | **GET** /api/v1/workspaces/{workspace_id} | Get Workspace |
+| [**listWorkspaceMembers()**](WorkspacesApi.md#listWorkspaceMembers) | **GET** /api/v1/workspaces/{workspace_id}/members | List Workspace Members |
+| [**listWorkspaces()**](WorkspacesApi.md#listWorkspaces) | **GET** /api/v1/workspaces | List Workspaces |
+| [**removeWorkspaceMember()**](WorkspacesApi.md#removeWorkspaceMember) | **DELETE** /api/v1/workspaces/{workspace_id}/members/{member_id} | Remove Workspace Member |
+| [**updateWorkspace()**](WorkspacesApi.md#updateWorkspace) | **PATCH** /api/v1/workspaces/{workspace_id} | Update Workspace |
+| [**updateWorkspaceMember()**](WorkspacesApi.md#updateWorkspaceMember) | **PATCH** /api/v1/workspaces/{workspace_id}/members/{member_id} | Update Workspace Member |
 
 
-## `createMemberApiV1WorkspacesWorkspaceIdMembersPost()`
+## `addWorkspaceMember()`
 
 ```php
-createMemberApiV1WorkspacesWorkspaceIdMembersPost($workspace_id, $workspace_member_create_request, $idempotency_key): \InvoicePDFs\Model\WorkspaceMembersListResponse
+addWorkspaceMember($workspace_id, $workspace_member_create_request, $idempotency_key): \InvoicePDFs\Model\WorkspaceMembersListResponse
 ```
 
-Create Member
+Add Workspace Member
 
 ### Example
 
@@ -45,10 +45,10 @@ $workspace_member_create_request = new \InvoicePDFs\Model\WorkspaceMemberCreateR
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->createMemberApiV1WorkspacesWorkspaceIdMembersPost($workspace_id, $workspace_member_create_request, $idempotency_key);
+    $result = $apiInstance->addWorkspaceMember($workspace_id, $workspace_member_create_request, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkspacesApi->createMemberApiV1WorkspacesWorkspaceIdMembersPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WorkspacesApi->addWorkspaceMember: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -77,10 +77,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createWorkspaceApiV1WorkspacesPost()`
+## `createWorkspace()`
 
 ```php
-createWorkspaceApiV1WorkspacesPost($workspace_create_request, $idempotency_key): \InvoicePDFs\Model\WorkspaceResponse
+createWorkspace($workspace_create_request, $idempotency_key): \InvoicePDFs\Model\WorkspaceResponse
 ```
 
 Create Workspace
@@ -106,10 +106,10 @@ $workspace_create_request = new \InvoicePDFs\Model\WorkspaceCreateRequest(); // 
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->createWorkspaceApiV1WorkspacesPost($workspace_create_request, $idempotency_key);
+    $result = $apiInstance->createWorkspace($workspace_create_request, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkspacesApi->createWorkspaceApiV1WorkspacesPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WorkspacesApi->createWorkspace: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -137,70 +137,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete()`
+## `deleteWorkspace()`
 
 ```php
-deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete($workspace_id, $member_id): \InvoicePDFs\Model\SimpleBoolResponse
-```
-
-Delete Member
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: HTTPBearer
-$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new InvoicePDFs\Api\WorkspacesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$workspace_id = 'workspace_id_example'; // string
-$member_id = 'member_id_example'; // string
-
-try {
-    $result = $apiInstance->deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete($workspace_id, $member_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WorkspacesApi->deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **workspace_id** | **string**|  | |
-| **member_id** | **string**|  | |
-
-### Return type
-
-[**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
-
-### Authorization
-
-[HTTPBearer](../../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete()`
-
-```php
-deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete($workspace_id): \InvoicePDFs\Model\SimpleBoolResponse
+deleteWorkspace($workspace_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Workspace
@@ -225,10 +165,10 @@ $apiInstance = new InvoicePDFs\Api\WorkspacesApi(
 $workspace_id = 'workspace_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete($workspace_id);
+    $result = $apiInstance->deleteWorkspace($workspace_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkspacesApi->deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WorkspacesApi->deleteWorkspace: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -255,10 +195,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getWorkspaceApiV1WorkspacesWorkspaceIdGet()`
+## `getWorkspace()`
 
 ```php
-getWorkspaceApiV1WorkspacesWorkspaceIdGet($workspace_id): \InvoicePDFs\Model\WorkspaceResponse
+getWorkspace($workspace_id): \InvoicePDFs\Model\WorkspaceResponse
 ```
 
 Get Workspace
@@ -283,10 +223,10 @@ $apiInstance = new InvoicePDFs\Api\WorkspacesApi(
 $workspace_id = 'workspace_id_example'; // string
 
 try {
-    $result = $apiInstance->getWorkspaceApiV1WorkspacesWorkspaceIdGet($workspace_id);
+    $result = $apiInstance->getWorkspace($workspace_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkspacesApi->getWorkspaceApiV1WorkspacesWorkspaceIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WorkspacesApi->getWorkspace: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -313,13 +253,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listMembersApiV1WorkspacesWorkspaceIdMembersGet()`
+## `listWorkspaceMembers()`
 
 ```php
-listMembersApiV1WorkspacesWorkspaceIdMembersGet($workspace_id): \InvoicePDFs\Model\WorkspaceMembersListResponse
+listWorkspaceMembers($workspace_id): \InvoicePDFs\Model\WorkspaceMembersListResponse
 ```
 
-List Members
+List Workspace Members
 
 ### Example
 
@@ -341,10 +281,10 @@ $apiInstance = new InvoicePDFs\Api\WorkspacesApi(
 $workspace_id = 'workspace_id_example'; // string
 
 try {
-    $result = $apiInstance->listMembersApiV1WorkspacesWorkspaceIdMembersGet($workspace_id);
+    $result = $apiInstance->listWorkspaceMembers($workspace_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkspacesApi->listMembersApiV1WorkspacesWorkspaceIdMembersGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WorkspacesApi->listWorkspaceMembers: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -371,10 +311,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listWorkspacesApiV1WorkspacesGet()`
+## `listWorkspaces()`
 
 ```php
-listWorkspacesApiV1WorkspacesGet($limit, $cursor): \InvoicePDFs\Model\WorkspacesListResponse
+listWorkspaces($limit, $cursor): \InvoicePDFs\Model\WorkspacesListResponse
 ```
 
 List Workspaces
@@ -400,10 +340,10 @@ $limit = 50; // int
 $cursor = 'cursor_example'; // string
 
 try {
-    $result = $apiInstance->listWorkspacesApiV1WorkspacesGet($limit, $cursor);
+    $result = $apiInstance->listWorkspaces($limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkspacesApi->listWorkspacesApiV1WorkspacesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WorkspacesApi->listWorkspaces: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -431,13 +371,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch()`
+## `removeWorkspaceMember()`
 
 ```php
-patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch($workspace_id, $member_id, $workspace_member_patch_request): \InvoicePDFs\Model\WorkspaceMemberOut
+removeWorkspaceMember($workspace_id, $member_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
-Patch Member
+Remove Workspace Member
 
 ### Example
 
@@ -458,13 +398,12 @@ $apiInstance = new InvoicePDFs\Api\WorkspacesApi(
 );
 $workspace_id = 'workspace_id_example'; // string
 $member_id = 'member_id_example'; // string
-$workspace_member_patch_request = new \InvoicePDFs\Model\WorkspaceMemberPatchRequest(); // \InvoicePDFs\Model\WorkspaceMemberPatchRequest
 
 try {
-    $result = $apiInstance->patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch($workspace_id, $member_id, $workspace_member_patch_request);
+    $result = $apiInstance->removeWorkspaceMember($workspace_id, $member_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkspacesApi->patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WorkspacesApi->removeWorkspaceMember: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -474,11 +413,10 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **workspace_id** | **string**|  | |
 | **member_id** | **string**|  | |
-| **workspace_member_patch_request** | [**\InvoicePDFs\Model\WorkspaceMemberPatchRequest**](../Model/WorkspaceMemberPatchRequest.md)|  | |
 
 ### Return type
 
-[**\InvoicePDFs\Model\WorkspaceMemberOut**](../Model/WorkspaceMemberOut.md)
+[**\InvoicePDFs\Model\SimpleBoolResponse**](../Model/SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -486,20 +424,20 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `patchWorkspaceApiV1WorkspacesWorkspaceIdPatch()`
+## `updateWorkspace()`
 
 ```php
-patchWorkspaceApiV1WorkspacesWorkspaceIdPatch($workspace_id, $workspace_patch_request, $idempotency_key): \InvoicePDFs\Model\WorkspaceResponse
+updateWorkspace($workspace_id, $workspace_patch_request, $idempotency_key): \InvoicePDFs\Model\WorkspaceResponse
 ```
 
-Patch Workspace
+Update Workspace
 
 ### Example
 
@@ -523,10 +461,10 @@ $workspace_patch_request = new \InvoicePDFs\Model\WorkspacePatchRequest(); // \I
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->patchWorkspaceApiV1WorkspacesWorkspaceIdPatch($workspace_id, $workspace_patch_request, $idempotency_key);
+    $result = $apiInstance->updateWorkspace($workspace_id, $workspace_patch_request, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WorkspacesApi->patchWorkspaceApiV1WorkspacesWorkspaceIdPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WorkspacesApi->updateWorkspace: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -541,6 +479,68 @@ try {
 ### Return type
 
 [**\InvoicePDFs\Model\WorkspaceResponse**](../Model/WorkspaceResponse.md)
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateWorkspaceMember()`
+
+```php
+updateWorkspaceMember($workspace_id, $member_id, $workspace_member_patch_request): \InvoicePDFs\Model\WorkspaceMemberOut
+```
+
+Update Workspace Member
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new InvoicePDFs\Api\WorkspacesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$workspace_id = 'workspace_id_example'; // string
+$member_id = 'member_id_example'; // string
+$workspace_member_patch_request = new \InvoicePDFs\Model\WorkspaceMemberPatchRequest(); // \InvoicePDFs\Model\WorkspaceMemberPatchRequest
+
+try {
+    $result = $apiInstance->updateWorkspaceMember($workspace_id, $member_id, $workspace_member_patch_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WorkspacesApi->updateWorkspaceMember: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **workspace_id** | **string**|  | |
+| **member_id** | **string**|  | |
+| **workspace_member_patch_request** | [**\InvoicePDFs\Model\WorkspaceMemberPatchRequest**](../Model/WorkspaceMemberPatchRequest.md)|  | |
+
+### Return type
+
+[**\InvoicePDFs\Model\WorkspaceMemberOut**](../Model/WorkspaceMemberOut.md)
 
 ### Authorization
 

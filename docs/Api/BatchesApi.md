@@ -4,18 +4,18 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**cancelBatchApiV1BatchesBatchIdCancelPost()**](BatchesApi.md#cancelBatchApiV1BatchesBatchIdCancelPost) | **POST** /api/v1/batches/{batch_id}/cancel | Cancel Batch |
-| [**createBatchApiV1BatchesPost()**](BatchesApi.md#createBatchApiV1BatchesPost) | **POST** /api/v1/batches | Create Batch |
-| [**downloadBatchApiV1BatchesBatchIdDownloadGet()**](BatchesApi.md#downloadBatchApiV1BatchesBatchIdDownloadGet) | **GET** /api/v1/batches/{batch_id}/download | Download Batch |
-| [**getBatchApiV1BatchesBatchIdGet()**](BatchesApi.md#getBatchApiV1BatchesBatchIdGet) | **GET** /api/v1/batches/{batch_id} | Get Batch |
-| [**listBatchItemsApiV1BatchesBatchIdItemsGet()**](BatchesApi.md#listBatchItemsApiV1BatchesBatchIdItemsGet) | **GET** /api/v1/batches/{batch_id}/items | List Batch Items |
-| [**listBatchesApiV1BatchesGet()**](BatchesApi.md#listBatchesApiV1BatchesGet) | **GET** /api/v1/batches | List Batches |
+| [**cancelBatch()**](BatchesApi.md#cancelBatch) | **POST** /api/v1/batches/{batch_id}/cancel | Cancel Batch |
+| [**createBatch()**](BatchesApi.md#createBatch) | **POST** /api/v1/batches | Create Batch |
+| [**downloadBatch()**](BatchesApi.md#downloadBatch) | **GET** /api/v1/batches/{batch_id}/download | Download Batch |
+| [**getBatch()**](BatchesApi.md#getBatch) | **GET** /api/v1/batches/{batch_id} | Get Batch |
+| [**listBatchItems()**](BatchesApi.md#listBatchItems) | **GET** /api/v1/batches/{batch_id}/items | List Batch Items |
+| [**listBatches()**](BatchesApi.md#listBatches) | **GET** /api/v1/batches | List Batches |
 
 
-## `cancelBatchApiV1BatchesBatchIdCancelPost()`
+## `cancelBatch()`
 
 ```php
-cancelBatchApiV1BatchesBatchIdCancelPost($batch_id): \InvoicePDFs\Model\BatchResponse
+cancelBatch($batch_id): \InvoicePDFs\Model\BatchResponse
 ```
 
 Cancel Batch
@@ -40,10 +40,10 @@ $apiInstance = new InvoicePDFs\Api\BatchesApi(
 $batch_id = 'batch_id_example'; // string
 
 try {
-    $result = $apiInstance->cancelBatchApiV1BatchesBatchIdCancelPost($batch_id);
+    $result = $apiInstance->cancelBatch($batch_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BatchesApi->cancelBatchApiV1BatchesBatchIdCancelPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BatchesApi->cancelBatch: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -70,10 +70,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createBatchApiV1BatchesPost()`
+## `createBatch()`
 
 ```php
-createBatchApiV1BatchesPost($batch_create_request): \InvoicePDFs\Model\BatchResponse
+createBatch($batch_create_request): \InvoicePDFs\Model\BatchResponse
 ```
 
 Create Batch
@@ -98,10 +98,10 @@ $apiInstance = new InvoicePDFs\Api\BatchesApi(
 $batch_create_request = new \InvoicePDFs\Model\BatchCreateRequest(); // \InvoicePDFs\Model\BatchCreateRequest
 
 try {
-    $result = $apiInstance->createBatchApiV1BatchesPost($batch_create_request);
+    $result = $apiInstance->createBatch($batch_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BatchesApi->createBatchApiV1BatchesPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BatchesApi->createBatch: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -128,10 +128,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `downloadBatchApiV1BatchesBatchIdDownloadGet()`
+## `downloadBatch()`
 
 ```php
-downloadBatchApiV1BatchesBatchIdDownloadGet($batch_id): mixed
+downloadBatch($batch_id): mixed
 ```
 
 Download Batch
@@ -156,10 +156,10 @@ $apiInstance = new InvoicePDFs\Api\BatchesApi(
 $batch_id = 'batch_id_example'; // string
 
 try {
-    $result = $apiInstance->downloadBatchApiV1BatchesBatchIdDownloadGet($batch_id);
+    $result = $apiInstance->downloadBatch($batch_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BatchesApi->downloadBatchApiV1BatchesBatchIdDownloadGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BatchesApi->downloadBatch: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -186,10 +186,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getBatchApiV1BatchesBatchIdGet()`
+## `getBatch()`
 
 ```php
-getBatchApiV1BatchesBatchIdGet($batch_id): \InvoicePDFs\Model\BatchResponse
+getBatch($batch_id): \InvoicePDFs\Model\BatchResponse
 ```
 
 Get Batch
@@ -214,10 +214,10 @@ $apiInstance = new InvoicePDFs\Api\BatchesApi(
 $batch_id = 'batch_id_example'; // string
 
 try {
-    $result = $apiInstance->getBatchApiV1BatchesBatchIdGet($batch_id);
+    $result = $apiInstance->getBatch($batch_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BatchesApi->getBatchApiV1BatchesBatchIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BatchesApi->getBatch: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -244,10 +244,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listBatchItemsApiV1BatchesBatchIdItemsGet()`
+## `listBatchItems()`
 
 ```php
-listBatchItemsApiV1BatchesBatchIdItemsGet($batch_id, $limit, $cursor): \InvoicePDFs\Model\BatchItemsListResponse
+listBatchItems($batch_id, $limit, $cursor): \InvoicePDFs\Model\BatchItemsListResponse
 ```
 
 List Batch Items
@@ -274,10 +274,10 @@ $limit = 50; // int
 $cursor = 'cursor_example'; // string
 
 try {
-    $result = $apiInstance->listBatchItemsApiV1BatchesBatchIdItemsGet($batch_id, $limit, $cursor);
+    $result = $apiInstance->listBatchItems($batch_id, $limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BatchesApi->listBatchItemsApiV1BatchesBatchIdItemsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BatchesApi->listBatchItems: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -306,10 +306,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listBatchesApiV1BatchesGet()`
+## `listBatches()`
 
 ```php
-listBatchesApiV1BatchesGet($limit, $cursor): \InvoicePDFs\Model\BatchesListResponse
+listBatches($limit, $cursor): \InvoicePDFs\Model\BatchesListResponse
 ```
 
 List Batches
@@ -335,10 +335,10 @@ $limit = 50; // int
 $cursor = 'cursor_example'; // string
 
 try {
-    $result = $apiInstance->listBatchesApiV1BatchesGet($limit, $cursor);
+    $result = $apiInstance->listBatches($limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BatchesApi->listBatchesApiV1BatchesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BatchesApi->listBatches: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

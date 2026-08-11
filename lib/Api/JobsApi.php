@@ -71,13 +71,13 @@ class JobsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'cancelJobApiV1JobsJobIdCancelPost' => [
+        'cancelJob' => [
             'application/json',
         ],
-        'getJobApiV1JobsJobIdGet' => [
+        'getJob' => [
             'application/json',
         ],
-        'retryJobApiV1JobsJobIdRetryPost' => [
+        'retryJob' => [
             'application/json',
         ],
     ];
@@ -129,38 +129,38 @@ class JobsApi
     }
 
     /**
-     * Operation cancelJobApiV1JobsJobIdCancelPost
+     * Operation cancelJob
      *
      * Cancel Job
      *
      * @param  string $job_id job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelJobApiV1JobsJobIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelJob'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function cancelJobApiV1JobsJobIdCancelPost($job_id, string $contentType = self::contentTypes['cancelJobApiV1JobsJobIdCancelPost'][0])
+    public function cancelJob($job_id, string $contentType = self::contentTypes['cancelJob'][0])
     {
-        list($response) = $this->cancelJobApiV1JobsJobIdCancelPostWithHttpInfo($job_id, $contentType);
+        list($response) = $this->cancelJobWithHttpInfo($job_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation cancelJobApiV1JobsJobIdCancelPostWithHttpInfo
+     * Operation cancelJobWithHttpInfo
      *
      * Cancel Job
      *
      * @param  string $job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelJobApiV1JobsJobIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelJob'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelJobApiV1JobsJobIdCancelPostWithHttpInfo($job_id, string $contentType = self::contentTypes['cancelJobApiV1JobsJobIdCancelPost'][0])
+    public function cancelJobWithHttpInfo($job_id, string $contentType = self::contentTypes['cancelJob'][0])
     {
-        $request = $this->cancelJobApiV1JobsJobIdCancelPostRequest($job_id, $contentType);
+        $request = $this->cancelJobRequest($job_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -306,19 +306,19 @@ class JobsApi
     }
 
     /**
-     * Operation cancelJobApiV1JobsJobIdCancelPostAsync
+     * Operation cancelJobAsync
      *
      * Cancel Job
      *
      * @param  string $job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelJobApiV1JobsJobIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelJobApiV1JobsJobIdCancelPostAsync($job_id, string $contentType = self::contentTypes['cancelJobApiV1JobsJobIdCancelPost'][0])
+    public function cancelJobAsync($job_id, string $contentType = self::contentTypes['cancelJob'][0])
     {
-        return $this->cancelJobApiV1JobsJobIdCancelPostAsyncWithHttpInfo($job_id, $contentType)
+        return $this->cancelJobAsyncWithHttpInfo($job_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -327,20 +327,20 @@ class JobsApi
     }
 
     /**
-     * Operation cancelJobApiV1JobsJobIdCancelPostAsyncWithHttpInfo
+     * Operation cancelJobAsyncWithHttpInfo
      *
      * Cancel Job
      *
      * @param  string $job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelJobApiV1JobsJobIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelJobApiV1JobsJobIdCancelPostAsyncWithHttpInfo($job_id, string $contentType = self::contentTypes['cancelJobApiV1JobsJobIdCancelPost'][0])
+    public function cancelJobAsyncWithHttpInfo($job_id, string $contentType = self::contentTypes['cancelJob'][0])
     {
         $returnType = '\InvoicePDFs\Model\JobResponse';
-        $request = $this->cancelJobApiV1JobsJobIdCancelPostRequest($job_id, $contentType);
+        $request = $this->cancelJobRequest($job_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -379,21 +379,21 @@ class JobsApi
     }
 
     /**
-     * Create request for operation 'cancelJobApiV1JobsJobIdCancelPost'
+     * Create request for operation 'cancelJob'
      *
      * @param  string $job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelJobApiV1JobsJobIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cancelJobApiV1JobsJobIdCancelPostRequest($job_id, string $contentType = self::contentTypes['cancelJobApiV1JobsJobIdCancelPost'][0])
+    public function cancelJobRequest($job_id, string $contentType = self::contentTypes['cancelJob'][0])
     {
 
         // verify the required parameter 'job_id' is set
         if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $job_id when calling cancelJobApiV1JobsJobIdCancelPost'
+                'Missing the required parameter $job_id when calling cancelJob'
             );
         }
 
@@ -475,38 +475,38 @@ class JobsApi
     }
 
     /**
-     * Operation getJobApiV1JobsJobIdGet
+     * Operation getJob
      *
      * Get Job
      *
      * @param  string $job_id job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApiV1JobsJobIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJob'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getJobApiV1JobsJobIdGet($job_id, string $contentType = self::contentTypes['getJobApiV1JobsJobIdGet'][0])
+    public function getJob($job_id, string $contentType = self::contentTypes['getJob'][0])
     {
-        list($response) = $this->getJobApiV1JobsJobIdGetWithHttpInfo($job_id, $contentType);
+        list($response) = $this->getJobWithHttpInfo($job_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getJobApiV1JobsJobIdGetWithHttpInfo
+     * Operation getJobWithHttpInfo
      *
      * Get Job
      *
      * @param  string $job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApiV1JobsJobIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJob'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getJobApiV1JobsJobIdGetWithHttpInfo($job_id, string $contentType = self::contentTypes['getJobApiV1JobsJobIdGet'][0])
+    public function getJobWithHttpInfo($job_id, string $contentType = self::contentTypes['getJob'][0])
     {
-        $request = $this->getJobApiV1JobsJobIdGetRequest($job_id, $contentType);
+        $request = $this->getJobRequest($job_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -652,19 +652,19 @@ class JobsApi
     }
 
     /**
-     * Operation getJobApiV1JobsJobIdGetAsync
+     * Operation getJobAsync
      *
      * Get Job
      *
      * @param  string $job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApiV1JobsJobIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJobApiV1JobsJobIdGetAsync($job_id, string $contentType = self::contentTypes['getJobApiV1JobsJobIdGet'][0])
+    public function getJobAsync($job_id, string $contentType = self::contentTypes['getJob'][0])
     {
-        return $this->getJobApiV1JobsJobIdGetAsyncWithHttpInfo($job_id, $contentType)
+        return $this->getJobAsyncWithHttpInfo($job_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -673,20 +673,20 @@ class JobsApi
     }
 
     /**
-     * Operation getJobApiV1JobsJobIdGetAsyncWithHttpInfo
+     * Operation getJobAsyncWithHttpInfo
      *
      * Get Job
      *
      * @param  string $job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApiV1JobsJobIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getJobApiV1JobsJobIdGetAsyncWithHttpInfo($job_id, string $contentType = self::contentTypes['getJobApiV1JobsJobIdGet'][0])
+    public function getJobAsyncWithHttpInfo($job_id, string $contentType = self::contentTypes['getJob'][0])
     {
         $returnType = '\InvoicePDFs\Model\JobResponse';
-        $request = $this->getJobApiV1JobsJobIdGetRequest($job_id, $contentType);
+        $request = $this->getJobRequest($job_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -725,21 +725,21 @@ class JobsApi
     }
 
     /**
-     * Create request for operation 'getJobApiV1JobsJobIdGet'
+     * Create request for operation 'getJob'
      *
      * @param  string $job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJobApiV1JobsJobIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getJobApiV1JobsJobIdGetRequest($job_id, string $contentType = self::contentTypes['getJobApiV1JobsJobIdGet'][0])
+    public function getJobRequest($job_id, string $contentType = self::contentTypes['getJob'][0])
     {
 
         // verify the required parameter 'job_id' is set
         if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $job_id when calling getJobApiV1JobsJobIdGet'
+                'Missing the required parameter $job_id when calling getJob'
             );
         }
 
@@ -821,38 +821,38 @@ class JobsApi
     }
 
     /**
-     * Operation retryJobApiV1JobsJobIdRetryPost
+     * Operation retryJob
      *
      * Retry Job
      *
      * @param  string $job_id job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryJobApiV1JobsJobIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryJob'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function retryJobApiV1JobsJobIdRetryPost($job_id, string $contentType = self::contentTypes['retryJobApiV1JobsJobIdRetryPost'][0])
+    public function retryJob($job_id, string $contentType = self::contentTypes['retryJob'][0])
     {
-        list($response) = $this->retryJobApiV1JobsJobIdRetryPostWithHttpInfo($job_id, $contentType);
+        list($response) = $this->retryJobWithHttpInfo($job_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation retryJobApiV1JobsJobIdRetryPostWithHttpInfo
+     * Operation retryJobWithHttpInfo
      *
      * Retry Job
      *
      * @param  string $job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryJobApiV1JobsJobIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryJob'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\JobResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retryJobApiV1JobsJobIdRetryPostWithHttpInfo($job_id, string $contentType = self::contentTypes['retryJobApiV1JobsJobIdRetryPost'][0])
+    public function retryJobWithHttpInfo($job_id, string $contentType = self::contentTypes['retryJob'][0])
     {
-        $request = $this->retryJobApiV1JobsJobIdRetryPostRequest($job_id, $contentType);
+        $request = $this->retryJobRequest($job_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -998,19 +998,19 @@ class JobsApi
     }
 
     /**
-     * Operation retryJobApiV1JobsJobIdRetryPostAsync
+     * Operation retryJobAsync
      *
      * Retry Job
      *
      * @param  string $job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryJobApiV1JobsJobIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retryJobApiV1JobsJobIdRetryPostAsync($job_id, string $contentType = self::contentTypes['retryJobApiV1JobsJobIdRetryPost'][0])
+    public function retryJobAsync($job_id, string $contentType = self::contentTypes['retryJob'][0])
     {
-        return $this->retryJobApiV1JobsJobIdRetryPostAsyncWithHttpInfo($job_id, $contentType)
+        return $this->retryJobAsyncWithHttpInfo($job_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1019,20 +1019,20 @@ class JobsApi
     }
 
     /**
-     * Operation retryJobApiV1JobsJobIdRetryPostAsyncWithHttpInfo
+     * Operation retryJobAsyncWithHttpInfo
      *
      * Retry Job
      *
      * @param  string $job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryJobApiV1JobsJobIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retryJobApiV1JobsJobIdRetryPostAsyncWithHttpInfo($job_id, string $contentType = self::contentTypes['retryJobApiV1JobsJobIdRetryPost'][0])
+    public function retryJobAsyncWithHttpInfo($job_id, string $contentType = self::contentTypes['retryJob'][0])
     {
         $returnType = '\InvoicePDFs\Model\JobResponse';
-        $request = $this->retryJobApiV1JobsJobIdRetryPostRequest($job_id, $contentType);
+        $request = $this->retryJobRequest($job_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1071,21 +1071,21 @@ class JobsApi
     }
 
     /**
-     * Create request for operation 'retryJobApiV1JobsJobIdRetryPost'
+     * Create request for operation 'retryJob'
      *
      * @param  string $job_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryJobApiV1JobsJobIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryJob'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function retryJobApiV1JobsJobIdRetryPostRequest($job_id, string $contentType = self::contentTypes['retryJobApiV1JobsJobIdRetryPost'][0])
+    public function retryJobRequest($job_id, string $contentType = self::contentTypes['retryJob'][0])
     {
 
         // verify the required parameter 'job_id' is set
         if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $job_id when calling retryJobApiV1JobsJobIdRetryPost'
+                'Missing the required parameter $job_id when calling retryJob'
             );
         }
 

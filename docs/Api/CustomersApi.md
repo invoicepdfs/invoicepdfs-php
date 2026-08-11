@@ -4,17 +4,17 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createCustomerApiV1CustomersPost()**](CustomersApi.md#createCustomerApiV1CustomersPost) | **POST** /api/v1/customers | Create Customer |
-| [**deleteCustomerApiV1CustomersCustomerIdDelete()**](CustomersApi.md#deleteCustomerApiV1CustomersCustomerIdDelete) | **DELETE** /api/v1/customers/{customer_id} | Delete Customer |
-| [**getCustomerApiV1CustomersCustomerIdGet()**](CustomersApi.md#getCustomerApiV1CustomersCustomerIdGet) | **GET** /api/v1/customers/{customer_id} | Get Customer |
-| [**listCustomersApiV1CustomersGet()**](CustomersApi.md#listCustomersApiV1CustomersGet) | **GET** /api/v1/customers | List Customers |
-| [**patchCustomerApiV1CustomersCustomerIdPatch()**](CustomersApi.md#patchCustomerApiV1CustomersCustomerIdPatch) | **PATCH** /api/v1/customers/{customer_id} | Patch Customer |
+| [**createCustomer()**](CustomersApi.md#createCustomer) | **POST** /api/v1/customers | Create Customer |
+| [**deleteCustomer()**](CustomersApi.md#deleteCustomer) | **DELETE** /api/v1/customers/{customer_id} | Delete Customer |
+| [**getCustomer()**](CustomersApi.md#getCustomer) | **GET** /api/v1/customers/{customer_id} | Get Customer |
+| [**listCustomers()**](CustomersApi.md#listCustomers) | **GET** /api/v1/customers | List Customers |
+| [**updateCustomer()**](CustomersApi.md#updateCustomer) | **PATCH** /api/v1/customers/{customer_id} | Update Customer |
 
 
-## `createCustomerApiV1CustomersPost()`
+## `createCustomer()`
 
 ```php
-createCustomerApiV1CustomersPost($customer_create, $idempotency_key): \InvoicePDFs\Model\CustomerResponse
+createCustomer($customer_create, $idempotency_key): \InvoicePDFs\Model\CustomerResponse
 ```
 
 Create Customer
@@ -40,10 +40,10 @@ $customer_create = new \InvoicePDFs\Model\CustomerCreate(); // \InvoicePDFs\Mode
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->createCustomerApiV1CustomersPost($customer_create, $idempotency_key);
+    $result = $apiInstance->createCustomer($customer_create, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomersApi->createCustomerApiV1CustomersPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomersApi->createCustomer: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -71,10 +71,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteCustomerApiV1CustomersCustomerIdDelete()`
+## `deleteCustomer()`
 
 ```php
-deleteCustomerApiV1CustomersCustomerIdDelete($customer_id): \InvoicePDFs\Model\SimpleBoolResponse
+deleteCustomer($customer_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Customer
@@ -99,10 +99,10 @@ $apiInstance = new InvoicePDFs\Api\CustomersApi(
 $customer_id = 'customer_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteCustomerApiV1CustomersCustomerIdDelete($customer_id);
+    $result = $apiInstance->deleteCustomer($customer_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomersApi->deleteCustomerApiV1CustomersCustomerIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomersApi->deleteCustomer: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -129,10 +129,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCustomerApiV1CustomersCustomerIdGet()`
+## `getCustomer()`
 
 ```php
-getCustomerApiV1CustomersCustomerIdGet($customer_id): \InvoicePDFs\Model\CustomerResponse
+getCustomer($customer_id): \InvoicePDFs\Model\CustomerResponse
 ```
 
 Get Customer
@@ -157,10 +157,10 @@ $apiInstance = new InvoicePDFs\Api\CustomersApi(
 $customer_id = 'customer_id_example'; // string
 
 try {
-    $result = $apiInstance->getCustomerApiV1CustomersCustomerIdGet($customer_id);
+    $result = $apiInstance->getCustomer($customer_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomersApi->getCustomerApiV1CustomersCustomerIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomersApi->getCustomer: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -187,10 +187,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listCustomersApiV1CustomersGet()`
+## `listCustomers()`
 
 ```php
-listCustomersApiV1CustomersGet($limit, $cursor): \InvoicePDFs\Model\CustomersListResponse
+listCustomers($limit, $cursor): \InvoicePDFs\Model\CustomersListResponse
 ```
 
 List Customers
@@ -216,10 +216,10 @@ $limit = 50; // int
 $cursor = 'cursor_example'; // string
 
 try {
-    $result = $apiInstance->listCustomersApiV1CustomersGet($limit, $cursor);
+    $result = $apiInstance->listCustomers($limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomersApi->listCustomersApiV1CustomersGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomersApi->listCustomers: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -247,13 +247,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `patchCustomerApiV1CustomersCustomerIdPatch()`
+## `updateCustomer()`
 
 ```php
-patchCustomerApiV1CustomersCustomerIdPatch($customer_id, $customer_patch, $idempotency_key): \InvoicePDFs\Model\CustomerResponse
+updateCustomer($customer_id, $customer_patch, $idempotency_key): \InvoicePDFs\Model\CustomerResponse
 ```
 
-Patch Customer
+Update Customer
 
 ### Example
 
@@ -277,10 +277,10 @@ $customer_patch = new \InvoicePDFs\Model\CustomerPatch(); // \InvoicePDFs\Model\
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->patchCustomerApiV1CustomersCustomerIdPatch($customer_id, $customer_patch, $idempotency_key);
+    $result = $apiInstance->updateCustomer($customer_id, $customer_patch, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CustomersApi->patchCustomerApiV1CustomersCustomerIdPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CustomersApi->updateCustomer: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

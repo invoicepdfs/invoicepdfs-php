@@ -4,18 +4,18 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createApiKeyApiV1ApiKeysPost()**](ApiKeysApi.md#createApiKeyApiV1ApiKeysPost) | **POST** /api/v1/api-keys | Create Api Key |
-| [**getApiKeyApiV1ApiKeysApiKeyIdGet()**](ApiKeysApi.md#getApiKeyApiV1ApiKeysApiKeyIdGet) | **GET** /api/v1/api-keys/{api_key_id} | Get Api Key |
-| [**listApiKeysApiV1ApiKeysGet()**](ApiKeysApi.md#listApiKeysApiV1ApiKeysGet) | **GET** /api/v1/api-keys | List Api Keys |
-| [**patchApiKeyApiV1ApiKeysApiKeyIdPatch()**](ApiKeysApi.md#patchApiKeyApiV1ApiKeysApiKeyIdPatch) | **PATCH** /api/v1/api-keys/{api_key_id} | Patch Api Key |
-| [**revokeApiKeyApiV1ApiKeysApiKeyIdDelete()**](ApiKeysApi.md#revokeApiKeyApiV1ApiKeysApiKeyIdDelete) | **DELETE** /api/v1/api-keys/{api_key_id} | Revoke Api Key |
-| [**rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost()**](ApiKeysApi.md#rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost) | **POST** /api/v1/api-keys/{api_key_id}/rotate | Rotate Api Key |
+| [**createApiKey()**](ApiKeysApi.md#createApiKey) | **POST** /api/v1/api-keys | Create Api Key |
+| [**getApiKey()**](ApiKeysApi.md#getApiKey) | **GET** /api/v1/api-keys/{api_key_id} | Get Api Key |
+| [**listApiKeys()**](ApiKeysApi.md#listApiKeys) | **GET** /api/v1/api-keys | List Api Keys |
+| [**revokeApiKey()**](ApiKeysApi.md#revokeApiKey) | **DELETE** /api/v1/api-keys/{api_key_id} | Revoke Api Key |
+| [**rotateApiKey()**](ApiKeysApi.md#rotateApiKey) | **POST** /api/v1/api-keys/{api_key_id}/rotate | Rotate Api Key |
+| [**updateApiKey()**](ApiKeysApi.md#updateApiKey) | **PATCH** /api/v1/api-keys/{api_key_id} | Update Api Key |
 
 
-## `createApiKeyApiV1ApiKeysPost()`
+## `createApiKey()`
 
 ```php
-createApiKeyApiV1ApiKeysPost($api_key_create_request): \InvoicePDFs\Model\ApiKeyCreateResponse
+createApiKey($api_key_create_request): \InvoicePDFs\Model\ApiKeyCreateResponse
 ```
 
 Create Api Key
@@ -40,10 +40,10 @@ $apiInstance = new InvoicePDFs\Api\ApiKeysApi(
 $api_key_create_request = new \InvoicePDFs\Model\ApiKeyCreateRequest(); // \InvoicePDFs\Model\ApiKeyCreateRequest
 
 try {
-    $result = $apiInstance->createApiKeyApiV1ApiKeysPost($api_key_create_request);
+    $result = $apiInstance->createApiKey($api_key_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ApiKeysApi->createApiKeyApiV1ApiKeysPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ApiKeysApi->createApiKey: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -70,10 +70,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getApiKeyApiV1ApiKeysApiKeyIdGet()`
+## `getApiKey()`
 
 ```php
-getApiKeyApiV1ApiKeysApiKeyIdGet($api_key_id): \InvoicePDFs\Model\ApiKeyDetailResponse
+getApiKey($api_key_id): \InvoicePDFs\Model\ApiKeyDetailResponse
 ```
 
 Get Api Key
@@ -98,10 +98,10 @@ $apiInstance = new InvoicePDFs\Api\ApiKeysApi(
 $api_key_id = 'api_key_id_example'; // string
 
 try {
-    $result = $apiInstance->getApiKeyApiV1ApiKeysApiKeyIdGet($api_key_id);
+    $result = $apiInstance->getApiKey($api_key_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ApiKeysApi->getApiKeyApiV1ApiKeysApiKeyIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ApiKeysApi->getApiKey: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -128,10 +128,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listApiKeysApiV1ApiKeysGet()`
+## `listApiKeys()`
 
 ```php
-listApiKeysApiV1ApiKeysGet(): \InvoicePDFs\Model\ApiKeyListResponse
+listApiKeys(): \InvoicePDFs\Model\ApiKeyListResponse
 ```
 
 List Api Keys
@@ -155,10 +155,10 @@ $apiInstance = new InvoicePDFs\Api\ApiKeysApi(
 );
 
 try {
-    $result = $apiInstance->listApiKeysApiV1ApiKeysGet();
+    $result = $apiInstance->listApiKeys();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ApiKeysApi->listApiKeysApiV1ApiKeysGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ApiKeysApi->listApiKeys: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -183,70 +183,10 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `patchApiKeyApiV1ApiKeysApiKeyIdPatch()`
+## `revokeApiKey()`
 
 ```php
-patchApiKeyApiV1ApiKeysApiKeyIdPatch($api_key_id, $api_key_patch_request): \InvoicePDFs\Model\ApiKeyDetailResponse
-```
-
-Patch Api Key
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: HTTPBearer
-$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new InvoicePDFs\Api\ApiKeysApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$api_key_id = 'api_key_id_example'; // string
-$api_key_patch_request = new \InvoicePDFs\Model\ApiKeyPatchRequest(); // \InvoicePDFs\Model\ApiKeyPatchRequest
-
-try {
-    $result = $apiInstance->patchApiKeyApiV1ApiKeysApiKeyIdPatch($api_key_id, $api_key_patch_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ApiKeysApi->patchApiKeyApiV1ApiKeysApiKeyIdPatch: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **api_key_id** | **string**|  | |
-| **api_key_patch_request** | [**\InvoicePDFs\Model\ApiKeyPatchRequest**](../Model/ApiKeyPatchRequest.md)|  | |
-
-### Return type
-
-[**\InvoicePDFs\Model\ApiKeyDetailResponse**](../Model/ApiKeyDetailResponse.md)
-
-### Authorization
-
-[HTTPBearer](../../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `revokeApiKeyApiV1ApiKeysApiKeyIdDelete()`
-
-```php
-revokeApiKeyApiV1ApiKeysApiKeyIdDelete($api_key_id): \InvoicePDFs\Model\ApiKeyRevokeResponse
+revokeApiKey($api_key_id): \InvoicePDFs\Model\ApiKeyRevokeResponse
 ```
 
 Revoke Api Key
@@ -271,10 +211,10 @@ $apiInstance = new InvoicePDFs\Api\ApiKeysApi(
 $api_key_id = 'api_key_id_example'; // string
 
 try {
-    $result = $apiInstance->revokeApiKeyApiV1ApiKeysApiKeyIdDelete($api_key_id);
+    $result = $apiInstance->revokeApiKey($api_key_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ApiKeysApi->revokeApiKeyApiV1ApiKeysApiKeyIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ApiKeysApi->revokeApiKey: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -301,10 +241,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost()`
+## `rotateApiKey()`
 
 ```php
-rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost($api_key_id): \InvoicePDFs\Model\ApiKeyRotateResponse
+rotateApiKey($api_key_id): \InvoicePDFs\Model\ApiKeyRotateResponse
 ```
 
 Rotate Api Key
@@ -331,10 +271,10 @@ $apiInstance = new InvoicePDFs\Api\ApiKeysApi(
 $api_key_id = 'api_key_id_example'; // string
 
 try {
-    $result = $apiInstance->rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost($api_key_id);
+    $result = $apiInstance->rotateApiKey($api_key_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ApiKeysApi->rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ApiKeysApi->rotateApiKey: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -355,6 +295,66 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateApiKey()`
+
+```php
+updateApiKey($api_key_id, $api_key_patch_request): \InvoicePDFs\Model\ApiKeyDetailResponse
+```
+
+Update Api Key
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new InvoicePDFs\Api\ApiKeysApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$api_key_id = 'api_key_id_example'; // string
+$api_key_patch_request = new \InvoicePDFs\Model\ApiKeyPatchRequest(); // \InvoicePDFs\Model\ApiKeyPatchRequest
+
+try {
+    $result = $apiInstance->updateApiKey($api_key_id, $api_key_patch_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApiKeysApi->updateApiKey: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **api_key_id** | **string**|  | |
+| **api_key_patch_request** | [**\InvoicePDFs\Model\ApiKeyPatchRequest**](../Model/ApiKeyPatchRequest.md)|  | |
+
+### Return type
+
+[**\InvoicePDFs\Model\ApiKeyDetailResponse**](../Model/ApiKeyDetailResponse.md)
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

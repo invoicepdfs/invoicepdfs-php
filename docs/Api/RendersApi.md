@@ -4,14 +4,14 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**downloadRenderApiV1RendersRenderIdDownloadGet()**](RendersApi.md#downloadRenderApiV1RendersRenderIdDownloadGet) | **GET** /api/v1/renders/{render_id}/download | Download Render |
-| [**getRenderApiV1RendersRenderIdGet()**](RendersApi.md#getRenderApiV1RendersRenderIdGet) | **GET** /api/v1/renders/{render_id} | Get Render |
+| [**downloadRender()**](RendersApi.md#downloadRender) | **GET** /api/v1/renders/{render_id}/download | Download Render |
+| [**getRender()**](RendersApi.md#getRender) | **GET** /api/v1/renders/{render_id} | Get Render |
 
 
-## `downloadRenderApiV1RendersRenderIdDownloadGet()`
+## `downloadRender()`
 
 ```php
-downloadRenderApiV1RendersRenderIdDownloadGet($render_id): \SplFileObject
+downloadRender($render_id): \SplFileObject
 ```
 
 Download Render
@@ -36,10 +36,10 @@ $apiInstance = new InvoicePDFs\Api\RendersApi(
 $render_id = 'render_id_example'; // string
 
 try {
-    $result = $apiInstance->downloadRenderApiV1RendersRenderIdDownloadGet($render_id);
+    $result = $apiInstance->downloadRender($render_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RendersApi->downloadRenderApiV1RendersRenderIdDownloadGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RendersApi->downloadRender: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -66,10 +66,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getRenderApiV1RendersRenderIdGet()`
+## `getRender()`
 
 ```php
-getRenderApiV1RendersRenderIdGet($render_id): array<string,mixed>
+getRender($render_id): array<string,mixed>
 ```
 
 Get Render
@@ -94,10 +94,10 @@ $apiInstance = new InvoicePDFs\Api\RendersApi(
 $render_id = 'render_id_example'; // string
 
 try {
-    $result = $apiInstance->getRenderApiV1RendersRenderIdGet($render_id);
+    $result = $apiInstance->getRender($render_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RendersApi->getRenderApiV1RendersRenderIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling RendersApi->getRender: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

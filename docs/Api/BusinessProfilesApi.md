@@ -4,17 +4,17 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createBusinessProfileApiV1BusinessProfilesPost()**](BusinessProfilesApi.md#createBusinessProfileApiV1BusinessProfilesPost) | **POST** /api/v1/business-profiles | Create Business Profile |
-| [**deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete()**](BusinessProfilesApi.md#deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete) | **DELETE** /api/v1/business-profiles/{business_profile_id} | Delete Business Profile |
-| [**getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet()**](BusinessProfilesApi.md#getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet) | **GET** /api/v1/business-profiles/{business_profile_id} | Get Business Profile |
-| [**listBusinessProfilesApiV1BusinessProfilesGet()**](BusinessProfilesApi.md#listBusinessProfilesApiV1BusinessProfilesGet) | **GET** /api/v1/business-profiles | List Business Profiles |
-| [**patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch()**](BusinessProfilesApi.md#patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch) | **PATCH** /api/v1/business-profiles/{business_profile_id} | Patch Business Profile |
+| [**createBusinessProfile()**](BusinessProfilesApi.md#createBusinessProfile) | **POST** /api/v1/business-profiles | Create Business Profile |
+| [**deleteBusinessProfile()**](BusinessProfilesApi.md#deleteBusinessProfile) | **DELETE** /api/v1/business-profiles/{business_profile_id} | Delete Business Profile |
+| [**getBusinessProfile()**](BusinessProfilesApi.md#getBusinessProfile) | **GET** /api/v1/business-profiles/{business_profile_id} | Get Business Profile |
+| [**listBusinessProfiles()**](BusinessProfilesApi.md#listBusinessProfiles) | **GET** /api/v1/business-profiles | List Business Profiles |
+| [**updateBusinessProfile()**](BusinessProfilesApi.md#updateBusinessProfile) | **PATCH** /api/v1/business-profiles/{business_profile_id} | Update Business Profile |
 
 
-## `createBusinessProfileApiV1BusinessProfilesPost()`
+## `createBusinessProfile()`
 
 ```php
-createBusinessProfileApiV1BusinessProfilesPost($business_profile_create, $idempotency_key): \InvoicePDFs\Model\BusinessProfileResponse
+createBusinessProfile($business_profile_create, $idempotency_key): \InvoicePDFs\Model\BusinessProfileResponse
 ```
 
 Create Business Profile
@@ -40,10 +40,10 @@ $business_profile_create = new \InvoicePDFs\Model\BusinessProfileCreate(); // \I
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->createBusinessProfileApiV1BusinessProfilesPost($business_profile_create, $idempotency_key);
+    $result = $apiInstance->createBusinessProfile($business_profile_create, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BusinessProfilesApi->createBusinessProfileApiV1BusinessProfilesPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BusinessProfilesApi->createBusinessProfile: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -71,10 +71,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete()`
+## `deleteBusinessProfile()`
 
 ```php
-deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete($business_profile_id): \InvoicePDFs\Model\SimpleBoolResponse
+deleteBusinessProfile($business_profile_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Business Profile
@@ -99,10 +99,10 @@ $apiInstance = new InvoicePDFs\Api\BusinessProfilesApi(
 $business_profile_id = 'business_profile_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete($business_profile_id);
+    $result = $apiInstance->deleteBusinessProfile($business_profile_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BusinessProfilesApi->deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BusinessProfilesApi->deleteBusinessProfile: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -129,10 +129,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet()`
+## `getBusinessProfile()`
 
 ```php
-getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet($business_profile_id): \InvoicePDFs\Model\BusinessProfileResponse
+getBusinessProfile($business_profile_id): \InvoicePDFs\Model\BusinessProfileResponse
 ```
 
 Get Business Profile
@@ -157,10 +157,10 @@ $apiInstance = new InvoicePDFs\Api\BusinessProfilesApi(
 $business_profile_id = 'business_profile_id_example'; // string
 
 try {
-    $result = $apiInstance->getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet($business_profile_id);
+    $result = $apiInstance->getBusinessProfile($business_profile_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BusinessProfilesApi->getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BusinessProfilesApi->getBusinessProfile: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -187,10 +187,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listBusinessProfilesApiV1BusinessProfilesGet()`
+## `listBusinessProfiles()`
 
 ```php
-listBusinessProfilesApiV1BusinessProfilesGet($limit, $cursor): \InvoicePDFs\Model\BusinessProfilesListResponse
+listBusinessProfiles($limit, $cursor): \InvoicePDFs\Model\BusinessProfilesListResponse
 ```
 
 List Business Profiles
@@ -216,10 +216,10 @@ $limit = 50; // int
 $cursor = 'cursor_example'; // string
 
 try {
-    $result = $apiInstance->listBusinessProfilesApiV1BusinessProfilesGet($limit, $cursor);
+    $result = $apiInstance->listBusinessProfiles($limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BusinessProfilesApi->listBusinessProfilesApiV1BusinessProfilesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BusinessProfilesApi->listBusinessProfiles: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -247,13 +247,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch()`
+## `updateBusinessProfile()`
 
 ```php
-patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch($business_profile_id, $business_profile_patch, $idempotency_key): \InvoicePDFs\Model\BusinessProfileResponse
+updateBusinessProfile($business_profile_id, $business_profile_patch, $idempotency_key): \InvoicePDFs\Model\BusinessProfileResponse
 ```
 
-Patch Business Profile
+Update Business Profile
 
 ### Example
 
@@ -277,10 +277,10 @@ $business_profile_patch = new \InvoicePDFs\Model\BusinessProfilePatch(); // \Inv
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch($business_profile_id, $business_profile_patch, $idempotency_key);
+    $result = $apiInstance->updateBusinessProfile($business_profile_id, $business_profile_patch, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BusinessProfilesApi->patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BusinessProfilesApi->updateBusinessProfile: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

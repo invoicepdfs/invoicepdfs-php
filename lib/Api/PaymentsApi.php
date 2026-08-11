@@ -71,19 +71,19 @@ class PaymentsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'createPaymentApiV1DocumentsInvoiceIdPaymentsPost' => [
+        'createDocumentPayment' => [
             'application/json',
         ],
-        'deletePaymentApiV1PaymentsPaymentIdDelete' => [
+        'deletePayment' => [
             'application/json',
         ],
-        'getPaymentApiV1PaymentsPaymentIdGet' => [
+        'getPayment' => [
             'application/json',
         ],
-        'listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet' => [
+        'listDocumentPayments' => [
             'application/json',
         ],
-        'updatePaymentApiV1PaymentsPaymentIdPatch' => [
+        'updatePayment' => [
             'application/json',
         ],
     ];
@@ -135,40 +135,40 @@ class PaymentsApi
     }
 
     /**
-     * Operation createPaymentApiV1DocumentsInvoiceIdPaymentsPost
+     * Operation createDocumentPayment
      *
-     * Create Payment
+     * Create Document Payment
      *
-     * @param  string $invoice_id invoice_id (required)
+     * @param  string $document_id document_id (required)
      * @param  \InvoicePDFs\Model\PaymentCreateRequest $payment_create_request payment_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPaymentApiV1DocumentsInvoiceIdPaymentsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentPayment'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\PaymentResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createPaymentApiV1DocumentsInvoiceIdPaymentsPost($invoice_id, $payment_create_request, string $contentType = self::contentTypes['createPaymentApiV1DocumentsInvoiceIdPaymentsPost'][0])
+    public function createDocumentPayment($document_id, $payment_create_request, string $contentType = self::contentTypes['createDocumentPayment'][0])
     {
-        list($response) = $this->createPaymentApiV1DocumentsInvoiceIdPaymentsPostWithHttpInfo($invoice_id, $payment_create_request, $contentType);
+        list($response) = $this->createDocumentPaymentWithHttpInfo($document_id, $payment_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation createPaymentApiV1DocumentsInvoiceIdPaymentsPostWithHttpInfo
+     * Operation createDocumentPaymentWithHttpInfo
      *
-     * Create Payment
+     * Create Document Payment
      *
-     * @param  string $invoice_id (required)
+     * @param  string $document_id (required)
      * @param  \InvoicePDFs\Model\PaymentCreateRequest $payment_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPaymentApiV1DocumentsInvoiceIdPaymentsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentPayment'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\PaymentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPaymentApiV1DocumentsInvoiceIdPaymentsPostWithHttpInfo($invoice_id, $payment_create_request, string $contentType = self::contentTypes['createPaymentApiV1DocumentsInvoiceIdPaymentsPost'][0])
+    public function createDocumentPaymentWithHttpInfo($document_id, $payment_create_request, string $contentType = self::contentTypes['createDocumentPayment'][0])
     {
-        $request = $this->createPaymentApiV1DocumentsInvoiceIdPaymentsPostRequest($invoice_id, $payment_create_request, $contentType);
+        $request = $this->createDocumentPaymentRequest($document_id, $payment_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -314,20 +314,20 @@ class PaymentsApi
     }
 
     /**
-     * Operation createPaymentApiV1DocumentsInvoiceIdPaymentsPostAsync
+     * Operation createDocumentPaymentAsync
      *
-     * Create Payment
+     * Create Document Payment
      *
-     * @param  string $invoice_id (required)
+     * @param  string $document_id (required)
      * @param  \InvoicePDFs\Model\PaymentCreateRequest $payment_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPaymentApiV1DocumentsInvoiceIdPaymentsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPaymentApiV1DocumentsInvoiceIdPaymentsPostAsync($invoice_id, $payment_create_request, string $contentType = self::contentTypes['createPaymentApiV1DocumentsInvoiceIdPaymentsPost'][0])
+    public function createDocumentPaymentAsync($document_id, $payment_create_request, string $contentType = self::contentTypes['createDocumentPayment'][0])
     {
-        return $this->createPaymentApiV1DocumentsInvoiceIdPaymentsPostAsyncWithHttpInfo($invoice_id, $payment_create_request, $contentType)
+        return $this->createDocumentPaymentAsyncWithHttpInfo($document_id, $payment_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -336,21 +336,21 @@ class PaymentsApi
     }
 
     /**
-     * Operation createPaymentApiV1DocumentsInvoiceIdPaymentsPostAsyncWithHttpInfo
+     * Operation createDocumentPaymentAsyncWithHttpInfo
      *
-     * Create Payment
+     * Create Document Payment
      *
-     * @param  string $invoice_id (required)
+     * @param  string $document_id (required)
      * @param  \InvoicePDFs\Model\PaymentCreateRequest $payment_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPaymentApiV1DocumentsInvoiceIdPaymentsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPaymentApiV1DocumentsInvoiceIdPaymentsPostAsyncWithHttpInfo($invoice_id, $payment_create_request, string $contentType = self::contentTypes['createPaymentApiV1DocumentsInvoiceIdPaymentsPost'][0])
+    public function createDocumentPaymentAsyncWithHttpInfo($document_id, $payment_create_request, string $contentType = self::contentTypes['createDocumentPayment'][0])
     {
         $returnType = '\InvoicePDFs\Model\PaymentResponse';
-        $request = $this->createPaymentApiV1DocumentsInvoiceIdPaymentsPostRequest($invoice_id, $payment_create_request, $contentType);
+        $request = $this->createDocumentPaymentRequest($document_id, $payment_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -389,34 +389,34 @@ class PaymentsApi
     }
 
     /**
-     * Create request for operation 'createPaymentApiV1DocumentsInvoiceIdPaymentsPost'
+     * Create request for operation 'createDocumentPayment'
      *
-     * @param  string $invoice_id (required)
+     * @param  string $document_id (required)
      * @param  \InvoicePDFs\Model\PaymentCreateRequest $payment_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPaymentApiV1DocumentsInvoiceIdPaymentsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createPaymentApiV1DocumentsInvoiceIdPaymentsPostRequest($invoice_id, $payment_create_request, string $contentType = self::contentTypes['createPaymentApiV1DocumentsInvoiceIdPaymentsPost'][0])
+    public function createDocumentPaymentRequest($document_id, $payment_create_request, string $contentType = self::contentTypes['createDocumentPayment'][0])
     {
 
-        // verify the required parameter 'invoice_id' is set
-        if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
+        // verify the required parameter 'document_id' is set
+        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $invoice_id when calling createPaymentApiV1DocumentsInvoiceIdPaymentsPost'
+                'Missing the required parameter $document_id when calling createDocumentPayment'
             );
         }
 
         // verify the required parameter 'payment_create_request' is set
         if ($payment_create_request === null || (is_array($payment_create_request) && count($payment_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $payment_create_request when calling createPaymentApiV1DocumentsInvoiceIdPaymentsPost'
+                'Missing the required parameter $payment_create_request when calling createDocumentPayment'
             );
         }
 
 
-        $resourcePath = '/api/v1/documents/{invoice_id}/payments';
+        $resourcePath = '/api/v1/documents/{document_id}/payments';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -426,10 +426,10 @@ class PaymentsApi
 
 
         // path params
-        if ($invoice_id !== null) {
+        if ($document_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'invoice_id' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                '{' . 'document_id' . '}',
+                ObjectSerializer::toPathValue($document_id),
                 $resourcePath
             );
         }
@@ -500,38 +500,38 @@ class PaymentsApi
     }
 
     /**
-     * Operation deletePaymentApiV1PaymentsPaymentIdDelete
+     * Operation deletePayment
      *
      * Delete Payment
      *
      * @param  string $payment_id payment_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePaymentApiV1PaymentsPaymentIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePayment'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function deletePaymentApiV1PaymentsPaymentIdDelete($payment_id, string $contentType = self::contentTypes['deletePaymentApiV1PaymentsPaymentIdDelete'][0])
+    public function deletePayment($payment_id, string $contentType = self::contentTypes['deletePayment'][0])
     {
-        list($response) = $this->deletePaymentApiV1PaymentsPaymentIdDeleteWithHttpInfo($payment_id, $contentType);
+        list($response) = $this->deletePaymentWithHttpInfo($payment_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deletePaymentApiV1PaymentsPaymentIdDeleteWithHttpInfo
+     * Operation deletePaymentWithHttpInfo
      *
      * Delete Payment
      *
      * @param  string $payment_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePaymentApiV1PaymentsPaymentIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePayment'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deletePaymentApiV1PaymentsPaymentIdDeleteWithHttpInfo($payment_id, string $contentType = self::contentTypes['deletePaymentApiV1PaymentsPaymentIdDelete'][0])
+    public function deletePaymentWithHttpInfo($payment_id, string $contentType = self::contentTypes['deletePayment'][0])
     {
-        $request = $this->deletePaymentApiV1PaymentsPaymentIdDeleteRequest($payment_id, $contentType);
+        $request = $this->deletePaymentRequest($payment_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -677,19 +677,19 @@ class PaymentsApi
     }
 
     /**
-     * Operation deletePaymentApiV1PaymentsPaymentIdDeleteAsync
+     * Operation deletePaymentAsync
      *
      * Delete Payment
      *
      * @param  string $payment_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePaymentApiV1PaymentsPaymentIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePaymentApiV1PaymentsPaymentIdDeleteAsync($payment_id, string $contentType = self::contentTypes['deletePaymentApiV1PaymentsPaymentIdDelete'][0])
+    public function deletePaymentAsync($payment_id, string $contentType = self::contentTypes['deletePayment'][0])
     {
-        return $this->deletePaymentApiV1PaymentsPaymentIdDeleteAsyncWithHttpInfo($payment_id, $contentType)
+        return $this->deletePaymentAsyncWithHttpInfo($payment_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -698,20 +698,20 @@ class PaymentsApi
     }
 
     /**
-     * Operation deletePaymentApiV1PaymentsPaymentIdDeleteAsyncWithHttpInfo
+     * Operation deletePaymentAsyncWithHttpInfo
      *
      * Delete Payment
      *
      * @param  string $payment_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePaymentApiV1PaymentsPaymentIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deletePaymentApiV1PaymentsPaymentIdDeleteAsyncWithHttpInfo($payment_id, string $contentType = self::contentTypes['deletePaymentApiV1PaymentsPaymentIdDelete'][0])
+    public function deletePaymentAsyncWithHttpInfo($payment_id, string $contentType = self::contentTypes['deletePayment'][0])
     {
         $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
-        $request = $this->deletePaymentApiV1PaymentsPaymentIdDeleteRequest($payment_id, $contentType);
+        $request = $this->deletePaymentRequest($payment_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -750,21 +750,21 @@ class PaymentsApi
     }
 
     /**
-     * Create request for operation 'deletePaymentApiV1PaymentsPaymentIdDelete'
+     * Create request for operation 'deletePayment'
      *
      * @param  string $payment_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePaymentApiV1PaymentsPaymentIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deletePaymentApiV1PaymentsPaymentIdDeleteRequest($payment_id, string $contentType = self::contentTypes['deletePaymentApiV1PaymentsPaymentIdDelete'][0])
+    public function deletePaymentRequest($payment_id, string $contentType = self::contentTypes['deletePayment'][0])
     {
 
         // verify the required parameter 'payment_id' is set
         if ($payment_id === null || (is_array($payment_id) && count($payment_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $payment_id when calling deletePaymentApiV1PaymentsPaymentIdDelete'
+                'Missing the required parameter $payment_id when calling deletePayment'
             );
         }
 
@@ -846,38 +846,38 @@ class PaymentsApi
     }
 
     /**
-     * Operation getPaymentApiV1PaymentsPaymentIdGet
+     * Operation getPayment
      *
      * Get Payment
      *
      * @param  string $payment_id payment_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentApiV1PaymentsPaymentIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayment'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\PaymentResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getPaymentApiV1PaymentsPaymentIdGet($payment_id, string $contentType = self::contentTypes['getPaymentApiV1PaymentsPaymentIdGet'][0])
+    public function getPayment($payment_id, string $contentType = self::contentTypes['getPayment'][0])
     {
-        list($response) = $this->getPaymentApiV1PaymentsPaymentIdGetWithHttpInfo($payment_id, $contentType);
+        list($response) = $this->getPaymentWithHttpInfo($payment_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getPaymentApiV1PaymentsPaymentIdGetWithHttpInfo
+     * Operation getPaymentWithHttpInfo
      *
      * Get Payment
      *
      * @param  string $payment_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentApiV1PaymentsPaymentIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayment'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\PaymentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPaymentApiV1PaymentsPaymentIdGetWithHttpInfo($payment_id, string $contentType = self::contentTypes['getPaymentApiV1PaymentsPaymentIdGet'][0])
+    public function getPaymentWithHttpInfo($payment_id, string $contentType = self::contentTypes['getPayment'][0])
     {
-        $request = $this->getPaymentApiV1PaymentsPaymentIdGetRequest($payment_id, $contentType);
+        $request = $this->getPaymentRequest($payment_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1023,19 +1023,19 @@ class PaymentsApi
     }
 
     /**
-     * Operation getPaymentApiV1PaymentsPaymentIdGetAsync
+     * Operation getPaymentAsync
      *
      * Get Payment
      *
      * @param  string $payment_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentApiV1PaymentsPaymentIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentApiV1PaymentsPaymentIdGetAsync($payment_id, string $contentType = self::contentTypes['getPaymentApiV1PaymentsPaymentIdGet'][0])
+    public function getPaymentAsync($payment_id, string $contentType = self::contentTypes['getPayment'][0])
     {
-        return $this->getPaymentApiV1PaymentsPaymentIdGetAsyncWithHttpInfo($payment_id, $contentType)
+        return $this->getPaymentAsyncWithHttpInfo($payment_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1044,20 +1044,20 @@ class PaymentsApi
     }
 
     /**
-     * Operation getPaymentApiV1PaymentsPaymentIdGetAsyncWithHttpInfo
+     * Operation getPaymentAsyncWithHttpInfo
      *
      * Get Payment
      *
      * @param  string $payment_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentApiV1PaymentsPaymentIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaymentApiV1PaymentsPaymentIdGetAsyncWithHttpInfo($payment_id, string $contentType = self::contentTypes['getPaymentApiV1PaymentsPaymentIdGet'][0])
+    public function getPaymentAsyncWithHttpInfo($payment_id, string $contentType = self::contentTypes['getPayment'][0])
     {
         $returnType = '\InvoicePDFs\Model\PaymentResponse';
-        $request = $this->getPaymentApiV1PaymentsPaymentIdGetRequest($payment_id, $contentType);
+        $request = $this->getPaymentRequest($payment_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1096,21 +1096,21 @@ class PaymentsApi
     }
 
     /**
-     * Create request for operation 'getPaymentApiV1PaymentsPaymentIdGet'
+     * Create request for operation 'getPayment'
      *
      * @param  string $payment_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaymentApiV1PaymentsPaymentIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPaymentApiV1PaymentsPaymentIdGetRequest($payment_id, string $contentType = self::contentTypes['getPaymentApiV1PaymentsPaymentIdGet'][0])
+    public function getPaymentRequest($payment_id, string $contentType = self::contentTypes['getPayment'][0])
     {
 
         // verify the required parameter 'payment_id' is set
         if ($payment_id === null || (is_array($payment_id) && count($payment_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $payment_id when calling getPaymentApiV1PaymentsPaymentIdGet'
+                'Missing the required parameter $payment_id when calling getPayment'
             );
         }
 
@@ -1192,42 +1192,42 @@ class PaymentsApi
     }
 
     /**
-     * Operation listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet
+     * Operation listDocumentPayments
      *
-     * List Invoice Payments
+     * List Document Payments
      *
-     * @param  string $invoice_id invoice_id (required)
+     * @param  string $document_id document_id (required)
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentPayments'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\PaymentsListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet($invoice_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet'][0])
+    public function listDocumentPayments($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentPayments'][0])
     {
-        list($response) = $this->listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGetWithHttpInfo($invoice_id, $limit, $cursor, $contentType);
+        list($response) = $this->listDocumentPaymentsWithHttpInfo($document_id, $limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGetWithHttpInfo
+     * Operation listDocumentPaymentsWithHttpInfo
      *
-     * List Invoice Payments
+     * List Document Payments
      *
-     * @param  string $invoice_id (required)
+     * @param  string $document_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentPayments'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\PaymentsListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGetWithHttpInfo($invoice_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet'][0])
+    public function listDocumentPaymentsWithHttpInfo($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentPayments'][0])
     {
-        $request = $this->listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGetRequest($invoice_id, $limit, $cursor, $contentType);
+        $request = $this->listDocumentPaymentsRequest($document_id, $limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1373,21 +1373,21 @@ class PaymentsApi
     }
 
     /**
-     * Operation listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGetAsync
+     * Operation listDocumentPaymentsAsync
      *
-     * List Invoice Payments
+     * List Document Payments
      *
-     * @param  string $invoice_id (required)
+     * @param  string $document_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentPayments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGetAsync($invoice_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet'][0])
+    public function listDocumentPaymentsAsync($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentPayments'][0])
     {
-        return $this->listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGetAsyncWithHttpInfo($invoice_id, $limit, $cursor, $contentType)
+        return $this->listDocumentPaymentsAsyncWithHttpInfo($document_id, $limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1396,22 +1396,22 @@ class PaymentsApi
     }
 
     /**
-     * Operation listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGetAsyncWithHttpInfo
+     * Operation listDocumentPaymentsAsyncWithHttpInfo
      *
-     * List Invoice Payments
+     * List Document Payments
      *
-     * @param  string $invoice_id (required)
+     * @param  string $document_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentPayments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGetAsyncWithHttpInfo($invoice_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet'][0])
+    public function listDocumentPaymentsAsyncWithHttpInfo($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentPayments'][0])
     {
         $returnType = '\InvoicePDFs\Model\PaymentsListResponse';
-        $request = $this->listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGetRequest($invoice_id, $limit, $cursor, $contentType);
+        $request = $this->listDocumentPaymentsRequest($document_id, $limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1450,36 +1450,36 @@ class PaymentsApi
     }
 
     /**
-     * Create request for operation 'listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet'
+     * Create request for operation 'listDocumentPayments'
      *
-     * @param  string $invoice_id (required)
+     * @param  string $document_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentPayments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGetRequest($invoice_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet'][0])
+    public function listDocumentPaymentsRequest($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentPayments'][0])
     {
 
-        // verify the required parameter 'invoice_id' is set
-        if ($invoice_id === null || (is_array($invoice_id) && count($invoice_id) === 0)) {
+        // verify the required parameter 'document_id' is set
+        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $invoice_id when calling listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet'
+                'Missing the required parameter $document_id when calling listDocumentPayments'
             );
         }
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling PaymentsApi.listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PaymentsApi.listDocumentPayments, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling PaymentsApi.listInvoicePaymentsApiV1DocumentsInvoiceIdPaymentsGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling PaymentsApi.listDocumentPayments, must be bigger than or equal to 1.');
         }
         
 
 
-        $resourcePath = '/api/v1/documents/{invoice_id}/payments';
+        $resourcePath = '/api/v1/documents/{document_id}/payments';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1507,10 +1507,10 @@ class PaymentsApi
 
 
         // path params
-        if ($invoice_id !== null) {
+        if ($document_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'invoice_id' . '}',
-                ObjectSerializer::toPathValue($invoice_id),
+                '{' . 'document_id' . '}',
+                ObjectSerializer::toPathValue($document_id),
                 $resourcePath
             );
         }
@@ -1574,40 +1574,40 @@ class PaymentsApi
     }
 
     /**
-     * Operation updatePaymentApiV1PaymentsPaymentIdPatch
+     * Operation updatePayment
      *
      * Update Payment
      *
      * @param  string $payment_id payment_id (required)
      * @param  \InvoicePDFs\Model\PaymentPatchRequest $payment_patch_request payment_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePaymentApiV1PaymentsPaymentIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePayment'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\PaymentResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function updatePaymentApiV1PaymentsPaymentIdPatch($payment_id, $payment_patch_request, string $contentType = self::contentTypes['updatePaymentApiV1PaymentsPaymentIdPatch'][0])
+    public function updatePayment($payment_id, $payment_patch_request, string $contentType = self::contentTypes['updatePayment'][0])
     {
-        list($response) = $this->updatePaymentApiV1PaymentsPaymentIdPatchWithHttpInfo($payment_id, $payment_patch_request, $contentType);
+        list($response) = $this->updatePaymentWithHttpInfo($payment_id, $payment_patch_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation updatePaymentApiV1PaymentsPaymentIdPatchWithHttpInfo
+     * Operation updatePaymentWithHttpInfo
      *
      * Update Payment
      *
      * @param  string $payment_id (required)
      * @param  \InvoicePDFs\Model\PaymentPatchRequest $payment_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePaymentApiV1PaymentsPaymentIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePayment'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\PaymentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePaymentApiV1PaymentsPaymentIdPatchWithHttpInfo($payment_id, $payment_patch_request, string $contentType = self::contentTypes['updatePaymentApiV1PaymentsPaymentIdPatch'][0])
+    public function updatePaymentWithHttpInfo($payment_id, $payment_patch_request, string $contentType = self::contentTypes['updatePayment'][0])
     {
-        $request = $this->updatePaymentApiV1PaymentsPaymentIdPatchRequest($payment_id, $payment_patch_request, $contentType);
+        $request = $this->updatePaymentRequest($payment_id, $payment_patch_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1753,20 +1753,20 @@ class PaymentsApi
     }
 
     /**
-     * Operation updatePaymentApiV1PaymentsPaymentIdPatchAsync
+     * Operation updatePaymentAsync
      *
      * Update Payment
      *
      * @param  string $payment_id (required)
      * @param  \InvoicePDFs\Model\PaymentPatchRequest $payment_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePaymentApiV1PaymentsPaymentIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePaymentApiV1PaymentsPaymentIdPatchAsync($payment_id, $payment_patch_request, string $contentType = self::contentTypes['updatePaymentApiV1PaymentsPaymentIdPatch'][0])
+    public function updatePaymentAsync($payment_id, $payment_patch_request, string $contentType = self::contentTypes['updatePayment'][0])
     {
-        return $this->updatePaymentApiV1PaymentsPaymentIdPatchAsyncWithHttpInfo($payment_id, $payment_patch_request, $contentType)
+        return $this->updatePaymentAsyncWithHttpInfo($payment_id, $payment_patch_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1775,21 +1775,21 @@ class PaymentsApi
     }
 
     /**
-     * Operation updatePaymentApiV1PaymentsPaymentIdPatchAsyncWithHttpInfo
+     * Operation updatePaymentAsyncWithHttpInfo
      *
      * Update Payment
      *
      * @param  string $payment_id (required)
      * @param  \InvoicePDFs\Model\PaymentPatchRequest $payment_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePaymentApiV1PaymentsPaymentIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePaymentApiV1PaymentsPaymentIdPatchAsyncWithHttpInfo($payment_id, $payment_patch_request, string $contentType = self::contentTypes['updatePaymentApiV1PaymentsPaymentIdPatch'][0])
+    public function updatePaymentAsyncWithHttpInfo($payment_id, $payment_patch_request, string $contentType = self::contentTypes['updatePayment'][0])
     {
         $returnType = '\InvoicePDFs\Model\PaymentResponse';
-        $request = $this->updatePaymentApiV1PaymentsPaymentIdPatchRequest($payment_id, $payment_patch_request, $contentType);
+        $request = $this->updatePaymentRequest($payment_id, $payment_patch_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1828,29 +1828,29 @@ class PaymentsApi
     }
 
     /**
-     * Create request for operation 'updatePaymentApiV1PaymentsPaymentIdPatch'
+     * Create request for operation 'updatePayment'
      *
      * @param  string $payment_id (required)
      * @param  \InvoicePDFs\Model\PaymentPatchRequest $payment_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePaymentApiV1PaymentsPaymentIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updatePayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updatePaymentApiV1PaymentsPaymentIdPatchRequest($payment_id, $payment_patch_request, string $contentType = self::contentTypes['updatePaymentApiV1PaymentsPaymentIdPatch'][0])
+    public function updatePaymentRequest($payment_id, $payment_patch_request, string $contentType = self::contentTypes['updatePayment'][0])
     {
 
         // verify the required parameter 'payment_id' is set
         if ($payment_id === null || (is_array($payment_id) && count($payment_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $payment_id when calling updatePaymentApiV1PaymentsPaymentIdPatch'
+                'Missing the required parameter $payment_id when calling updatePayment'
             );
         }
 
         // verify the required parameter 'payment_patch_request' is set
         if ($payment_patch_request === null || (is_array($payment_patch_request) && count($payment_patch_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $payment_patch_request when calling updatePaymentApiV1PaymentsPaymentIdPatch'
+                'Missing the required parameter $payment_patch_request when calling updatePayment'
             );
         }
 

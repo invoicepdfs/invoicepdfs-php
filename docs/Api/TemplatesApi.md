@@ -4,23 +4,23 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createTemplateApiV1TemplatesCustomPost()**](TemplatesApi.md#createTemplateApiV1TemplatesCustomPost) | **POST** /api/v1/templates/custom | Create Template |
-| [**deleteTemplateApiV1TemplatesCustomTemplateIdDelete()**](TemplatesApi.md#deleteTemplateApiV1TemplatesCustomTemplateIdDelete) | **DELETE** /api/v1/templates/custom/{template_id} | Delete Template |
-| [**duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost()**](TemplatesApi.md#duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost) | **POST** /api/v1/templates/custom/{template_id}/duplicate | Duplicate Template |
-| [**getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet()**](TemplatesApi.md#getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet) | **GET** /api/v1/templates/builtin/{template_id} | Get Builtin Template |
-| [**getCustomTemplateApiV1TemplatesCustomTemplateIdGet()**](TemplatesApi.md#getCustomTemplateApiV1TemplatesCustomTemplateIdGet) | **GET** /api/v1/templates/custom/{template_id} | Get Custom Template |
-| [**getTemplateApiV1TemplatesTemplateIdGet()**](TemplatesApi.md#getTemplateApiV1TemplatesTemplateIdGet) | **GET** /api/v1/templates/{template_id} | Get Template |
-| [**listCustomTemplatesApiV1TemplatesCustomGet()**](TemplatesApi.md#listCustomTemplatesApiV1TemplatesCustomGet) | **GET** /api/v1/templates/custom | List Custom Templates |
-| [**patchTemplateApiV1TemplatesCustomTemplateIdPatch()**](TemplatesApi.md#patchTemplateApiV1TemplatesCustomTemplateIdPatch) | **PATCH** /api/v1/templates/custom/{template_id} | Patch Template |
-| [**previewTemplateApiV1TemplatesTemplateIdPreviewPost()**](TemplatesApi.md#previewTemplateApiV1TemplatesTemplateIdPreviewPost) | **POST** /api/v1/templates/{template_id}/preview | Preview Template |
-| [**publishTemplateApiV1TemplatesCustomTemplateIdPublishPost()**](TemplatesApi.md#publishTemplateApiV1TemplatesCustomTemplateIdPublishPost) | **POST** /api/v1/templates/custom/{template_id}/publish | Publish Template |
-| [**templatesApiV1TemplatesGet()**](TemplatesApi.md#templatesApiV1TemplatesGet) | **GET** /api/v1/templates | Templates |
+| [**createTemplate()**](TemplatesApi.md#createTemplate) | **POST** /api/v1/templates/custom | Create Template |
+| [**deleteTemplate()**](TemplatesApi.md#deleteTemplate) | **DELETE** /api/v1/templates/custom/{template_id} | Delete Template |
+| [**duplicateTemplate()**](TemplatesApi.md#duplicateTemplate) | **POST** /api/v1/templates/custom/{template_id}/duplicate | Duplicate Template |
+| [**getBuiltinTemplate()**](TemplatesApi.md#getBuiltinTemplate) | **GET** /api/v1/templates/builtin/{template_id} | Get Builtin Template |
+| [**getCustomTemplate()**](TemplatesApi.md#getCustomTemplate) | **GET** /api/v1/templates/custom/{template_id} | Get Custom Template |
+| [**getTemplate()**](TemplatesApi.md#getTemplate) | **GET** /api/v1/templates/{template_id} | Get Template |
+| [**listCustomTemplates()**](TemplatesApi.md#listCustomTemplates) | **GET** /api/v1/templates/custom | List Custom Templates |
+| [**listTemplates()**](TemplatesApi.md#listTemplates) | **GET** /api/v1/templates | List Templates |
+| [**previewTemplate()**](TemplatesApi.md#previewTemplate) | **POST** /api/v1/templates/{template_id}/preview | Preview Template |
+| [**publishTemplate()**](TemplatesApi.md#publishTemplate) | **POST** /api/v1/templates/custom/{template_id}/publish | Publish Template |
+| [**updateTemplate()**](TemplatesApi.md#updateTemplate) | **PATCH** /api/v1/templates/custom/{template_id} | Update Template |
 
 
-## `createTemplateApiV1TemplatesCustomPost()`
+## `createTemplate()`
 
 ```php
-createTemplateApiV1TemplatesCustomPost($template_create_request): \InvoicePDFs\Model\CustomTemplateResponse
+createTemplate($template_create_request): \InvoicePDFs\Model\CustomTemplateResponse
 ```
 
 Create Template
@@ -45,10 +45,10 @@ $apiInstance = new InvoicePDFs\Api\TemplatesApi(
 $template_create_request = new \InvoicePDFs\Model\TemplateCreateRequest(); // \InvoicePDFs\Model\TemplateCreateRequest
 
 try {
-    $result = $apiInstance->createTemplateApiV1TemplatesCustomPost($template_create_request);
+    $result = $apiInstance->createTemplate($template_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplatesApi->createTemplateApiV1TemplatesCustomPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplatesApi->createTemplate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -75,10 +75,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteTemplateApiV1TemplatesCustomTemplateIdDelete()`
+## `deleteTemplate()`
 
 ```php
-deleteTemplateApiV1TemplatesCustomTemplateIdDelete($template_id)
+deleteTemplate($template_id)
 ```
 
 Delete Template
@@ -103,9 +103,9 @@ $apiInstance = new InvoicePDFs\Api\TemplatesApi(
 $template_id = 'template_id_example'; // string
 
 try {
-    $apiInstance->deleteTemplateApiV1TemplatesCustomTemplateIdDelete($template_id);
+    $apiInstance->deleteTemplate($template_id);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplatesApi->deleteTemplateApiV1TemplatesCustomTemplateIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplatesApi->deleteTemplate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -132,10 +132,10 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost()`
+## `duplicateTemplate()`
 
 ```php
-duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost($template_id): \InvoicePDFs\Model\CustomTemplateResponse
+duplicateTemplate($template_id): \InvoicePDFs\Model\CustomTemplateResponse
 ```
 
 Duplicate Template
@@ -160,10 +160,10 @@ $apiInstance = new InvoicePDFs\Api\TemplatesApi(
 $template_id = 'template_id_example'; // string
 
 try {
-    $result = $apiInstance->duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost($template_id);
+    $result = $apiInstance->duplicateTemplate($template_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplatesApi->duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplatesApi->duplicateTemplate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -190,10 +190,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet()`
+## `getBuiltinTemplate()`
 
 ```php
-getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet($template_id): \InvoicePDFs\Model\TemplateDetailResponse
+getBuiltinTemplate($template_id): \InvoicePDFs\Model\TemplateDetailResponse
 ```
 
 Get Builtin Template
@@ -218,10 +218,10 @@ $apiInstance = new InvoicePDFs\Api\TemplatesApi(
 $template_id = 'template_id_example'; // string
 
 try {
-    $result = $apiInstance->getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet($template_id);
+    $result = $apiInstance->getBuiltinTemplate($template_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplatesApi->getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplatesApi->getBuiltinTemplate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -248,10 +248,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getCustomTemplateApiV1TemplatesCustomTemplateIdGet()`
+## `getCustomTemplate()`
 
 ```php
-getCustomTemplateApiV1TemplatesCustomTemplateIdGet($template_id): \InvoicePDFs\Model\CustomTemplateResponse
+getCustomTemplate($template_id): \InvoicePDFs\Model\CustomTemplateResponse
 ```
 
 Get Custom Template
@@ -276,10 +276,10 @@ $apiInstance = new InvoicePDFs\Api\TemplatesApi(
 $template_id = 'template_id_example'; // string
 
 try {
-    $result = $apiInstance->getCustomTemplateApiV1TemplatesCustomTemplateIdGet($template_id);
+    $result = $apiInstance->getCustomTemplate($template_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplatesApi->getCustomTemplateApiV1TemplatesCustomTemplateIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplatesApi->getCustomTemplate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -306,10 +306,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getTemplateApiV1TemplatesTemplateIdGet()`
+## `getTemplate()`
 
 ```php
-getTemplateApiV1TemplatesTemplateIdGet($template_id): \InvoicePDFs\Model\TemplateDetailResponse
+getTemplate($template_id): \InvoicePDFs\Model\TemplateDetailResponse
 ```
 
 Get Template
@@ -334,10 +334,10 @@ $apiInstance = new InvoicePDFs\Api\TemplatesApi(
 $template_id = 'template_id_example'; // string
 
 try {
-    $result = $apiInstance->getTemplateApiV1TemplatesTemplateIdGet($template_id);
+    $result = $apiInstance->getTemplate($template_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplatesApi->getTemplateApiV1TemplatesTemplateIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplatesApi->getTemplate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -364,10 +364,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listCustomTemplatesApiV1TemplatesCustomGet()`
+## `listCustomTemplates()`
 
 ```php
-listCustomTemplatesApiV1TemplatesCustomGet($limit, $cursor): \InvoicePDFs\Model\CustomTemplatesListResponse
+listCustomTemplates($limit, $cursor): \InvoicePDFs\Model\CustomTemplatesListResponse
 ```
 
 List Custom Templates
@@ -393,10 +393,10 @@ $limit = 50; // int
 $cursor = 'cursor_example'; // string
 
 try {
-    $result = $apiInstance->listCustomTemplatesApiV1TemplatesCustomGet($limit, $cursor);
+    $result = $apiInstance->listCustomTemplates($limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplatesApi->listCustomTemplatesApiV1TemplatesCustomGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplatesApi->listCustomTemplates: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -424,13 +424,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `patchTemplateApiV1TemplatesCustomTemplateIdPatch()`
+## `listTemplates()`
 
 ```php
-patchTemplateApiV1TemplatesCustomTemplateIdPatch($template_id, $template_patch_request): \InvoicePDFs\Model\CustomTemplateResponse
+listTemplates(): \InvoicePDFs\Model\TemplatesListResponse
 ```
 
-Patch Template
+List Templates
 
 ### Example
 
@@ -449,27 +449,22 @@ $apiInstance = new InvoicePDFs\Api\TemplatesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$template_id = 'template_id_example'; // string
-$template_patch_request = new \InvoicePDFs\Model\TemplatePatchRequest(); // \InvoicePDFs\Model\TemplatePatchRequest
 
 try {
-    $result = $apiInstance->patchTemplateApiV1TemplatesCustomTemplateIdPatch($template_id, $template_patch_request);
+    $result = $apiInstance->listTemplates();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplatesApi->patchTemplateApiV1TemplatesCustomTemplateIdPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplatesApi->listTemplates: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **template_id** | **string**|  | |
-| **template_patch_request** | [**\InvoicePDFs\Model\TemplatePatchRequest**](../Model/TemplatePatchRequest.md)|  | |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\InvoicePDFs\Model\CustomTemplateResponse**](../Model/CustomTemplateResponse.md)
+[**\InvoicePDFs\Model\TemplatesListResponse**](../Model/TemplatesListResponse.md)
 
 ### Authorization
 
@@ -477,17 +472,17 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `previewTemplateApiV1TemplatesTemplateIdPreviewPost()`
+## `previewTemplate()`
 
 ```php
-previewTemplateApiV1TemplatesTemplateIdPreviewPost($template_id, $app_schemas_v1_document_render_request, $idempotency_key): mixed
+previewTemplate($template_id, $document_render_request, $idempotency_key): mixed
 ```
 
 Preview Template
@@ -510,14 +505,14 @@ $apiInstance = new InvoicePDFs\Api\TemplatesApi(
     $config
 );
 $template_id = 'template_id_example'; // string
-$app_schemas_v1_document_render_request = new \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest(); // \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest
+$document_render_request = new \InvoicePDFs\Model\DocumentRenderRequest(); // \InvoicePDFs\Model\DocumentRenderRequest
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->previewTemplateApiV1TemplatesTemplateIdPreviewPost($template_id, $app_schemas_v1_document_render_request, $idempotency_key);
+    $result = $apiInstance->previewTemplate($template_id, $document_render_request, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplatesApi->previewTemplateApiV1TemplatesTemplateIdPreviewPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplatesApi->previewTemplate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -526,7 +521,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**|  | |
-| **app_schemas_v1_document_render_request** | [**\InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest**](../Model/AppSchemasV1DocumentRenderRequest.md)|  | |
+| **document_render_request** | [**\InvoicePDFs\Model\DocumentRenderRequest**](../Model/DocumentRenderRequest.md)|  | |
 | **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
@@ -546,10 +541,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `publishTemplateApiV1TemplatesCustomTemplateIdPublishPost()`
+## `publishTemplate()`
 
 ```php
-publishTemplateApiV1TemplatesCustomTemplateIdPublishPost($template_id): \InvoicePDFs\Model\CustomTemplateResponse
+publishTemplate($template_id): \InvoicePDFs\Model\CustomTemplateResponse
 ```
 
 Publish Template
@@ -574,10 +569,10 @@ $apiInstance = new InvoicePDFs\Api\TemplatesApi(
 $template_id = 'template_id_example'; // string
 
 try {
-    $result = $apiInstance->publishTemplateApiV1TemplatesCustomTemplateIdPublishPost($template_id);
+    $result = $apiInstance->publishTemplate($template_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplatesApi->publishTemplateApiV1TemplatesCustomTemplateIdPublishPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplatesApi->publishTemplate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -604,13 +599,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `templatesApiV1TemplatesGet()`
+## `updateTemplate()`
 
 ```php
-templatesApiV1TemplatesGet(): \InvoicePDFs\Model\TemplatesListResponse
+updateTemplate($template_id, $template_patch_request): \InvoicePDFs\Model\CustomTemplateResponse
 ```
 
-Templates
+Update Template
 
 ### Example
 
@@ -629,22 +624,27 @@ $apiInstance = new InvoicePDFs\Api\TemplatesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$template_id = 'template_id_example'; // string
+$template_patch_request = new \InvoicePDFs\Model\TemplatePatchRequest(); // \InvoicePDFs\Model\TemplatePatchRequest
 
 try {
-    $result = $apiInstance->templatesApiV1TemplatesGet();
+    $result = $apiInstance->updateTemplate($template_id, $template_patch_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplatesApi->templatesApiV1TemplatesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplatesApi->updateTemplate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **template_id** | **string**|  | |
+| **template_patch_request** | [**\InvoicePDFs\Model\TemplatePatchRequest**](../Model/TemplatePatchRequest.md)|  | |
 
 ### Return type
 
-[**\InvoicePDFs\Model\TemplatesListResponse**](../Model/TemplatesListResponse.md)
+[**\InvoicePDFs\Model\CustomTemplateResponse**](../Model/CustomTemplateResponse.md)
 
 ### Authorization
 
@@ -652,7 +652,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

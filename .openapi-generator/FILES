@@ -11,11 +11,11 @@ docs/Api/BrandingProfilesApi.md
 docs/Api/BusinessProfilesApi.md
 docs/Api/CustomersApi.md
 docs/Api/DeliveriesApi.md
+docs/Api/DocumentAttachmentsApi.md
 docs/Api/DocumentsApi.md
 docs/Api/FilesApi.md
 docs/Api/HealthApi.md
 docs/Api/ImportsApi.md
-docs/Api/InvoiceAttachmentsApi.md
 docs/Api/JobsApi.md
 docs/Api/LogsApi.md
 docs/Api/NumberingSequencesApi.md
@@ -43,8 +43,6 @@ docs/Model/ApiKeyRevokeResponse.md
 docs/Model/ApiKeyRotateResponse.md
 docs/Model/ApiRequestLogOut.md
 docs/Model/ApiRequestLogsListResponse.md
-docs/Model/AppDocumentsSchemasDocumentRenderRequest.md
-docs/Model/AppSchemasV1DocumentRenderRequest.md
 docs/Model/AuditEventOut.md
 docs/Model/AuditEventResponse.md
 docs/Model/AuditEventsListResponse.md
@@ -118,6 +116,8 @@ docs/Model/DocumentOutputOptions.md
 docs/Model/DocumentPartyInput.md
 docs/Model/DocumentPatchRequest.md
 docs/Model/DocumentPaymentInput.md
+docs/Model/DocumentRenderOptions.md
+docs/Model/DocumentRenderRequest.md
 docs/Model/DocumentResponse.md
 docs/Model/DocumentShippingInput.md
 docs/Model/DocumentTemplateRef.md
@@ -227,11 +227,11 @@ lib/Api/BrandingProfilesApi.php
 lib/Api/BusinessProfilesApi.php
 lib/Api/CustomersApi.php
 lib/Api/DeliveriesApi.php
+lib/Api/DocumentAttachmentsApi.php
 lib/Api/DocumentsApi.php
 lib/Api/FilesApi.php
 lib/Api/HealthApi.php
 lib/Api/ImportsApi.php
-lib/Api/InvoiceAttachmentsApi.php
 lib/Api/JobsApi.php
 lib/Api/LogsApi.php
 lib/Api/NumberingSequencesApi.php
@@ -262,8 +262,6 @@ lib/Model/ApiKeyRevokeResponse.php
 lib/Model/ApiKeyRotateResponse.php
 lib/Model/ApiRequestLogOut.php
 lib/Model/ApiRequestLogsListResponse.php
-lib/Model/AppDocumentsSchemasDocumentRenderRequest.php
-lib/Model/AppSchemasV1DocumentRenderRequest.php
 lib/Model/AuditEventOut.php
 lib/Model/AuditEventResponse.php
 lib/Model/AuditEventsListResponse.php
@@ -337,6 +335,8 @@ lib/Model/DocumentOutputOptions.php
 lib/Model/DocumentPartyInput.php
 lib/Model/DocumentPatchRequest.php
 lib/Model/DocumentPaymentInput.php
+lib/Model/DocumentRenderOptions.php
+lib/Model/DocumentRenderRequest.php
 lib/Model/DocumentResponse.php
 lib/Model/DocumentShippingInput.php
 lib/Model/DocumentTemplateRef.php
@@ -439,3 +439,5 @@ lib/Model/WorkspaceResponse.php
 lib/Model/WorkspacesListResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/DocumentAttachmentsApiTest.php
+test/Model/DocumentRenderOptionsTest.php

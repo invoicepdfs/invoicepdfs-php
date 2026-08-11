@@ -71,28 +71,28 @@ class AuthApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'forgotPasswordApiV1AuthForgotPasswordPost' => [
+        'exchangeAuthToken' => [
             'application/json',
         ],
-        'logoutApiV1AuthLogoutPost' => [
+        'getCurrentUser' => [
             'application/json',
         ],
-        'meApiV1AuthMeGet' => [
+        'logout' => [
             'application/json',
         ],
-        'patchMeApiV1AuthMePatch' => [
+        'refreshAccessToken' => [
             'application/json',
         ],
-        'refreshApiV1AuthRefreshPost' => [
+        'register' => [
             'application/json',
         ],
-        'registerApiV1AuthRegisterPost' => [
+        'requestPasswordReset' => [
             'application/json',
         ],
-        'resetPasswordApiV1AuthResetPasswordPost' => [
+        'resetPassword' => [
             'application/json',
         ],
-        'tokenExchangeApiV1AuthTokenPost' => [
+        'updateCurrentUser' => [
             'application/json',
         ],
     ];
@@ -144,2329 +144,38 @@ class AuthApi
     }
 
     /**
-     * Operation forgotPasswordApiV1AuthForgotPasswordPost
+     * Operation exchangeAuthToken
      *
-     * Forgot Password
-     *
-     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request auth_forgot_password_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\AuthMessageResponse|\InvoicePDFs\Model\ApiErrorResponse
-     */
-    public function forgotPasswordApiV1AuthForgotPasswordPost($auth_forgot_password_request, string $contentType = self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'][0])
-    {
-        list($response) = $this->forgotPasswordApiV1AuthForgotPasswordPostWithHttpInfo($auth_forgot_password_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation forgotPasswordApiV1AuthForgotPasswordPostWithHttpInfo
-     *
-     * Forgot Password
-     *
-     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\AuthMessageResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function forgotPasswordApiV1AuthForgotPasswordPostWithHttpInfo($auth_forgot_password_request, string $contentType = self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'][0])
-    {
-        $request = $this->forgotPasswordApiV1AuthForgotPasswordPostRequest($auth_forgot_password_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\InvoicePDFs\Model\AuthMessageResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\AuthMessageResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMessageResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\AuthMessageResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation forgotPasswordApiV1AuthForgotPasswordPostAsync
-     *
-     * Forgot Password
-     *
-     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function forgotPasswordApiV1AuthForgotPasswordPostAsync($auth_forgot_password_request, string $contentType = self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'][0])
-    {
-        return $this->forgotPasswordApiV1AuthForgotPasswordPostAsyncWithHttpInfo($auth_forgot_password_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation forgotPasswordApiV1AuthForgotPasswordPostAsyncWithHttpInfo
-     *
-     * Forgot Password
-     *
-     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function forgotPasswordApiV1AuthForgotPasswordPostAsyncWithHttpInfo($auth_forgot_password_request, string $contentType = self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'][0])
-    {
-        $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
-        $request = $this->forgotPasswordApiV1AuthForgotPasswordPostRequest($auth_forgot_password_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'forgotPasswordApiV1AuthForgotPasswordPost'
-     *
-     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function forgotPasswordApiV1AuthForgotPasswordPostRequest($auth_forgot_password_request, string $contentType = self::contentTypes['forgotPasswordApiV1AuthForgotPasswordPost'][0])
-    {
-
-        // verify the required parameter 'auth_forgot_password_request' is set
-        if ($auth_forgot_password_request === null || (is_array($auth_forgot_password_request) && count($auth_forgot_password_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $auth_forgot_password_request when calling forgotPasswordApiV1AuthForgotPasswordPost'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/auth/forgot-password';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($auth_forgot_password_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_forgot_password_request));
-            } else {
-                $httpBody = $auth_forgot_password_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation logoutApiV1AuthLogoutPost
-     *
-     * Logout
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logoutApiV1AuthLogoutPost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\AuthMessageResponse
-     */
-    public function logoutApiV1AuthLogoutPost(string $contentType = self::contentTypes['logoutApiV1AuthLogoutPost'][0])
-    {
-        list($response) = $this->logoutApiV1AuthLogoutPostWithHttpInfo($contentType);
-        return $response;
-    }
-
-    /**
-     * Operation logoutApiV1AuthLogoutPostWithHttpInfo
-     *
-     * Logout
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logoutApiV1AuthLogoutPost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\AuthMessageResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function logoutApiV1AuthLogoutPostWithHttpInfo(string $contentType = self::contentTypes['logoutApiV1AuthLogoutPost'][0])
-    {
-        $request = $this->logoutApiV1AuthLogoutPostRequest($contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\InvoicePDFs\Model\AuthMessageResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\AuthMessageResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMessageResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\AuthMessageResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation logoutApiV1AuthLogoutPostAsync
-     *
-     * Logout
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logoutApiV1AuthLogoutPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function logoutApiV1AuthLogoutPostAsync(string $contentType = self::contentTypes['logoutApiV1AuthLogoutPost'][0])
-    {
-        return $this->logoutApiV1AuthLogoutPostAsyncWithHttpInfo($contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation logoutApiV1AuthLogoutPostAsyncWithHttpInfo
-     *
-     * Logout
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logoutApiV1AuthLogoutPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function logoutApiV1AuthLogoutPostAsyncWithHttpInfo(string $contentType = self::contentTypes['logoutApiV1AuthLogoutPost'][0])
-    {
-        $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
-        $request = $this->logoutApiV1AuthLogoutPostRequest($contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'logoutApiV1AuthLogoutPost'
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logoutApiV1AuthLogoutPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function logoutApiV1AuthLogoutPostRequest(string $contentType = self::contentTypes['logoutApiV1AuthLogoutPost'][0])
-    {
-
-
-        $resourcePath = '/api/v1/auth/logout';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation meApiV1AuthMeGet
-     *
-     * Me
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['meApiV1AuthMeGet'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\AuthMeResponse
-     */
-    public function meApiV1AuthMeGet(string $contentType = self::contentTypes['meApiV1AuthMeGet'][0])
-    {
-        list($response) = $this->meApiV1AuthMeGetWithHttpInfo($contentType);
-        return $response;
-    }
-
-    /**
-     * Operation meApiV1AuthMeGetWithHttpInfo
-     *
-     * Me
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['meApiV1AuthMeGet'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\AuthMeResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function meApiV1AuthMeGetWithHttpInfo(string $contentType = self::contentTypes['meApiV1AuthMeGet'][0])
-    {
-        $request = $this->meApiV1AuthMeGetRequest($contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\InvoicePDFs\Model\AuthMeResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\AuthMeResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMeResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\InvoicePDFs\Model\AuthMeResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\AuthMeResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation meApiV1AuthMeGetAsync
-     *
-     * Me
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['meApiV1AuthMeGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function meApiV1AuthMeGetAsync(string $contentType = self::contentTypes['meApiV1AuthMeGet'][0])
-    {
-        return $this->meApiV1AuthMeGetAsyncWithHttpInfo($contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation meApiV1AuthMeGetAsyncWithHttpInfo
-     *
-     * Me
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['meApiV1AuthMeGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function meApiV1AuthMeGetAsyncWithHttpInfo(string $contentType = self::contentTypes['meApiV1AuthMeGet'][0])
-    {
-        $returnType = '\InvoicePDFs\Model\AuthMeResponse';
-        $request = $this->meApiV1AuthMeGetRequest($contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'meApiV1AuthMeGet'
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['meApiV1AuthMeGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function meApiV1AuthMeGetRequest(string $contentType = self::contentTypes['meApiV1AuthMeGet'][0])
-    {
-
-
-        $resourcePath = '/api/v1/auth/me';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation patchMeApiV1AuthMePatch
-     *
-     * Patch Me
-     *
-     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request auth_me_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMeApiV1AuthMePatch'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\AuthMeResponse|\InvoicePDFs\Model\ApiErrorResponse
-     */
-    public function patchMeApiV1AuthMePatch($auth_me_patch_request, string $contentType = self::contentTypes['patchMeApiV1AuthMePatch'][0])
-    {
-        list($response) = $this->patchMeApiV1AuthMePatchWithHttpInfo($auth_me_patch_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation patchMeApiV1AuthMePatchWithHttpInfo
-     *
-     * Patch Me
-     *
-     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMeApiV1AuthMePatch'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\AuthMeResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function patchMeApiV1AuthMePatchWithHttpInfo($auth_me_patch_request, string $contentType = self::contentTypes['patchMeApiV1AuthMePatch'][0])
-    {
-        $request = $this->patchMeApiV1AuthMePatchRequest($auth_me_patch_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\InvoicePDFs\Model\AuthMeResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\AuthMeResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMeResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\InvoicePDFs\Model\AuthMeResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\AuthMeResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation patchMeApiV1AuthMePatchAsync
-     *
-     * Patch Me
-     *
-     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMeApiV1AuthMePatch'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function patchMeApiV1AuthMePatchAsync($auth_me_patch_request, string $contentType = self::contentTypes['patchMeApiV1AuthMePatch'][0])
-    {
-        return $this->patchMeApiV1AuthMePatchAsyncWithHttpInfo($auth_me_patch_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation patchMeApiV1AuthMePatchAsyncWithHttpInfo
-     *
-     * Patch Me
-     *
-     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMeApiV1AuthMePatch'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function patchMeApiV1AuthMePatchAsyncWithHttpInfo($auth_me_patch_request, string $contentType = self::contentTypes['patchMeApiV1AuthMePatch'][0])
-    {
-        $returnType = '\InvoicePDFs\Model\AuthMeResponse';
-        $request = $this->patchMeApiV1AuthMePatchRequest($auth_me_patch_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'patchMeApiV1AuthMePatch'
-     *
-     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMeApiV1AuthMePatch'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function patchMeApiV1AuthMePatchRequest($auth_me_patch_request, string $contentType = self::contentTypes['patchMeApiV1AuthMePatch'][0])
-    {
-
-        // verify the required parameter 'auth_me_patch_request' is set
-        if ($auth_me_patch_request === null || (is_array($auth_me_patch_request) && count($auth_me_patch_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $auth_me_patch_request when calling patchMeApiV1AuthMePatch'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/auth/me';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($auth_me_patch_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_me_patch_request));
-            } else {
-                $httpBody = $auth_me_patch_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PATCH',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation refreshApiV1AuthRefreshPost
-     *
-     * Refresh
-     *
-     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request auth_refresh_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshApiV1AuthRefreshPost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\AuthRefreshResponse|\InvoicePDFs\Model\ApiErrorResponse
-     */
-    public function refreshApiV1AuthRefreshPost($auth_refresh_request, string $contentType = self::contentTypes['refreshApiV1AuthRefreshPost'][0])
-    {
-        list($response) = $this->refreshApiV1AuthRefreshPostWithHttpInfo($auth_refresh_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation refreshApiV1AuthRefreshPostWithHttpInfo
-     *
-     * Refresh
-     *
-     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshApiV1AuthRefreshPost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\AuthRefreshResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function refreshApiV1AuthRefreshPostWithHttpInfo($auth_refresh_request, string $contentType = self::contentTypes['refreshApiV1AuthRefreshPost'][0])
-    {
-        $request = $this->refreshApiV1AuthRefreshPostRequest($auth_refresh_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\InvoicePDFs\Model\AuthRefreshResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\AuthRefreshResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthRefreshResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\InvoicePDFs\Model\AuthRefreshResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\AuthRefreshResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation refreshApiV1AuthRefreshPostAsync
-     *
-     * Refresh
-     *
-     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshApiV1AuthRefreshPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function refreshApiV1AuthRefreshPostAsync($auth_refresh_request, string $contentType = self::contentTypes['refreshApiV1AuthRefreshPost'][0])
-    {
-        return $this->refreshApiV1AuthRefreshPostAsyncWithHttpInfo($auth_refresh_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation refreshApiV1AuthRefreshPostAsyncWithHttpInfo
-     *
-     * Refresh
-     *
-     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshApiV1AuthRefreshPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function refreshApiV1AuthRefreshPostAsyncWithHttpInfo($auth_refresh_request, string $contentType = self::contentTypes['refreshApiV1AuthRefreshPost'][0])
-    {
-        $returnType = '\InvoicePDFs\Model\AuthRefreshResponse';
-        $request = $this->refreshApiV1AuthRefreshPostRequest($auth_refresh_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'refreshApiV1AuthRefreshPost'
-     *
-     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshApiV1AuthRefreshPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function refreshApiV1AuthRefreshPostRequest($auth_refresh_request, string $contentType = self::contentTypes['refreshApiV1AuthRefreshPost'][0])
-    {
-
-        // verify the required parameter 'auth_refresh_request' is set
-        if ($auth_refresh_request === null || (is_array($auth_refresh_request) && count($auth_refresh_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $auth_refresh_request when calling refreshApiV1AuthRefreshPost'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/auth/refresh';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($auth_refresh_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_refresh_request));
-            } else {
-                $httpBody = $auth_refresh_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation registerApiV1AuthRegisterPost
-     *
-     * Register
-     *
-     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request auth_register_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerApiV1AuthRegisterPost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\AuthRegisterResponse|\InvoicePDFs\Model\ApiErrorResponse
-     */
-    public function registerApiV1AuthRegisterPost($auth_register_request, string $contentType = self::contentTypes['registerApiV1AuthRegisterPost'][0])
-    {
-        list($response) = $this->registerApiV1AuthRegisterPostWithHttpInfo($auth_register_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation registerApiV1AuthRegisterPostWithHttpInfo
-     *
-     * Register
-     *
-     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerApiV1AuthRegisterPost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\AuthRegisterResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function registerApiV1AuthRegisterPostWithHttpInfo($auth_register_request, string $contentType = self::contentTypes['registerApiV1AuthRegisterPost'][0])
-    {
-        $request = $this->registerApiV1AuthRegisterPostRequest($auth_register_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\InvoicePDFs\Model\AuthRegisterResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\AuthRegisterResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthRegisterResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\InvoicePDFs\Model\AuthRegisterResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\AuthRegisterResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation registerApiV1AuthRegisterPostAsync
-     *
-     * Register
-     *
-     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerApiV1AuthRegisterPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function registerApiV1AuthRegisterPostAsync($auth_register_request, string $contentType = self::contentTypes['registerApiV1AuthRegisterPost'][0])
-    {
-        return $this->registerApiV1AuthRegisterPostAsyncWithHttpInfo($auth_register_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation registerApiV1AuthRegisterPostAsyncWithHttpInfo
-     *
-     * Register
-     *
-     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerApiV1AuthRegisterPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function registerApiV1AuthRegisterPostAsyncWithHttpInfo($auth_register_request, string $contentType = self::contentTypes['registerApiV1AuthRegisterPost'][0])
-    {
-        $returnType = '\InvoicePDFs\Model\AuthRegisterResponse';
-        $request = $this->registerApiV1AuthRegisterPostRequest($auth_register_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'registerApiV1AuthRegisterPost'
-     *
-     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['registerApiV1AuthRegisterPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function registerApiV1AuthRegisterPostRequest($auth_register_request, string $contentType = self::contentTypes['registerApiV1AuthRegisterPost'][0])
-    {
-
-        // verify the required parameter 'auth_register_request' is set
-        if ($auth_register_request === null || (is_array($auth_register_request) && count($auth_register_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $auth_register_request when calling registerApiV1AuthRegisterPost'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/auth/register';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($auth_register_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_register_request));
-            } else {
-                $httpBody = $auth_register_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation resetPasswordApiV1AuthResetPasswordPost
-     *
-     * Reset Password
-     *
-     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request auth_reset_password_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\AuthMessageResponse|\InvoicePDFs\Model\ApiErrorResponse
-     */
-    public function resetPasswordApiV1AuthResetPasswordPost($auth_reset_password_request, string $contentType = self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'][0])
-    {
-        list($response) = $this->resetPasswordApiV1AuthResetPasswordPostWithHttpInfo($auth_reset_password_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation resetPasswordApiV1AuthResetPasswordPostWithHttpInfo
-     *
-     * Reset Password
-     *
-     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\AuthMessageResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function resetPasswordApiV1AuthResetPasswordPostWithHttpInfo($auth_reset_password_request, string $contentType = self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'][0])
-    {
-        $request = $this->resetPasswordApiV1AuthResetPasswordPostRequest($auth_reset_password_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\InvoicePDFs\Model\AuthMessageResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\AuthMessageResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMessageResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\AuthMessageResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation resetPasswordApiV1AuthResetPasswordPostAsync
-     *
-     * Reset Password
-     *
-     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function resetPasswordApiV1AuthResetPasswordPostAsync($auth_reset_password_request, string $contentType = self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'][0])
-    {
-        return $this->resetPasswordApiV1AuthResetPasswordPostAsyncWithHttpInfo($auth_reset_password_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation resetPasswordApiV1AuthResetPasswordPostAsyncWithHttpInfo
-     *
-     * Reset Password
-     *
-     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function resetPasswordApiV1AuthResetPasswordPostAsyncWithHttpInfo($auth_reset_password_request, string $contentType = self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'][0])
-    {
-        $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
-        $request = $this->resetPasswordApiV1AuthResetPasswordPostRequest($auth_reset_password_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'resetPasswordApiV1AuthResetPasswordPost'
-     *
-     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function resetPasswordApiV1AuthResetPasswordPostRequest($auth_reset_password_request, string $contentType = self::contentTypes['resetPasswordApiV1AuthResetPasswordPost'][0])
-    {
-
-        // verify the required parameter 'auth_reset_password_request' is set
-        if ($auth_reset_password_request === null || (is_array($auth_reset_password_request) && count($auth_reset_password_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $auth_reset_password_request when calling resetPasswordApiV1AuthResetPasswordPost'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/auth/reset-password';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($auth_reset_password_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_reset_password_request));
-            } else {
-                $httpBody = $auth_reset_password_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation tokenExchangeApiV1AuthTokenPost
-     *
-     * Token Exchange
+     * Exchange Auth Token
      *
      * @param  \InvoicePDFs\Model\AuthTokenRequest $auth_token_request auth_token_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tokenExchangeApiV1AuthTokenPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exchangeAuthToken'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\AuthTokenResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function tokenExchangeApiV1AuthTokenPost($auth_token_request, string $contentType = self::contentTypes['tokenExchangeApiV1AuthTokenPost'][0])
+    public function exchangeAuthToken($auth_token_request, string $contentType = self::contentTypes['exchangeAuthToken'][0])
     {
-        list($response) = $this->tokenExchangeApiV1AuthTokenPostWithHttpInfo($auth_token_request, $contentType);
+        list($response) = $this->exchangeAuthTokenWithHttpInfo($auth_token_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation tokenExchangeApiV1AuthTokenPostWithHttpInfo
+     * Operation exchangeAuthTokenWithHttpInfo
      *
-     * Token Exchange
+     * Exchange Auth Token
      *
      * @param  \InvoicePDFs\Model\AuthTokenRequest $auth_token_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tokenExchangeApiV1AuthTokenPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exchangeAuthToken'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\AuthTokenResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function tokenExchangeApiV1AuthTokenPostWithHttpInfo($auth_token_request, string $contentType = self::contentTypes['tokenExchangeApiV1AuthTokenPost'][0])
+    public function exchangeAuthTokenWithHttpInfo($auth_token_request, string $contentType = self::contentTypes['exchangeAuthToken'][0])
     {
-        $request = $this->tokenExchangeApiV1AuthTokenPostRequest($auth_token_request, $contentType);
+        $request = $this->exchangeAuthTokenRequest($auth_token_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2612,19 +321,19 @@ class AuthApi
     }
 
     /**
-     * Operation tokenExchangeApiV1AuthTokenPostAsync
+     * Operation exchangeAuthTokenAsync
      *
-     * Token Exchange
+     * Exchange Auth Token
      *
      * @param  \InvoicePDFs\Model\AuthTokenRequest $auth_token_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tokenExchangeApiV1AuthTokenPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exchangeAuthToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tokenExchangeApiV1AuthTokenPostAsync($auth_token_request, string $contentType = self::contentTypes['tokenExchangeApiV1AuthTokenPost'][0])
+    public function exchangeAuthTokenAsync($auth_token_request, string $contentType = self::contentTypes['exchangeAuthToken'][0])
     {
-        return $this->tokenExchangeApiV1AuthTokenPostAsyncWithHttpInfo($auth_token_request, $contentType)
+        return $this->exchangeAuthTokenAsyncWithHttpInfo($auth_token_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2633,20 +342,20 @@ class AuthApi
     }
 
     /**
-     * Operation tokenExchangeApiV1AuthTokenPostAsyncWithHttpInfo
+     * Operation exchangeAuthTokenAsyncWithHttpInfo
      *
-     * Token Exchange
+     * Exchange Auth Token
      *
      * @param  \InvoicePDFs\Model\AuthTokenRequest $auth_token_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tokenExchangeApiV1AuthTokenPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exchangeAuthToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tokenExchangeApiV1AuthTokenPostAsyncWithHttpInfo($auth_token_request, string $contentType = self::contentTypes['tokenExchangeApiV1AuthTokenPost'][0])
+    public function exchangeAuthTokenAsyncWithHttpInfo($auth_token_request, string $contentType = self::contentTypes['exchangeAuthToken'][0])
     {
         $returnType = '\InvoicePDFs\Model\AuthTokenResponse';
-        $request = $this->tokenExchangeApiV1AuthTokenPostRequest($auth_token_request, $contentType);
+        $request = $this->exchangeAuthTokenRequest($auth_token_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2685,21 +394,21 @@ class AuthApi
     }
 
     /**
-     * Create request for operation 'tokenExchangeApiV1AuthTokenPost'
+     * Create request for operation 'exchangeAuthToken'
      *
      * @param  \InvoicePDFs\Model\AuthTokenRequest $auth_token_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['tokenExchangeApiV1AuthTokenPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['exchangeAuthToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function tokenExchangeApiV1AuthTokenPostRequest($auth_token_request, string $contentType = self::contentTypes['tokenExchangeApiV1AuthTokenPost'][0])
+    public function exchangeAuthTokenRequest($auth_token_request, string $contentType = self::contentTypes['exchangeAuthToken'][0])
     {
 
         // verify the required parameter 'auth_token_request' is set
         if ($auth_token_request === null || (is_array($auth_token_request) && count($auth_token_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $auth_token_request when calling tokenExchangeApiV1AuthTokenPost'
+                'Missing the required parameter $auth_token_request when calling exchangeAuthToken'
             );
         }
 
@@ -2769,6 +478,2297 @@ class AuthApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getCurrentUser
+     *
+     * Get Current User
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUser'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\AuthMeResponse
+     */
+    public function getCurrentUser(string $contentType = self::contentTypes['getCurrentUser'][0])
+    {
+        list($response) = $this->getCurrentUserWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getCurrentUserWithHttpInfo
+     *
+     * Get Current User
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUser'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\AuthMeResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getCurrentUserWithHttpInfo(string $contentType = self::contentTypes['getCurrentUser'][0])
+    {
+        $request = $this->getCurrentUserRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\AuthMeResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\AuthMeResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMeResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\AuthMeResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\AuthMeResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getCurrentUserAsync
+     *
+     * Get Current User
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCurrentUserAsync(string $contentType = self::contentTypes['getCurrentUser'][0])
+    {
+        return $this->getCurrentUserAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getCurrentUserAsyncWithHttpInfo
+     *
+     * Get Current User
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getCurrentUserAsyncWithHttpInfo(string $contentType = self::contentTypes['getCurrentUser'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\AuthMeResponse';
+        $request = $this->getCurrentUserRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getCurrentUser'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCurrentUser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getCurrentUserRequest(string $contentType = self::contentTypes['getCurrentUser'][0])
+    {
+
+
+        $resourcePath = '/api/v1/auth/me';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation logout
+     *
+     * Logout
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logout'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\AuthMessageResponse
+     */
+    public function logout(string $contentType = self::contentTypes['logout'][0])
+    {
+        list($response) = $this->logoutWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation logoutWithHttpInfo
+     *
+     * Logout
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logout'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\AuthMessageResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function logoutWithHttpInfo(string $contentType = self::contentTypes['logout'][0])
+    {
+        $request = $this->logoutRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\AuthMessageResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\AuthMessageResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMessageResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\AuthMessageResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation logoutAsync
+     *
+     * Logout
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logout'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function logoutAsync(string $contentType = self::contentTypes['logout'][0])
+    {
+        return $this->logoutAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation logoutAsyncWithHttpInfo
+     *
+     * Logout
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logout'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function logoutAsyncWithHttpInfo(string $contentType = self::contentTypes['logout'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
+        $request = $this->logoutRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'logout'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['logout'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function logoutRequest(string $contentType = self::contentTypes['logout'][0])
+    {
+
+
+        $resourcePath = '/api/v1/auth/logout';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation refreshAccessToken
+     *
+     * Refresh Access Token
+     *
+     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request auth_refresh_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshAccessToken'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\AuthRefreshResponse|\InvoicePDFs\Model\ApiErrorResponse
+     */
+    public function refreshAccessToken($auth_refresh_request, string $contentType = self::contentTypes['refreshAccessToken'][0])
+    {
+        list($response) = $this->refreshAccessTokenWithHttpInfo($auth_refresh_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation refreshAccessTokenWithHttpInfo
+     *
+     * Refresh Access Token
+     *
+     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshAccessToken'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\AuthRefreshResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function refreshAccessTokenWithHttpInfo($auth_refresh_request, string $contentType = self::contentTypes['refreshAccessToken'][0])
+    {
+        $request = $this->refreshAccessTokenRequest($auth_refresh_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\AuthRefreshResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\AuthRefreshResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthRefreshResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\AuthRefreshResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\AuthRefreshResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation refreshAccessTokenAsync
+     *
+     * Refresh Access Token
+     *
+     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshAccessToken'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function refreshAccessTokenAsync($auth_refresh_request, string $contentType = self::contentTypes['refreshAccessToken'][0])
+    {
+        return $this->refreshAccessTokenAsyncWithHttpInfo($auth_refresh_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation refreshAccessTokenAsyncWithHttpInfo
+     *
+     * Refresh Access Token
+     *
+     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshAccessToken'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function refreshAccessTokenAsyncWithHttpInfo($auth_refresh_request, string $contentType = self::contentTypes['refreshAccessToken'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\AuthRefreshResponse';
+        $request = $this->refreshAccessTokenRequest($auth_refresh_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'refreshAccessToken'
+     *
+     * @param  \InvoicePDFs\Model\AuthRefreshRequest $auth_refresh_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshAccessToken'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function refreshAccessTokenRequest($auth_refresh_request, string $contentType = self::contentTypes['refreshAccessToken'][0])
+    {
+
+        // verify the required parameter 'auth_refresh_request' is set
+        if ($auth_refresh_request === null || (is_array($auth_refresh_request) && count($auth_refresh_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $auth_refresh_request when calling refreshAccessToken'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/auth/refresh';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($auth_refresh_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_refresh_request));
+            } else {
+                $httpBody = $auth_refresh_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation register
+     *
+     * Register
+     *
+     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request auth_register_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['register'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\AuthRegisterResponse|\InvoicePDFs\Model\ApiErrorResponse
+     */
+    public function register($auth_register_request, string $contentType = self::contentTypes['register'][0])
+    {
+        list($response) = $this->registerWithHttpInfo($auth_register_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation registerWithHttpInfo
+     *
+     * Register
+     *
+     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['register'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\AuthRegisterResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function registerWithHttpInfo($auth_register_request, string $contentType = self::contentTypes['register'][0])
+    {
+        $request = $this->registerRequest($auth_register_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\AuthRegisterResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\AuthRegisterResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthRegisterResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\AuthRegisterResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\AuthRegisterResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation registerAsync
+     *
+     * Register
+     *
+     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['register'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function registerAsync($auth_register_request, string $contentType = self::contentTypes['register'][0])
+    {
+        return $this->registerAsyncWithHttpInfo($auth_register_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation registerAsyncWithHttpInfo
+     *
+     * Register
+     *
+     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['register'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function registerAsyncWithHttpInfo($auth_register_request, string $contentType = self::contentTypes['register'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\AuthRegisterResponse';
+        $request = $this->registerRequest($auth_register_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'register'
+     *
+     * @param  \InvoicePDFs\Model\AuthRegisterRequest $auth_register_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['register'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function registerRequest($auth_register_request, string $contentType = self::contentTypes['register'][0])
+    {
+
+        // verify the required parameter 'auth_register_request' is set
+        if ($auth_register_request === null || (is_array($auth_register_request) && count($auth_register_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $auth_register_request when calling register'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/auth/register';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($auth_register_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_register_request));
+            } else {
+                $httpBody = $auth_register_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation requestPasswordReset
+     *
+     * Request Password Reset
+     *
+     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request auth_forgot_password_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestPasswordReset'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\AuthMessageResponse|\InvoicePDFs\Model\ApiErrorResponse
+     */
+    public function requestPasswordReset($auth_forgot_password_request, string $contentType = self::contentTypes['requestPasswordReset'][0])
+    {
+        list($response) = $this->requestPasswordResetWithHttpInfo($auth_forgot_password_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation requestPasswordResetWithHttpInfo
+     *
+     * Request Password Reset
+     *
+     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestPasswordReset'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\AuthMessageResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function requestPasswordResetWithHttpInfo($auth_forgot_password_request, string $contentType = self::contentTypes['requestPasswordReset'][0])
+    {
+        $request = $this->requestPasswordResetRequest($auth_forgot_password_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\AuthMessageResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\AuthMessageResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMessageResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\AuthMessageResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation requestPasswordResetAsync
+     *
+     * Request Password Reset
+     *
+     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestPasswordReset'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function requestPasswordResetAsync($auth_forgot_password_request, string $contentType = self::contentTypes['requestPasswordReset'][0])
+    {
+        return $this->requestPasswordResetAsyncWithHttpInfo($auth_forgot_password_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation requestPasswordResetAsyncWithHttpInfo
+     *
+     * Request Password Reset
+     *
+     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestPasswordReset'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function requestPasswordResetAsyncWithHttpInfo($auth_forgot_password_request, string $contentType = self::contentTypes['requestPasswordReset'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
+        $request = $this->requestPasswordResetRequest($auth_forgot_password_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'requestPasswordReset'
+     *
+     * @param  \InvoicePDFs\Model\AuthForgotPasswordRequest $auth_forgot_password_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['requestPasswordReset'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function requestPasswordResetRequest($auth_forgot_password_request, string $contentType = self::contentTypes['requestPasswordReset'][0])
+    {
+
+        // verify the required parameter 'auth_forgot_password_request' is set
+        if ($auth_forgot_password_request === null || (is_array($auth_forgot_password_request) && count($auth_forgot_password_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $auth_forgot_password_request when calling requestPasswordReset'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/auth/forgot-password';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($auth_forgot_password_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_forgot_password_request));
+            } else {
+                $httpBody = $auth_forgot_password_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation resetPassword
+     *
+     * Reset Password
+     *
+     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request auth_reset_password_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPassword'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\AuthMessageResponse|\InvoicePDFs\Model\ApiErrorResponse
+     */
+    public function resetPassword($auth_reset_password_request, string $contentType = self::contentTypes['resetPassword'][0])
+    {
+        list($response) = $this->resetPasswordWithHttpInfo($auth_reset_password_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation resetPasswordWithHttpInfo
+     *
+     * Reset Password
+     *
+     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPassword'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\AuthMessageResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function resetPasswordWithHttpInfo($auth_reset_password_request, string $contentType = self::contentTypes['resetPassword'][0])
+    {
+        $request = $this->resetPasswordRequest($auth_reset_password_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\AuthMessageResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\AuthMessageResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMessageResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\AuthMessageResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation resetPasswordAsync
+     *
+     * Reset Password
+     *
+     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPassword'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function resetPasswordAsync($auth_reset_password_request, string $contentType = self::contentTypes['resetPassword'][0])
+    {
+        return $this->resetPasswordAsyncWithHttpInfo($auth_reset_password_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation resetPasswordAsyncWithHttpInfo
+     *
+     * Reset Password
+     *
+     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPassword'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function resetPasswordAsyncWithHttpInfo($auth_reset_password_request, string $contentType = self::contentTypes['resetPassword'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\AuthMessageResponse';
+        $request = $this->resetPasswordRequest($auth_reset_password_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'resetPassword'
+     *
+     * @param  \InvoicePDFs\Model\AuthResetPasswordRequest $auth_reset_password_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resetPassword'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function resetPasswordRequest($auth_reset_password_request, string $contentType = self::contentTypes['resetPassword'][0])
+    {
+
+        // verify the required parameter 'auth_reset_password_request' is set
+        if ($auth_reset_password_request === null || (is_array($auth_reset_password_request) && count($auth_reset_password_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $auth_reset_password_request when calling resetPassword'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/auth/reset-password';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($auth_reset_password_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_reset_password_request));
+            } else {
+                $httpBody = $auth_reset_password_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateCurrentUser
+     *
+     * Update Current User
+     *
+     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request auth_me_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCurrentUser'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\AuthMeResponse|\InvoicePDFs\Model\ApiErrorResponse
+     */
+    public function updateCurrentUser($auth_me_patch_request, string $contentType = self::contentTypes['updateCurrentUser'][0])
+    {
+        list($response) = $this->updateCurrentUserWithHttpInfo($auth_me_patch_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateCurrentUserWithHttpInfo
+     *
+     * Update Current User
+     *
+     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCurrentUser'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\AuthMeResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateCurrentUserWithHttpInfo($auth_me_patch_request, string $contentType = self::contentTypes['updateCurrentUser'][0])
+    {
+        $request = $this->updateCurrentUserRequest($auth_me_patch_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\AuthMeResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\AuthMeResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\AuthMeResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\AuthMeResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\AuthMeResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateCurrentUserAsync
+     *
+     * Update Current User
+     *
+     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCurrentUser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateCurrentUserAsync($auth_me_patch_request, string $contentType = self::contentTypes['updateCurrentUser'][0])
+    {
+        return $this->updateCurrentUserAsyncWithHttpInfo($auth_me_patch_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateCurrentUserAsyncWithHttpInfo
+     *
+     * Update Current User
+     *
+     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCurrentUser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateCurrentUserAsyncWithHttpInfo($auth_me_patch_request, string $contentType = self::contentTypes['updateCurrentUser'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\AuthMeResponse';
+        $request = $this->updateCurrentUserRequest($auth_me_patch_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateCurrentUser'
+     *
+     * @param  \InvoicePDFs\Model\AuthMePatchRequest $auth_me_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCurrentUser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateCurrentUserRequest($auth_me_patch_request, string $contentType = self::contentTypes['updateCurrentUser'][0])
+    {
+
+        // verify the required parameter 'auth_me_patch_request' is set
+        if ($auth_me_patch_request === null || (is_array($auth_me_patch_request) && count($auth_me_patch_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $auth_me_patch_request when calling updateCurrentUser'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/auth/me';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($auth_me_patch_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($auth_me_patch_request));
+            } else {
+                $httpBody = $auth_me_patch_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

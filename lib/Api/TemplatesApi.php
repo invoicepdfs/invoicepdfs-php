@@ -71,37 +71,37 @@ class TemplatesApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'createTemplateApiV1TemplatesCustomPost' => [
+        'createTemplate' => [
             'application/json',
         ],
-        'deleteTemplateApiV1TemplatesCustomTemplateIdDelete' => [
+        'deleteTemplate' => [
             'application/json',
         ],
-        'duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost' => [
+        'duplicateTemplate' => [
             'application/json',
         ],
-        'getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet' => [
+        'getBuiltinTemplate' => [
             'application/json',
         ],
-        'getCustomTemplateApiV1TemplatesCustomTemplateIdGet' => [
+        'getCustomTemplate' => [
             'application/json',
         ],
-        'getTemplateApiV1TemplatesTemplateIdGet' => [
+        'getTemplate' => [
             'application/json',
         ],
-        'listCustomTemplatesApiV1TemplatesCustomGet' => [
+        'listCustomTemplates' => [
             'application/json',
         ],
-        'patchTemplateApiV1TemplatesCustomTemplateIdPatch' => [
+        'listTemplates' => [
             'application/json',
         ],
-        'previewTemplateApiV1TemplatesTemplateIdPreviewPost' => [
+        'previewTemplate' => [
             'application/json',
         ],
-        'publishTemplateApiV1TemplatesCustomTemplateIdPublishPost' => [
+        'publishTemplate' => [
             'application/json',
         ],
-        'templatesApiV1TemplatesGet' => [
+        'updateTemplate' => [
             'application/json',
         ],
     ];
@@ -153,38 +153,38 @@ class TemplatesApi
     }
 
     /**
-     * Operation createTemplateApiV1TemplatesCustomPost
+     * Operation createTemplate
      *
      * Create Template
      *
      * @param  \InvoicePDFs\Model\TemplateCreateRequest $template_create_request template_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateApiV1TemplatesCustomPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\CustomTemplateResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createTemplateApiV1TemplatesCustomPost($template_create_request, string $contentType = self::contentTypes['createTemplateApiV1TemplatesCustomPost'][0])
+    public function createTemplate($template_create_request, string $contentType = self::contentTypes['createTemplate'][0])
     {
-        list($response) = $this->createTemplateApiV1TemplatesCustomPostWithHttpInfo($template_create_request, $contentType);
+        list($response) = $this->createTemplateWithHttpInfo($template_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation createTemplateApiV1TemplatesCustomPostWithHttpInfo
+     * Operation createTemplateWithHttpInfo
      *
      * Create Template
      *
      * @param  \InvoicePDFs\Model\TemplateCreateRequest $template_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateApiV1TemplatesCustomPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\CustomTemplateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTemplateApiV1TemplatesCustomPostWithHttpInfo($template_create_request, string $contentType = self::contentTypes['createTemplateApiV1TemplatesCustomPost'][0])
+    public function createTemplateWithHttpInfo($template_create_request, string $contentType = self::contentTypes['createTemplate'][0])
     {
-        $request = $this->createTemplateApiV1TemplatesCustomPostRequest($template_create_request, $contentType);
+        $request = $this->createTemplateRequest($template_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -330,19 +330,19 @@ class TemplatesApi
     }
 
     /**
-     * Operation createTemplateApiV1TemplatesCustomPostAsync
+     * Operation createTemplateAsync
      *
      * Create Template
      *
      * @param  \InvoicePDFs\Model\TemplateCreateRequest $template_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateApiV1TemplatesCustomPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTemplateApiV1TemplatesCustomPostAsync($template_create_request, string $contentType = self::contentTypes['createTemplateApiV1TemplatesCustomPost'][0])
+    public function createTemplateAsync($template_create_request, string $contentType = self::contentTypes['createTemplate'][0])
     {
-        return $this->createTemplateApiV1TemplatesCustomPostAsyncWithHttpInfo($template_create_request, $contentType)
+        return $this->createTemplateAsyncWithHttpInfo($template_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -351,20 +351,20 @@ class TemplatesApi
     }
 
     /**
-     * Operation createTemplateApiV1TemplatesCustomPostAsyncWithHttpInfo
+     * Operation createTemplateAsyncWithHttpInfo
      *
      * Create Template
      *
      * @param  \InvoicePDFs\Model\TemplateCreateRequest $template_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateApiV1TemplatesCustomPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTemplateApiV1TemplatesCustomPostAsyncWithHttpInfo($template_create_request, string $contentType = self::contentTypes['createTemplateApiV1TemplatesCustomPost'][0])
+    public function createTemplateAsyncWithHttpInfo($template_create_request, string $contentType = self::contentTypes['createTemplate'][0])
     {
         $returnType = '\InvoicePDFs\Model\CustomTemplateResponse';
-        $request = $this->createTemplateApiV1TemplatesCustomPostRequest($template_create_request, $contentType);
+        $request = $this->createTemplateRequest($template_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -403,21 +403,21 @@ class TemplatesApi
     }
 
     /**
-     * Create request for operation 'createTemplateApiV1TemplatesCustomPost'
+     * Create request for operation 'createTemplate'
      *
      * @param  \InvoicePDFs\Model\TemplateCreateRequest $template_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateApiV1TemplatesCustomPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createTemplateApiV1TemplatesCustomPostRequest($template_create_request, string $contentType = self::contentTypes['createTemplateApiV1TemplatesCustomPost'][0])
+    public function createTemplateRequest($template_create_request, string $contentType = self::contentTypes['createTemplate'][0])
     {
 
         // verify the required parameter 'template_create_request' is set
         if ($template_create_request === null || (is_array($template_create_request) && count($template_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $template_create_request when calling createTemplateApiV1TemplatesCustomPost'
+                'Missing the required parameter $template_create_request when calling createTemplate'
             );
         }
 
@@ -498,37 +498,37 @@ class TemplatesApi
     }
 
     /**
-     * Operation deleteTemplateApiV1TemplatesCustomTemplateIdDelete
+     * Operation deleteTemplate
      *
      * Delete Template
      *
      * @param  string $template_id template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTemplateApiV1TemplatesCustomTemplateIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteTemplateApiV1TemplatesCustomTemplateIdDelete($template_id, string $contentType = self::contentTypes['deleteTemplateApiV1TemplatesCustomTemplateIdDelete'][0])
+    public function deleteTemplate($template_id, string $contentType = self::contentTypes['deleteTemplate'][0])
     {
-        $this->deleteTemplateApiV1TemplatesCustomTemplateIdDeleteWithHttpInfo($template_id, $contentType);
+        $this->deleteTemplateWithHttpInfo($template_id, $contentType);
     }
 
     /**
-     * Operation deleteTemplateApiV1TemplatesCustomTemplateIdDeleteWithHttpInfo
+     * Operation deleteTemplateWithHttpInfo
      *
      * Delete Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTemplateApiV1TemplatesCustomTemplateIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTemplateApiV1TemplatesCustomTemplateIdDeleteWithHttpInfo($template_id, string $contentType = self::contentTypes['deleteTemplateApiV1TemplatesCustomTemplateIdDelete'][0])
+    public function deleteTemplateWithHttpInfo($template_id, string $contentType = self::contentTypes['deleteTemplate'][0])
     {
-        $request = $this->deleteTemplateApiV1TemplatesCustomTemplateIdDeleteRequest($template_id, $contentType);
+        $request = $this->deleteTemplateRequest($template_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -583,19 +583,19 @@ class TemplatesApi
     }
 
     /**
-     * Operation deleteTemplateApiV1TemplatesCustomTemplateIdDeleteAsync
+     * Operation deleteTemplateAsync
      *
      * Delete Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTemplateApiV1TemplatesCustomTemplateIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTemplateApiV1TemplatesCustomTemplateIdDeleteAsync($template_id, string $contentType = self::contentTypes['deleteTemplateApiV1TemplatesCustomTemplateIdDelete'][0])
+    public function deleteTemplateAsync($template_id, string $contentType = self::contentTypes['deleteTemplate'][0])
     {
-        return $this->deleteTemplateApiV1TemplatesCustomTemplateIdDeleteAsyncWithHttpInfo($template_id, $contentType)
+        return $this->deleteTemplateAsyncWithHttpInfo($template_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -604,20 +604,20 @@ class TemplatesApi
     }
 
     /**
-     * Operation deleteTemplateApiV1TemplatesCustomTemplateIdDeleteAsyncWithHttpInfo
+     * Operation deleteTemplateAsyncWithHttpInfo
      *
      * Delete Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTemplateApiV1TemplatesCustomTemplateIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTemplateApiV1TemplatesCustomTemplateIdDeleteAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['deleteTemplateApiV1TemplatesCustomTemplateIdDelete'][0])
+    public function deleteTemplateAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['deleteTemplate'][0])
     {
         $returnType = '';
-        $request = $this->deleteTemplateApiV1TemplatesCustomTemplateIdDeleteRequest($template_id, $contentType);
+        $request = $this->deleteTemplateRequest($template_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -643,21 +643,21 @@ class TemplatesApi
     }
 
     /**
-     * Create request for operation 'deleteTemplateApiV1TemplatesCustomTemplateIdDelete'
+     * Create request for operation 'deleteTemplate'
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTemplateApiV1TemplatesCustomTemplateIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteTemplateApiV1TemplatesCustomTemplateIdDeleteRequest($template_id, string $contentType = self::contentTypes['deleteTemplateApiV1TemplatesCustomTemplateIdDelete'][0])
+    public function deleteTemplateRequest($template_id, string $contentType = self::contentTypes['deleteTemplate'][0])
     {
 
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $template_id when calling deleteTemplateApiV1TemplatesCustomTemplateIdDelete'
+                'Missing the required parameter $template_id when calling deleteTemplate'
             );
         }
 
@@ -739,38 +739,38 @@ class TemplatesApi
     }
 
     /**
-     * Operation duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost
+     * Operation duplicateTemplate
      *
      * Duplicate Template
      *
      * @param  string $template_id template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\CustomTemplateResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost($template_id, string $contentType = self::contentTypes['duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost'][0])
+    public function duplicateTemplate($template_id, string $contentType = self::contentTypes['duplicateTemplate'][0])
     {
-        list($response) = $this->duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostWithHttpInfo($template_id, $contentType);
+        list($response) = $this->duplicateTemplateWithHttpInfo($template_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostWithHttpInfo
+     * Operation duplicateTemplateWithHttpInfo
      *
      * Duplicate Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\CustomTemplateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostWithHttpInfo($template_id, string $contentType = self::contentTypes['duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost'][0])
+    public function duplicateTemplateWithHttpInfo($template_id, string $contentType = self::contentTypes['duplicateTemplate'][0])
     {
-        $request = $this->duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostRequest($template_id, $contentType);
+        $request = $this->duplicateTemplateRequest($template_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -916,19 +916,19 @@ class TemplatesApi
     }
 
     /**
-     * Operation duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostAsync
+     * Operation duplicateTemplateAsync
      *
      * Duplicate Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostAsync($template_id, string $contentType = self::contentTypes['duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost'][0])
+    public function duplicateTemplateAsync($template_id, string $contentType = self::contentTypes['duplicateTemplate'][0])
     {
-        return $this->duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostAsyncWithHttpInfo($template_id, $contentType)
+        return $this->duplicateTemplateAsyncWithHttpInfo($template_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -937,20 +937,20 @@ class TemplatesApi
     }
 
     /**
-     * Operation duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostAsyncWithHttpInfo
+     * Operation duplicateTemplateAsyncWithHttpInfo
      *
      * Duplicate Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost'][0])
+    public function duplicateTemplateAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['duplicateTemplate'][0])
     {
         $returnType = '\InvoicePDFs\Model\CustomTemplateResponse';
-        $request = $this->duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostRequest($template_id, $contentType);
+        $request = $this->duplicateTemplateRequest($template_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -989,21 +989,21 @@ class TemplatesApi
     }
 
     /**
-     * Create request for operation 'duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost'
+     * Create request for operation 'duplicateTemplate'
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePostRequest($template_id, string $contentType = self::contentTypes['duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost'][0])
+    public function duplicateTemplateRequest($template_id, string $contentType = self::contentTypes['duplicateTemplate'][0])
     {
 
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $template_id when calling duplicateTemplateApiV1TemplatesCustomTemplateIdDuplicatePost'
+                'Missing the required parameter $template_id when calling duplicateTemplate'
             );
         }
 
@@ -1085,38 +1085,38 @@ class TemplatesApi
     }
 
     /**
-     * Operation getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet
+     * Operation getBuiltinTemplate
      *
      * Get Builtin Template
      *
      * @param  string $template_id template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuiltinTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\TemplateDetailResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet($template_id, string $contentType = self::contentTypes['getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet'][0])
+    public function getBuiltinTemplate($template_id, string $contentType = self::contentTypes['getBuiltinTemplate'][0])
     {
-        list($response) = $this->getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetWithHttpInfo($template_id, $contentType);
+        list($response) = $this->getBuiltinTemplateWithHttpInfo($template_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetWithHttpInfo
+     * Operation getBuiltinTemplateWithHttpInfo
      *
      * Get Builtin Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuiltinTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\TemplateDetailResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetWithHttpInfo($template_id, string $contentType = self::contentTypes['getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet'][0])
+    public function getBuiltinTemplateWithHttpInfo($template_id, string $contentType = self::contentTypes['getBuiltinTemplate'][0])
     {
-        $request = $this->getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetRequest($template_id, $contentType);
+        $request = $this->getBuiltinTemplateRequest($template_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1262,19 +1262,19 @@ class TemplatesApi
     }
 
     /**
-     * Operation getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetAsync
+     * Operation getBuiltinTemplateAsync
      *
      * Get Builtin Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuiltinTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetAsync($template_id, string $contentType = self::contentTypes['getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet'][0])
+    public function getBuiltinTemplateAsync($template_id, string $contentType = self::contentTypes['getBuiltinTemplate'][0])
     {
-        return $this->getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetAsyncWithHttpInfo($template_id, $contentType)
+        return $this->getBuiltinTemplateAsyncWithHttpInfo($template_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1283,20 +1283,20 @@ class TemplatesApi
     }
 
     /**
-     * Operation getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetAsyncWithHttpInfo
+     * Operation getBuiltinTemplateAsyncWithHttpInfo
      *
      * Get Builtin Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuiltinTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet'][0])
+    public function getBuiltinTemplateAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['getBuiltinTemplate'][0])
     {
         $returnType = '\InvoicePDFs\Model\TemplateDetailResponse';
-        $request = $this->getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetRequest($template_id, $contentType);
+        $request = $this->getBuiltinTemplateRequest($template_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1335,21 +1335,21 @@ class TemplatesApi
     }
 
     /**
-     * Create request for operation 'getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet'
+     * Create request for operation 'getBuiltinTemplate'
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuiltinTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGetRequest($template_id, string $contentType = self::contentTypes['getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet'][0])
+    public function getBuiltinTemplateRequest($template_id, string $contentType = self::contentTypes['getBuiltinTemplate'][0])
     {
 
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $template_id when calling getBuiltinTemplateApiV1TemplatesBuiltinTemplateIdGet'
+                'Missing the required parameter $template_id when calling getBuiltinTemplate'
             );
         }
 
@@ -1431,38 +1431,38 @@ class TemplatesApi
     }
 
     /**
-     * Operation getCustomTemplateApiV1TemplatesCustomTemplateIdGet
+     * Operation getCustomTemplate
      *
      * Get Custom Template
      *
      * @param  string $template_id template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomTemplateApiV1TemplatesCustomTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\CustomTemplateResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getCustomTemplateApiV1TemplatesCustomTemplateIdGet($template_id, string $contentType = self::contentTypes['getCustomTemplateApiV1TemplatesCustomTemplateIdGet'][0])
+    public function getCustomTemplate($template_id, string $contentType = self::contentTypes['getCustomTemplate'][0])
     {
-        list($response) = $this->getCustomTemplateApiV1TemplatesCustomTemplateIdGetWithHttpInfo($template_id, $contentType);
+        list($response) = $this->getCustomTemplateWithHttpInfo($template_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getCustomTemplateApiV1TemplatesCustomTemplateIdGetWithHttpInfo
+     * Operation getCustomTemplateWithHttpInfo
      *
      * Get Custom Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomTemplateApiV1TemplatesCustomTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\CustomTemplateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomTemplateApiV1TemplatesCustomTemplateIdGetWithHttpInfo($template_id, string $contentType = self::contentTypes['getCustomTemplateApiV1TemplatesCustomTemplateIdGet'][0])
+    public function getCustomTemplateWithHttpInfo($template_id, string $contentType = self::contentTypes['getCustomTemplate'][0])
     {
-        $request = $this->getCustomTemplateApiV1TemplatesCustomTemplateIdGetRequest($template_id, $contentType);
+        $request = $this->getCustomTemplateRequest($template_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1608,19 +1608,19 @@ class TemplatesApi
     }
 
     /**
-     * Operation getCustomTemplateApiV1TemplatesCustomTemplateIdGetAsync
+     * Operation getCustomTemplateAsync
      *
      * Get Custom Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomTemplateApiV1TemplatesCustomTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomTemplateApiV1TemplatesCustomTemplateIdGetAsync($template_id, string $contentType = self::contentTypes['getCustomTemplateApiV1TemplatesCustomTemplateIdGet'][0])
+    public function getCustomTemplateAsync($template_id, string $contentType = self::contentTypes['getCustomTemplate'][0])
     {
-        return $this->getCustomTemplateApiV1TemplatesCustomTemplateIdGetAsyncWithHttpInfo($template_id, $contentType)
+        return $this->getCustomTemplateAsyncWithHttpInfo($template_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1629,20 +1629,20 @@ class TemplatesApi
     }
 
     /**
-     * Operation getCustomTemplateApiV1TemplatesCustomTemplateIdGetAsyncWithHttpInfo
+     * Operation getCustomTemplateAsyncWithHttpInfo
      *
      * Get Custom Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomTemplateApiV1TemplatesCustomTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomTemplateApiV1TemplatesCustomTemplateIdGetAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['getCustomTemplateApiV1TemplatesCustomTemplateIdGet'][0])
+    public function getCustomTemplateAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['getCustomTemplate'][0])
     {
         $returnType = '\InvoicePDFs\Model\CustomTemplateResponse';
-        $request = $this->getCustomTemplateApiV1TemplatesCustomTemplateIdGetRequest($template_id, $contentType);
+        $request = $this->getCustomTemplateRequest($template_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1681,21 +1681,21 @@ class TemplatesApi
     }
 
     /**
-     * Create request for operation 'getCustomTemplateApiV1TemplatesCustomTemplateIdGet'
+     * Create request for operation 'getCustomTemplate'
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomTemplateApiV1TemplatesCustomTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCustomTemplateApiV1TemplatesCustomTemplateIdGetRequest($template_id, string $contentType = self::contentTypes['getCustomTemplateApiV1TemplatesCustomTemplateIdGet'][0])
+    public function getCustomTemplateRequest($template_id, string $contentType = self::contentTypes['getCustomTemplate'][0])
     {
 
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $template_id when calling getCustomTemplateApiV1TemplatesCustomTemplateIdGet'
+                'Missing the required parameter $template_id when calling getCustomTemplate'
             );
         }
 
@@ -1777,38 +1777,38 @@ class TemplatesApi
     }
 
     /**
-     * Operation getTemplateApiV1TemplatesTemplateIdGet
+     * Operation getTemplate
      *
      * Get Template
      *
      * @param  string $template_id template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateApiV1TemplatesTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\TemplateDetailResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getTemplateApiV1TemplatesTemplateIdGet($template_id, string $contentType = self::contentTypes['getTemplateApiV1TemplatesTemplateIdGet'][0])
+    public function getTemplate($template_id, string $contentType = self::contentTypes['getTemplate'][0])
     {
-        list($response) = $this->getTemplateApiV1TemplatesTemplateIdGetWithHttpInfo($template_id, $contentType);
+        list($response) = $this->getTemplateWithHttpInfo($template_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getTemplateApiV1TemplatesTemplateIdGetWithHttpInfo
+     * Operation getTemplateWithHttpInfo
      *
      * Get Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateApiV1TemplatesTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\TemplateDetailResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTemplateApiV1TemplatesTemplateIdGetWithHttpInfo($template_id, string $contentType = self::contentTypes['getTemplateApiV1TemplatesTemplateIdGet'][0])
+    public function getTemplateWithHttpInfo($template_id, string $contentType = self::contentTypes['getTemplate'][0])
     {
-        $request = $this->getTemplateApiV1TemplatesTemplateIdGetRequest($template_id, $contentType);
+        $request = $this->getTemplateRequest($template_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1954,19 +1954,19 @@ class TemplatesApi
     }
 
     /**
-     * Operation getTemplateApiV1TemplatesTemplateIdGetAsync
+     * Operation getTemplateAsync
      *
      * Get Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateApiV1TemplatesTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTemplateApiV1TemplatesTemplateIdGetAsync($template_id, string $contentType = self::contentTypes['getTemplateApiV1TemplatesTemplateIdGet'][0])
+    public function getTemplateAsync($template_id, string $contentType = self::contentTypes['getTemplate'][0])
     {
-        return $this->getTemplateApiV1TemplatesTemplateIdGetAsyncWithHttpInfo($template_id, $contentType)
+        return $this->getTemplateAsyncWithHttpInfo($template_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1975,20 +1975,20 @@ class TemplatesApi
     }
 
     /**
-     * Operation getTemplateApiV1TemplatesTemplateIdGetAsyncWithHttpInfo
+     * Operation getTemplateAsyncWithHttpInfo
      *
      * Get Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateApiV1TemplatesTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTemplateApiV1TemplatesTemplateIdGetAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['getTemplateApiV1TemplatesTemplateIdGet'][0])
+    public function getTemplateAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['getTemplate'][0])
     {
         $returnType = '\InvoicePDFs\Model\TemplateDetailResponse';
-        $request = $this->getTemplateApiV1TemplatesTemplateIdGetRequest($template_id, $contentType);
+        $request = $this->getTemplateRequest($template_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2027,21 +2027,21 @@ class TemplatesApi
     }
 
     /**
-     * Create request for operation 'getTemplateApiV1TemplatesTemplateIdGet'
+     * Create request for operation 'getTemplate'
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateApiV1TemplatesTemplateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTemplateApiV1TemplatesTemplateIdGetRequest($template_id, string $contentType = self::contentTypes['getTemplateApiV1TemplatesTemplateIdGet'][0])
+    public function getTemplateRequest($template_id, string $contentType = self::contentTypes['getTemplate'][0])
     {
 
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $template_id when calling getTemplateApiV1TemplatesTemplateIdGet'
+                'Missing the required parameter $template_id when calling getTemplate'
             );
         }
 
@@ -2123,40 +2123,40 @@ class TemplatesApi
     }
 
     /**
-     * Operation listCustomTemplatesApiV1TemplatesCustomGet
+     * Operation listCustomTemplates
      *
      * List Custom Templates
      *
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomTemplatesApiV1TemplatesCustomGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomTemplates'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\CustomTemplatesListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listCustomTemplatesApiV1TemplatesCustomGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomTemplatesApiV1TemplatesCustomGet'][0])
+    public function listCustomTemplates($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomTemplates'][0])
     {
-        list($response) = $this->listCustomTemplatesApiV1TemplatesCustomGetWithHttpInfo($limit, $cursor, $contentType);
+        list($response) = $this->listCustomTemplatesWithHttpInfo($limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listCustomTemplatesApiV1TemplatesCustomGetWithHttpInfo
+     * Operation listCustomTemplatesWithHttpInfo
      *
      * List Custom Templates
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomTemplatesApiV1TemplatesCustomGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomTemplates'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\CustomTemplatesListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listCustomTemplatesApiV1TemplatesCustomGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomTemplatesApiV1TemplatesCustomGet'][0])
+    public function listCustomTemplatesWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomTemplates'][0])
     {
-        $request = $this->listCustomTemplatesApiV1TemplatesCustomGetRequest($limit, $cursor, $contentType);
+        $request = $this->listCustomTemplatesRequest($limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2302,20 +2302,20 @@ class TemplatesApi
     }
 
     /**
-     * Operation listCustomTemplatesApiV1TemplatesCustomGetAsync
+     * Operation listCustomTemplatesAsync
      *
      * List Custom Templates
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomTemplatesApiV1TemplatesCustomGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomTemplates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCustomTemplatesApiV1TemplatesCustomGetAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomTemplatesApiV1TemplatesCustomGet'][0])
+    public function listCustomTemplatesAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomTemplates'][0])
     {
-        return $this->listCustomTemplatesApiV1TemplatesCustomGetAsyncWithHttpInfo($limit, $cursor, $contentType)
+        return $this->listCustomTemplatesAsyncWithHttpInfo($limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2324,21 +2324,21 @@ class TemplatesApi
     }
 
     /**
-     * Operation listCustomTemplatesApiV1TemplatesCustomGetAsyncWithHttpInfo
+     * Operation listCustomTemplatesAsyncWithHttpInfo
      *
      * List Custom Templates
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomTemplatesApiV1TemplatesCustomGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomTemplates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCustomTemplatesApiV1TemplatesCustomGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomTemplatesApiV1TemplatesCustomGet'][0])
+    public function listCustomTemplatesAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomTemplates'][0])
     {
         $returnType = '\InvoicePDFs\Model\CustomTemplatesListResponse';
-        $request = $this->listCustomTemplatesApiV1TemplatesCustomGetRequest($limit, $cursor, $contentType);
+        $request = $this->listCustomTemplatesRequest($limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2377,23 +2377,23 @@ class TemplatesApi
     }
 
     /**
-     * Create request for operation 'listCustomTemplatesApiV1TemplatesCustomGet'
+     * Create request for operation 'listCustomTemplates'
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomTemplatesApiV1TemplatesCustomGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomTemplates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listCustomTemplatesApiV1TemplatesCustomGetRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomTemplatesApiV1TemplatesCustomGet'][0])
+    public function listCustomTemplatesRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomTemplates'][0])
     {
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling TemplatesApi.listCustomTemplatesApiV1TemplatesCustomGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling TemplatesApi.listCustomTemplates, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling TemplatesApi.listCustomTemplatesApiV1TemplatesCustomGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling TemplatesApi.listCustomTemplates, must be bigger than or equal to 1.');
         }
         
 
@@ -2485,40 +2485,36 @@ class TemplatesApi
     }
 
     /**
-     * Operation patchTemplateApiV1TemplatesCustomTemplateIdPatch
+     * Operation listTemplates
      *
-     * Patch Template
+     * List Templates
      *
-     * @param  string $template_id template_id (required)
-     * @param  \InvoicePDFs\Model\TemplatePatchRequest $template_patch_request template_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTemplateApiV1TemplatesCustomTemplateIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplates'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\CustomTemplateResponse|\InvoicePDFs\Model\ApiErrorResponse
+     * @return \InvoicePDFs\Model\TemplatesListResponse
      */
-    public function patchTemplateApiV1TemplatesCustomTemplateIdPatch($template_id, $template_patch_request, string $contentType = self::contentTypes['patchTemplateApiV1TemplatesCustomTemplateIdPatch'][0])
+    public function listTemplates(string $contentType = self::contentTypes['listTemplates'][0])
     {
-        list($response) = $this->patchTemplateApiV1TemplatesCustomTemplateIdPatchWithHttpInfo($template_id, $template_patch_request, $contentType);
+        list($response) = $this->listTemplatesWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation patchTemplateApiV1TemplatesCustomTemplateIdPatchWithHttpInfo
+     * Operation listTemplatesWithHttpInfo
      *
-     * Patch Template
+     * List Templates
      *
-     * @param  string $template_id (required)
-     * @param  \InvoicePDFs\Model\TemplatePatchRequest $template_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTemplateApiV1TemplatesCustomTemplateIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplates'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\CustomTemplateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\TemplatesListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchTemplateApiV1TemplatesCustomTemplateIdPatchWithHttpInfo($template_id, $template_patch_request, string $contentType = self::contentTypes['patchTemplateApiV1TemplatesCustomTemplateIdPatch'][0])
+    public function listTemplatesWithHttpInfo(string $contentType = self::contentTypes['listTemplates'][0])
     {
-        $request = $this->patchTemplateApiV1TemplatesCustomTemplateIdPatchRequest($template_id, $template_patch_request, $contentType);
+        $request = $this->listTemplatesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2557,11 +2553,11 @@ class TemplatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\InvoicePDFs\Model\CustomTemplateResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\TemplatesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\CustomTemplateResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\TemplatesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2579,40 +2575,13 @@ class TemplatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\CustomTemplateResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\TemplatesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\InvoicePDFs\Model\CustomTemplateResponse';
+            $returnType = '\InvoicePDFs\Model\TemplatesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2645,15 +2614,7 @@ class TemplatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\CustomTemplateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\ApiErrorResponse',
+                        '\InvoicePDFs\Model\TemplatesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2664,20 +2625,18 @@ class TemplatesApi
     }
 
     /**
-     * Operation patchTemplateApiV1TemplatesCustomTemplateIdPatchAsync
+     * Operation listTemplatesAsync
      *
-     * Patch Template
+     * List Templates
      *
-     * @param  string $template_id (required)
-     * @param  \InvoicePDFs\Model\TemplatePatchRequest $template_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTemplateApiV1TemplatesCustomTemplateIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTemplateApiV1TemplatesCustomTemplateIdPatchAsync($template_id, $template_patch_request, string $contentType = self::contentTypes['patchTemplateApiV1TemplatesCustomTemplateIdPatch'][0])
+    public function listTemplatesAsync(string $contentType = self::contentTypes['listTemplates'][0])
     {
-        return $this->patchTemplateApiV1TemplatesCustomTemplateIdPatchAsyncWithHttpInfo($template_id, $template_patch_request, $contentType)
+        return $this->listTemplatesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2686,21 +2645,19 @@ class TemplatesApi
     }
 
     /**
-     * Operation patchTemplateApiV1TemplatesCustomTemplateIdPatchAsyncWithHttpInfo
+     * Operation listTemplatesAsyncWithHttpInfo
      *
-     * Patch Template
+     * List Templates
      *
-     * @param  string $template_id (required)
-     * @param  \InvoicePDFs\Model\TemplatePatchRequest $template_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTemplateApiV1TemplatesCustomTemplateIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchTemplateApiV1TemplatesCustomTemplateIdPatchAsyncWithHttpInfo($template_id, $template_patch_request, string $contentType = self::contentTypes['patchTemplateApiV1TemplatesCustomTemplateIdPatch'][0])
+    public function listTemplatesAsyncWithHttpInfo(string $contentType = self::contentTypes['listTemplates'][0])
     {
-        $returnType = '\InvoicePDFs\Model\CustomTemplateResponse';
-        $request = $this->patchTemplateApiV1TemplatesCustomTemplateIdPatchRequest($template_id, $template_patch_request, $contentType);
+        $returnType = '\InvoicePDFs\Model\TemplatesListResponse';
+        $request = $this->listTemplatesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2739,34 +2696,18 @@ class TemplatesApi
     }
 
     /**
-     * Create request for operation 'patchTemplateApiV1TemplatesCustomTemplateIdPatch'
+     * Create request for operation 'listTemplates'
      *
-     * @param  string $template_id (required)
-     * @param  \InvoicePDFs\Model\TemplatePatchRequest $template_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchTemplateApiV1TemplatesCustomTemplateIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchTemplateApiV1TemplatesCustomTemplateIdPatchRequest($template_id, $template_patch_request, string $contentType = self::contentTypes['patchTemplateApiV1TemplatesCustomTemplateIdPatch'][0])
+    public function listTemplatesRequest(string $contentType = self::contentTypes['listTemplates'][0])
     {
 
-        // verify the required parameter 'template_id' is set
-        if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $template_id when calling patchTemplateApiV1TemplatesCustomTemplateIdPatch'
-            );
-        }
 
-        // verify the required parameter 'template_patch_request' is set
-        if ($template_patch_request === null || (is_array($template_patch_request) && count($template_patch_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $template_patch_request when calling patchTemplateApiV1TemplatesCustomTemplateIdPatch'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/templates/custom/{template_id}';
+        $resourcePath = '/api/v1/templates';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2775,14 +2716,6 @@ class TemplatesApi
 
 
 
-        // path params
-        if ($template_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'template_id' . '}',
-                ObjectSerializer::toPathValue($template_id),
-                $resourcePath
-            );
-        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -2792,14 +2725,7 @@ class TemplatesApi
         );
 
         // for model (json/xml)
-        if (isset($template_patch_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_patch_request));
-            } else {
-                $httpBody = $template_patch_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -2842,7 +2768,7 @@ class TemplatesApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'PATCH',
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -2850,42 +2776,42 @@ class TemplatesApi
     }
 
     /**
-     * Operation previewTemplateApiV1TemplatesTemplateIdPreviewPost
+     * Operation previewTemplate
      *
      * Preview Template
      *
      * @param  string $template_id template_id (required)
-     * @param  \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest $app_schemas_v1_document_render_request app_schemas_v1_document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request document_render_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplateApiV1TemplatesTemplateIdPreviewPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function previewTemplateApiV1TemplatesTemplateIdPreviewPost($template_id, $app_schemas_v1_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplateApiV1TemplatesTemplateIdPreviewPost'][0])
+    public function previewTemplate($template_id, $document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
     {
-        list($response) = $this->previewTemplateApiV1TemplatesTemplateIdPreviewPostWithHttpInfo($template_id, $app_schemas_v1_document_render_request, $idempotency_key, $contentType);
+        list($response) = $this->previewTemplateWithHttpInfo($template_id, $document_render_request, $idempotency_key, $contentType);
         return $response;
     }
 
     /**
-     * Operation previewTemplateApiV1TemplatesTemplateIdPreviewPostWithHttpInfo
+     * Operation previewTemplateWithHttpInfo
      *
      * Preview Template
      *
      * @param  string $template_id (required)
-     * @param  \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest $app_schemas_v1_document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplateApiV1TemplatesTemplateIdPreviewPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function previewTemplateApiV1TemplatesTemplateIdPreviewPostWithHttpInfo($template_id, $app_schemas_v1_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplateApiV1TemplatesTemplateIdPreviewPost'][0])
+    public function previewTemplateWithHttpInfo($template_id, $document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
     {
-        $request = $this->previewTemplateApiV1TemplatesTemplateIdPreviewPostRequest($template_id, $app_schemas_v1_document_render_request, $idempotency_key, $contentType);
+        $request = $this->previewTemplateRequest($template_id, $document_render_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3031,21 +2957,21 @@ class TemplatesApi
     }
 
     /**
-     * Operation previewTemplateApiV1TemplatesTemplateIdPreviewPostAsync
+     * Operation previewTemplateAsync
      *
      * Preview Template
      *
      * @param  string $template_id (required)
-     * @param  \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest $app_schemas_v1_document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplateApiV1TemplatesTemplateIdPreviewPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewTemplateApiV1TemplatesTemplateIdPreviewPostAsync($template_id, $app_schemas_v1_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplateApiV1TemplatesTemplateIdPreviewPost'][0])
+    public function previewTemplateAsync($template_id, $document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
     {
-        return $this->previewTemplateApiV1TemplatesTemplateIdPreviewPostAsyncWithHttpInfo($template_id, $app_schemas_v1_document_render_request, $idempotency_key, $contentType)
+        return $this->previewTemplateAsyncWithHttpInfo($template_id, $document_render_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3054,22 +2980,22 @@ class TemplatesApi
     }
 
     /**
-     * Operation previewTemplateApiV1TemplatesTemplateIdPreviewPostAsyncWithHttpInfo
+     * Operation previewTemplateAsyncWithHttpInfo
      *
      * Preview Template
      *
      * @param  string $template_id (required)
-     * @param  \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest $app_schemas_v1_document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplateApiV1TemplatesTemplateIdPreviewPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewTemplateApiV1TemplatesTemplateIdPreviewPostAsyncWithHttpInfo($template_id, $app_schemas_v1_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplateApiV1TemplatesTemplateIdPreviewPost'][0])
+    public function previewTemplateAsyncWithHttpInfo($template_id, $document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
     {
         $returnType = 'mixed';
-        $request = $this->previewTemplateApiV1TemplatesTemplateIdPreviewPostRequest($template_id, $app_schemas_v1_document_render_request, $idempotency_key, $contentType);
+        $request = $this->previewTemplateRequest($template_id, $document_render_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3108,30 +3034,30 @@ class TemplatesApi
     }
 
     /**
-     * Create request for operation 'previewTemplateApiV1TemplatesTemplateIdPreviewPost'
+     * Create request for operation 'previewTemplate'
      *
      * @param  string $template_id (required)
-     * @param  \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest $app_schemas_v1_document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplateApiV1TemplatesTemplateIdPreviewPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function previewTemplateApiV1TemplatesTemplateIdPreviewPostRequest($template_id, $app_schemas_v1_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplateApiV1TemplatesTemplateIdPreviewPost'][0])
+    public function previewTemplateRequest($template_id, $document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
     {
 
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $template_id when calling previewTemplateApiV1TemplatesTemplateIdPreviewPost'
+                'Missing the required parameter $template_id when calling previewTemplate'
             );
         }
 
-        // verify the required parameter 'app_schemas_v1_document_render_request' is set
-        if ($app_schemas_v1_document_render_request === null || (is_array($app_schemas_v1_document_render_request) && count($app_schemas_v1_document_render_request) === 0)) {
+        // verify the required parameter 'document_render_request' is set
+        if ($document_render_request === null || (is_array($document_render_request) && count($document_render_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $app_schemas_v1_document_render_request when calling previewTemplateApiV1TemplatesTemplateIdPreviewPost'
+                'Missing the required parameter $document_render_request when calling previewTemplate'
             );
         }
 
@@ -3167,12 +3093,12 @@ class TemplatesApi
         );
 
         // for model (json/xml)
-        if (isset($app_schemas_v1_document_render_request)) {
+        if (isset($document_render_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($app_schemas_v1_document_render_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($document_render_request));
             } else {
-                $httpBody = $app_schemas_v1_document_render_request;
+                $httpBody = $document_render_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3225,38 +3151,38 @@ class TemplatesApi
     }
 
     /**
-     * Operation publishTemplateApiV1TemplatesCustomTemplateIdPublishPost
+     * Operation publishTemplate
      *
      * Publish Template
      *
      * @param  string $template_id template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishTemplateApiV1TemplatesCustomTemplateIdPublishPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\CustomTemplateResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function publishTemplateApiV1TemplatesCustomTemplateIdPublishPost($template_id, string $contentType = self::contentTypes['publishTemplateApiV1TemplatesCustomTemplateIdPublishPost'][0])
+    public function publishTemplate($template_id, string $contentType = self::contentTypes['publishTemplate'][0])
     {
-        list($response) = $this->publishTemplateApiV1TemplatesCustomTemplateIdPublishPostWithHttpInfo($template_id, $contentType);
+        list($response) = $this->publishTemplateWithHttpInfo($template_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation publishTemplateApiV1TemplatesCustomTemplateIdPublishPostWithHttpInfo
+     * Operation publishTemplateWithHttpInfo
      *
      * Publish Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishTemplateApiV1TemplatesCustomTemplateIdPublishPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\CustomTemplateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function publishTemplateApiV1TemplatesCustomTemplateIdPublishPostWithHttpInfo($template_id, string $contentType = self::contentTypes['publishTemplateApiV1TemplatesCustomTemplateIdPublishPost'][0])
+    public function publishTemplateWithHttpInfo($template_id, string $contentType = self::contentTypes['publishTemplate'][0])
     {
-        $request = $this->publishTemplateApiV1TemplatesCustomTemplateIdPublishPostRequest($template_id, $contentType);
+        $request = $this->publishTemplateRequest($template_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3402,19 +3328,19 @@ class TemplatesApi
     }
 
     /**
-     * Operation publishTemplateApiV1TemplatesCustomTemplateIdPublishPostAsync
+     * Operation publishTemplateAsync
      *
      * Publish Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishTemplateApiV1TemplatesCustomTemplateIdPublishPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function publishTemplateApiV1TemplatesCustomTemplateIdPublishPostAsync($template_id, string $contentType = self::contentTypes['publishTemplateApiV1TemplatesCustomTemplateIdPublishPost'][0])
+    public function publishTemplateAsync($template_id, string $contentType = self::contentTypes['publishTemplate'][0])
     {
-        return $this->publishTemplateApiV1TemplatesCustomTemplateIdPublishPostAsyncWithHttpInfo($template_id, $contentType)
+        return $this->publishTemplateAsyncWithHttpInfo($template_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3423,20 +3349,20 @@ class TemplatesApi
     }
 
     /**
-     * Operation publishTemplateApiV1TemplatesCustomTemplateIdPublishPostAsyncWithHttpInfo
+     * Operation publishTemplateAsyncWithHttpInfo
      *
      * Publish Template
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishTemplateApiV1TemplatesCustomTemplateIdPublishPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function publishTemplateApiV1TemplatesCustomTemplateIdPublishPostAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['publishTemplateApiV1TemplatesCustomTemplateIdPublishPost'][0])
+    public function publishTemplateAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['publishTemplate'][0])
     {
         $returnType = '\InvoicePDFs\Model\CustomTemplateResponse';
-        $request = $this->publishTemplateApiV1TemplatesCustomTemplateIdPublishPostRequest($template_id, $contentType);
+        $request = $this->publishTemplateRequest($template_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3475,21 +3401,21 @@ class TemplatesApi
     }
 
     /**
-     * Create request for operation 'publishTemplateApiV1TemplatesCustomTemplateIdPublishPost'
+     * Create request for operation 'publishTemplate'
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishTemplateApiV1TemplatesCustomTemplateIdPublishPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['publishTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function publishTemplateApiV1TemplatesCustomTemplateIdPublishPostRequest($template_id, string $contentType = self::contentTypes['publishTemplateApiV1TemplatesCustomTemplateIdPublishPost'][0])
+    public function publishTemplateRequest($template_id, string $contentType = self::contentTypes['publishTemplate'][0])
     {
 
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $template_id when calling publishTemplateApiV1TemplatesCustomTemplateIdPublishPost'
+                'Missing the required parameter $template_id when calling publishTemplate'
             );
         }
 
@@ -3571,36 +3497,40 @@ class TemplatesApi
     }
 
     /**
-     * Operation templatesApiV1TemplatesGet
+     * Operation updateTemplate
      *
-     * Templates
+     * Update Template
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templatesApiV1TemplatesGet'] to see the possible values for this operation
+     * @param  string $template_id template_id (required)
+     * @param  \InvoicePDFs\Model\TemplatePatchRequest $template_patch_request template_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\TemplatesListResponse
+     * @return \InvoicePDFs\Model\CustomTemplateResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function templatesApiV1TemplatesGet(string $contentType = self::contentTypes['templatesApiV1TemplatesGet'][0])
+    public function updateTemplate($template_id, $template_patch_request, string $contentType = self::contentTypes['updateTemplate'][0])
     {
-        list($response) = $this->templatesApiV1TemplatesGetWithHttpInfo($contentType);
+        list($response) = $this->updateTemplateWithHttpInfo($template_id, $template_patch_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation templatesApiV1TemplatesGetWithHttpInfo
+     * Operation updateTemplateWithHttpInfo
      *
-     * Templates
+     * Update Template
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templatesApiV1TemplatesGet'] to see the possible values for this operation
+     * @param  string $template_id (required)
+     * @param  \InvoicePDFs\Model\TemplatePatchRequest $template_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTemplate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\TemplatesListResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\CustomTemplateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function templatesApiV1TemplatesGetWithHttpInfo(string $contentType = self::contentTypes['templatesApiV1TemplatesGet'][0])
+    public function updateTemplateWithHttpInfo($template_id, $template_patch_request, string $contentType = self::contentTypes['updateTemplate'][0])
     {
-        $request = $this->templatesApiV1TemplatesGetRequest($contentType);
+        $request = $this->updateTemplateRequest($template_id, $template_patch_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3639,11 +3569,11 @@ class TemplatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\InvoicePDFs\Model\TemplatesListResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\CustomTemplateResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\TemplatesListResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\CustomTemplateResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3661,13 +3591,40 @@ class TemplatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\TemplatesListResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\CustomTemplateResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\InvoicePDFs\Model\TemplatesListResponse';
+            $returnType = '\InvoicePDFs\Model\CustomTemplateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3700,7 +3657,15 @@ class TemplatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\TemplatesListResponse',
+                        '\InvoicePDFs\Model\CustomTemplateResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\ApiErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3711,18 +3676,20 @@ class TemplatesApi
     }
 
     /**
-     * Operation templatesApiV1TemplatesGetAsync
+     * Operation updateTemplateAsync
      *
-     * Templates
+     * Update Template
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templatesApiV1TemplatesGet'] to see the possible values for this operation
+     * @param  string $template_id (required)
+     * @param  \InvoicePDFs\Model\TemplatePatchRequest $template_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function templatesApiV1TemplatesGetAsync(string $contentType = self::contentTypes['templatesApiV1TemplatesGet'][0])
+    public function updateTemplateAsync($template_id, $template_patch_request, string $contentType = self::contentTypes['updateTemplate'][0])
     {
-        return $this->templatesApiV1TemplatesGetAsyncWithHttpInfo($contentType)
+        return $this->updateTemplateAsyncWithHttpInfo($template_id, $template_patch_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3731,19 +3698,21 @@ class TemplatesApi
     }
 
     /**
-     * Operation templatesApiV1TemplatesGetAsyncWithHttpInfo
+     * Operation updateTemplateAsyncWithHttpInfo
      *
-     * Templates
+     * Update Template
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templatesApiV1TemplatesGet'] to see the possible values for this operation
+     * @param  string $template_id (required)
+     * @param  \InvoicePDFs\Model\TemplatePatchRequest $template_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function templatesApiV1TemplatesGetAsyncWithHttpInfo(string $contentType = self::contentTypes['templatesApiV1TemplatesGet'][0])
+    public function updateTemplateAsyncWithHttpInfo($template_id, $template_patch_request, string $contentType = self::contentTypes['updateTemplate'][0])
     {
-        $returnType = '\InvoicePDFs\Model\TemplatesListResponse';
-        $request = $this->templatesApiV1TemplatesGetRequest($contentType);
+        $returnType = '\InvoicePDFs\Model\CustomTemplateResponse';
+        $request = $this->updateTemplateRequest($template_id, $template_patch_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3782,18 +3751,34 @@ class TemplatesApi
     }
 
     /**
-     * Create request for operation 'templatesApiV1TemplatesGet'
+     * Create request for operation 'updateTemplate'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['templatesApiV1TemplatesGet'] to see the possible values for this operation
+     * @param  string $template_id (required)
+     * @param  \InvoicePDFs\Model\TemplatePatchRequest $template_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function templatesApiV1TemplatesGetRequest(string $contentType = self::contentTypes['templatesApiV1TemplatesGet'][0])
+    public function updateTemplateRequest($template_id, $template_patch_request, string $contentType = self::contentTypes['updateTemplate'][0])
     {
 
+        // verify the required parameter 'template_id' is set
+        if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $template_id when calling updateTemplate'
+            );
+        }
 
-        $resourcePath = '/api/v1/templates';
+        // verify the required parameter 'template_patch_request' is set
+        if ($template_patch_request === null || (is_array($template_patch_request) && count($template_patch_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $template_patch_request when calling updateTemplate'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/templates/custom/{template_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3802,6 +3787,14 @@ class TemplatesApi
 
 
 
+        // path params
+        if ($template_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'template_id' . '}',
+                ObjectSerializer::toPathValue($template_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3811,7 +3804,14 @@ class TemplatesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($template_patch_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($template_patch_request));
+            } else {
+                $httpBody = $template_patch_request;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3854,7 +3854,7 @@ class TemplatesApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'GET',
+            'PATCH',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

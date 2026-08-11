@@ -71,10 +71,10 @@ class DeliveriesApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'getDeliveryApiV1DeliveriesDeliveryIdGet' => [
+        'getDelivery' => [
             'application/json',
         ],
-        'retryDeliveryApiV1DeliveriesDeliveryIdRetryPost' => [
+        'retryDelivery' => [
             'application/json',
         ],
     ];
@@ -126,38 +126,38 @@ class DeliveriesApi
     }
 
     /**
-     * Operation getDeliveryApiV1DeliveriesDeliveryIdGet
+     * Operation getDelivery
      *
      * Get Delivery
      *
      * @param  string $delivery_id delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryApiV1DeliveriesDeliveryIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDelivery'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DeliveryResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getDeliveryApiV1DeliveriesDeliveryIdGet($delivery_id, string $contentType = self::contentTypes['getDeliveryApiV1DeliveriesDeliveryIdGet'][0])
+    public function getDelivery($delivery_id, string $contentType = self::contentTypes['getDelivery'][0])
     {
-        list($response) = $this->getDeliveryApiV1DeliveriesDeliveryIdGetWithHttpInfo($delivery_id, $contentType);
+        list($response) = $this->getDeliveryWithHttpInfo($delivery_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getDeliveryApiV1DeliveriesDeliveryIdGetWithHttpInfo
+     * Operation getDeliveryWithHttpInfo
      *
      * Get Delivery
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryApiV1DeliveriesDeliveryIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDelivery'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DeliveryResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDeliveryApiV1DeliveriesDeliveryIdGetWithHttpInfo($delivery_id, string $contentType = self::contentTypes['getDeliveryApiV1DeliveriesDeliveryIdGet'][0])
+    public function getDeliveryWithHttpInfo($delivery_id, string $contentType = self::contentTypes['getDelivery'][0])
     {
-        $request = $this->getDeliveryApiV1DeliveriesDeliveryIdGetRequest($delivery_id, $contentType);
+        $request = $this->getDeliveryRequest($delivery_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -303,19 +303,19 @@ class DeliveriesApi
     }
 
     /**
-     * Operation getDeliveryApiV1DeliveriesDeliveryIdGetAsync
+     * Operation getDeliveryAsync
      *
      * Get Delivery
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryApiV1DeliveriesDeliveryIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDelivery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDeliveryApiV1DeliveriesDeliveryIdGetAsync($delivery_id, string $contentType = self::contentTypes['getDeliveryApiV1DeliveriesDeliveryIdGet'][0])
+    public function getDeliveryAsync($delivery_id, string $contentType = self::contentTypes['getDelivery'][0])
     {
-        return $this->getDeliveryApiV1DeliveriesDeliveryIdGetAsyncWithHttpInfo($delivery_id, $contentType)
+        return $this->getDeliveryAsyncWithHttpInfo($delivery_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -324,20 +324,20 @@ class DeliveriesApi
     }
 
     /**
-     * Operation getDeliveryApiV1DeliveriesDeliveryIdGetAsyncWithHttpInfo
+     * Operation getDeliveryAsyncWithHttpInfo
      *
      * Get Delivery
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryApiV1DeliveriesDeliveryIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDelivery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDeliveryApiV1DeliveriesDeliveryIdGetAsyncWithHttpInfo($delivery_id, string $contentType = self::contentTypes['getDeliveryApiV1DeliveriesDeliveryIdGet'][0])
+    public function getDeliveryAsyncWithHttpInfo($delivery_id, string $contentType = self::contentTypes['getDelivery'][0])
     {
         $returnType = '\InvoicePDFs\Model\DeliveryResponse';
-        $request = $this->getDeliveryApiV1DeliveriesDeliveryIdGetRequest($delivery_id, $contentType);
+        $request = $this->getDeliveryRequest($delivery_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -376,21 +376,21 @@ class DeliveriesApi
     }
 
     /**
-     * Create request for operation 'getDeliveryApiV1DeliveriesDeliveryIdGet'
+     * Create request for operation 'getDelivery'
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDeliveryApiV1DeliveriesDeliveryIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDelivery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDeliveryApiV1DeliveriesDeliveryIdGetRequest($delivery_id, string $contentType = self::contentTypes['getDeliveryApiV1DeliveriesDeliveryIdGet'][0])
+    public function getDeliveryRequest($delivery_id, string $contentType = self::contentTypes['getDelivery'][0])
     {
 
         // verify the required parameter 'delivery_id' is set
         if ($delivery_id === null || (is_array($delivery_id) && count($delivery_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $delivery_id when calling getDeliveryApiV1DeliveriesDeliveryIdGet'
+                'Missing the required parameter $delivery_id when calling getDelivery'
             );
         }
 
@@ -472,38 +472,38 @@ class DeliveriesApi
     }
 
     /**
-     * Operation retryDeliveryApiV1DeliveriesDeliveryIdRetryPost
+     * Operation retryDelivery
      *
      * Retry Delivery
      *
      * @param  string $delivery_id delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryDeliveryApiV1DeliveriesDeliveryIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryDelivery'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DeliveryResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function retryDeliveryApiV1DeliveriesDeliveryIdRetryPost($delivery_id, string $contentType = self::contentTypes['retryDeliveryApiV1DeliveriesDeliveryIdRetryPost'][0])
+    public function retryDelivery($delivery_id, string $contentType = self::contentTypes['retryDelivery'][0])
     {
-        list($response) = $this->retryDeliveryApiV1DeliveriesDeliveryIdRetryPostWithHttpInfo($delivery_id, $contentType);
+        list($response) = $this->retryDeliveryWithHttpInfo($delivery_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation retryDeliveryApiV1DeliveriesDeliveryIdRetryPostWithHttpInfo
+     * Operation retryDeliveryWithHttpInfo
      *
      * Retry Delivery
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryDeliveryApiV1DeliveriesDeliveryIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryDelivery'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DeliveryResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retryDeliveryApiV1DeliveriesDeliveryIdRetryPostWithHttpInfo($delivery_id, string $contentType = self::contentTypes['retryDeliveryApiV1DeliveriesDeliveryIdRetryPost'][0])
+    public function retryDeliveryWithHttpInfo($delivery_id, string $contentType = self::contentTypes['retryDelivery'][0])
     {
-        $request = $this->retryDeliveryApiV1DeliveriesDeliveryIdRetryPostRequest($delivery_id, $contentType);
+        $request = $this->retryDeliveryRequest($delivery_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -649,19 +649,19 @@ class DeliveriesApi
     }
 
     /**
-     * Operation retryDeliveryApiV1DeliveriesDeliveryIdRetryPostAsync
+     * Operation retryDeliveryAsync
      *
      * Retry Delivery
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryDeliveryApiV1DeliveriesDeliveryIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryDelivery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retryDeliveryApiV1DeliveriesDeliveryIdRetryPostAsync($delivery_id, string $contentType = self::contentTypes['retryDeliveryApiV1DeliveriesDeliveryIdRetryPost'][0])
+    public function retryDeliveryAsync($delivery_id, string $contentType = self::contentTypes['retryDelivery'][0])
     {
-        return $this->retryDeliveryApiV1DeliveriesDeliveryIdRetryPostAsyncWithHttpInfo($delivery_id, $contentType)
+        return $this->retryDeliveryAsyncWithHttpInfo($delivery_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -670,20 +670,20 @@ class DeliveriesApi
     }
 
     /**
-     * Operation retryDeliveryApiV1DeliveriesDeliveryIdRetryPostAsyncWithHttpInfo
+     * Operation retryDeliveryAsyncWithHttpInfo
      *
      * Retry Delivery
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryDeliveryApiV1DeliveriesDeliveryIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryDelivery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retryDeliveryApiV1DeliveriesDeliveryIdRetryPostAsyncWithHttpInfo($delivery_id, string $contentType = self::contentTypes['retryDeliveryApiV1DeliveriesDeliveryIdRetryPost'][0])
+    public function retryDeliveryAsyncWithHttpInfo($delivery_id, string $contentType = self::contentTypes['retryDelivery'][0])
     {
         $returnType = '\InvoicePDFs\Model\DeliveryResponse';
-        $request = $this->retryDeliveryApiV1DeliveriesDeliveryIdRetryPostRequest($delivery_id, $contentType);
+        $request = $this->retryDeliveryRequest($delivery_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -722,21 +722,21 @@ class DeliveriesApi
     }
 
     /**
-     * Create request for operation 'retryDeliveryApiV1DeliveriesDeliveryIdRetryPost'
+     * Create request for operation 'retryDelivery'
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryDeliveryApiV1DeliveriesDeliveryIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryDelivery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function retryDeliveryApiV1DeliveriesDeliveryIdRetryPostRequest($delivery_id, string $contentType = self::contentTypes['retryDeliveryApiV1DeliveriesDeliveryIdRetryPost'][0])
+    public function retryDeliveryRequest($delivery_id, string $contentType = self::contentTypes['retryDelivery'][0])
     {
 
         // verify the required parameter 'delivery_id' is set
         if ($delivery_id === null || (is_array($delivery_id) && count($delivery_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $delivery_id when calling retryDeliveryApiV1DeliveriesDeliveryIdRetryPost'
+                'Missing the required parameter $delivery_id when calling retryDelivery'
             );
         }
 

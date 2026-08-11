@@ -71,22 +71,22 @@ class ReferenceApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'listCountriesApiV1ReferenceCountriesGet' => [
+        'listCountries' => [
             'application/json',
         ],
-        'listCurrenciesApiV1ReferenceCurrenciesGet' => [
+        'listCurrencies' => [
             'application/json',
         ],
-        'listDocumentTypesApiV1ReferenceDocumentTypesGet' => [
+        'listDocumentTypes' => [
             'application/json',
         ],
-        'listLocalesApiV1ReferenceLocalesGet' => [
+        'listLocales' => [
             'application/json',
         ],
-        'listPageSizesApiV1ReferencePageSizesGet' => [
+        'listPageSizes' => [
             'application/json',
         ],
-        'listTimezonesApiV1ReferenceTimezonesGet' => [
+        'listTimezones' => [
             'application/json',
         ],
     ];
@@ -138,36 +138,36 @@ class ReferenceApi
     }
 
     /**
-     * Operation listCountriesApiV1ReferenceCountriesGet
+     * Operation listCountries
      *
      * List Countries
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCountriesApiV1ReferenceCountriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCountries'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>
      */
-    public function listCountriesApiV1ReferenceCountriesGet(string $contentType = self::contentTypes['listCountriesApiV1ReferenceCountriesGet'][0])
+    public function listCountries(string $contentType = self::contentTypes['listCountries'][0])
     {
-        list($response) = $this->listCountriesApiV1ReferenceCountriesGetWithHttpInfo($contentType);
+        list($response) = $this->listCountriesWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation listCountriesApiV1ReferenceCountriesGetWithHttpInfo
+     * Operation listCountriesWithHttpInfo
      *
      * List Countries
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCountriesApiV1ReferenceCountriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCountries'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listCountriesApiV1ReferenceCountriesGetWithHttpInfo(string $contentType = self::contentTypes['listCountriesApiV1ReferenceCountriesGet'][0])
+    public function listCountriesWithHttpInfo(string $contentType = self::contentTypes['listCountries'][0])
     {
-        $request = $this->listCountriesApiV1ReferenceCountriesGetRequest($contentType);
+        $request = $this->listCountriesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -278,18 +278,18 @@ class ReferenceApi
     }
 
     /**
-     * Operation listCountriesApiV1ReferenceCountriesGetAsync
+     * Operation listCountriesAsync
      *
      * List Countries
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCountriesApiV1ReferenceCountriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCountries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCountriesApiV1ReferenceCountriesGetAsync(string $contentType = self::contentTypes['listCountriesApiV1ReferenceCountriesGet'][0])
+    public function listCountriesAsync(string $contentType = self::contentTypes['listCountries'][0])
     {
-        return $this->listCountriesApiV1ReferenceCountriesGetAsyncWithHttpInfo($contentType)
+        return $this->listCountriesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -298,19 +298,19 @@ class ReferenceApi
     }
 
     /**
-     * Operation listCountriesApiV1ReferenceCountriesGetAsyncWithHttpInfo
+     * Operation listCountriesAsyncWithHttpInfo
      *
      * List Countries
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCountriesApiV1ReferenceCountriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCountries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCountriesApiV1ReferenceCountriesGetAsyncWithHttpInfo(string $contentType = self::contentTypes['listCountriesApiV1ReferenceCountriesGet'][0])
+    public function listCountriesAsyncWithHttpInfo(string $contentType = self::contentTypes['listCountries'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->listCountriesApiV1ReferenceCountriesGetRequest($contentType);
+        $request = $this->listCountriesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -349,14 +349,14 @@ class ReferenceApi
     }
 
     /**
-     * Create request for operation 'listCountriesApiV1ReferenceCountriesGet'
+     * Create request for operation 'listCountries'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCountriesApiV1ReferenceCountriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCountries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listCountriesApiV1ReferenceCountriesGetRequest(string $contentType = self::contentTypes['listCountriesApiV1ReferenceCountriesGet'][0])
+    public function listCountriesRequest(string $contentType = self::contentTypes['listCountries'][0])
     {
 
 
@@ -425,36 +425,36 @@ class ReferenceApi
     }
 
     /**
-     * Operation listCurrenciesApiV1ReferenceCurrenciesGet
+     * Operation listCurrencies
      *
      * List Currencies
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCurrenciesApiV1ReferenceCurrenciesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCurrencies'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>
      */
-    public function listCurrenciesApiV1ReferenceCurrenciesGet(string $contentType = self::contentTypes['listCurrenciesApiV1ReferenceCurrenciesGet'][0])
+    public function listCurrencies(string $contentType = self::contentTypes['listCurrencies'][0])
     {
-        list($response) = $this->listCurrenciesApiV1ReferenceCurrenciesGetWithHttpInfo($contentType);
+        list($response) = $this->listCurrenciesWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation listCurrenciesApiV1ReferenceCurrenciesGetWithHttpInfo
+     * Operation listCurrenciesWithHttpInfo
      *
      * List Currencies
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCurrenciesApiV1ReferenceCurrenciesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCurrencies'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listCurrenciesApiV1ReferenceCurrenciesGetWithHttpInfo(string $contentType = self::contentTypes['listCurrenciesApiV1ReferenceCurrenciesGet'][0])
+    public function listCurrenciesWithHttpInfo(string $contentType = self::contentTypes['listCurrencies'][0])
     {
-        $request = $this->listCurrenciesApiV1ReferenceCurrenciesGetRequest($contentType);
+        $request = $this->listCurrenciesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -565,18 +565,18 @@ class ReferenceApi
     }
 
     /**
-     * Operation listCurrenciesApiV1ReferenceCurrenciesGetAsync
+     * Operation listCurrenciesAsync
      *
      * List Currencies
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCurrenciesApiV1ReferenceCurrenciesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCurrencies'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCurrenciesApiV1ReferenceCurrenciesGetAsync(string $contentType = self::contentTypes['listCurrenciesApiV1ReferenceCurrenciesGet'][0])
+    public function listCurrenciesAsync(string $contentType = self::contentTypes['listCurrencies'][0])
     {
-        return $this->listCurrenciesApiV1ReferenceCurrenciesGetAsyncWithHttpInfo($contentType)
+        return $this->listCurrenciesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -585,19 +585,19 @@ class ReferenceApi
     }
 
     /**
-     * Operation listCurrenciesApiV1ReferenceCurrenciesGetAsyncWithHttpInfo
+     * Operation listCurrenciesAsyncWithHttpInfo
      *
      * List Currencies
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCurrenciesApiV1ReferenceCurrenciesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCurrencies'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCurrenciesApiV1ReferenceCurrenciesGetAsyncWithHttpInfo(string $contentType = self::contentTypes['listCurrenciesApiV1ReferenceCurrenciesGet'][0])
+    public function listCurrenciesAsyncWithHttpInfo(string $contentType = self::contentTypes['listCurrencies'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->listCurrenciesApiV1ReferenceCurrenciesGetRequest($contentType);
+        $request = $this->listCurrenciesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -636,14 +636,14 @@ class ReferenceApi
     }
 
     /**
-     * Create request for operation 'listCurrenciesApiV1ReferenceCurrenciesGet'
+     * Create request for operation 'listCurrencies'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCurrenciesApiV1ReferenceCurrenciesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCurrencies'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listCurrenciesApiV1ReferenceCurrenciesGetRequest(string $contentType = self::contentTypes['listCurrenciesApiV1ReferenceCurrenciesGet'][0])
+    public function listCurrenciesRequest(string $contentType = self::contentTypes['listCurrencies'][0])
     {
 
 
@@ -712,36 +712,36 @@ class ReferenceApi
     }
 
     /**
-     * Operation listDocumentTypesApiV1ReferenceDocumentTypesGet
+     * Operation listDocumentTypes
      *
      * List Document Types
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentTypesApiV1ReferenceDocumentTypesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentTypes'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>
      */
-    public function listDocumentTypesApiV1ReferenceDocumentTypesGet(string $contentType = self::contentTypes['listDocumentTypesApiV1ReferenceDocumentTypesGet'][0])
+    public function listDocumentTypes(string $contentType = self::contentTypes['listDocumentTypes'][0])
     {
-        list($response) = $this->listDocumentTypesApiV1ReferenceDocumentTypesGetWithHttpInfo($contentType);
+        list($response) = $this->listDocumentTypesWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation listDocumentTypesApiV1ReferenceDocumentTypesGetWithHttpInfo
+     * Operation listDocumentTypesWithHttpInfo
      *
      * List Document Types
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentTypesApiV1ReferenceDocumentTypesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentTypes'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listDocumentTypesApiV1ReferenceDocumentTypesGetWithHttpInfo(string $contentType = self::contentTypes['listDocumentTypesApiV1ReferenceDocumentTypesGet'][0])
+    public function listDocumentTypesWithHttpInfo(string $contentType = self::contentTypes['listDocumentTypes'][0])
     {
-        $request = $this->listDocumentTypesApiV1ReferenceDocumentTypesGetRequest($contentType);
+        $request = $this->listDocumentTypesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -852,18 +852,18 @@ class ReferenceApi
     }
 
     /**
-     * Operation listDocumentTypesApiV1ReferenceDocumentTypesGetAsync
+     * Operation listDocumentTypesAsync
      *
      * List Document Types
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentTypesApiV1ReferenceDocumentTypesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDocumentTypesApiV1ReferenceDocumentTypesGetAsync(string $contentType = self::contentTypes['listDocumentTypesApiV1ReferenceDocumentTypesGet'][0])
+    public function listDocumentTypesAsync(string $contentType = self::contentTypes['listDocumentTypes'][0])
     {
-        return $this->listDocumentTypesApiV1ReferenceDocumentTypesGetAsyncWithHttpInfo($contentType)
+        return $this->listDocumentTypesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -872,19 +872,19 @@ class ReferenceApi
     }
 
     /**
-     * Operation listDocumentTypesApiV1ReferenceDocumentTypesGetAsyncWithHttpInfo
+     * Operation listDocumentTypesAsyncWithHttpInfo
      *
      * List Document Types
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentTypesApiV1ReferenceDocumentTypesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDocumentTypesApiV1ReferenceDocumentTypesGetAsyncWithHttpInfo(string $contentType = self::contentTypes['listDocumentTypesApiV1ReferenceDocumentTypesGet'][0])
+    public function listDocumentTypesAsyncWithHttpInfo(string $contentType = self::contentTypes['listDocumentTypes'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->listDocumentTypesApiV1ReferenceDocumentTypesGetRequest($contentType);
+        $request = $this->listDocumentTypesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -923,14 +923,14 @@ class ReferenceApi
     }
 
     /**
-     * Create request for operation 'listDocumentTypesApiV1ReferenceDocumentTypesGet'
+     * Create request for operation 'listDocumentTypes'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentTypesApiV1ReferenceDocumentTypesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentTypes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listDocumentTypesApiV1ReferenceDocumentTypesGetRequest(string $contentType = self::contentTypes['listDocumentTypesApiV1ReferenceDocumentTypesGet'][0])
+    public function listDocumentTypesRequest(string $contentType = self::contentTypes['listDocumentTypes'][0])
     {
 
 
@@ -999,36 +999,36 @@ class ReferenceApi
     }
 
     /**
-     * Operation listLocalesApiV1ReferenceLocalesGet
+     * Operation listLocales
      *
      * List Locales
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLocalesApiV1ReferenceLocalesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLocales'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>
      */
-    public function listLocalesApiV1ReferenceLocalesGet(string $contentType = self::contentTypes['listLocalesApiV1ReferenceLocalesGet'][0])
+    public function listLocales(string $contentType = self::contentTypes['listLocales'][0])
     {
-        list($response) = $this->listLocalesApiV1ReferenceLocalesGetWithHttpInfo($contentType);
+        list($response) = $this->listLocalesWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation listLocalesApiV1ReferenceLocalesGetWithHttpInfo
+     * Operation listLocalesWithHttpInfo
      *
      * List Locales
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLocalesApiV1ReferenceLocalesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLocales'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listLocalesApiV1ReferenceLocalesGetWithHttpInfo(string $contentType = self::contentTypes['listLocalesApiV1ReferenceLocalesGet'][0])
+    public function listLocalesWithHttpInfo(string $contentType = self::contentTypes['listLocales'][0])
     {
-        $request = $this->listLocalesApiV1ReferenceLocalesGetRequest($contentType);
+        $request = $this->listLocalesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1139,18 +1139,18 @@ class ReferenceApi
     }
 
     /**
-     * Operation listLocalesApiV1ReferenceLocalesGetAsync
+     * Operation listLocalesAsync
      *
      * List Locales
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLocalesApiV1ReferenceLocalesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLocales'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listLocalesApiV1ReferenceLocalesGetAsync(string $contentType = self::contentTypes['listLocalesApiV1ReferenceLocalesGet'][0])
+    public function listLocalesAsync(string $contentType = self::contentTypes['listLocales'][0])
     {
-        return $this->listLocalesApiV1ReferenceLocalesGetAsyncWithHttpInfo($contentType)
+        return $this->listLocalesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1159,19 +1159,19 @@ class ReferenceApi
     }
 
     /**
-     * Operation listLocalesApiV1ReferenceLocalesGetAsyncWithHttpInfo
+     * Operation listLocalesAsyncWithHttpInfo
      *
      * List Locales
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLocalesApiV1ReferenceLocalesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLocales'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listLocalesApiV1ReferenceLocalesGetAsyncWithHttpInfo(string $contentType = self::contentTypes['listLocalesApiV1ReferenceLocalesGet'][0])
+    public function listLocalesAsyncWithHttpInfo(string $contentType = self::contentTypes['listLocales'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->listLocalesApiV1ReferenceLocalesGetRequest($contentType);
+        $request = $this->listLocalesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1210,14 +1210,14 @@ class ReferenceApi
     }
 
     /**
-     * Create request for operation 'listLocalesApiV1ReferenceLocalesGet'
+     * Create request for operation 'listLocales'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLocalesApiV1ReferenceLocalesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLocales'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listLocalesApiV1ReferenceLocalesGetRequest(string $contentType = self::contentTypes['listLocalesApiV1ReferenceLocalesGet'][0])
+    public function listLocalesRequest(string $contentType = self::contentTypes['listLocales'][0])
     {
 
 
@@ -1286,36 +1286,36 @@ class ReferenceApi
     }
 
     /**
-     * Operation listPageSizesApiV1ReferencePageSizesGet
+     * Operation listPageSizes
      *
      * List Page Sizes
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPageSizesApiV1ReferencePageSizesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPageSizes'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>
      */
-    public function listPageSizesApiV1ReferencePageSizesGet(string $contentType = self::contentTypes['listPageSizesApiV1ReferencePageSizesGet'][0])
+    public function listPageSizes(string $contentType = self::contentTypes['listPageSizes'][0])
     {
-        list($response) = $this->listPageSizesApiV1ReferencePageSizesGetWithHttpInfo($contentType);
+        list($response) = $this->listPageSizesWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation listPageSizesApiV1ReferencePageSizesGetWithHttpInfo
+     * Operation listPageSizesWithHttpInfo
      *
      * List Page Sizes
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPageSizesApiV1ReferencePageSizesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPageSizes'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listPageSizesApiV1ReferencePageSizesGetWithHttpInfo(string $contentType = self::contentTypes['listPageSizesApiV1ReferencePageSizesGet'][0])
+    public function listPageSizesWithHttpInfo(string $contentType = self::contentTypes['listPageSizes'][0])
     {
-        $request = $this->listPageSizesApiV1ReferencePageSizesGetRequest($contentType);
+        $request = $this->listPageSizesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1426,18 +1426,18 @@ class ReferenceApi
     }
 
     /**
-     * Operation listPageSizesApiV1ReferencePageSizesGetAsync
+     * Operation listPageSizesAsync
      *
      * List Page Sizes
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPageSizesApiV1ReferencePageSizesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPageSizes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPageSizesApiV1ReferencePageSizesGetAsync(string $contentType = self::contentTypes['listPageSizesApiV1ReferencePageSizesGet'][0])
+    public function listPageSizesAsync(string $contentType = self::contentTypes['listPageSizes'][0])
     {
-        return $this->listPageSizesApiV1ReferencePageSizesGetAsyncWithHttpInfo($contentType)
+        return $this->listPageSizesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1446,19 +1446,19 @@ class ReferenceApi
     }
 
     /**
-     * Operation listPageSizesApiV1ReferencePageSizesGetAsyncWithHttpInfo
+     * Operation listPageSizesAsyncWithHttpInfo
      *
      * List Page Sizes
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPageSizesApiV1ReferencePageSizesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPageSizes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPageSizesApiV1ReferencePageSizesGetAsyncWithHttpInfo(string $contentType = self::contentTypes['listPageSizesApiV1ReferencePageSizesGet'][0])
+    public function listPageSizesAsyncWithHttpInfo(string $contentType = self::contentTypes['listPageSizes'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->listPageSizesApiV1ReferencePageSizesGetRequest($contentType);
+        $request = $this->listPageSizesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1497,14 +1497,14 @@ class ReferenceApi
     }
 
     /**
-     * Create request for operation 'listPageSizesApiV1ReferencePageSizesGet'
+     * Create request for operation 'listPageSizes'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPageSizesApiV1ReferencePageSizesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPageSizes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listPageSizesApiV1ReferencePageSizesGetRequest(string $contentType = self::contentTypes['listPageSizesApiV1ReferencePageSizesGet'][0])
+    public function listPageSizesRequest(string $contentType = self::contentTypes['listPageSizes'][0])
     {
 
 
@@ -1573,36 +1573,36 @@ class ReferenceApi
     }
 
     /**
-     * Operation listTimezonesApiV1ReferenceTimezonesGet
+     * Operation listTimezones
      *
      * List Timezones
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTimezonesApiV1ReferenceTimezonesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTimezones'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>
      */
-    public function listTimezonesApiV1ReferenceTimezonesGet(string $contentType = self::contentTypes['listTimezonesApiV1ReferenceTimezonesGet'][0])
+    public function listTimezones(string $contentType = self::contentTypes['listTimezones'][0])
     {
-        list($response) = $this->listTimezonesApiV1ReferenceTimezonesGetWithHttpInfo($contentType);
+        list($response) = $this->listTimezonesWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation listTimezonesApiV1ReferenceTimezonesGetWithHttpInfo
+     * Operation listTimezonesWithHttpInfo
      *
      * List Timezones
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTimezonesApiV1ReferenceTimezonesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTimezones'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listTimezonesApiV1ReferenceTimezonesGetWithHttpInfo(string $contentType = self::contentTypes['listTimezonesApiV1ReferenceTimezonesGet'][0])
+    public function listTimezonesWithHttpInfo(string $contentType = self::contentTypes['listTimezones'][0])
     {
-        $request = $this->listTimezonesApiV1ReferenceTimezonesGetRequest($contentType);
+        $request = $this->listTimezonesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1713,18 +1713,18 @@ class ReferenceApi
     }
 
     /**
-     * Operation listTimezonesApiV1ReferenceTimezonesGetAsync
+     * Operation listTimezonesAsync
      *
      * List Timezones
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTimezonesApiV1ReferenceTimezonesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTimezones'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTimezonesApiV1ReferenceTimezonesGetAsync(string $contentType = self::contentTypes['listTimezonesApiV1ReferenceTimezonesGet'][0])
+    public function listTimezonesAsync(string $contentType = self::contentTypes['listTimezones'][0])
     {
-        return $this->listTimezonesApiV1ReferenceTimezonesGetAsyncWithHttpInfo($contentType)
+        return $this->listTimezonesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1733,19 +1733,19 @@ class ReferenceApi
     }
 
     /**
-     * Operation listTimezonesApiV1ReferenceTimezonesGetAsyncWithHttpInfo
+     * Operation listTimezonesAsyncWithHttpInfo
      *
      * List Timezones
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTimezonesApiV1ReferenceTimezonesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTimezones'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTimezonesApiV1ReferenceTimezonesGetAsyncWithHttpInfo(string $contentType = self::contentTypes['listTimezonesApiV1ReferenceTimezonesGet'][0])
+    public function listTimezonesAsyncWithHttpInfo(string $contentType = self::contentTypes['listTimezones'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->listTimezonesApiV1ReferenceTimezonesGetRequest($contentType);
+        $request = $this->listTimezonesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1784,14 +1784,14 @@ class ReferenceApi
     }
 
     /**
-     * Create request for operation 'listTimezonesApiV1ReferenceTimezonesGet'
+     * Create request for operation 'listTimezones'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTimezonesApiV1ReferenceTimezonesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTimezones'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listTimezonesApiV1ReferenceTimezonesGetRequest(string $contentType = self::contentTypes['listTimezonesApiV1ReferenceTimezonesGet'][0])
+    public function listTimezonesRequest(string $contentType = self::contentTypes['listTimezones'][0])
     {
 
 

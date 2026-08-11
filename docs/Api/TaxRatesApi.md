@@ -4,17 +4,17 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createTaxRateApiV1TaxRatesPost()**](TaxRatesApi.md#createTaxRateApiV1TaxRatesPost) | **POST** /api/v1/tax-rates | Create Tax Rate |
-| [**deleteTaxRateApiV1TaxRatesTaxRateIdDelete()**](TaxRatesApi.md#deleteTaxRateApiV1TaxRatesTaxRateIdDelete) | **DELETE** /api/v1/tax-rates/{tax_rate_id} | Delete Tax Rate |
-| [**getTaxRateApiV1TaxRatesTaxRateIdGet()**](TaxRatesApi.md#getTaxRateApiV1TaxRatesTaxRateIdGet) | **GET** /api/v1/tax-rates/{tax_rate_id} | Get Tax Rate |
-| [**listTaxRatesApiV1TaxRatesGet()**](TaxRatesApi.md#listTaxRatesApiV1TaxRatesGet) | **GET** /api/v1/tax-rates | List Tax Rates |
-| [**updateTaxRateApiV1TaxRatesTaxRateIdPatch()**](TaxRatesApi.md#updateTaxRateApiV1TaxRatesTaxRateIdPatch) | **PATCH** /api/v1/tax-rates/{tax_rate_id} | Update Tax Rate |
+| [**createTaxRate()**](TaxRatesApi.md#createTaxRate) | **POST** /api/v1/tax-rates | Create Tax Rate |
+| [**deleteTaxRate()**](TaxRatesApi.md#deleteTaxRate) | **DELETE** /api/v1/tax-rates/{tax_rate_id} | Delete Tax Rate |
+| [**getTaxRate()**](TaxRatesApi.md#getTaxRate) | **GET** /api/v1/tax-rates/{tax_rate_id} | Get Tax Rate |
+| [**listTaxRates()**](TaxRatesApi.md#listTaxRates) | **GET** /api/v1/tax-rates | List Tax Rates |
+| [**updateTaxRate()**](TaxRatesApi.md#updateTaxRate) | **PATCH** /api/v1/tax-rates/{tax_rate_id} | Update Tax Rate |
 
 
-## `createTaxRateApiV1TaxRatesPost()`
+## `createTaxRate()`
 
 ```php
-createTaxRateApiV1TaxRatesPost($tax_rate_create_request): \InvoicePDFs\Model\TaxRateResponse
+createTaxRate($tax_rate_create_request): \InvoicePDFs\Model\TaxRateResponse
 ```
 
 Create Tax Rate
@@ -39,10 +39,10 @@ $apiInstance = new InvoicePDFs\Api\TaxRatesApi(
 $tax_rate_create_request = new \InvoicePDFs\Model\TaxRateCreateRequest(); // \InvoicePDFs\Model\TaxRateCreateRequest
 
 try {
-    $result = $apiInstance->createTaxRateApiV1TaxRatesPost($tax_rate_create_request);
+    $result = $apiInstance->createTaxRate($tax_rate_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaxRatesApi->createTaxRateApiV1TaxRatesPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaxRatesApi->createTaxRate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -69,10 +69,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteTaxRateApiV1TaxRatesTaxRateIdDelete()`
+## `deleteTaxRate()`
 
 ```php
-deleteTaxRateApiV1TaxRatesTaxRateIdDelete($tax_rate_id): \InvoicePDFs\Model\SimpleBoolResponse
+deleteTaxRate($tax_rate_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Tax Rate
@@ -97,10 +97,10 @@ $apiInstance = new InvoicePDFs\Api\TaxRatesApi(
 $tax_rate_id = 'tax_rate_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteTaxRateApiV1TaxRatesTaxRateIdDelete($tax_rate_id);
+    $result = $apiInstance->deleteTaxRate($tax_rate_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaxRatesApi->deleteTaxRateApiV1TaxRatesTaxRateIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaxRatesApi->deleteTaxRate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -127,10 +127,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getTaxRateApiV1TaxRatesTaxRateIdGet()`
+## `getTaxRate()`
 
 ```php
-getTaxRateApiV1TaxRatesTaxRateIdGet($tax_rate_id): \InvoicePDFs\Model\TaxRateResponse
+getTaxRate($tax_rate_id): \InvoicePDFs\Model\TaxRateResponse
 ```
 
 Get Tax Rate
@@ -155,10 +155,10 @@ $apiInstance = new InvoicePDFs\Api\TaxRatesApi(
 $tax_rate_id = 'tax_rate_id_example'; // string
 
 try {
-    $result = $apiInstance->getTaxRateApiV1TaxRatesTaxRateIdGet($tax_rate_id);
+    $result = $apiInstance->getTaxRate($tax_rate_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaxRatesApi->getTaxRateApiV1TaxRatesTaxRateIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaxRatesApi->getTaxRate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -185,10 +185,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listTaxRatesApiV1TaxRatesGet()`
+## `listTaxRates()`
 
 ```php
-listTaxRatesApiV1TaxRatesGet($limit, $cursor): \InvoicePDFs\Model\TaxRatesListResponse
+listTaxRates($limit, $cursor): \InvoicePDFs\Model\TaxRatesListResponse
 ```
 
 List Tax Rates
@@ -214,10 +214,10 @@ $limit = 50; // int
 $cursor = 'cursor_example'; // string
 
 try {
-    $result = $apiInstance->listTaxRatesApiV1TaxRatesGet($limit, $cursor);
+    $result = $apiInstance->listTaxRates($limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaxRatesApi->listTaxRatesApiV1TaxRatesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaxRatesApi->listTaxRates: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -245,10 +245,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateTaxRateApiV1TaxRatesTaxRateIdPatch()`
+## `updateTaxRate()`
 
 ```php
-updateTaxRateApiV1TaxRatesTaxRateIdPatch($tax_rate_id, $tax_rate_patch_request): \InvoicePDFs\Model\TaxRateResponse
+updateTaxRate($tax_rate_id, $tax_rate_patch_request): \InvoicePDFs\Model\TaxRateResponse
 ```
 
 Update Tax Rate
@@ -274,10 +274,10 @@ $tax_rate_id = 'tax_rate_id_example'; // string
 $tax_rate_patch_request = new \InvoicePDFs\Model\TaxRatePatchRequest(); // \InvoicePDFs\Model\TaxRatePatchRequest
 
 try {
-    $result = $apiInstance->updateTaxRateApiV1TaxRatesTaxRateIdPatch($tax_rate_id, $tax_rate_patch_request);
+    $result = $apiInstance->updateTaxRate($tax_rate_id, $tax_rate_patch_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TaxRatesApi->updateTaxRateApiV1TaxRatesTaxRateIdPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TaxRatesApi->updateTaxRate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

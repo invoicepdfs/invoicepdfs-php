@@ -71,22 +71,22 @@ class ApiKeysApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'createApiKeyApiV1ApiKeysPost' => [
+        'createApiKey' => [
             'application/json',
         ],
-        'getApiKeyApiV1ApiKeysApiKeyIdGet' => [
+        'getApiKey' => [
             'application/json',
         ],
-        'listApiKeysApiV1ApiKeysGet' => [
+        'listApiKeys' => [
             'application/json',
         ],
-        'patchApiKeyApiV1ApiKeysApiKeyIdPatch' => [
+        'revokeApiKey' => [
             'application/json',
         ],
-        'revokeApiKeyApiV1ApiKeysApiKeyIdDelete' => [
+        'rotateApiKey' => [
             'application/json',
         ],
-        'rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost' => [
+        'updateApiKey' => [
             'application/json',
         ],
     ];
@@ -138,38 +138,38 @@ class ApiKeysApi
     }
 
     /**
-     * Operation createApiKeyApiV1ApiKeysPost
+     * Operation createApiKey
      *
      * Create Api Key
      *
      * @param  \InvoicePDFs\Model\ApiKeyCreateRequest $api_key_create_request api_key_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createApiKeyApiV1ApiKeysPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createApiKey'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\ApiKeyCreateResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createApiKeyApiV1ApiKeysPost($api_key_create_request, string $contentType = self::contentTypes['createApiKeyApiV1ApiKeysPost'][0])
+    public function createApiKey($api_key_create_request, string $contentType = self::contentTypes['createApiKey'][0])
     {
-        list($response) = $this->createApiKeyApiV1ApiKeysPostWithHttpInfo($api_key_create_request, $contentType);
+        list($response) = $this->createApiKeyWithHttpInfo($api_key_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation createApiKeyApiV1ApiKeysPostWithHttpInfo
+     * Operation createApiKeyWithHttpInfo
      *
      * Create Api Key
      *
      * @param  \InvoicePDFs\Model\ApiKeyCreateRequest $api_key_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createApiKeyApiV1ApiKeysPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createApiKey'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\ApiKeyCreateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createApiKeyApiV1ApiKeysPostWithHttpInfo($api_key_create_request, string $contentType = self::contentTypes['createApiKeyApiV1ApiKeysPost'][0])
+    public function createApiKeyWithHttpInfo($api_key_create_request, string $contentType = self::contentTypes['createApiKey'][0])
     {
-        $request = $this->createApiKeyApiV1ApiKeysPostRequest($api_key_create_request, $contentType);
+        $request = $this->createApiKeyRequest($api_key_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -315,19 +315,19 @@ class ApiKeysApi
     }
 
     /**
-     * Operation createApiKeyApiV1ApiKeysPostAsync
+     * Operation createApiKeyAsync
      *
      * Create Api Key
      *
      * @param  \InvoicePDFs\Model\ApiKeyCreateRequest $api_key_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createApiKeyApiV1ApiKeysPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createApiKeyApiV1ApiKeysPostAsync($api_key_create_request, string $contentType = self::contentTypes['createApiKeyApiV1ApiKeysPost'][0])
+    public function createApiKeyAsync($api_key_create_request, string $contentType = self::contentTypes['createApiKey'][0])
     {
-        return $this->createApiKeyApiV1ApiKeysPostAsyncWithHttpInfo($api_key_create_request, $contentType)
+        return $this->createApiKeyAsyncWithHttpInfo($api_key_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -336,20 +336,20 @@ class ApiKeysApi
     }
 
     /**
-     * Operation createApiKeyApiV1ApiKeysPostAsyncWithHttpInfo
+     * Operation createApiKeyAsyncWithHttpInfo
      *
      * Create Api Key
      *
      * @param  \InvoicePDFs\Model\ApiKeyCreateRequest $api_key_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createApiKeyApiV1ApiKeysPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createApiKeyApiV1ApiKeysPostAsyncWithHttpInfo($api_key_create_request, string $contentType = self::contentTypes['createApiKeyApiV1ApiKeysPost'][0])
+    public function createApiKeyAsyncWithHttpInfo($api_key_create_request, string $contentType = self::contentTypes['createApiKey'][0])
     {
         $returnType = '\InvoicePDFs\Model\ApiKeyCreateResponse';
-        $request = $this->createApiKeyApiV1ApiKeysPostRequest($api_key_create_request, $contentType);
+        $request = $this->createApiKeyRequest($api_key_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -388,21 +388,21 @@ class ApiKeysApi
     }
 
     /**
-     * Create request for operation 'createApiKeyApiV1ApiKeysPost'
+     * Create request for operation 'createApiKey'
      *
      * @param  \InvoicePDFs\Model\ApiKeyCreateRequest $api_key_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createApiKeyApiV1ApiKeysPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createApiKeyApiV1ApiKeysPostRequest($api_key_create_request, string $contentType = self::contentTypes['createApiKeyApiV1ApiKeysPost'][0])
+    public function createApiKeyRequest($api_key_create_request, string $contentType = self::contentTypes['createApiKey'][0])
     {
 
         // verify the required parameter 'api_key_create_request' is set
         if ($api_key_create_request === null || (is_array($api_key_create_request) && count($api_key_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $api_key_create_request when calling createApiKeyApiV1ApiKeysPost'
+                'Missing the required parameter $api_key_create_request when calling createApiKey'
             );
         }
 
@@ -483,38 +483,38 @@ class ApiKeysApi
     }
 
     /**
-     * Operation getApiKeyApiV1ApiKeysApiKeyIdGet
+     * Operation getApiKey
      *
      * Get Api Key
      *
      * @param  string $api_key_id api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKeyApiV1ApiKeysApiKeyIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKey'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getApiKeyApiV1ApiKeysApiKeyIdGet($api_key_id, string $contentType = self::contentTypes['getApiKeyApiV1ApiKeysApiKeyIdGet'][0])
+    public function getApiKey($api_key_id, string $contentType = self::contentTypes['getApiKey'][0])
     {
-        list($response) = $this->getApiKeyApiV1ApiKeysApiKeyIdGetWithHttpInfo($api_key_id, $contentType);
+        list($response) = $this->getApiKeyWithHttpInfo($api_key_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getApiKeyApiV1ApiKeysApiKeyIdGetWithHttpInfo
+     * Operation getApiKeyWithHttpInfo
      *
      * Get Api Key
      *
      * @param  string $api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKeyApiV1ApiKeysApiKeyIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKey'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApiKeyApiV1ApiKeysApiKeyIdGetWithHttpInfo($api_key_id, string $contentType = self::contentTypes['getApiKeyApiV1ApiKeysApiKeyIdGet'][0])
+    public function getApiKeyWithHttpInfo($api_key_id, string $contentType = self::contentTypes['getApiKey'][0])
     {
-        $request = $this->getApiKeyApiV1ApiKeysApiKeyIdGetRequest($api_key_id, $contentType);
+        $request = $this->getApiKeyRequest($api_key_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -660,19 +660,19 @@ class ApiKeysApi
     }
 
     /**
-     * Operation getApiKeyApiV1ApiKeysApiKeyIdGetAsync
+     * Operation getApiKeyAsync
      *
      * Get Api Key
      *
      * @param  string $api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKeyApiV1ApiKeysApiKeyIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApiKeyApiV1ApiKeysApiKeyIdGetAsync($api_key_id, string $contentType = self::contentTypes['getApiKeyApiV1ApiKeysApiKeyIdGet'][0])
+    public function getApiKeyAsync($api_key_id, string $contentType = self::contentTypes['getApiKey'][0])
     {
-        return $this->getApiKeyApiV1ApiKeysApiKeyIdGetAsyncWithHttpInfo($api_key_id, $contentType)
+        return $this->getApiKeyAsyncWithHttpInfo($api_key_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -681,20 +681,20 @@ class ApiKeysApi
     }
 
     /**
-     * Operation getApiKeyApiV1ApiKeysApiKeyIdGetAsyncWithHttpInfo
+     * Operation getApiKeyAsyncWithHttpInfo
      *
      * Get Api Key
      *
      * @param  string $api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKeyApiV1ApiKeysApiKeyIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApiKeyApiV1ApiKeysApiKeyIdGetAsyncWithHttpInfo($api_key_id, string $contentType = self::contentTypes['getApiKeyApiV1ApiKeysApiKeyIdGet'][0])
+    public function getApiKeyAsyncWithHttpInfo($api_key_id, string $contentType = self::contentTypes['getApiKey'][0])
     {
         $returnType = '\InvoicePDFs\Model\ApiKeyDetailResponse';
-        $request = $this->getApiKeyApiV1ApiKeysApiKeyIdGetRequest($api_key_id, $contentType);
+        $request = $this->getApiKeyRequest($api_key_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -733,21 +733,21 @@ class ApiKeysApi
     }
 
     /**
-     * Create request for operation 'getApiKeyApiV1ApiKeysApiKeyIdGet'
+     * Create request for operation 'getApiKey'
      *
      * @param  string $api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKeyApiV1ApiKeysApiKeyIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getApiKeyApiV1ApiKeysApiKeyIdGetRequest($api_key_id, string $contentType = self::contentTypes['getApiKeyApiV1ApiKeysApiKeyIdGet'][0])
+    public function getApiKeyRequest($api_key_id, string $contentType = self::contentTypes['getApiKey'][0])
     {
 
         // verify the required parameter 'api_key_id' is set
         if ($api_key_id === null || (is_array($api_key_id) && count($api_key_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $api_key_id when calling getApiKeyApiV1ApiKeysApiKeyIdGet'
+                'Missing the required parameter $api_key_id when calling getApiKey'
             );
         }
 
@@ -829,36 +829,36 @@ class ApiKeysApi
     }
 
     /**
-     * Operation listApiKeysApiV1ApiKeysGet
+     * Operation listApiKeys
      *
      * List Api Keys
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listApiKeysApiV1ApiKeysGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listApiKeys'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\ApiKeyListResponse
      */
-    public function listApiKeysApiV1ApiKeysGet(string $contentType = self::contentTypes['listApiKeysApiV1ApiKeysGet'][0])
+    public function listApiKeys(string $contentType = self::contentTypes['listApiKeys'][0])
     {
-        list($response) = $this->listApiKeysApiV1ApiKeysGetWithHttpInfo($contentType);
+        list($response) = $this->listApiKeysWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation listApiKeysApiV1ApiKeysGetWithHttpInfo
+     * Operation listApiKeysWithHttpInfo
      *
      * List Api Keys
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listApiKeysApiV1ApiKeysGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listApiKeys'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\ApiKeyListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listApiKeysApiV1ApiKeysGetWithHttpInfo(string $contentType = self::contentTypes['listApiKeysApiV1ApiKeysGet'][0])
+    public function listApiKeysWithHttpInfo(string $contentType = self::contentTypes['listApiKeys'][0])
     {
-        $request = $this->listApiKeysApiV1ApiKeysGetRequest($contentType);
+        $request = $this->listApiKeysRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -969,18 +969,18 @@ class ApiKeysApi
     }
 
     /**
-     * Operation listApiKeysApiV1ApiKeysGetAsync
+     * Operation listApiKeysAsync
      *
      * List Api Keys
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listApiKeysApiV1ApiKeysGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listApiKeys'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listApiKeysApiV1ApiKeysGetAsync(string $contentType = self::contentTypes['listApiKeysApiV1ApiKeysGet'][0])
+    public function listApiKeysAsync(string $contentType = self::contentTypes['listApiKeys'][0])
     {
-        return $this->listApiKeysApiV1ApiKeysGetAsyncWithHttpInfo($contentType)
+        return $this->listApiKeysAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -989,19 +989,19 @@ class ApiKeysApi
     }
 
     /**
-     * Operation listApiKeysApiV1ApiKeysGetAsyncWithHttpInfo
+     * Operation listApiKeysAsyncWithHttpInfo
      *
      * List Api Keys
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listApiKeysApiV1ApiKeysGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listApiKeys'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listApiKeysApiV1ApiKeysGetAsyncWithHttpInfo(string $contentType = self::contentTypes['listApiKeysApiV1ApiKeysGet'][0])
+    public function listApiKeysAsyncWithHttpInfo(string $contentType = self::contentTypes['listApiKeys'][0])
     {
         $returnType = '\InvoicePDFs\Model\ApiKeyListResponse';
-        $request = $this->listApiKeysApiV1ApiKeysGetRequest($contentType);
+        $request = $this->listApiKeysRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1040,14 +1040,14 @@ class ApiKeysApi
     }
 
     /**
-     * Create request for operation 'listApiKeysApiV1ApiKeysGet'
+     * Create request for operation 'listApiKeys'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listApiKeysApiV1ApiKeysGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listApiKeys'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listApiKeysApiV1ApiKeysGetRequest(string $contentType = self::contentTypes['listApiKeysApiV1ApiKeysGet'][0])
+    public function listApiKeysRequest(string $contentType = self::contentTypes['listApiKeys'][0])
     {
 
 
@@ -1120,403 +1120,38 @@ class ApiKeysApi
     }
 
     /**
-     * Operation patchApiKeyApiV1ApiKeysApiKeyIdPatch
-     *
-     * Patch Api Key
-     *
-     * @param  string $api_key_id api_key_id (required)
-     * @param  \InvoicePDFs\Model\ApiKeyPatchRequest $api_key_patch_request api_key_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchApiKeyApiV1ApiKeysApiKeyIdPatch'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\ApiErrorResponse
-     */
-    public function patchApiKeyApiV1ApiKeysApiKeyIdPatch($api_key_id, $api_key_patch_request, string $contentType = self::contentTypes['patchApiKeyApiV1ApiKeysApiKeyIdPatch'][0])
-    {
-        list($response) = $this->patchApiKeyApiV1ApiKeysApiKeyIdPatchWithHttpInfo($api_key_id, $api_key_patch_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation patchApiKeyApiV1ApiKeysApiKeyIdPatchWithHttpInfo
-     *
-     * Patch Api Key
-     *
-     * @param  string $api_key_id (required)
-     * @param  \InvoicePDFs\Model\ApiKeyPatchRequest $api_key_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchApiKeyApiV1ApiKeysApiKeyIdPatch'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function patchApiKeyApiV1ApiKeysApiKeyIdPatchWithHttpInfo($api_key_id, $api_key_patch_request, string $contentType = self::contentTypes['patchApiKeyApiV1ApiKeysApiKeyIdPatch'][0])
-    {
-        $request = $this->patchApiKeyApiV1ApiKeysApiKeyIdPatchRequest($api_key_id, $api_key_patch_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\InvoicePDFs\Model\ApiKeyDetailResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\ApiKeyDetailResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiKeyDetailResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\InvoicePDFs\Model\ApiKeyDetailResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\ApiKeyDetailResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation patchApiKeyApiV1ApiKeysApiKeyIdPatchAsync
-     *
-     * Patch Api Key
-     *
-     * @param  string $api_key_id (required)
-     * @param  \InvoicePDFs\Model\ApiKeyPatchRequest $api_key_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchApiKeyApiV1ApiKeysApiKeyIdPatch'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function patchApiKeyApiV1ApiKeysApiKeyIdPatchAsync($api_key_id, $api_key_patch_request, string $contentType = self::contentTypes['patchApiKeyApiV1ApiKeysApiKeyIdPatch'][0])
-    {
-        return $this->patchApiKeyApiV1ApiKeysApiKeyIdPatchAsyncWithHttpInfo($api_key_id, $api_key_patch_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation patchApiKeyApiV1ApiKeysApiKeyIdPatchAsyncWithHttpInfo
-     *
-     * Patch Api Key
-     *
-     * @param  string $api_key_id (required)
-     * @param  \InvoicePDFs\Model\ApiKeyPatchRequest $api_key_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchApiKeyApiV1ApiKeysApiKeyIdPatch'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function patchApiKeyApiV1ApiKeysApiKeyIdPatchAsyncWithHttpInfo($api_key_id, $api_key_patch_request, string $contentType = self::contentTypes['patchApiKeyApiV1ApiKeysApiKeyIdPatch'][0])
-    {
-        $returnType = '\InvoicePDFs\Model\ApiKeyDetailResponse';
-        $request = $this->patchApiKeyApiV1ApiKeysApiKeyIdPatchRequest($api_key_id, $api_key_patch_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'patchApiKeyApiV1ApiKeysApiKeyIdPatch'
-     *
-     * @param  string $api_key_id (required)
-     * @param  \InvoicePDFs\Model\ApiKeyPatchRequest $api_key_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchApiKeyApiV1ApiKeysApiKeyIdPatch'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function patchApiKeyApiV1ApiKeysApiKeyIdPatchRequest($api_key_id, $api_key_patch_request, string $contentType = self::contentTypes['patchApiKeyApiV1ApiKeysApiKeyIdPatch'][0])
-    {
-
-        // verify the required parameter 'api_key_id' is set
-        if ($api_key_id === null || (is_array($api_key_id) && count($api_key_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_key_id when calling patchApiKeyApiV1ApiKeysApiKeyIdPatch'
-            );
-        }
-
-        // verify the required parameter 'api_key_patch_request' is set
-        if ($api_key_patch_request === null || (is_array($api_key_patch_request) && count($api_key_patch_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_key_patch_request when calling patchApiKeyApiV1ApiKeysApiKeyIdPatch'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/api-keys/{api_key_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($api_key_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'api_key_id' . '}',
-                ObjectSerializer::toPathValue($api_key_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($api_key_patch_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_key_patch_request));
-            } else {
-                $httpBody = $api_key_patch_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PATCH',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation revokeApiKeyApiV1ApiKeysApiKeyIdDelete
+     * Operation revokeApiKey
      *
      * Revoke Api Key
      *
      * @param  string $api_key_id api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeApiKeyApiV1ApiKeysApiKeyIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeApiKey'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\ApiKeyRevokeResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function revokeApiKeyApiV1ApiKeysApiKeyIdDelete($api_key_id, string $contentType = self::contentTypes['revokeApiKeyApiV1ApiKeysApiKeyIdDelete'][0])
+    public function revokeApiKey($api_key_id, string $contentType = self::contentTypes['revokeApiKey'][0])
     {
-        list($response) = $this->revokeApiKeyApiV1ApiKeysApiKeyIdDeleteWithHttpInfo($api_key_id, $contentType);
+        list($response) = $this->revokeApiKeyWithHttpInfo($api_key_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation revokeApiKeyApiV1ApiKeysApiKeyIdDeleteWithHttpInfo
+     * Operation revokeApiKeyWithHttpInfo
      *
      * Revoke Api Key
      *
      * @param  string $api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeApiKeyApiV1ApiKeysApiKeyIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeApiKey'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\ApiKeyRevokeResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function revokeApiKeyApiV1ApiKeysApiKeyIdDeleteWithHttpInfo($api_key_id, string $contentType = self::contentTypes['revokeApiKeyApiV1ApiKeysApiKeyIdDelete'][0])
+    public function revokeApiKeyWithHttpInfo($api_key_id, string $contentType = self::contentTypes['revokeApiKey'][0])
     {
-        $request = $this->revokeApiKeyApiV1ApiKeysApiKeyIdDeleteRequest($api_key_id, $contentType);
+        $request = $this->revokeApiKeyRequest($api_key_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1662,19 +1297,19 @@ class ApiKeysApi
     }
 
     /**
-     * Operation revokeApiKeyApiV1ApiKeysApiKeyIdDeleteAsync
+     * Operation revokeApiKeyAsync
      *
      * Revoke Api Key
      *
      * @param  string $api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeApiKeyApiV1ApiKeysApiKeyIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function revokeApiKeyApiV1ApiKeysApiKeyIdDeleteAsync($api_key_id, string $contentType = self::contentTypes['revokeApiKeyApiV1ApiKeysApiKeyIdDelete'][0])
+    public function revokeApiKeyAsync($api_key_id, string $contentType = self::contentTypes['revokeApiKey'][0])
     {
-        return $this->revokeApiKeyApiV1ApiKeysApiKeyIdDeleteAsyncWithHttpInfo($api_key_id, $contentType)
+        return $this->revokeApiKeyAsyncWithHttpInfo($api_key_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1683,20 +1318,20 @@ class ApiKeysApi
     }
 
     /**
-     * Operation revokeApiKeyApiV1ApiKeysApiKeyIdDeleteAsyncWithHttpInfo
+     * Operation revokeApiKeyAsyncWithHttpInfo
      *
      * Revoke Api Key
      *
      * @param  string $api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeApiKeyApiV1ApiKeysApiKeyIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function revokeApiKeyApiV1ApiKeysApiKeyIdDeleteAsyncWithHttpInfo($api_key_id, string $contentType = self::contentTypes['revokeApiKeyApiV1ApiKeysApiKeyIdDelete'][0])
+    public function revokeApiKeyAsyncWithHttpInfo($api_key_id, string $contentType = self::contentTypes['revokeApiKey'][0])
     {
         $returnType = '\InvoicePDFs\Model\ApiKeyRevokeResponse';
-        $request = $this->revokeApiKeyApiV1ApiKeysApiKeyIdDeleteRequest($api_key_id, $contentType);
+        $request = $this->revokeApiKeyRequest($api_key_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1735,21 +1370,21 @@ class ApiKeysApi
     }
 
     /**
-     * Create request for operation 'revokeApiKeyApiV1ApiKeysApiKeyIdDelete'
+     * Create request for operation 'revokeApiKey'
      *
      * @param  string $api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeApiKeyApiV1ApiKeysApiKeyIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['revokeApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function revokeApiKeyApiV1ApiKeysApiKeyIdDeleteRequest($api_key_id, string $contentType = self::contentTypes['revokeApiKeyApiV1ApiKeysApiKeyIdDelete'][0])
+    public function revokeApiKeyRequest($api_key_id, string $contentType = self::contentTypes['revokeApiKey'][0])
     {
 
         // verify the required parameter 'api_key_id' is set
         if ($api_key_id === null || (is_array($api_key_id) && count($api_key_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $api_key_id when calling revokeApiKeyApiV1ApiKeysApiKeyIdDelete'
+                'Missing the required parameter $api_key_id when calling revokeApiKey'
             );
         }
 
@@ -1831,38 +1466,38 @@ class ApiKeysApi
     }
 
     /**
-     * Operation rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost
+     * Operation rotateApiKey
      *
      * Rotate Api Key
      *
      * @param  string $api_key_id api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateApiKey'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\ApiKeyRotateResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost($api_key_id, string $contentType = self::contentTypes['rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'][0])
+    public function rotateApiKey($api_key_id, string $contentType = self::contentTypes['rotateApiKey'][0])
     {
-        list($response) = $this->rotateApiKeyApiV1ApiKeysApiKeyIdRotatePostWithHttpInfo($api_key_id, $contentType);
+        list($response) = $this->rotateApiKeyWithHttpInfo($api_key_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation rotateApiKeyApiV1ApiKeysApiKeyIdRotatePostWithHttpInfo
+     * Operation rotateApiKeyWithHttpInfo
      *
      * Rotate Api Key
      *
      * @param  string $api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateApiKey'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\ApiKeyRotateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function rotateApiKeyApiV1ApiKeysApiKeyIdRotatePostWithHttpInfo($api_key_id, string $contentType = self::contentTypes['rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'][0])
+    public function rotateApiKeyWithHttpInfo($api_key_id, string $contentType = self::contentTypes['rotateApiKey'][0])
     {
-        $request = $this->rotateApiKeyApiV1ApiKeysApiKeyIdRotatePostRequest($api_key_id, $contentType);
+        $request = $this->rotateApiKeyRequest($api_key_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2008,19 +1643,19 @@ class ApiKeysApi
     }
 
     /**
-     * Operation rotateApiKeyApiV1ApiKeysApiKeyIdRotatePostAsync
+     * Operation rotateApiKeyAsync
      *
      * Rotate Api Key
      *
      * @param  string $api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rotateApiKeyApiV1ApiKeysApiKeyIdRotatePostAsync($api_key_id, string $contentType = self::contentTypes['rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'][0])
+    public function rotateApiKeyAsync($api_key_id, string $contentType = self::contentTypes['rotateApiKey'][0])
     {
-        return $this->rotateApiKeyApiV1ApiKeysApiKeyIdRotatePostAsyncWithHttpInfo($api_key_id, $contentType)
+        return $this->rotateApiKeyAsyncWithHttpInfo($api_key_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2029,20 +1664,20 @@ class ApiKeysApi
     }
 
     /**
-     * Operation rotateApiKeyApiV1ApiKeysApiKeyIdRotatePostAsyncWithHttpInfo
+     * Operation rotateApiKeyAsyncWithHttpInfo
      *
      * Rotate Api Key
      *
      * @param  string $api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rotateApiKeyApiV1ApiKeysApiKeyIdRotatePostAsyncWithHttpInfo($api_key_id, string $contentType = self::contentTypes['rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'][0])
+    public function rotateApiKeyAsyncWithHttpInfo($api_key_id, string $contentType = self::contentTypes['rotateApiKey'][0])
     {
         $returnType = '\InvoicePDFs\Model\ApiKeyRotateResponse';
-        $request = $this->rotateApiKeyApiV1ApiKeysApiKeyIdRotatePostRequest($api_key_id, $contentType);
+        $request = $this->rotateApiKeyRequest($api_key_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2081,21 +1716,21 @@ class ApiKeysApi
     }
 
     /**
-     * Create request for operation 'rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'
+     * Create request for operation 'rotateApiKey'
      *
      * @param  string $api_key_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateApiKey'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function rotateApiKeyApiV1ApiKeysApiKeyIdRotatePostRequest($api_key_id, string $contentType = self::contentTypes['rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'][0])
+    public function rotateApiKeyRequest($api_key_id, string $contentType = self::contentTypes['rotateApiKey'][0])
     {
 
         // verify the required parameter 'api_key_id' is set
         if ($api_key_id === null || (is_array($api_key_id) && count($api_key_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $api_key_id when calling rotateApiKeyApiV1ApiKeysApiKeyIdRotatePost'
+                'Missing the required parameter $api_key_id when calling rotateApiKey'
             );
         }
 
@@ -2170,6 +1805,371 @@ class ApiKeysApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateApiKey
+     *
+     * Update Api Key
+     *
+     * @param  string $api_key_id api_key_id (required)
+     * @param  \InvoicePDFs\Model\ApiKeyPatchRequest $api_key_patch_request api_key_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateApiKey'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\ApiErrorResponse
+     */
+    public function updateApiKey($api_key_id, $api_key_patch_request, string $contentType = self::contentTypes['updateApiKey'][0])
+    {
+        list($response) = $this->updateApiKeyWithHttpInfo($api_key_id, $api_key_patch_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateApiKeyWithHttpInfo
+     *
+     * Update Api Key
+     *
+     * @param  string $api_key_id (required)
+     * @param  \InvoicePDFs\Model\ApiKeyPatchRequest $api_key_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateApiKey'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\ApiKeyDetailResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateApiKeyWithHttpInfo($api_key_id, $api_key_patch_request, string $contentType = self::contentTypes['updateApiKey'][0])
+    {
+        $request = $this->updateApiKeyRequest($api_key_id, $api_key_patch_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\ApiKeyDetailResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\ApiKeyDetailResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiKeyDetailResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\ApiKeyDetailResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\ApiKeyDetailResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateApiKeyAsync
+     *
+     * Update Api Key
+     *
+     * @param  string $api_key_id (required)
+     * @param  \InvoicePDFs\Model\ApiKeyPatchRequest $api_key_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateApiKey'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateApiKeyAsync($api_key_id, $api_key_patch_request, string $contentType = self::contentTypes['updateApiKey'][0])
+    {
+        return $this->updateApiKeyAsyncWithHttpInfo($api_key_id, $api_key_patch_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateApiKeyAsyncWithHttpInfo
+     *
+     * Update Api Key
+     *
+     * @param  string $api_key_id (required)
+     * @param  \InvoicePDFs\Model\ApiKeyPatchRequest $api_key_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateApiKey'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateApiKeyAsyncWithHttpInfo($api_key_id, $api_key_patch_request, string $contentType = self::contentTypes['updateApiKey'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\ApiKeyDetailResponse';
+        $request = $this->updateApiKeyRequest($api_key_id, $api_key_patch_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateApiKey'
+     *
+     * @param  string $api_key_id (required)
+     * @param  \InvoicePDFs\Model\ApiKeyPatchRequest $api_key_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateApiKey'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateApiKeyRequest($api_key_id, $api_key_patch_request, string $contentType = self::contentTypes['updateApiKey'][0])
+    {
+
+        // verify the required parameter 'api_key_id' is set
+        if ($api_key_id === null || (is_array($api_key_id) && count($api_key_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_key_id when calling updateApiKey'
+            );
+        }
+
+        // verify the required parameter 'api_key_patch_request' is set
+        if ($api_key_patch_request === null || (is_array($api_key_patch_request) && count($api_key_patch_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_key_patch_request when calling updateApiKey'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/api-keys/{api_key_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($api_key_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'api_key_id' . '}',
+                ObjectSerializer::toPathValue($api_key_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($api_key_patch_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($api_key_patch_request));
+            } else {
+                $httpBody = $api_key_patch_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

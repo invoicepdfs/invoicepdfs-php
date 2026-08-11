@@ -71,7 +71,7 @@ class StatsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'getStatsApiV1StatsGet' => [
+        'getStats' => [
             'application/json',
         ],
     ];
@@ -123,36 +123,36 @@ class StatsApi
     }
 
     /**
-     * Operation getStatsApiV1StatsGet
+     * Operation getStats
      *
      * Get Stats
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatsApiV1StatsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStats'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\StatsResponse
      */
-    public function getStatsApiV1StatsGet(string $contentType = self::contentTypes['getStatsApiV1StatsGet'][0])
+    public function getStats(string $contentType = self::contentTypes['getStats'][0])
     {
-        list($response) = $this->getStatsApiV1StatsGetWithHttpInfo($contentType);
+        list($response) = $this->getStatsWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation getStatsApiV1StatsGetWithHttpInfo
+     * Operation getStatsWithHttpInfo
      *
      * Get Stats
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatsApiV1StatsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStats'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\StatsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStatsApiV1StatsGetWithHttpInfo(string $contentType = self::contentTypes['getStatsApiV1StatsGet'][0])
+    public function getStatsWithHttpInfo(string $contentType = self::contentTypes['getStats'][0])
     {
-        $request = $this->getStatsApiV1StatsGetRequest($contentType);
+        $request = $this->getStatsRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -263,18 +263,18 @@ class StatsApi
     }
 
     /**
-     * Operation getStatsApiV1StatsGetAsync
+     * Operation getStatsAsync
      *
      * Get Stats
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatsApiV1StatsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatsApiV1StatsGetAsync(string $contentType = self::contentTypes['getStatsApiV1StatsGet'][0])
+    public function getStatsAsync(string $contentType = self::contentTypes['getStats'][0])
     {
-        return $this->getStatsApiV1StatsGetAsyncWithHttpInfo($contentType)
+        return $this->getStatsAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -283,19 +283,19 @@ class StatsApi
     }
 
     /**
-     * Operation getStatsApiV1StatsGetAsyncWithHttpInfo
+     * Operation getStatsAsyncWithHttpInfo
      *
      * Get Stats
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatsApiV1StatsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatsApiV1StatsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['getStatsApiV1StatsGet'][0])
+    public function getStatsAsyncWithHttpInfo(string $contentType = self::contentTypes['getStats'][0])
     {
         $returnType = '\InvoicePDFs\Model\StatsResponse';
-        $request = $this->getStatsApiV1StatsGetRequest($contentType);
+        $request = $this->getStatsRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -334,14 +334,14 @@ class StatsApi
     }
 
     /**
-     * Create request for operation 'getStatsApiV1StatsGet'
+     * Create request for operation 'getStats'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStatsApiV1StatsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStatsApiV1StatsGetRequest(string $contentType = self::contentTypes['getStatsApiV1StatsGet'][0])
+    public function getStatsRequest(string $contentType = self::contentTypes['getStats'][0])
     {
 
 

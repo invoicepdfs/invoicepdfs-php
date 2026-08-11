@@ -71,7 +71,7 @@ class LogsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'listLogsApiV1LogsGet' => [
+        'listLogs' => [
             'application/json',
         ],
     ];
@@ -123,40 +123,40 @@ class LogsApi
     }
 
     /**
-     * Operation listLogsApiV1LogsGet
+     * Operation listLogs
      *
      * List Logs
      *
      * @param  string $status status (optional, default to '')
      * @param  int $limit limit (optional, default to 100)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLogsApiV1LogsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLogs'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\ApiRequestLogsListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listLogsApiV1LogsGet($status = '', $limit = 100, string $contentType = self::contentTypes['listLogsApiV1LogsGet'][0])
+    public function listLogs($status = '', $limit = 100, string $contentType = self::contentTypes['listLogs'][0])
     {
-        list($response) = $this->listLogsApiV1LogsGetWithHttpInfo($status, $limit, $contentType);
+        list($response) = $this->listLogsWithHttpInfo($status, $limit, $contentType);
         return $response;
     }
 
     /**
-     * Operation listLogsApiV1LogsGetWithHttpInfo
+     * Operation listLogsWithHttpInfo
      *
      * List Logs
      *
      * @param  string $status (optional, default to '')
      * @param  int $limit (optional, default to 100)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLogsApiV1LogsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLogs'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\ApiRequestLogsListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listLogsApiV1LogsGetWithHttpInfo($status = '', $limit = 100, string $contentType = self::contentTypes['listLogsApiV1LogsGet'][0])
+    public function listLogsWithHttpInfo($status = '', $limit = 100, string $contentType = self::contentTypes['listLogs'][0])
     {
-        $request = $this->listLogsApiV1LogsGetRequest($status, $limit, $contentType);
+        $request = $this->listLogsRequest($status, $limit, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -302,20 +302,20 @@ class LogsApi
     }
 
     /**
-     * Operation listLogsApiV1LogsGetAsync
+     * Operation listLogsAsync
      *
      * List Logs
      *
      * @param  string $status (optional, default to '')
      * @param  int $limit (optional, default to 100)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLogsApiV1LogsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLogs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listLogsApiV1LogsGetAsync($status = '', $limit = 100, string $contentType = self::contentTypes['listLogsApiV1LogsGet'][0])
+    public function listLogsAsync($status = '', $limit = 100, string $contentType = self::contentTypes['listLogs'][0])
     {
-        return $this->listLogsApiV1LogsGetAsyncWithHttpInfo($status, $limit, $contentType)
+        return $this->listLogsAsyncWithHttpInfo($status, $limit, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -324,21 +324,21 @@ class LogsApi
     }
 
     /**
-     * Operation listLogsApiV1LogsGetAsyncWithHttpInfo
+     * Operation listLogsAsyncWithHttpInfo
      *
      * List Logs
      *
      * @param  string $status (optional, default to '')
      * @param  int $limit (optional, default to 100)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLogsApiV1LogsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLogs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listLogsApiV1LogsGetAsyncWithHttpInfo($status = '', $limit = 100, string $contentType = self::contentTypes['listLogsApiV1LogsGet'][0])
+    public function listLogsAsyncWithHttpInfo($status = '', $limit = 100, string $contentType = self::contentTypes['listLogs'][0])
     {
         $returnType = '\InvoicePDFs\Model\ApiRequestLogsListResponse';
-        $request = $this->listLogsApiV1LogsGetRequest($status, $limit, $contentType);
+        $request = $this->listLogsRequest($status, $limit, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -377,27 +377,27 @@ class LogsApi
     }
 
     /**
-     * Create request for operation 'listLogsApiV1LogsGet'
+     * Create request for operation 'listLogs'
      *
      * @param  string $status (optional, default to '')
      * @param  int $limit (optional, default to 100)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLogsApiV1LogsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listLogs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listLogsApiV1LogsGetRequest($status = '', $limit = 100, string $contentType = self::contentTypes['listLogsApiV1LogsGet'][0])
+    public function listLogsRequest($status = '', $limit = 100, string $contentType = self::contentTypes['listLogs'][0])
     {
 
         if ($status !== null && !preg_match("/^(success|error)?$/", $status)) {
-            throw new \InvalidArgumentException("invalid value for \"status\" when calling LogsApi.listLogsApiV1LogsGet, must conform to the pattern /^(success|error)?$/.");
+            throw new \InvalidArgumentException("invalid value for \"status\" when calling LogsApi.listLogs, must conform to the pattern /^(success|error)?$/.");
         }
         
         if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling LogsApi.listLogsApiV1LogsGet, must be smaller than or equal to 1000.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling LogsApi.listLogs, must be smaller than or equal to 1000.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling LogsApi.listLogsApiV1LogsGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling LogsApi.listLogs, must be bigger than or equal to 1.');
         }
         
 

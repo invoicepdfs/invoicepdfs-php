@@ -71,28 +71,28 @@ class BrandingProfilesApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'createProfileApiV1BrandingProfilesPost' => [
+        'createBrandingProfile' => [
             'application/json',
         ],
-        'deleteLogoApiV1BrandingProfilesProfileIdLogoDelete' => [
+        'deleteBrandingLogo' => [
             'application/json',
         ],
-        'deleteProfileApiV1BrandingProfilesProfileIdDelete' => [
+        'deleteBrandingProfile' => [
             'application/json',
         ],
-        'getProfileApiV1BrandingProfilesProfileIdGet' => [
+        'getBrandingProfile' => [
             'application/json',
         ],
-        'listProfilesApiV1BrandingProfilesGet' => [
+        'listBrandingProfiles' => [
             'application/json',
         ],
-        'setDefaultApiV1BrandingProfilesProfileIdDefaultPost' => [
+        'setDefaultBrandingProfile' => [
             'application/json',
         ],
-        'updateProfileApiV1BrandingProfilesProfileIdPatch' => [
+        'updateBrandingProfile' => [
             'application/json',
         ],
-        'uploadLogoApiV1BrandingProfilesProfileIdLogoPost' => [
+        'uploadBrandingLogo' => [
             'multipart/form-data',
         ],
     ];
@@ -144,38 +144,38 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation createProfileApiV1BrandingProfilesPost
+     * Operation createBrandingProfile
      *
-     * Create Profile
+     * Create Branding Profile
      *
      * @param  \InvoicePDFs\Model\BrandingProfileCreateRequest $branding_profile_create_request branding_profile_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileApiV1BrandingProfilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BrandingProfileResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createProfileApiV1BrandingProfilesPost($branding_profile_create_request, string $contentType = self::contentTypes['createProfileApiV1BrandingProfilesPost'][0])
+    public function createBrandingProfile($branding_profile_create_request, string $contentType = self::contentTypes['createBrandingProfile'][0])
     {
-        list($response) = $this->createProfileApiV1BrandingProfilesPostWithHttpInfo($branding_profile_create_request, $contentType);
+        list($response) = $this->createBrandingProfileWithHttpInfo($branding_profile_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation createProfileApiV1BrandingProfilesPostWithHttpInfo
+     * Operation createBrandingProfileWithHttpInfo
      *
-     * Create Profile
+     * Create Branding Profile
      *
      * @param  \InvoicePDFs\Model\BrandingProfileCreateRequest $branding_profile_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileApiV1BrandingProfilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BrandingProfileResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createProfileApiV1BrandingProfilesPostWithHttpInfo($branding_profile_create_request, string $contentType = self::contentTypes['createProfileApiV1BrandingProfilesPost'][0])
+    public function createBrandingProfileWithHttpInfo($branding_profile_create_request, string $contentType = self::contentTypes['createBrandingProfile'][0])
     {
-        $request = $this->createProfileApiV1BrandingProfilesPostRequest($branding_profile_create_request, $contentType);
+        $request = $this->createBrandingProfileRequest($branding_profile_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -321,19 +321,19 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation createProfileApiV1BrandingProfilesPostAsync
+     * Operation createBrandingProfileAsync
      *
-     * Create Profile
+     * Create Branding Profile
      *
      * @param  \InvoicePDFs\Model\BrandingProfileCreateRequest $branding_profile_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileApiV1BrandingProfilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProfileApiV1BrandingProfilesPostAsync($branding_profile_create_request, string $contentType = self::contentTypes['createProfileApiV1BrandingProfilesPost'][0])
+    public function createBrandingProfileAsync($branding_profile_create_request, string $contentType = self::contentTypes['createBrandingProfile'][0])
     {
-        return $this->createProfileApiV1BrandingProfilesPostAsyncWithHttpInfo($branding_profile_create_request, $contentType)
+        return $this->createBrandingProfileAsyncWithHttpInfo($branding_profile_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -342,20 +342,20 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation createProfileApiV1BrandingProfilesPostAsyncWithHttpInfo
+     * Operation createBrandingProfileAsyncWithHttpInfo
      *
-     * Create Profile
+     * Create Branding Profile
      *
      * @param  \InvoicePDFs\Model\BrandingProfileCreateRequest $branding_profile_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileApiV1BrandingProfilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProfileApiV1BrandingProfilesPostAsyncWithHttpInfo($branding_profile_create_request, string $contentType = self::contentTypes['createProfileApiV1BrandingProfilesPost'][0])
+    public function createBrandingProfileAsyncWithHttpInfo($branding_profile_create_request, string $contentType = self::contentTypes['createBrandingProfile'][0])
     {
         $returnType = '\InvoicePDFs\Model\BrandingProfileResponse';
-        $request = $this->createProfileApiV1BrandingProfilesPostRequest($branding_profile_create_request, $contentType);
+        $request = $this->createBrandingProfileRequest($branding_profile_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -394,21 +394,21 @@ class BrandingProfilesApi
     }
 
     /**
-     * Create request for operation 'createProfileApiV1BrandingProfilesPost'
+     * Create request for operation 'createBrandingProfile'
      *
      * @param  \InvoicePDFs\Model\BrandingProfileCreateRequest $branding_profile_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createProfileApiV1BrandingProfilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createProfileApiV1BrandingProfilesPostRequest($branding_profile_create_request, string $contentType = self::contentTypes['createProfileApiV1BrandingProfilesPost'][0])
+    public function createBrandingProfileRequest($branding_profile_create_request, string $contentType = self::contentTypes['createBrandingProfile'][0])
     {
 
         // verify the required parameter 'branding_profile_create_request' is set
         if ($branding_profile_create_request === null || (is_array($branding_profile_create_request) && count($branding_profile_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $branding_profile_create_request when calling createProfileApiV1BrandingProfilesPost'
+                'Missing the required parameter $branding_profile_create_request when calling createBrandingProfile'
             );
         }
 
@@ -489,38 +489,38 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation deleteLogoApiV1BrandingProfilesProfileIdLogoDelete
+     * Operation deleteBrandingLogo
      *
-     * Delete Logo
+     * Delete Branding Logo
      *
      * @param  string $profile_id profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLogoApiV1BrandingProfilesProfileIdLogoDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBrandingLogo'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function deleteLogoApiV1BrandingProfilesProfileIdLogoDelete($profile_id, string $contentType = self::contentTypes['deleteLogoApiV1BrandingProfilesProfileIdLogoDelete'][0])
+    public function deleteBrandingLogo($profile_id, string $contentType = self::contentTypes['deleteBrandingLogo'][0])
     {
-        list($response) = $this->deleteLogoApiV1BrandingProfilesProfileIdLogoDeleteWithHttpInfo($profile_id, $contentType);
+        list($response) = $this->deleteBrandingLogoWithHttpInfo($profile_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteLogoApiV1BrandingProfilesProfileIdLogoDeleteWithHttpInfo
+     * Operation deleteBrandingLogoWithHttpInfo
      *
-     * Delete Logo
+     * Delete Branding Logo
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLogoApiV1BrandingProfilesProfileIdLogoDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBrandingLogo'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteLogoApiV1BrandingProfilesProfileIdLogoDeleteWithHttpInfo($profile_id, string $contentType = self::contentTypes['deleteLogoApiV1BrandingProfilesProfileIdLogoDelete'][0])
+    public function deleteBrandingLogoWithHttpInfo($profile_id, string $contentType = self::contentTypes['deleteBrandingLogo'][0])
     {
-        $request = $this->deleteLogoApiV1BrandingProfilesProfileIdLogoDeleteRequest($profile_id, $contentType);
+        $request = $this->deleteBrandingLogoRequest($profile_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -666,19 +666,19 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation deleteLogoApiV1BrandingProfilesProfileIdLogoDeleteAsync
+     * Operation deleteBrandingLogoAsync
      *
-     * Delete Logo
+     * Delete Branding Logo
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLogoApiV1BrandingProfilesProfileIdLogoDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBrandingLogo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteLogoApiV1BrandingProfilesProfileIdLogoDeleteAsync($profile_id, string $contentType = self::contentTypes['deleteLogoApiV1BrandingProfilesProfileIdLogoDelete'][0])
+    public function deleteBrandingLogoAsync($profile_id, string $contentType = self::contentTypes['deleteBrandingLogo'][0])
     {
-        return $this->deleteLogoApiV1BrandingProfilesProfileIdLogoDeleteAsyncWithHttpInfo($profile_id, $contentType)
+        return $this->deleteBrandingLogoAsyncWithHttpInfo($profile_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -687,20 +687,20 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation deleteLogoApiV1BrandingProfilesProfileIdLogoDeleteAsyncWithHttpInfo
+     * Operation deleteBrandingLogoAsyncWithHttpInfo
      *
-     * Delete Logo
+     * Delete Branding Logo
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLogoApiV1BrandingProfilesProfileIdLogoDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBrandingLogo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteLogoApiV1BrandingProfilesProfileIdLogoDeleteAsyncWithHttpInfo($profile_id, string $contentType = self::contentTypes['deleteLogoApiV1BrandingProfilesProfileIdLogoDelete'][0])
+    public function deleteBrandingLogoAsyncWithHttpInfo($profile_id, string $contentType = self::contentTypes['deleteBrandingLogo'][0])
     {
         $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
-        $request = $this->deleteLogoApiV1BrandingProfilesProfileIdLogoDeleteRequest($profile_id, $contentType);
+        $request = $this->deleteBrandingLogoRequest($profile_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -739,21 +739,21 @@ class BrandingProfilesApi
     }
 
     /**
-     * Create request for operation 'deleteLogoApiV1BrandingProfilesProfileIdLogoDelete'
+     * Create request for operation 'deleteBrandingLogo'
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteLogoApiV1BrandingProfilesProfileIdLogoDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBrandingLogo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteLogoApiV1BrandingProfilesProfileIdLogoDeleteRequest($profile_id, string $contentType = self::contentTypes['deleteLogoApiV1BrandingProfilesProfileIdLogoDelete'][0])
+    public function deleteBrandingLogoRequest($profile_id, string $contentType = self::contentTypes['deleteBrandingLogo'][0])
     {
 
         // verify the required parameter 'profile_id' is set
         if ($profile_id === null || (is_array($profile_id) && count($profile_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $profile_id when calling deleteLogoApiV1BrandingProfilesProfileIdLogoDelete'
+                'Missing the required parameter $profile_id when calling deleteBrandingLogo'
             );
         }
 
@@ -835,38 +835,38 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation deleteProfileApiV1BrandingProfilesProfileIdDelete
+     * Operation deleteBrandingProfile
      *
-     * Delete Profile
+     * Delete Branding Profile
      *
      * @param  string $profile_id profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileApiV1BrandingProfilesProfileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function deleteProfileApiV1BrandingProfilesProfileIdDelete($profile_id, string $contentType = self::contentTypes['deleteProfileApiV1BrandingProfilesProfileIdDelete'][0])
+    public function deleteBrandingProfile($profile_id, string $contentType = self::contentTypes['deleteBrandingProfile'][0])
     {
-        list($response) = $this->deleteProfileApiV1BrandingProfilesProfileIdDeleteWithHttpInfo($profile_id, $contentType);
+        list($response) = $this->deleteBrandingProfileWithHttpInfo($profile_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteProfileApiV1BrandingProfilesProfileIdDeleteWithHttpInfo
+     * Operation deleteBrandingProfileWithHttpInfo
      *
-     * Delete Profile
+     * Delete Branding Profile
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileApiV1BrandingProfilesProfileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteProfileApiV1BrandingProfilesProfileIdDeleteWithHttpInfo($profile_id, string $contentType = self::contentTypes['deleteProfileApiV1BrandingProfilesProfileIdDelete'][0])
+    public function deleteBrandingProfileWithHttpInfo($profile_id, string $contentType = self::contentTypes['deleteBrandingProfile'][0])
     {
-        $request = $this->deleteProfileApiV1BrandingProfilesProfileIdDeleteRequest($profile_id, $contentType);
+        $request = $this->deleteBrandingProfileRequest($profile_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1012,19 +1012,19 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation deleteProfileApiV1BrandingProfilesProfileIdDeleteAsync
+     * Operation deleteBrandingProfileAsync
      *
-     * Delete Profile
+     * Delete Branding Profile
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileApiV1BrandingProfilesProfileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProfileApiV1BrandingProfilesProfileIdDeleteAsync($profile_id, string $contentType = self::contentTypes['deleteProfileApiV1BrandingProfilesProfileIdDelete'][0])
+    public function deleteBrandingProfileAsync($profile_id, string $contentType = self::contentTypes['deleteBrandingProfile'][0])
     {
-        return $this->deleteProfileApiV1BrandingProfilesProfileIdDeleteAsyncWithHttpInfo($profile_id, $contentType)
+        return $this->deleteBrandingProfileAsyncWithHttpInfo($profile_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1033,20 +1033,20 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation deleteProfileApiV1BrandingProfilesProfileIdDeleteAsyncWithHttpInfo
+     * Operation deleteBrandingProfileAsyncWithHttpInfo
      *
-     * Delete Profile
+     * Delete Branding Profile
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileApiV1BrandingProfilesProfileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProfileApiV1BrandingProfilesProfileIdDeleteAsyncWithHttpInfo($profile_id, string $contentType = self::contentTypes['deleteProfileApiV1BrandingProfilesProfileIdDelete'][0])
+    public function deleteBrandingProfileAsyncWithHttpInfo($profile_id, string $contentType = self::contentTypes['deleteBrandingProfile'][0])
     {
         $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
-        $request = $this->deleteProfileApiV1BrandingProfilesProfileIdDeleteRequest($profile_id, $contentType);
+        $request = $this->deleteBrandingProfileRequest($profile_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1085,21 +1085,21 @@ class BrandingProfilesApi
     }
 
     /**
-     * Create request for operation 'deleteProfileApiV1BrandingProfilesProfileIdDelete'
+     * Create request for operation 'deleteBrandingProfile'
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteProfileApiV1BrandingProfilesProfileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteProfileApiV1BrandingProfilesProfileIdDeleteRequest($profile_id, string $contentType = self::contentTypes['deleteProfileApiV1BrandingProfilesProfileIdDelete'][0])
+    public function deleteBrandingProfileRequest($profile_id, string $contentType = self::contentTypes['deleteBrandingProfile'][0])
     {
 
         // verify the required parameter 'profile_id' is set
         if ($profile_id === null || (is_array($profile_id) && count($profile_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $profile_id when calling deleteProfileApiV1BrandingProfilesProfileIdDelete'
+                'Missing the required parameter $profile_id when calling deleteBrandingProfile'
             );
         }
 
@@ -1181,38 +1181,38 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation getProfileApiV1BrandingProfilesProfileIdGet
+     * Operation getBrandingProfile
      *
-     * Get Profile
+     * Get Branding Profile
      *
      * @param  string $profile_id profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileApiV1BrandingProfilesProfileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BrandingProfileResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getProfileApiV1BrandingProfilesProfileIdGet($profile_id, string $contentType = self::contentTypes['getProfileApiV1BrandingProfilesProfileIdGet'][0])
+    public function getBrandingProfile($profile_id, string $contentType = self::contentTypes['getBrandingProfile'][0])
     {
-        list($response) = $this->getProfileApiV1BrandingProfilesProfileIdGetWithHttpInfo($profile_id, $contentType);
+        list($response) = $this->getBrandingProfileWithHttpInfo($profile_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getProfileApiV1BrandingProfilesProfileIdGetWithHttpInfo
+     * Operation getBrandingProfileWithHttpInfo
      *
-     * Get Profile
+     * Get Branding Profile
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileApiV1BrandingProfilesProfileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BrandingProfileResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProfileApiV1BrandingProfilesProfileIdGetWithHttpInfo($profile_id, string $contentType = self::contentTypes['getProfileApiV1BrandingProfilesProfileIdGet'][0])
+    public function getBrandingProfileWithHttpInfo($profile_id, string $contentType = self::contentTypes['getBrandingProfile'][0])
     {
-        $request = $this->getProfileApiV1BrandingProfilesProfileIdGetRequest($profile_id, $contentType);
+        $request = $this->getBrandingProfileRequest($profile_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1358,19 +1358,19 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation getProfileApiV1BrandingProfilesProfileIdGetAsync
+     * Operation getBrandingProfileAsync
      *
-     * Get Profile
+     * Get Branding Profile
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileApiV1BrandingProfilesProfileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProfileApiV1BrandingProfilesProfileIdGetAsync($profile_id, string $contentType = self::contentTypes['getProfileApiV1BrandingProfilesProfileIdGet'][0])
+    public function getBrandingProfileAsync($profile_id, string $contentType = self::contentTypes['getBrandingProfile'][0])
     {
-        return $this->getProfileApiV1BrandingProfilesProfileIdGetAsyncWithHttpInfo($profile_id, $contentType)
+        return $this->getBrandingProfileAsyncWithHttpInfo($profile_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1379,20 +1379,20 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation getProfileApiV1BrandingProfilesProfileIdGetAsyncWithHttpInfo
+     * Operation getBrandingProfileAsyncWithHttpInfo
      *
-     * Get Profile
+     * Get Branding Profile
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileApiV1BrandingProfilesProfileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProfileApiV1BrandingProfilesProfileIdGetAsyncWithHttpInfo($profile_id, string $contentType = self::contentTypes['getProfileApiV1BrandingProfilesProfileIdGet'][0])
+    public function getBrandingProfileAsyncWithHttpInfo($profile_id, string $contentType = self::contentTypes['getBrandingProfile'][0])
     {
         $returnType = '\InvoicePDFs\Model\BrandingProfileResponse';
-        $request = $this->getProfileApiV1BrandingProfilesProfileIdGetRequest($profile_id, $contentType);
+        $request = $this->getBrandingProfileRequest($profile_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1431,21 +1431,21 @@ class BrandingProfilesApi
     }
 
     /**
-     * Create request for operation 'getProfileApiV1BrandingProfilesProfileIdGet'
+     * Create request for operation 'getBrandingProfile'
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfileApiV1BrandingProfilesProfileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProfileApiV1BrandingProfilesProfileIdGetRequest($profile_id, string $contentType = self::contentTypes['getProfileApiV1BrandingProfilesProfileIdGet'][0])
+    public function getBrandingProfileRequest($profile_id, string $contentType = self::contentTypes['getBrandingProfile'][0])
     {
 
         // verify the required parameter 'profile_id' is set
         if ($profile_id === null || (is_array($profile_id) && count($profile_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $profile_id when calling getProfileApiV1BrandingProfilesProfileIdGet'
+                'Missing the required parameter $profile_id when calling getBrandingProfile'
             );
         }
 
@@ -1527,36 +1527,36 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation listProfilesApiV1BrandingProfilesGet
+     * Operation listBrandingProfiles
      *
-     * List Profiles
+     * List Branding Profiles
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listProfilesApiV1BrandingProfilesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBrandingProfiles'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BrandingProfilesListResponse
      */
-    public function listProfilesApiV1BrandingProfilesGet(string $contentType = self::contentTypes['listProfilesApiV1BrandingProfilesGet'][0])
+    public function listBrandingProfiles(string $contentType = self::contentTypes['listBrandingProfiles'][0])
     {
-        list($response) = $this->listProfilesApiV1BrandingProfilesGetWithHttpInfo($contentType);
+        list($response) = $this->listBrandingProfilesWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation listProfilesApiV1BrandingProfilesGetWithHttpInfo
+     * Operation listBrandingProfilesWithHttpInfo
      *
-     * List Profiles
+     * List Branding Profiles
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listProfilesApiV1BrandingProfilesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBrandingProfiles'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BrandingProfilesListResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listProfilesApiV1BrandingProfilesGetWithHttpInfo(string $contentType = self::contentTypes['listProfilesApiV1BrandingProfilesGet'][0])
+    public function listBrandingProfilesWithHttpInfo(string $contentType = self::contentTypes['listBrandingProfiles'][0])
     {
-        $request = $this->listProfilesApiV1BrandingProfilesGetRequest($contentType);
+        $request = $this->listBrandingProfilesRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1667,18 +1667,18 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation listProfilesApiV1BrandingProfilesGetAsync
+     * Operation listBrandingProfilesAsync
      *
-     * List Profiles
+     * List Branding Profiles
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listProfilesApiV1BrandingProfilesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBrandingProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listProfilesApiV1BrandingProfilesGetAsync(string $contentType = self::contentTypes['listProfilesApiV1BrandingProfilesGet'][0])
+    public function listBrandingProfilesAsync(string $contentType = self::contentTypes['listBrandingProfiles'][0])
     {
-        return $this->listProfilesApiV1BrandingProfilesGetAsyncWithHttpInfo($contentType)
+        return $this->listBrandingProfilesAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1687,19 +1687,19 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation listProfilesApiV1BrandingProfilesGetAsyncWithHttpInfo
+     * Operation listBrandingProfilesAsyncWithHttpInfo
      *
-     * List Profiles
+     * List Branding Profiles
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listProfilesApiV1BrandingProfilesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBrandingProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listProfilesApiV1BrandingProfilesGetAsyncWithHttpInfo(string $contentType = self::contentTypes['listProfilesApiV1BrandingProfilesGet'][0])
+    public function listBrandingProfilesAsyncWithHttpInfo(string $contentType = self::contentTypes['listBrandingProfiles'][0])
     {
         $returnType = '\InvoicePDFs\Model\BrandingProfilesListResponse';
-        $request = $this->listProfilesApiV1BrandingProfilesGetRequest($contentType);
+        $request = $this->listBrandingProfilesRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1738,14 +1738,14 @@ class BrandingProfilesApi
     }
 
     /**
-     * Create request for operation 'listProfilesApiV1BrandingProfilesGet'
+     * Create request for operation 'listBrandingProfiles'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listProfilesApiV1BrandingProfilesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBrandingProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listProfilesApiV1BrandingProfilesGetRequest(string $contentType = self::contentTypes['listProfilesApiV1BrandingProfilesGet'][0])
+    public function listBrandingProfilesRequest(string $contentType = self::contentTypes['listBrandingProfiles'][0])
     {
 
 
@@ -1818,38 +1818,38 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation setDefaultApiV1BrandingProfilesProfileIdDefaultPost
+     * Operation setDefaultBrandingProfile
      *
-     * Set Default
+     * Set Default Branding Profile
      *
      * @param  string $profile_id profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDefaultApiV1BrandingProfilesProfileIdDefaultPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDefaultBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BrandingProfileResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function setDefaultApiV1BrandingProfilesProfileIdDefaultPost($profile_id, string $contentType = self::contentTypes['setDefaultApiV1BrandingProfilesProfileIdDefaultPost'][0])
+    public function setDefaultBrandingProfile($profile_id, string $contentType = self::contentTypes['setDefaultBrandingProfile'][0])
     {
-        list($response) = $this->setDefaultApiV1BrandingProfilesProfileIdDefaultPostWithHttpInfo($profile_id, $contentType);
+        list($response) = $this->setDefaultBrandingProfileWithHttpInfo($profile_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation setDefaultApiV1BrandingProfilesProfileIdDefaultPostWithHttpInfo
+     * Operation setDefaultBrandingProfileWithHttpInfo
      *
-     * Set Default
+     * Set Default Branding Profile
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDefaultApiV1BrandingProfilesProfileIdDefaultPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDefaultBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BrandingProfileResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setDefaultApiV1BrandingProfilesProfileIdDefaultPostWithHttpInfo($profile_id, string $contentType = self::contentTypes['setDefaultApiV1BrandingProfilesProfileIdDefaultPost'][0])
+    public function setDefaultBrandingProfileWithHttpInfo($profile_id, string $contentType = self::contentTypes['setDefaultBrandingProfile'][0])
     {
-        $request = $this->setDefaultApiV1BrandingProfilesProfileIdDefaultPostRequest($profile_id, $contentType);
+        $request = $this->setDefaultBrandingProfileRequest($profile_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1995,19 +1995,19 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation setDefaultApiV1BrandingProfilesProfileIdDefaultPostAsync
+     * Operation setDefaultBrandingProfileAsync
      *
-     * Set Default
+     * Set Default Branding Profile
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDefaultApiV1BrandingProfilesProfileIdDefaultPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDefaultBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setDefaultApiV1BrandingProfilesProfileIdDefaultPostAsync($profile_id, string $contentType = self::contentTypes['setDefaultApiV1BrandingProfilesProfileIdDefaultPost'][0])
+    public function setDefaultBrandingProfileAsync($profile_id, string $contentType = self::contentTypes['setDefaultBrandingProfile'][0])
     {
-        return $this->setDefaultApiV1BrandingProfilesProfileIdDefaultPostAsyncWithHttpInfo($profile_id, $contentType)
+        return $this->setDefaultBrandingProfileAsyncWithHttpInfo($profile_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2016,20 +2016,20 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation setDefaultApiV1BrandingProfilesProfileIdDefaultPostAsyncWithHttpInfo
+     * Operation setDefaultBrandingProfileAsyncWithHttpInfo
      *
-     * Set Default
+     * Set Default Branding Profile
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDefaultApiV1BrandingProfilesProfileIdDefaultPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDefaultBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setDefaultApiV1BrandingProfilesProfileIdDefaultPostAsyncWithHttpInfo($profile_id, string $contentType = self::contentTypes['setDefaultApiV1BrandingProfilesProfileIdDefaultPost'][0])
+    public function setDefaultBrandingProfileAsyncWithHttpInfo($profile_id, string $contentType = self::contentTypes['setDefaultBrandingProfile'][0])
     {
         $returnType = '\InvoicePDFs\Model\BrandingProfileResponse';
-        $request = $this->setDefaultApiV1BrandingProfilesProfileIdDefaultPostRequest($profile_id, $contentType);
+        $request = $this->setDefaultBrandingProfileRequest($profile_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2068,21 +2068,21 @@ class BrandingProfilesApi
     }
 
     /**
-     * Create request for operation 'setDefaultApiV1BrandingProfilesProfileIdDefaultPost'
+     * Create request for operation 'setDefaultBrandingProfile'
      *
      * @param  string $profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDefaultApiV1BrandingProfilesProfileIdDefaultPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setDefaultBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function setDefaultApiV1BrandingProfilesProfileIdDefaultPostRequest($profile_id, string $contentType = self::contentTypes['setDefaultApiV1BrandingProfilesProfileIdDefaultPost'][0])
+    public function setDefaultBrandingProfileRequest($profile_id, string $contentType = self::contentTypes['setDefaultBrandingProfile'][0])
     {
 
         // verify the required parameter 'profile_id' is set
         if ($profile_id === null || (is_array($profile_id) && count($profile_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $profile_id when calling setDefaultApiV1BrandingProfilesProfileIdDefaultPost'
+                'Missing the required parameter $profile_id when calling setDefaultBrandingProfile'
             );
         }
 
@@ -2164,40 +2164,40 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation updateProfileApiV1BrandingProfilesProfileIdPatch
+     * Operation updateBrandingProfile
      *
-     * Update Profile
+     * Update Branding Profile
      *
      * @param  string $profile_id profile_id (required)
      * @param  \InvoicePDFs\Model\BrandingProfilePatchRequest $branding_profile_patch_request branding_profile_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileApiV1BrandingProfilesProfileIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BrandingProfileResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function updateProfileApiV1BrandingProfilesProfileIdPatch($profile_id, $branding_profile_patch_request, string $contentType = self::contentTypes['updateProfileApiV1BrandingProfilesProfileIdPatch'][0])
+    public function updateBrandingProfile($profile_id, $branding_profile_patch_request, string $contentType = self::contentTypes['updateBrandingProfile'][0])
     {
-        list($response) = $this->updateProfileApiV1BrandingProfilesProfileIdPatchWithHttpInfo($profile_id, $branding_profile_patch_request, $contentType);
+        list($response) = $this->updateBrandingProfileWithHttpInfo($profile_id, $branding_profile_patch_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation updateProfileApiV1BrandingProfilesProfileIdPatchWithHttpInfo
+     * Operation updateBrandingProfileWithHttpInfo
      *
-     * Update Profile
+     * Update Branding Profile
      *
      * @param  string $profile_id (required)
      * @param  \InvoicePDFs\Model\BrandingProfilePatchRequest $branding_profile_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileApiV1BrandingProfilesProfileIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BrandingProfileResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateProfileApiV1BrandingProfilesProfileIdPatchWithHttpInfo($profile_id, $branding_profile_patch_request, string $contentType = self::contentTypes['updateProfileApiV1BrandingProfilesProfileIdPatch'][0])
+    public function updateBrandingProfileWithHttpInfo($profile_id, $branding_profile_patch_request, string $contentType = self::contentTypes['updateBrandingProfile'][0])
     {
-        $request = $this->updateProfileApiV1BrandingProfilesProfileIdPatchRequest($profile_id, $branding_profile_patch_request, $contentType);
+        $request = $this->updateBrandingProfileRequest($profile_id, $branding_profile_patch_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2343,20 +2343,20 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation updateProfileApiV1BrandingProfilesProfileIdPatchAsync
+     * Operation updateBrandingProfileAsync
      *
-     * Update Profile
+     * Update Branding Profile
      *
      * @param  string $profile_id (required)
      * @param  \InvoicePDFs\Model\BrandingProfilePatchRequest $branding_profile_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileApiV1BrandingProfilesProfileIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProfileApiV1BrandingProfilesProfileIdPatchAsync($profile_id, $branding_profile_patch_request, string $contentType = self::contentTypes['updateProfileApiV1BrandingProfilesProfileIdPatch'][0])
+    public function updateBrandingProfileAsync($profile_id, $branding_profile_patch_request, string $contentType = self::contentTypes['updateBrandingProfile'][0])
     {
-        return $this->updateProfileApiV1BrandingProfilesProfileIdPatchAsyncWithHttpInfo($profile_id, $branding_profile_patch_request, $contentType)
+        return $this->updateBrandingProfileAsyncWithHttpInfo($profile_id, $branding_profile_patch_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2365,21 +2365,21 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation updateProfileApiV1BrandingProfilesProfileIdPatchAsyncWithHttpInfo
+     * Operation updateBrandingProfileAsyncWithHttpInfo
      *
-     * Update Profile
+     * Update Branding Profile
      *
      * @param  string $profile_id (required)
      * @param  \InvoicePDFs\Model\BrandingProfilePatchRequest $branding_profile_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileApiV1BrandingProfilesProfileIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProfileApiV1BrandingProfilesProfileIdPatchAsyncWithHttpInfo($profile_id, $branding_profile_patch_request, string $contentType = self::contentTypes['updateProfileApiV1BrandingProfilesProfileIdPatch'][0])
+    public function updateBrandingProfileAsyncWithHttpInfo($profile_id, $branding_profile_patch_request, string $contentType = self::contentTypes['updateBrandingProfile'][0])
     {
         $returnType = '\InvoicePDFs\Model\BrandingProfileResponse';
-        $request = $this->updateProfileApiV1BrandingProfilesProfileIdPatchRequest($profile_id, $branding_profile_patch_request, $contentType);
+        $request = $this->updateBrandingProfileRequest($profile_id, $branding_profile_patch_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2418,29 +2418,29 @@ class BrandingProfilesApi
     }
 
     /**
-     * Create request for operation 'updateProfileApiV1BrandingProfilesProfileIdPatch'
+     * Create request for operation 'updateBrandingProfile'
      *
      * @param  string $profile_id (required)
      * @param  \InvoicePDFs\Model\BrandingProfilePatchRequest $branding_profile_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateProfileApiV1BrandingProfilesProfileIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBrandingProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateProfileApiV1BrandingProfilesProfileIdPatchRequest($profile_id, $branding_profile_patch_request, string $contentType = self::contentTypes['updateProfileApiV1BrandingProfilesProfileIdPatch'][0])
+    public function updateBrandingProfileRequest($profile_id, $branding_profile_patch_request, string $contentType = self::contentTypes['updateBrandingProfile'][0])
     {
 
         // verify the required parameter 'profile_id' is set
         if ($profile_id === null || (is_array($profile_id) && count($profile_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $profile_id when calling updateProfileApiV1BrandingProfilesProfileIdPatch'
+                'Missing the required parameter $profile_id when calling updateBrandingProfile'
             );
         }
 
         // verify the required parameter 'branding_profile_patch_request' is set
         if ($branding_profile_patch_request === null || (is_array($branding_profile_patch_request) && count($branding_profile_patch_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $branding_profile_patch_request when calling updateProfileApiV1BrandingProfilesProfileIdPatch'
+                'Missing the required parameter $branding_profile_patch_request when calling updateBrandingProfile'
             );
         }
 
@@ -2529,40 +2529,40 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation uploadLogoApiV1BrandingProfilesProfileIdLogoPost
+     * Operation uploadBrandingLogo
      *
-     * Upload Logo
+     * Upload Branding Logo
      *
      * @param  string $profile_id profile_id (required)
      * @param  \SplFileObject $file file (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadLogoApiV1BrandingProfilesProfileIdLogoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadBrandingLogo'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BrandingProfileResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function uploadLogoApiV1BrandingProfilesProfileIdLogoPost($profile_id, $file, string $contentType = self::contentTypes['uploadLogoApiV1BrandingProfilesProfileIdLogoPost'][0])
+    public function uploadBrandingLogo($profile_id, $file, string $contentType = self::contentTypes['uploadBrandingLogo'][0])
     {
-        list($response) = $this->uploadLogoApiV1BrandingProfilesProfileIdLogoPostWithHttpInfo($profile_id, $file, $contentType);
+        list($response) = $this->uploadBrandingLogoWithHttpInfo($profile_id, $file, $contentType);
         return $response;
     }
 
     /**
-     * Operation uploadLogoApiV1BrandingProfilesProfileIdLogoPostWithHttpInfo
+     * Operation uploadBrandingLogoWithHttpInfo
      *
-     * Upload Logo
+     * Upload Branding Logo
      *
      * @param  string $profile_id (required)
      * @param  \SplFileObject $file (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadLogoApiV1BrandingProfilesProfileIdLogoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadBrandingLogo'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BrandingProfileResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadLogoApiV1BrandingProfilesProfileIdLogoPostWithHttpInfo($profile_id, $file, string $contentType = self::contentTypes['uploadLogoApiV1BrandingProfilesProfileIdLogoPost'][0])
+    public function uploadBrandingLogoWithHttpInfo($profile_id, $file, string $contentType = self::contentTypes['uploadBrandingLogo'][0])
     {
-        $request = $this->uploadLogoApiV1BrandingProfilesProfileIdLogoPostRequest($profile_id, $file, $contentType);
+        $request = $this->uploadBrandingLogoRequest($profile_id, $file, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2708,20 +2708,20 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation uploadLogoApiV1BrandingProfilesProfileIdLogoPostAsync
+     * Operation uploadBrandingLogoAsync
      *
-     * Upload Logo
+     * Upload Branding Logo
      *
      * @param  string $profile_id (required)
      * @param  \SplFileObject $file (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadLogoApiV1BrandingProfilesProfileIdLogoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadBrandingLogo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadLogoApiV1BrandingProfilesProfileIdLogoPostAsync($profile_id, $file, string $contentType = self::contentTypes['uploadLogoApiV1BrandingProfilesProfileIdLogoPost'][0])
+    public function uploadBrandingLogoAsync($profile_id, $file, string $contentType = self::contentTypes['uploadBrandingLogo'][0])
     {
-        return $this->uploadLogoApiV1BrandingProfilesProfileIdLogoPostAsyncWithHttpInfo($profile_id, $file, $contentType)
+        return $this->uploadBrandingLogoAsyncWithHttpInfo($profile_id, $file, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2730,21 +2730,21 @@ class BrandingProfilesApi
     }
 
     /**
-     * Operation uploadLogoApiV1BrandingProfilesProfileIdLogoPostAsyncWithHttpInfo
+     * Operation uploadBrandingLogoAsyncWithHttpInfo
      *
-     * Upload Logo
+     * Upload Branding Logo
      *
      * @param  string $profile_id (required)
      * @param  \SplFileObject $file (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadLogoApiV1BrandingProfilesProfileIdLogoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadBrandingLogo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadLogoApiV1BrandingProfilesProfileIdLogoPostAsyncWithHttpInfo($profile_id, $file, string $contentType = self::contentTypes['uploadLogoApiV1BrandingProfilesProfileIdLogoPost'][0])
+    public function uploadBrandingLogoAsyncWithHttpInfo($profile_id, $file, string $contentType = self::contentTypes['uploadBrandingLogo'][0])
     {
         $returnType = '\InvoicePDFs\Model\BrandingProfileResponse';
-        $request = $this->uploadLogoApiV1BrandingProfilesProfileIdLogoPostRequest($profile_id, $file, $contentType);
+        $request = $this->uploadBrandingLogoRequest($profile_id, $file, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2783,29 +2783,29 @@ class BrandingProfilesApi
     }
 
     /**
-     * Create request for operation 'uploadLogoApiV1BrandingProfilesProfileIdLogoPost'
+     * Create request for operation 'uploadBrandingLogo'
      *
      * @param  string $profile_id (required)
      * @param  \SplFileObject $file (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadLogoApiV1BrandingProfilesProfileIdLogoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadBrandingLogo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function uploadLogoApiV1BrandingProfilesProfileIdLogoPostRequest($profile_id, $file, string $contentType = self::contentTypes['uploadLogoApiV1BrandingProfilesProfileIdLogoPost'][0])
+    public function uploadBrandingLogoRequest($profile_id, $file, string $contentType = self::contentTypes['uploadBrandingLogo'][0])
     {
 
         // verify the required parameter 'profile_id' is set
         if ($profile_id === null || (is_array($profile_id) && count($profile_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $profile_id when calling uploadLogoApiV1BrandingProfilesProfileIdLogoPost'
+                'Missing the required parameter $profile_id when calling uploadBrandingLogo'
             );
         }
 
         // verify the required parameter 'file' is set
         if ($file === null || (is_array($file) && count($file) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $file when calling uploadLogoApiV1BrandingProfilesProfileIdLogoPost'
+                'Missing the required parameter $file when calling uploadBrandingLogo'
             );
         }
 

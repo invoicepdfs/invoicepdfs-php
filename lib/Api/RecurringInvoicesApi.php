@@ -71,28 +71,28 @@ class RecurringInvoicesApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete' => [
+        'cancelRecurringInvoice' => [
             'application/json',
         ],
-        'createRecurringInvoiceApiV1RecurringInvoicesPost' => [
+        'createRecurringInvoice' => [
             'application/json',
         ],
-        'getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet' => [
+        'getRecurringInvoice' => [
             'application/json',
         ],
-        'listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet' => [
+        'listGeneratedInvoices' => [
             'application/json',
         ],
-        'listRecurringInvoicesApiV1RecurringInvoicesGet' => [
+        'listRecurringInvoices' => [
             'application/json',
         ],
-        'patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch' => [
+        'pauseRecurringInvoice' => [
             'application/json',
         ],
-        'pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost' => [
+        'resumeRecurringInvoice' => [
             'application/json',
         ],
-        'resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost' => [
+        'updateRecurringInvoice' => [
             'application/json',
         ],
     ];
@@ -144,38 +144,38 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete
+     * Operation cancelRecurringInvoice
      *
      * Cancel Recurring Invoice
      *
      * @param  string $recurring_id recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete($recurring_id, string $contentType = self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'][0])
+    public function cancelRecurringInvoice($recurring_id, string $contentType = self::contentTypes['cancelRecurringInvoice'][0])
     {
-        list($response) = $this->cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteWithHttpInfo($recurring_id, $contentType);
+        list($response) = $this->cancelRecurringInvoiceWithHttpInfo($recurring_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteWithHttpInfo
+     * Operation cancelRecurringInvoiceWithHttpInfo
      *
      * Cancel Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteWithHttpInfo($recurring_id, string $contentType = self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'][0])
+    public function cancelRecurringInvoiceWithHttpInfo($recurring_id, string $contentType = self::contentTypes['cancelRecurringInvoice'][0])
     {
-        $request = $this->cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteRequest($recurring_id, $contentType);
+        $request = $this->cancelRecurringInvoiceRequest($recurring_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -321,19 +321,19 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteAsync
+     * Operation cancelRecurringInvoiceAsync
      *
      * Cancel Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteAsync($recurring_id, string $contentType = self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'][0])
+    public function cancelRecurringInvoiceAsync($recurring_id, string $contentType = self::contentTypes['cancelRecurringInvoice'][0])
     {
-        return $this->cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteAsyncWithHttpInfo($recurring_id, $contentType)
+        return $this->cancelRecurringInvoiceAsyncWithHttpInfo($recurring_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -342,20 +342,20 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteAsyncWithHttpInfo
+     * Operation cancelRecurringInvoiceAsyncWithHttpInfo
      *
      * Cancel Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteAsyncWithHttpInfo($recurring_id, string $contentType = self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'][0])
+    public function cancelRecurringInvoiceAsyncWithHttpInfo($recurring_id, string $contentType = self::contentTypes['cancelRecurringInvoice'][0])
     {
         $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
-        $request = $this->cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteRequest($recurring_id, $contentType);
+        $request = $this->cancelRecurringInvoiceRequest($recurring_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -394,21 +394,21 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Create request for operation 'cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'
+     * Create request for operation 'cancelRecurringInvoice'
      *
      * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDeleteRequest($recurring_id, string $contentType = self::contentTypes['cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'][0])
+    public function cancelRecurringInvoiceRequest($recurring_id, string $contentType = self::contentTypes['cancelRecurringInvoice'][0])
     {
 
         // verify the required parameter 'recurring_id' is set
         if ($recurring_id === null || (is_array($recurring_id) && count($recurring_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $recurring_id when calling cancelRecurringInvoiceApiV1RecurringInvoicesRecurringIdDelete'
+                'Missing the required parameter $recurring_id when calling cancelRecurringInvoice'
             );
         }
 
@@ -490,38 +490,38 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation createRecurringInvoiceApiV1RecurringInvoicesPost
+     * Operation createRecurringInvoice
      *
      * Create Recurring Invoice
      *
      * @param  \InvoicePDFs\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request recurring_invoice_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createRecurringInvoiceApiV1RecurringInvoicesPost($recurring_invoice_create_request, string $contentType = self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'][0])
+    public function createRecurringInvoice($recurring_invoice_create_request, string $contentType = self::contentTypes['createRecurringInvoice'][0])
     {
-        list($response) = $this->createRecurringInvoiceApiV1RecurringInvoicesPostWithHttpInfo($recurring_invoice_create_request, $contentType);
+        list($response) = $this->createRecurringInvoiceWithHttpInfo($recurring_invoice_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation createRecurringInvoiceApiV1RecurringInvoicesPostWithHttpInfo
+     * Operation createRecurringInvoiceWithHttpInfo
      *
      * Create Recurring Invoice
      *
      * @param  \InvoicePDFs\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRecurringInvoiceApiV1RecurringInvoicesPostWithHttpInfo($recurring_invoice_create_request, string $contentType = self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'][0])
+    public function createRecurringInvoiceWithHttpInfo($recurring_invoice_create_request, string $contentType = self::contentTypes['createRecurringInvoice'][0])
     {
-        $request = $this->createRecurringInvoiceApiV1RecurringInvoicesPostRequest($recurring_invoice_create_request, $contentType);
+        $request = $this->createRecurringInvoiceRequest($recurring_invoice_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -667,19 +667,19 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation createRecurringInvoiceApiV1RecurringInvoicesPostAsync
+     * Operation createRecurringInvoiceAsync
      *
      * Create Recurring Invoice
      *
      * @param  \InvoicePDFs\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRecurringInvoiceApiV1RecurringInvoicesPostAsync($recurring_invoice_create_request, string $contentType = self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'][0])
+    public function createRecurringInvoiceAsync($recurring_invoice_create_request, string $contentType = self::contentTypes['createRecurringInvoice'][0])
     {
-        return $this->createRecurringInvoiceApiV1RecurringInvoicesPostAsyncWithHttpInfo($recurring_invoice_create_request, $contentType)
+        return $this->createRecurringInvoiceAsyncWithHttpInfo($recurring_invoice_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -688,20 +688,20 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation createRecurringInvoiceApiV1RecurringInvoicesPostAsyncWithHttpInfo
+     * Operation createRecurringInvoiceAsyncWithHttpInfo
      *
      * Create Recurring Invoice
      *
      * @param  \InvoicePDFs\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRecurringInvoiceApiV1RecurringInvoicesPostAsyncWithHttpInfo($recurring_invoice_create_request, string $contentType = self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'][0])
+    public function createRecurringInvoiceAsyncWithHttpInfo($recurring_invoice_create_request, string $contentType = self::contentTypes['createRecurringInvoice'][0])
     {
         $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
-        $request = $this->createRecurringInvoiceApiV1RecurringInvoicesPostRequest($recurring_invoice_create_request, $contentType);
+        $request = $this->createRecurringInvoiceRequest($recurring_invoice_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -740,21 +740,21 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Create request for operation 'createRecurringInvoiceApiV1RecurringInvoicesPost'
+     * Create request for operation 'createRecurringInvoice'
      *
      * @param  \InvoicePDFs\Model\RecurringInvoiceCreateRequest $recurring_invoice_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createRecurringInvoiceApiV1RecurringInvoicesPostRequest($recurring_invoice_create_request, string $contentType = self::contentTypes['createRecurringInvoiceApiV1RecurringInvoicesPost'][0])
+    public function createRecurringInvoiceRequest($recurring_invoice_create_request, string $contentType = self::contentTypes['createRecurringInvoice'][0])
     {
 
         // verify the required parameter 'recurring_invoice_create_request' is set
         if ($recurring_invoice_create_request === null || (is_array($recurring_invoice_create_request) && count($recurring_invoice_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $recurring_invoice_create_request when calling createRecurringInvoiceApiV1RecurringInvoicesPost'
+                'Missing the required parameter $recurring_invoice_create_request when calling createRecurringInvoice'
             );
         }
 
@@ -835,38 +835,38 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet
+     * Operation getRecurringInvoice
      *
      * Get Recurring Invoice
      *
      * @param  string $recurring_id recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet($recurring_id, string $contentType = self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'][0])
+    public function getRecurringInvoice($recurring_id, string $contentType = self::contentTypes['getRecurringInvoice'][0])
     {
-        list($response) = $this->getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetWithHttpInfo($recurring_id, $contentType);
+        list($response) = $this->getRecurringInvoiceWithHttpInfo($recurring_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetWithHttpInfo
+     * Operation getRecurringInvoiceWithHttpInfo
      *
      * Get Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetWithHttpInfo($recurring_id, string $contentType = self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'][0])
+    public function getRecurringInvoiceWithHttpInfo($recurring_id, string $contentType = self::contentTypes['getRecurringInvoice'][0])
     {
-        $request = $this->getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetRequest($recurring_id, $contentType);
+        $request = $this->getRecurringInvoiceRequest($recurring_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1012,19 +1012,19 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetAsync
+     * Operation getRecurringInvoiceAsync
      *
      * Get Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetAsync($recurring_id, string $contentType = self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'][0])
+    public function getRecurringInvoiceAsync($recurring_id, string $contentType = self::contentTypes['getRecurringInvoice'][0])
     {
-        return $this->getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetAsyncWithHttpInfo($recurring_id, $contentType)
+        return $this->getRecurringInvoiceAsyncWithHttpInfo($recurring_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1033,20 +1033,20 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetAsyncWithHttpInfo
+     * Operation getRecurringInvoiceAsyncWithHttpInfo
      *
      * Get Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetAsyncWithHttpInfo($recurring_id, string $contentType = self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'][0])
+    public function getRecurringInvoiceAsyncWithHttpInfo($recurring_id, string $contentType = self::contentTypes['getRecurringInvoice'][0])
     {
         $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
-        $request = $this->getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetRequest($recurring_id, $contentType);
+        $request = $this->getRecurringInvoiceRequest($recurring_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1085,21 +1085,21 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Create request for operation 'getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'
+     * Create request for operation 'getRecurringInvoice'
      *
      * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGetRequest($recurring_id, string $contentType = self::contentTypes['getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'][0])
+    public function getRecurringInvoiceRequest($recurring_id, string $contentType = self::contentTypes['getRecurringInvoice'][0])
     {
 
         // verify the required parameter 'recurring_id' is set
         if ($recurring_id === null || (is_array($recurring_id) && count($recurring_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $recurring_id when calling getRecurringInvoiceApiV1RecurringInvoicesRecurringIdGet'
+                'Missing the required parameter $recurring_id when calling getRecurringInvoice'
             );
         }
 
@@ -1181,42 +1181,42 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet
+     * Operation listGeneratedInvoices
      *
      * List Generated Invoices
      *
      * @param  string $recurring_id recurring_id (required)
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listGeneratedInvoices'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\InvoicesListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet($recurring_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'][0])
+    public function listGeneratedInvoices($recurring_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listGeneratedInvoices'][0])
     {
-        list($response) = $this->listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetWithHttpInfo($recurring_id, $limit, $cursor, $contentType);
+        list($response) = $this->listGeneratedInvoicesWithHttpInfo($recurring_id, $limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetWithHttpInfo
+     * Operation listGeneratedInvoicesWithHttpInfo
      *
      * List Generated Invoices
      *
      * @param  string $recurring_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listGeneratedInvoices'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\InvoicesListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetWithHttpInfo($recurring_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'][0])
+    public function listGeneratedInvoicesWithHttpInfo($recurring_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listGeneratedInvoices'][0])
     {
-        $request = $this->listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest($recurring_id, $limit, $cursor, $contentType);
+        $request = $this->listGeneratedInvoicesRequest($recurring_id, $limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1362,21 +1362,21 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetAsync
+     * Operation listGeneratedInvoicesAsync
      *
      * List Generated Invoices
      *
      * @param  string $recurring_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listGeneratedInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetAsync($recurring_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'][0])
+    public function listGeneratedInvoicesAsync($recurring_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listGeneratedInvoices'][0])
     {
-        return $this->listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetAsyncWithHttpInfo($recurring_id, $limit, $cursor, $contentType)
+        return $this->listGeneratedInvoicesAsyncWithHttpInfo($recurring_id, $limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1385,22 +1385,22 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetAsyncWithHttpInfo
+     * Operation listGeneratedInvoicesAsyncWithHttpInfo
      *
      * List Generated Invoices
      *
      * @param  string $recurring_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listGeneratedInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetAsyncWithHttpInfo($recurring_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'][0])
+    public function listGeneratedInvoicesAsyncWithHttpInfo($recurring_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listGeneratedInvoices'][0])
     {
         $returnType = '\InvoicePDFs\Model\InvoicesListResponse';
-        $request = $this->listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest($recurring_id, $limit, $cursor, $contentType);
+        $request = $this->listGeneratedInvoicesRequest($recurring_id, $limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1439,31 +1439,31 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Create request for operation 'listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'
+     * Create request for operation 'listGeneratedInvoices'
      *
      * @param  string $recurring_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listGeneratedInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGetRequest($recurring_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'][0])
+    public function listGeneratedInvoicesRequest($recurring_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listGeneratedInvoices'][0])
     {
 
         // verify the required parameter 'recurring_id' is set
         if ($recurring_id === null || (is_array($recurring_id) && count($recurring_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $recurring_id when calling listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet'
+                'Missing the required parameter $recurring_id when calling listGeneratedInvoices'
             );
         }
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling RecurringInvoicesApi.listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling RecurringInvoicesApi.listGeneratedInvoices, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling RecurringInvoicesApi.listGeneratedInvoicesApiV1RecurringInvoicesRecurringIdInvoicesGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling RecurringInvoicesApi.listGeneratedInvoices, must be bigger than or equal to 1.');
         }
         
 
@@ -1563,42 +1563,42 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation listRecurringInvoicesApiV1RecurringInvoicesGet
+     * Operation listRecurringInvoices
      *
      * List Recurring Invoices
      *
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
      * @param  string $status status (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRecurringInvoices'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\RecurringInvoicesListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listRecurringInvoicesApiV1RecurringInvoicesGet($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'][0])
+    public function listRecurringInvoices($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listRecurringInvoices'][0])
     {
-        list($response) = $this->listRecurringInvoicesApiV1RecurringInvoicesGetWithHttpInfo($limit, $cursor, $status, $contentType);
+        list($response) = $this->listRecurringInvoicesWithHttpInfo($limit, $cursor, $status, $contentType);
         return $response;
     }
 
     /**
-     * Operation listRecurringInvoicesApiV1RecurringInvoicesGetWithHttpInfo
+     * Operation listRecurringInvoicesWithHttpInfo
      *
      * List Recurring Invoices
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
      * @param  string $status (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRecurringInvoices'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\RecurringInvoicesListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listRecurringInvoicesApiV1RecurringInvoicesGetWithHttpInfo($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'][0])
+    public function listRecurringInvoicesWithHttpInfo($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listRecurringInvoices'][0])
     {
-        $request = $this->listRecurringInvoicesApiV1RecurringInvoicesGetRequest($limit, $cursor, $status, $contentType);
+        $request = $this->listRecurringInvoicesRequest($limit, $cursor, $status, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1744,21 +1744,21 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation listRecurringInvoicesApiV1RecurringInvoicesGetAsync
+     * Operation listRecurringInvoicesAsync
      *
      * List Recurring Invoices
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
      * @param  string $status (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRecurringInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listRecurringInvoicesApiV1RecurringInvoicesGetAsync($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'][0])
+    public function listRecurringInvoicesAsync($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listRecurringInvoices'][0])
     {
-        return $this->listRecurringInvoicesApiV1RecurringInvoicesGetAsyncWithHttpInfo($limit, $cursor, $status, $contentType)
+        return $this->listRecurringInvoicesAsyncWithHttpInfo($limit, $cursor, $status, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1767,22 +1767,22 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation listRecurringInvoicesApiV1RecurringInvoicesGetAsyncWithHttpInfo
+     * Operation listRecurringInvoicesAsyncWithHttpInfo
      *
      * List Recurring Invoices
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
      * @param  string $status (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRecurringInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listRecurringInvoicesApiV1RecurringInvoicesGetAsyncWithHttpInfo($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'][0])
+    public function listRecurringInvoicesAsyncWithHttpInfo($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listRecurringInvoices'][0])
     {
         $returnType = '\InvoicePDFs\Model\RecurringInvoicesListResponse';
-        $request = $this->listRecurringInvoicesApiV1RecurringInvoicesGetRequest($limit, $cursor, $status, $contentType);
+        $request = $this->listRecurringInvoicesRequest($limit, $cursor, $status, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1821,24 +1821,24 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Create request for operation 'listRecurringInvoicesApiV1RecurringInvoicesGet'
+     * Create request for operation 'listRecurringInvoices'
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
      * @param  string $status (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listRecurringInvoices'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listRecurringInvoicesApiV1RecurringInvoicesGetRequest($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listRecurringInvoicesApiV1RecurringInvoicesGet'][0])
+    public function listRecurringInvoicesRequest($limit = 50, $cursor = null, $status = null, string $contentType = self::contentTypes['listRecurringInvoices'][0])
     {
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling RecurringInvoicesApi.listRecurringInvoicesApiV1RecurringInvoicesGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling RecurringInvoicesApi.listRecurringInvoices, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling RecurringInvoicesApi.listRecurringInvoicesApiV1RecurringInvoicesGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling RecurringInvoicesApi.listRecurringInvoices, must be bigger than or equal to 1.');
         }
         
 
@@ -1940,40 +1940,38 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch
+     * Operation pauseRecurringInvoice
      *
-     * Patch Recurring Invoice
+     * Pause Recurring Invoice
      *
      * @param  string $recurring_id recurring_id (required)
-     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request recurring_invoice_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pauseRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch($recurring_id, $recurring_invoice_patch_request, string $contentType = self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'][0])
+    public function pauseRecurringInvoice($recurring_id, string $contentType = self::contentTypes['pauseRecurringInvoice'][0])
     {
-        list($response) = $this->patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchWithHttpInfo($recurring_id, $recurring_invoice_patch_request, $contentType);
+        list($response) = $this->pauseRecurringInvoiceWithHttpInfo($recurring_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchWithHttpInfo
+     * Operation pauseRecurringInvoiceWithHttpInfo
      *
-     * Patch Recurring Invoice
+     * Pause Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pauseRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchWithHttpInfo($recurring_id, $recurring_invoice_patch_request, string $contentType = self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'][0])
+    public function pauseRecurringInvoiceWithHttpInfo($recurring_id, string $contentType = self::contentTypes['pauseRecurringInvoice'][0])
     {
-        $request = $this->patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchRequest($recurring_id, $recurring_invoice_patch_request, $contentType);
+        $request = $this->pauseRecurringInvoiceRequest($recurring_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2119,20 +2117,19 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchAsync
+     * Operation pauseRecurringInvoiceAsync
      *
-     * Patch Recurring Invoice
+     * Pause Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pauseRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchAsync($recurring_id, $recurring_invoice_patch_request, string $contentType = self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'][0])
+    public function pauseRecurringInvoiceAsync($recurring_id, string $contentType = self::contentTypes['pauseRecurringInvoice'][0])
     {
-        return $this->patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchAsyncWithHttpInfo($recurring_id, $recurring_invoice_patch_request, $contentType)
+        return $this->pauseRecurringInvoiceAsyncWithHttpInfo($recurring_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2141,21 +2138,20 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchAsyncWithHttpInfo
+     * Operation pauseRecurringInvoiceAsyncWithHttpInfo
      *
-     * Patch Recurring Invoice
+     * Pause Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pauseRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchAsyncWithHttpInfo($recurring_id, $recurring_invoice_patch_request, string $contentType = self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'][0])
+    public function pauseRecurringInvoiceAsyncWithHttpInfo($recurring_id, string $contentType = self::contentTypes['pauseRecurringInvoice'][0])
     {
         $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
-        $request = $this->patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchRequest($recurring_id, $recurring_invoice_patch_request, $contentType);
+        $request = $this->pauseRecurringInvoiceRequest($recurring_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2194,382 +2190,21 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Create request for operation 'patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'
+     * Create request for operation 'pauseRecurringInvoice'
      *
      * @param  string $recurring_id (required)
-     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pauseRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatchRequest($recurring_id, $recurring_invoice_patch_request, string $contentType = self::contentTypes['patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'][0])
+    public function pauseRecurringInvoiceRequest($recurring_id, string $contentType = self::contentTypes['pauseRecurringInvoice'][0])
     {
 
         // verify the required parameter 'recurring_id' is set
         if ($recurring_id === null || (is_array($recurring_id) && count($recurring_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $recurring_id when calling patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'
-            );
-        }
-
-        // verify the required parameter 'recurring_invoice_patch_request' is set
-        if ($recurring_invoice_patch_request === null || (is_array($recurring_invoice_patch_request) && count($recurring_invoice_patch_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $recurring_invoice_patch_request when calling patchRecurringInvoiceApiV1RecurringInvoicesRecurringIdPatch'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/recurring-invoices/{recurring_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($recurring_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'recurring_id' . '}',
-                ObjectSerializer::toPathValue($recurring_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($recurring_invoice_patch_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($recurring_invoice_patch_request));
-            } else {
-                $httpBody = $recurring_invoice_patch_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PATCH',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost
-     *
-     * Pause Recurring Invoice
-     *
-     * @param  string $recurring_id recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse
-     */
-    public function pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost($recurring_id, string $contentType = self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'][0])
-    {
-        list($response) = $this->pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostWithHttpInfo($recurring_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostWithHttpInfo
-     *
-     * Pause Recurring Invoice
-     *
-     * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostWithHttpInfo($recurring_id, string $contentType = self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'][0])
-    {
-        $request = $this->pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostRequest($recurring_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\InvoicePDFs\Model\RecurringInvoiceResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\RecurringInvoiceResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\RecurringInvoiceResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\RecurringInvoiceResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostAsync
-     *
-     * Pause Recurring Invoice
-     *
-     * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostAsync($recurring_id, string $contentType = self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'][0])
-    {
-        return $this->pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostAsyncWithHttpInfo($recurring_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostAsyncWithHttpInfo
-     *
-     * Pause Recurring Invoice
-     *
-     * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostAsyncWithHttpInfo($recurring_id, string $contentType = self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'][0])
-    {
-        $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
-        $request = $this->pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostRequest($recurring_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'
-     *
-     * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePostRequest($recurring_id, string $contentType = self::contentTypes['pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'][0])
-    {
-
-        // verify the required parameter 'recurring_id' is set
-        if ($recurring_id === null || (is_array($recurring_id) && count($recurring_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $recurring_id when calling pauseRecurringInvoiceApiV1RecurringInvoicesRecurringIdPausePost'
+                'Missing the required parameter $recurring_id when calling pauseRecurringInvoice'
             );
         }
 
@@ -2651,38 +2286,38 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost
+     * Operation resumeRecurringInvoice
      *
      * Resume Recurring Invoice
      *
      * @param  string $recurring_id recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost($recurring_id, string $contentType = self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'][0])
+    public function resumeRecurringInvoice($recurring_id, string $contentType = self::contentTypes['resumeRecurringInvoice'][0])
     {
-        list($response) = $this->resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostWithHttpInfo($recurring_id, $contentType);
+        list($response) = $this->resumeRecurringInvoiceWithHttpInfo($recurring_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostWithHttpInfo
+     * Operation resumeRecurringInvoiceWithHttpInfo
      *
      * Resume Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostWithHttpInfo($recurring_id, string $contentType = self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'][0])
+    public function resumeRecurringInvoiceWithHttpInfo($recurring_id, string $contentType = self::contentTypes['resumeRecurringInvoice'][0])
     {
-        $request = $this->resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostRequest($recurring_id, $contentType);
+        $request = $this->resumeRecurringInvoiceRequest($recurring_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2828,19 +2463,19 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostAsync
+     * Operation resumeRecurringInvoiceAsync
      *
      * Resume Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostAsync($recurring_id, string $contentType = self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'][0])
+    public function resumeRecurringInvoiceAsync($recurring_id, string $contentType = self::contentTypes['resumeRecurringInvoice'][0])
     {
-        return $this->resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostAsyncWithHttpInfo($recurring_id, $contentType)
+        return $this->resumeRecurringInvoiceAsyncWithHttpInfo($recurring_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2849,20 +2484,20 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Operation resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostAsyncWithHttpInfo
+     * Operation resumeRecurringInvoiceAsyncWithHttpInfo
      *
      * Resume Recurring Invoice
      *
      * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostAsyncWithHttpInfo($recurring_id, string $contentType = self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'][0])
+    public function resumeRecurringInvoiceAsyncWithHttpInfo($recurring_id, string $contentType = self::contentTypes['resumeRecurringInvoice'][0])
     {
         $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
-        $request = $this->resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostRequest($recurring_id, $contentType);
+        $request = $this->resumeRecurringInvoiceRequest($recurring_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2901,21 +2536,21 @@ class RecurringInvoicesApi
     }
 
     /**
-     * Create request for operation 'resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'
+     * Create request for operation 'resumeRecurringInvoice'
      *
      * @param  string $recurring_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['resumeRecurringInvoice'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePostRequest($recurring_id, string $contentType = self::contentTypes['resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'][0])
+    public function resumeRecurringInvoiceRequest($recurring_id, string $contentType = self::contentTypes['resumeRecurringInvoice'][0])
     {
 
         // verify the required parameter 'recurring_id' is set
         if ($recurring_id === null || (is_array($recurring_id) && count($recurring_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $recurring_id when calling resumeRecurringInvoiceApiV1RecurringInvoicesRecurringIdResumePost'
+                'Missing the required parameter $recurring_id when calling resumeRecurringInvoice'
             );
         }
 
@@ -2990,6 +2625,371 @@ class RecurringInvoicesApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateRecurringInvoice
+     *
+     * Update Recurring Invoice
+     *
+     * @param  string $recurring_id recurring_id (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request recurring_invoice_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurringInvoice'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse
+     */
+    public function updateRecurringInvoice($recurring_id, $recurring_invoice_patch_request, string $contentType = self::contentTypes['updateRecurringInvoice'][0])
+    {
+        list($response) = $this->updateRecurringInvoiceWithHttpInfo($recurring_id, $recurring_invoice_patch_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateRecurringInvoiceWithHttpInfo
+     *
+     * Update Recurring Invoice
+     *
+     * @param  string $recurring_id (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurringInvoice'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\RecurringInvoiceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateRecurringInvoiceWithHttpInfo($recurring_id, $recurring_invoice_patch_request, string $contentType = self::contentTypes['updateRecurringInvoice'][0])
+    {
+        $request = $this->updateRecurringInvoiceRequest($recurring_id, $recurring_invoice_patch_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\RecurringInvoiceResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\RecurringInvoiceResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\RecurringInvoiceResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\RecurringInvoiceResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateRecurringInvoiceAsync
+     *
+     * Update Recurring Invoice
+     *
+     * @param  string $recurring_id (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurringInvoice'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateRecurringInvoiceAsync($recurring_id, $recurring_invoice_patch_request, string $contentType = self::contentTypes['updateRecurringInvoice'][0])
+    {
+        return $this->updateRecurringInvoiceAsyncWithHttpInfo($recurring_id, $recurring_invoice_patch_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateRecurringInvoiceAsyncWithHttpInfo
+     *
+     * Update Recurring Invoice
+     *
+     * @param  string $recurring_id (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurringInvoice'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateRecurringInvoiceAsyncWithHttpInfo($recurring_id, $recurring_invoice_patch_request, string $contentType = self::contentTypes['updateRecurringInvoice'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\RecurringInvoiceResponse';
+        $request = $this->updateRecurringInvoiceRequest($recurring_id, $recurring_invoice_patch_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateRecurringInvoice'
+     *
+     * @param  string $recurring_id (required)
+     * @param  \InvoicePDFs\Model\RecurringInvoicePatchRequest $recurring_invoice_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateRecurringInvoice'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateRecurringInvoiceRequest($recurring_id, $recurring_invoice_patch_request, string $contentType = self::contentTypes['updateRecurringInvoice'][0])
+    {
+
+        // verify the required parameter 'recurring_id' is set
+        if ($recurring_id === null || (is_array($recurring_id) && count($recurring_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $recurring_id when calling updateRecurringInvoice'
+            );
+        }
+
+        // verify the required parameter 'recurring_invoice_patch_request' is set
+        if ($recurring_invoice_patch_request === null || (is_array($recurring_invoice_patch_request) && count($recurring_invoice_patch_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $recurring_invoice_patch_request when calling updateRecurringInvoice'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/recurring-invoices/{recurring_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($recurring_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'recurring_id' . '}',
+                ObjectSerializer::toPathValue($recurring_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($recurring_invoice_patch_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($recurring_invoice_patch_request));
+            } else {
+                $httpBody = $recurring_invoice_patch_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

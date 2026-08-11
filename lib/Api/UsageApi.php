@@ -71,13 +71,13 @@ class UsageApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'getLimitsApiV1UsageLimitsGet' => [
+        'getUsage' => [
             'application/json',
         ],
-        'listUsageEventsApiV1UsageEventsGet' => [
+        'getUsageLimits' => [
             'application/json',
         ],
-        'usageApiV1UsageGet' => [
+        'listUsageEvents' => [
             'application/json',
         ],
     ];
@@ -129,36 +129,327 @@ class UsageApi
     }
 
     /**
-     * Operation getLimitsApiV1UsageLimitsGet
+     * Operation getUsage
      *
-     * Get Limits
+     * Get Usage
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLimitsApiV1UsageLimitsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsage'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\UsageResponse
+     */
+    public function getUsage(string $contentType = self::contentTypes['getUsage'][0])
+    {
+        list($response) = $this->getUsageWithHttpInfo($contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getUsageWithHttpInfo
+     *
+     * Get Usage
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsage'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\UsageResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getUsageWithHttpInfo(string $contentType = self::contentTypes['getUsage'][0])
+    {
+        $request = $this->getUsageRequest($contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\UsageResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\UsageResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\UsageResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\UsageResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\UsageResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getUsageAsync
+     *
+     * Get Usage
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUsageAsync(string $contentType = self::contentTypes['getUsage'][0])
+    {
+        return $this->getUsageAsyncWithHttpInfo($contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getUsageAsyncWithHttpInfo
+     *
+     * Get Usage
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getUsageAsyncWithHttpInfo(string $contentType = self::contentTypes['getUsage'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\UsageResponse';
+        $request = $this->getUsageRequest($contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getUsage'
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getUsageRequest(string $contentType = self::contentTypes['getUsage'][0])
+    {
+
+
+        $resourcePath = '/api/v1/usage';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getUsageLimits
+     *
+     * Get Usage Limits
+     *
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsageLimits'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>
      */
-    public function getLimitsApiV1UsageLimitsGet(string $contentType = self::contentTypes['getLimitsApiV1UsageLimitsGet'][0])
+    public function getUsageLimits(string $contentType = self::contentTypes['getUsageLimits'][0])
     {
-        list($response) = $this->getLimitsApiV1UsageLimitsGetWithHttpInfo($contentType);
+        list($response) = $this->getUsageLimitsWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation getLimitsApiV1UsageLimitsGetWithHttpInfo
+     * Operation getUsageLimitsWithHttpInfo
      *
-     * Get Limits
+     * Get Usage Limits
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLimitsApiV1UsageLimitsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsageLimits'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLimitsApiV1UsageLimitsGetWithHttpInfo(string $contentType = self::contentTypes['getLimitsApiV1UsageLimitsGet'][0])
+    public function getUsageLimitsWithHttpInfo(string $contentType = self::contentTypes['getUsageLimits'][0])
     {
-        $request = $this->getLimitsApiV1UsageLimitsGetRequest($contentType);
+        $request = $this->getUsageLimitsRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -269,18 +560,18 @@ class UsageApi
     }
 
     /**
-     * Operation getLimitsApiV1UsageLimitsGetAsync
+     * Operation getUsageLimitsAsync
      *
-     * Get Limits
+     * Get Usage Limits
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLimitsApiV1UsageLimitsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsageLimits'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLimitsApiV1UsageLimitsGetAsync(string $contentType = self::contentTypes['getLimitsApiV1UsageLimitsGet'][0])
+    public function getUsageLimitsAsync(string $contentType = self::contentTypes['getUsageLimits'][0])
     {
-        return $this->getLimitsApiV1UsageLimitsGetAsyncWithHttpInfo($contentType)
+        return $this->getUsageLimitsAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -289,19 +580,19 @@ class UsageApi
     }
 
     /**
-     * Operation getLimitsApiV1UsageLimitsGetAsyncWithHttpInfo
+     * Operation getUsageLimitsAsyncWithHttpInfo
      *
-     * Get Limits
+     * Get Usage Limits
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLimitsApiV1UsageLimitsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsageLimits'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLimitsApiV1UsageLimitsGetAsyncWithHttpInfo(string $contentType = self::contentTypes['getLimitsApiV1UsageLimitsGet'][0])
+    public function getUsageLimitsAsyncWithHttpInfo(string $contentType = self::contentTypes['getUsageLimits'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getLimitsApiV1UsageLimitsGetRequest($contentType);
+        $request = $this->getUsageLimitsRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -340,14 +631,14 @@ class UsageApi
     }
 
     /**
-     * Create request for operation 'getLimitsApiV1UsageLimitsGet'
+     * Create request for operation 'getUsageLimits'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLimitsApiV1UsageLimitsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsageLimits'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLimitsApiV1UsageLimitsGetRequest(string $contentType = self::contentTypes['getLimitsApiV1UsageLimitsGet'][0])
+    public function getUsageLimitsRequest(string $contentType = self::contentTypes['getUsageLimits'][0])
     {
 
 
@@ -420,40 +711,40 @@ class UsageApi
     }
 
     /**
-     * Operation listUsageEventsApiV1UsageEventsGet
+     * Operation listUsageEvents
      *
      * List Usage Events
      *
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listUsageEventsApiV1UsageEventsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listUsageEvents'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listUsageEventsApiV1UsageEventsGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEventsApiV1UsageEventsGet'][0])
+    public function listUsageEvents($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEvents'][0])
     {
-        list($response) = $this->listUsageEventsApiV1UsageEventsGetWithHttpInfo($limit, $cursor, $contentType);
+        list($response) = $this->listUsageEventsWithHttpInfo($limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listUsageEventsApiV1UsageEventsGetWithHttpInfo
+     * Operation listUsageEventsWithHttpInfo
      *
      * List Usage Events
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listUsageEventsApiV1UsageEventsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listUsageEvents'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listUsageEventsApiV1UsageEventsGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEventsApiV1UsageEventsGet'][0])
+    public function listUsageEventsWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEvents'][0])
     {
-        $request = $this->listUsageEventsApiV1UsageEventsGetRequest($limit, $cursor, $contentType);
+        $request = $this->listUsageEventsRequest($limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -599,20 +890,20 @@ class UsageApi
     }
 
     /**
-     * Operation listUsageEventsApiV1UsageEventsGetAsync
+     * Operation listUsageEventsAsync
      *
      * List Usage Events
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listUsageEventsApiV1UsageEventsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listUsageEvents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listUsageEventsApiV1UsageEventsGetAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEventsApiV1UsageEventsGet'][0])
+    public function listUsageEventsAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEvents'][0])
     {
-        return $this->listUsageEventsApiV1UsageEventsGetAsyncWithHttpInfo($limit, $cursor, $contentType)
+        return $this->listUsageEventsAsyncWithHttpInfo($limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -621,21 +912,21 @@ class UsageApi
     }
 
     /**
-     * Operation listUsageEventsApiV1UsageEventsGetAsyncWithHttpInfo
+     * Operation listUsageEventsAsyncWithHttpInfo
      *
      * List Usage Events
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listUsageEventsApiV1UsageEventsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listUsageEvents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listUsageEventsApiV1UsageEventsGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEventsApiV1UsageEventsGet'][0])
+    public function listUsageEventsAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEvents'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->listUsageEventsApiV1UsageEventsGetRequest($limit, $cursor, $contentType);
+        $request = $this->listUsageEventsRequest($limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -674,23 +965,23 @@ class UsageApi
     }
 
     /**
-     * Create request for operation 'listUsageEventsApiV1UsageEventsGet'
+     * Create request for operation 'listUsageEvents'
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listUsageEventsApiV1UsageEventsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listUsageEvents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listUsageEventsApiV1UsageEventsGetRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEventsApiV1UsageEventsGet'][0])
+    public function listUsageEventsRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEvents'][0])
     {
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling UsageApi.listUsageEventsApiV1UsageEventsGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling UsageApi.listUsageEvents, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling UsageApi.listUsageEventsApiV1UsageEventsGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling UsageApi.listUsageEvents, must be bigger than or equal to 1.');
         }
         
 
@@ -720,297 +1011,6 @@ class UsageApi
             true, // explode
             false // required
         ) ?? []);
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation usageApiV1UsageGet
-     *
-     * Usage
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['usageApiV1UsageGet'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\UsageResponse
-     */
-    public function usageApiV1UsageGet(string $contentType = self::contentTypes['usageApiV1UsageGet'][0])
-    {
-        list($response) = $this->usageApiV1UsageGetWithHttpInfo($contentType);
-        return $response;
-    }
-
-    /**
-     * Operation usageApiV1UsageGetWithHttpInfo
-     *
-     * Usage
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['usageApiV1UsageGet'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\UsageResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function usageApiV1UsageGetWithHttpInfo(string $contentType = self::contentTypes['usageApiV1UsageGet'][0])
-    {
-        $request = $this->usageApiV1UsageGetRequest($contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\InvoicePDFs\Model\UsageResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\UsageResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\UsageResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\InvoicePDFs\Model\UsageResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\UsageResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation usageApiV1UsageGetAsync
-     *
-     * Usage
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['usageApiV1UsageGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function usageApiV1UsageGetAsync(string $contentType = self::contentTypes['usageApiV1UsageGet'][0])
-    {
-        return $this->usageApiV1UsageGetAsyncWithHttpInfo($contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation usageApiV1UsageGetAsyncWithHttpInfo
-     *
-     * Usage
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['usageApiV1UsageGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function usageApiV1UsageGetAsyncWithHttpInfo(string $contentType = self::contentTypes['usageApiV1UsageGet'][0])
-    {
-        $returnType = '\InvoicePDFs\Model\UsageResponse';
-        $request = $this->usageApiV1UsageGetRequest($contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'usageApiV1UsageGet'
-     *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['usageApiV1UsageGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function usageApiV1UsageGetRequest(string $contentType = self::contentTypes['usageApiV1UsageGet'][0])
-    {
-
-
-        $resourcePath = '/api/v1/usage';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
 
 
 

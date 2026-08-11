@@ -71,19 +71,19 @@ class BusinessProfilesApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'createBusinessProfileApiV1BusinessProfilesPost' => [
+        'createBusinessProfile' => [
             'application/json',
         ],
-        'deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete' => [
+        'deleteBusinessProfile' => [
             'application/json',
         ],
-        'getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet' => [
+        'getBusinessProfile' => [
             'application/json',
         ],
-        'listBusinessProfilesApiV1BusinessProfilesGet' => [
+        'listBusinessProfiles' => [
             'application/json',
         ],
-        'patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch' => [
+        'updateBusinessProfile' => [
             'application/json',
         ],
     ];
@@ -135,40 +135,40 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation createBusinessProfileApiV1BusinessProfilesPost
+     * Operation createBusinessProfile
      *
      * Create Business Profile
      *
      * @param  \InvoicePDFs\Model\BusinessProfileCreate $business_profile_create business_profile_create (required)
      * @param  string $idempotency_key idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBusinessProfileApiV1BusinessProfilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BusinessProfileResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createBusinessProfileApiV1BusinessProfilesPost($business_profile_create, $idempotency_key = null, string $contentType = self::contentTypes['createBusinessProfileApiV1BusinessProfilesPost'][0])
+    public function createBusinessProfile($business_profile_create, $idempotency_key = null, string $contentType = self::contentTypes['createBusinessProfile'][0])
     {
-        list($response) = $this->createBusinessProfileApiV1BusinessProfilesPostWithHttpInfo($business_profile_create, $idempotency_key, $contentType);
+        list($response) = $this->createBusinessProfileWithHttpInfo($business_profile_create, $idempotency_key, $contentType);
         return $response;
     }
 
     /**
-     * Operation createBusinessProfileApiV1BusinessProfilesPostWithHttpInfo
+     * Operation createBusinessProfileWithHttpInfo
      *
      * Create Business Profile
      *
      * @param  \InvoicePDFs\Model\BusinessProfileCreate $business_profile_create (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBusinessProfileApiV1BusinessProfilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BusinessProfileResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createBusinessProfileApiV1BusinessProfilesPostWithHttpInfo($business_profile_create, $idempotency_key = null, string $contentType = self::contentTypes['createBusinessProfileApiV1BusinessProfilesPost'][0])
+    public function createBusinessProfileWithHttpInfo($business_profile_create, $idempotency_key = null, string $contentType = self::contentTypes['createBusinessProfile'][0])
     {
-        $request = $this->createBusinessProfileApiV1BusinessProfilesPostRequest($business_profile_create, $idempotency_key, $contentType);
+        $request = $this->createBusinessProfileRequest($business_profile_create, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -314,20 +314,20 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation createBusinessProfileApiV1BusinessProfilesPostAsync
+     * Operation createBusinessProfileAsync
      *
      * Create Business Profile
      *
      * @param  \InvoicePDFs\Model\BusinessProfileCreate $business_profile_create (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBusinessProfileApiV1BusinessProfilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBusinessProfileApiV1BusinessProfilesPostAsync($business_profile_create, $idempotency_key = null, string $contentType = self::contentTypes['createBusinessProfileApiV1BusinessProfilesPost'][0])
+    public function createBusinessProfileAsync($business_profile_create, $idempotency_key = null, string $contentType = self::contentTypes['createBusinessProfile'][0])
     {
-        return $this->createBusinessProfileApiV1BusinessProfilesPostAsyncWithHttpInfo($business_profile_create, $idempotency_key, $contentType)
+        return $this->createBusinessProfileAsyncWithHttpInfo($business_profile_create, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -336,21 +336,21 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation createBusinessProfileApiV1BusinessProfilesPostAsyncWithHttpInfo
+     * Operation createBusinessProfileAsyncWithHttpInfo
      *
      * Create Business Profile
      *
      * @param  \InvoicePDFs\Model\BusinessProfileCreate $business_profile_create (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBusinessProfileApiV1BusinessProfilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBusinessProfileApiV1BusinessProfilesPostAsyncWithHttpInfo($business_profile_create, $idempotency_key = null, string $contentType = self::contentTypes['createBusinessProfileApiV1BusinessProfilesPost'][0])
+    public function createBusinessProfileAsyncWithHttpInfo($business_profile_create, $idempotency_key = null, string $contentType = self::contentTypes['createBusinessProfile'][0])
     {
         $returnType = '\InvoicePDFs\Model\BusinessProfileResponse';
-        $request = $this->createBusinessProfileApiV1BusinessProfilesPostRequest($business_profile_create, $idempotency_key, $contentType);
+        $request = $this->createBusinessProfileRequest($business_profile_create, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -389,22 +389,22 @@ class BusinessProfilesApi
     }
 
     /**
-     * Create request for operation 'createBusinessProfileApiV1BusinessProfilesPost'
+     * Create request for operation 'createBusinessProfile'
      *
      * @param  \InvoicePDFs\Model\BusinessProfileCreate $business_profile_create (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBusinessProfileApiV1BusinessProfilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createBusinessProfileApiV1BusinessProfilesPostRequest($business_profile_create, $idempotency_key = null, string $contentType = self::contentTypes['createBusinessProfileApiV1BusinessProfilesPost'][0])
+    public function createBusinessProfileRequest($business_profile_create, $idempotency_key = null, string $contentType = self::contentTypes['createBusinessProfile'][0])
     {
 
         // verify the required parameter 'business_profile_create' is set
         if ($business_profile_create === null || (is_array($business_profile_create) && count($business_profile_create) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $business_profile_create when calling createBusinessProfileApiV1BusinessProfilesPost'
+                'Missing the required parameter $business_profile_create when calling createBusinessProfile'
             );
         }
 
@@ -490,38 +490,38 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete
+     * Operation deleteBusinessProfile
      *
      * Delete Business Profile
      *
      * @param  string $business_profile_id business_profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete($business_profile_id, string $contentType = self::contentTypes['deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete'][0])
+    public function deleteBusinessProfile($business_profile_id, string $contentType = self::contentTypes['deleteBusinessProfile'][0])
     {
-        list($response) = $this->deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteWithHttpInfo($business_profile_id, $contentType);
+        list($response) = $this->deleteBusinessProfileWithHttpInfo($business_profile_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteWithHttpInfo
+     * Operation deleteBusinessProfileWithHttpInfo
      *
      * Delete Business Profile
      *
      * @param  string $business_profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteWithHttpInfo($business_profile_id, string $contentType = self::contentTypes['deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete'][0])
+    public function deleteBusinessProfileWithHttpInfo($business_profile_id, string $contentType = self::contentTypes['deleteBusinessProfile'][0])
     {
-        $request = $this->deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteRequest($business_profile_id, $contentType);
+        $request = $this->deleteBusinessProfileRequest($business_profile_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -667,19 +667,19 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteAsync
+     * Operation deleteBusinessProfileAsync
      *
      * Delete Business Profile
      *
      * @param  string $business_profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteAsync($business_profile_id, string $contentType = self::contentTypes['deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete'][0])
+    public function deleteBusinessProfileAsync($business_profile_id, string $contentType = self::contentTypes['deleteBusinessProfile'][0])
     {
-        return $this->deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteAsyncWithHttpInfo($business_profile_id, $contentType)
+        return $this->deleteBusinessProfileAsyncWithHttpInfo($business_profile_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -688,20 +688,20 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteAsyncWithHttpInfo
+     * Operation deleteBusinessProfileAsyncWithHttpInfo
      *
      * Delete Business Profile
      *
      * @param  string $business_profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteAsyncWithHttpInfo($business_profile_id, string $contentType = self::contentTypes['deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete'][0])
+    public function deleteBusinessProfileAsyncWithHttpInfo($business_profile_id, string $contentType = self::contentTypes['deleteBusinessProfile'][0])
     {
         $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
-        $request = $this->deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteRequest($business_profile_id, $contentType);
+        $request = $this->deleteBusinessProfileRequest($business_profile_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -740,21 +740,21 @@ class BusinessProfilesApi
     }
 
     /**
-     * Create request for operation 'deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete'
+     * Create request for operation 'deleteBusinessProfile'
      *
      * @param  string $business_profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDeleteRequest($business_profile_id, string $contentType = self::contentTypes['deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete'][0])
+    public function deleteBusinessProfileRequest($business_profile_id, string $contentType = self::contentTypes['deleteBusinessProfile'][0])
     {
 
         // verify the required parameter 'business_profile_id' is set
         if ($business_profile_id === null || (is_array($business_profile_id) && count($business_profile_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $business_profile_id when calling deleteBusinessProfileApiV1BusinessProfilesBusinessProfileIdDelete'
+                'Missing the required parameter $business_profile_id when calling deleteBusinessProfile'
             );
         }
 
@@ -836,38 +836,38 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet
+     * Operation getBusinessProfile
      *
      * Get Business Profile
      *
      * @param  string $business_profile_id business_profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BusinessProfileResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet($business_profile_id, string $contentType = self::contentTypes['getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet'][0])
+    public function getBusinessProfile($business_profile_id, string $contentType = self::contentTypes['getBusinessProfile'][0])
     {
-        list($response) = $this->getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetWithHttpInfo($business_profile_id, $contentType);
+        list($response) = $this->getBusinessProfileWithHttpInfo($business_profile_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetWithHttpInfo
+     * Operation getBusinessProfileWithHttpInfo
      *
      * Get Business Profile
      *
      * @param  string $business_profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BusinessProfileResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetWithHttpInfo($business_profile_id, string $contentType = self::contentTypes['getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet'][0])
+    public function getBusinessProfileWithHttpInfo($business_profile_id, string $contentType = self::contentTypes['getBusinessProfile'][0])
     {
-        $request = $this->getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetRequest($business_profile_id, $contentType);
+        $request = $this->getBusinessProfileRequest($business_profile_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1013,19 +1013,19 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetAsync
+     * Operation getBusinessProfileAsync
      *
      * Get Business Profile
      *
      * @param  string $business_profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetAsync($business_profile_id, string $contentType = self::contentTypes['getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet'][0])
+    public function getBusinessProfileAsync($business_profile_id, string $contentType = self::contentTypes['getBusinessProfile'][0])
     {
-        return $this->getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetAsyncWithHttpInfo($business_profile_id, $contentType)
+        return $this->getBusinessProfileAsyncWithHttpInfo($business_profile_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1034,20 +1034,20 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetAsyncWithHttpInfo
+     * Operation getBusinessProfileAsyncWithHttpInfo
      *
      * Get Business Profile
      *
      * @param  string $business_profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetAsyncWithHttpInfo($business_profile_id, string $contentType = self::contentTypes['getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet'][0])
+    public function getBusinessProfileAsyncWithHttpInfo($business_profile_id, string $contentType = self::contentTypes['getBusinessProfile'][0])
     {
         $returnType = '\InvoicePDFs\Model\BusinessProfileResponse';
-        $request = $this->getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetRequest($business_profile_id, $contentType);
+        $request = $this->getBusinessProfileRequest($business_profile_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1086,21 +1086,21 @@ class BusinessProfilesApi
     }
 
     /**
-     * Create request for operation 'getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet'
+     * Create request for operation 'getBusinessProfile'
      *
      * @param  string $business_profile_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGetRequest($business_profile_id, string $contentType = self::contentTypes['getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet'][0])
+    public function getBusinessProfileRequest($business_profile_id, string $contentType = self::contentTypes['getBusinessProfile'][0])
     {
 
         // verify the required parameter 'business_profile_id' is set
         if ($business_profile_id === null || (is_array($business_profile_id) && count($business_profile_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $business_profile_id when calling getBusinessProfileApiV1BusinessProfilesBusinessProfileIdGet'
+                'Missing the required parameter $business_profile_id when calling getBusinessProfile'
             );
         }
 
@@ -1182,40 +1182,40 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation listBusinessProfilesApiV1BusinessProfilesGet
+     * Operation listBusinessProfiles
      *
      * List Business Profiles
      *
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBusinessProfilesApiV1BusinessProfilesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBusinessProfiles'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BusinessProfilesListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listBusinessProfilesApiV1BusinessProfilesGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBusinessProfilesApiV1BusinessProfilesGet'][0])
+    public function listBusinessProfiles($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBusinessProfiles'][0])
     {
-        list($response) = $this->listBusinessProfilesApiV1BusinessProfilesGetWithHttpInfo($limit, $cursor, $contentType);
+        list($response) = $this->listBusinessProfilesWithHttpInfo($limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listBusinessProfilesApiV1BusinessProfilesGetWithHttpInfo
+     * Operation listBusinessProfilesWithHttpInfo
      *
      * List Business Profiles
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBusinessProfilesApiV1BusinessProfilesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBusinessProfiles'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BusinessProfilesListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listBusinessProfilesApiV1BusinessProfilesGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBusinessProfilesApiV1BusinessProfilesGet'][0])
+    public function listBusinessProfilesWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBusinessProfiles'][0])
     {
-        $request = $this->listBusinessProfilesApiV1BusinessProfilesGetRequest($limit, $cursor, $contentType);
+        $request = $this->listBusinessProfilesRequest($limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1361,20 +1361,20 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation listBusinessProfilesApiV1BusinessProfilesGetAsync
+     * Operation listBusinessProfilesAsync
      *
      * List Business Profiles
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBusinessProfilesApiV1BusinessProfilesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBusinessProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBusinessProfilesApiV1BusinessProfilesGetAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBusinessProfilesApiV1BusinessProfilesGet'][0])
+    public function listBusinessProfilesAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBusinessProfiles'][0])
     {
-        return $this->listBusinessProfilesApiV1BusinessProfilesGetAsyncWithHttpInfo($limit, $cursor, $contentType)
+        return $this->listBusinessProfilesAsyncWithHttpInfo($limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1383,21 +1383,21 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation listBusinessProfilesApiV1BusinessProfilesGetAsyncWithHttpInfo
+     * Operation listBusinessProfilesAsyncWithHttpInfo
      *
      * List Business Profiles
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBusinessProfilesApiV1BusinessProfilesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBusinessProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBusinessProfilesApiV1BusinessProfilesGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBusinessProfilesApiV1BusinessProfilesGet'][0])
+    public function listBusinessProfilesAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBusinessProfiles'][0])
     {
         $returnType = '\InvoicePDFs\Model\BusinessProfilesListResponse';
-        $request = $this->listBusinessProfilesApiV1BusinessProfilesGetRequest($limit, $cursor, $contentType);
+        $request = $this->listBusinessProfilesRequest($limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1436,23 +1436,23 @@ class BusinessProfilesApi
     }
 
     /**
-     * Create request for operation 'listBusinessProfilesApiV1BusinessProfilesGet'
+     * Create request for operation 'listBusinessProfiles'
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBusinessProfilesApiV1BusinessProfilesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBusinessProfiles'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listBusinessProfilesApiV1BusinessProfilesGetRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBusinessProfilesApiV1BusinessProfilesGet'][0])
+    public function listBusinessProfilesRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBusinessProfiles'][0])
     {
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling BusinessProfilesApi.listBusinessProfilesApiV1BusinessProfilesGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling BusinessProfilesApi.listBusinessProfiles, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling BusinessProfilesApi.listBusinessProfilesApiV1BusinessProfilesGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling BusinessProfilesApi.listBusinessProfiles, must be bigger than or equal to 1.');
         }
         
 
@@ -1544,42 +1544,42 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch
+     * Operation updateBusinessProfile
      *
-     * Patch Business Profile
+     * Update Business Profile
      *
      * @param  string $business_profile_id business_profile_id (required)
      * @param  \InvoicePDFs\Model\BusinessProfilePatch $business_profile_patch business_profile_patch (required)
      * @param  string $idempotency_key idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BusinessProfileResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch($business_profile_id, $business_profile_patch, $idempotency_key = null, string $contentType = self::contentTypes['patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch'][0])
+    public function updateBusinessProfile($business_profile_id, $business_profile_patch, $idempotency_key = null, string $contentType = self::contentTypes['updateBusinessProfile'][0])
     {
-        list($response) = $this->patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchWithHttpInfo($business_profile_id, $business_profile_patch, $idempotency_key, $contentType);
+        list($response) = $this->updateBusinessProfileWithHttpInfo($business_profile_id, $business_profile_patch, $idempotency_key, $contentType);
         return $response;
     }
 
     /**
-     * Operation patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchWithHttpInfo
+     * Operation updateBusinessProfileWithHttpInfo
      *
-     * Patch Business Profile
+     * Update Business Profile
      *
      * @param  string $business_profile_id (required)
      * @param  \InvoicePDFs\Model\BusinessProfilePatch $business_profile_patch (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BusinessProfileResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchWithHttpInfo($business_profile_id, $business_profile_patch, $idempotency_key = null, string $contentType = self::contentTypes['patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch'][0])
+    public function updateBusinessProfileWithHttpInfo($business_profile_id, $business_profile_patch, $idempotency_key = null, string $contentType = self::contentTypes['updateBusinessProfile'][0])
     {
-        $request = $this->patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest($business_profile_id, $business_profile_patch, $idempotency_key, $contentType);
+        $request = $this->updateBusinessProfileRequest($business_profile_id, $business_profile_patch, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1725,21 +1725,21 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchAsync
+     * Operation updateBusinessProfileAsync
      *
-     * Patch Business Profile
+     * Update Business Profile
      *
      * @param  string $business_profile_id (required)
      * @param  \InvoicePDFs\Model\BusinessProfilePatch $business_profile_patch (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchAsync($business_profile_id, $business_profile_patch, $idempotency_key = null, string $contentType = self::contentTypes['patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch'][0])
+    public function updateBusinessProfileAsync($business_profile_id, $business_profile_patch, $idempotency_key = null, string $contentType = self::contentTypes['updateBusinessProfile'][0])
     {
-        return $this->patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchAsyncWithHttpInfo($business_profile_id, $business_profile_patch, $idempotency_key, $contentType)
+        return $this->updateBusinessProfileAsyncWithHttpInfo($business_profile_id, $business_profile_patch, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1748,22 +1748,22 @@ class BusinessProfilesApi
     }
 
     /**
-     * Operation patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchAsyncWithHttpInfo
+     * Operation updateBusinessProfileAsyncWithHttpInfo
      *
-     * Patch Business Profile
+     * Update Business Profile
      *
      * @param  string $business_profile_id (required)
      * @param  \InvoicePDFs\Model\BusinessProfilePatch $business_profile_patch (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchAsyncWithHttpInfo($business_profile_id, $business_profile_patch, $idempotency_key = null, string $contentType = self::contentTypes['patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch'][0])
+    public function updateBusinessProfileAsyncWithHttpInfo($business_profile_id, $business_profile_patch, $idempotency_key = null, string $contentType = self::contentTypes['updateBusinessProfile'][0])
     {
         $returnType = '\InvoicePDFs\Model\BusinessProfileResponse';
-        $request = $this->patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest($business_profile_id, $business_profile_patch, $idempotency_key, $contentType);
+        $request = $this->updateBusinessProfileRequest($business_profile_id, $business_profile_patch, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1802,30 +1802,30 @@ class BusinessProfilesApi
     }
 
     /**
-     * Create request for operation 'patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch'
+     * Create request for operation 'updateBusinessProfile'
      *
      * @param  string $business_profile_id (required)
      * @param  \InvoicePDFs\Model\BusinessProfilePatch $business_profile_patch (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateBusinessProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatchRequest($business_profile_id, $business_profile_patch, $idempotency_key = null, string $contentType = self::contentTypes['patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch'][0])
+    public function updateBusinessProfileRequest($business_profile_id, $business_profile_patch, $idempotency_key = null, string $contentType = self::contentTypes['updateBusinessProfile'][0])
     {
 
         // verify the required parameter 'business_profile_id' is set
         if ($business_profile_id === null || (is_array($business_profile_id) && count($business_profile_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $business_profile_id when calling patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch'
+                'Missing the required parameter $business_profile_id when calling updateBusinessProfile'
             );
         }
 
         // verify the required parameter 'business_profile_patch' is set
         if ($business_profile_patch === null || (is_array($business_profile_patch) && count($business_profile_patch) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $business_profile_patch when calling patchBusinessProfileApiV1BusinessProfilesBusinessProfileIdPatch'
+                'Missing the required parameter $business_profile_patch when calling updateBusinessProfile'
             );
         }
 

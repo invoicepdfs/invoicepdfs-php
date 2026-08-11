@@ -71,19 +71,19 @@ class CustomersApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'createCustomerApiV1CustomersPost' => [
+        'createCustomer' => [
             'application/json',
         ],
-        'deleteCustomerApiV1CustomersCustomerIdDelete' => [
+        'deleteCustomer' => [
             'application/json',
         ],
-        'getCustomerApiV1CustomersCustomerIdGet' => [
+        'getCustomer' => [
             'application/json',
         ],
-        'listCustomersApiV1CustomersGet' => [
+        'listCustomers' => [
             'application/json',
         ],
-        'patchCustomerApiV1CustomersCustomerIdPatch' => [
+        'updateCustomer' => [
             'application/json',
         ],
     ];
@@ -135,40 +135,40 @@ class CustomersApi
     }
 
     /**
-     * Operation createCustomerApiV1CustomersPost
+     * Operation createCustomer
      *
      * Create Customer
      *
      * @param  \InvoicePDFs\Model\CustomerCreate $customer_create customer_create (required)
      * @param  string $idempotency_key idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomerApiV1CustomersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomer'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\CustomerResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createCustomerApiV1CustomersPost($customer_create, $idempotency_key = null, string $contentType = self::contentTypes['createCustomerApiV1CustomersPost'][0])
+    public function createCustomer($customer_create, $idempotency_key = null, string $contentType = self::contentTypes['createCustomer'][0])
     {
-        list($response) = $this->createCustomerApiV1CustomersPostWithHttpInfo($customer_create, $idempotency_key, $contentType);
+        list($response) = $this->createCustomerWithHttpInfo($customer_create, $idempotency_key, $contentType);
         return $response;
     }
 
     /**
-     * Operation createCustomerApiV1CustomersPostWithHttpInfo
+     * Operation createCustomerWithHttpInfo
      *
      * Create Customer
      *
      * @param  \InvoicePDFs\Model\CustomerCreate $customer_create (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomerApiV1CustomersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomer'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\CustomerResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCustomerApiV1CustomersPostWithHttpInfo($customer_create, $idempotency_key = null, string $contentType = self::contentTypes['createCustomerApiV1CustomersPost'][0])
+    public function createCustomerWithHttpInfo($customer_create, $idempotency_key = null, string $contentType = self::contentTypes['createCustomer'][0])
     {
-        $request = $this->createCustomerApiV1CustomersPostRequest($customer_create, $idempotency_key, $contentType);
+        $request = $this->createCustomerRequest($customer_create, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -314,20 +314,20 @@ class CustomersApi
     }
 
     /**
-     * Operation createCustomerApiV1CustomersPostAsync
+     * Operation createCustomerAsync
      *
      * Create Customer
      *
      * @param  \InvoicePDFs\Model\CustomerCreate $customer_create (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomerApiV1CustomersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCustomerApiV1CustomersPostAsync($customer_create, $idempotency_key = null, string $contentType = self::contentTypes['createCustomerApiV1CustomersPost'][0])
+    public function createCustomerAsync($customer_create, $idempotency_key = null, string $contentType = self::contentTypes['createCustomer'][0])
     {
-        return $this->createCustomerApiV1CustomersPostAsyncWithHttpInfo($customer_create, $idempotency_key, $contentType)
+        return $this->createCustomerAsyncWithHttpInfo($customer_create, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -336,21 +336,21 @@ class CustomersApi
     }
 
     /**
-     * Operation createCustomerApiV1CustomersPostAsyncWithHttpInfo
+     * Operation createCustomerAsyncWithHttpInfo
      *
      * Create Customer
      *
      * @param  \InvoicePDFs\Model\CustomerCreate $customer_create (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomerApiV1CustomersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCustomerApiV1CustomersPostAsyncWithHttpInfo($customer_create, $idempotency_key = null, string $contentType = self::contentTypes['createCustomerApiV1CustomersPost'][0])
+    public function createCustomerAsyncWithHttpInfo($customer_create, $idempotency_key = null, string $contentType = self::contentTypes['createCustomer'][0])
     {
         $returnType = '\InvoicePDFs\Model\CustomerResponse';
-        $request = $this->createCustomerApiV1CustomersPostRequest($customer_create, $idempotency_key, $contentType);
+        $request = $this->createCustomerRequest($customer_create, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -389,22 +389,22 @@ class CustomersApi
     }
 
     /**
-     * Create request for operation 'createCustomerApiV1CustomersPost'
+     * Create request for operation 'createCustomer'
      *
      * @param  \InvoicePDFs\Model\CustomerCreate $customer_create (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomerApiV1CustomersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createCustomerApiV1CustomersPostRequest($customer_create, $idempotency_key = null, string $contentType = self::contentTypes['createCustomerApiV1CustomersPost'][0])
+    public function createCustomerRequest($customer_create, $idempotency_key = null, string $contentType = self::contentTypes['createCustomer'][0])
     {
 
         // verify the required parameter 'customer_create' is set
         if ($customer_create === null || (is_array($customer_create) && count($customer_create) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customer_create when calling createCustomerApiV1CustomersPost'
+                'Missing the required parameter $customer_create when calling createCustomer'
             );
         }
 
@@ -490,38 +490,38 @@ class CustomersApi
     }
 
     /**
-     * Operation deleteCustomerApiV1CustomersCustomerIdDelete
+     * Operation deleteCustomer
      *
      * Delete Customer
      *
      * @param  string $customer_id customer_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomerApiV1CustomersCustomerIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomer'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function deleteCustomerApiV1CustomersCustomerIdDelete($customer_id, string $contentType = self::contentTypes['deleteCustomerApiV1CustomersCustomerIdDelete'][0])
+    public function deleteCustomer($customer_id, string $contentType = self::contentTypes['deleteCustomer'][0])
     {
-        list($response) = $this->deleteCustomerApiV1CustomersCustomerIdDeleteWithHttpInfo($customer_id, $contentType);
+        list($response) = $this->deleteCustomerWithHttpInfo($customer_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteCustomerApiV1CustomersCustomerIdDeleteWithHttpInfo
+     * Operation deleteCustomerWithHttpInfo
      *
      * Delete Customer
      *
      * @param  string $customer_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomerApiV1CustomersCustomerIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomer'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteCustomerApiV1CustomersCustomerIdDeleteWithHttpInfo($customer_id, string $contentType = self::contentTypes['deleteCustomerApiV1CustomersCustomerIdDelete'][0])
+    public function deleteCustomerWithHttpInfo($customer_id, string $contentType = self::contentTypes['deleteCustomer'][0])
     {
-        $request = $this->deleteCustomerApiV1CustomersCustomerIdDeleteRequest($customer_id, $contentType);
+        $request = $this->deleteCustomerRequest($customer_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -667,19 +667,19 @@ class CustomersApi
     }
 
     /**
-     * Operation deleteCustomerApiV1CustomersCustomerIdDeleteAsync
+     * Operation deleteCustomerAsync
      *
      * Delete Customer
      *
      * @param  string $customer_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomerApiV1CustomersCustomerIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCustomerApiV1CustomersCustomerIdDeleteAsync($customer_id, string $contentType = self::contentTypes['deleteCustomerApiV1CustomersCustomerIdDelete'][0])
+    public function deleteCustomerAsync($customer_id, string $contentType = self::contentTypes['deleteCustomer'][0])
     {
-        return $this->deleteCustomerApiV1CustomersCustomerIdDeleteAsyncWithHttpInfo($customer_id, $contentType)
+        return $this->deleteCustomerAsyncWithHttpInfo($customer_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -688,20 +688,20 @@ class CustomersApi
     }
 
     /**
-     * Operation deleteCustomerApiV1CustomersCustomerIdDeleteAsyncWithHttpInfo
+     * Operation deleteCustomerAsyncWithHttpInfo
      *
      * Delete Customer
      *
      * @param  string $customer_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomerApiV1CustomersCustomerIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteCustomerApiV1CustomersCustomerIdDeleteAsyncWithHttpInfo($customer_id, string $contentType = self::contentTypes['deleteCustomerApiV1CustomersCustomerIdDelete'][0])
+    public function deleteCustomerAsyncWithHttpInfo($customer_id, string $contentType = self::contentTypes['deleteCustomer'][0])
     {
         $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
-        $request = $this->deleteCustomerApiV1CustomersCustomerIdDeleteRequest($customer_id, $contentType);
+        $request = $this->deleteCustomerRequest($customer_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -740,21 +740,21 @@ class CustomersApi
     }
 
     /**
-     * Create request for operation 'deleteCustomerApiV1CustomersCustomerIdDelete'
+     * Create request for operation 'deleteCustomer'
      *
      * @param  string $customer_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomerApiV1CustomersCustomerIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteCustomerApiV1CustomersCustomerIdDeleteRequest($customer_id, string $contentType = self::contentTypes['deleteCustomerApiV1CustomersCustomerIdDelete'][0])
+    public function deleteCustomerRequest($customer_id, string $contentType = self::contentTypes['deleteCustomer'][0])
     {
 
         // verify the required parameter 'customer_id' is set
         if ($customer_id === null || (is_array($customer_id) && count($customer_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customer_id when calling deleteCustomerApiV1CustomersCustomerIdDelete'
+                'Missing the required parameter $customer_id when calling deleteCustomer'
             );
         }
 
@@ -836,38 +836,38 @@ class CustomersApi
     }
 
     /**
-     * Operation getCustomerApiV1CustomersCustomerIdGet
+     * Operation getCustomer
      *
      * Get Customer
      *
      * @param  string $customer_id customer_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomerApiV1CustomersCustomerIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomer'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\CustomerResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getCustomerApiV1CustomersCustomerIdGet($customer_id, string $contentType = self::contentTypes['getCustomerApiV1CustomersCustomerIdGet'][0])
+    public function getCustomer($customer_id, string $contentType = self::contentTypes['getCustomer'][0])
     {
-        list($response) = $this->getCustomerApiV1CustomersCustomerIdGetWithHttpInfo($customer_id, $contentType);
+        list($response) = $this->getCustomerWithHttpInfo($customer_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getCustomerApiV1CustomersCustomerIdGetWithHttpInfo
+     * Operation getCustomerWithHttpInfo
      *
      * Get Customer
      *
      * @param  string $customer_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomerApiV1CustomersCustomerIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomer'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\CustomerResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCustomerApiV1CustomersCustomerIdGetWithHttpInfo($customer_id, string $contentType = self::contentTypes['getCustomerApiV1CustomersCustomerIdGet'][0])
+    public function getCustomerWithHttpInfo($customer_id, string $contentType = self::contentTypes['getCustomer'][0])
     {
-        $request = $this->getCustomerApiV1CustomersCustomerIdGetRequest($customer_id, $contentType);
+        $request = $this->getCustomerRequest($customer_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1013,19 +1013,19 @@ class CustomersApi
     }
 
     /**
-     * Operation getCustomerApiV1CustomersCustomerIdGetAsync
+     * Operation getCustomerAsync
      *
      * Get Customer
      *
      * @param  string $customer_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomerApiV1CustomersCustomerIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerApiV1CustomersCustomerIdGetAsync($customer_id, string $contentType = self::contentTypes['getCustomerApiV1CustomersCustomerIdGet'][0])
+    public function getCustomerAsync($customer_id, string $contentType = self::contentTypes['getCustomer'][0])
     {
-        return $this->getCustomerApiV1CustomersCustomerIdGetAsyncWithHttpInfo($customer_id, $contentType)
+        return $this->getCustomerAsyncWithHttpInfo($customer_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1034,20 +1034,20 @@ class CustomersApi
     }
 
     /**
-     * Operation getCustomerApiV1CustomersCustomerIdGetAsyncWithHttpInfo
+     * Operation getCustomerAsyncWithHttpInfo
      *
      * Get Customer
      *
      * @param  string $customer_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomerApiV1CustomersCustomerIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCustomerApiV1CustomersCustomerIdGetAsyncWithHttpInfo($customer_id, string $contentType = self::contentTypes['getCustomerApiV1CustomersCustomerIdGet'][0])
+    public function getCustomerAsyncWithHttpInfo($customer_id, string $contentType = self::contentTypes['getCustomer'][0])
     {
         $returnType = '\InvoicePDFs\Model\CustomerResponse';
-        $request = $this->getCustomerApiV1CustomersCustomerIdGetRequest($customer_id, $contentType);
+        $request = $this->getCustomerRequest($customer_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1086,21 +1086,21 @@ class CustomersApi
     }
 
     /**
-     * Create request for operation 'getCustomerApiV1CustomersCustomerIdGet'
+     * Create request for operation 'getCustomer'
      *
      * @param  string $customer_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomerApiV1CustomersCustomerIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCustomerApiV1CustomersCustomerIdGetRequest($customer_id, string $contentType = self::contentTypes['getCustomerApiV1CustomersCustomerIdGet'][0])
+    public function getCustomerRequest($customer_id, string $contentType = self::contentTypes['getCustomer'][0])
     {
 
         // verify the required parameter 'customer_id' is set
         if ($customer_id === null || (is_array($customer_id) && count($customer_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customer_id when calling getCustomerApiV1CustomersCustomerIdGet'
+                'Missing the required parameter $customer_id when calling getCustomer'
             );
         }
 
@@ -1182,40 +1182,40 @@ class CustomersApi
     }
 
     /**
-     * Operation listCustomersApiV1CustomersGet
+     * Operation listCustomers
      *
      * List Customers
      *
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomersApiV1CustomersGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomers'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\CustomersListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listCustomersApiV1CustomersGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomersApiV1CustomersGet'][0])
+    public function listCustomers($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomers'][0])
     {
-        list($response) = $this->listCustomersApiV1CustomersGetWithHttpInfo($limit, $cursor, $contentType);
+        list($response) = $this->listCustomersWithHttpInfo($limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listCustomersApiV1CustomersGetWithHttpInfo
+     * Operation listCustomersWithHttpInfo
      *
      * List Customers
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomersApiV1CustomersGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomers'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\CustomersListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listCustomersApiV1CustomersGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomersApiV1CustomersGet'][0])
+    public function listCustomersWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomers'][0])
     {
-        $request = $this->listCustomersApiV1CustomersGetRequest($limit, $cursor, $contentType);
+        $request = $this->listCustomersRequest($limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1361,20 +1361,20 @@ class CustomersApi
     }
 
     /**
-     * Operation listCustomersApiV1CustomersGetAsync
+     * Operation listCustomersAsync
      *
      * List Customers
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomersApiV1CustomersGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCustomersApiV1CustomersGetAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomersApiV1CustomersGet'][0])
+    public function listCustomersAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomers'][0])
     {
-        return $this->listCustomersApiV1CustomersGetAsyncWithHttpInfo($limit, $cursor, $contentType)
+        return $this->listCustomersAsyncWithHttpInfo($limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1383,21 +1383,21 @@ class CustomersApi
     }
 
     /**
-     * Operation listCustomersApiV1CustomersGetAsyncWithHttpInfo
+     * Operation listCustomersAsyncWithHttpInfo
      *
      * List Customers
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomersApiV1CustomersGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listCustomersApiV1CustomersGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomersApiV1CustomersGet'][0])
+    public function listCustomersAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomers'][0])
     {
         $returnType = '\InvoicePDFs\Model\CustomersListResponse';
-        $request = $this->listCustomersApiV1CustomersGetRequest($limit, $cursor, $contentType);
+        $request = $this->listCustomersRequest($limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1436,23 +1436,23 @@ class CustomersApi
     }
 
     /**
-     * Create request for operation 'listCustomersApiV1CustomersGet'
+     * Create request for operation 'listCustomers'
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomersApiV1CustomersGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listCustomers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listCustomersApiV1CustomersGetRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomersApiV1CustomersGet'][0])
+    public function listCustomersRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listCustomers'][0])
     {
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling CustomersApi.listCustomersApiV1CustomersGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling CustomersApi.listCustomers, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling CustomersApi.listCustomersApiV1CustomersGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling CustomersApi.listCustomers, must be bigger than or equal to 1.');
         }
         
 
@@ -1544,42 +1544,42 @@ class CustomersApi
     }
 
     /**
-     * Operation patchCustomerApiV1CustomersCustomerIdPatch
+     * Operation updateCustomer
      *
-     * Patch Customer
+     * Update Customer
      *
      * @param  string $customer_id customer_id (required)
      * @param  \InvoicePDFs\Model\CustomerPatch $customer_patch customer_patch (required)
      * @param  string $idempotency_key idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCustomerApiV1CustomersCustomerIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomer'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\CustomerResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function patchCustomerApiV1CustomersCustomerIdPatch($customer_id, $customer_patch, $idempotency_key = null, string $contentType = self::contentTypes['patchCustomerApiV1CustomersCustomerIdPatch'][0])
+    public function updateCustomer($customer_id, $customer_patch, $idempotency_key = null, string $contentType = self::contentTypes['updateCustomer'][0])
     {
-        list($response) = $this->patchCustomerApiV1CustomersCustomerIdPatchWithHttpInfo($customer_id, $customer_patch, $idempotency_key, $contentType);
+        list($response) = $this->updateCustomerWithHttpInfo($customer_id, $customer_patch, $idempotency_key, $contentType);
         return $response;
     }
 
     /**
-     * Operation patchCustomerApiV1CustomersCustomerIdPatchWithHttpInfo
+     * Operation updateCustomerWithHttpInfo
      *
-     * Patch Customer
+     * Update Customer
      *
      * @param  string $customer_id (required)
      * @param  \InvoicePDFs\Model\CustomerPatch $customer_patch (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCustomerApiV1CustomersCustomerIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomer'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\CustomerResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchCustomerApiV1CustomersCustomerIdPatchWithHttpInfo($customer_id, $customer_patch, $idempotency_key = null, string $contentType = self::contentTypes['patchCustomerApiV1CustomersCustomerIdPatch'][0])
+    public function updateCustomerWithHttpInfo($customer_id, $customer_patch, $idempotency_key = null, string $contentType = self::contentTypes['updateCustomer'][0])
     {
-        $request = $this->patchCustomerApiV1CustomersCustomerIdPatchRequest($customer_id, $customer_patch, $idempotency_key, $contentType);
+        $request = $this->updateCustomerRequest($customer_id, $customer_patch, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1725,21 +1725,21 @@ class CustomersApi
     }
 
     /**
-     * Operation patchCustomerApiV1CustomersCustomerIdPatchAsync
+     * Operation updateCustomerAsync
      *
-     * Patch Customer
+     * Update Customer
      *
      * @param  string $customer_id (required)
      * @param  \InvoicePDFs\Model\CustomerPatch $customer_patch (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCustomerApiV1CustomersCustomerIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCustomerApiV1CustomersCustomerIdPatchAsync($customer_id, $customer_patch, $idempotency_key = null, string $contentType = self::contentTypes['patchCustomerApiV1CustomersCustomerIdPatch'][0])
+    public function updateCustomerAsync($customer_id, $customer_patch, $idempotency_key = null, string $contentType = self::contentTypes['updateCustomer'][0])
     {
-        return $this->patchCustomerApiV1CustomersCustomerIdPatchAsyncWithHttpInfo($customer_id, $customer_patch, $idempotency_key, $contentType)
+        return $this->updateCustomerAsyncWithHttpInfo($customer_id, $customer_patch, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1748,22 +1748,22 @@ class CustomersApi
     }
 
     /**
-     * Operation patchCustomerApiV1CustomersCustomerIdPatchAsyncWithHttpInfo
+     * Operation updateCustomerAsyncWithHttpInfo
      *
-     * Patch Customer
+     * Update Customer
      *
      * @param  string $customer_id (required)
      * @param  \InvoicePDFs\Model\CustomerPatch $customer_patch (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCustomerApiV1CustomersCustomerIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchCustomerApiV1CustomersCustomerIdPatchAsyncWithHttpInfo($customer_id, $customer_patch, $idempotency_key = null, string $contentType = self::contentTypes['patchCustomerApiV1CustomersCustomerIdPatch'][0])
+    public function updateCustomerAsyncWithHttpInfo($customer_id, $customer_patch, $idempotency_key = null, string $contentType = self::contentTypes['updateCustomer'][0])
     {
         $returnType = '\InvoicePDFs\Model\CustomerResponse';
-        $request = $this->patchCustomerApiV1CustomersCustomerIdPatchRequest($customer_id, $customer_patch, $idempotency_key, $contentType);
+        $request = $this->updateCustomerRequest($customer_id, $customer_patch, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1802,30 +1802,30 @@ class CustomersApi
     }
 
     /**
-     * Create request for operation 'patchCustomerApiV1CustomersCustomerIdPatch'
+     * Create request for operation 'updateCustomer'
      *
      * @param  string $customer_id (required)
      * @param  \InvoicePDFs\Model\CustomerPatch $customer_patch (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchCustomerApiV1CustomersCustomerIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCustomer'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchCustomerApiV1CustomersCustomerIdPatchRequest($customer_id, $customer_patch, $idempotency_key = null, string $contentType = self::contentTypes['patchCustomerApiV1CustomersCustomerIdPatch'][0])
+    public function updateCustomerRequest($customer_id, $customer_patch, $idempotency_key = null, string $contentType = self::contentTypes['updateCustomer'][0])
     {
 
         // verify the required parameter 'customer_id' is set
         if ($customer_id === null || (is_array($customer_id) && count($customer_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customer_id when calling patchCustomerApiV1CustomersCustomerIdPatch'
+                'Missing the required parameter $customer_id when calling updateCustomer'
             );
         }
 
         // verify the required parameter 'customer_patch' is set
         if ($customer_patch === null || (is_array($customer_patch) && count($customer_patch) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $customer_patch when calling patchCustomerApiV1CustomersCustomerIdPatch'
+                'Missing the required parameter $customer_patch when calling updateCustomer'
             );
         }
 

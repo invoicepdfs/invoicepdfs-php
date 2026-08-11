@@ -71,13 +71,13 @@ class TemplateVersionsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'createTemplateVersionApiV1TemplatesTemplateIdVersionsPost' => [
+        'createTemplateVersion' => [
             'application/json',
         ],
-        'getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet' => [
+        'getTemplateVersion' => [
             'application/json',
         ],
-        'listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet' => [
+        'listTemplateVersions' => [
             'application/json',
         ],
     ];
@@ -129,40 +129,40 @@ class TemplateVersionsApi
     }
 
     /**
-     * Operation createTemplateVersionApiV1TemplatesTemplateIdVersionsPost
+     * Operation createTemplateVersion
      *
      * Create Template Version
      *
      * @param  string $template_id template_id (required)
      * @param  \InvoicePDFs\Model\TemplateVersionCreateRequest $template_version_create_request template_version_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateVersion'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\TemplateVersionResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createTemplateVersionApiV1TemplatesTemplateIdVersionsPost($template_id, $template_version_create_request, string $contentType = self::contentTypes['createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'][0])
+    public function createTemplateVersion($template_id, $template_version_create_request, string $contentType = self::contentTypes['createTemplateVersion'][0])
     {
-        list($response) = $this->createTemplateVersionApiV1TemplatesTemplateIdVersionsPostWithHttpInfo($template_id, $template_version_create_request, $contentType);
+        list($response) = $this->createTemplateVersionWithHttpInfo($template_id, $template_version_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation createTemplateVersionApiV1TemplatesTemplateIdVersionsPostWithHttpInfo
+     * Operation createTemplateVersionWithHttpInfo
      *
      * Create Template Version
      *
      * @param  string $template_id (required)
      * @param  \InvoicePDFs\Model\TemplateVersionCreateRequest $template_version_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateVersion'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\TemplateVersionResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTemplateVersionApiV1TemplatesTemplateIdVersionsPostWithHttpInfo($template_id, $template_version_create_request, string $contentType = self::contentTypes['createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'][0])
+    public function createTemplateVersionWithHttpInfo($template_id, $template_version_create_request, string $contentType = self::contentTypes['createTemplateVersion'][0])
     {
-        $request = $this->createTemplateVersionApiV1TemplatesTemplateIdVersionsPostRequest($template_id, $template_version_create_request, $contentType);
+        $request = $this->createTemplateVersionRequest($template_id, $template_version_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -308,20 +308,20 @@ class TemplateVersionsApi
     }
 
     /**
-     * Operation createTemplateVersionApiV1TemplatesTemplateIdVersionsPostAsync
+     * Operation createTemplateVersionAsync
      *
      * Create Template Version
      *
      * @param  string $template_id (required)
      * @param  \InvoicePDFs\Model\TemplateVersionCreateRequest $template_version_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTemplateVersionApiV1TemplatesTemplateIdVersionsPostAsync($template_id, $template_version_create_request, string $contentType = self::contentTypes['createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'][0])
+    public function createTemplateVersionAsync($template_id, $template_version_create_request, string $contentType = self::contentTypes['createTemplateVersion'][0])
     {
-        return $this->createTemplateVersionApiV1TemplatesTemplateIdVersionsPostAsyncWithHttpInfo($template_id, $template_version_create_request, $contentType)
+        return $this->createTemplateVersionAsyncWithHttpInfo($template_id, $template_version_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -330,21 +330,21 @@ class TemplateVersionsApi
     }
 
     /**
-     * Operation createTemplateVersionApiV1TemplatesTemplateIdVersionsPostAsyncWithHttpInfo
+     * Operation createTemplateVersionAsyncWithHttpInfo
      *
      * Create Template Version
      *
      * @param  string $template_id (required)
      * @param  \InvoicePDFs\Model\TemplateVersionCreateRequest $template_version_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTemplateVersionApiV1TemplatesTemplateIdVersionsPostAsyncWithHttpInfo($template_id, $template_version_create_request, string $contentType = self::contentTypes['createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'][0])
+    public function createTemplateVersionAsyncWithHttpInfo($template_id, $template_version_create_request, string $contentType = self::contentTypes['createTemplateVersion'][0])
     {
         $returnType = '\InvoicePDFs\Model\TemplateVersionResponse';
-        $request = $this->createTemplateVersionApiV1TemplatesTemplateIdVersionsPostRequest($template_id, $template_version_create_request, $contentType);
+        $request = $this->createTemplateVersionRequest($template_id, $template_version_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -383,29 +383,29 @@ class TemplateVersionsApi
     }
 
     /**
-     * Create request for operation 'createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'
+     * Create request for operation 'createTemplateVersion'
      *
      * @param  string $template_id (required)
      * @param  \InvoicePDFs\Model\TemplateVersionCreateRequest $template_version_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTemplateVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createTemplateVersionApiV1TemplatesTemplateIdVersionsPostRequest($template_id, $template_version_create_request, string $contentType = self::contentTypes['createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'][0])
+    public function createTemplateVersionRequest($template_id, $template_version_create_request, string $contentType = self::contentTypes['createTemplateVersion'][0])
     {
 
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $template_id when calling createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'
+                'Missing the required parameter $template_id when calling createTemplateVersion'
             );
         }
 
         // verify the required parameter 'template_version_create_request' is set
         if ($template_version_create_request === null || (is_array($template_version_create_request) && count($template_version_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $template_version_create_request when calling createTemplateVersionApiV1TemplatesTemplateIdVersionsPost'
+                'Missing the required parameter $template_version_create_request when calling createTemplateVersion'
             );
         }
 
@@ -494,40 +494,40 @@ class TemplateVersionsApi
     }
 
     /**
-     * Operation getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet
+     * Operation getTemplateVersion
      *
      * Get Template Version
      *
      * @param  string $template_id template_id (required)
      * @param  int $version version (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateVersion'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\TemplateVersionResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet($template_id, $version, string $contentType = self::contentTypes['getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'][0])
+    public function getTemplateVersion($template_id, $version, string $contentType = self::contentTypes['getTemplateVersion'][0])
     {
-        list($response) = $this->getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetWithHttpInfo($template_id, $version, $contentType);
+        list($response) = $this->getTemplateVersionWithHttpInfo($template_id, $version, $contentType);
         return $response;
     }
 
     /**
-     * Operation getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetWithHttpInfo
+     * Operation getTemplateVersionWithHttpInfo
      *
      * Get Template Version
      *
      * @param  string $template_id (required)
      * @param  int $version (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateVersion'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\TemplateVersionResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetWithHttpInfo($template_id, $version, string $contentType = self::contentTypes['getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'][0])
+    public function getTemplateVersionWithHttpInfo($template_id, $version, string $contentType = self::contentTypes['getTemplateVersion'][0])
     {
-        $request = $this->getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetRequest($template_id, $version, $contentType);
+        $request = $this->getTemplateVersionRequest($template_id, $version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -673,20 +673,20 @@ class TemplateVersionsApi
     }
 
     /**
-     * Operation getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetAsync
+     * Operation getTemplateVersionAsync
      *
      * Get Template Version
      *
      * @param  string $template_id (required)
      * @param  int $version (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetAsync($template_id, $version, string $contentType = self::contentTypes['getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'][0])
+    public function getTemplateVersionAsync($template_id, $version, string $contentType = self::contentTypes['getTemplateVersion'][0])
     {
-        return $this->getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetAsyncWithHttpInfo($template_id, $version, $contentType)
+        return $this->getTemplateVersionAsyncWithHttpInfo($template_id, $version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -695,21 +695,21 @@ class TemplateVersionsApi
     }
 
     /**
-     * Operation getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetAsyncWithHttpInfo
+     * Operation getTemplateVersionAsyncWithHttpInfo
      *
      * Get Template Version
      *
      * @param  string $template_id (required)
      * @param  int $version (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetAsyncWithHttpInfo($template_id, $version, string $contentType = self::contentTypes['getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'][0])
+    public function getTemplateVersionAsyncWithHttpInfo($template_id, $version, string $contentType = self::contentTypes['getTemplateVersion'][0])
     {
         $returnType = '\InvoicePDFs\Model\TemplateVersionResponse';
-        $request = $this->getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetRequest($template_id, $version, $contentType);
+        $request = $this->getTemplateVersionRequest($template_id, $version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -748,29 +748,29 @@ class TemplateVersionsApi
     }
 
     /**
-     * Create request for operation 'getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'
+     * Create request for operation 'getTemplateVersion'
      *
      * @param  string $template_id (required)
      * @param  int $version (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTemplateVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGetRequest($template_id, $version, string $contentType = self::contentTypes['getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'][0])
+    public function getTemplateVersionRequest($template_id, $version, string $contentType = self::contentTypes['getTemplateVersion'][0])
     {
 
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $template_id when calling getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'
+                'Missing the required parameter $template_id when calling getTemplateVersion'
             );
         }
 
         // verify the required parameter 'version' is set
         if ($version === null || (is_array($version) && count($version) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet'
+                'Missing the required parameter $version when calling getTemplateVersion'
             );
         }
 
@@ -860,38 +860,38 @@ class TemplateVersionsApi
     }
 
     /**
-     * Operation listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet
+     * Operation listTemplateVersions
      *
      * List Template Versions
      *
      * @param  string $template_id template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplateVersions'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\TemplateVersionsListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet($template_id, string $contentType = self::contentTypes['listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'][0])
+    public function listTemplateVersions($template_id, string $contentType = self::contentTypes['listTemplateVersions'][0])
     {
-        list($response) = $this->listTemplateVersionsApiV1TemplatesTemplateIdVersionsGetWithHttpInfo($template_id, $contentType);
+        list($response) = $this->listTemplateVersionsWithHttpInfo($template_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation listTemplateVersionsApiV1TemplatesTemplateIdVersionsGetWithHttpInfo
+     * Operation listTemplateVersionsWithHttpInfo
      *
      * List Template Versions
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplateVersions'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\TemplateVersionsListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listTemplateVersionsApiV1TemplatesTemplateIdVersionsGetWithHttpInfo($template_id, string $contentType = self::contentTypes['listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'][0])
+    public function listTemplateVersionsWithHttpInfo($template_id, string $contentType = self::contentTypes['listTemplateVersions'][0])
     {
-        $request = $this->listTemplateVersionsApiV1TemplatesTemplateIdVersionsGetRequest($template_id, $contentType);
+        $request = $this->listTemplateVersionsRequest($template_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1037,19 +1037,19 @@ class TemplateVersionsApi
     }
 
     /**
-     * Operation listTemplateVersionsApiV1TemplatesTemplateIdVersionsGetAsync
+     * Operation listTemplateVersionsAsync
      *
      * List Template Versions
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplateVersions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTemplateVersionsApiV1TemplatesTemplateIdVersionsGetAsync($template_id, string $contentType = self::contentTypes['listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'][0])
+    public function listTemplateVersionsAsync($template_id, string $contentType = self::contentTypes['listTemplateVersions'][0])
     {
-        return $this->listTemplateVersionsApiV1TemplatesTemplateIdVersionsGetAsyncWithHttpInfo($template_id, $contentType)
+        return $this->listTemplateVersionsAsyncWithHttpInfo($template_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1058,20 +1058,20 @@ class TemplateVersionsApi
     }
 
     /**
-     * Operation listTemplateVersionsApiV1TemplatesTemplateIdVersionsGetAsyncWithHttpInfo
+     * Operation listTemplateVersionsAsyncWithHttpInfo
      *
      * List Template Versions
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplateVersions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTemplateVersionsApiV1TemplatesTemplateIdVersionsGetAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'][0])
+    public function listTemplateVersionsAsyncWithHttpInfo($template_id, string $contentType = self::contentTypes['listTemplateVersions'][0])
     {
         $returnType = '\InvoicePDFs\Model\TemplateVersionsListResponse';
-        $request = $this->listTemplateVersionsApiV1TemplatesTemplateIdVersionsGetRequest($template_id, $contentType);
+        $request = $this->listTemplateVersionsRequest($template_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1110,21 +1110,21 @@ class TemplateVersionsApi
     }
 
     /**
-     * Create request for operation 'listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'
+     * Create request for operation 'listTemplateVersions'
      *
      * @param  string $template_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTemplateVersions'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listTemplateVersionsApiV1TemplatesTemplateIdVersionsGetRequest($template_id, string $contentType = self::contentTypes['listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'][0])
+    public function listTemplateVersionsRequest($template_id, string $contentType = self::contentTypes['listTemplateVersions'][0])
     {
 
         // verify the required parameter 'template_id' is set
         if ($template_id === null || (is_array($template_id) && count($template_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $template_id when calling listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet'
+                'Missing the required parameter $template_id when calling listTemplateVersions'
             );
         }
 

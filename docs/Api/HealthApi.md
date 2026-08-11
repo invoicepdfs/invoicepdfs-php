@@ -4,18 +4,18 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**healthHealthGet()**](HealthApi.md#healthHealthGet) | **GET** /health | Health |
-| [**readyReadyGet()**](HealthApi.md#readyReadyGet) | **GET** /ready | Ready |
-| [**versionVersionGet()**](HealthApi.md#versionVersionGet) | **GET** /version | Version |
+| [**getHealth()**](HealthApi.md#getHealth) | **GET** /health | Get Health |
+| [**getReadiness()**](HealthApi.md#getReadiness) | **GET** /ready | Get Readiness |
+| [**getVersion()**](HealthApi.md#getVersion) | **GET** /version | Get Version |
 
 
-## `healthHealthGet()`
+## `getHealth()`
 
 ```php
-healthHealthGet(): \InvoicePDFs\Model\HealthResponse
+getHealth(): \InvoicePDFs\Model\HealthResponse
 ```
 
-Health
+Get Health
 
 ### Example
 
@@ -32,10 +32,10 @@ $apiInstance = new InvoicePDFs\Api\HealthApi(
 );
 
 try {
-    $result = $apiInstance->healthHealthGet();
+    $result = $apiInstance->getHealth();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling HealthApi->healthHealthGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling HealthApi->getHealth: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -60,13 +60,13 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `readyReadyGet()`
+## `getReadiness()`
 
 ```php
-readyReadyGet(): \InvoicePDFs\Model\ReadyResponse
+getReadiness(): \InvoicePDFs\Model\ReadyResponse
 ```
 
-Ready
+Get Readiness
 
 ### Example
 
@@ -83,10 +83,10 @@ $apiInstance = new InvoicePDFs\Api\HealthApi(
 );
 
 try {
-    $result = $apiInstance->readyReadyGet();
+    $result = $apiInstance->getReadiness();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling HealthApi->readyReadyGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling HealthApi->getReadiness: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -111,13 +111,13 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `versionVersionGet()`
+## `getVersion()`
 
 ```php
-versionVersionGet(): \InvoicePDFs\Model\VersionResponse
+getVersion(): \InvoicePDFs\Model\VersionResponse
 ```
 
-Version
+Get Version
 
 ### Example
 
@@ -134,10 +134,10 @@ $apiInstance = new InvoicePDFs\Api\HealthApi(
 );
 
 try {
-    $result = $apiInstance->versionVersionGet();
+    $result = $apiInstance->getVersion();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling HealthApi->versionVersionGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling HealthApi->getVersion: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

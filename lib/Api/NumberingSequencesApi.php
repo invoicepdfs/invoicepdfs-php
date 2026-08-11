@@ -71,25 +71,25 @@ class NumberingSequencesApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'consumeNextApiV1NumberingSequencesSequenceIdNextPost' => [
+        'consumeSequenceNumber' => [
             'application/json',
         ],
-        'createSequenceApiV1NumberingSequencesPost' => [
+        'createSequence' => [
             'application/json',
         ],
-        'deleteSequenceApiV1NumberingSequencesSequenceIdDelete' => [
+        'deleteSequence' => [
             'application/json',
         ],
-        'getSequenceApiV1NumberingSequencesSequenceIdGet' => [
+        'getSequence' => [
             'application/json',
         ],
-        'listSequencesApiV1NumberingSequencesGet' => [
+        'listSequences' => [
             'application/json',
         ],
-        'previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost' => [
+        'previewSequence' => [
             'application/json',
         ],
-        'updateSequenceApiV1NumberingSequencesSequenceIdPatch' => [
+        'updateSequence' => [
             'application/json',
         ],
     ];
@@ -141,38 +141,38 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation consumeNextApiV1NumberingSequencesSequenceIdNextPost
+     * Operation consumeSequenceNumber
      *
-     * Consume Next
+     * Consume Sequence Number
      *
      * @param  string $sequence_id sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consumeSequenceNumber'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function consumeNextApiV1NumberingSequencesSequenceIdNextPost($sequence_id, string $contentType = self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'][0])
+    public function consumeSequenceNumber($sequence_id, string $contentType = self::contentTypes['consumeSequenceNumber'][0])
     {
-        list($response) = $this->consumeNextApiV1NumberingSequencesSequenceIdNextPostWithHttpInfo($sequence_id, $contentType);
+        list($response) = $this->consumeSequenceNumberWithHttpInfo($sequence_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation consumeNextApiV1NumberingSequencesSequenceIdNextPostWithHttpInfo
+     * Operation consumeSequenceNumberWithHttpInfo
      *
-     * Consume Next
+     * Consume Sequence Number
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consumeSequenceNumber'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function consumeNextApiV1NumberingSequencesSequenceIdNextPostWithHttpInfo($sequence_id, string $contentType = self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'][0])
+    public function consumeSequenceNumberWithHttpInfo($sequence_id, string $contentType = self::contentTypes['consumeSequenceNumber'][0])
     {
-        $request = $this->consumeNextApiV1NumberingSequencesSequenceIdNextPostRequest($sequence_id, $contentType);
+        $request = $this->consumeSequenceNumberRequest($sequence_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -318,19 +318,19 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation consumeNextApiV1NumberingSequencesSequenceIdNextPostAsync
+     * Operation consumeSequenceNumberAsync
      *
-     * Consume Next
+     * Consume Sequence Number
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consumeSequenceNumber'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function consumeNextApiV1NumberingSequencesSequenceIdNextPostAsync($sequence_id, string $contentType = self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'][0])
+    public function consumeSequenceNumberAsync($sequence_id, string $contentType = self::contentTypes['consumeSequenceNumber'][0])
     {
-        return $this->consumeNextApiV1NumberingSequencesSequenceIdNextPostAsyncWithHttpInfo($sequence_id, $contentType)
+        return $this->consumeSequenceNumberAsyncWithHttpInfo($sequence_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -339,20 +339,20 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation consumeNextApiV1NumberingSequencesSequenceIdNextPostAsyncWithHttpInfo
+     * Operation consumeSequenceNumberAsyncWithHttpInfo
      *
-     * Consume Next
+     * Consume Sequence Number
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consumeSequenceNumber'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function consumeNextApiV1NumberingSequencesSequenceIdNextPostAsyncWithHttpInfo($sequence_id, string $contentType = self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'][0])
+    public function consumeSequenceNumberAsyncWithHttpInfo($sequence_id, string $contentType = self::contentTypes['consumeSequenceNumber'][0])
     {
         $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
-        $request = $this->consumeNextApiV1NumberingSequencesSequenceIdNextPostRequest($sequence_id, $contentType);
+        $request = $this->consumeSequenceNumberRequest($sequence_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -391,21 +391,21 @@ class NumberingSequencesApi
     }
 
     /**
-     * Create request for operation 'consumeNextApiV1NumberingSequencesSequenceIdNextPost'
+     * Create request for operation 'consumeSequenceNumber'
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consumeSequenceNumber'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function consumeNextApiV1NumberingSequencesSequenceIdNextPostRequest($sequence_id, string $contentType = self::contentTypes['consumeNextApiV1NumberingSequencesSequenceIdNextPost'][0])
+    public function consumeSequenceNumberRequest($sequence_id, string $contentType = self::contentTypes['consumeSequenceNumber'][0])
     {
 
         // verify the required parameter 'sequence_id' is set
         if ($sequence_id === null || (is_array($sequence_id) && count($sequence_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sequence_id when calling consumeNextApiV1NumberingSequencesSequenceIdNextPost'
+                'Missing the required parameter $sequence_id when calling consumeSequenceNumber'
             );
         }
 
@@ -487,38 +487,38 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation createSequenceApiV1NumberingSequencesPost
+     * Operation createSequence
      *
      * Create Sequence
      *
      * @param  \InvoicePDFs\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request numbering_sequence_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequenceApiV1NumberingSequencesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequence'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createSequenceApiV1NumberingSequencesPost($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequenceApiV1NumberingSequencesPost'][0])
+    public function createSequence($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequence'][0])
     {
-        list($response) = $this->createSequenceApiV1NumberingSequencesPostWithHttpInfo($numbering_sequence_create_request, $contentType);
+        list($response) = $this->createSequenceWithHttpInfo($numbering_sequence_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation createSequenceApiV1NumberingSequencesPostWithHttpInfo
+     * Operation createSequenceWithHttpInfo
      *
      * Create Sequence
      *
      * @param  \InvoicePDFs\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequenceApiV1NumberingSequencesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequence'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSequenceApiV1NumberingSequencesPostWithHttpInfo($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequenceApiV1NumberingSequencesPost'][0])
+    public function createSequenceWithHttpInfo($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequence'][0])
     {
-        $request = $this->createSequenceApiV1NumberingSequencesPostRequest($numbering_sequence_create_request, $contentType);
+        $request = $this->createSequenceRequest($numbering_sequence_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -664,19 +664,19 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation createSequenceApiV1NumberingSequencesPostAsync
+     * Operation createSequenceAsync
      *
      * Create Sequence
      *
      * @param  \InvoicePDFs\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequenceApiV1NumberingSequencesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSequenceApiV1NumberingSequencesPostAsync($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequenceApiV1NumberingSequencesPost'][0])
+    public function createSequenceAsync($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequence'][0])
     {
-        return $this->createSequenceApiV1NumberingSequencesPostAsyncWithHttpInfo($numbering_sequence_create_request, $contentType)
+        return $this->createSequenceAsyncWithHttpInfo($numbering_sequence_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -685,20 +685,20 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation createSequenceApiV1NumberingSequencesPostAsyncWithHttpInfo
+     * Operation createSequenceAsyncWithHttpInfo
      *
      * Create Sequence
      *
      * @param  \InvoicePDFs\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequenceApiV1NumberingSequencesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSequenceApiV1NumberingSequencesPostAsyncWithHttpInfo($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequenceApiV1NumberingSequencesPost'][0])
+    public function createSequenceAsyncWithHttpInfo($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequence'][0])
     {
         $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
-        $request = $this->createSequenceApiV1NumberingSequencesPostRequest($numbering_sequence_create_request, $contentType);
+        $request = $this->createSequenceRequest($numbering_sequence_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -737,21 +737,21 @@ class NumberingSequencesApi
     }
 
     /**
-     * Create request for operation 'createSequenceApiV1NumberingSequencesPost'
+     * Create request for operation 'createSequence'
      *
      * @param  \InvoicePDFs\Model\NumberingSequenceCreateRequest $numbering_sequence_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequenceApiV1NumberingSequencesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createSequenceApiV1NumberingSequencesPostRequest($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequenceApiV1NumberingSequencesPost'][0])
+    public function createSequenceRequest($numbering_sequence_create_request, string $contentType = self::contentTypes['createSequence'][0])
     {
 
         // verify the required parameter 'numbering_sequence_create_request' is set
         if ($numbering_sequence_create_request === null || (is_array($numbering_sequence_create_request) && count($numbering_sequence_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $numbering_sequence_create_request when calling createSequenceApiV1NumberingSequencesPost'
+                'Missing the required parameter $numbering_sequence_create_request when calling createSequence'
             );
         }
 
@@ -832,38 +832,38 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation deleteSequenceApiV1NumberingSequencesSequenceIdDelete
+     * Operation deleteSequence
      *
      * Delete Sequence
      *
      * @param  string $sequence_id sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSequence'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function deleteSequenceApiV1NumberingSequencesSequenceIdDelete($sequence_id, string $contentType = self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'][0])
+    public function deleteSequence($sequence_id, string $contentType = self::contentTypes['deleteSequence'][0])
     {
-        list($response) = $this->deleteSequenceApiV1NumberingSequencesSequenceIdDeleteWithHttpInfo($sequence_id, $contentType);
+        list($response) = $this->deleteSequenceWithHttpInfo($sequence_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteSequenceApiV1NumberingSequencesSequenceIdDeleteWithHttpInfo
+     * Operation deleteSequenceWithHttpInfo
      *
      * Delete Sequence
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSequence'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteSequenceApiV1NumberingSequencesSequenceIdDeleteWithHttpInfo($sequence_id, string $contentType = self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'][0])
+    public function deleteSequenceWithHttpInfo($sequence_id, string $contentType = self::contentTypes['deleteSequence'][0])
     {
-        $request = $this->deleteSequenceApiV1NumberingSequencesSequenceIdDeleteRequest($sequence_id, $contentType);
+        $request = $this->deleteSequenceRequest($sequence_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1009,19 +1009,19 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation deleteSequenceApiV1NumberingSequencesSequenceIdDeleteAsync
+     * Operation deleteSequenceAsync
      *
      * Delete Sequence
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSequenceApiV1NumberingSequencesSequenceIdDeleteAsync($sequence_id, string $contentType = self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'][0])
+    public function deleteSequenceAsync($sequence_id, string $contentType = self::contentTypes['deleteSequence'][0])
     {
-        return $this->deleteSequenceApiV1NumberingSequencesSequenceIdDeleteAsyncWithHttpInfo($sequence_id, $contentType)
+        return $this->deleteSequenceAsyncWithHttpInfo($sequence_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1030,20 +1030,20 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation deleteSequenceApiV1NumberingSequencesSequenceIdDeleteAsyncWithHttpInfo
+     * Operation deleteSequenceAsyncWithHttpInfo
      *
      * Delete Sequence
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteSequenceApiV1NumberingSequencesSequenceIdDeleteAsyncWithHttpInfo($sequence_id, string $contentType = self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'][0])
+    public function deleteSequenceAsyncWithHttpInfo($sequence_id, string $contentType = self::contentTypes['deleteSequence'][0])
     {
         $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
-        $request = $this->deleteSequenceApiV1NumberingSequencesSequenceIdDeleteRequest($sequence_id, $contentType);
+        $request = $this->deleteSequenceRequest($sequence_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1082,21 +1082,21 @@ class NumberingSequencesApi
     }
 
     /**
-     * Create request for operation 'deleteSequenceApiV1NumberingSequencesSequenceIdDelete'
+     * Create request for operation 'deleteSequence'
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteSequenceApiV1NumberingSequencesSequenceIdDeleteRequest($sequence_id, string $contentType = self::contentTypes['deleteSequenceApiV1NumberingSequencesSequenceIdDelete'][0])
+    public function deleteSequenceRequest($sequence_id, string $contentType = self::contentTypes['deleteSequence'][0])
     {
 
         // verify the required parameter 'sequence_id' is set
         if ($sequence_id === null || (is_array($sequence_id) && count($sequence_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sequence_id when calling deleteSequenceApiV1NumberingSequencesSequenceIdDelete'
+                'Missing the required parameter $sequence_id when calling deleteSequence'
             );
         }
 
@@ -1178,38 +1178,38 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation getSequenceApiV1NumberingSequencesSequenceIdGet
+     * Operation getSequence
      *
      * Get Sequence
      *
      * @param  string $sequence_id sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSequence'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getSequenceApiV1NumberingSequencesSequenceIdGet($sequence_id, string $contentType = self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'][0])
+    public function getSequence($sequence_id, string $contentType = self::contentTypes['getSequence'][0])
     {
-        list($response) = $this->getSequenceApiV1NumberingSequencesSequenceIdGetWithHttpInfo($sequence_id, $contentType);
+        list($response) = $this->getSequenceWithHttpInfo($sequence_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getSequenceApiV1NumberingSequencesSequenceIdGetWithHttpInfo
+     * Operation getSequenceWithHttpInfo
      *
      * Get Sequence
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSequence'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSequenceApiV1NumberingSequencesSequenceIdGetWithHttpInfo($sequence_id, string $contentType = self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'][0])
+    public function getSequenceWithHttpInfo($sequence_id, string $contentType = self::contentTypes['getSequence'][0])
     {
-        $request = $this->getSequenceApiV1NumberingSequencesSequenceIdGetRequest($sequence_id, $contentType);
+        $request = $this->getSequenceRequest($sequence_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1355,19 +1355,19 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation getSequenceApiV1NumberingSequencesSequenceIdGetAsync
+     * Operation getSequenceAsync
      *
      * Get Sequence
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSequenceApiV1NumberingSequencesSequenceIdGetAsync($sequence_id, string $contentType = self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'][0])
+    public function getSequenceAsync($sequence_id, string $contentType = self::contentTypes['getSequence'][0])
     {
-        return $this->getSequenceApiV1NumberingSequencesSequenceIdGetAsyncWithHttpInfo($sequence_id, $contentType)
+        return $this->getSequenceAsyncWithHttpInfo($sequence_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1376,20 +1376,20 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation getSequenceApiV1NumberingSequencesSequenceIdGetAsyncWithHttpInfo
+     * Operation getSequenceAsyncWithHttpInfo
      *
      * Get Sequence
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSequenceApiV1NumberingSequencesSequenceIdGetAsyncWithHttpInfo($sequence_id, string $contentType = self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'][0])
+    public function getSequenceAsyncWithHttpInfo($sequence_id, string $contentType = self::contentTypes['getSequence'][0])
     {
         $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
-        $request = $this->getSequenceApiV1NumberingSequencesSequenceIdGetRequest($sequence_id, $contentType);
+        $request = $this->getSequenceRequest($sequence_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1428,21 +1428,21 @@ class NumberingSequencesApi
     }
 
     /**
-     * Create request for operation 'getSequenceApiV1NumberingSequencesSequenceIdGet'
+     * Create request for operation 'getSequence'
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSequenceApiV1NumberingSequencesSequenceIdGetRequest($sequence_id, string $contentType = self::contentTypes['getSequenceApiV1NumberingSequencesSequenceIdGet'][0])
+    public function getSequenceRequest($sequence_id, string $contentType = self::contentTypes['getSequence'][0])
     {
 
         // verify the required parameter 'sequence_id' is set
         if ($sequence_id === null || (is_array($sequence_id) && count($sequence_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sequence_id when calling getSequenceApiV1NumberingSequencesSequenceIdGet'
+                'Missing the required parameter $sequence_id when calling getSequence'
             );
         }
 
@@ -1524,40 +1524,40 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation listSequencesApiV1NumberingSequencesGet
+     * Operation listSequences
      *
      * List Sequences
      *
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSequencesApiV1NumberingSequencesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSequences'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\NumberingSequencesListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listSequencesApiV1NumberingSequencesGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequencesApiV1NumberingSequencesGet'][0])
+    public function listSequences($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequences'][0])
     {
-        list($response) = $this->listSequencesApiV1NumberingSequencesGetWithHttpInfo($limit, $cursor, $contentType);
+        list($response) = $this->listSequencesWithHttpInfo($limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listSequencesApiV1NumberingSequencesGetWithHttpInfo
+     * Operation listSequencesWithHttpInfo
      *
      * List Sequences
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSequencesApiV1NumberingSequencesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSequences'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\NumberingSequencesListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listSequencesApiV1NumberingSequencesGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequencesApiV1NumberingSequencesGet'][0])
+    public function listSequencesWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequences'][0])
     {
-        $request = $this->listSequencesApiV1NumberingSequencesGetRequest($limit, $cursor, $contentType);
+        $request = $this->listSequencesRequest($limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1703,20 +1703,20 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation listSequencesApiV1NumberingSequencesGetAsync
+     * Operation listSequencesAsync
      *
      * List Sequences
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSequencesApiV1NumberingSequencesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSequences'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSequencesApiV1NumberingSequencesGetAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequencesApiV1NumberingSequencesGet'][0])
+    public function listSequencesAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequences'][0])
     {
-        return $this->listSequencesApiV1NumberingSequencesGetAsyncWithHttpInfo($limit, $cursor, $contentType)
+        return $this->listSequencesAsyncWithHttpInfo($limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1725,21 +1725,21 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation listSequencesApiV1NumberingSequencesGetAsyncWithHttpInfo
+     * Operation listSequencesAsyncWithHttpInfo
      *
      * List Sequences
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSequencesApiV1NumberingSequencesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSequences'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSequencesApiV1NumberingSequencesGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequencesApiV1NumberingSequencesGet'][0])
+    public function listSequencesAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequences'][0])
     {
         $returnType = '\InvoicePDFs\Model\NumberingSequencesListResponse';
-        $request = $this->listSequencesApiV1NumberingSequencesGetRequest($limit, $cursor, $contentType);
+        $request = $this->listSequencesRequest($limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1778,23 +1778,23 @@ class NumberingSequencesApi
     }
 
     /**
-     * Create request for operation 'listSequencesApiV1NumberingSequencesGet'
+     * Create request for operation 'listSequences'
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSequencesApiV1NumberingSequencesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSequences'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listSequencesApiV1NumberingSequencesGetRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequencesApiV1NumberingSequencesGet'][0])
+    public function listSequencesRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listSequences'][0])
     {
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling NumberingSequencesApi.listSequencesApiV1NumberingSequencesGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling NumberingSequencesApi.listSequences, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling NumberingSequencesApi.listSequencesApiV1NumberingSequencesGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling NumberingSequencesApi.listSequences, must be bigger than or equal to 1.');
         }
         
 
@@ -1886,38 +1886,38 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost
+     * Operation previewSequence
      *
      * Preview Sequence
      *
      * @param  string $sequence_id sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewSequence'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\NumberingSequencePreviewResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost($sequence_id, string $contentType = self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'][0])
+    public function previewSequence($sequence_id, string $contentType = self::contentTypes['previewSequence'][0])
     {
-        list($response) = $this->previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostWithHttpInfo($sequence_id, $contentType);
+        list($response) = $this->previewSequenceWithHttpInfo($sequence_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostWithHttpInfo
+     * Operation previewSequenceWithHttpInfo
      *
      * Preview Sequence
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewSequence'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\NumberingSequencePreviewResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostWithHttpInfo($sequence_id, string $contentType = self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'][0])
+    public function previewSequenceWithHttpInfo($sequence_id, string $contentType = self::contentTypes['previewSequence'][0])
     {
-        $request = $this->previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostRequest($sequence_id, $contentType);
+        $request = $this->previewSequenceRequest($sequence_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2063,19 +2063,19 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostAsync
+     * Operation previewSequenceAsync
      *
      * Preview Sequence
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostAsync($sequence_id, string $contentType = self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'][0])
+    public function previewSequenceAsync($sequence_id, string $contentType = self::contentTypes['previewSequence'][0])
     {
-        return $this->previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostAsyncWithHttpInfo($sequence_id, $contentType)
+        return $this->previewSequenceAsyncWithHttpInfo($sequence_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2084,20 +2084,20 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostAsyncWithHttpInfo
+     * Operation previewSequenceAsyncWithHttpInfo
      *
      * Preview Sequence
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostAsyncWithHttpInfo($sequence_id, string $contentType = self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'][0])
+    public function previewSequenceAsyncWithHttpInfo($sequence_id, string $contentType = self::contentTypes['previewSequence'][0])
     {
         $returnType = '\InvoicePDFs\Model\NumberingSequencePreviewResponse';
-        $request = $this->previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostRequest($sequence_id, $contentType);
+        $request = $this->previewSequenceRequest($sequence_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2136,21 +2136,21 @@ class NumberingSequencesApi
     }
 
     /**
-     * Create request for operation 'previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'
+     * Create request for operation 'previewSequence'
      *
      * @param  string $sequence_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function previewSequenceApiV1NumberingSequencesSequenceIdPreviewPostRequest($sequence_id, string $contentType = self::contentTypes['previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'][0])
+    public function previewSequenceRequest($sequence_id, string $contentType = self::contentTypes['previewSequence'][0])
     {
 
         // verify the required parameter 'sequence_id' is set
         if ($sequence_id === null || (is_array($sequence_id) && count($sequence_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sequence_id when calling previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost'
+                'Missing the required parameter $sequence_id when calling previewSequence'
             );
         }
 
@@ -2232,40 +2232,40 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation updateSequenceApiV1NumberingSequencesSequenceIdPatch
+     * Operation updateSequence
      *
      * Update Sequence
      *
      * @param  string $sequence_id sequence_id (required)
      * @param  \InvoicePDFs\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request numbering_sequence_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequence'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function updateSequenceApiV1NumberingSequencesSequenceIdPatch($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'][0])
+    public function updateSequence($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequence'][0])
     {
-        list($response) = $this->updateSequenceApiV1NumberingSequencesSequenceIdPatchWithHttpInfo($sequence_id, $numbering_sequence_patch_request, $contentType);
+        list($response) = $this->updateSequenceWithHttpInfo($sequence_id, $numbering_sequence_patch_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation updateSequenceApiV1NumberingSequencesSequenceIdPatchWithHttpInfo
+     * Operation updateSequenceWithHttpInfo
      *
      * Update Sequence
      *
      * @param  string $sequence_id (required)
      * @param  \InvoicePDFs\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequence'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSequenceApiV1NumberingSequencesSequenceIdPatchWithHttpInfo($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'][0])
+    public function updateSequenceWithHttpInfo($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequence'][0])
     {
-        $request = $this->updateSequenceApiV1NumberingSequencesSequenceIdPatchRequest($sequence_id, $numbering_sequence_patch_request, $contentType);
+        $request = $this->updateSequenceRequest($sequence_id, $numbering_sequence_patch_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2411,20 +2411,20 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation updateSequenceApiV1NumberingSequencesSequenceIdPatchAsync
+     * Operation updateSequenceAsync
      *
      * Update Sequence
      *
      * @param  string $sequence_id (required)
      * @param  \InvoicePDFs\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSequenceApiV1NumberingSequencesSequenceIdPatchAsync($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'][0])
+    public function updateSequenceAsync($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequence'][0])
     {
-        return $this->updateSequenceApiV1NumberingSequencesSequenceIdPatchAsyncWithHttpInfo($sequence_id, $numbering_sequence_patch_request, $contentType)
+        return $this->updateSequenceAsyncWithHttpInfo($sequence_id, $numbering_sequence_patch_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2433,21 +2433,21 @@ class NumberingSequencesApi
     }
 
     /**
-     * Operation updateSequenceApiV1NumberingSequencesSequenceIdPatchAsyncWithHttpInfo
+     * Operation updateSequenceAsyncWithHttpInfo
      *
      * Update Sequence
      *
      * @param  string $sequence_id (required)
      * @param  \InvoicePDFs\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSequenceApiV1NumberingSequencesSequenceIdPatchAsyncWithHttpInfo($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'][0])
+    public function updateSequenceAsyncWithHttpInfo($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequence'][0])
     {
         $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
-        $request = $this->updateSequenceApiV1NumberingSequencesSequenceIdPatchRequest($sequence_id, $numbering_sequence_patch_request, $contentType);
+        $request = $this->updateSequenceRequest($sequence_id, $numbering_sequence_patch_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2486,29 +2486,29 @@ class NumberingSequencesApi
     }
 
     /**
-     * Create request for operation 'updateSequenceApiV1NumberingSequencesSequenceIdPatch'
+     * Create request for operation 'updateSequence'
      *
      * @param  string $sequence_id (required)
      * @param  \InvoicePDFs\Model\NumberingSequencePatchRequest $numbering_sequence_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateSequence'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateSequenceApiV1NumberingSequencesSequenceIdPatchRequest($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequenceApiV1NumberingSequencesSequenceIdPatch'][0])
+    public function updateSequenceRequest($sequence_id, $numbering_sequence_patch_request, string $contentType = self::contentTypes['updateSequence'][0])
     {
 
         // verify the required parameter 'sequence_id' is set
         if ($sequence_id === null || (is_array($sequence_id) && count($sequence_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sequence_id when calling updateSequenceApiV1NumberingSequencesSequenceIdPatch'
+                'Missing the required parameter $sequence_id when calling updateSequence'
             );
         }
 
         // verify the required parameter 'numbering_sequence_patch_request' is set
         if ($numbering_sequence_patch_request === null || (is_array($numbering_sequence_patch_request) && count($numbering_sequence_patch_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $numbering_sequence_patch_request when calling updateSequenceApiV1NumberingSequencesSequenceIdPatch'
+                'Missing the required parameter $numbering_sequence_patch_request when calling updateSequence'
             );
         }
 

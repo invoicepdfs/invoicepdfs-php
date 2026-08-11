@@ -4,16 +4,16 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**cancelImportApiV1ImportsImportIdCancelPost()**](ImportsApi.md#cancelImportApiV1ImportsImportIdCancelPost) | **POST** /api/v1/imports/{import_id}/cancel | Cancel Import |
-| [**confirmImportApiV1ImportsImportIdConfirmPost()**](ImportsApi.md#confirmImportApiV1ImportsImportIdConfirmPost) | **POST** /api/v1/imports/{import_id}/confirm | Confirm Import |
-| [**createImportApiV1ImportsPost()**](ImportsApi.md#createImportApiV1ImportsPost) | **POST** /api/v1/imports | Create Import |
-| [**getImportApiV1ImportsImportIdGet()**](ImportsApi.md#getImportApiV1ImportsImportIdGet) | **GET** /api/v1/imports/{import_id} | Get Import |
+| [**cancelImport()**](ImportsApi.md#cancelImport) | **POST** /api/v1/imports/{import_id}/cancel | Cancel Import |
+| [**confirmImport()**](ImportsApi.md#confirmImport) | **POST** /api/v1/imports/{import_id}/confirm | Confirm Import |
+| [**createImport()**](ImportsApi.md#createImport) | **POST** /api/v1/imports | Create Import |
+| [**getImport()**](ImportsApi.md#getImport) | **GET** /api/v1/imports/{import_id} | Get Import |
 
 
-## `cancelImportApiV1ImportsImportIdCancelPost()`
+## `cancelImport()`
 
 ```php
-cancelImportApiV1ImportsImportIdCancelPost($import_id): \InvoicePDFs\Model\ImportResponse
+cancelImport($import_id): \InvoicePDFs\Model\ImportResponse
 ```
 
 Cancel Import
@@ -38,10 +38,10 @@ $apiInstance = new InvoicePDFs\Api\ImportsApi(
 $import_id = 'import_id_example'; // string
 
 try {
-    $result = $apiInstance->cancelImportApiV1ImportsImportIdCancelPost($import_id);
+    $result = $apiInstance->cancelImport($import_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ImportsApi->cancelImportApiV1ImportsImportIdCancelPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ImportsApi->cancelImport: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -68,10 +68,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `confirmImportApiV1ImportsImportIdConfirmPost()`
+## `confirmImport()`
 
 ```php
-confirmImportApiV1ImportsImportIdConfirmPost($import_id): \InvoicePDFs\Model\ImportResponse
+confirmImport($import_id): \InvoicePDFs\Model\ImportResponse
 ```
 
 Confirm Import
@@ -96,10 +96,10 @@ $apiInstance = new InvoicePDFs\Api\ImportsApi(
 $import_id = 'import_id_example'; // string
 
 try {
-    $result = $apiInstance->confirmImportApiV1ImportsImportIdConfirmPost($import_id);
+    $result = $apiInstance->confirmImport($import_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ImportsApi->confirmImportApiV1ImportsImportIdConfirmPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ImportsApi->confirmImport: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -126,10 +126,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createImportApiV1ImportsPost()`
+## `createImport()`
 
 ```php
-createImportApiV1ImportsPost($import_create_request): \InvoicePDFs\Model\ImportResponse
+createImport($import_create_request): \InvoicePDFs\Model\ImportResponse
 ```
 
 Create Import
@@ -154,10 +154,10 @@ $apiInstance = new InvoicePDFs\Api\ImportsApi(
 $import_create_request = new \InvoicePDFs\Model\ImportCreateRequest(); // \InvoicePDFs\Model\ImportCreateRequest
 
 try {
-    $result = $apiInstance->createImportApiV1ImportsPost($import_create_request);
+    $result = $apiInstance->createImport($import_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ImportsApi->createImportApiV1ImportsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ImportsApi->createImport: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -184,10 +184,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getImportApiV1ImportsImportIdGet()`
+## `getImport()`
 
 ```php
-getImportApiV1ImportsImportIdGet($import_id): \InvoicePDFs\Model\ImportResponse
+getImport($import_id): \InvoicePDFs\Model\ImportResponse
 ```
 
 Get Import
@@ -212,10 +212,10 @@ $apiInstance = new InvoicePDFs\Api\ImportsApi(
 $import_id = 'import_id_example'; // string
 
 try {
-    $result = $apiInstance->getImportApiV1ImportsImportIdGet($import_id);
+    $result = $apiInstance->getImport($import_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ImportsApi->getImportApiV1ImportsImportIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ImportsApi->getImport: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

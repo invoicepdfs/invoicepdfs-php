@@ -71,10 +71,10 @@ class AuditLogApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'getAuditEventApiV1AuditEventsAuditEventIdGet' => [
+        'getAuditEvent' => [
             'application/json',
         ],
-        'listAuditEventsApiV1AuditEventsGet' => [
+        'listAuditEvents' => [
             'application/json',
         ],
     ];
@@ -126,38 +126,38 @@ class AuditLogApi
     }
 
     /**
-     * Operation getAuditEventApiV1AuditEventsAuditEventIdGet
+     * Operation getAuditEvent
      *
      * Get Audit Event
      *
      * @param  string $audit_event_id audit_event_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuditEvent'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\AuditEventResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getAuditEventApiV1AuditEventsAuditEventIdGet($audit_event_id, string $contentType = self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'][0])
+    public function getAuditEvent($audit_event_id, string $contentType = self::contentTypes['getAuditEvent'][0])
     {
-        list($response) = $this->getAuditEventApiV1AuditEventsAuditEventIdGetWithHttpInfo($audit_event_id, $contentType);
+        list($response) = $this->getAuditEventWithHttpInfo($audit_event_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getAuditEventApiV1AuditEventsAuditEventIdGetWithHttpInfo
+     * Operation getAuditEventWithHttpInfo
      *
      * Get Audit Event
      *
      * @param  string $audit_event_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuditEvent'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\AuditEventResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAuditEventApiV1AuditEventsAuditEventIdGetWithHttpInfo($audit_event_id, string $contentType = self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'][0])
+    public function getAuditEventWithHttpInfo($audit_event_id, string $contentType = self::contentTypes['getAuditEvent'][0])
     {
-        $request = $this->getAuditEventApiV1AuditEventsAuditEventIdGetRequest($audit_event_id, $contentType);
+        $request = $this->getAuditEventRequest($audit_event_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -303,19 +303,19 @@ class AuditLogApi
     }
 
     /**
-     * Operation getAuditEventApiV1AuditEventsAuditEventIdGetAsync
+     * Operation getAuditEventAsync
      *
      * Get Audit Event
      *
      * @param  string $audit_event_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuditEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAuditEventApiV1AuditEventsAuditEventIdGetAsync($audit_event_id, string $contentType = self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'][0])
+    public function getAuditEventAsync($audit_event_id, string $contentType = self::contentTypes['getAuditEvent'][0])
     {
-        return $this->getAuditEventApiV1AuditEventsAuditEventIdGetAsyncWithHttpInfo($audit_event_id, $contentType)
+        return $this->getAuditEventAsyncWithHttpInfo($audit_event_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -324,20 +324,20 @@ class AuditLogApi
     }
 
     /**
-     * Operation getAuditEventApiV1AuditEventsAuditEventIdGetAsyncWithHttpInfo
+     * Operation getAuditEventAsyncWithHttpInfo
      *
      * Get Audit Event
      *
      * @param  string $audit_event_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuditEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAuditEventApiV1AuditEventsAuditEventIdGetAsyncWithHttpInfo($audit_event_id, string $contentType = self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'][0])
+    public function getAuditEventAsyncWithHttpInfo($audit_event_id, string $contentType = self::contentTypes['getAuditEvent'][0])
     {
         $returnType = '\InvoicePDFs\Model\AuditEventResponse';
-        $request = $this->getAuditEventApiV1AuditEventsAuditEventIdGetRequest($audit_event_id, $contentType);
+        $request = $this->getAuditEventRequest($audit_event_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -376,21 +376,21 @@ class AuditLogApi
     }
 
     /**
-     * Create request for operation 'getAuditEventApiV1AuditEventsAuditEventIdGet'
+     * Create request for operation 'getAuditEvent'
      *
      * @param  string $audit_event_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAuditEvent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAuditEventApiV1AuditEventsAuditEventIdGetRequest($audit_event_id, string $contentType = self::contentTypes['getAuditEventApiV1AuditEventsAuditEventIdGet'][0])
+    public function getAuditEventRequest($audit_event_id, string $contentType = self::contentTypes['getAuditEvent'][0])
     {
 
         // verify the required parameter 'audit_event_id' is set
         if ($audit_event_id === null || (is_array($audit_event_id) && count($audit_event_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $audit_event_id when calling getAuditEventApiV1AuditEventsAuditEventIdGet'
+                'Missing the required parameter $audit_event_id when calling getAuditEvent'
             );
         }
 
@@ -472,7 +472,7 @@ class AuditLogApi
     }
 
     /**
-     * Operation listAuditEventsApiV1AuditEventsGet
+     * Operation listAuditEvents
      *
      * List Audit Events
      *
@@ -481,20 +481,20 @@ class AuditLogApi
      * @param  string $action action (optional)
      * @param  string $resource_type resource_type (optional)
      * @param  string $resource_id resource_id (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAuditEventsApiV1AuditEventsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAuditEvents'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\AuditEventsListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listAuditEventsApiV1AuditEventsGet($limit = 50, $cursor = null, $action = null, $resource_type = null, $resource_id = null, string $contentType = self::contentTypes['listAuditEventsApiV1AuditEventsGet'][0])
+    public function listAuditEvents($limit = 50, $cursor = null, $action = null, $resource_type = null, $resource_id = null, string $contentType = self::contentTypes['listAuditEvents'][0])
     {
-        list($response) = $this->listAuditEventsApiV1AuditEventsGetWithHttpInfo($limit, $cursor, $action, $resource_type, $resource_id, $contentType);
+        list($response) = $this->listAuditEventsWithHttpInfo($limit, $cursor, $action, $resource_type, $resource_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation listAuditEventsApiV1AuditEventsGetWithHttpInfo
+     * Operation listAuditEventsWithHttpInfo
      *
      * List Audit Events
      *
@@ -503,15 +503,15 @@ class AuditLogApi
      * @param  string $action (optional)
      * @param  string $resource_type (optional)
      * @param  string $resource_id (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAuditEventsApiV1AuditEventsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAuditEvents'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\AuditEventsListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listAuditEventsApiV1AuditEventsGetWithHttpInfo($limit = 50, $cursor = null, $action = null, $resource_type = null, $resource_id = null, string $contentType = self::contentTypes['listAuditEventsApiV1AuditEventsGet'][0])
+    public function listAuditEventsWithHttpInfo($limit = 50, $cursor = null, $action = null, $resource_type = null, $resource_id = null, string $contentType = self::contentTypes['listAuditEvents'][0])
     {
-        $request = $this->listAuditEventsApiV1AuditEventsGetRequest($limit, $cursor, $action, $resource_type, $resource_id, $contentType);
+        $request = $this->listAuditEventsRequest($limit, $cursor, $action, $resource_type, $resource_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -657,7 +657,7 @@ class AuditLogApi
     }
 
     /**
-     * Operation listAuditEventsApiV1AuditEventsGetAsync
+     * Operation listAuditEventsAsync
      *
      * List Audit Events
      *
@@ -666,14 +666,14 @@ class AuditLogApi
      * @param  string $action (optional)
      * @param  string $resource_type (optional)
      * @param  string $resource_id (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAuditEventsApiV1AuditEventsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAuditEvents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAuditEventsApiV1AuditEventsGetAsync($limit = 50, $cursor = null, $action = null, $resource_type = null, $resource_id = null, string $contentType = self::contentTypes['listAuditEventsApiV1AuditEventsGet'][0])
+    public function listAuditEventsAsync($limit = 50, $cursor = null, $action = null, $resource_type = null, $resource_id = null, string $contentType = self::contentTypes['listAuditEvents'][0])
     {
-        return $this->listAuditEventsApiV1AuditEventsGetAsyncWithHttpInfo($limit, $cursor, $action, $resource_type, $resource_id, $contentType)
+        return $this->listAuditEventsAsyncWithHttpInfo($limit, $cursor, $action, $resource_type, $resource_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -682,7 +682,7 @@ class AuditLogApi
     }
 
     /**
-     * Operation listAuditEventsApiV1AuditEventsGetAsyncWithHttpInfo
+     * Operation listAuditEventsAsyncWithHttpInfo
      *
      * List Audit Events
      *
@@ -691,15 +691,15 @@ class AuditLogApi
      * @param  string $action (optional)
      * @param  string $resource_type (optional)
      * @param  string $resource_id (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAuditEventsApiV1AuditEventsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAuditEvents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAuditEventsApiV1AuditEventsGetAsyncWithHttpInfo($limit = 50, $cursor = null, $action = null, $resource_type = null, $resource_id = null, string $contentType = self::contentTypes['listAuditEventsApiV1AuditEventsGet'][0])
+    public function listAuditEventsAsyncWithHttpInfo($limit = 50, $cursor = null, $action = null, $resource_type = null, $resource_id = null, string $contentType = self::contentTypes['listAuditEvents'][0])
     {
         $returnType = '\InvoicePDFs\Model\AuditEventsListResponse';
-        $request = $this->listAuditEventsApiV1AuditEventsGetRequest($limit, $cursor, $action, $resource_type, $resource_id, $contentType);
+        $request = $this->listAuditEventsRequest($limit, $cursor, $action, $resource_type, $resource_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -738,26 +738,26 @@ class AuditLogApi
     }
 
     /**
-     * Create request for operation 'listAuditEventsApiV1AuditEventsGet'
+     * Create request for operation 'listAuditEvents'
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
      * @param  string $action (optional)
      * @param  string $resource_type (optional)
      * @param  string $resource_id (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAuditEventsApiV1AuditEventsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listAuditEvents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listAuditEventsApiV1AuditEventsGetRequest($limit = 50, $cursor = null, $action = null, $resource_type = null, $resource_id = null, string $contentType = self::contentTypes['listAuditEventsApiV1AuditEventsGet'][0])
+    public function listAuditEventsRequest($limit = 50, $cursor = null, $action = null, $resource_type = null, $resource_id = null, string $contentType = self::contentTypes['listAuditEvents'][0])
     {
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling AuditLogApi.listAuditEventsApiV1AuditEventsGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling AuditLogApi.listAuditEvents, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling AuditLogApi.listAuditEventsApiV1AuditEventsGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling AuditLogApi.listAuditEvents, must be bigger than or equal to 1.');
         }
         
 

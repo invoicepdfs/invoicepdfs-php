@@ -4,18 +4,18 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**listCountriesApiV1ReferenceCountriesGet()**](ReferenceApi.md#listCountriesApiV1ReferenceCountriesGet) | **GET** /api/v1/reference/countries | List Countries |
-| [**listCurrenciesApiV1ReferenceCurrenciesGet()**](ReferenceApi.md#listCurrenciesApiV1ReferenceCurrenciesGet) | **GET** /api/v1/reference/currencies | List Currencies |
-| [**listDocumentTypesApiV1ReferenceDocumentTypesGet()**](ReferenceApi.md#listDocumentTypesApiV1ReferenceDocumentTypesGet) | **GET** /api/v1/reference/document-types | List Document Types |
-| [**listLocalesApiV1ReferenceLocalesGet()**](ReferenceApi.md#listLocalesApiV1ReferenceLocalesGet) | **GET** /api/v1/reference/locales | List Locales |
-| [**listPageSizesApiV1ReferencePageSizesGet()**](ReferenceApi.md#listPageSizesApiV1ReferencePageSizesGet) | **GET** /api/v1/reference/page-sizes | List Page Sizes |
-| [**listTimezonesApiV1ReferenceTimezonesGet()**](ReferenceApi.md#listTimezonesApiV1ReferenceTimezonesGet) | **GET** /api/v1/reference/timezones | List Timezones |
+| [**listCountries()**](ReferenceApi.md#listCountries) | **GET** /api/v1/reference/countries | List Countries |
+| [**listCurrencies()**](ReferenceApi.md#listCurrencies) | **GET** /api/v1/reference/currencies | List Currencies |
+| [**listDocumentTypes()**](ReferenceApi.md#listDocumentTypes) | **GET** /api/v1/reference/document-types | List Document Types |
+| [**listLocales()**](ReferenceApi.md#listLocales) | **GET** /api/v1/reference/locales | List Locales |
+| [**listPageSizes()**](ReferenceApi.md#listPageSizes) | **GET** /api/v1/reference/page-sizes | List Page Sizes |
+| [**listTimezones()**](ReferenceApi.md#listTimezones) | **GET** /api/v1/reference/timezones | List Timezones |
 
 
-## `listCountriesApiV1ReferenceCountriesGet()`
+## `listCountries()`
 
 ```php
-listCountriesApiV1ReferenceCountriesGet(): array<string,mixed>
+listCountries(): array<string,mixed>
 ```
 
 List Countries
@@ -35,10 +35,10 @@ $apiInstance = new InvoicePDFs\Api\ReferenceApi(
 );
 
 try {
-    $result = $apiInstance->listCountriesApiV1ReferenceCountriesGet();
+    $result = $apiInstance->listCountries();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReferenceApi->listCountriesApiV1ReferenceCountriesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReferenceApi->listCountries: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -63,10 +63,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listCurrenciesApiV1ReferenceCurrenciesGet()`
+## `listCurrencies()`
 
 ```php
-listCurrenciesApiV1ReferenceCurrenciesGet(): array<string,mixed>
+listCurrencies(): array<string,mixed>
 ```
 
 List Currencies
@@ -86,10 +86,10 @@ $apiInstance = new InvoicePDFs\Api\ReferenceApi(
 );
 
 try {
-    $result = $apiInstance->listCurrenciesApiV1ReferenceCurrenciesGet();
+    $result = $apiInstance->listCurrencies();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReferenceApi->listCurrenciesApiV1ReferenceCurrenciesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReferenceApi->listCurrencies: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -114,10 +114,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listDocumentTypesApiV1ReferenceDocumentTypesGet()`
+## `listDocumentTypes()`
 
 ```php
-listDocumentTypesApiV1ReferenceDocumentTypesGet(): array<string,mixed>
+listDocumentTypes(): array<string,mixed>
 ```
 
 List Document Types
@@ -139,10 +139,10 @@ $apiInstance = new InvoicePDFs\Api\ReferenceApi(
 );
 
 try {
-    $result = $apiInstance->listDocumentTypesApiV1ReferenceDocumentTypesGet();
+    $result = $apiInstance->listDocumentTypes();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReferenceApi->listDocumentTypesApiV1ReferenceDocumentTypesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReferenceApi->listDocumentTypes: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -167,10 +167,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listLocalesApiV1ReferenceLocalesGet()`
+## `listLocales()`
 
 ```php
-listLocalesApiV1ReferenceLocalesGet(): array<string,mixed>
+listLocales(): array<string,mixed>
 ```
 
 List Locales
@@ -190,10 +190,10 @@ $apiInstance = new InvoicePDFs\Api\ReferenceApi(
 );
 
 try {
-    $result = $apiInstance->listLocalesApiV1ReferenceLocalesGet();
+    $result = $apiInstance->listLocales();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReferenceApi->listLocalesApiV1ReferenceLocalesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReferenceApi->listLocales: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -218,10 +218,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listPageSizesApiV1ReferencePageSizesGet()`
+## `listPageSizes()`
 
 ```php
-listPageSizesApiV1ReferencePageSizesGet(): array<string,mixed>
+listPageSizes(): array<string,mixed>
 ```
 
 List Page Sizes
@@ -241,10 +241,10 @@ $apiInstance = new InvoicePDFs\Api\ReferenceApi(
 );
 
 try {
-    $result = $apiInstance->listPageSizesApiV1ReferencePageSizesGet();
+    $result = $apiInstance->listPageSizes();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReferenceApi->listPageSizesApiV1ReferencePageSizesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReferenceApi->listPageSizes: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -269,10 +269,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listTimezonesApiV1ReferenceTimezonesGet()`
+## `listTimezones()`
 
 ```php
-listTimezonesApiV1ReferenceTimezonesGet(): array<string,mixed>
+listTimezones(): array<string,mixed>
 ```
 
 List Timezones
@@ -292,10 +292,10 @@ $apiInstance = new InvoicePDFs\Api\ReferenceApi(
 );
 
 try {
-    $result = $apiInstance->listTimezonesApiV1ReferenceTimezonesGet();
+    $result = $apiInstance->listTimezones();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ReferenceApi->listTimezonesApiV1ReferenceTimezonesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReferenceApi->listTimezones: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

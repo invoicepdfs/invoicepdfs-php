@@ -4,22 +4,22 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createWebhookEndpointApiV1WebhookEndpointsPost()**](WebhooksApi.md#createWebhookEndpointApiV1WebhookEndpointsPost) | **POST** /api/v1/webhook-endpoints | Create Webhook Endpoint |
-| [**deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete()**](WebhooksApi.md#deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete) | **DELETE** /api/v1/webhook-endpoints/{endpoint_id} | Delete Webhook Endpoint |
-| [**getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet()**](WebhooksApi.md#getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet) | **GET** /api/v1/webhook-deliveries/{delivery_id} | Get Webhook Delivery |
-| [**getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet()**](WebhooksApi.md#getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet) | **GET** /api/v1/webhook-endpoints/{endpoint_id} | Get Webhook Endpoint |
-| [**listWebhookDeliveriesApiV1WebhookDeliveriesGet()**](WebhooksApi.md#listWebhookDeliveriesApiV1WebhookDeliveriesGet) | **GET** /api/v1/webhook-deliveries | List Webhook Deliveries |
-| [**listWebhookEndpointsApiV1WebhookEndpointsGet()**](WebhooksApi.md#listWebhookEndpointsApiV1WebhookEndpointsGet) | **GET** /api/v1/webhook-endpoints | List Webhook Endpoints |
-| [**retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost()**](WebhooksApi.md#retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost) | **POST** /api/v1/webhook-deliveries/{delivery_id}/retry | Retry Webhook Delivery |
-| [**rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost()**](WebhooksApi.md#rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost) | **POST** /api/v1/webhook-endpoints/{endpoint_id}/rotate-secret | Rotate Webhook Secret |
-| [**testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost()**](WebhooksApi.md#testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost) | **POST** /api/v1/webhook-endpoints/{endpoint_id}/test | Test Webhook Endpoint |
-| [**updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch()**](WebhooksApi.md#updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch) | **PATCH** /api/v1/webhook-endpoints/{endpoint_id} | Update Webhook Endpoint |
+| [**createWebhookEndpoint()**](WebhooksApi.md#createWebhookEndpoint) | **POST** /api/v1/webhook-endpoints | Create Webhook Endpoint |
+| [**deleteWebhookEndpoint()**](WebhooksApi.md#deleteWebhookEndpoint) | **DELETE** /api/v1/webhook-endpoints/{endpoint_id} | Delete Webhook Endpoint |
+| [**getWebhookDelivery()**](WebhooksApi.md#getWebhookDelivery) | **GET** /api/v1/webhook-deliveries/{delivery_id} | Get Webhook Delivery |
+| [**getWebhookEndpoint()**](WebhooksApi.md#getWebhookEndpoint) | **GET** /api/v1/webhook-endpoints/{endpoint_id} | Get Webhook Endpoint |
+| [**listWebhookDeliveries()**](WebhooksApi.md#listWebhookDeliveries) | **GET** /api/v1/webhook-deliveries | List Webhook Deliveries |
+| [**listWebhookEndpoints()**](WebhooksApi.md#listWebhookEndpoints) | **GET** /api/v1/webhook-endpoints | List Webhook Endpoints |
+| [**retryWebhookDelivery()**](WebhooksApi.md#retryWebhookDelivery) | **POST** /api/v1/webhook-deliveries/{delivery_id}/retry | Retry Webhook Delivery |
+| [**rotateWebhookSecret()**](WebhooksApi.md#rotateWebhookSecret) | **POST** /api/v1/webhook-endpoints/{endpoint_id}/rotate-secret | Rotate Webhook Secret |
+| [**testWebhookEndpoint()**](WebhooksApi.md#testWebhookEndpoint) | **POST** /api/v1/webhook-endpoints/{endpoint_id}/test | Test Webhook Endpoint |
+| [**updateWebhookEndpoint()**](WebhooksApi.md#updateWebhookEndpoint) | **PATCH** /api/v1/webhook-endpoints/{endpoint_id} | Update Webhook Endpoint |
 
 
-## `createWebhookEndpointApiV1WebhookEndpointsPost()`
+## `createWebhookEndpoint()`
 
 ```php
-createWebhookEndpointApiV1WebhookEndpointsPost($webhook_endpoint_create_request): \InvoicePDFs\Model\WebhookEndpointResponse
+createWebhookEndpoint($webhook_endpoint_create_request): \InvoicePDFs\Model\WebhookEndpointResponse
 ```
 
 Create Webhook Endpoint
@@ -44,10 +44,10 @@ $apiInstance = new InvoicePDFs\Api\WebhooksApi(
 $webhook_endpoint_create_request = new \InvoicePDFs\Model\WebhookEndpointCreateRequest(); // \InvoicePDFs\Model\WebhookEndpointCreateRequest
 
 try {
-    $result = $apiInstance->createWebhookEndpointApiV1WebhookEndpointsPost($webhook_endpoint_create_request);
+    $result = $apiInstance->createWebhookEndpoint($webhook_endpoint_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhooksApi->createWebhookEndpointApiV1WebhookEndpointsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhooksApi->createWebhookEndpoint: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -74,10 +74,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete()`
+## `deleteWebhookEndpoint()`
 
 ```php
-deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete($endpoint_id): \InvoicePDFs\Model\SimpleBoolResponse
+deleteWebhookEndpoint($endpoint_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Webhook Endpoint
@@ -102,10 +102,10 @@ $apiInstance = new InvoicePDFs\Api\WebhooksApi(
 $endpoint_id = 'endpoint_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete($endpoint_id);
+    $result = $apiInstance->deleteWebhookEndpoint($endpoint_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhooksApi->deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhooksApi->deleteWebhookEndpoint: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -132,10 +132,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet()`
+## `getWebhookDelivery()`
 
 ```php
-getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet($delivery_id): \InvoicePDFs\Model\WebhookDeliveryResponse
+getWebhookDelivery($delivery_id): \InvoicePDFs\Model\WebhookDeliveryResponse
 ```
 
 Get Webhook Delivery
@@ -160,10 +160,10 @@ $apiInstance = new InvoicePDFs\Api\WebhooksApi(
 $delivery_id = 'delivery_id_example'; // string
 
 try {
-    $result = $apiInstance->getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet($delivery_id);
+    $result = $apiInstance->getWebhookDelivery($delivery_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhooksApi->getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhooksApi->getWebhookDelivery: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -190,10 +190,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet()`
+## `getWebhookEndpoint()`
 
 ```php
-getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet($endpoint_id): \InvoicePDFs\Model\WebhookEndpointResponse
+getWebhookEndpoint($endpoint_id): \InvoicePDFs\Model\WebhookEndpointResponse
 ```
 
 Get Webhook Endpoint
@@ -218,10 +218,10 @@ $apiInstance = new InvoicePDFs\Api\WebhooksApi(
 $endpoint_id = 'endpoint_id_example'; // string
 
 try {
-    $result = $apiInstance->getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet($endpoint_id);
+    $result = $apiInstance->getWebhookEndpoint($endpoint_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhooksApi->getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhooksApi->getWebhookEndpoint: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -248,10 +248,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listWebhookDeliveriesApiV1WebhookDeliveriesGet()`
+## `listWebhookDeliveries()`
 
 ```php
-listWebhookDeliveriesApiV1WebhookDeliveriesGet($limit, $cursor): \InvoicePDFs\Model\WebhookDeliveriesListResponse
+listWebhookDeliveries($limit, $cursor): \InvoicePDFs\Model\WebhookDeliveriesListResponse
 ```
 
 List Webhook Deliveries
@@ -277,10 +277,10 @@ $limit = 50; // int
 $cursor = 'cursor_example'; // string
 
 try {
-    $result = $apiInstance->listWebhookDeliveriesApiV1WebhookDeliveriesGet($limit, $cursor);
+    $result = $apiInstance->listWebhookDeliveries($limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhooksApi->listWebhookDeliveriesApiV1WebhookDeliveriesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhooksApi->listWebhookDeliveries: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -308,10 +308,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listWebhookEndpointsApiV1WebhookEndpointsGet()`
+## `listWebhookEndpoints()`
 
 ```php
-listWebhookEndpointsApiV1WebhookEndpointsGet($limit, $cursor): \InvoicePDFs\Model\WebhookEndpointsListResponse
+listWebhookEndpoints($limit, $cursor): \InvoicePDFs\Model\WebhookEndpointsListResponse
 ```
 
 List Webhook Endpoints
@@ -337,10 +337,10 @@ $limit = 50; // int
 $cursor = 'cursor_example'; // string
 
 try {
-    $result = $apiInstance->listWebhookEndpointsApiV1WebhookEndpointsGet($limit, $cursor);
+    $result = $apiInstance->listWebhookEndpoints($limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhooksApi->listWebhookEndpointsApiV1WebhookEndpointsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhooksApi->listWebhookEndpoints: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -368,10 +368,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost()`
+## `retryWebhookDelivery()`
 
 ```php
-retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost($delivery_id): \InvoicePDFs\Model\WebhookDeliveryResponse
+retryWebhookDelivery($delivery_id): \InvoicePDFs\Model\WebhookDeliveryResponse
 ```
 
 Retry Webhook Delivery
@@ -396,10 +396,10 @@ $apiInstance = new InvoicePDFs\Api\WebhooksApi(
 $delivery_id = 'delivery_id_example'; // string
 
 try {
-    $result = $apiInstance->retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost($delivery_id);
+    $result = $apiInstance->retryWebhookDelivery($delivery_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhooksApi->retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhooksApi->retryWebhookDelivery: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -426,10 +426,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost()`
+## `rotateWebhookSecret()`
 
 ```php
-rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost($endpoint_id): \InvoicePDFs\Model\WebhookSecretResponse
+rotateWebhookSecret($endpoint_id): \InvoicePDFs\Model\WebhookSecretResponse
 ```
 
 Rotate Webhook Secret
@@ -454,10 +454,10 @@ $apiInstance = new InvoicePDFs\Api\WebhooksApi(
 $endpoint_id = 'endpoint_id_example'; // string
 
 try {
-    $result = $apiInstance->rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost($endpoint_id);
+    $result = $apiInstance->rotateWebhookSecret($endpoint_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhooksApi->rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhooksApi->rotateWebhookSecret: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -484,10 +484,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost()`
+## `testWebhookEndpoint()`
 
 ```php
-testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost($endpoint_id): \InvoicePDFs\Model\WebhookDeliveryResponse
+testWebhookEndpoint($endpoint_id): \InvoicePDFs\Model\WebhookDeliveryResponse
 ```
 
 Test Webhook Endpoint
@@ -512,10 +512,10 @@ $apiInstance = new InvoicePDFs\Api\WebhooksApi(
 $endpoint_id = 'endpoint_id_example'; // string
 
 try {
-    $result = $apiInstance->testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost($endpoint_id);
+    $result = $apiInstance->testWebhookEndpoint($endpoint_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhooksApi->testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhooksApi->testWebhookEndpoint: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -542,10 +542,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch()`
+## `updateWebhookEndpoint()`
 
 ```php
-updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch($endpoint_id, $webhook_endpoint_patch_request): \InvoicePDFs\Model\WebhookEndpointResponse
+updateWebhookEndpoint($endpoint_id, $webhook_endpoint_patch_request): \InvoicePDFs\Model\WebhookEndpointResponse
 ```
 
 Update Webhook Endpoint
@@ -571,10 +571,10 @@ $endpoint_id = 'endpoint_id_example'; // string
 $webhook_endpoint_patch_request = new \InvoicePDFs\Model\WebhookEndpointPatchRequest(); // \InvoicePDFs\Model\WebhookEndpointPatchRequest
 
 try {
-    $result = $apiInstance->updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch($endpoint_id, $webhook_endpoint_patch_request);
+    $result = $apiInstance->updateWebhookEndpoint($endpoint_id, $webhook_endpoint_patch_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling WebhooksApi->updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WebhooksApi->updateWebhookEndpoint: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

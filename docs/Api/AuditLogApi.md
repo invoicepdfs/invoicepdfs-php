@@ -4,14 +4,14 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getAuditEventApiV1AuditEventsAuditEventIdGet()**](AuditLogApi.md#getAuditEventApiV1AuditEventsAuditEventIdGet) | **GET** /api/v1/audit-events/{audit_event_id} | Get Audit Event |
-| [**listAuditEventsApiV1AuditEventsGet()**](AuditLogApi.md#listAuditEventsApiV1AuditEventsGet) | **GET** /api/v1/audit-events | List Audit Events |
+| [**getAuditEvent()**](AuditLogApi.md#getAuditEvent) | **GET** /api/v1/audit-events/{audit_event_id} | Get Audit Event |
+| [**listAuditEvents()**](AuditLogApi.md#listAuditEvents) | **GET** /api/v1/audit-events | List Audit Events |
 
 
-## `getAuditEventApiV1AuditEventsAuditEventIdGet()`
+## `getAuditEvent()`
 
 ```php
-getAuditEventApiV1AuditEventsAuditEventIdGet($audit_event_id): \InvoicePDFs\Model\AuditEventResponse
+getAuditEvent($audit_event_id): \InvoicePDFs\Model\AuditEventResponse
 ```
 
 Get Audit Event
@@ -36,10 +36,10 @@ $apiInstance = new InvoicePDFs\Api\AuditLogApi(
 $audit_event_id = 'audit_event_id_example'; // string
 
 try {
-    $result = $apiInstance->getAuditEventApiV1AuditEventsAuditEventIdGet($audit_event_id);
+    $result = $apiInstance->getAuditEvent($audit_event_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AuditLogApi->getAuditEventApiV1AuditEventsAuditEventIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AuditLogApi->getAuditEvent: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -66,10 +66,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listAuditEventsApiV1AuditEventsGet()`
+## `listAuditEvents()`
 
 ```php
-listAuditEventsApiV1AuditEventsGet($limit, $cursor, $action, $resource_type, $resource_id): \InvoicePDFs\Model\AuditEventsListResponse
+listAuditEvents($limit, $cursor, $action, $resource_type, $resource_id): \InvoicePDFs\Model\AuditEventsListResponse
 ```
 
 List Audit Events
@@ -98,10 +98,10 @@ $resource_type = 'resource_type_example'; // string
 $resource_id = 'resource_id_example'; // string
 
 try {
-    $result = $apiInstance->listAuditEventsApiV1AuditEventsGet($limit, $cursor, $action, $resource_type, $resource_id);
+    $result = $apiInstance->listAuditEvents($limit, $cursor, $action, $resource_type, $resource_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AuditLogApi->listAuditEventsApiV1AuditEventsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AuditLogApi->listAuditEvents: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

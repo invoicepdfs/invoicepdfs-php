@@ -4,13 +4,13 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**listLogsApiV1LogsGet()**](LogsApi.md#listLogsApiV1LogsGet) | **GET** /api/v1/logs | List Logs |
+| [**listLogs()**](LogsApi.md#listLogs) | **GET** /api/v1/logs | List Logs |
 
 
-## `listLogsApiV1LogsGet()`
+## `listLogs()`
 
 ```php
-listLogsApiV1LogsGet($status, $limit): \InvoicePDFs\Model\ApiRequestLogsListResponse
+listLogs($status, $limit): \InvoicePDFs\Model\ApiRequestLogsListResponse
 ```
 
 List Logs
@@ -36,10 +36,10 @@ $status = ''; // string
 $limit = 100; // int
 
 try {
-    $result = $apiInstance->listLogsApiV1LogsGet($status, $limit);
+    $result = $apiInstance->listLogs($status, $limit);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LogsApi->listLogsApiV1LogsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling LogsApi->listLogs: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

@@ -71,13 +71,13 @@ class FilesApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'deleteFileApiV1FilesFileIdDelete' => [
+        'deleteFile' => [
             'application/json',
         ],
-        'getFileApiV1FilesFileIdGet' => [
+        'getFile' => [
             'application/json',
         ],
-        'uploadFileApiV1FilesPost' => [
+        'uploadFile' => [
             'multipart/form-data',
         ],
     ];
@@ -129,38 +129,38 @@ class FilesApi
     }
 
     /**
-     * Operation deleteFileApiV1FilesFileIdDelete
+     * Operation deleteFile
      *
      * Delete File
      *
      * @param  string $file_id file_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFileApiV1FilesFileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function deleteFileApiV1FilesFileIdDelete($file_id, string $contentType = self::contentTypes['deleteFileApiV1FilesFileIdDelete'][0])
+    public function deleteFile($file_id, string $contentType = self::contentTypes['deleteFile'][0])
     {
-        list($response) = $this->deleteFileApiV1FilesFileIdDeleteWithHttpInfo($file_id, $contentType);
+        list($response) = $this->deleteFileWithHttpInfo($file_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteFileApiV1FilesFileIdDeleteWithHttpInfo
+     * Operation deleteFileWithHttpInfo
      *
      * Delete File
      *
      * @param  string $file_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFileApiV1FilesFileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteFileApiV1FilesFileIdDeleteWithHttpInfo($file_id, string $contentType = self::contentTypes['deleteFileApiV1FilesFileIdDelete'][0])
+    public function deleteFileWithHttpInfo($file_id, string $contentType = self::contentTypes['deleteFile'][0])
     {
-        $request = $this->deleteFileApiV1FilesFileIdDeleteRequest($file_id, $contentType);
+        $request = $this->deleteFileRequest($file_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -306,19 +306,19 @@ class FilesApi
     }
 
     /**
-     * Operation deleteFileApiV1FilesFileIdDeleteAsync
+     * Operation deleteFileAsync
      *
      * Delete File
      *
      * @param  string $file_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFileApiV1FilesFileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFileApiV1FilesFileIdDeleteAsync($file_id, string $contentType = self::contentTypes['deleteFileApiV1FilesFileIdDelete'][0])
+    public function deleteFileAsync($file_id, string $contentType = self::contentTypes['deleteFile'][0])
     {
-        return $this->deleteFileApiV1FilesFileIdDeleteAsyncWithHttpInfo($file_id, $contentType)
+        return $this->deleteFileAsyncWithHttpInfo($file_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -327,20 +327,20 @@ class FilesApi
     }
 
     /**
-     * Operation deleteFileApiV1FilesFileIdDeleteAsyncWithHttpInfo
+     * Operation deleteFileAsyncWithHttpInfo
      *
      * Delete File
      *
      * @param  string $file_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFileApiV1FilesFileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteFileApiV1FilesFileIdDeleteAsyncWithHttpInfo($file_id, string $contentType = self::contentTypes['deleteFileApiV1FilesFileIdDelete'][0])
+    public function deleteFileAsyncWithHttpInfo($file_id, string $contentType = self::contentTypes['deleteFile'][0])
     {
         $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
-        $request = $this->deleteFileApiV1FilesFileIdDeleteRequest($file_id, $contentType);
+        $request = $this->deleteFileRequest($file_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -379,21 +379,21 @@ class FilesApi
     }
 
     /**
-     * Create request for operation 'deleteFileApiV1FilesFileIdDelete'
+     * Create request for operation 'deleteFile'
      *
      * @param  string $file_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFileApiV1FilesFileIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteFileApiV1FilesFileIdDeleteRequest($file_id, string $contentType = self::contentTypes['deleteFileApiV1FilesFileIdDelete'][0])
+    public function deleteFileRequest($file_id, string $contentType = self::contentTypes['deleteFile'][0])
     {
 
         // verify the required parameter 'file_id' is set
         if ($file_id === null || (is_array($file_id) && count($file_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $file_id when calling deleteFileApiV1FilesFileIdDelete'
+                'Missing the required parameter $file_id when calling deleteFile'
             );
         }
 
@@ -475,38 +475,38 @@ class FilesApi
     }
 
     /**
-     * Operation getFileApiV1FilesFileIdGet
+     * Operation getFile
      *
      * Get File
      *
      * @param  string $file_id file_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFileApiV1FilesFileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\FileResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getFileApiV1FilesFileIdGet($file_id, string $contentType = self::contentTypes['getFileApiV1FilesFileIdGet'][0])
+    public function getFile($file_id, string $contentType = self::contentTypes['getFile'][0])
     {
-        list($response) = $this->getFileApiV1FilesFileIdGetWithHttpInfo($file_id, $contentType);
+        list($response) = $this->getFileWithHttpInfo($file_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getFileApiV1FilesFileIdGetWithHttpInfo
+     * Operation getFileWithHttpInfo
      *
      * Get File
      *
      * @param  string $file_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFileApiV1FilesFileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\FileResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFileApiV1FilesFileIdGetWithHttpInfo($file_id, string $contentType = self::contentTypes['getFileApiV1FilesFileIdGet'][0])
+    public function getFileWithHttpInfo($file_id, string $contentType = self::contentTypes['getFile'][0])
     {
-        $request = $this->getFileApiV1FilesFileIdGetRequest($file_id, $contentType);
+        $request = $this->getFileRequest($file_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -652,19 +652,19 @@ class FilesApi
     }
 
     /**
-     * Operation getFileApiV1FilesFileIdGetAsync
+     * Operation getFileAsync
      *
      * Get File
      *
      * @param  string $file_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFileApiV1FilesFileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFileApiV1FilesFileIdGetAsync($file_id, string $contentType = self::contentTypes['getFileApiV1FilesFileIdGet'][0])
+    public function getFileAsync($file_id, string $contentType = self::contentTypes['getFile'][0])
     {
-        return $this->getFileApiV1FilesFileIdGetAsyncWithHttpInfo($file_id, $contentType)
+        return $this->getFileAsyncWithHttpInfo($file_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -673,20 +673,20 @@ class FilesApi
     }
 
     /**
-     * Operation getFileApiV1FilesFileIdGetAsyncWithHttpInfo
+     * Operation getFileAsyncWithHttpInfo
      *
      * Get File
      *
      * @param  string $file_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFileApiV1FilesFileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFileApiV1FilesFileIdGetAsyncWithHttpInfo($file_id, string $contentType = self::contentTypes['getFileApiV1FilesFileIdGet'][0])
+    public function getFileAsyncWithHttpInfo($file_id, string $contentType = self::contentTypes['getFile'][0])
     {
         $returnType = '\InvoicePDFs\Model\FileResponse';
-        $request = $this->getFileApiV1FilesFileIdGetRequest($file_id, $contentType);
+        $request = $this->getFileRequest($file_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -725,21 +725,21 @@ class FilesApi
     }
 
     /**
-     * Create request for operation 'getFileApiV1FilesFileIdGet'
+     * Create request for operation 'getFile'
      *
      * @param  string $file_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFileApiV1FilesFileIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFileApiV1FilesFileIdGetRequest($file_id, string $contentType = self::contentTypes['getFileApiV1FilesFileIdGet'][0])
+    public function getFileRequest($file_id, string $contentType = self::contentTypes['getFile'][0])
     {
 
         // verify the required parameter 'file_id' is set
         if ($file_id === null || (is_array($file_id) && count($file_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $file_id when calling getFileApiV1FilesFileIdGet'
+                'Missing the required parameter $file_id when calling getFile'
             );
         }
 
@@ -821,40 +821,40 @@ class FilesApi
     }
 
     /**
-     * Operation uploadFileApiV1FilesPost
+     * Operation uploadFile
      *
      * Upload File
      *
      * @param  \SplFileObject $file file (required)
      * @param  string $idempotency_key idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFileApiV1FilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\FileResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function uploadFileApiV1FilesPost($file, $idempotency_key = null, string $contentType = self::contentTypes['uploadFileApiV1FilesPost'][0])
+    public function uploadFile($file, $idempotency_key = null, string $contentType = self::contentTypes['uploadFile'][0])
     {
-        list($response) = $this->uploadFileApiV1FilesPostWithHttpInfo($file, $idempotency_key, $contentType);
+        list($response) = $this->uploadFileWithHttpInfo($file, $idempotency_key, $contentType);
         return $response;
     }
 
     /**
-     * Operation uploadFileApiV1FilesPostWithHttpInfo
+     * Operation uploadFileWithHttpInfo
      *
      * Upload File
      *
      * @param  \SplFileObject $file (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFileApiV1FilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFile'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\FileResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadFileApiV1FilesPostWithHttpInfo($file, $idempotency_key = null, string $contentType = self::contentTypes['uploadFileApiV1FilesPost'][0])
+    public function uploadFileWithHttpInfo($file, $idempotency_key = null, string $contentType = self::contentTypes['uploadFile'][0])
     {
-        $request = $this->uploadFileApiV1FilesPostRequest($file, $idempotency_key, $contentType);
+        $request = $this->uploadFileRequest($file, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1000,20 +1000,20 @@ class FilesApi
     }
 
     /**
-     * Operation uploadFileApiV1FilesPostAsync
+     * Operation uploadFileAsync
      *
      * Upload File
      *
      * @param  \SplFileObject $file (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFileApiV1FilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadFileApiV1FilesPostAsync($file, $idempotency_key = null, string $contentType = self::contentTypes['uploadFileApiV1FilesPost'][0])
+    public function uploadFileAsync($file, $idempotency_key = null, string $contentType = self::contentTypes['uploadFile'][0])
     {
-        return $this->uploadFileApiV1FilesPostAsyncWithHttpInfo($file, $idempotency_key, $contentType)
+        return $this->uploadFileAsyncWithHttpInfo($file, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1022,21 +1022,21 @@ class FilesApi
     }
 
     /**
-     * Operation uploadFileApiV1FilesPostAsyncWithHttpInfo
+     * Operation uploadFileAsyncWithHttpInfo
      *
      * Upload File
      *
      * @param  \SplFileObject $file (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFileApiV1FilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadFileApiV1FilesPostAsyncWithHttpInfo($file, $idempotency_key = null, string $contentType = self::contentTypes['uploadFileApiV1FilesPost'][0])
+    public function uploadFileAsyncWithHttpInfo($file, $idempotency_key = null, string $contentType = self::contentTypes['uploadFile'][0])
     {
         $returnType = '\InvoicePDFs\Model\FileResponse';
-        $request = $this->uploadFileApiV1FilesPostRequest($file, $idempotency_key, $contentType);
+        $request = $this->uploadFileRequest($file, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1075,22 +1075,22 @@ class FilesApi
     }
 
     /**
-     * Create request for operation 'uploadFileApiV1FilesPost'
+     * Create request for operation 'uploadFile'
      *
      * @param  \SplFileObject $file (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFileApiV1FilesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadFile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function uploadFileApiV1FilesPostRequest($file, $idempotency_key = null, string $contentType = self::contentTypes['uploadFileApiV1FilesPost'][0])
+    public function uploadFileRequest($file, $idempotency_key = null, string $contentType = self::contentTypes['uploadFile'][0])
     {
 
         // verify the required parameter 'file' is set
         if ($file === null || (is_array($file) && count($file) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $file when calling uploadFileApiV1FilesPost'
+                'Missing the required parameter $file when calling uploadFile'
             );
         }
 

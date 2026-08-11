@@ -1,21 +1,21 @@
-# InvoicePDFs\FilesApi
+# InvoicePDFs\DocumentAttachmentsApi
 
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**deleteFile()**](FilesApi.md#deleteFile) | **DELETE** /api/v1/files/{file_id} | Delete File |
-| [**getFile()**](FilesApi.md#getFile) | **GET** /api/v1/files/{file_id} | Get File |
-| [**uploadFile()**](FilesApi.md#uploadFile) | **POST** /api/v1/files | Upload File |
+| [**createDocumentAttachment()**](DocumentAttachmentsApi.md#createDocumentAttachment) | **POST** /api/v1/documents/{document_id}/attachments | Create Document Attachment |
+| [**deleteDocumentAttachment()**](DocumentAttachmentsApi.md#deleteDocumentAttachment) | **DELETE** /api/v1/documents/{document_id}/attachments/{attachment_id} | Delete Document Attachment |
+| [**listDocumentAttachments()**](DocumentAttachmentsApi.md#listDocumentAttachments) | **GET** /api/v1/documents/{document_id}/attachments | List Document Attachments |
 
 
-## `deleteFile()`
+## `createDocumentAttachment()`
 
 ```php
-deleteFile($file_id): \InvoicePDFs\Model\SimpleBoolResponse
+createDocumentAttachment($document_id, $invoice_attachment_create_request): \InvoicePDFs\Model\InvoiceAttachmentResponse
 ```
 
-Delete File
+Create Document Attachment
 
 ### Example
 
@@ -28,19 +28,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new InvoicePDFs\Api\FilesApi(
+$apiInstance = new InvoicePDFs\Api\DocumentAttachmentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$file_id = 'file_id_example'; // string
+$document_id = 'document_id_example'; // string
+$invoice_attachment_create_request = new \InvoicePDFs\Model\InvoiceAttachmentCreateRequest(); // \InvoicePDFs\Model\InvoiceAttachmentCreateRequest
 
 try {
-    $result = $apiInstance->deleteFile($file_id);
+    $result = $apiInstance->createDocumentAttachment($document_id, $invoice_attachment_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FilesApi->deleteFile: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentAttachmentsApi->createDocumentAttachment: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -48,7 +49,68 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **file_id** | **string**|  | |
+| **document_id** | **string**|  | |
+| **invoice_attachment_create_request** | [**\InvoicePDFs\Model\InvoiceAttachmentCreateRequest**](../Model/InvoiceAttachmentCreateRequest.md)|  | |
+
+### Return type
+
+[**\InvoicePDFs\Model\InvoiceAttachmentResponse**](../Model/InvoiceAttachmentResponse.md)
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteDocumentAttachment()`
+
+```php
+deleteDocumentAttachment($document_id, $attachment_id): \InvoicePDFs\Model\SimpleBoolResponse
+```
+
+Delete Document Attachment
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new InvoicePDFs\Api\DocumentAttachmentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$document_id = 'document_id_example'; // string
+$attachment_id = 'attachment_id_example'; // string
+
+try {
+    $result = $apiInstance->deleteDocumentAttachment($document_id, $attachment_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentAttachmentsApi->deleteDocumentAttachment: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **document_id** | **string**|  | |
+| **attachment_id** | **string**|  | |
 
 ### Return type
 
@@ -67,13 +129,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getFile()`
+## `listDocumentAttachments()`
 
 ```php
-getFile($file_id): \InvoicePDFs\Model\FileResponse
+listDocumentAttachments($document_id): \InvoicePDFs\Model\InvoiceAttachmentsListResponse
 ```
 
-Get File
+List Document Attachments
 
 ### Example
 
@@ -86,19 +148,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new InvoicePDFs\Api\FilesApi(
+$apiInstance = new InvoicePDFs\Api\DocumentAttachmentsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$file_id = 'file_id_example'; // string
+$document_id = 'document_id_example'; // string
 
 try {
-    $result = $apiInstance->getFile($file_id);
+    $result = $apiInstance->listDocumentAttachments($document_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FilesApi->getFile: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentAttachmentsApi->listDocumentAttachments: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -106,11 +168,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **file_id** | **string**|  | |
+| **document_id** | **string**|  | |
 
 ### Return type
 
-[**\InvoicePDFs\Model\FileResponse**](../Model/FileResponse.md)
+[**\InvoicePDFs\Model\InvoiceAttachmentsListResponse**](../Model/InvoiceAttachmentsListResponse.md)
 
 ### Authorization
 
@@ -119,66 +181,6 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `uploadFile()`
-
-```php
-uploadFile($file, $idempotency_key): \InvoicePDFs\Model\FileResponse
-```
-
-Upload File
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: HTTPBearer
-$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new InvoicePDFs\Api\FilesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$file = "/path/to/file.txt"; // \SplFileObject
-$idempotency_key = 'idempotency_key_example'; // string
-
-try {
-    $result = $apiInstance->uploadFile($file, $idempotency_key);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling FilesApi->uploadFile: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **file** | **\SplFileObject****\SplFileObject**|  | |
-| **idempotency_key** | **string**|  | [optional] |
-
-### Return type
-
-[**\InvoicePDFs\Model\FileResponse**](../Model/FileResponse.md)
-
-### Authorization
-
-[HTTPBearer](../../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

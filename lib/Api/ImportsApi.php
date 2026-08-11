@@ -71,16 +71,16 @@ class ImportsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'cancelImportApiV1ImportsImportIdCancelPost' => [
+        'cancelImport' => [
             'application/json',
         ],
-        'confirmImportApiV1ImportsImportIdConfirmPost' => [
+        'confirmImport' => [
             'application/json',
         ],
-        'createImportApiV1ImportsPost' => [
+        'createImport' => [
             'application/json',
         ],
-        'getImportApiV1ImportsImportIdGet' => [
+        'getImport' => [
             'application/json',
         ],
     ];
@@ -132,38 +132,38 @@ class ImportsApi
     }
 
     /**
-     * Operation cancelImportApiV1ImportsImportIdCancelPost
+     * Operation cancelImport
      *
      * Cancel Import
      *
      * @param  string $import_id import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelImportApiV1ImportsImportIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelImport'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\ImportResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function cancelImportApiV1ImportsImportIdCancelPost($import_id, string $contentType = self::contentTypes['cancelImportApiV1ImportsImportIdCancelPost'][0])
+    public function cancelImport($import_id, string $contentType = self::contentTypes['cancelImport'][0])
     {
-        list($response) = $this->cancelImportApiV1ImportsImportIdCancelPostWithHttpInfo($import_id, $contentType);
+        list($response) = $this->cancelImportWithHttpInfo($import_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation cancelImportApiV1ImportsImportIdCancelPostWithHttpInfo
+     * Operation cancelImportWithHttpInfo
      *
      * Cancel Import
      *
      * @param  string $import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelImportApiV1ImportsImportIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelImport'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\ImportResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelImportApiV1ImportsImportIdCancelPostWithHttpInfo($import_id, string $contentType = self::contentTypes['cancelImportApiV1ImportsImportIdCancelPost'][0])
+    public function cancelImportWithHttpInfo($import_id, string $contentType = self::contentTypes['cancelImport'][0])
     {
-        $request = $this->cancelImportApiV1ImportsImportIdCancelPostRequest($import_id, $contentType);
+        $request = $this->cancelImportRequest($import_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -309,19 +309,19 @@ class ImportsApi
     }
 
     /**
-     * Operation cancelImportApiV1ImportsImportIdCancelPostAsync
+     * Operation cancelImportAsync
      *
      * Cancel Import
      *
      * @param  string $import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelImportApiV1ImportsImportIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelImport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelImportApiV1ImportsImportIdCancelPostAsync($import_id, string $contentType = self::contentTypes['cancelImportApiV1ImportsImportIdCancelPost'][0])
+    public function cancelImportAsync($import_id, string $contentType = self::contentTypes['cancelImport'][0])
     {
-        return $this->cancelImportApiV1ImportsImportIdCancelPostAsyncWithHttpInfo($import_id, $contentType)
+        return $this->cancelImportAsyncWithHttpInfo($import_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -330,20 +330,20 @@ class ImportsApi
     }
 
     /**
-     * Operation cancelImportApiV1ImportsImportIdCancelPostAsyncWithHttpInfo
+     * Operation cancelImportAsyncWithHttpInfo
      *
      * Cancel Import
      *
      * @param  string $import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelImportApiV1ImportsImportIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelImport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelImportApiV1ImportsImportIdCancelPostAsyncWithHttpInfo($import_id, string $contentType = self::contentTypes['cancelImportApiV1ImportsImportIdCancelPost'][0])
+    public function cancelImportAsyncWithHttpInfo($import_id, string $contentType = self::contentTypes['cancelImport'][0])
     {
         $returnType = '\InvoicePDFs\Model\ImportResponse';
-        $request = $this->cancelImportApiV1ImportsImportIdCancelPostRequest($import_id, $contentType);
+        $request = $this->cancelImportRequest($import_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -382,21 +382,21 @@ class ImportsApi
     }
 
     /**
-     * Create request for operation 'cancelImportApiV1ImportsImportIdCancelPost'
+     * Create request for operation 'cancelImport'
      *
      * @param  string $import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelImportApiV1ImportsImportIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelImport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cancelImportApiV1ImportsImportIdCancelPostRequest($import_id, string $contentType = self::contentTypes['cancelImportApiV1ImportsImportIdCancelPost'][0])
+    public function cancelImportRequest($import_id, string $contentType = self::contentTypes['cancelImport'][0])
     {
 
         // verify the required parameter 'import_id' is set
         if ($import_id === null || (is_array($import_id) && count($import_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $import_id when calling cancelImportApiV1ImportsImportIdCancelPost'
+                'Missing the required parameter $import_id when calling cancelImport'
             );
         }
 
@@ -478,38 +478,38 @@ class ImportsApi
     }
 
     /**
-     * Operation confirmImportApiV1ImportsImportIdConfirmPost
+     * Operation confirmImport
      *
      * Confirm Import
      *
      * @param  string $import_id import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmImportApiV1ImportsImportIdConfirmPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmImport'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\ImportResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function confirmImportApiV1ImportsImportIdConfirmPost($import_id, string $contentType = self::contentTypes['confirmImportApiV1ImportsImportIdConfirmPost'][0])
+    public function confirmImport($import_id, string $contentType = self::contentTypes['confirmImport'][0])
     {
-        list($response) = $this->confirmImportApiV1ImportsImportIdConfirmPostWithHttpInfo($import_id, $contentType);
+        list($response) = $this->confirmImportWithHttpInfo($import_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation confirmImportApiV1ImportsImportIdConfirmPostWithHttpInfo
+     * Operation confirmImportWithHttpInfo
      *
      * Confirm Import
      *
      * @param  string $import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmImportApiV1ImportsImportIdConfirmPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmImport'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\ImportResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function confirmImportApiV1ImportsImportIdConfirmPostWithHttpInfo($import_id, string $contentType = self::contentTypes['confirmImportApiV1ImportsImportIdConfirmPost'][0])
+    public function confirmImportWithHttpInfo($import_id, string $contentType = self::contentTypes['confirmImport'][0])
     {
-        $request = $this->confirmImportApiV1ImportsImportIdConfirmPostRequest($import_id, $contentType);
+        $request = $this->confirmImportRequest($import_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -655,19 +655,19 @@ class ImportsApi
     }
 
     /**
-     * Operation confirmImportApiV1ImportsImportIdConfirmPostAsync
+     * Operation confirmImportAsync
      *
      * Confirm Import
      *
      * @param  string $import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmImportApiV1ImportsImportIdConfirmPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmImport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function confirmImportApiV1ImportsImportIdConfirmPostAsync($import_id, string $contentType = self::contentTypes['confirmImportApiV1ImportsImportIdConfirmPost'][0])
+    public function confirmImportAsync($import_id, string $contentType = self::contentTypes['confirmImport'][0])
     {
-        return $this->confirmImportApiV1ImportsImportIdConfirmPostAsyncWithHttpInfo($import_id, $contentType)
+        return $this->confirmImportAsyncWithHttpInfo($import_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -676,20 +676,20 @@ class ImportsApi
     }
 
     /**
-     * Operation confirmImportApiV1ImportsImportIdConfirmPostAsyncWithHttpInfo
+     * Operation confirmImportAsyncWithHttpInfo
      *
      * Confirm Import
      *
      * @param  string $import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmImportApiV1ImportsImportIdConfirmPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmImport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function confirmImportApiV1ImportsImportIdConfirmPostAsyncWithHttpInfo($import_id, string $contentType = self::contentTypes['confirmImportApiV1ImportsImportIdConfirmPost'][0])
+    public function confirmImportAsyncWithHttpInfo($import_id, string $contentType = self::contentTypes['confirmImport'][0])
     {
         $returnType = '\InvoicePDFs\Model\ImportResponse';
-        $request = $this->confirmImportApiV1ImportsImportIdConfirmPostRequest($import_id, $contentType);
+        $request = $this->confirmImportRequest($import_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -728,21 +728,21 @@ class ImportsApi
     }
 
     /**
-     * Create request for operation 'confirmImportApiV1ImportsImportIdConfirmPost'
+     * Create request for operation 'confirmImport'
      *
      * @param  string $import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmImportApiV1ImportsImportIdConfirmPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmImport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function confirmImportApiV1ImportsImportIdConfirmPostRequest($import_id, string $contentType = self::contentTypes['confirmImportApiV1ImportsImportIdConfirmPost'][0])
+    public function confirmImportRequest($import_id, string $contentType = self::contentTypes['confirmImport'][0])
     {
 
         // verify the required parameter 'import_id' is set
         if ($import_id === null || (is_array($import_id) && count($import_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $import_id when calling confirmImportApiV1ImportsImportIdConfirmPost'
+                'Missing the required parameter $import_id when calling confirmImport'
             );
         }
 
@@ -824,38 +824,38 @@ class ImportsApi
     }
 
     /**
-     * Operation createImportApiV1ImportsPost
+     * Operation createImport
      *
      * Create Import
      *
      * @param  \InvoicePDFs\Model\ImportCreateRequest $import_create_request import_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImportApiV1ImportsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImport'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\ImportResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createImportApiV1ImportsPost($import_create_request, string $contentType = self::contentTypes['createImportApiV1ImportsPost'][0])
+    public function createImport($import_create_request, string $contentType = self::contentTypes['createImport'][0])
     {
-        list($response) = $this->createImportApiV1ImportsPostWithHttpInfo($import_create_request, $contentType);
+        list($response) = $this->createImportWithHttpInfo($import_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation createImportApiV1ImportsPostWithHttpInfo
+     * Operation createImportWithHttpInfo
      *
      * Create Import
      *
      * @param  \InvoicePDFs\Model\ImportCreateRequest $import_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImportApiV1ImportsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImport'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\ImportResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createImportApiV1ImportsPostWithHttpInfo($import_create_request, string $contentType = self::contentTypes['createImportApiV1ImportsPost'][0])
+    public function createImportWithHttpInfo($import_create_request, string $contentType = self::contentTypes['createImport'][0])
     {
-        $request = $this->createImportApiV1ImportsPostRequest($import_create_request, $contentType);
+        $request = $this->createImportRequest($import_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1001,19 +1001,19 @@ class ImportsApi
     }
 
     /**
-     * Operation createImportApiV1ImportsPostAsync
+     * Operation createImportAsync
      *
      * Create Import
      *
      * @param  \InvoicePDFs\Model\ImportCreateRequest $import_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImportApiV1ImportsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createImportApiV1ImportsPostAsync($import_create_request, string $contentType = self::contentTypes['createImportApiV1ImportsPost'][0])
+    public function createImportAsync($import_create_request, string $contentType = self::contentTypes['createImport'][0])
     {
-        return $this->createImportApiV1ImportsPostAsyncWithHttpInfo($import_create_request, $contentType)
+        return $this->createImportAsyncWithHttpInfo($import_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1022,20 +1022,20 @@ class ImportsApi
     }
 
     /**
-     * Operation createImportApiV1ImportsPostAsyncWithHttpInfo
+     * Operation createImportAsyncWithHttpInfo
      *
      * Create Import
      *
      * @param  \InvoicePDFs\Model\ImportCreateRequest $import_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImportApiV1ImportsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createImportApiV1ImportsPostAsyncWithHttpInfo($import_create_request, string $contentType = self::contentTypes['createImportApiV1ImportsPost'][0])
+    public function createImportAsyncWithHttpInfo($import_create_request, string $contentType = self::contentTypes['createImport'][0])
     {
         $returnType = '\InvoicePDFs\Model\ImportResponse';
-        $request = $this->createImportApiV1ImportsPostRequest($import_create_request, $contentType);
+        $request = $this->createImportRequest($import_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1074,21 +1074,21 @@ class ImportsApi
     }
 
     /**
-     * Create request for operation 'createImportApiV1ImportsPost'
+     * Create request for operation 'createImport'
      *
      * @param  \InvoicePDFs\Model\ImportCreateRequest $import_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImportApiV1ImportsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createImportApiV1ImportsPostRequest($import_create_request, string $contentType = self::contentTypes['createImportApiV1ImportsPost'][0])
+    public function createImportRequest($import_create_request, string $contentType = self::contentTypes['createImport'][0])
     {
 
         // verify the required parameter 'import_create_request' is set
         if ($import_create_request === null || (is_array($import_create_request) && count($import_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $import_create_request when calling createImportApiV1ImportsPost'
+                'Missing the required parameter $import_create_request when calling createImport'
             );
         }
 
@@ -1169,38 +1169,38 @@ class ImportsApi
     }
 
     /**
-     * Operation getImportApiV1ImportsImportIdGet
+     * Operation getImport
      *
      * Get Import
      *
      * @param  string $import_id import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImportApiV1ImportsImportIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImport'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\ImportResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getImportApiV1ImportsImportIdGet($import_id, string $contentType = self::contentTypes['getImportApiV1ImportsImportIdGet'][0])
+    public function getImport($import_id, string $contentType = self::contentTypes['getImport'][0])
     {
-        list($response) = $this->getImportApiV1ImportsImportIdGetWithHttpInfo($import_id, $contentType);
+        list($response) = $this->getImportWithHttpInfo($import_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getImportApiV1ImportsImportIdGetWithHttpInfo
+     * Operation getImportWithHttpInfo
      *
      * Get Import
      *
      * @param  string $import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImportApiV1ImportsImportIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImport'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\ImportResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getImportApiV1ImportsImportIdGetWithHttpInfo($import_id, string $contentType = self::contentTypes['getImportApiV1ImportsImportIdGet'][0])
+    public function getImportWithHttpInfo($import_id, string $contentType = self::contentTypes['getImport'][0])
     {
-        $request = $this->getImportApiV1ImportsImportIdGetRequest($import_id, $contentType);
+        $request = $this->getImportRequest($import_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1346,19 +1346,19 @@ class ImportsApi
     }
 
     /**
-     * Operation getImportApiV1ImportsImportIdGetAsync
+     * Operation getImportAsync
      *
      * Get Import
      *
      * @param  string $import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImportApiV1ImportsImportIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getImportApiV1ImportsImportIdGetAsync($import_id, string $contentType = self::contentTypes['getImportApiV1ImportsImportIdGet'][0])
+    public function getImportAsync($import_id, string $contentType = self::contentTypes['getImport'][0])
     {
-        return $this->getImportApiV1ImportsImportIdGetAsyncWithHttpInfo($import_id, $contentType)
+        return $this->getImportAsyncWithHttpInfo($import_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1367,20 +1367,20 @@ class ImportsApi
     }
 
     /**
-     * Operation getImportApiV1ImportsImportIdGetAsyncWithHttpInfo
+     * Operation getImportAsyncWithHttpInfo
      *
      * Get Import
      *
      * @param  string $import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImportApiV1ImportsImportIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getImportApiV1ImportsImportIdGetAsyncWithHttpInfo($import_id, string $contentType = self::contentTypes['getImportApiV1ImportsImportIdGet'][0])
+    public function getImportAsyncWithHttpInfo($import_id, string $contentType = self::contentTypes['getImport'][0])
     {
         $returnType = '\InvoicePDFs\Model\ImportResponse';
-        $request = $this->getImportApiV1ImportsImportIdGetRequest($import_id, $contentType);
+        $request = $this->getImportRequest($import_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1419,21 +1419,21 @@ class ImportsApi
     }
 
     /**
-     * Create request for operation 'getImportApiV1ImportsImportIdGet'
+     * Create request for operation 'getImport'
      *
      * @param  string $import_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImportApiV1ImportsImportIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getImport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getImportApiV1ImportsImportIdGetRequest($import_id, string $contentType = self::contentTypes['getImportApiV1ImportsImportIdGet'][0])
+    public function getImportRequest($import_id, string $contentType = self::contentTypes['getImport'][0])
     {
 
         // verify the required parameter 'import_id' is set
         if ($import_id === null || (is_array($import_id) && count($import_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $import_id when calling getImportApiV1ImportsImportIdGet'
+                'Missing the required parameter $import_id when calling getImport'
             );
         }
 

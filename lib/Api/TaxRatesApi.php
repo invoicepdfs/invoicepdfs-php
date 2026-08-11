@@ -71,19 +71,19 @@ class TaxRatesApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'createTaxRateApiV1TaxRatesPost' => [
+        'createTaxRate' => [
             'application/json',
         ],
-        'deleteTaxRateApiV1TaxRatesTaxRateIdDelete' => [
+        'deleteTaxRate' => [
             'application/json',
         ],
-        'getTaxRateApiV1TaxRatesTaxRateIdGet' => [
+        'getTaxRate' => [
             'application/json',
         ],
-        'listTaxRatesApiV1TaxRatesGet' => [
+        'listTaxRates' => [
             'application/json',
         ],
-        'updateTaxRateApiV1TaxRatesTaxRateIdPatch' => [
+        'updateTaxRate' => [
             'application/json',
         ],
     ];
@@ -135,38 +135,38 @@ class TaxRatesApi
     }
 
     /**
-     * Operation createTaxRateApiV1TaxRatesPost
+     * Operation createTaxRate
      *
      * Create Tax Rate
      *
      * @param  \InvoicePDFs\Model\TaxRateCreateRequest $tax_rate_create_request tax_rate_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRateApiV1TaxRatesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\TaxRateResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createTaxRateApiV1TaxRatesPost($tax_rate_create_request, string $contentType = self::contentTypes['createTaxRateApiV1TaxRatesPost'][0])
+    public function createTaxRate($tax_rate_create_request, string $contentType = self::contentTypes['createTaxRate'][0])
     {
-        list($response) = $this->createTaxRateApiV1TaxRatesPostWithHttpInfo($tax_rate_create_request, $contentType);
+        list($response) = $this->createTaxRateWithHttpInfo($tax_rate_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation createTaxRateApiV1TaxRatesPostWithHttpInfo
+     * Operation createTaxRateWithHttpInfo
      *
      * Create Tax Rate
      *
      * @param  \InvoicePDFs\Model\TaxRateCreateRequest $tax_rate_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRateApiV1TaxRatesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\TaxRateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTaxRateApiV1TaxRatesPostWithHttpInfo($tax_rate_create_request, string $contentType = self::contentTypes['createTaxRateApiV1TaxRatesPost'][0])
+    public function createTaxRateWithHttpInfo($tax_rate_create_request, string $contentType = self::contentTypes['createTaxRate'][0])
     {
-        $request = $this->createTaxRateApiV1TaxRatesPostRequest($tax_rate_create_request, $contentType);
+        $request = $this->createTaxRateRequest($tax_rate_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -312,19 +312,19 @@ class TaxRatesApi
     }
 
     /**
-     * Operation createTaxRateApiV1TaxRatesPostAsync
+     * Operation createTaxRateAsync
      *
      * Create Tax Rate
      *
      * @param  \InvoicePDFs\Model\TaxRateCreateRequest $tax_rate_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRateApiV1TaxRatesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTaxRateApiV1TaxRatesPostAsync($tax_rate_create_request, string $contentType = self::contentTypes['createTaxRateApiV1TaxRatesPost'][0])
+    public function createTaxRateAsync($tax_rate_create_request, string $contentType = self::contentTypes['createTaxRate'][0])
     {
-        return $this->createTaxRateApiV1TaxRatesPostAsyncWithHttpInfo($tax_rate_create_request, $contentType)
+        return $this->createTaxRateAsyncWithHttpInfo($tax_rate_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -333,20 +333,20 @@ class TaxRatesApi
     }
 
     /**
-     * Operation createTaxRateApiV1TaxRatesPostAsyncWithHttpInfo
+     * Operation createTaxRateAsyncWithHttpInfo
      *
      * Create Tax Rate
      *
      * @param  \InvoicePDFs\Model\TaxRateCreateRequest $tax_rate_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRateApiV1TaxRatesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTaxRateApiV1TaxRatesPostAsyncWithHttpInfo($tax_rate_create_request, string $contentType = self::contentTypes['createTaxRateApiV1TaxRatesPost'][0])
+    public function createTaxRateAsyncWithHttpInfo($tax_rate_create_request, string $contentType = self::contentTypes['createTaxRate'][0])
     {
         $returnType = '\InvoicePDFs\Model\TaxRateResponse';
-        $request = $this->createTaxRateApiV1TaxRatesPostRequest($tax_rate_create_request, $contentType);
+        $request = $this->createTaxRateRequest($tax_rate_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -385,21 +385,21 @@ class TaxRatesApi
     }
 
     /**
-     * Create request for operation 'createTaxRateApiV1TaxRatesPost'
+     * Create request for operation 'createTaxRate'
      *
      * @param  \InvoicePDFs\Model\TaxRateCreateRequest $tax_rate_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRateApiV1TaxRatesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createTaxRateApiV1TaxRatesPostRequest($tax_rate_create_request, string $contentType = self::contentTypes['createTaxRateApiV1TaxRatesPost'][0])
+    public function createTaxRateRequest($tax_rate_create_request, string $contentType = self::contentTypes['createTaxRate'][0])
     {
 
         // verify the required parameter 'tax_rate_create_request' is set
         if ($tax_rate_create_request === null || (is_array($tax_rate_create_request) && count($tax_rate_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tax_rate_create_request when calling createTaxRateApiV1TaxRatesPost'
+                'Missing the required parameter $tax_rate_create_request when calling createTaxRate'
             );
         }
 
@@ -480,38 +480,38 @@ class TaxRatesApi
     }
 
     /**
-     * Operation deleteTaxRateApiV1TaxRatesTaxRateIdDelete
+     * Operation deleteTaxRate
      *
      * Delete Tax Rate
      *
      * @param  string $tax_rate_id tax_rate_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaxRate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function deleteTaxRateApiV1TaxRatesTaxRateIdDelete($tax_rate_id, string $contentType = self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'][0])
+    public function deleteTaxRate($tax_rate_id, string $contentType = self::contentTypes['deleteTaxRate'][0])
     {
-        list($response) = $this->deleteTaxRateApiV1TaxRatesTaxRateIdDeleteWithHttpInfo($tax_rate_id, $contentType);
+        list($response) = $this->deleteTaxRateWithHttpInfo($tax_rate_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteTaxRateApiV1TaxRatesTaxRateIdDeleteWithHttpInfo
+     * Operation deleteTaxRateWithHttpInfo
      *
      * Delete Tax Rate
      *
      * @param  string $tax_rate_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaxRate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteTaxRateApiV1TaxRatesTaxRateIdDeleteWithHttpInfo($tax_rate_id, string $contentType = self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'][0])
+    public function deleteTaxRateWithHttpInfo($tax_rate_id, string $contentType = self::contentTypes['deleteTaxRate'][0])
     {
-        $request = $this->deleteTaxRateApiV1TaxRatesTaxRateIdDeleteRequest($tax_rate_id, $contentType);
+        $request = $this->deleteTaxRateRequest($tax_rate_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -657,19 +657,19 @@ class TaxRatesApi
     }
 
     /**
-     * Operation deleteTaxRateApiV1TaxRatesTaxRateIdDeleteAsync
+     * Operation deleteTaxRateAsync
      *
      * Delete Tax Rate
      *
      * @param  string $tax_rate_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTaxRateApiV1TaxRatesTaxRateIdDeleteAsync($tax_rate_id, string $contentType = self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'][0])
+    public function deleteTaxRateAsync($tax_rate_id, string $contentType = self::contentTypes['deleteTaxRate'][0])
     {
-        return $this->deleteTaxRateApiV1TaxRatesTaxRateIdDeleteAsyncWithHttpInfo($tax_rate_id, $contentType)
+        return $this->deleteTaxRateAsyncWithHttpInfo($tax_rate_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -678,20 +678,20 @@ class TaxRatesApi
     }
 
     /**
-     * Operation deleteTaxRateApiV1TaxRatesTaxRateIdDeleteAsyncWithHttpInfo
+     * Operation deleteTaxRateAsyncWithHttpInfo
      *
      * Delete Tax Rate
      *
      * @param  string $tax_rate_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteTaxRateApiV1TaxRatesTaxRateIdDeleteAsyncWithHttpInfo($tax_rate_id, string $contentType = self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'][0])
+    public function deleteTaxRateAsyncWithHttpInfo($tax_rate_id, string $contentType = self::contentTypes['deleteTaxRate'][0])
     {
         $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
-        $request = $this->deleteTaxRateApiV1TaxRatesTaxRateIdDeleteRequest($tax_rate_id, $contentType);
+        $request = $this->deleteTaxRateRequest($tax_rate_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -730,21 +730,21 @@ class TaxRatesApi
     }
 
     /**
-     * Create request for operation 'deleteTaxRateApiV1TaxRatesTaxRateIdDelete'
+     * Create request for operation 'deleteTaxRate'
      *
      * @param  string $tax_rate_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteTaxRateApiV1TaxRatesTaxRateIdDeleteRequest($tax_rate_id, string $contentType = self::contentTypes['deleteTaxRateApiV1TaxRatesTaxRateIdDelete'][0])
+    public function deleteTaxRateRequest($tax_rate_id, string $contentType = self::contentTypes['deleteTaxRate'][0])
     {
 
         // verify the required parameter 'tax_rate_id' is set
         if ($tax_rate_id === null || (is_array($tax_rate_id) && count($tax_rate_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tax_rate_id when calling deleteTaxRateApiV1TaxRatesTaxRateIdDelete'
+                'Missing the required parameter $tax_rate_id when calling deleteTaxRate'
             );
         }
 
@@ -826,38 +826,38 @@ class TaxRatesApi
     }
 
     /**
-     * Operation getTaxRateApiV1TaxRatesTaxRateIdGet
+     * Operation getTaxRate
      *
      * Get Tax Rate
      *
      * @param  string $tax_rate_id tax_rate_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\TaxRateResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getTaxRateApiV1TaxRatesTaxRateIdGet($tax_rate_id, string $contentType = self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'][0])
+    public function getTaxRate($tax_rate_id, string $contentType = self::contentTypes['getTaxRate'][0])
     {
-        list($response) = $this->getTaxRateApiV1TaxRatesTaxRateIdGetWithHttpInfo($tax_rate_id, $contentType);
+        list($response) = $this->getTaxRateWithHttpInfo($tax_rate_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getTaxRateApiV1TaxRatesTaxRateIdGetWithHttpInfo
+     * Operation getTaxRateWithHttpInfo
      *
      * Get Tax Rate
      *
      * @param  string $tax_rate_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\TaxRateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTaxRateApiV1TaxRatesTaxRateIdGetWithHttpInfo($tax_rate_id, string $contentType = self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'][0])
+    public function getTaxRateWithHttpInfo($tax_rate_id, string $contentType = self::contentTypes['getTaxRate'][0])
     {
-        $request = $this->getTaxRateApiV1TaxRatesTaxRateIdGetRequest($tax_rate_id, $contentType);
+        $request = $this->getTaxRateRequest($tax_rate_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1003,19 +1003,19 @@ class TaxRatesApi
     }
 
     /**
-     * Operation getTaxRateApiV1TaxRatesTaxRateIdGetAsync
+     * Operation getTaxRateAsync
      *
      * Get Tax Rate
      *
      * @param  string $tax_rate_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTaxRateApiV1TaxRatesTaxRateIdGetAsync($tax_rate_id, string $contentType = self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'][0])
+    public function getTaxRateAsync($tax_rate_id, string $contentType = self::contentTypes['getTaxRate'][0])
     {
-        return $this->getTaxRateApiV1TaxRatesTaxRateIdGetAsyncWithHttpInfo($tax_rate_id, $contentType)
+        return $this->getTaxRateAsyncWithHttpInfo($tax_rate_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1024,20 +1024,20 @@ class TaxRatesApi
     }
 
     /**
-     * Operation getTaxRateApiV1TaxRatesTaxRateIdGetAsyncWithHttpInfo
+     * Operation getTaxRateAsyncWithHttpInfo
      *
      * Get Tax Rate
      *
      * @param  string $tax_rate_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTaxRateApiV1TaxRatesTaxRateIdGetAsyncWithHttpInfo($tax_rate_id, string $contentType = self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'][0])
+    public function getTaxRateAsyncWithHttpInfo($tax_rate_id, string $contentType = self::contentTypes['getTaxRate'][0])
     {
         $returnType = '\InvoicePDFs\Model\TaxRateResponse';
-        $request = $this->getTaxRateApiV1TaxRatesTaxRateIdGetRequest($tax_rate_id, $contentType);
+        $request = $this->getTaxRateRequest($tax_rate_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1076,21 +1076,21 @@ class TaxRatesApi
     }
 
     /**
-     * Create request for operation 'getTaxRateApiV1TaxRatesTaxRateIdGet'
+     * Create request for operation 'getTaxRate'
      *
      * @param  string $tax_rate_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTaxRateApiV1TaxRatesTaxRateIdGetRequest($tax_rate_id, string $contentType = self::contentTypes['getTaxRateApiV1TaxRatesTaxRateIdGet'][0])
+    public function getTaxRateRequest($tax_rate_id, string $contentType = self::contentTypes['getTaxRate'][0])
     {
 
         // verify the required parameter 'tax_rate_id' is set
         if ($tax_rate_id === null || (is_array($tax_rate_id) && count($tax_rate_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tax_rate_id when calling getTaxRateApiV1TaxRatesTaxRateIdGet'
+                'Missing the required parameter $tax_rate_id when calling getTaxRate'
             );
         }
 
@@ -1172,40 +1172,40 @@ class TaxRatesApi
     }
 
     /**
-     * Operation listTaxRatesApiV1TaxRatesGet
+     * Operation listTaxRates
      *
      * List Tax Rates
      *
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTaxRatesApiV1TaxRatesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTaxRates'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\TaxRatesListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listTaxRatesApiV1TaxRatesGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listTaxRatesApiV1TaxRatesGet'][0])
+    public function listTaxRates($limit = 50, $cursor = null, string $contentType = self::contentTypes['listTaxRates'][0])
     {
-        list($response) = $this->listTaxRatesApiV1TaxRatesGetWithHttpInfo($limit, $cursor, $contentType);
+        list($response) = $this->listTaxRatesWithHttpInfo($limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listTaxRatesApiV1TaxRatesGetWithHttpInfo
+     * Operation listTaxRatesWithHttpInfo
      *
      * List Tax Rates
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTaxRatesApiV1TaxRatesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTaxRates'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\TaxRatesListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listTaxRatesApiV1TaxRatesGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listTaxRatesApiV1TaxRatesGet'][0])
+    public function listTaxRatesWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listTaxRates'][0])
     {
-        $request = $this->listTaxRatesApiV1TaxRatesGetRequest($limit, $cursor, $contentType);
+        $request = $this->listTaxRatesRequest($limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1351,20 +1351,20 @@ class TaxRatesApi
     }
 
     /**
-     * Operation listTaxRatesApiV1TaxRatesGetAsync
+     * Operation listTaxRatesAsync
      *
      * List Tax Rates
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTaxRatesApiV1TaxRatesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTaxRates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTaxRatesApiV1TaxRatesGetAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listTaxRatesApiV1TaxRatesGet'][0])
+    public function listTaxRatesAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listTaxRates'][0])
     {
-        return $this->listTaxRatesApiV1TaxRatesGetAsyncWithHttpInfo($limit, $cursor, $contentType)
+        return $this->listTaxRatesAsyncWithHttpInfo($limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1373,21 +1373,21 @@ class TaxRatesApi
     }
 
     /**
-     * Operation listTaxRatesApiV1TaxRatesGetAsyncWithHttpInfo
+     * Operation listTaxRatesAsyncWithHttpInfo
      *
      * List Tax Rates
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTaxRatesApiV1TaxRatesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTaxRates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTaxRatesApiV1TaxRatesGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listTaxRatesApiV1TaxRatesGet'][0])
+    public function listTaxRatesAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listTaxRates'][0])
     {
         $returnType = '\InvoicePDFs\Model\TaxRatesListResponse';
-        $request = $this->listTaxRatesApiV1TaxRatesGetRequest($limit, $cursor, $contentType);
+        $request = $this->listTaxRatesRequest($limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1426,23 +1426,23 @@ class TaxRatesApi
     }
 
     /**
-     * Create request for operation 'listTaxRatesApiV1TaxRatesGet'
+     * Create request for operation 'listTaxRates'
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTaxRatesApiV1TaxRatesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTaxRates'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listTaxRatesApiV1TaxRatesGetRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listTaxRatesApiV1TaxRatesGet'][0])
+    public function listTaxRatesRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listTaxRates'][0])
     {
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling TaxRatesApi.listTaxRatesApiV1TaxRatesGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling TaxRatesApi.listTaxRates, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling TaxRatesApi.listTaxRatesApiV1TaxRatesGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling TaxRatesApi.listTaxRates, must be bigger than or equal to 1.');
         }
         
 
@@ -1534,40 +1534,40 @@ class TaxRatesApi
     }
 
     /**
-     * Operation updateTaxRateApiV1TaxRatesTaxRateIdPatch
+     * Operation updateTaxRate
      *
      * Update Tax Rate
      *
      * @param  string $tax_rate_id tax_rate_id (required)
      * @param  \InvoicePDFs\Model\TaxRatePatchRequest $tax_rate_patch_request tax_rate_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\TaxRateResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function updateTaxRateApiV1TaxRatesTaxRateIdPatch($tax_rate_id, $tax_rate_patch_request, string $contentType = self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'][0])
+    public function updateTaxRate($tax_rate_id, $tax_rate_patch_request, string $contentType = self::contentTypes['updateTaxRate'][0])
     {
-        list($response) = $this->updateTaxRateApiV1TaxRatesTaxRateIdPatchWithHttpInfo($tax_rate_id, $tax_rate_patch_request, $contentType);
+        list($response) = $this->updateTaxRateWithHttpInfo($tax_rate_id, $tax_rate_patch_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation updateTaxRateApiV1TaxRatesTaxRateIdPatchWithHttpInfo
+     * Operation updateTaxRateWithHttpInfo
      *
      * Update Tax Rate
      *
      * @param  string $tax_rate_id (required)
      * @param  \InvoicePDFs\Model\TaxRatePatchRequest $tax_rate_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRate'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\TaxRateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTaxRateApiV1TaxRatesTaxRateIdPatchWithHttpInfo($tax_rate_id, $tax_rate_patch_request, string $contentType = self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'][0])
+    public function updateTaxRateWithHttpInfo($tax_rate_id, $tax_rate_patch_request, string $contentType = self::contentTypes['updateTaxRate'][0])
     {
-        $request = $this->updateTaxRateApiV1TaxRatesTaxRateIdPatchRequest($tax_rate_id, $tax_rate_patch_request, $contentType);
+        $request = $this->updateTaxRateRequest($tax_rate_id, $tax_rate_patch_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1713,20 +1713,20 @@ class TaxRatesApi
     }
 
     /**
-     * Operation updateTaxRateApiV1TaxRatesTaxRateIdPatchAsync
+     * Operation updateTaxRateAsync
      *
      * Update Tax Rate
      *
      * @param  string $tax_rate_id (required)
      * @param  \InvoicePDFs\Model\TaxRatePatchRequest $tax_rate_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTaxRateApiV1TaxRatesTaxRateIdPatchAsync($tax_rate_id, $tax_rate_patch_request, string $contentType = self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'][0])
+    public function updateTaxRateAsync($tax_rate_id, $tax_rate_patch_request, string $contentType = self::contentTypes['updateTaxRate'][0])
     {
-        return $this->updateTaxRateApiV1TaxRatesTaxRateIdPatchAsyncWithHttpInfo($tax_rate_id, $tax_rate_patch_request, $contentType)
+        return $this->updateTaxRateAsyncWithHttpInfo($tax_rate_id, $tax_rate_patch_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1735,21 +1735,21 @@ class TaxRatesApi
     }
 
     /**
-     * Operation updateTaxRateApiV1TaxRatesTaxRateIdPatchAsyncWithHttpInfo
+     * Operation updateTaxRateAsyncWithHttpInfo
      *
      * Update Tax Rate
      *
      * @param  string $tax_rate_id (required)
      * @param  \InvoicePDFs\Model\TaxRatePatchRequest $tax_rate_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTaxRateApiV1TaxRatesTaxRateIdPatchAsyncWithHttpInfo($tax_rate_id, $tax_rate_patch_request, string $contentType = self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'][0])
+    public function updateTaxRateAsyncWithHttpInfo($tax_rate_id, $tax_rate_patch_request, string $contentType = self::contentTypes['updateTaxRate'][0])
     {
         $returnType = '\InvoicePDFs\Model\TaxRateResponse';
-        $request = $this->updateTaxRateApiV1TaxRatesTaxRateIdPatchRequest($tax_rate_id, $tax_rate_patch_request, $contentType);
+        $request = $this->updateTaxRateRequest($tax_rate_id, $tax_rate_patch_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1788,29 +1788,29 @@ class TaxRatesApi
     }
 
     /**
-     * Create request for operation 'updateTaxRateApiV1TaxRatesTaxRateIdPatch'
+     * Create request for operation 'updateTaxRate'
      *
      * @param  string $tax_rate_id (required)
      * @param  \InvoicePDFs\Model\TaxRatePatchRequest $tax_rate_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTaxRate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateTaxRateApiV1TaxRatesTaxRateIdPatchRequest($tax_rate_id, $tax_rate_patch_request, string $contentType = self::contentTypes['updateTaxRateApiV1TaxRatesTaxRateIdPatch'][0])
+    public function updateTaxRateRequest($tax_rate_id, $tax_rate_patch_request, string $contentType = self::contentTypes['updateTaxRate'][0])
     {
 
         // verify the required parameter 'tax_rate_id' is set
         if ($tax_rate_id === null || (is_array($tax_rate_id) && count($tax_rate_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tax_rate_id when calling updateTaxRateApiV1TaxRatesTaxRateIdPatch'
+                'Missing the required parameter $tax_rate_id when calling updateTaxRate'
             );
         }
 
         // verify the required parameter 'tax_rate_patch_request' is set
         if ($tax_rate_patch_request === null || (is_array($tax_rate_patch_request) && count($tax_rate_patch_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tax_rate_patch_request when calling updateTaxRateApiV1TaxRatesTaxRateIdPatch'
+                'Missing the required parameter $tax_rate_patch_request when calling updateTaxRate'
             );
         }
 

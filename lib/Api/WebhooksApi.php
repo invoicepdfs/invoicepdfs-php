@@ -71,34 +71,34 @@ class WebhooksApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'createWebhookEndpointApiV1WebhookEndpointsPost' => [
+        'createWebhookEndpoint' => [
             'application/json',
         ],
-        'deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete' => [
+        'deleteWebhookEndpoint' => [
             'application/json',
         ],
-        'getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet' => [
+        'getWebhookDelivery' => [
             'application/json',
         ],
-        'getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet' => [
+        'getWebhookEndpoint' => [
             'application/json',
         ],
-        'listWebhookDeliveriesApiV1WebhookDeliveriesGet' => [
+        'listWebhookDeliveries' => [
             'application/json',
         ],
-        'listWebhookEndpointsApiV1WebhookEndpointsGet' => [
+        'listWebhookEndpoints' => [
             'application/json',
         ],
-        'retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost' => [
+        'retryWebhookDelivery' => [
             'application/json',
         ],
-        'rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost' => [
+        'rotateWebhookSecret' => [
             'application/json',
         ],
-        'testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost' => [
+        'testWebhookEndpoint' => [
             'application/json',
         ],
-        'updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch' => [
+        'updateWebhookEndpoint' => [
             'application/json',
         ],
     ];
@@ -150,38 +150,38 @@ class WebhooksApi
     }
 
     /**
-     * Operation createWebhookEndpointApiV1WebhookEndpointsPost
+     * Operation createWebhookEndpoint
      *
      * Create Webhook Endpoint
      *
      * @param  \InvoicePDFs\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request webhook_endpoint_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createWebhookEndpointApiV1WebhookEndpointsPost($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'][0])
+    public function createWebhookEndpoint($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpoint'][0])
     {
-        list($response) = $this->createWebhookEndpointApiV1WebhookEndpointsPostWithHttpInfo($webhook_endpoint_create_request, $contentType);
+        list($response) = $this->createWebhookEndpointWithHttpInfo($webhook_endpoint_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation createWebhookEndpointApiV1WebhookEndpointsPostWithHttpInfo
+     * Operation createWebhookEndpointWithHttpInfo
      *
      * Create Webhook Endpoint
      *
      * @param  \InvoicePDFs\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createWebhookEndpointApiV1WebhookEndpointsPostWithHttpInfo($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'][0])
+    public function createWebhookEndpointWithHttpInfo($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpoint'][0])
     {
-        $request = $this->createWebhookEndpointApiV1WebhookEndpointsPostRequest($webhook_endpoint_create_request, $contentType);
+        $request = $this->createWebhookEndpointRequest($webhook_endpoint_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -327,19 +327,19 @@ class WebhooksApi
     }
 
     /**
-     * Operation createWebhookEndpointApiV1WebhookEndpointsPostAsync
+     * Operation createWebhookEndpointAsync
      *
      * Create Webhook Endpoint
      *
      * @param  \InvoicePDFs\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWebhookEndpointApiV1WebhookEndpointsPostAsync($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'][0])
+    public function createWebhookEndpointAsync($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpoint'][0])
     {
-        return $this->createWebhookEndpointApiV1WebhookEndpointsPostAsyncWithHttpInfo($webhook_endpoint_create_request, $contentType)
+        return $this->createWebhookEndpointAsyncWithHttpInfo($webhook_endpoint_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -348,20 +348,20 @@ class WebhooksApi
     }
 
     /**
-     * Operation createWebhookEndpointApiV1WebhookEndpointsPostAsyncWithHttpInfo
+     * Operation createWebhookEndpointAsyncWithHttpInfo
      *
      * Create Webhook Endpoint
      *
      * @param  \InvoicePDFs\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWebhookEndpointApiV1WebhookEndpointsPostAsyncWithHttpInfo($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'][0])
+    public function createWebhookEndpointAsyncWithHttpInfo($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpoint'][0])
     {
         $returnType = '\InvoicePDFs\Model\WebhookEndpointResponse';
-        $request = $this->createWebhookEndpointApiV1WebhookEndpointsPostRequest($webhook_endpoint_create_request, $contentType);
+        $request = $this->createWebhookEndpointRequest($webhook_endpoint_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -400,21 +400,21 @@ class WebhooksApi
     }
 
     /**
-     * Create request for operation 'createWebhookEndpointApiV1WebhookEndpointsPost'
+     * Create request for operation 'createWebhookEndpoint'
      *
      * @param  \InvoicePDFs\Model\WebhookEndpointCreateRequest $webhook_endpoint_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createWebhookEndpointApiV1WebhookEndpointsPostRequest($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpointApiV1WebhookEndpointsPost'][0])
+    public function createWebhookEndpointRequest($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpoint'][0])
     {
 
         // verify the required parameter 'webhook_endpoint_create_request' is set
         if ($webhook_endpoint_create_request === null || (is_array($webhook_endpoint_create_request) && count($webhook_endpoint_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $webhook_endpoint_create_request when calling createWebhookEndpointApiV1WebhookEndpointsPost'
+                'Missing the required parameter $webhook_endpoint_create_request when calling createWebhookEndpoint'
             );
         }
 
@@ -495,38 +495,38 @@ class WebhooksApi
     }
 
     /**
-     * Operation deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete
+     * Operation deleteWebhookEndpoint
      *
      * Delete Webhook Endpoint
      *
      * @param  string $endpoint_id endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete($endpoint_id, string $contentType = self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'][0])
+    public function deleteWebhookEndpoint($endpoint_id, string $contentType = self::contentTypes['deleteWebhookEndpoint'][0])
     {
-        list($response) = $this->deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteWithHttpInfo($endpoint_id, $contentType);
+        list($response) = $this->deleteWebhookEndpointWithHttpInfo($endpoint_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteWithHttpInfo
+     * Operation deleteWebhookEndpointWithHttpInfo
      *
      * Delete Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'][0])
+    public function deleteWebhookEndpointWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['deleteWebhookEndpoint'][0])
     {
-        $request = $this->deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteRequest($endpoint_id, $contentType);
+        $request = $this->deleteWebhookEndpointRequest($endpoint_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -672,19 +672,19 @@ class WebhooksApi
     }
 
     /**
-     * Operation deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteAsync
+     * Operation deleteWebhookEndpointAsync
      *
      * Delete Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteAsync($endpoint_id, string $contentType = self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'][0])
+    public function deleteWebhookEndpointAsync($endpoint_id, string $contentType = self::contentTypes['deleteWebhookEndpoint'][0])
     {
-        return $this->deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteAsyncWithHttpInfo($endpoint_id, $contentType)
+        return $this->deleteWebhookEndpointAsyncWithHttpInfo($endpoint_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -693,20 +693,20 @@ class WebhooksApi
     }
 
     /**
-     * Operation deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteAsyncWithHttpInfo
+     * Operation deleteWebhookEndpointAsyncWithHttpInfo
      *
      * Delete Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteAsyncWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'][0])
+    public function deleteWebhookEndpointAsyncWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['deleteWebhookEndpoint'][0])
     {
         $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
-        $request = $this->deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteRequest($endpoint_id, $contentType);
+        $request = $this->deleteWebhookEndpointRequest($endpoint_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -745,21 +745,21 @@ class WebhooksApi
     }
 
     /**
-     * Create request for operation 'deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'
+     * Create request for operation 'deleteWebhookEndpoint'
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDeleteRequest($endpoint_id, string $contentType = self::contentTypes['deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'][0])
+    public function deleteWebhookEndpointRequest($endpoint_id, string $contentType = self::contentTypes['deleteWebhookEndpoint'][0])
     {
 
         // verify the required parameter 'endpoint_id' is set
         if ($endpoint_id === null || (is_array($endpoint_id) && count($endpoint_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $endpoint_id when calling deleteWebhookEndpointApiV1WebhookEndpointsEndpointIdDelete'
+                'Missing the required parameter $endpoint_id when calling deleteWebhookEndpoint'
             );
         }
 
@@ -841,38 +841,38 @@ class WebhooksApi
     }
 
     /**
-     * Operation getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet
+     * Operation getWebhookDelivery
      *
      * Get Webhook Delivery
      *
      * @param  string $delivery_id delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookDelivery'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WebhookDeliveryResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet($delivery_id, string $contentType = self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'][0])
+    public function getWebhookDelivery($delivery_id, string $contentType = self::contentTypes['getWebhookDelivery'][0])
     {
-        list($response) = $this->getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetWithHttpInfo($delivery_id, $contentType);
+        list($response) = $this->getWebhookDeliveryWithHttpInfo($delivery_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetWithHttpInfo
+     * Operation getWebhookDeliveryWithHttpInfo
      *
      * Get Webhook Delivery
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookDelivery'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WebhookDeliveryResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetWithHttpInfo($delivery_id, string $contentType = self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'][0])
+    public function getWebhookDeliveryWithHttpInfo($delivery_id, string $contentType = self::contentTypes['getWebhookDelivery'][0])
     {
-        $request = $this->getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetRequest($delivery_id, $contentType);
+        $request = $this->getWebhookDeliveryRequest($delivery_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1018,19 +1018,19 @@ class WebhooksApi
     }
 
     /**
-     * Operation getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetAsync
+     * Operation getWebhookDeliveryAsync
      *
      * Get Webhook Delivery
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookDelivery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetAsync($delivery_id, string $contentType = self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'][0])
+    public function getWebhookDeliveryAsync($delivery_id, string $contentType = self::contentTypes['getWebhookDelivery'][0])
     {
-        return $this->getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetAsyncWithHttpInfo($delivery_id, $contentType)
+        return $this->getWebhookDeliveryAsyncWithHttpInfo($delivery_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1039,20 +1039,20 @@ class WebhooksApi
     }
 
     /**
-     * Operation getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetAsyncWithHttpInfo
+     * Operation getWebhookDeliveryAsyncWithHttpInfo
      *
      * Get Webhook Delivery
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookDelivery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetAsyncWithHttpInfo($delivery_id, string $contentType = self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'][0])
+    public function getWebhookDeliveryAsyncWithHttpInfo($delivery_id, string $contentType = self::contentTypes['getWebhookDelivery'][0])
     {
         $returnType = '\InvoicePDFs\Model\WebhookDeliveryResponse';
-        $request = $this->getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetRequest($delivery_id, $contentType);
+        $request = $this->getWebhookDeliveryRequest($delivery_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1091,21 +1091,21 @@ class WebhooksApi
     }
 
     /**
-     * Create request for operation 'getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'
+     * Create request for operation 'getWebhookDelivery'
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookDelivery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGetRequest($delivery_id, string $contentType = self::contentTypes['getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'][0])
+    public function getWebhookDeliveryRequest($delivery_id, string $contentType = self::contentTypes['getWebhookDelivery'][0])
     {
 
         // verify the required parameter 'delivery_id' is set
         if ($delivery_id === null || (is_array($delivery_id) && count($delivery_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $delivery_id when calling getWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdGet'
+                'Missing the required parameter $delivery_id when calling getWebhookDelivery'
             );
         }
 
@@ -1187,38 +1187,38 @@ class WebhooksApi
     }
 
     /**
-     * Operation getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet
+     * Operation getWebhookEndpoint
      *
      * Get Webhook Endpoint
      *
      * @param  string $endpoint_id endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet($endpoint_id, string $contentType = self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'][0])
+    public function getWebhookEndpoint($endpoint_id, string $contentType = self::contentTypes['getWebhookEndpoint'][0])
     {
-        list($response) = $this->getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetWithHttpInfo($endpoint_id, $contentType);
+        list($response) = $this->getWebhookEndpointWithHttpInfo($endpoint_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetWithHttpInfo
+     * Operation getWebhookEndpointWithHttpInfo
      *
      * Get Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'][0])
+    public function getWebhookEndpointWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['getWebhookEndpoint'][0])
     {
-        $request = $this->getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetRequest($endpoint_id, $contentType);
+        $request = $this->getWebhookEndpointRequest($endpoint_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1364,19 +1364,19 @@ class WebhooksApi
     }
 
     /**
-     * Operation getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetAsync
+     * Operation getWebhookEndpointAsync
      *
      * Get Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetAsync($endpoint_id, string $contentType = self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'][0])
+    public function getWebhookEndpointAsync($endpoint_id, string $contentType = self::contentTypes['getWebhookEndpoint'][0])
     {
-        return $this->getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetAsyncWithHttpInfo($endpoint_id, $contentType)
+        return $this->getWebhookEndpointAsyncWithHttpInfo($endpoint_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1385,20 +1385,20 @@ class WebhooksApi
     }
 
     /**
-     * Operation getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetAsyncWithHttpInfo
+     * Operation getWebhookEndpointAsyncWithHttpInfo
      *
      * Get Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetAsyncWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'][0])
+    public function getWebhookEndpointAsyncWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['getWebhookEndpoint'][0])
     {
         $returnType = '\InvoicePDFs\Model\WebhookEndpointResponse';
-        $request = $this->getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetRequest($endpoint_id, $contentType);
+        $request = $this->getWebhookEndpointRequest($endpoint_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1437,21 +1437,21 @@ class WebhooksApi
     }
 
     /**
-     * Create request for operation 'getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'
+     * Create request for operation 'getWebhookEndpoint'
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWebhookEndpointApiV1WebhookEndpointsEndpointIdGetRequest($endpoint_id, string $contentType = self::contentTypes['getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'][0])
+    public function getWebhookEndpointRequest($endpoint_id, string $contentType = self::contentTypes['getWebhookEndpoint'][0])
     {
 
         // verify the required parameter 'endpoint_id' is set
         if ($endpoint_id === null || (is_array($endpoint_id) && count($endpoint_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $endpoint_id when calling getWebhookEndpointApiV1WebhookEndpointsEndpointIdGet'
+                'Missing the required parameter $endpoint_id when calling getWebhookEndpoint'
             );
         }
 
@@ -1533,40 +1533,40 @@ class WebhooksApi
     }
 
     /**
-     * Operation listWebhookDeliveriesApiV1WebhookDeliveriesGet
+     * Operation listWebhookDeliveries
      *
      * List Webhook Deliveries
      *
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookDeliveries'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WebhookDeliveriesListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listWebhookDeliveriesApiV1WebhookDeliveriesGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'][0])
+    public function listWebhookDeliveries($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookDeliveries'][0])
     {
-        list($response) = $this->listWebhookDeliveriesApiV1WebhookDeliveriesGetWithHttpInfo($limit, $cursor, $contentType);
+        list($response) = $this->listWebhookDeliveriesWithHttpInfo($limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listWebhookDeliveriesApiV1WebhookDeliveriesGetWithHttpInfo
+     * Operation listWebhookDeliveriesWithHttpInfo
      *
      * List Webhook Deliveries
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookDeliveries'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WebhookDeliveriesListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listWebhookDeliveriesApiV1WebhookDeliveriesGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'][0])
+    public function listWebhookDeliveriesWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookDeliveries'][0])
     {
-        $request = $this->listWebhookDeliveriesApiV1WebhookDeliveriesGetRequest($limit, $cursor, $contentType);
+        $request = $this->listWebhookDeliveriesRequest($limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1712,20 +1712,20 @@ class WebhooksApi
     }
 
     /**
-     * Operation listWebhookDeliveriesApiV1WebhookDeliveriesGetAsync
+     * Operation listWebhookDeliveriesAsync
      *
      * List Webhook Deliveries
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookDeliveries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listWebhookDeliveriesApiV1WebhookDeliveriesGetAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'][0])
+    public function listWebhookDeliveriesAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookDeliveries'][0])
     {
-        return $this->listWebhookDeliveriesApiV1WebhookDeliveriesGetAsyncWithHttpInfo($limit, $cursor, $contentType)
+        return $this->listWebhookDeliveriesAsyncWithHttpInfo($limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1734,21 +1734,21 @@ class WebhooksApi
     }
 
     /**
-     * Operation listWebhookDeliveriesApiV1WebhookDeliveriesGetAsyncWithHttpInfo
+     * Operation listWebhookDeliveriesAsyncWithHttpInfo
      *
      * List Webhook Deliveries
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookDeliveries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listWebhookDeliveriesApiV1WebhookDeliveriesGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'][0])
+    public function listWebhookDeliveriesAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookDeliveries'][0])
     {
         $returnType = '\InvoicePDFs\Model\WebhookDeliveriesListResponse';
-        $request = $this->listWebhookDeliveriesApiV1WebhookDeliveriesGetRequest($limit, $cursor, $contentType);
+        $request = $this->listWebhookDeliveriesRequest($limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1787,23 +1787,23 @@ class WebhooksApi
     }
 
     /**
-     * Create request for operation 'listWebhookDeliveriesApiV1WebhookDeliveriesGet'
+     * Create request for operation 'listWebhookDeliveries'
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookDeliveries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listWebhookDeliveriesApiV1WebhookDeliveriesGetRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookDeliveriesApiV1WebhookDeliveriesGet'][0])
+    public function listWebhookDeliveriesRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookDeliveries'][0])
     {
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling WebhooksApi.listWebhookDeliveriesApiV1WebhookDeliveriesGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WebhooksApi.listWebhookDeliveries, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling WebhooksApi.listWebhookDeliveriesApiV1WebhookDeliveriesGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WebhooksApi.listWebhookDeliveries, must be bigger than or equal to 1.');
         }
         
 
@@ -1895,40 +1895,40 @@ class WebhooksApi
     }
 
     /**
-     * Operation listWebhookEndpointsApiV1WebhookEndpointsGet
+     * Operation listWebhookEndpoints
      *
      * List Webhook Endpoints
      *
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookEndpoints'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WebhookEndpointsListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listWebhookEndpointsApiV1WebhookEndpointsGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'][0])
+    public function listWebhookEndpoints($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookEndpoints'][0])
     {
-        list($response) = $this->listWebhookEndpointsApiV1WebhookEndpointsGetWithHttpInfo($limit, $cursor, $contentType);
+        list($response) = $this->listWebhookEndpointsWithHttpInfo($limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listWebhookEndpointsApiV1WebhookEndpointsGetWithHttpInfo
+     * Operation listWebhookEndpointsWithHttpInfo
      *
      * List Webhook Endpoints
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookEndpoints'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WebhookEndpointsListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listWebhookEndpointsApiV1WebhookEndpointsGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'][0])
+    public function listWebhookEndpointsWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookEndpoints'][0])
     {
-        $request = $this->listWebhookEndpointsApiV1WebhookEndpointsGetRequest($limit, $cursor, $contentType);
+        $request = $this->listWebhookEndpointsRequest($limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2074,20 +2074,20 @@ class WebhooksApi
     }
 
     /**
-     * Operation listWebhookEndpointsApiV1WebhookEndpointsGetAsync
+     * Operation listWebhookEndpointsAsync
      *
      * List Webhook Endpoints
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookEndpoints'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listWebhookEndpointsApiV1WebhookEndpointsGetAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'][0])
+    public function listWebhookEndpointsAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookEndpoints'][0])
     {
-        return $this->listWebhookEndpointsApiV1WebhookEndpointsGetAsyncWithHttpInfo($limit, $cursor, $contentType)
+        return $this->listWebhookEndpointsAsyncWithHttpInfo($limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2096,21 +2096,21 @@ class WebhooksApi
     }
 
     /**
-     * Operation listWebhookEndpointsApiV1WebhookEndpointsGetAsyncWithHttpInfo
+     * Operation listWebhookEndpointsAsyncWithHttpInfo
      *
      * List Webhook Endpoints
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookEndpoints'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listWebhookEndpointsApiV1WebhookEndpointsGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'][0])
+    public function listWebhookEndpointsAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookEndpoints'][0])
     {
         $returnType = '\InvoicePDFs\Model\WebhookEndpointsListResponse';
-        $request = $this->listWebhookEndpointsApiV1WebhookEndpointsGetRequest($limit, $cursor, $contentType);
+        $request = $this->listWebhookEndpointsRequest($limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2149,23 +2149,23 @@ class WebhooksApi
     }
 
     /**
-     * Create request for operation 'listWebhookEndpointsApiV1WebhookEndpointsGet'
+     * Create request for operation 'listWebhookEndpoints'
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWebhookEndpoints'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listWebhookEndpointsApiV1WebhookEndpointsGetRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookEndpointsApiV1WebhookEndpointsGet'][0])
+    public function listWebhookEndpointsRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWebhookEndpoints'][0])
     {
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling WebhooksApi.listWebhookEndpointsApiV1WebhookEndpointsGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WebhooksApi.listWebhookEndpoints, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling WebhooksApi.listWebhookEndpointsApiV1WebhookEndpointsGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WebhooksApi.listWebhookEndpoints, must be bigger than or equal to 1.');
         }
         
 
@@ -2257,38 +2257,38 @@ class WebhooksApi
     }
 
     /**
-     * Operation retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost
+     * Operation retryWebhookDelivery
      *
      * Retry Webhook Delivery
      *
      * @param  string $delivery_id delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryWebhookDelivery'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WebhookDeliveryResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost($delivery_id, string $contentType = self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'][0])
+    public function retryWebhookDelivery($delivery_id, string $contentType = self::contentTypes['retryWebhookDelivery'][0])
     {
-        list($response) = $this->retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostWithHttpInfo($delivery_id, $contentType);
+        list($response) = $this->retryWebhookDeliveryWithHttpInfo($delivery_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostWithHttpInfo
+     * Operation retryWebhookDeliveryWithHttpInfo
      *
      * Retry Webhook Delivery
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryWebhookDelivery'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WebhookDeliveryResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostWithHttpInfo($delivery_id, string $contentType = self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'][0])
+    public function retryWebhookDeliveryWithHttpInfo($delivery_id, string $contentType = self::contentTypes['retryWebhookDelivery'][0])
     {
-        $request = $this->retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostRequest($delivery_id, $contentType);
+        $request = $this->retryWebhookDeliveryRequest($delivery_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2434,19 +2434,19 @@ class WebhooksApi
     }
 
     /**
-     * Operation retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostAsync
+     * Operation retryWebhookDeliveryAsync
      *
      * Retry Webhook Delivery
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryWebhookDelivery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostAsync($delivery_id, string $contentType = self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'][0])
+    public function retryWebhookDeliveryAsync($delivery_id, string $contentType = self::contentTypes['retryWebhookDelivery'][0])
     {
-        return $this->retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostAsyncWithHttpInfo($delivery_id, $contentType)
+        return $this->retryWebhookDeliveryAsyncWithHttpInfo($delivery_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2455,20 +2455,20 @@ class WebhooksApi
     }
 
     /**
-     * Operation retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostAsyncWithHttpInfo
+     * Operation retryWebhookDeliveryAsyncWithHttpInfo
      *
      * Retry Webhook Delivery
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryWebhookDelivery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostAsyncWithHttpInfo($delivery_id, string $contentType = self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'][0])
+    public function retryWebhookDeliveryAsyncWithHttpInfo($delivery_id, string $contentType = self::contentTypes['retryWebhookDelivery'][0])
     {
         $returnType = '\InvoicePDFs\Model\WebhookDeliveryResponse';
-        $request = $this->retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostRequest($delivery_id, $contentType);
+        $request = $this->retryWebhookDeliveryRequest($delivery_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2507,21 +2507,21 @@ class WebhooksApi
     }
 
     /**
-     * Create request for operation 'retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'
+     * Create request for operation 'retryWebhookDelivery'
      *
      * @param  string $delivery_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['retryWebhookDelivery'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPostRequest($delivery_id, string $contentType = self::contentTypes['retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'][0])
+    public function retryWebhookDeliveryRequest($delivery_id, string $contentType = self::contentTypes['retryWebhookDelivery'][0])
     {
 
         // verify the required parameter 'delivery_id' is set
         if ($delivery_id === null || (is_array($delivery_id) && count($delivery_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $delivery_id when calling retryWebhookDeliveryApiV1WebhookDeliveriesDeliveryIdRetryPost'
+                'Missing the required parameter $delivery_id when calling retryWebhookDelivery'
             );
         }
 
@@ -2603,38 +2603,38 @@ class WebhooksApi
     }
 
     /**
-     * Operation rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost
+     * Operation rotateWebhookSecret
      *
      * Rotate Webhook Secret
      *
      * @param  string $endpoint_id endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateWebhookSecret'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WebhookSecretResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost($endpoint_id, string $contentType = self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'][0])
+    public function rotateWebhookSecret($endpoint_id, string $contentType = self::contentTypes['rotateWebhookSecret'][0])
     {
-        list($response) = $this->rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostWithHttpInfo($endpoint_id, $contentType);
+        list($response) = $this->rotateWebhookSecretWithHttpInfo($endpoint_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostWithHttpInfo
+     * Operation rotateWebhookSecretWithHttpInfo
      *
      * Rotate Webhook Secret
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateWebhookSecret'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WebhookSecretResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'][0])
+    public function rotateWebhookSecretWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['rotateWebhookSecret'][0])
     {
-        $request = $this->rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostRequest($endpoint_id, $contentType);
+        $request = $this->rotateWebhookSecretRequest($endpoint_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2780,19 +2780,19 @@ class WebhooksApi
     }
 
     /**
-     * Operation rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostAsync
+     * Operation rotateWebhookSecretAsync
      *
      * Rotate Webhook Secret
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateWebhookSecret'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostAsync($endpoint_id, string $contentType = self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'][0])
+    public function rotateWebhookSecretAsync($endpoint_id, string $contentType = self::contentTypes['rotateWebhookSecret'][0])
     {
-        return $this->rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostAsyncWithHttpInfo($endpoint_id, $contentType)
+        return $this->rotateWebhookSecretAsyncWithHttpInfo($endpoint_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2801,20 +2801,20 @@ class WebhooksApi
     }
 
     /**
-     * Operation rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostAsyncWithHttpInfo
+     * Operation rotateWebhookSecretAsyncWithHttpInfo
      *
      * Rotate Webhook Secret
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateWebhookSecret'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostAsyncWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'][0])
+    public function rotateWebhookSecretAsyncWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['rotateWebhookSecret'][0])
     {
         $returnType = '\InvoicePDFs\Model\WebhookSecretResponse';
-        $request = $this->rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostRequest($endpoint_id, $contentType);
+        $request = $this->rotateWebhookSecretRequest($endpoint_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2853,21 +2853,21 @@ class WebhooksApi
     }
 
     /**
-     * Create request for operation 'rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'
+     * Create request for operation 'rotateWebhookSecret'
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['rotateWebhookSecret'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPostRequest($endpoint_id, string $contentType = self::contentTypes['rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'][0])
+    public function rotateWebhookSecretRequest($endpoint_id, string $contentType = self::contentTypes['rotateWebhookSecret'][0])
     {
 
         // verify the required parameter 'endpoint_id' is set
         if ($endpoint_id === null || (is_array($endpoint_id) && count($endpoint_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $endpoint_id when calling rotateWebhookSecretApiV1WebhookEndpointsEndpointIdRotateSecretPost'
+                'Missing the required parameter $endpoint_id when calling rotateWebhookSecret'
             );
         }
 
@@ -2949,38 +2949,38 @@ class WebhooksApi
     }
 
     /**
-     * Operation testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost
+     * Operation testWebhookEndpoint
      *
      * Test Webhook Endpoint
      *
      * @param  string $endpoint_id endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WebhookDeliveryResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost($endpoint_id, string $contentType = self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'][0])
+    public function testWebhookEndpoint($endpoint_id, string $contentType = self::contentTypes['testWebhookEndpoint'][0])
     {
-        list($response) = $this->testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostWithHttpInfo($endpoint_id, $contentType);
+        list($response) = $this->testWebhookEndpointWithHttpInfo($endpoint_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostWithHttpInfo
+     * Operation testWebhookEndpointWithHttpInfo
      *
      * Test Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WebhookDeliveryResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'][0])
+    public function testWebhookEndpointWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['testWebhookEndpoint'][0])
     {
-        $request = $this->testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostRequest($endpoint_id, $contentType);
+        $request = $this->testWebhookEndpointRequest($endpoint_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3126,19 +3126,19 @@ class WebhooksApi
     }
 
     /**
-     * Operation testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostAsync
+     * Operation testWebhookEndpointAsync
      *
      * Test Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostAsync($endpoint_id, string $contentType = self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'][0])
+    public function testWebhookEndpointAsync($endpoint_id, string $contentType = self::contentTypes['testWebhookEndpoint'][0])
     {
-        return $this->testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostAsyncWithHttpInfo($endpoint_id, $contentType)
+        return $this->testWebhookEndpointAsyncWithHttpInfo($endpoint_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3147,20 +3147,20 @@ class WebhooksApi
     }
 
     /**
-     * Operation testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostAsyncWithHttpInfo
+     * Operation testWebhookEndpointAsyncWithHttpInfo
      *
      * Test Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostAsyncWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'][0])
+    public function testWebhookEndpointAsyncWithHttpInfo($endpoint_id, string $contentType = self::contentTypes['testWebhookEndpoint'][0])
     {
         $returnType = '\InvoicePDFs\Model\WebhookDeliveryResponse';
-        $request = $this->testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostRequest($endpoint_id, $contentType);
+        $request = $this->testWebhookEndpointRequest($endpoint_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3199,21 +3199,21 @@ class WebhooksApi
     }
 
     /**
-     * Create request for operation 'testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'
+     * Create request for operation 'testWebhookEndpoint'
      *
      * @param  string $endpoint_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPostRequest($endpoint_id, string $contentType = self::contentTypes['testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'][0])
+    public function testWebhookEndpointRequest($endpoint_id, string $contentType = self::contentTypes['testWebhookEndpoint'][0])
     {
 
         // verify the required parameter 'endpoint_id' is set
         if ($endpoint_id === null || (is_array($endpoint_id) && count($endpoint_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $endpoint_id when calling testWebhookEndpointApiV1WebhookEndpointsEndpointIdTestPost'
+                'Missing the required parameter $endpoint_id when calling testWebhookEndpoint'
             );
         }
 
@@ -3295,40 +3295,40 @@ class WebhooksApi
     }
 
     /**
-     * Operation updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch
+     * Operation updateWebhookEndpoint
      *
      * Update Webhook Endpoint
      *
      * @param  string $endpoint_id endpoint_id (required)
      * @param  \InvoicePDFs\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request webhook_endpoint_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch($endpoint_id, $webhook_endpoint_patch_request, string $contentType = self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'][0])
+    public function updateWebhookEndpoint($endpoint_id, $webhook_endpoint_patch_request, string $contentType = self::contentTypes['updateWebhookEndpoint'][0])
     {
-        list($response) = $this->updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchWithHttpInfo($endpoint_id, $webhook_endpoint_patch_request, $contentType);
+        list($response) = $this->updateWebhookEndpointWithHttpInfo($endpoint_id, $webhook_endpoint_patch_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchWithHttpInfo
+     * Operation updateWebhookEndpointWithHttpInfo
      *
      * Update Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
      * @param  \InvoicePDFs\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchWithHttpInfo($endpoint_id, $webhook_endpoint_patch_request, string $contentType = self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'][0])
+    public function updateWebhookEndpointWithHttpInfo($endpoint_id, $webhook_endpoint_patch_request, string $contentType = self::contentTypes['updateWebhookEndpoint'][0])
     {
-        $request = $this->updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchRequest($endpoint_id, $webhook_endpoint_patch_request, $contentType);
+        $request = $this->updateWebhookEndpointRequest($endpoint_id, $webhook_endpoint_patch_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3474,20 +3474,20 @@ class WebhooksApi
     }
 
     /**
-     * Operation updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchAsync
+     * Operation updateWebhookEndpointAsync
      *
      * Update Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
      * @param  \InvoicePDFs\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchAsync($endpoint_id, $webhook_endpoint_patch_request, string $contentType = self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'][0])
+    public function updateWebhookEndpointAsync($endpoint_id, $webhook_endpoint_patch_request, string $contentType = self::contentTypes['updateWebhookEndpoint'][0])
     {
-        return $this->updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchAsyncWithHttpInfo($endpoint_id, $webhook_endpoint_patch_request, $contentType)
+        return $this->updateWebhookEndpointAsyncWithHttpInfo($endpoint_id, $webhook_endpoint_patch_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3496,21 +3496,21 @@ class WebhooksApi
     }
 
     /**
-     * Operation updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchAsyncWithHttpInfo
+     * Operation updateWebhookEndpointAsyncWithHttpInfo
      *
      * Update Webhook Endpoint
      *
      * @param  string $endpoint_id (required)
      * @param  \InvoicePDFs\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchAsyncWithHttpInfo($endpoint_id, $webhook_endpoint_patch_request, string $contentType = self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'][0])
+    public function updateWebhookEndpointAsyncWithHttpInfo($endpoint_id, $webhook_endpoint_patch_request, string $contentType = self::contentTypes['updateWebhookEndpoint'][0])
     {
         $returnType = '\InvoicePDFs\Model\WebhookEndpointResponse';
-        $request = $this->updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchRequest($endpoint_id, $webhook_endpoint_patch_request, $contentType);
+        $request = $this->updateWebhookEndpointRequest($endpoint_id, $webhook_endpoint_patch_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3549,29 +3549,29 @@ class WebhooksApi
     }
 
     /**
-     * Create request for operation 'updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'
+     * Create request for operation 'updateWebhookEndpoint'
      *
      * @param  string $endpoint_id (required)
      * @param  \InvoicePDFs\Model\WebhookEndpointPatchRequest $webhook_endpoint_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWebhookEndpoint'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatchRequest($endpoint_id, $webhook_endpoint_patch_request, string $contentType = self::contentTypes['updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'][0])
+    public function updateWebhookEndpointRequest($endpoint_id, $webhook_endpoint_patch_request, string $contentType = self::contentTypes['updateWebhookEndpoint'][0])
     {
 
         // verify the required parameter 'endpoint_id' is set
         if ($endpoint_id === null || (is_array($endpoint_id) && count($endpoint_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $endpoint_id when calling updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'
+                'Missing the required parameter $endpoint_id when calling updateWebhookEndpoint'
             );
         }
 
         // verify the required parameter 'webhook_endpoint_patch_request' is set
         if ($webhook_endpoint_patch_request === null || (is_array($webhook_endpoint_patch_request) && count($webhook_endpoint_patch_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $webhook_endpoint_patch_request when calling updateWebhookEndpointApiV1WebhookEndpointsEndpointIdPatch'
+                'Missing the required parameter $webhook_endpoint_patch_request when calling updateWebhookEndpoint'
             );
         }
 

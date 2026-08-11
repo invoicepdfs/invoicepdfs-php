@@ -4,19 +4,19 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createCheckoutApiV1BillingCheckoutSessionPost()**](BillingApi.md#createCheckoutApiV1BillingCheckoutSessionPost) | **POST** /api/v1/billing/checkout-session | Create Checkout |
-| [**createPortalApiV1BillingPortalSessionPost()**](BillingApi.md#createPortalApiV1BillingPortalSessionPost) | **POST** /api/v1/billing/portal-session | Create Portal |
-| [**getSubscriptionApiV1BillingSubscriptionGet()**](BillingApi.md#getSubscriptionApiV1BillingSubscriptionGet) | **GET** /api/v1/billing/subscription | Get Subscription |
-| [**listPlansApiV1BillingPlansGet()**](BillingApi.md#listPlansApiV1BillingPlansGet) | **GET** /api/v1/billing/plans | List Plans |
+| [**createCheckoutSession()**](BillingApi.md#createCheckoutSession) | **POST** /api/v1/billing/checkout-session | Create Checkout Session |
+| [**createPortalSession()**](BillingApi.md#createPortalSession) | **POST** /api/v1/billing/portal-session | Create Portal Session |
+| [**getSubscription()**](BillingApi.md#getSubscription) | **GET** /api/v1/billing/subscription | Get Subscription |
+| [**listPlans()**](BillingApi.md#listPlans) | **GET** /api/v1/billing/plans | List Plans |
 
 
-## `createCheckoutApiV1BillingCheckoutSessionPost()`
+## `createCheckoutSession()`
 
 ```php
-createCheckoutApiV1BillingCheckoutSessionPost($billing_checkout_request): \InvoicePDFs\Model\BillingCheckoutResponse
+createCheckoutSession($billing_checkout_request): \InvoicePDFs\Model\BillingCheckoutResponse
 ```
 
-Create Checkout
+Create Checkout Session
 
 Create a Stripe Checkout session for a subscription.
 
@@ -40,10 +40,10 @@ $apiInstance = new InvoicePDFs\Api\BillingApi(
 $billing_checkout_request = new \InvoicePDFs\Model\BillingCheckoutRequest(); // \InvoicePDFs\Model\BillingCheckoutRequest
 
 try {
-    $result = $apiInstance->createCheckoutApiV1BillingCheckoutSessionPost($billing_checkout_request);
+    $result = $apiInstance->createCheckoutSession($billing_checkout_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BillingApi->createCheckoutApiV1BillingCheckoutSessionPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BillingApi->createCheckoutSession: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -70,13 +70,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createPortalApiV1BillingPortalSessionPost()`
+## `createPortalSession()`
 
 ```php
-createPortalApiV1BillingPortalSessionPost(): \InvoicePDFs\Model\BillingPortalResponse
+createPortalSession(): \InvoicePDFs\Model\BillingPortalResponse
 ```
 
-Create Portal
+Create Portal Session
 
 Create a Stripe Customer Portal session for self-service management.
 
@@ -99,10 +99,10 @@ $apiInstance = new InvoicePDFs\Api\BillingApi(
 );
 
 try {
-    $result = $apiInstance->createPortalApiV1BillingPortalSessionPost();
+    $result = $apiInstance->createPortalSession();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BillingApi->createPortalApiV1BillingPortalSessionPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BillingApi->createPortalSession: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -127,10 +127,10 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getSubscriptionApiV1BillingSubscriptionGet()`
+## `getSubscription()`
 
 ```php
-getSubscriptionApiV1BillingSubscriptionGet(): \InvoicePDFs\Model\BillingSubscriptionResponse
+getSubscription(): \InvoicePDFs\Model\BillingSubscriptionResponse
 ```
 
 Get Subscription
@@ -156,10 +156,10 @@ $apiInstance = new InvoicePDFs\Api\BillingApi(
 );
 
 try {
-    $result = $apiInstance->getSubscriptionApiV1BillingSubscriptionGet();
+    $result = $apiInstance->getSubscription();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BillingApi->getSubscriptionApiV1BillingSubscriptionGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BillingApi->getSubscription: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -184,10 +184,10 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listPlansApiV1BillingPlansGet()`
+## `listPlans()`
 
 ```php
-listPlansApiV1BillingPlansGet(): \InvoicePDFs\Model\BillingPlansListResponse
+listPlans(): \InvoicePDFs\Model\BillingPlansListResponse
 ```
 
 List Plans
@@ -213,10 +213,10 @@ $apiInstance = new InvoicePDFs\Api\BillingApi(
 );
 
 try {
-    $result = $apiInstance->listPlansApiV1BillingPlansGet();
+    $result = $apiInstance->listPlans();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BillingApi->listPlansApiV1BillingPlansGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BillingApi->listPlans: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

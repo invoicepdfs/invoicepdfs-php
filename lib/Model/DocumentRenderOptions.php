@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentRenderRequest
+ * DocumentRenderOptions
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \InvoicePDFs\ObjectSerializer;
 
 /**
- * DocumentRenderRequest Class Doc Comment
+ * DocumentRenderOptions Class Doc Comment
  *
  * @category Class
+ * @description Render options for an already-stored document (&#x60;&#x60;POST /documents/{id}/renders&#x60;&#x60;).  Distinct from &#x60;&#x60;app.schemas.v1.DocumentRenderRequest&#x60;&#x60;, which carries a full inline document for the stateless &#x60;&#x60;POST /documents/render&#x60;&#x60;. Two classes sharing one name made FastAPI fall back to module-qualified schema names in the spec (&#x60;&#x60;app__documents__schemas__DocumentRenderRequest&#x60;&#x60;), which the SDK generators turned into &#x60;&#x60;AppDocumentsSchemasDocumentRenderRequest&#x60;&#x60;.
  * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DocumentRenderRequest';
+    protected static $openAPIModelName = 'DocumentRenderOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +58,9 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'document_type' => 'string',
-        'data' => '\InvoicePDFs\Model\DocumentInvoiceDataInput',
-        'template' => '\InvoicePDFs\Model\DocumentTemplateRef',
-        'output' => '\InvoicePDFs\Model\DocumentOutputOptions'
+        'template_id' => 'string',
+        'page_size' => 'string',
+        'expires_in' => 'int'
     ];
 
     /**
@@ -71,10 +71,9 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'document_type' => null,
-        'data' => null,
-        'template' => null,
-        'output' => null
+        'template_id' => null,
+        'page_size' => null,
+        'expires_in' => null
     ];
 
     /**
@@ -83,10 +82,9 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'document_type' => false,
-        'data' => false,
-        'template' => false,
-        'output' => false
+        'template_id' => false,
+        'page_size' => false,
+        'expires_in' => false
     ];
 
     /**
@@ -175,10 +173,9 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'document_type' => 'document_type',
-        'data' => 'data',
-        'template' => 'template',
-        'output' => 'output'
+        'template_id' => 'template_id',
+        'page_size' => 'page_size',
+        'expires_in' => 'expires_in'
     ];
 
     /**
@@ -187,10 +184,9 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'document_type' => 'setDocumentType',
-        'data' => 'setData',
-        'template' => 'setTemplate',
-        'output' => 'setOutput'
+        'template_id' => 'setTemplateId',
+        'page_size' => 'setPageSize',
+        'expires_in' => 'setExpiresIn'
     ];
 
     /**
@@ -199,10 +195,9 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'document_type' => 'getDocumentType',
-        'data' => 'getData',
-        'template' => 'getTemplate',
-        'output' => 'getOutput'
+        'template_id' => 'getTemplateId',
+        'page_size' => 'getPageSize',
+        'expires_in' => 'getExpiresIn'
     ];
 
     /**
@@ -246,19 +241,6 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-    public const DOCUMENT_TYPE_INVOICE = 'invoice';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDocumentTypeAllowableValues()
-    {
-        return [
-            self::DOCUMENT_TYPE_INVOICE,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -275,10 +257,9 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('document_type', $data ?? [], 'invoice');
-        $this->setIfExists('data', $data ?? [], null);
-        $this->setIfExists('template', $data ?? [], null);
-        $this->setIfExists('output', $data ?? [], null);
+        $this->setIfExists('template_id', $data ?? [], 'tpl_modern');
+        $this->setIfExists('page_size', $data ?? [], 'LETTER');
+        $this->setIfExists('expires_in', $data ?? [], 3600);
     }
 
     /**
@@ -308,21 +289,6 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getDocumentTypeAllowableValues();
-        if (!is_null($this->container['document_type']) && !in_array($this->container['document_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'document_type', must be one of '%s'",
-                $this->container['document_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['template'] === null) {
-            $invalidProperties[] = "'template' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -339,119 +305,82 @@ class DocumentRenderRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets document_type
+     * Gets template_id
      *
      * @return string|null
      */
-    public function getDocumentType()
+    public function getTemplateId()
     {
-        return $this->container['document_type'];
+        return $this->container['template_id'];
     }
 
     /**
-     * Sets document_type
+     * Sets template_id
      *
-     * @param string|null $document_type document_type
+     * @param string|null $template_id template_id
      *
      * @return self
      */
-    public function setDocumentType($document_type)
+    public function setTemplateId($template_id)
     {
-        if (is_null($document_type)) {
-            throw new \InvalidArgumentException('non-nullable document_type cannot be null');
+        if (is_null($template_id)) {
+            throw new \InvalidArgumentException('non-nullable template_id cannot be null');
         }
-        $allowedValues = $this->getDocumentTypeAllowableValues();
-        if (!in_array($document_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'document_type', must be one of '%s'",
-                    $document_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['document_type'] = $document_type;
+        $this->container['template_id'] = $template_id;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets page_size
      *
-     * @return \InvoicePDFs\Model\DocumentInvoiceDataInput
+     * @return string|null
      */
-    public function getData()
+    public function getPageSize()
     {
-        return $this->container['data'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets data
+     * Sets page_size
      *
-     * @param \InvoicePDFs\Model\DocumentInvoiceDataInput $data data
+     * @param string|null $page_size page_size
      *
      * @return self
      */
-    public function setData($data)
+    public function setPageSize($page_size)
     {
-        if (is_null($data)) {
-            throw new \InvalidArgumentException('non-nullable data cannot be null');
+        if (is_null($page_size)) {
+            throw new \InvalidArgumentException('non-nullable page_size cannot be null');
         }
-        $this->container['data'] = $data;
+        $this->container['page_size'] = $page_size;
 
         return $this;
     }
 
     /**
-     * Gets template
+     * Gets expires_in
      *
-     * @return \InvoicePDFs\Model\DocumentTemplateRef
+     * @return int|null
      */
-    public function getTemplate()
+    public function getExpiresIn()
     {
-        return $this->container['template'];
+        return $this->container['expires_in'];
     }
 
     /**
-     * Sets template
+     * Sets expires_in
      *
-     * @param \InvoicePDFs\Model\DocumentTemplateRef $template template
+     * @param int|null $expires_in expires_in
      *
      * @return self
      */
-    public function setTemplate($template)
+    public function setExpiresIn($expires_in)
     {
-        if (is_null($template)) {
-            throw new \InvalidArgumentException('non-nullable template cannot be null');
+        if (is_null($expires_in)) {
+            throw new \InvalidArgumentException('non-nullable expires_in cannot be null');
         }
-        $this->container['template'] = $template;
-
-        return $this;
-    }
-
-    /**
-     * Gets output
-     *
-     * @return \InvoicePDFs\Model\DocumentOutputOptions|null
-     */
-    public function getOutput()
-    {
-        return $this->container['output'];
-    }
-
-    /**
-     * Sets output
-     *
-     * @param \InvoicePDFs\Model\DocumentOutputOptions|null $output output
-     *
-     * @return self
-     */
-    public function setOutput($output)
-    {
-        if (is_null($output)) {
-            throw new \InvalidArgumentException('non-nullable output cannot be null');
-        }
-        $this->container['output'] = $output;
+        $this->container['expires_in'] = $expires_in;
 
         return $this;
     }

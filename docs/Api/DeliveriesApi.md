@@ -4,14 +4,14 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getDeliveryApiV1DeliveriesDeliveryIdGet()**](DeliveriesApi.md#getDeliveryApiV1DeliveriesDeliveryIdGet) | **GET** /api/v1/deliveries/{delivery_id} | Get Delivery |
-| [**retryDeliveryApiV1DeliveriesDeliveryIdRetryPost()**](DeliveriesApi.md#retryDeliveryApiV1DeliveriesDeliveryIdRetryPost) | **POST** /api/v1/deliveries/{delivery_id}/retry | Retry Delivery |
+| [**getDelivery()**](DeliveriesApi.md#getDelivery) | **GET** /api/v1/deliveries/{delivery_id} | Get Delivery |
+| [**retryDelivery()**](DeliveriesApi.md#retryDelivery) | **POST** /api/v1/deliveries/{delivery_id}/retry | Retry Delivery |
 
 
-## `getDeliveryApiV1DeliveriesDeliveryIdGet()`
+## `getDelivery()`
 
 ```php
-getDeliveryApiV1DeliveriesDeliveryIdGet($delivery_id): \InvoicePDFs\Model\DeliveryResponse
+getDelivery($delivery_id): \InvoicePDFs\Model\DeliveryResponse
 ```
 
 Get Delivery
@@ -36,10 +36,10 @@ $apiInstance = new InvoicePDFs\Api\DeliveriesApi(
 $delivery_id = 'delivery_id_example'; // string
 
 try {
-    $result = $apiInstance->getDeliveryApiV1DeliveriesDeliveryIdGet($delivery_id);
+    $result = $apiInstance->getDelivery($delivery_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DeliveriesApi->getDeliveryApiV1DeliveriesDeliveryIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveriesApi->getDelivery: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -66,10 +66,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `retryDeliveryApiV1DeliveriesDeliveryIdRetryPost()`
+## `retryDelivery()`
 
 ```php
-retryDeliveryApiV1DeliveriesDeliveryIdRetryPost($delivery_id): \InvoicePDFs\Model\DeliveryResponse
+retryDelivery($delivery_id): \InvoicePDFs\Model\DeliveryResponse
 ```
 
 Retry Delivery
@@ -94,10 +94,10 @@ $apiInstance = new InvoicePDFs\Api\DeliveriesApi(
 $delivery_id = 'delivery_id_example'; // string
 
 try {
-    $result = $apiInstance->retryDeliveryApiV1DeliveriesDeliveryIdRetryPost($delivery_id);
+    $result = $apiInstance->retryDelivery($delivery_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DeliveriesApi->retryDeliveryApiV1DeliveriesDeliveryIdRetryPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DeliveriesApi->retryDelivery: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

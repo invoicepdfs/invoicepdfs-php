@@ -71,13 +71,13 @@ class HealthApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'healthHealthGet' => [
+        'getHealth' => [
             'application/json',
         ],
-        'readyReadyGet' => [
+        'getReadiness' => [
             'application/json',
         ],
-        'versionVersionGet' => [
+        'getVersion' => [
             'application/json',
         ],
     ];
@@ -129,36 +129,36 @@ class HealthApi
     }
 
     /**
-     * Operation healthHealthGet
+     * Operation getHealth
      *
-     * Health
+     * Get Health
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthHealthGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHealth'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\HealthResponse
      */
-    public function healthHealthGet(string $contentType = self::contentTypes['healthHealthGet'][0])
+    public function getHealth(string $contentType = self::contentTypes['getHealth'][0])
     {
-        list($response) = $this->healthHealthGetWithHttpInfo($contentType);
+        list($response) = $this->getHealthWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation healthHealthGetWithHttpInfo
+     * Operation getHealthWithHttpInfo
      *
-     * Health
+     * Get Health
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthHealthGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHealth'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\HealthResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function healthHealthGetWithHttpInfo(string $contentType = self::contentTypes['healthHealthGet'][0])
+    public function getHealthWithHttpInfo(string $contentType = self::contentTypes['getHealth'][0])
     {
-        $request = $this->healthHealthGetRequest($contentType);
+        $request = $this->getHealthRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -269,18 +269,18 @@ class HealthApi
     }
 
     /**
-     * Operation healthHealthGetAsync
+     * Operation getHealthAsync
      *
-     * Health
+     * Get Health
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthHealthGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHealth'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function healthHealthGetAsync(string $contentType = self::contentTypes['healthHealthGet'][0])
+    public function getHealthAsync(string $contentType = self::contentTypes['getHealth'][0])
     {
-        return $this->healthHealthGetAsyncWithHttpInfo($contentType)
+        return $this->getHealthAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -289,19 +289,19 @@ class HealthApi
     }
 
     /**
-     * Operation healthHealthGetAsyncWithHttpInfo
+     * Operation getHealthAsyncWithHttpInfo
      *
-     * Health
+     * Get Health
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthHealthGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHealth'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function healthHealthGetAsyncWithHttpInfo(string $contentType = self::contentTypes['healthHealthGet'][0])
+    public function getHealthAsyncWithHttpInfo(string $contentType = self::contentTypes['getHealth'][0])
     {
         $returnType = '\InvoicePDFs\Model\HealthResponse';
-        $request = $this->healthHealthGetRequest($contentType);
+        $request = $this->getHealthRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -340,14 +340,14 @@ class HealthApi
     }
 
     /**
-     * Create request for operation 'healthHealthGet'
+     * Create request for operation 'getHealth'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['healthHealthGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHealth'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function healthHealthGetRequest(string $contentType = self::contentTypes['healthHealthGet'][0])
+    public function getHealthRequest(string $contentType = self::contentTypes['getHealth'][0])
     {
 
 
@@ -416,36 +416,36 @@ class HealthApi
     }
 
     /**
-     * Operation readyReadyGet
+     * Operation getReadiness
      *
-     * Ready
+     * Get Readiness
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['readyReadyGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReadiness'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\ReadyResponse
      */
-    public function readyReadyGet(string $contentType = self::contentTypes['readyReadyGet'][0])
+    public function getReadiness(string $contentType = self::contentTypes['getReadiness'][0])
     {
-        list($response) = $this->readyReadyGetWithHttpInfo($contentType);
+        list($response) = $this->getReadinessWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation readyReadyGetWithHttpInfo
+     * Operation getReadinessWithHttpInfo
      *
-     * Ready
+     * Get Readiness
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['readyReadyGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReadiness'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\ReadyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function readyReadyGetWithHttpInfo(string $contentType = self::contentTypes['readyReadyGet'][0])
+    public function getReadinessWithHttpInfo(string $contentType = self::contentTypes['getReadiness'][0])
     {
-        $request = $this->readyReadyGetRequest($contentType);
+        $request = $this->getReadinessRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -556,18 +556,18 @@ class HealthApi
     }
 
     /**
-     * Operation readyReadyGetAsync
+     * Operation getReadinessAsync
      *
-     * Ready
+     * Get Readiness
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['readyReadyGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReadiness'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function readyReadyGetAsync(string $contentType = self::contentTypes['readyReadyGet'][0])
+    public function getReadinessAsync(string $contentType = self::contentTypes['getReadiness'][0])
     {
-        return $this->readyReadyGetAsyncWithHttpInfo($contentType)
+        return $this->getReadinessAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -576,19 +576,19 @@ class HealthApi
     }
 
     /**
-     * Operation readyReadyGetAsyncWithHttpInfo
+     * Operation getReadinessAsyncWithHttpInfo
      *
-     * Ready
+     * Get Readiness
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['readyReadyGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReadiness'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function readyReadyGetAsyncWithHttpInfo(string $contentType = self::contentTypes['readyReadyGet'][0])
+    public function getReadinessAsyncWithHttpInfo(string $contentType = self::contentTypes['getReadiness'][0])
     {
         $returnType = '\InvoicePDFs\Model\ReadyResponse';
-        $request = $this->readyReadyGetRequest($contentType);
+        $request = $this->getReadinessRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -627,14 +627,14 @@ class HealthApi
     }
 
     /**
-     * Create request for operation 'readyReadyGet'
+     * Create request for operation 'getReadiness'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['readyReadyGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReadiness'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function readyReadyGetRequest(string $contentType = self::contentTypes['readyReadyGet'][0])
+    public function getReadinessRequest(string $contentType = self::contentTypes['getReadiness'][0])
     {
 
 
@@ -703,36 +703,36 @@ class HealthApi
     }
 
     /**
-     * Operation versionVersionGet
+     * Operation getVersion
      *
-     * Version
+     * Get Version
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['versionVersionGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersion'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\VersionResponse
      */
-    public function versionVersionGet(string $contentType = self::contentTypes['versionVersionGet'][0])
+    public function getVersion(string $contentType = self::contentTypes['getVersion'][0])
     {
-        list($response) = $this->versionVersionGetWithHttpInfo($contentType);
+        list($response) = $this->getVersionWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation versionVersionGetWithHttpInfo
+     * Operation getVersionWithHttpInfo
      *
-     * Version
+     * Get Version
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['versionVersionGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersion'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\VersionResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function versionVersionGetWithHttpInfo(string $contentType = self::contentTypes['versionVersionGet'][0])
+    public function getVersionWithHttpInfo(string $contentType = self::contentTypes['getVersion'][0])
     {
-        $request = $this->versionVersionGetRequest($contentType);
+        $request = $this->getVersionRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -843,18 +843,18 @@ class HealthApi
     }
 
     /**
-     * Operation versionVersionGetAsync
+     * Operation getVersionAsync
      *
-     * Version
+     * Get Version
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['versionVersionGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function versionVersionGetAsync(string $contentType = self::contentTypes['versionVersionGet'][0])
+    public function getVersionAsync(string $contentType = self::contentTypes['getVersion'][0])
     {
-        return $this->versionVersionGetAsyncWithHttpInfo($contentType)
+        return $this->getVersionAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -863,19 +863,19 @@ class HealthApi
     }
 
     /**
-     * Operation versionVersionGetAsyncWithHttpInfo
+     * Operation getVersionAsyncWithHttpInfo
      *
-     * Version
+     * Get Version
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['versionVersionGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function versionVersionGetAsyncWithHttpInfo(string $contentType = self::contentTypes['versionVersionGet'][0])
+    public function getVersionAsyncWithHttpInfo(string $contentType = self::contentTypes['getVersion'][0])
     {
         $returnType = '\InvoicePDFs\Model\VersionResponse';
-        $request = $this->versionVersionGetRequest($contentType);
+        $request = $this->getVersionRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -914,14 +914,14 @@ class HealthApi
     }
 
     /**
-     * Create request for operation 'versionVersionGet'
+     * Create request for operation 'getVersion'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['versionVersionGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getVersion'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function versionVersionGetRequest(string $contentType = self::contentTypes['versionVersionGet'][0])
+    public function getVersionRequest(string $contentType = self::contentTypes['getVersion'][0])
     {
 
 

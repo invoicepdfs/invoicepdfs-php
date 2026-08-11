@@ -71,31 +71,31 @@ class WorkspacesApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'createMemberApiV1WorkspacesWorkspaceIdMembersPost' => [
+        'addWorkspaceMember' => [
             'application/json',
         ],
-        'createWorkspaceApiV1WorkspacesPost' => [
+        'createWorkspace' => [
             'application/json',
         ],
-        'deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete' => [
+        'deleteWorkspace' => [
             'application/json',
         ],
-        'deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete' => [
+        'getWorkspace' => [
             'application/json',
         ],
-        'getWorkspaceApiV1WorkspacesWorkspaceIdGet' => [
+        'listWorkspaceMembers' => [
             'application/json',
         ],
-        'listMembersApiV1WorkspacesWorkspaceIdMembersGet' => [
+        'listWorkspaces' => [
             'application/json',
         ],
-        'listWorkspacesApiV1WorkspacesGet' => [
+        'removeWorkspaceMember' => [
             'application/json',
         ],
-        'patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch' => [
+        'updateWorkspace' => [
             'application/json',
         ],
-        'patchWorkspaceApiV1WorkspacesWorkspaceIdPatch' => [
+        'updateWorkspaceMember' => [
             'application/json',
         ],
     ];
@@ -147,42 +147,42 @@ class WorkspacesApi
     }
 
     /**
-     * Operation createMemberApiV1WorkspacesWorkspaceIdMembersPost
+     * Operation addWorkspaceMember
      *
-     * Create Member
+     * Add Workspace Member
      *
      * @param  string $workspace_id workspace_id (required)
      * @param  \InvoicePDFs\Model\WorkspaceMemberCreateRequest $workspace_member_create_request workspace_member_create_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addWorkspaceMember'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WorkspaceMembersListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createMemberApiV1WorkspacesWorkspaceIdMembersPost($workspace_id, $workspace_member_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'][0])
+    public function addWorkspaceMember($workspace_id, $workspace_member_create_request, $idempotency_key = null, string $contentType = self::contentTypes['addWorkspaceMember'][0])
     {
-        list($response) = $this->createMemberApiV1WorkspacesWorkspaceIdMembersPostWithHttpInfo($workspace_id, $workspace_member_create_request, $idempotency_key, $contentType);
+        list($response) = $this->addWorkspaceMemberWithHttpInfo($workspace_id, $workspace_member_create_request, $idempotency_key, $contentType);
         return $response;
     }
 
     /**
-     * Operation createMemberApiV1WorkspacesWorkspaceIdMembersPostWithHttpInfo
+     * Operation addWorkspaceMemberWithHttpInfo
      *
-     * Create Member
+     * Add Workspace Member
      *
      * @param  string $workspace_id (required)
      * @param  \InvoicePDFs\Model\WorkspaceMemberCreateRequest $workspace_member_create_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addWorkspaceMember'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WorkspaceMembersListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createMemberApiV1WorkspacesWorkspaceIdMembersPostWithHttpInfo($workspace_id, $workspace_member_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'][0])
+    public function addWorkspaceMemberWithHttpInfo($workspace_id, $workspace_member_create_request, $idempotency_key = null, string $contentType = self::contentTypes['addWorkspaceMember'][0])
     {
-        $request = $this->createMemberApiV1WorkspacesWorkspaceIdMembersPostRequest($workspace_id, $workspace_member_create_request, $idempotency_key, $contentType);
+        $request = $this->addWorkspaceMemberRequest($workspace_id, $workspace_member_create_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -328,21 +328,21 @@ class WorkspacesApi
     }
 
     /**
-     * Operation createMemberApiV1WorkspacesWorkspaceIdMembersPostAsync
+     * Operation addWorkspaceMemberAsync
      *
-     * Create Member
+     * Add Workspace Member
      *
      * @param  string $workspace_id (required)
      * @param  \InvoicePDFs\Model\WorkspaceMemberCreateRequest $workspace_member_create_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addWorkspaceMember'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createMemberApiV1WorkspacesWorkspaceIdMembersPostAsync($workspace_id, $workspace_member_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'][0])
+    public function addWorkspaceMemberAsync($workspace_id, $workspace_member_create_request, $idempotency_key = null, string $contentType = self::contentTypes['addWorkspaceMember'][0])
     {
-        return $this->createMemberApiV1WorkspacesWorkspaceIdMembersPostAsyncWithHttpInfo($workspace_id, $workspace_member_create_request, $idempotency_key, $contentType)
+        return $this->addWorkspaceMemberAsyncWithHttpInfo($workspace_id, $workspace_member_create_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -351,22 +351,22 @@ class WorkspacesApi
     }
 
     /**
-     * Operation createMemberApiV1WorkspacesWorkspaceIdMembersPostAsyncWithHttpInfo
+     * Operation addWorkspaceMemberAsyncWithHttpInfo
      *
-     * Create Member
+     * Add Workspace Member
      *
      * @param  string $workspace_id (required)
      * @param  \InvoicePDFs\Model\WorkspaceMemberCreateRequest $workspace_member_create_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addWorkspaceMember'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createMemberApiV1WorkspacesWorkspaceIdMembersPostAsyncWithHttpInfo($workspace_id, $workspace_member_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'][0])
+    public function addWorkspaceMemberAsyncWithHttpInfo($workspace_id, $workspace_member_create_request, $idempotency_key = null, string $contentType = self::contentTypes['addWorkspaceMember'][0])
     {
         $returnType = '\InvoicePDFs\Model\WorkspaceMembersListResponse';
-        $request = $this->createMemberApiV1WorkspacesWorkspaceIdMembersPostRequest($workspace_id, $workspace_member_create_request, $idempotency_key, $contentType);
+        $request = $this->addWorkspaceMemberRequest($workspace_id, $workspace_member_create_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -405,30 +405,30 @@ class WorkspacesApi
     }
 
     /**
-     * Create request for operation 'createMemberApiV1WorkspacesWorkspaceIdMembersPost'
+     * Create request for operation 'addWorkspaceMember'
      *
      * @param  string $workspace_id (required)
      * @param  \InvoicePDFs\Model\WorkspaceMemberCreateRequest $workspace_member_create_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addWorkspaceMember'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createMemberApiV1WorkspacesWorkspaceIdMembersPostRequest($workspace_id, $workspace_member_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createMemberApiV1WorkspacesWorkspaceIdMembersPost'][0])
+    public function addWorkspaceMemberRequest($workspace_id, $workspace_member_create_request, $idempotency_key = null, string $contentType = self::contentTypes['addWorkspaceMember'][0])
     {
 
         // verify the required parameter 'workspace_id' is set
         if ($workspace_id === null || (is_array($workspace_id) && count($workspace_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $workspace_id when calling createMemberApiV1WorkspacesWorkspaceIdMembersPost'
+                'Missing the required parameter $workspace_id when calling addWorkspaceMember'
             );
         }
 
         // verify the required parameter 'workspace_member_create_request' is set
         if ($workspace_member_create_request === null || (is_array($workspace_member_create_request) && count($workspace_member_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $workspace_member_create_request when calling createMemberApiV1WorkspacesWorkspaceIdMembersPost'
+                'Missing the required parameter $workspace_member_create_request when calling addWorkspaceMember'
             );
         }
 
@@ -522,40 +522,40 @@ class WorkspacesApi
     }
 
     /**
-     * Operation createWorkspaceApiV1WorkspacesPost
+     * Operation createWorkspace
      *
      * Create Workspace
      *
      * @param  \InvoicePDFs\Model\WorkspaceCreateRequest $workspace_create_request workspace_create_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspaceApiV1WorkspacesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspace'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WorkspaceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createWorkspaceApiV1WorkspacesPost($workspace_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createWorkspaceApiV1WorkspacesPost'][0])
+    public function createWorkspace($workspace_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createWorkspace'][0])
     {
-        list($response) = $this->createWorkspaceApiV1WorkspacesPostWithHttpInfo($workspace_create_request, $idempotency_key, $contentType);
+        list($response) = $this->createWorkspaceWithHttpInfo($workspace_create_request, $idempotency_key, $contentType);
         return $response;
     }
 
     /**
-     * Operation createWorkspaceApiV1WorkspacesPostWithHttpInfo
+     * Operation createWorkspaceWithHttpInfo
      *
      * Create Workspace
      *
      * @param  \InvoicePDFs\Model\WorkspaceCreateRequest $workspace_create_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspaceApiV1WorkspacesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspace'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WorkspaceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createWorkspaceApiV1WorkspacesPostWithHttpInfo($workspace_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createWorkspaceApiV1WorkspacesPost'][0])
+    public function createWorkspaceWithHttpInfo($workspace_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createWorkspace'][0])
     {
-        $request = $this->createWorkspaceApiV1WorkspacesPostRequest($workspace_create_request, $idempotency_key, $contentType);
+        $request = $this->createWorkspaceRequest($workspace_create_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -701,20 +701,20 @@ class WorkspacesApi
     }
 
     /**
-     * Operation createWorkspaceApiV1WorkspacesPostAsync
+     * Operation createWorkspaceAsync
      *
      * Create Workspace
      *
      * @param  \InvoicePDFs\Model\WorkspaceCreateRequest $workspace_create_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspaceApiV1WorkspacesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWorkspaceApiV1WorkspacesPostAsync($workspace_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createWorkspaceApiV1WorkspacesPost'][0])
+    public function createWorkspaceAsync($workspace_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createWorkspace'][0])
     {
-        return $this->createWorkspaceApiV1WorkspacesPostAsyncWithHttpInfo($workspace_create_request, $idempotency_key, $contentType)
+        return $this->createWorkspaceAsyncWithHttpInfo($workspace_create_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -723,21 +723,21 @@ class WorkspacesApi
     }
 
     /**
-     * Operation createWorkspaceApiV1WorkspacesPostAsyncWithHttpInfo
+     * Operation createWorkspaceAsyncWithHttpInfo
      *
      * Create Workspace
      *
      * @param  \InvoicePDFs\Model\WorkspaceCreateRequest $workspace_create_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspaceApiV1WorkspacesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createWorkspaceApiV1WorkspacesPostAsyncWithHttpInfo($workspace_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createWorkspaceApiV1WorkspacesPost'][0])
+    public function createWorkspaceAsyncWithHttpInfo($workspace_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createWorkspace'][0])
     {
         $returnType = '\InvoicePDFs\Model\WorkspaceResponse';
-        $request = $this->createWorkspaceApiV1WorkspacesPostRequest($workspace_create_request, $idempotency_key, $contentType);
+        $request = $this->createWorkspaceRequest($workspace_create_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -776,22 +776,22 @@ class WorkspacesApi
     }
 
     /**
-     * Create request for operation 'createWorkspaceApiV1WorkspacesPost'
+     * Create request for operation 'createWorkspace'
      *
      * @param  \InvoicePDFs\Model\WorkspaceCreateRequest $workspace_create_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspaceApiV1WorkspacesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWorkspace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createWorkspaceApiV1WorkspacesPostRequest($workspace_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createWorkspaceApiV1WorkspacesPost'][0])
+    public function createWorkspaceRequest($workspace_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createWorkspace'][0])
     {
 
         // verify the required parameter 'workspace_create_request' is set
         if ($workspace_create_request === null || (is_array($workspace_create_request) && count($workspace_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $workspace_create_request when calling createWorkspaceApiV1WorkspacesPost'
+                'Missing the required parameter $workspace_create_request when calling createWorkspace'
             );
         }
 
@@ -877,40 +877,38 @@ class WorkspacesApi
     }
 
     /**
-     * Operation deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete
+     * Operation deleteWorkspace
      *
-     * Delete Member
+     * Delete Workspace
      *
      * @param  string $workspace_id workspace_id (required)
-     * @param  string $member_id member_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWorkspace'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete($workspace_id, $member_id, string $contentType = self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'][0])
+    public function deleteWorkspace($workspace_id, string $contentType = self::contentTypes['deleteWorkspace'][0])
     {
-        list($response) = $this->deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteWithHttpInfo($workspace_id, $member_id, $contentType);
+        list($response) = $this->deleteWorkspaceWithHttpInfo($workspace_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteWithHttpInfo
+     * Operation deleteWorkspaceWithHttpInfo
      *
-     * Delete Member
+     * Delete Workspace
      *
      * @param  string $workspace_id (required)
-     * @param  string $member_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWorkspace'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteWithHttpInfo($workspace_id, $member_id, string $contentType = self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'][0])
+    public function deleteWorkspaceWithHttpInfo($workspace_id, string $contentType = self::contentTypes['deleteWorkspace'][0])
     {
-        $request = $this->deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteRequest($workspace_id, $member_id, $contentType);
+        $request = $this->deleteWorkspaceRequest($workspace_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1056,20 +1054,19 @@ class WorkspacesApi
     }
 
     /**
-     * Operation deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteAsync
+     * Operation deleteWorkspaceAsync
      *
-     * Delete Member
+     * Delete Workspace
      *
      * @param  string $workspace_id (required)
-     * @param  string $member_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWorkspace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteAsync($workspace_id, $member_id, string $contentType = self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'][0])
+    public function deleteWorkspaceAsync($workspace_id, string $contentType = self::contentTypes['deleteWorkspace'][0])
     {
-        return $this->deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteAsyncWithHttpInfo($workspace_id, $member_id, $contentType)
+        return $this->deleteWorkspaceAsyncWithHttpInfo($workspace_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1078,21 +1075,20 @@ class WorkspacesApi
     }
 
     /**
-     * Operation deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteAsyncWithHttpInfo
+     * Operation deleteWorkspaceAsyncWithHttpInfo
      *
-     * Delete Member
+     * Delete Workspace
      *
      * @param  string $workspace_id (required)
-     * @param  string $member_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWorkspace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteAsyncWithHttpInfo($workspace_id, $member_id, string $contentType = self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'][0])
+    public function deleteWorkspaceAsyncWithHttpInfo($workspace_id, string $contentType = self::contentTypes['deleteWorkspace'][0])
     {
         $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
-        $request = $this->deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteRequest($workspace_id, $member_id, $contentType);
+        $request = $this->deleteWorkspaceRequest($workspace_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1131,383 +1127,21 @@ class WorkspacesApi
     }
 
     /**
-     * Create request for operation 'deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'
+     * Create request for operation 'deleteWorkspace'
      *
      * @param  string $workspace_id (required)
-     * @param  string $member_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWorkspace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDeleteRequest($workspace_id, $member_id, string $contentType = self::contentTypes['deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'][0])
+    public function deleteWorkspaceRequest($workspace_id, string $contentType = self::contentTypes['deleteWorkspace'][0])
     {
 
         // verify the required parameter 'workspace_id' is set
         if ($workspace_id === null || (is_array($workspace_id) && count($workspace_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $workspace_id when calling deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'
-            );
-        }
-
-        // verify the required parameter 'member_id' is set
-        if ($member_id === null || (is_array($member_id) && count($member_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $member_id when calling deleteMemberApiV1WorkspacesWorkspaceIdMembersMemberIdDelete'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/workspaces/{workspace_id}/members/{member_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($workspace_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'workspace_id' . '}',
-                ObjectSerializer::toPathValue($workspace_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($member_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'member_id' . '}',
-                ObjectSerializer::toPathValue($member_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete
-     *
-     * Delete Workspace
-     *
-     * @param  string $workspace_id workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
-     */
-    public function deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete($workspace_id, string $contentType = self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'][0])
-    {
-        list($response) = $this->deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteWithHttpInfo($workspace_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteWithHttpInfo
-     *
-     * Delete Workspace
-     *
-     * @param  string $workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteWithHttpInfo($workspace_id, string $contentType = self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'][0])
-    {
-        $request = $this->deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteRequest($workspace_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\InvoicePDFs\Model\SimpleBoolResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\SimpleBoolResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\SimpleBoolResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\SimpleBoolResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteAsync
-     *
-     * Delete Workspace
-     *
-     * @param  string $workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteAsync($workspace_id, string $contentType = self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'][0])
-    {
-        return $this->deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteAsyncWithHttpInfo($workspace_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteAsyncWithHttpInfo
-     *
-     * Delete Workspace
-     *
-     * @param  string $workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteAsyncWithHttpInfo($workspace_id, string $contentType = self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'][0])
-    {
-        $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
-        $request = $this->deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteRequest($workspace_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'
-     *
-     * @param  string $workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function deleteWorkspaceApiV1WorkspacesWorkspaceIdDeleteRequest($workspace_id, string $contentType = self::contentTypes['deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'][0])
-    {
-
-        // verify the required parameter 'workspace_id' is set
-        if ($workspace_id === null || (is_array($workspace_id) && count($workspace_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $workspace_id when calling deleteWorkspaceApiV1WorkspacesWorkspaceIdDelete'
+                'Missing the required parameter $workspace_id when calling deleteWorkspace'
             );
         }
 
@@ -1589,38 +1223,38 @@ class WorkspacesApi
     }
 
     /**
-     * Operation getWorkspaceApiV1WorkspacesWorkspaceIdGet
+     * Operation getWorkspace
      *
      * Get Workspace
      *
      * @param  string $workspace_id workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkspace'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WorkspaceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getWorkspaceApiV1WorkspacesWorkspaceIdGet($workspace_id, string $contentType = self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'][0])
+    public function getWorkspace($workspace_id, string $contentType = self::contentTypes['getWorkspace'][0])
     {
-        list($response) = $this->getWorkspaceApiV1WorkspacesWorkspaceIdGetWithHttpInfo($workspace_id, $contentType);
+        list($response) = $this->getWorkspaceWithHttpInfo($workspace_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getWorkspaceApiV1WorkspacesWorkspaceIdGetWithHttpInfo
+     * Operation getWorkspaceWithHttpInfo
      *
      * Get Workspace
      *
      * @param  string $workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkspace'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WorkspaceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWorkspaceApiV1WorkspacesWorkspaceIdGetWithHttpInfo($workspace_id, string $contentType = self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'][0])
+    public function getWorkspaceWithHttpInfo($workspace_id, string $contentType = self::contentTypes['getWorkspace'][0])
     {
-        $request = $this->getWorkspaceApiV1WorkspacesWorkspaceIdGetRequest($workspace_id, $contentType);
+        $request = $this->getWorkspaceRequest($workspace_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1766,19 +1400,19 @@ class WorkspacesApi
     }
 
     /**
-     * Operation getWorkspaceApiV1WorkspacesWorkspaceIdGetAsync
+     * Operation getWorkspaceAsync
      *
      * Get Workspace
      *
      * @param  string $workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkspace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkspaceApiV1WorkspacesWorkspaceIdGetAsync($workspace_id, string $contentType = self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'][0])
+    public function getWorkspaceAsync($workspace_id, string $contentType = self::contentTypes['getWorkspace'][0])
     {
-        return $this->getWorkspaceApiV1WorkspacesWorkspaceIdGetAsyncWithHttpInfo($workspace_id, $contentType)
+        return $this->getWorkspaceAsyncWithHttpInfo($workspace_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1787,20 +1421,20 @@ class WorkspacesApi
     }
 
     /**
-     * Operation getWorkspaceApiV1WorkspacesWorkspaceIdGetAsyncWithHttpInfo
+     * Operation getWorkspaceAsyncWithHttpInfo
      *
      * Get Workspace
      *
      * @param  string $workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkspace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWorkspaceApiV1WorkspacesWorkspaceIdGetAsyncWithHttpInfo($workspace_id, string $contentType = self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'][0])
+    public function getWorkspaceAsyncWithHttpInfo($workspace_id, string $contentType = self::contentTypes['getWorkspace'][0])
     {
         $returnType = '\InvoicePDFs\Model\WorkspaceResponse';
-        $request = $this->getWorkspaceApiV1WorkspacesWorkspaceIdGetRequest($workspace_id, $contentType);
+        $request = $this->getWorkspaceRequest($workspace_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1839,21 +1473,21 @@ class WorkspacesApi
     }
 
     /**
-     * Create request for operation 'getWorkspaceApiV1WorkspacesWorkspaceIdGet'
+     * Create request for operation 'getWorkspace'
      *
      * @param  string $workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWorkspace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWorkspaceApiV1WorkspacesWorkspaceIdGetRequest($workspace_id, string $contentType = self::contentTypes['getWorkspaceApiV1WorkspacesWorkspaceIdGet'][0])
+    public function getWorkspaceRequest($workspace_id, string $contentType = self::contentTypes['getWorkspace'][0])
     {
 
         // verify the required parameter 'workspace_id' is set
         if ($workspace_id === null || (is_array($workspace_id) && count($workspace_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $workspace_id when calling getWorkspaceApiV1WorkspacesWorkspaceIdGet'
+                'Missing the required parameter $workspace_id when calling getWorkspace'
             );
         }
 
@@ -1935,38 +1569,38 @@ class WorkspacesApi
     }
 
     /**
-     * Operation listMembersApiV1WorkspacesWorkspaceIdMembersGet
+     * Operation listWorkspaceMembers
      *
-     * List Members
+     * List Workspace Members
      *
      * @param  string $workspace_id workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspaceMembers'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WorkspaceMembersListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listMembersApiV1WorkspacesWorkspaceIdMembersGet($workspace_id, string $contentType = self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'][0])
+    public function listWorkspaceMembers($workspace_id, string $contentType = self::contentTypes['listWorkspaceMembers'][0])
     {
-        list($response) = $this->listMembersApiV1WorkspacesWorkspaceIdMembersGetWithHttpInfo($workspace_id, $contentType);
+        list($response) = $this->listWorkspaceMembersWithHttpInfo($workspace_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation listMembersApiV1WorkspacesWorkspaceIdMembersGetWithHttpInfo
+     * Operation listWorkspaceMembersWithHttpInfo
      *
-     * List Members
+     * List Workspace Members
      *
      * @param  string $workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspaceMembers'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WorkspaceMembersListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listMembersApiV1WorkspacesWorkspaceIdMembersGetWithHttpInfo($workspace_id, string $contentType = self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'][0])
+    public function listWorkspaceMembersWithHttpInfo($workspace_id, string $contentType = self::contentTypes['listWorkspaceMembers'][0])
     {
-        $request = $this->listMembersApiV1WorkspacesWorkspaceIdMembersGetRequest($workspace_id, $contentType);
+        $request = $this->listWorkspaceMembersRequest($workspace_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2112,19 +1746,19 @@ class WorkspacesApi
     }
 
     /**
-     * Operation listMembersApiV1WorkspacesWorkspaceIdMembersGetAsync
+     * Operation listWorkspaceMembersAsync
      *
-     * List Members
+     * List Workspace Members
      *
      * @param  string $workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspaceMembers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listMembersApiV1WorkspacesWorkspaceIdMembersGetAsync($workspace_id, string $contentType = self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'][0])
+    public function listWorkspaceMembersAsync($workspace_id, string $contentType = self::contentTypes['listWorkspaceMembers'][0])
     {
-        return $this->listMembersApiV1WorkspacesWorkspaceIdMembersGetAsyncWithHttpInfo($workspace_id, $contentType)
+        return $this->listWorkspaceMembersAsyncWithHttpInfo($workspace_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2133,20 +1767,20 @@ class WorkspacesApi
     }
 
     /**
-     * Operation listMembersApiV1WorkspacesWorkspaceIdMembersGetAsyncWithHttpInfo
+     * Operation listWorkspaceMembersAsyncWithHttpInfo
      *
-     * List Members
+     * List Workspace Members
      *
      * @param  string $workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspaceMembers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listMembersApiV1WorkspacesWorkspaceIdMembersGetAsyncWithHttpInfo($workspace_id, string $contentType = self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'][0])
+    public function listWorkspaceMembersAsyncWithHttpInfo($workspace_id, string $contentType = self::contentTypes['listWorkspaceMembers'][0])
     {
         $returnType = '\InvoicePDFs\Model\WorkspaceMembersListResponse';
-        $request = $this->listMembersApiV1WorkspacesWorkspaceIdMembersGetRequest($workspace_id, $contentType);
+        $request = $this->listWorkspaceMembersRequest($workspace_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2185,21 +1819,21 @@ class WorkspacesApi
     }
 
     /**
-     * Create request for operation 'listMembersApiV1WorkspacesWorkspaceIdMembersGet'
+     * Create request for operation 'listWorkspaceMembers'
      *
      * @param  string $workspace_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspaceMembers'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listMembersApiV1WorkspacesWorkspaceIdMembersGetRequest($workspace_id, string $contentType = self::contentTypes['listMembersApiV1WorkspacesWorkspaceIdMembersGet'][0])
+    public function listWorkspaceMembersRequest($workspace_id, string $contentType = self::contentTypes['listWorkspaceMembers'][0])
     {
 
         // verify the required parameter 'workspace_id' is set
         if ($workspace_id === null || (is_array($workspace_id) && count($workspace_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $workspace_id when calling listMembersApiV1WorkspacesWorkspaceIdMembersGet'
+                'Missing the required parameter $workspace_id when calling listWorkspaceMembers'
             );
         }
 
@@ -2281,40 +1915,40 @@ class WorkspacesApi
     }
 
     /**
-     * Operation listWorkspacesApiV1WorkspacesGet
+     * Operation listWorkspaces
      *
      * List Workspaces
      *
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspacesApiV1WorkspacesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspaces'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WorkspacesListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listWorkspacesApiV1WorkspacesGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWorkspacesApiV1WorkspacesGet'][0])
+    public function listWorkspaces($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWorkspaces'][0])
     {
-        list($response) = $this->listWorkspacesApiV1WorkspacesGetWithHttpInfo($limit, $cursor, $contentType);
+        list($response) = $this->listWorkspacesWithHttpInfo($limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listWorkspacesApiV1WorkspacesGetWithHttpInfo
+     * Operation listWorkspacesWithHttpInfo
      *
      * List Workspaces
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspacesApiV1WorkspacesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspaces'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WorkspacesListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listWorkspacesApiV1WorkspacesGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWorkspacesApiV1WorkspacesGet'][0])
+    public function listWorkspacesWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWorkspaces'][0])
     {
-        $request = $this->listWorkspacesApiV1WorkspacesGetRequest($limit, $cursor, $contentType);
+        $request = $this->listWorkspacesRequest($limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2460,20 +2094,20 @@ class WorkspacesApi
     }
 
     /**
-     * Operation listWorkspacesApiV1WorkspacesGetAsync
+     * Operation listWorkspacesAsync
      *
      * List Workspaces
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspacesApiV1WorkspacesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspaces'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listWorkspacesApiV1WorkspacesGetAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWorkspacesApiV1WorkspacesGet'][0])
+    public function listWorkspacesAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWorkspaces'][0])
     {
-        return $this->listWorkspacesApiV1WorkspacesGetAsyncWithHttpInfo($limit, $cursor, $contentType)
+        return $this->listWorkspacesAsyncWithHttpInfo($limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2482,21 +2116,21 @@ class WorkspacesApi
     }
 
     /**
-     * Operation listWorkspacesApiV1WorkspacesGetAsyncWithHttpInfo
+     * Operation listWorkspacesAsyncWithHttpInfo
      *
      * List Workspaces
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspacesApiV1WorkspacesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspaces'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listWorkspacesApiV1WorkspacesGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWorkspacesApiV1WorkspacesGet'][0])
+    public function listWorkspacesAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWorkspaces'][0])
     {
         $returnType = '\InvoicePDFs\Model\WorkspacesListResponse';
-        $request = $this->listWorkspacesApiV1WorkspacesGetRequest($limit, $cursor, $contentType);
+        $request = $this->listWorkspacesRequest($limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2535,23 +2169,23 @@ class WorkspacesApi
     }
 
     /**
-     * Create request for operation 'listWorkspacesApiV1WorkspacesGet'
+     * Create request for operation 'listWorkspaces'
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspacesApiV1WorkspacesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listWorkspaces'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listWorkspacesApiV1WorkspacesGetRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWorkspacesApiV1WorkspacesGet'][0])
+    public function listWorkspacesRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listWorkspaces'][0])
     {
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling WorkspacesApi.listWorkspacesApiV1WorkspacesGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WorkspacesApi.listWorkspaces, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling WorkspacesApi.listWorkspacesApiV1WorkspacesGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling WorkspacesApi.listWorkspaces, must be bigger than or equal to 1.');
         }
         
 
@@ -2643,42 +2277,40 @@ class WorkspacesApi
     }
 
     /**
-     * Operation patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch
+     * Operation removeWorkspaceMember
      *
-     * Patch Member
+     * Remove Workspace Member
      *
      * @param  string $workspace_id workspace_id (required)
      * @param  string $member_id member_id (required)
-     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request workspace_member_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeWorkspaceMember'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\WorkspaceMemberOut|\InvoicePDFs\Model\ApiErrorResponse
+     * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch($workspace_id, $member_id, $workspace_member_patch_request, string $contentType = self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'][0])
+    public function removeWorkspaceMember($workspace_id, $member_id, string $contentType = self::contentTypes['removeWorkspaceMember'][0])
     {
-        list($response) = $this->patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchWithHttpInfo($workspace_id, $member_id, $workspace_member_patch_request, $contentType);
+        list($response) = $this->removeWorkspaceMemberWithHttpInfo($workspace_id, $member_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchWithHttpInfo
+     * Operation removeWorkspaceMemberWithHttpInfo
      *
-     * Patch Member
+     * Remove Workspace Member
      *
      * @param  string $workspace_id (required)
      * @param  string $member_id (required)
-     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeWorkspaceMember'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\WorkspaceMemberOut|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchWithHttpInfo($workspace_id, $member_id, $workspace_member_patch_request, string $contentType = self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'][0])
+    public function removeWorkspaceMemberWithHttpInfo($workspace_id, $member_id, string $contentType = self::contentTypes['removeWorkspaceMember'][0])
     {
-        $request = $this->patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchRequest($workspace_id, $member_id, $workspace_member_patch_request, $contentType);
+        $request = $this->removeWorkspaceMemberRequest($workspace_id, $member_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2717,11 +2349,11 @@ class WorkspacesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\InvoicePDFs\Model\WorkspaceMemberOut' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\SimpleBoolResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\WorkspaceMemberOut' !== 'string') {
+                        if ('\InvoicePDFs\Model\SimpleBoolResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2739,7 +2371,7 @@ class WorkspacesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WorkspaceMemberOut', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\SimpleBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2772,7 +2404,7 @@ class WorkspacesApi
                     ];
             }
 
-            $returnType = '\InvoicePDFs\Model\WorkspaceMemberOut';
+            $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2805,7 +2437,7 @@ class WorkspacesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\WorkspaceMemberOut',
+                        '\InvoicePDFs\Model\SimpleBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2824,21 +2456,20 @@ class WorkspacesApi
     }
 
     /**
-     * Operation patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchAsync
+     * Operation removeWorkspaceMemberAsync
      *
-     * Patch Member
+     * Remove Workspace Member
      *
      * @param  string $workspace_id (required)
      * @param  string $member_id (required)
-     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeWorkspaceMember'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchAsync($workspace_id, $member_id, $workspace_member_patch_request, string $contentType = self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'][0])
+    public function removeWorkspaceMemberAsync($workspace_id, $member_id, string $contentType = self::contentTypes['removeWorkspaceMember'][0])
     {
-        return $this->patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchAsyncWithHttpInfo($workspace_id, $member_id, $workspace_member_patch_request, $contentType)
+        return $this->removeWorkspaceMemberAsyncWithHttpInfo($workspace_id, $member_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2847,22 +2478,21 @@ class WorkspacesApi
     }
 
     /**
-     * Operation patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchAsyncWithHttpInfo
+     * Operation removeWorkspaceMemberAsyncWithHttpInfo
      *
-     * Patch Member
+     * Remove Workspace Member
      *
      * @param  string $workspace_id (required)
      * @param  string $member_id (required)
-     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeWorkspaceMember'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchAsyncWithHttpInfo($workspace_id, $member_id, $workspace_member_patch_request, string $contentType = self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'][0])
+    public function removeWorkspaceMemberAsyncWithHttpInfo($workspace_id, $member_id, string $contentType = self::contentTypes['removeWorkspaceMember'][0])
     {
-        $returnType = '\InvoicePDFs\Model\WorkspaceMemberOut';
-        $request = $this->patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchRequest($workspace_id, $member_id, $workspace_member_patch_request, $contentType);
+        $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
+        $request = $this->removeWorkspaceMemberRequest($workspace_id, $member_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2901,37 +2531,29 @@ class WorkspacesApi
     }
 
     /**
-     * Create request for operation 'patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'
+     * Create request for operation 'removeWorkspaceMember'
      *
      * @param  string $workspace_id (required)
      * @param  string $member_id (required)
-     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeWorkspaceMember'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatchRequest($workspace_id, $member_id, $workspace_member_patch_request, string $contentType = self::contentTypes['patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'][0])
+    public function removeWorkspaceMemberRequest($workspace_id, $member_id, string $contentType = self::contentTypes['removeWorkspaceMember'][0])
     {
 
         // verify the required parameter 'workspace_id' is set
         if ($workspace_id === null || (is_array($workspace_id) && count($workspace_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $workspace_id when calling patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'
+                'Missing the required parameter $workspace_id when calling removeWorkspaceMember'
             );
         }
 
         // verify the required parameter 'member_id' is set
         if ($member_id === null || (is_array($member_id) && count($member_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $member_id when calling patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'
-            );
-        }
-
-        // verify the required parameter 'workspace_member_patch_request' is set
-        if ($workspace_member_patch_request === null || (is_array($workspace_member_patch_request) && count($workspace_member_patch_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $workspace_member_patch_request when calling patchMemberApiV1WorkspacesWorkspaceIdMembersMemberIdPatch'
+                'Missing the required parameter $member_id when calling removeWorkspaceMember'
             );
         }
 
@@ -2970,14 +2592,7 @@ class WorkspacesApi
         );
 
         // for model (json/xml)
-        if (isset($workspace_member_patch_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($workspace_member_patch_request));
-            } else {
-                $httpBody = $workspace_member_patch_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -3020,7 +2635,7 @@ class WorkspacesApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'PATCH',
+            'DELETE',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -3028,42 +2643,42 @@ class WorkspacesApi
     }
 
     /**
-     * Operation patchWorkspaceApiV1WorkspacesWorkspaceIdPatch
+     * Operation updateWorkspace
      *
-     * Patch Workspace
+     * Update Workspace
      *
      * @param  string $workspace_id workspace_id (required)
      * @param  \InvoicePDFs\Model\WorkspacePatchRequest $workspace_patch_request workspace_patch_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWorkspace'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\WorkspaceResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function patchWorkspaceApiV1WorkspacesWorkspaceIdPatch($workspace_id, $workspace_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'][0])
+    public function updateWorkspace($workspace_id, $workspace_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['updateWorkspace'][0])
     {
-        list($response) = $this->patchWorkspaceApiV1WorkspacesWorkspaceIdPatchWithHttpInfo($workspace_id, $workspace_patch_request, $idempotency_key, $contentType);
+        list($response) = $this->updateWorkspaceWithHttpInfo($workspace_id, $workspace_patch_request, $idempotency_key, $contentType);
         return $response;
     }
 
     /**
-     * Operation patchWorkspaceApiV1WorkspacesWorkspaceIdPatchWithHttpInfo
+     * Operation updateWorkspaceWithHttpInfo
      *
-     * Patch Workspace
+     * Update Workspace
      *
      * @param  string $workspace_id (required)
      * @param  \InvoicePDFs\Model\WorkspacePatchRequest $workspace_patch_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWorkspace'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\WorkspaceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchWorkspaceApiV1WorkspacesWorkspaceIdPatchWithHttpInfo($workspace_id, $workspace_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'][0])
+    public function updateWorkspaceWithHttpInfo($workspace_id, $workspace_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['updateWorkspace'][0])
     {
-        $request = $this->patchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest($workspace_id, $workspace_patch_request, $idempotency_key, $contentType);
+        $request = $this->updateWorkspaceRequest($workspace_id, $workspace_patch_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3209,21 +2824,21 @@ class WorkspacesApi
     }
 
     /**
-     * Operation patchWorkspaceApiV1WorkspacesWorkspaceIdPatchAsync
+     * Operation updateWorkspaceAsync
      *
-     * Patch Workspace
+     * Update Workspace
      *
      * @param  string $workspace_id (required)
      * @param  \InvoicePDFs\Model\WorkspacePatchRequest $workspace_patch_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWorkspace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWorkspaceApiV1WorkspacesWorkspaceIdPatchAsync($workspace_id, $workspace_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'][0])
+    public function updateWorkspaceAsync($workspace_id, $workspace_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['updateWorkspace'][0])
     {
-        return $this->patchWorkspaceApiV1WorkspacesWorkspaceIdPatchAsyncWithHttpInfo($workspace_id, $workspace_patch_request, $idempotency_key, $contentType)
+        return $this->updateWorkspaceAsyncWithHttpInfo($workspace_id, $workspace_patch_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3232,22 +2847,22 @@ class WorkspacesApi
     }
 
     /**
-     * Operation patchWorkspaceApiV1WorkspacesWorkspaceIdPatchAsyncWithHttpInfo
+     * Operation updateWorkspaceAsyncWithHttpInfo
      *
-     * Patch Workspace
+     * Update Workspace
      *
      * @param  string $workspace_id (required)
      * @param  \InvoicePDFs\Model\WorkspacePatchRequest $workspace_patch_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWorkspace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchWorkspaceApiV1WorkspacesWorkspaceIdPatchAsyncWithHttpInfo($workspace_id, $workspace_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'][0])
+    public function updateWorkspaceAsyncWithHttpInfo($workspace_id, $workspace_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['updateWorkspace'][0])
     {
         $returnType = '\InvoicePDFs\Model\WorkspaceResponse';
-        $request = $this->patchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest($workspace_id, $workspace_patch_request, $idempotency_key, $contentType);
+        $request = $this->updateWorkspaceRequest($workspace_id, $workspace_patch_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3286,30 +2901,30 @@ class WorkspacesApi
     }
 
     /**
-     * Create request for operation 'patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'
+     * Create request for operation 'updateWorkspace'
      *
      * @param  string $workspace_id (required)
      * @param  \InvoicePDFs\Model\WorkspacePatchRequest $workspace_patch_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWorkspace'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function patchWorkspaceApiV1WorkspacesWorkspaceIdPatchRequest($workspace_id, $workspace_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'][0])
+    public function updateWorkspaceRequest($workspace_id, $workspace_patch_request, $idempotency_key = null, string $contentType = self::contentTypes['updateWorkspace'][0])
     {
 
         // verify the required parameter 'workspace_id' is set
         if ($workspace_id === null || (is_array($workspace_id) && count($workspace_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $workspace_id when calling patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'
+                'Missing the required parameter $workspace_id when calling updateWorkspace'
             );
         }
 
         // verify the required parameter 'workspace_patch_request' is set
         if ($workspace_patch_request === null || (is_array($workspace_patch_request) && count($workspace_patch_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $workspace_patch_request when calling patchWorkspaceApiV1WorkspacesWorkspaceIdPatch'
+                'Missing the required parameter $workspace_patch_request when calling updateWorkspace'
             );
         }
 
@@ -3351,6 +2966,391 @@ class WorkspacesApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($workspace_patch_request));
             } else {
                 $httpBody = $workspace_patch_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateWorkspaceMember
+     *
+     * Update Workspace Member
+     *
+     * @param  string $workspace_id workspace_id (required)
+     * @param  string $member_id member_id (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request workspace_member_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWorkspaceMember'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\WorkspaceMemberOut|\InvoicePDFs\Model\ApiErrorResponse
+     */
+    public function updateWorkspaceMember($workspace_id, $member_id, $workspace_member_patch_request, string $contentType = self::contentTypes['updateWorkspaceMember'][0])
+    {
+        list($response) = $this->updateWorkspaceMemberWithHttpInfo($workspace_id, $member_id, $workspace_member_patch_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateWorkspaceMemberWithHttpInfo
+     *
+     * Update Workspace Member
+     *
+     * @param  string $workspace_id (required)
+     * @param  string $member_id (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWorkspaceMember'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\WorkspaceMemberOut|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateWorkspaceMemberWithHttpInfo($workspace_id, $member_id, $workspace_member_patch_request, string $contentType = self::contentTypes['updateWorkspaceMember'][0])
+    {
+        $request = $this->updateWorkspaceMemberRequest($workspace_id, $member_id, $workspace_member_patch_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\WorkspaceMemberOut' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\WorkspaceMemberOut' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WorkspaceMemberOut', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\WorkspaceMemberOut';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\WorkspaceMemberOut',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateWorkspaceMemberAsync
+     *
+     * Update Workspace Member
+     *
+     * @param  string $workspace_id (required)
+     * @param  string $member_id (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWorkspaceMember'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateWorkspaceMemberAsync($workspace_id, $member_id, $workspace_member_patch_request, string $contentType = self::contentTypes['updateWorkspaceMember'][0])
+    {
+        return $this->updateWorkspaceMemberAsyncWithHttpInfo($workspace_id, $member_id, $workspace_member_patch_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateWorkspaceMemberAsyncWithHttpInfo
+     *
+     * Update Workspace Member
+     *
+     * @param  string $workspace_id (required)
+     * @param  string $member_id (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWorkspaceMember'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateWorkspaceMemberAsyncWithHttpInfo($workspace_id, $member_id, $workspace_member_patch_request, string $contentType = self::contentTypes['updateWorkspaceMember'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\WorkspaceMemberOut';
+        $request = $this->updateWorkspaceMemberRequest($workspace_id, $member_id, $workspace_member_patch_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateWorkspaceMember'
+     *
+     * @param  string $workspace_id (required)
+     * @param  string $member_id (required)
+     * @param  \InvoicePDFs\Model\WorkspaceMemberPatchRequest $workspace_member_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateWorkspaceMember'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateWorkspaceMemberRequest($workspace_id, $member_id, $workspace_member_patch_request, string $contentType = self::contentTypes['updateWorkspaceMember'][0])
+    {
+
+        // verify the required parameter 'workspace_id' is set
+        if ($workspace_id === null || (is_array($workspace_id) && count($workspace_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $workspace_id when calling updateWorkspaceMember'
+            );
+        }
+
+        // verify the required parameter 'member_id' is set
+        if ($member_id === null || (is_array($member_id) && count($member_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $member_id when calling updateWorkspaceMember'
+            );
+        }
+
+        // verify the required parameter 'workspace_member_patch_request' is set
+        if ($workspace_member_patch_request === null || (is_array($workspace_member_patch_request) && count($workspace_member_patch_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $workspace_member_patch_request when calling updateWorkspaceMember'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/workspaces/{workspace_id}/members/{member_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($workspace_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'workspace_id' . '}',
+                ObjectSerializer::toPathValue($workspace_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($member_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'member_id' . '}',
+                ObjectSerializer::toPathValue($member_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($workspace_member_patch_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($workspace_member_patch_request));
+            } else {
+                $httpBody = $workspace_member_patch_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

@@ -71,10 +71,10 @@ class RendersApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'downloadRenderApiV1RendersRenderIdDownloadGet' => [
+        'downloadRender' => [
             'application/json',
         ],
-        'getRenderApiV1RendersRenderIdGet' => [
+        'getRender' => [
             'application/json',
         ],
     ];
@@ -126,38 +126,38 @@ class RendersApi
     }
 
     /**
-     * Operation downloadRenderApiV1RendersRenderIdDownloadGet
+     * Operation downloadRender
      *
      * Download Render
      *
      * @param  string $render_id render_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRenderApiV1RendersRenderIdDownloadGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRender'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \SplFileObject|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function downloadRenderApiV1RendersRenderIdDownloadGet($render_id, string $contentType = self::contentTypes['downloadRenderApiV1RendersRenderIdDownloadGet'][0])
+    public function downloadRender($render_id, string $contentType = self::contentTypes['downloadRender'][0])
     {
-        list($response) = $this->downloadRenderApiV1RendersRenderIdDownloadGetWithHttpInfo($render_id, $contentType);
+        list($response) = $this->downloadRenderWithHttpInfo($render_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation downloadRenderApiV1RendersRenderIdDownloadGetWithHttpInfo
+     * Operation downloadRenderWithHttpInfo
      *
      * Download Render
      *
      * @param  string $render_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRenderApiV1RendersRenderIdDownloadGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRender'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function downloadRenderApiV1RendersRenderIdDownloadGetWithHttpInfo($render_id, string $contentType = self::contentTypes['downloadRenderApiV1RendersRenderIdDownloadGet'][0])
+    public function downloadRenderWithHttpInfo($render_id, string $contentType = self::contentTypes['downloadRender'][0])
     {
-        $request = $this->downloadRenderApiV1RendersRenderIdDownloadGetRequest($render_id, $contentType);
+        $request = $this->downloadRenderRequest($render_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -303,19 +303,19 @@ class RendersApi
     }
 
     /**
-     * Operation downloadRenderApiV1RendersRenderIdDownloadGetAsync
+     * Operation downloadRenderAsync
      *
      * Download Render
      *
      * @param  string $render_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRenderApiV1RendersRenderIdDownloadGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRender'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadRenderApiV1RendersRenderIdDownloadGetAsync($render_id, string $contentType = self::contentTypes['downloadRenderApiV1RendersRenderIdDownloadGet'][0])
+    public function downloadRenderAsync($render_id, string $contentType = self::contentTypes['downloadRender'][0])
     {
-        return $this->downloadRenderApiV1RendersRenderIdDownloadGetAsyncWithHttpInfo($render_id, $contentType)
+        return $this->downloadRenderAsyncWithHttpInfo($render_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -324,20 +324,20 @@ class RendersApi
     }
 
     /**
-     * Operation downloadRenderApiV1RendersRenderIdDownloadGetAsyncWithHttpInfo
+     * Operation downloadRenderAsyncWithHttpInfo
      *
      * Download Render
      *
      * @param  string $render_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRenderApiV1RendersRenderIdDownloadGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRender'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadRenderApiV1RendersRenderIdDownloadGetAsyncWithHttpInfo($render_id, string $contentType = self::contentTypes['downloadRenderApiV1RendersRenderIdDownloadGet'][0])
+    public function downloadRenderAsyncWithHttpInfo($render_id, string $contentType = self::contentTypes['downloadRender'][0])
     {
         $returnType = '\SplFileObject';
-        $request = $this->downloadRenderApiV1RendersRenderIdDownloadGetRequest($render_id, $contentType);
+        $request = $this->downloadRenderRequest($render_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -376,21 +376,21 @@ class RendersApi
     }
 
     /**
-     * Create request for operation 'downloadRenderApiV1RendersRenderIdDownloadGet'
+     * Create request for operation 'downloadRender'
      *
      * @param  string $render_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRenderApiV1RendersRenderIdDownloadGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRender'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function downloadRenderApiV1RendersRenderIdDownloadGetRequest($render_id, string $contentType = self::contentTypes['downloadRenderApiV1RendersRenderIdDownloadGet'][0])
+    public function downloadRenderRequest($render_id, string $contentType = self::contentTypes['downloadRender'][0])
     {
 
         // verify the required parameter 'render_id' is set
         if ($render_id === null || (is_array($render_id) && count($render_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $render_id when calling downloadRenderApiV1RendersRenderIdDownloadGet'
+                'Missing the required parameter $render_id when calling downloadRender'
             );
         }
 
@@ -472,38 +472,38 @@ class RendersApi
     }
 
     /**
-     * Operation getRenderApiV1RendersRenderIdGet
+     * Operation getRender
      *
      * Get Render
      *
      * @param  string $render_id render_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRenderApiV1RendersRenderIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRender'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,mixed>|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getRenderApiV1RendersRenderIdGet($render_id, string $contentType = self::contentTypes['getRenderApiV1RendersRenderIdGet'][0])
+    public function getRender($render_id, string $contentType = self::contentTypes['getRender'][0])
     {
-        list($response) = $this->getRenderApiV1RendersRenderIdGetWithHttpInfo($render_id, $contentType);
+        list($response) = $this->getRenderWithHttpInfo($render_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getRenderApiV1RendersRenderIdGetWithHttpInfo
+     * Operation getRenderWithHttpInfo
      *
      * Get Render
      *
      * @param  string $render_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRenderApiV1RendersRenderIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRender'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,mixed>|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRenderApiV1RendersRenderIdGetWithHttpInfo($render_id, string $contentType = self::contentTypes['getRenderApiV1RendersRenderIdGet'][0])
+    public function getRenderWithHttpInfo($render_id, string $contentType = self::contentTypes['getRender'][0])
     {
-        $request = $this->getRenderApiV1RendersRenderIdGetRequest($render_id, $contentType);
+        $request = $this->getRenderRequest($render_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -649,19 +649,19 @@ class RendersApi
     }
 
     /**
-     * Operation getRenderApiV1RendersRenderIdGetAsync
+     * Operation getRenderAsync
      *
      * Get Render
      *
      * @param  string $render_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRenderApiV1RendersRenderIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRender'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRenderApiV1RendersRenderIdGetAsync($render_id, string $contentType = self::contentTypes['getRenderApiV1RendersRenderIdGet'][0])
+    public function getRenderAsync($render_id, string $contentType = self::contentTypes['getRender'][0])
     {
-        return $this->getRenderApiV1RendersRenderIdGetAsyncWithHttpInfo($render_id, $contentType)
+        return $this->getRenderAsyncWithHttpInfo($render_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -670,20 +670,20 @@ class RendersApi
     }
 
     /**
-     * Operation getRenderApiV1RendersRenderIdGetAsyncWithHttpInfo
+     * Operation getRenderAsyncWithHttpInfo
      *
      * Get Render
      *
      * @param  string $render_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRenderApiV1RendersRenderIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRender'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRenderApiV1RendersRenderIdGetAsyncWithHttpInfo($render_id, string $contentType = self::contentTypes['getRenderApiV1RendersRenderIdGet'][0])
+    public function getRenderAsyncWithHttpInfo($render_id, string $contentType = self::contentTypes['getRender'][0])
     {
         $returnType = 'array<string,mixed>';
-        $request = $this->getRenderApiV1RendersRenderIdGetRequest($render_id, $contentType);
+        $request = $this->getRenderRequest($render_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -722,21 +722,21 @@ class RendersApi
     }
 
     /**
-     * Create request for operation 'getRenderApiV1RendersRenderIdGet'
+     * Create request for operation 'getRender'
      *
      * @param  string $render_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRenderApiV1RendersRenderIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRender'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRenderApiV1RendersRenderIdGetRequest($render_id, string $contentType = self::contentTypes['getRenderApiV1RendersRenderIdGet'][0])
+    public function getRenderRequest($render_id, string $contentType = self::contentTypes['getRender'][0])
     {
 
         // verify the required parameter 'render_id' is set
         if ($render_id === null || (is_array($render_id) && count($render_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $render_id when calling getRenderApiV1RendersRenderIdGet'
+                'Missing the required parameter $render_id when calling getRender'
             );
         }
 

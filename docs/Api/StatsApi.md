@@ -4,13 +4,13 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getStatsApiV1StatsGet()**](StatsApi.md#getStatsApiV1StatsGet) | **GET** /api/v1/stats | Get Stats |
+| [**getStats()**](StatsApi.md#getStats) | **GET** /api/v1/stats | Get Stats |
 
 
-## `getStatsApiV1StatsGet()`
+## `getStats()`
 
 ```php
-getStatsApiV1StatsGet(): \InvoicePDFs\Model\StatsResponse
+getStats(): \InvoicePDFs\Model\StatsResponse
 ```
 
 Get Stats
@@ -34,10 +34,10 @@ $apiInstance = new InvoicePDFs\Api\StatsApi(
 );
 
 try {
-    $result = $apiInstance->getStatsApiV1StatsGet();
+    $result = $apiInstance->getStats();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling StatsApi->getStatsApiV1StatsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling StatsApi->getStats: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

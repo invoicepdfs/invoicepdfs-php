@@ -4,23 +4,23 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createProfileApiV1BrandingProfilesPost()**](BrandingProfilesApi.md#createProfileApiV1BrandingProfilesPost) | **POST** /api/v1/branding-profiles | Create Profile |
-| [**deleteLogoApiV1BrandingProfilesProfileIdLogoDelete()**](BrandingProfilesApi.md#deleteLogoApiV1BrandingProfilesProfileIdLogoDelete) | **DELETE** /api/v1/branding-profiles/{profile_id}/logo | Delete Logo |
-| [**deleteProfileApiV1BrandingProfilesProfileIdDelete()**](BrandingProfilesApi.md#deleteProfileApiV1BrandingProfilesProfileIdDelete) | **DELETE** /api/v1/branding-profiles/{profile_id} | Delete Profile |
-| [**getProfileApiV1BrandingProfilesProfileIdGet()**](BrandingProfilesApi.md#getProfileApiV1BrandingProfilesProfileIdGet) | **GET** /api/v1/branding-profiles/{profile_id} | Get Profile |
-| [**listProfilesApiV1BrandingProfilesGet()**](BrandingProfilesApi.md#listProfilesApiV1BrandingProfilesGet) | **GET** /api/v1/branding-profiles | List Profiles |
-| [**setDefaultApiV1BrandingProfilesProfileIdDefaultPost()**](BrandingProfilesApi.md#setDefaultApiV1BrandingProfilesProfileIdDefaultPost) | **POST** /api/v1/branding-profiles/{profile_id}/default | Set Default |
-| [**updateProfileApiV1BrandingProfilesProfileIdPatch()**](BrandingProfilesApi.md#updateProfileApiV1BrandingProfilesProfileIdPatch) | **PATCH** /api/v1/branding-profiles/{profile_id} | Update Profile |
-| [**uploadLogoApiV1BrandingProfilesProfileIdLogoPost()**](BrandingProfilesApi.md#uploadLogoApiV1BrandingProfilesProfileIdLogoPost) | **POST** /api/v1/branding-profiles/{profile_id}/logo | Upload Logo |
+| [**createBrandingProfile()**](BrandingProfilesApi.md#createBrandingProfile) | **POST** /api/v1/branding-profiles | Create Branding Profile |
+| [**deleteBrandingLogo()**](BrandingProfilesApi.md#deleteBrandingLogo) | **DELETE** /api/v1/branding-profiles/{profile_id}/logo | Delete Branding Logo |
+| [**deleteBrandingProfile()**](BrandingProfilesApi.md#deleteBrandingProfile) | **DELETE** /api/v1/branding-profiles/{profile_id} | Delete Branding Profile |
+| [**getBrandingProfile()**](BrandingProfilesApi.md#getBrandingProfile) | **GET** /api/v1/branding-profiles/{profile_id} | Get Branding Profile |
+| [**listBrandingProfiles()**](BrandingProfilesApi.md#listBrandingProfiles) | **GET** /api/v1/branding-profiles | List Branding Profiles |
+| [**setDefaultBrandingProfile()**](BrandingProfilesApi.md#setDefaultBrandingProfile) | **POST** /api/v1/branding-profiles/{profile_id}/default | Set Default Branding Profile |
+| [**updateBrandingProfile()**](BrandingProfilesApi.md#updateBrandingProfile) | **PATCH** /api/v1/branding-profiles/{profile_id} | Update Branding Profile |
+| [**uploadBrandingLogo()**](BrandingProfilesApi.md#uploadBrandingLogo) | **POST** /api/v1/branding-profiles/{profile_id}/logo | Upload Branding Logo |
 
 
-## `createProfileApiV1BrandingProfilesPost()`
+## `createBrandingProfile()`
 
 ```php
-createProfileApiV1BrandingProfilesPost($branding_profile_create_request): \InvoicePDFs\Model\BrandingProfileResponse
+createBrandingProfile($branding_profile_create_request): \InvoicePDFs\Model\BrandingProfileResponse
 ```
 
-Create Profile
+Create Branding Profile
 
 ### Example
 
@@ -42,10 +42,10 @@ $apiInstance = new InvoicePDFs\Api\BrandingProfilesApi(
 $branding_profile_create_request = new \InvoicePDFs\Model\BrandingProfileCreateRequest(); // \InvoicePDFs\Model\BrandingProfileCreateRequest
 
 try {
-    $result = $apiInstance->createProfileApiV1BrandingProfilesPost($branding_profile_create_request);
+    $result = $apiInstance->createBrandingProfile($branding_profile_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BrandingProfilesApi->createProfileApiV1BrandingProfilesPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BrandingProfilesApi->createBrandingProfile: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -72,13 +72,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteLogoApiV1BrandingProfilesProfileIdLogoDelete()`
+## `deleteBrandingLogo()`
 
 ```php
-deleteLogoApiV1BrandingProfilesProfileIdLogoDelete($profile_id): \InvoicePDFs\Model\SimpleBoolResponse
+deleteBrandingLogo($profile_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
-Delete Logo
+Delete Branding Logo
 
 ### Example
 
@@ -100,10 +100,10 @@ $apiInstance = new InvoicePDFs\Api\BrandingProfilesApi(
 $profile_id = 'profile_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteLogoApiV1BrandingProfilesProfileIdLogoDelete($profile_id);
+    $result = $apiInstance->deleteBrandingLogo($profile_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BrandingProfilesApi->deleteLogoApiV1BrandingProfilesProfileIdLogoDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BrandingProfilesApi->deleteBrandingLogo: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -130,13 +130,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteProfileApiV1BrandingProfilesProfileIdDelete()`
+## `deleteBrandingProfile()`
 
 ```php
-deleteProfileApiV1BrandingProfilesProfileIdDelete($profile_id): \InvoicePDFs\Model\SimpleBoolResponse
+deleteBrandingProfile($profile_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
-Delete Profile
+Delete Branding Profile
 
 ### Example
 
@@ -158,10 +158,10 @@ $apiInstance = new InvoicePDFs\Api\BrandingProfilesApi(
 $profile_id = 'profile_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteProfileApiV1BrandingProfilesProfileIdDelete($profile_id);
+    $result = $apiInstance->deleteBrandingProfile($profile_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BrandingProfilesApi->deleteProfileApiV1BrandingProfilesProfileIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BrandingProfilesApi->deleteBrandingProfile: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -188,13 +188,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getProfileApiV1BrandingProfilesProfileIdGet()`
+## `getBrandingProfile()`
 
 ```php
-getProfileApiV1BrandingProfilesProfileIdGet($profile_id): \InvoicePDFs\Model\BrandingProfileResponse
+getBrandingProfile($profile_id): \InvoicePDFs\Model\BrandingProfileResponse
 ```
 
-Get Profile
+Get Branding Profile
 
 ### Example
 
@@ -216,10 +216,10 @@ $apiInstance = new InvoicePDFs\Api\BrandingProfilesApi(
 $profile_id = 'profile_id_example'; // string
 
 try {
-    $result = $apiInstance->getProfileApiV1BrandingProfilesProfileIdGet($profile_id);
+    $result = $apiInstance->getBrandingProfile($profile_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BrandingProfilesApi->getProfileApiV1BrandingProfilesProfileIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BrandingProfilesApi->getBrandingProfile: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -246,13 +246,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listProfilesApiV1BrandingProfilesGet()`
+## `listBrandingProfiles()`
 
 ```php
-listProfilesApiV1BrandingProfilesGet(): \InvoicePDFs\Model\BrandingProfilesListResponse
+listBrandingProfiles(): \InvoicePDFs\Model\BrandingProfilesListResponse
 ```
 
-List Profiles
+List Branding Profiles
 
 ### Example
 
@@ -273,10 +273,10 @@ $apiInstance = new InvoicePDFs\Api\BrandingProfilesApi(
 );
 
 try {
-    $result = $apiInstance->listProfilesApiV1BrandingProfilesGet();
+    $result = $apiInstance->listBrandingProfiles();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BrandingProfilesApi->listProfilesApiV1BrandingProfilesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BrandingProfilesApi->listBrandingProfiles: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -301,13 +301,13 @@ This endpoint does not need any parameter.
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `setDefaultApiV1BrandingProfilesProfileIdDefaultPost()`
+## `setDefaultBrandingProfile()`
 
 ```php
-setDefaultApiV1BrandingProfilesProfileIdDefaultPost($profile_id): \InvoicePDFs\Model\BrandingProfileResponse
+setDefaultBrandingProfile($profile_id): \InvoicePDFs\Model\BrandingProfileResponse
 ```
 
-Set Default
+Set Default Branding Profile
 
 ### Example
 
@@ -329,10 +329,10 @@ $apiInstance = new InvoicePDFs\Api\BrandingProfilesApi(
 $profile_id = 'profile_id_example'; // string
 
 try {
-    $result = $apiInstance->setDefaultApiV1BrandingProfilesProfileIdDefaultPost($profile_id);
+    $result = $apiInstance->setDefaultBrandingProfile($profile_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BrandingProfilesApi->setDefaultApiV1BrandingProfilesProfileIdDefaultPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BrandingProfilesApi->setDefaultBrandingProfile: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -359,13 +359,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateProfileApiV1BrandingProfilesProfileIdPatch()`
+## `updateBrandingProfile()`
 
 ```php
-updateProfileApiV1BrandingProfilesProfileIdPatch($profile_id, $branding_profile_patch_request): \InvoicePDFs\Model\BrandingProfileResponse
+updateBrandingProfile($profile_id, $branding_profile_patch_request): \InvoicePDFs\Model\BrandingProfileResponse
 ```
 
-Update Profile
+Update Branding Profile
 
 ### Example
 
@@ -388,10 +388,10 @@ $profile_id = 'profile_id_example'; // string
 $branding_profile_patch_request = new \InvoicePDFs\Model\BrandingProfilePatchRequest(); // \InvoicePDFs\Model\BrandingProfilePatchRequest
 
 try {
-    $result = $apiInstance->updateProfileApiV1BrandingProfilesProfileIdPatch($profile_id, $branding_profile_patch_request);
+    $result = $apiInstance->updateBrandingProfile($profile_id, $branding_profile_patch_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BrandingProfilesApi->updateProfileApiV1BrandingProfilesProfileIdPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BrandingProfilesApi->updateBrandingProfile: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -419,13 +419,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `uploadLogoApiV1BrandingProfilesProfileIdLogoPost()`
+## `uploadBrandingLogo()`
 
 ```php
-uploadLogoApiV1BrandingProfilesProfileIdLogoPost($profile_id, $file): \InvoicePDFs\Model\BrandingProfileResponse
+uploadBrandingLogo($profile_id, $file): \InvoicePDFs\Model\BrandingProfileResponse
 ```
 
-Upload Logo
+Upload Branding Logo
 
 ### Example
 
@@ -448,10 +448,10 @@ $profile_id = 'profile_id_example'; // string
 $file = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $result = $apiInstance->uploadLogoApiV1BrandingProfilesProfileIdLogoPost($profile_id, $file);
+    $result = $apiInstance->uploadBrandingLogo($profile_id, $file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BrandingProfilesApi->uploadLogoApiV1BrandingProfilesProfileIdLogoPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BrandingProfilesApi->uploadBrandingLogo: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

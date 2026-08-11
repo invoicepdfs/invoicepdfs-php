@@ -4,22 +4,22 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**consumeNextApiV1NumberingSequencesSequenceIdNextPost()**](NumberingSequencesApi.md#consumeNextApiV1NumberingSequencesSequenceIdNextPost) | **POST** /api/v1/numbering-sequences/{sequence_id}/next | Consume Next |
-| [**createSequenceApiV1NumberingSequencesPost()**](NumberingSequencesApi.md#createSequenceApiV1NumberingSequencesPost) | **POST** /api/v1/numbering-sequences | Create Sequence |
-| [**deleteSequenceApiV1NumberingSequencesSequenceIdDelete()**](NumberingSequencesApi.md#deleteSequenceApiV1NumberingSequencesSequenceIdDelete) | **DELETE** /api/v1/numbering-sequences/{sequence_id} | Delete Sequence |
-| [**getSequenceApiV1NumberingSequencesSequenceIdGet()**](NumberingSequencesApi.md#getSequenceApiV1NumberingSequencesSequenceIdGet) | **GET** /api/v1/numbering-sequences/{sequence_id} | Get Sequence |
-| [**listSequencesApiV1NumberingSequencesGet()**](NumberingSequencesApi.md#listSequencesApiV1NumberingSequencesGet) | **GET** /api/v1/numbering-sequences | List Sequences |
-| [**previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost()**](NumberingSequencesApi.md#previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost) | **POST** /api/v1/numbering-sequences/{sequence_id}/preview | Preview Sequence |
-| [**updateSequenceApiV1NumberingSequencesSequenceIdPatch()**](NumberingSequencesApi.md#updateSequenceApiV1NumberingSequencesSequenceIdPatch) | **PATCH** /api/v1/numbering-sequences/{sequence_id} | Update Sequence |
+| [**consumeSequenceNumber()**](NumberingSequencesApi.md#consumeSequenceNumber) | **POST** /api/v1/numbering-sequences/{sequence_id}/next | Consume Sequence Number |
+| [**createSequence()**](NumberingSequencesApi.md#createSequence) | **POST** /api/v1/numbering-sequences | Create Sequence |
+| [**deleteSequence()**](NumberingSequencesApi.md#deleteSequence) | **DELETE** /api/v1/numbering-sequences/{sequence_id} | Delete Sequence |
+| [**getSequence()**](NumberingSequencesApi.md#getSequence) | **GET** /api/v1/numbering-sequences/{sequence_id} | Get Sequence |
+| [**listSequences()**](NumberingSequencesApi.md#listSequences) | **GET** /api/v1/numbering-sequences | List Sequences |
+| [**previewSequence()**](NumberingSequencesApi.md#previewSequence) | **POST** /api/v1/numbering-sequences/{sequence_id}/preview | Preview Sequence |
+| [**updateSequence()**](NumberingSequencesApi.md#updateSequence) | **PATCH** /api/v1/numbering-sequences/{sequence_id} | Update Sequence |
 
 
-## `consumeNextApiV1NumberingSequencesSequenceIdNextPost()`
+## `consumeSequenceNumber()`
 
 ```php
-consumeNextApiV1NumberingSequencesSequenceIdNextPost($sequence_id): \InvoicePDFs\Model\NumberingSequenceResponse
+consumeSequenceNumber($sequence_id): \InvoicePDFs\Model\NumberingSequenceResponse
 ```
 
-Consume Next
+Consume Sequence Number
 
 Consume and return the next number, incrementing the counter.
 
@@ -43,10 +43,10 @@ $apiInstance = new InvoicePDFs\Api\NumberingSequencesApi(
 $sequence_id = 'sequence_id_example'; // string
 
 try {
-    $result = $apiInstance->consumeNextApiV1NumberingSequencesSequenceIdNextPost($sequence_id);
+    $result = $apiInstance->consumeSequenceNumber($sequence_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling NumberingSequencesApi->consumeNextApiV1NumberingSequencesSequenceIdNextPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling NumberingSequencesApi->consumeSequenceNumber: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -73,10 +73,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createSequenceApiV1NumberingSequencesPost()`
+## `createSequence()`
 
 ```php
-createSequenceApiV1NumberingSequencesPost($numbering_sequence_create_request): \InvoicePDFs\Model\NumberingSequenceResponse
+createSequence($numbering_sequence_create_request): \InvoicePDFs\Model\NumberingSequenceResponse
 ```
 
 Create Sequence
@@ -101,10 +101,10 @@ $apiInstance = new InvoicePDFs\Api\NumberingSequencesApi(
 $numbering_sequence_create_request = new \InvoicePDFs\Model\NumberingSequenceCreateRequest(); // \InvoicePDFs\Model\NumberingSequenceCreateRequest
 
 try {
-    $result = $apiInstance->createSequenceApiV1NumberingSequencesPost($numbering_sequence_create_request);
+    $result = $apiInstance->createSequence($numbering_sequence_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling NumberingSequencesApi->createSequenceApiV1NumberingSequencesPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling NumberingSequencesApi->createSequence: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -131,10 +131,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteSequenceApiV1NumberingSequencesSequenceIdDelete()`
+## `deleteSequence()`
 
 ```php
-deleteSequenceApiV1NumberingSequencesSequenceIdDelete($sequence_id): \InvoicePDFs\Model\SimpleBoolResponse
+deleteSequence($sequence_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Sequence
@@ -159,10 +159,10 @@ $apiInstance = new InvoicePDFs\Api\NumberingSequencesApi(
 $sequence_id = 'sequence_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteSequenceApiV1NumberingSequencesSequenceIdDelete($sequence_id);
+    $result = $apiInstance->deleteSequence($sequence_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling NumberingSequencesApi->deleteSequenceApiV1NumberingSequencesSequenceIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling NumberingSequencesApi->deleteSequence: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -189,10 +189,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getSequenceApiV1NumberingSequencesSequenceIdGet()`
+## `getSequence()`
 
 ```php
-getSequenceApiV1NumberingSequencesSequenceIdGet($sequence_id): \InvoicePDFs\Model\NumberingSequenceResponse
+getSequence($sequence_id): \InvoicePDFs\Model\NumberingSequenceResponse
 ```
 
 Get Sequence
@@ -217,10 +217,10 @@ $apiInstance = new InvoicePDFs\Api\NumberingSequencesApi(
 $sequence_id = 'sequence_id_example'; // string
 
 try {
-    $result = $apiInstance->getSequenceApiV1NumberingSequencesSequenceIdGet($sequence_id);
+    $result = $apiInstance->getSequence($sequence_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling NumberingSequencesApi->getSequenceApiV1NumberingSequencesSequenceIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling NumberingSequencesApi->getSequence: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -247,10 +247,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listSequencesApiV1NumberingSequencesGet()`
+## `listSequences()`
 
 ```php
-listSequencesApiV1NumberingSequencesGet($limit, $cursor): \InvoicePDFs\Model\NumberingSequencesListResponse
+listSequences($limit, $cursor): \InvoicePDFs\Model\NumberingSequencesListResponse
 ```
 
 List Sequences
@@ -276,10 +276,10 @@ $limit = 50; // int
 $cursor = 'cursor_example'; // string
 
 try {
-    $result = $apiInstance->listSequencesApiV1NumberingSequencesGet($limit, $cursor);
+    $result = $apiInstance->listSequences($limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling NumberingSequencesApi->listSequencesApiV1NumberingSequencesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling NumberingSequencesApi->listSequences: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -307,10 +307,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost()`
+## `previewSequence()`
 
 ```php
-previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost($sequence_id): \InvoicePDFs\Model\NumberingSequencePreviewResponse
+previewSequence($sequence_id): \InvoicePDFs\Model\NumberingSequencePreviewResponse
 ```
 
 Preview Sequence
@@ -335,10 +335,10 @@ $apiInstance = new InvoicePDFs\Api\NumberingSequencesApi(
 $sequence_id = 'sequence_id_example'; // string
 
 try {
-    $result = $apiInstance->previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost($sequence_id);
+    $result = $apiInstance->previewSequence($sequence_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling NumberingSequencesApi->previewSequenceApiV1NumberingSequencesSequenceIdPreviewPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling NumberingSequencesApi->previewSequence: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -365,10 +365,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `updateSequenceApiV1NumberingSequencesSequenceIdPatch()`
+## `updateSequence()`
 
 ```php
-updateSequenceApiV1NumberingSequencesSequenceIdPatch($sequence_id, $numbering_sequence_patch_request): \InvoicePDFs\Model\NumberingSequenceResponse
+updateSequence($sequence_id, $numbering_sequence_patch_request): \InvoicePDFs\Model\NumberingSequenceResponse
 ```
 
 Update Sequence
@@ -394,10 +394,10 @@ $sequence_id = 'sequence_id_example'; // string
 $numbering_sequence_patch_request = new \InvoicePDFs\Model\NumberingSequencePatchRequest(); // \InvoicePDFs\Model\NumberingSequencePatchRequest
 
 try {
-    $result = $apiInstance->updateSequenceApiV1NumberingSequencesSequenceIdPatch($sequence_id, $numbering_sequence_patch_request);
+    $result = $apiInstance->updateSequence($sequence_id, $numbering_sequence_patch_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling NumberingSequencesApi->updateSequenceApiV1NumberingSequencesSequenceIdPatch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling NumberingSequencesApi->updateSequence: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

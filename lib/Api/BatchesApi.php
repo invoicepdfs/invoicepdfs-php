@@ -71,22 +71,22 @@ class BatchesApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'cancelBatchApiV1BatchesBatchIdCancelPost' => [
+        'cancelBatch' => [
             'application/json',
         ],
-        'createBatchApiV1BatchesPost' => [
+        'createBatch' => [
             'application/json',
         ],
-        'downloadBatchApiV1BatchesBatchIdDownloadGet' => [
+        'downloadBatch' => [
             'application/json',
         ],
-        'getBatchApiV1BatchesBatchIdGet' => [
+        'getBatch' => [
             'application/json',
         ],
-        'listBatchItemsApiV1BatchesBatchIdItemsGet' => [
+        'listBatchItems' => [
             'application/json',
         ],
-        'listBatchesApiV1BatchesGet' => [
+        'listBatches' => [
             'application/json',
         ],
     ];
@@ -138,38 +138,38 @@ class BatchesApi
     }
 
     /**
-     * Operation cancelBatchApiV1BatchesBatchIdCancelPost
+     * Operation cancelBatch
      *
      * Cancel Batch
      *
      * @param  string $batch_id batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBatch'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BatchResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function cancelBatchApiV1BatchesBatchIdCancelPost($batch_id, string $contentType = self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'][0])
+    public function cancelBatch($batch_id, string $contentType = self::contentTypes['cancelBatch'][0])
     {
-        list($response) = $this->cancelBatchApiV1BatchesBatchIdCancelPostWithHttpInfo($batch_id, $contentType);
+        list($response) = $this->cancelBatchWithHttpInfo($batch_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation cancelBatchApiV1BatchesBatchIdCancelPostWithHttpInfo
+     * Operation cancelBatchWithHttpInfo
      *
      * Cancel Batch
      *
      * @param  string $batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBatch'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BatchResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelBatchApiV1BatchesBatchIdCancelPostWithHttpInfo($batch_id, string $contentType = self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'][0])
+    public function cancelBatchWithHttpInfo($batch_id, string $contentType = self::contentTypes['cancelBatch'][0])
     {
-        $request = $this->cancelBatchApiV1BatchesBatchIdCancelPostRequest($batch_id, $contentType);
+        $request = $this->cancelBatchRequest($batch_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -315,19 +315,19 @@ class BatchesApi
     }
 
     /**
-     * Operation cancelBatchApiV1BatchesBatchIdCancelPostAsync
+     * Operation cancelBatchAsync
      *
      * Cancel Batch
      *
      * @param  string $batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelBatchApiV1BatchesBatchIdCancelPostAsync($batch_id, string $contentType = self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'][0])
+    public function cancelBatchAsync($batch_id, string $contentType = self::contentTypes['cancelBatch'][0])
     {
-        return $this->cancelBatchApiV1BatchesBatchIdCancelPostAsyncWithHttpInfo($batch_id, $contentType)
+        return $this->cancelBatchAsyncWithHttpInfo($batch_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -336,20 +336,20 @@ class BatchesApi
     }
 
     /**
-     * Operation cancelBatchApiV1BatchesBatchIdCancelPostAsyncWithHttpInfo
+     * Operation cancelBatchAsyncWithHttpInfo
      *
      * Cancel Batch
      *
      * @param  string $batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelBatchApiV1BatchesBatchIdCancelPostAsyncWithHttpInfo($batch_id, string $contentType = self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'][0])
+    public function cancelBatchAsyncWithHttpInfo($batch_id, string $contentType = self::contentTypes['cancelBatch'][0])
     {
         $returnType = '\InvoicePDFs\Model\BatchResponse';
-        $request = $this->cancelBatchApiV1BatchesBatchIdCancelPostRequest($batch_id, $contentType);
+        $request = $this->cancelBatchRequest($batch_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -388,21 +388,21 @@ class BatchesApi
     }
 
     /**
-     * Create request for operation 'cancelBatchApiV1BatchesBatchIdCancelPost'
+     * Create request for operation 'cancelBatch'
      *
      * @param  string $batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cancelBatchApiV1BatchesBatchIdCancelPostRequest($batch_id, string $contentType = self::contentTypes['cancelBatchApiV1BatchesBatchIdCancelPost'][0])
+    public function cancelBatchRequest($batch_id, string $contentType = self::contentTypes['cancelBatch'][0])
     {
 
         // verify the required parameter 'batch_id' is set
         if ($batch_id === null || (is_array($batch_id) && count($batch_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $batch_id when calling cancelBatchApiV1BatchesBatchIdCancelPost'
+                'Missing the required parameter $batch_id when calling cancelBatch'
             );
         }
 
@@ -484,38 +484,38 @@ class BatchesApi
     }
 
     /**
-     * Operation createBatchApiV1BatchesPost
+     * Operation createBatch
      *
      * Create Batch
      *
      * @param  \InvoicePDFs\Model\BatchCreateRequest $batch_create_request batch_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatchApiV1BatchesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatch'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BatchResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createBatchApiV1BatchesPost($batch_create_request, string $contentType = self::contentTypes['createBatchApiV1BatchesPost'][0])
+    public function createBatch($batch_create_request, string $contentType = self::contentTypes['createBatch'][0])
     {
-        list($response) = $this->createBatchApiV1BatchesPostWithHttpInfo($batch_create_request, $contentType);
+        list($response) = $this->createBatchWithHttpInfo($batch_create_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation createBatchApiV1BatchesPostWithHttpInfo
+     * Operation createBatchWithHttpInfo
      *
      * Create Batch
      *
      * @param  \InvoicePDFs\Model\BatchCreateRequest $batch_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatchApiV1BatchesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatch'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BatchResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createBatchApiV1BatchesPostWithHttpInfo($batch_create_request, string $contentType = self::contentTypes['createBatchApiV1BatchesPost'][0])
+    public function createBatchWithHttpInfo($batch_create_request, string $contentType = self::contentTypes['createBatch'][0])
     {
-        $request = $this->createBatchApiV1BatchesPostRequest($batch_create_request, $contentType);
+        $request = $this->createBatchRequest($batch_create_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -661,19 +661,19 @@ class BatchesApi
     }
 
     /**
-     * Operation createBatchApiV1BatchesPostAsync
+     * Operation createBatchAsync
      *
      * Create Batch
      *
      * @param  \InvoicePDFs\Model\BatchCreateRequest $batch_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatchApiV1BatchesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBatchApiV1BatchesPostAsync($batch_create_request, string $contentType = self::contentTypes['createBatchApiV1BatchesPost'][0])
+    public function createBatchAsync($batch_create_request, string $contentType = self::contentTypes['createBatch'][0])
     {
-        return $this->createBatchApiV1BatchesPostAsyncWithHttpInfo($batch_create_request, $contentType)
+        return $this->createBatchAsyncWithHttpInfo($batch_create_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -682,20 +682,20 @@ class BatchesApi
     }
 
     /**
-     * Operation createBatchApiV1BatchesPostAsyncWithHttpInfo
+     * Operation createBatchAsyncWithHttpInfo
      *
      * Create Batch
      *
      * @param  \InvoicePDFs\Model\BatchCreateRequest $batch_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatchApiV1BatchesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBatchApiV1BatchesPostAsyncWithHttpInfo($batch_create_request, string $contentType = self::contentTypes['createBatchApiV1BatchesPost'][0])
+    public function createBatchAsyncWithHttpInfo($batch_create_request, string $contentType = self::contentTypes['createBatch'][0])
     {
         $returnType = '\InvoicePDFs\Model\BatchResponse';
-        $request = $this->createBatchApiV1BatchesPostRequest($batch_create_request, $contentType);
+        $request = $this->createBatchRequest($batch_create_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -734,21 +734,21 @@ class BatchesApi
     }
 
     /**
-     * Create request for operation 'createBatchApiV1BatchesPost'
+     * Create request for operation 'createBatch'
      *
      * @param  \InvoicePDFs\Model\BatchCreateRequest $batch_create_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatchApiV1BatchesPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createBatchApiV1BatchesPostRequest($batch_create_request, string $contentType = self::contentTypes['createBatchApiV1BatchesPost'][0])
+    public function createBatchRequest($batch_create_request, string $contentType = self::contentTypes['createBatch'][0])
     {
 
         // verify the required parameter 'batch_create_request' is set
         if ($batch_create_request === null || (is_array($batch_create_request) && count($batch_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $batch_create_request when calling createBatchApiV1BatchesPost'
+                'Missing the required parameter $batch_create_request when calling createBatch'
             );
         }
 
@@ -829,38 +829,38 @@ class BatchesApi
     }
 
     /**
-     * Operation downloadBatchApiV1BatchesBatchIdDownloadGet
+     * Operation downloadBatch
      *
      * Download Batch
      *
      * @param  string $batch_id batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadBatch'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function downloadBatchApiV1BatchesBatchIdDownloadGet($batch_id, string $contentType = self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'][0])
+    public function downloadBatch($batch_id, string $contentType = self::contentTypes['downloadBatch'][0])
     {
-        list($response) = $this->downloadBatchApiV1BatchesBatchIdDownloadGetWithHttpInfo($batch_id, $contentType);
+        list($response) = $this->downloadBatchWithHttpInfo($batch_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation downloadBatchApiV1BatchesBatchIdDownloadGetWithHttpInfo
+     * Operation downloadBatchWithHttpInfo
      *
      * Download Batch
      *
      * @param  string $batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadBatch'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function downloadBatchApiV1BatchesBatchIdDownloadGetWithHttpInfo($batch_id, string $contentType = self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'][0])
+    public function downloadBatchWithHttpInfo($batch_id, string $contentType = self::contentTypes['downloadBatch'][0])
     {
-        $request = $this->downloadBatchApiV1BatchesBatchIdDownloadGetRequest($batch_id, $contentType);
+        $request = $this->downloadBatchRequest($batch_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1006,19 +1006,19 @@ class BatchesApi
     }
 
     /**
-     * Operation downloadBatchApiV1BatchesBatchIdDownloadGetAsync
+     * Operation downloadBatchAsync
      *
      * Download Batch
      *
      * @param  string $batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadBatchApiV1BatchesBatchIdDownloadGetAsync($batch_id, string $contentType = self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'][0])
+    public function downloadBatchAsync($batch_id, string $contentType = self::contentTypes['downloadBatch'][0])
     {
-        return $this->downloadBatchApiV1BatchesBatchIdDownloadGetAsyncWithHttpInfo($batch_id, $contentType)
+        return $this->downloadBatchAsyncWithHttpInfo($batch_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1027,20 +1027,20 @@ class BatchesApi
     }
 
     /**
-     * Operation downloadBatchApiV1BatchesBatchIdDownloadGetAsyncWithHttpInfo
+     * Operation downloadBatchAsyncWithHttpInfo
      *
      * Download Batch
      *
      * @param  string $batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadBatchApiV1BatchesBatchIdDownloadGetAsyncWithHttpInfo($batch_id, string $contentType = self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'][0])
+    public function downloadBatchAsyncWithHttpInfo($batch_id, string $contentType = self::contentTypes['downloadBatch'][0])
     {
         $returnType = 'mixed';
-        $request = $this->downloadBatchApiV1BatchesBatchIdDownloadGetRequest($batch_id, $contentType);
+        $request = $this->downloadBatchRequest($batch_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1079,21 +1079,21 @@ class BatchesApi
     }
 
     /**
-     * Create request for operation 'downloadBatchApiV1BatchesBatchIdDownloadGet'
+     * Create request for operation 'downloadBatch'
      *
      * @param  string $batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function downloadBatchApiV1BatchesBatchIdDownloadGetRequest($batch_id, string $contentType = self::contentTypes['downloadBatchApiV1BatchesBatchIdDownloadGet'][0])
+    public function downloadBatchRequest($batch_id, string $contentType = self::contentTypes['downloadBatch'][0])
     {
 
         // verify the required parameter 'batch_id' is set
         if ($batch_id === null || (is_array($batch_id) && count($batch_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $batch_id when calling downloadBatchApiV1BatchesBatchIdDownloadGet'
+                'Missing the required parameter $batch_id when calling downloadBatch'
             );
         }
 
@@ -1175,38 +1175,38 @@ class BatchesApi
     }
 
     /**
-     * Operation getBatchApiV1BatchesBatchIdGet
+     * Operation getBatch
      *
      * Get Batch
      *
      * @param  string $batch_id batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatchApiV1BatchesBatchIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatch'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BatchResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getBatchApiV1BatchesBatchIdGet($batch_id, string $contentType = self::contentTypes['getBatchApiV1BatchesBatchIdGet'][0])
+    public function getBatch($batch_id, string $contentType = self::contentTypes['getBatch'][0])
     {
-        list($response) = $this->getBatchApiV1BatchesBatchIdGetWithHttpInfo($batch_id, $contentType);
+        list($response) = $this->getBatchWithHttpInfo($batch_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getBatchApiV1BatchesBatchIdGetWithHttpInfo
+     * Operation getBatchWithHttpInfo
      *
      * Get Batch
      *
      * @param  string $batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatchApiV1BatchesBatchIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatch'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BatchResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBatchApiV1BatchesBatchIdGetWithHttpInfo($batch_id, string $contentType = self::contentTypes['getBatchApiV1BatchesBatchIdGet'][0])
+    public function getBatchWithHttpInfo($batch_id, string $contentType = self::contentTypes['getBatch'][0])
     {
-        $request = $this->getBatchApiV1BatchesBatchIdGetRequest($batch_id, $contentType);
+        $request = $this->getBatchRequest($batch_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1352,19 +1352,19 @@ class BatchesApi
     }
 
     /**
-     * Operation getBatchApiV1BatchesBatchIdGetAsync
+     * Operation getBatchAsync
      *
      * Get Batch
      *
      * @param  string $batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatchApiV1BatchesBatchIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBatchApiV1BatchesBatchIdGetAsync($batch_id, string $contentType = self::contentTypes['getBatchApiV1BatchesBatchIdGet'][0])
+    public function getBatchAsync($batch_id, string $contentType = self::contentTypes['getBatch'][0])
     {
-        return $this->getBatchApiV1BatchesBatchIdGetAsyncWithHttpInfo($batch_id, $contentType)
+        return $this->getBatchAsyncWithHttpInfo($batch_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1373,20 +1373,20 @@ class BatchesApi
     }
 
     /**
-     * Operation getBatchApiV1BatchesBatchIdGetAsyncWithHttpInfo
+     * Operation getBatchAsyncWithHttpInfo
      *
      * Get Batch
      *
      * @param  string $batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatchApiV1BatchesBatchIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBatchApiV1BatchesBatchIdGetAsyncWithHttpInfo($batch_id, string $contentType = self::contentTypes['getBatchApiV1BatchesBatchIdGet'][0])
+    public function getBatchAsyncWithHttpInfo($batch_id, string $contentType = self::contentTypes['getBatch'][0])
     {
         $returnType = '\InvoicePDFs\Model\BatchResponse';
-        $request = $this->getBatchApiV1BatchesBatchIdGetRequest($batch_id, $contentType);
+        $request = $this->getBatchRequest($batch_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1425,21 +1425,21 @@ class BatchesApi
     }
 
     /**
-     * Create request for operation 'getBatchApiV1BatchesBatchIdGet'
+     * Create request for operation 'getBatch'
      *
      * @param  string $batch_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatchApiV1BatchesBatchIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBatch'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBatchApiV1BatchesBatchIdGetRequest($batch_id, string $contentType = self::contentTypes['getBatchApiV1BatchesBatchIdGet'][0])
+    public function getBatchRequest($batch_id, string $contentType = self::contentTypes['getBatch'][0])
     {
 
         // verify the required parameter 'batch_id' is set
         if ($batch_id === null || (is_array($batch_id) && count($batch_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $batch_id when calling getBatchApiV1BatchesBatchIdGet'
+                'Missing the required parameter $batch_id when calling getBatch'
             );
         }
 
@@ -1521,42 +1521,42 @@ class BatchesApi
     }
 
     /**
-     * Operation listBatchItemsApiV1BatchesBatchIdItemsGet
+     * Operation listBatchItems
      *
      * List Batch Items
      *
      * @param  string $batch_id batch_id (required)
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchItems'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BatchItemsListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listBatchItemsApiV1BatchesBatchIdItemsGet($batch_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'][0])
+    public function listBatchItems($batch_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchItems'][0])
     {
-        list($response) = $this->listBatchItemsApiV1BatchesBatchIdItemsGetWithHttpInfo($batch_id, $limit, $cursor, $contentType);
+        list($response) = $this->listBatchItemsWithHttpInfo($batch_id, $limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listBatchItemsApiV1BatchesBatchIdItemsGetWithHttpInfo
+     * Operation listBatchItemsWithHttpInfo
      *
      * List Batch Items
      *
      * @param  string $batch_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchItems'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BatchItemsListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listBatchItemsApiV1BatchesBatchIdItemsGetWithHttpInfo($batch_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'][0])
+    public function listBatchItemsWithHttpInfo($batch_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchItems'][0])
     {
-        $request = $this->listBatchItemsApiV1BatchesBatchIdItemsGetRequest($batch_id, $limit, $cursor, $contentType);
+        $request = $this->listBatchItemsRequest($batch_id, $limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1702,21 +1702,21 @@ class BatchesApi
     }
 
     /**
-     * Operation listBatchItemsApiV1BatchesBatchIdItemsGetAsync
+     * Operation listBatchItemsAsync
      *
      * List Batch Items
      *
      * @param  string $batch_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBatchItemsApiV1BatchesBatchIdItemsGetAsync($batch_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'][0])
+    public function listBatchItemsAsync($batch_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchItems'][0])
     {
-        return $this->listBatchItemsApiV1BatchesBatchIdItemsGetAsyncWithHttpInfo($batch_id, $limit, $cursor, $contentType)
+        return $this->listBatchItemsAsyncWithHttpInfo($batch_id, $limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1725,22 +1725,22 @@ class BatchesApi
     }
 
     /**
-     * Operation listBatchItemsApiV1BatchesBatchIdItemsGetAsyncWithHttpInfo
+     * Operation listBatchItemsAsyncWithHttpInfo
      *
      * List Batch Items
      *
      * @param  string $batch_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBatchItemsApiV1BatchesBatchIdItemsGetAsyncWithHttpInfo($batch_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'][0])
+    public function listBatchItemsAsyncWithHttpInfo($batch_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchItems'][0])
     {
         $returnType = '\InvoicePDFs\Model\BatchItemsListResponse';
-        $request = $this->listBatchItemsApiV1BatchesBatchIdItemsGetRequest($batch_id, $limit, $cursor, $contentType);
+        $request = $this->listBatchItemsRequest($batch_id, $limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1779,31 +1779,31 @@ class BatchesApi
     }
 
     /**
-     * Create request for operation 'listBatchItemsApiV1BatchesBatchIdItemsGet'
+     * Create request for operation 'listBatchItems'
      *
      * @param  string $batch_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchItems'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listBatchItemsApiV1BatchesBatchIdItemsGetRequest($batch_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchItemsApiV1BatchesBatchIdItemsGet'][0])
+    public function listBatchItemsRequest($batch_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchItems'][0])
     {
 
         // verify the required parameter 'batch_id' is set
         if ($batch_id === null || (is_array($batch_id) && count($batch_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $batch_id when calling listBatchItemsApiV1BatchesBatchIdItemsGet'
+                'Missing the required parameter $batch_id when calling listBatchItems'
             );
         }
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling BatchesApi.listBatchItemsApiV1BatchesBatchIdItemsGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling BatchesApi.listBatchItems, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling BatchesApi.listBatchItemsApiV1BatchesBatchIdItemsGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling BatchesApi.listBatchItems, must be bigger than or equal to 1.');
         }
         
 
@@ -1903,40 +1903,40 @@ class BatchesApi
     }
 
     /**
-     * Operation listBatchesApiV1BatchesGet
+     * Operation listBatches
      *
      * List Batches
      *
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchesApiV1BatchesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatches'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\BatchesListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listBatchesApiV1BatchesGet($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchesApiV1BatchesGet'][0])
+    public function listBatches($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatches'][0])
     {
-        list($response) = $this->listBatchesApiV1BatchesGetWithHttpInfo($limit, $cursor, $contentType);
+        list($response) = $this->listBatchesWithHttpInfo($limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listBatchesApiV1BatchesGetWithHttpInfo
+     * Operation listBatchesWithHttpInfo
      *
      * List Batches
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchesApiV1BatchesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatches'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\BatchesListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listBatchesApiV1BatchesGetWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchesApiV1BatchesGet'][0])
+    public function listBatchesWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatches'][0])
     {
-        $request = $this->listBatchesApiV1BatchesGetRequest($limit, $cursor, $contentType);
+        $request = $this->listBatchesRequest($limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2082,20 +2082,20 @@ class BatchesApi
     }
 
     /**
-     * Operation listBatchesApiV1BatchesGetAsync
+     * Operation listBatchesAsync
      *
      * List Batches
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchesApiV1BatchesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatches'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBatchesApiV1BatchesGetAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchesApiV1BatchesGet'][0])
+    public function listBatchesAsync($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatches'][0])
     {
-        return $this->listBatchesApiV1BatchesGetAsyncWithHttpInfo($limit, $cursor, $contentType)
+        return $this->listBatchesAsyncWithHttpInfo($limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2104,21 +2104,21 @@ class BatchesApi
     }
 
     /**
-     * Operation listBatchesApiV1BatchesGetAsyncWithHttpInfo
+     * Operation listBatchesAsyncWithHttpInfo
      *
      * List Batches
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchesApiV1BatchesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatches'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBatchesApiV1BatchesGetAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchesApiV1BatchesGet'][0])
+    public function listBatchesAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatches'][0])
     {
         $returnType = '\InvoicePDFs\Model\BatchesListResponse';
-        $request = $this->listBatchesApiV1BatchesGetRequest($limit, $cursor, $contentType);
+        $request = $this->listBatchesRequest($limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2157,23 +2157,23 @@ class BatchesApi
     }
 
     /**
-     * Create request for operation 'listBatchesApiV1BatchesGet'
+     * Create request for operation 'listBatches'
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatchesApiV1BatchesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listBatches'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listBatchesApiV1BatchesGetRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatchesApiV1BatchesGet'][0])
+    public function listBatchesRequest($limit = 50, $cursor = null, string $contentType = self::contentTypes['listBatches'][0])
     {
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling BatchesApi.listBatchesApiV1BatchesGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling BatchesApi.listBatches, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling BatchesApi.listBatchesApiV1BatchesGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling BatchesApi.listBatches, must be bigger than or equal to 1.');
         }
         
 

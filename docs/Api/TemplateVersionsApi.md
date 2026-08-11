@@ -4,15 +4,15 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createTemplateVersionApiV1TemplatesTemplateIdVersionsPost()**](TemplateVersionsApi.md#createTemplateVersionApiV1TemplatesTemplateIdVersionsPost) | **POST** /api/v1/templates/{template_id}/versions | Create Template Version |
-| [**getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet()**](TemplateVersionsApi.md#getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet) | **GET** /api/v1/templates/{template_id}/versions/{version} | Get Template Version |
-| [**listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet()**](TemplateVersionsApi.md#listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet) | **GET** /api/v1/templates/{template_id}/versions | List Template Versions |
+| [**createTemplateVersion()**](TemplateVersionsApi.md#createTemplateVersion) | **POST** /api/v1/templates/{template_id}/versions | Create Template Version |
+| [**getTemplateVersion()**](TemplateVersionsApi.md#getTemplateVersion) | **GET** /api/v1/templates/{template_id}/versions/{version} | Get Template Version |
+| [**listTemplateVersions()**](TemplateVersionsApi.md#listTemplateVersions) | **GET** /api/v1/templates/{template_id}/versions | List Template Versions |
 
 
-## `createTemplateVersionApiV1TemplatesTemplateIdVersionsPost()`
+## `createTemplateVersion()`
 
 ```php
-createTemplateVersionApiV1TemplatesTemplateIdVersionsPost($template_id, $template_version_create_request): \InvoicePDFs\Model\TemplateVersionResponse
+createTemplateVersion($template_id, $template_version_create_request): \InvoicePDFs\Model\TemplateVersionResponse
 ```
 
 Create Template Version
@@ -38,10 +38,10 @@ $template_id = 'template_id_example'; // string
 $template_version_create_request = new \InvoicePDFs\Model\TemplateVersionCreateRequest(); // \InvoicePDFs\Model\TemplateVersionCreateRequest
 
 try {
-    $result = $apiInstance->createTemplateVersionApiV1TemplatesTemplateIdVersionsPost($template_id, $template_version_create_request);
+    $result = $apiInstance->createTemplateVersion($template_id, $template_version_create_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplateVersionsApi->createTemplateVersionApiV1TemplatesTemplateIdVersionsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplateVersionsApi->createTemplateVersion: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -69,10 +69,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet()`
+## `getTemplateVersion()`
 
 ```php
-getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet($template_id, $version): \InvoicePDFs\Model\TemplateVersionResponse
+getTemplateVersion($template_id, $version): \InvoicePDFs\Model\TemplateVersionResponse
 ```
 
 Get Template Version
@@ -98,10 +98,10 @@ $template_id = 'template_id_example'; // string
 $version = 56; // int
 
 try {
-    $result = $apiInstance->getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet($template_id, $version);
+    $result = $apiInstance->getTemplateVersion($template_id, $version);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplateVersionsApi->getTemplateVersionApiV1TemplatesTemplateIdVersionsVersionGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplateVersionsApi->getTemplateVersion: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -129,10 +129,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet()`
+## `listTemplateVersions()`
 
 ```php
-listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet($template_id): \InvoicePDFs\Model\TemplateVersionsListResponse
+listTemplateVersions($template_id): \InvoicePDFs\Model\TemplateVersionsListResponse
 ```
 
 List Template Versions
@@ -157,10 +157,10 @@ $apiInstance = new InvoicePDFs\Api\TemplateVersionsApi(
 $template_id = 'template_id_example'; // string
 
 try {
-    $result = $apiInstance->listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet($template_id);
+    $result = $apiInstance->listTemplateVersions($template_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TemplateVersionsApi->listTemplateVersionsApiV1TemplatesTemplateIdVersionsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TemplateVersionsApi->listTemplateVersions: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

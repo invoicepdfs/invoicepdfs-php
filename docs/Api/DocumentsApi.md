@@ -4,31 +4,31 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**archiveDocumentApiV1DocumentsDocumentIdArchivePost()**](DocumentsApi.md#archiveDocumentApiV1DocumentsDocumentIdArchivePost) | **POST** /api/v1/documents/{document_id}/archive | Archive Document |
-| [**calculateDocumentApiV1DocumentsCalculatePost()**](DocumentsApi.md#calculateDocumentApiV1DocumentsCalculatePost) | **POST** /api/v1/documents/calculate | Calculate Document |
-| [**createDocumentApiV1DocumentsPost()**](DocumentsApi.md#createDocumentApiV1DocumentsPost) | **POST** /api/v1/documents | Create Document |
-| [**deleteDocumentApiV1DocumentsDocumentIdDelete()**](DocumentsApi.md#deleteDocumentApiV1DocumentsDocumentIdDelete) | **DELETE** /api/v1/documents/{document_id} | Delete Document |
-| [**duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost()**](DocumentsApi.md#duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost) | **POST** /api/v1/documents/{document_id}/duplicate | Duplicate Document |
-| [**finalizeDocumentApiV1DocumentsDocumentIdFinalizePost()**](DocumentsApi.md#finalizeDocumentApiV1DocumentsDocumentIdFinalizePost) | **POST** /api/v1/documents/{document_id}/finalize | Finalize Document |
-| [**getDocumentApiV1DocumentsDocumentIdGet()**](DocumentsApi.md#getDocumentApiV1DocumentsDocumentIdGet) | **GET** /api/v1/documents/{document_id} | Get Document |
-| [**listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet()**](DocumentsApi.md#listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet) | **GET** /api/v1/documents/{document_id}/deliveries | List Document Deliveries |
-| [**listDocumentsApiV1DocumentsGet()**](DocumentsApi.md#listDocumentsApiV1DocumentsGet) | **GET** /api/v1/documents | List Documents |
-| [**markPaidApiV1DocumentsDocumentIdMarkPaidPost()**](DocumentsApi.md#markPaidApiV1DocumentsDocumentIdMarkPaidPost) | **POST** /api/v1/documents/{document_id}/mark-paid | Mark Paid |
-| [**markSentApiV1DocumentsDocumentIdMarkSentPost()**](DocumentsApi.md#markSentApiV1DocumentsDocumentIdMarkSentPost) | **POST** /api/v1/documents/{document_id}/mark-sent | Mark Sent |
-| [**markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost()**](DocumentsApi.md#markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost) | **POST** /api/v1/documents/{document_id}/mark-unpaid | Mark Unpaid |
-| [**patchDocumentApiV1DocumentsDocumentIdPatch()**](DocumentsApi.md#patchDocumentApiV1DocumentsDocumentIdPatch) | **PATCH** /api/v1/documents/{document_id} | Patch Document |
-| [**renderDocumentApiV1DocumentsDocumentIdRendersPost()**](DocumentsApi.md#renderDocumentApiV1DocumentsDocumentIdRendersPost) | **POST** /api/v1/documents/{document_id}/renders | Render Document |
-| [**renderDocumentApiV1DocumentsRenderPost()**](DocumentsApi.md#renderDocumentApiV1DocumentsRenderPost) | **POST** /api/v1/documents/render | Render Document |
-| [**restoreDocumentApiV1DocumentsDocumentIdRestorePost()**](DocumentsApi.md#restoreDocumentApiV1DocumentsDocumentIdRestorePost) | **POST** /api/v1/documents/{document_id}/restore | Restore Document |
-| [**sendDocumentApiV1DocumentsDocumentIdSendPost()**](DocumentsApi.md#sendDocumentApiV1DocumentsDocumentIdSendPost) | **POST** /api/v1/documents/{document_id}/send | Send Document |
-| [**validateDocumentApiV1DocumentsValidatePost()**](DocumentsApi.md#validateDocumentApiV1DocumentsValidatePost) | **POST** /api/v1/documents/validate | Validate Document |
-| [**voidDocumentApiV1DocumentsDocumentIdVoidPost()**](DocumentsApi.md#voidDocumentApiV1DocumentsDocumentIdVoidPost) | **POST** /api/v1/documents/{document_id}/void | Void Document |
+| [**archiveDocument()**](DocumentsApi.md#archiveDocument) | **POST** /api/v1/documents/{document_id}/archive | Archive Document |
+| [**calculateDocument()**](DocumentsApi.md#calculateDocument) | **POST** /api/v1/documents/calculate | Calculate Document |
+| [**createDocument()**](DocumentsApi.md#createDocument) | **POST** /api/v1/documents | Create Document |
+| [**createDocumentRender()**](DocumentsApi.md#createDocumentRender) | **POST** /api/v1/documents/{document_id}/renders | Create Document Render |
+| [**deleteDocument()**](DocumentsApi.md#deleteDocument) | **DELETE** /api/v1/documents/{document_id} | Delete Document |
+| [**duplicateDocument()**](DocumentsApi.md#duplicateDocument) | **POST** /api/v1/documents/{document_id}/duplicate | Duplicate Document |
+| [**finalizeDocument()**](DocumentsApi.md#finalizeDocument) | **POST** /api/v1/documents/{document_id}/finalize | Finalize Document |
+| [**getDocument()**](DocumentsApi.md#getDocument) | **GET** /api/v1/documents/{document_id} | Get Document |
+| [**listDocumentDeliveries()**](DocumentsApi.md#listDocumentDeliveries) | **GET** /api/v1/documents/{document_id}/deliveries | List Document Deliveries |
+| [**listDocuments()**](DocumentsApi.md#listDocuments) | **GET** /api/v1/documents | List Documents |
+| [**markPaid()**](DocumentsApi.md#markPaid) | **POST** /api/v1/documents/{document_id}/mark-paid | Mark Paid |
+| [**markSent()**](DocumentsApi.md#markSent) | **POST** /api/v1/documents/{document_id}/mark-sent | Mark Sent |
+| [**markUnpaid()**](DocumentsApi.md#markUnpaid) | **POST** /api/v1/documents/{document_id}/mark-unpaid | Mark Unpaid |
+| [**renderDocument()**](DocumentsApi.md#renderDocument) | **POST** /api/v1/documents/render | Render Document |
+| [**restoreDocument()**](DocumentsApi.md#restoreDocument) | **POST** /api/v1/documents/{document_id}/restore | Restore Document |
+| [**sendDocument()**](DocumentsApi.md#sendDocument) | **POST** /api/v1/documents/{document_id}/send | Send Document |
+| [**updateDocument()**](DocumentsApi.md#updateDocument) | **PATCH** /api/v1/documents/{document_id} | Update Document |
+| [**validateDocument()**](DocumentsApi.md#validateDocument) | **POST** /api/v1/documents/validate | Validate Document |
+| [**voidDocument()**](DocumentsApi.md#voidDocument) | **POST** /api/v1/documents/{document_id}/void | Void Document |
 
 
-## `archiveDocumentApiV1DocumentsDocumentIdArchivePost()`
+## `archiveDocument()`
 
 ```php
-archiveDocumentApiV1DocumentsDocumentIdArchivePost($document_id): \InvoicePDFs\Model\DocumentResponse
+archiveDocument($document_id): \InvoicePDFs\Model\DocumentResponse
 ```
 
 Archive Document
@@ -53,10 +53,10 @@ $apiInstance = new InvoicePDFs\Api\DocumentsApi(
 $document_id = 'document_id_example'; // string
 
 try {
-    $result = $apiInstance->archiveDocumentApiV1DocumentsDocumentIdArchivePost($document_id);
+    $result = $apiInstance->archiveDocument($document_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->archiveDocumentApiV1DocumentsDocumentIdArchivePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->archiveDocument: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -83,10 +83,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `calculateDocumentApiV1DocumentsCalculatePost()`
+## `calculateDocument()`
 
 ```php
-calculateDocumentApiV1DocumentsCalculatePost($document_calculate_request): \InvoicePDFs\Model\DocumentCalculateResponse
+calculateDocument($document_calculate_request): \InvoicePDFs\Model\DocumentCalculateResponse
 ```
 
 Calculate Document
@@ -111,10 +111,10 @@ $apiInstance = new InvoicePDFs\Api\DocumentsApi(
 $document_calculate_request = new \InvoicePDFs\Model\DocumentCalculateRequest(); // \InvoicePDFs\Model\DocumentCalculateRequest
 
 try {
-    $result = $apiInstance->calculateDocumentApiV1DocumentsCalculatePost($document_calculate_request);
+    $result = $apiInstance->calculateDocument($document_calculate_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->calculateDocumentApiV1DocumentsCalculatePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->calculateDocument: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -141,10 +141,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `createDocumentApiV1DocumentsPost()`
+## `createDocument()`
 
 ```php
-createDocumentApiV1DocumentsPost($document_create_request, $idempotency_key): \InvoicePDFs\Model\DocumentResponse
+createDocument($document_create_request, $idempotency_key): \InvoicePDFs\Model\DocumentResponse
 ```
 
 Create Document
@@ -170,10 +170,10 @@ $document_create_request = new \InvoicePDFs\Model\DocumentCreateRequest(); // \I
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->createDocumentApiV1DocumentsPost($document_create_request, $idempotency_key);
+    $result = $apiInstance->createDocument($document_create_request, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->createDocumentApiV1DocumentsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->createDocument: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -201,10 +201,72 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteDocumentApiV1DocumentsDocumentIdDelete()`
+## `createDocumentRender()`
 
 ```php
-deleteDocumentApiV1DocumentsDocumentIdDelete($document_id): \InvoicePDFs\Model\SimpleBoolResponse
+createDocumentRender($document_id, $document_render_options, $idempotency_key): mixed
+```
+
+Create Document Render
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new InvoicePDFs\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$document_id = 'document_id_example'; // string
+$document_render_options = new \InvoicePDFs\Model\DocumentRenderOptions(); // \InvoicePDFs\Model\DocumentRenderOptions
+$idempotency_key = 'idempotency_key_example'; // string
+
+try {
+    $result = $apiInstance->createDocumentRender($document_id, $document_render_options, $idempotency_key);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->createDocumentRender: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **document_id** | **string**|  | |
+| **document_render_options** | [**\InvoicePDFs\Model\DocumentRenderOptions**](../Model/DocumentRenderOptions.md)|  | |
+| **idempotency_key** | **string**|  | [optional] |
+
+### Return type
+
+**mixed**
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteDocument()`
+
+```php
+deleteDocument($document_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Document
@@ -229,10 +291,10 @@ $apiInstance = new InvoicePDFs\Api\DocumentsApi(
 $document_id = 'document_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteDocumentApiV1DocumentsDocumentIdDelete($document_id);
+    $result = $apiInstance->deleteDocument($document_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->deleteDocumentApiV1DocumentsDocumentIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->deleteDocument: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -259,10 +321,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost()`
+## `duplicateDocument()`
 
 ```php
-duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost($document_id): \InvoicePDFs\Model\DocumentResponse
+duplicateDocument($document_id): \InvoicePDFs\Model\DocumentResponse
 ```
 
 Duplicate Document
@@ -287,10 +349,10 @@ $apiInstance = new InvoicePDFs\Api\DocumentsApi(
 $document_id = 'document_id_example'; // string
 
 try {
-    $result = $apiInstance->duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost($document_id);
+    $result = $apiInstance->duplicateDocument($document_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->duplicateDocument: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -317,10 +379,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `finalizeDocumentApiV1DocumentsDocumentIdFinalizePost()`
+## `finalizeDocument()`
 
 ```php
-finalizeDocumentApiV1DocumentsDocumentIdFinalizePost($document_id): \InvoicePDFs\Model\DocumentResponse
+finalizeDocument($document_id): \InvoicePDFs\Model\DocumentResponse
 ```
 
 Finalize Document
@@ -345,10 +407,10 @@ $apiInstance = new InvoicePDFs\Api\DocumentsApi(
 $document_id = 'document_id_example'; // string
 
 try {
-    $result = $apiInstance->finalizeDocumentApiV1DocumentsDocumentIdFinalizePost($document_id);
+    $result = $apiInstance->finalizeDocument($document_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->finalizeDocumentApiV1DocumentsDocumentIdFinalizePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->finalizeDocument: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -375,10 +437,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getDocumentApiV1DocumentsDocumentIdGet()`
+## `getDocument()`
 
 ```php
-getDocumentApiV1DocumentsDocumentIdGet($document_id): \InvoicePDFs\Model\DocumentResponse
+getDocument($document_id): \InvoicePDFs\Model\DocumentResponse
 ```
 
 Get Document
@@ -403,10 +465,10 @@ $apiInstance = new InvoicePDFs\Api\DocumentsApi(
 $document_id = 'document_id_example'; // string
 
 try {
-    $result = $apiInstance->getDocumentApiV1DocumentsDocumentIdGet($document_id);
+    $result = $apiInstance->getDocument($document_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->getDocumentApiV1DocumentsDocumentIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->getDocument: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -433,10 +495,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet()`
+## `listDocumentDeliveries()`
 
 ```php
-listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet($document_id, $limit, $cursor): \InvoicePDFs\Model\DeliveriesListResponse
+listDocumentDeliveries($document_id, $limit, $cursor): \InvoicePDFs\Model\DeliveriesListResponse
 ```
 
 List Document Deliveries
@@ -463,10 +525,10 @@ $limit = 50; // int
 $cursor = 'cursor_example'; // string
 
 try {
-    $result = $apiInstance->listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet($document_id, $limit, $cursor);
+    $result = $apiInstance->listDocumentDeliveries($document_id, $limit, $cursor);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->listDocumentDeliveries: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -495,10 +557,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listDocumentsApiV1DocumentsGet()`
+## `listDocuments()`
 
 ```php
-listDocumentsApiV1DocumentsGet($limit, $cursor, $document_type, $status): \InvoicePDFs\Model\DocumentsListResponse
+listDocuments($limit, $cursor, $document_type, $status): \InvoicePDFs\Model\DocumentsListResponse
 ```
 
 List Documents
@@ -526,10 +588,10 @@ $document_type = 'document_type_example'; // string
 $status = 'status_example'; // string
 
 try {
-    $result = $apiInstance->listDocumentsApiV1DocumentsGet($limit, $cursor, $document_type, $status);
+    $result = $apiInstance->listDocuments($limit, $cursor, $document_type, $status);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->listDocumentsApiV1DocumentsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->listDocuments: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -559,10 +621,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `markPaidApiV1DocumentsDocumentIdMarkPaidPost()`
+## `markPaid()`
 
 ```php
-markPaidApiV1DocumentsDocumentIdMarkPaidPost($document_id): \InvoicePDFs\Model\DocumentResponse
+markPaid($document_id): \InvoicePDFs\Model\DocumentResponse
 ```
 
 Mark Paid
@@ -587,10 +649,10 @@ $apiInstance = new InvoicePDFs\Api\DocumentsApi(
 $document_id = 'document_id_example'; // string
 
 try {
-    $result = $apiInstance->markPaidApiV1DocumentsDocumentIdMarkPaidPost($document_id);
+    $result = $apiInstance->markPaid($document_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->markPaidApiV1DocumentsDocumentIdMarkPaidPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->markPaid: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -617,10 +679,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `markSentApiV1DocumentsDocumentIdMarkSentPost()`
+## `markSent()`
 
 ```php
-markSentApiV1DocumentsDocumentIdMarkSentPost($document_id): \InvoicePDFs\Model\DocumentResponse
+markSent($document_id): \InvoicePDFs\Model\DocumentResponse
 ```
 
 Mark Sent
@@ -645,10 +707,10 @@ $apiInstance = new InvoicePDFs\Api\DocumentsApi(
 $document_id = 'document_id_example'; // string
 
 try {
-    $result = $apiInstance->markSentApiV1DocumentsDocumentIdMarkSentPost($document_id);
+    $result = $apiInstance->markSent($document_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->markSentApiV1DocumentsDocumentIdMarkSentPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->markSent: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -675,10 +737,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost()`
+## `markUnpaid()`
 
 ```php
-markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost($document_id): \InvoicePDFs\Model\DocumentResponse
+markUnpaid($document_id): \InvoicePDFs\Model\DocumentResponse
 ```
 
 Mark Unpaid
@@ -703,10 +765,10 @@ $apiInstance = new InvoicePDFs\Api\DocumentsApi(
 $document_id = 'document_id_example'; // string
 
 try {
-    $result = $apiInstance->markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost($document_id);
+    $result = $apiInstance->markUnpaid($document_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->markUnpaid: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -733,70 +795,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `patchDocumentApiV1DocumentsDocumentIdPatch()`
+## `renderDocument()`
 
 ```php
-patchDocumentApiV1DocumentsDocumentIdPatch($document_id, $document_patch_request): \InvoicePDFs\Model\DocumentResponse
-```
-
-Patch Document
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: HTTPBearer
-$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new InvoicePDFs\Api\DocumentsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$document_id = 'document_id_example'; // string
-$document_patch_request = new \InvoicePDFs\Model\DocumentPatchRequest(); // \InvoicePDFs\Model\DocumentPatchRequest
-
-try {
-    $result = $apiInstance->patchDocumentApiV1DocumentsDocumentIdPatch($document_id, $document_patch_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->patchDocumentApiV1DocumentsDocumentIdPatch: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **document_id** | **string**|  | |
-| **document_patch_request** | [**\InvoicePDFs\Model\DocumentPatchRequest**](../Model/DocumentPatchRequest.md)|  | |
-
-### Return type
-
-[**\InvoicePDFs\Model\DocumentResponse**](../Model/DocumentResponse.md)
-
-### Authorization
-
-[HTTPBearer](../../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `renderDocumentApiV1DocumentsDocumentIdRendersPost()`
-
-```php
-renderDocumentApiV1DocumentsDocumentIdRendersPost($document_id, $app_documents_schemas_document_render_request, $idempotency_key): mixed
+renderDocument($document_render_request, $idempotency_key): mixed
 ```
 
 Render Document
@@ -818,15 +820,14 @@ $apiInstance = new InvoicePDFs\Api\DocumentsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$document_id = 'document_id_example'; // string
-$app_documents_schemas_document_render_request = new \InvoicePDFs\Model\AppDocumentsSchemasDocumentRenderRequest(); // \InvoicePDFs\Model\AppDocumentsSchemasDocumentRenderRequest
+$document_render_request = new \InvoicePDFs\Model\DocumentRenderRequest(); // \InvoicePDFs\Model\DocumentRenderRequest
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->renderDocumentApiV1DocumentsDocumentIdRendersPost($document_id, $app_documents_schemas_document_render_request, $idempotency_key);
+    $result = $apiInstance->renderDocument($document_render_request, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->renderDocumentApiV1DocumentsDocumentIdRendersPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->renderDocument: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -834,8 +835,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **document_id** | **string**|  | |
-| **app_documents_schemas_document_render_request** | [**\InvoicePDFs\Model\AppDocumentsSchemasDocumentRenderRequest**](../Model/AppDocumentsSchemasDocumentRenderRequest.md)|  | |
+| **document_render_request** | [**\InvoicePDFs\Model\DocumentRenderRequest**](../Model/DocumentRenderRequest.md)|  | |
 | **idempotency_key** | **string**|  | [optional] |
 
 ### Return type
@@ -855,70 +855,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `renderDocumentApiV1DocumentsRenderPost()`
+## `restoreDocument()`
 
 ```php
-renderDocumentApiV1DocumentsRenderPost($app_schemas_v1_document_render_request, $idempotency_key): mixed
-```
-
-Render Document
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer authorization: HTTPBearer
-$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new InvoicePDFs\Api\DocumentsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$app_schemas_v1_document_render_request = new \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest(); // \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest
-$idempotency_key = 'idempotency_key_example'; // string
-
-try {
-    $result = $apiInstance->renderDocumentApiV1DocumentsRenderPost($app_schemas_v1_document_render_request, $idempotency_key);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->renderDocumentApiV1DocumentsRenderPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **app_schemas_v1_document_render_request** | [**\InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest**](../Model/AppSchemasV1DocumentRenderRequest.md)|  | |
-| **idempotency_key** | **string**|  | [optional] |
-
-### Return type
-
-**mixed**
-
-### Authorization
-
-[HTTPBearer](../../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `restoreDocumentApiV1DocumentsDocumentIdRestorePost()`
-
-```php
-restoreDocumentApiV1DocumentsDocumentIdRestorePost($document_id): \InvoicePDFs\Model\DocumentResponse
+restoreDocument($document_id): \InvoicePDFs\Model\DocumentResponse
 ```
 
 Restore Document
@@ -943,10 +883,10 @@ $apiInstance = new InvoicePDFs\Api\DocumentsApi(
 $document_id = 'document_id_example'; // string
 
 try {
-    $result = $apiInstance->restoreDocumentApiV1DocumentsDocumentIdRestorePost($document_id);
+    $result = $apiInstance->restoreDocument($document_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->restoreDocumentApiV1DocumentsDocumentIdRestorePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->restoreDocument: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -973,10 +913,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `sendDocumentApiV1DocumentsDocumentIdSendPost()`
+## `sendDocument()`
 
 ```php
-sendDocumentApiV1DocumentsDocumentIdSendPost($document_id, $delivery_send_request): \InvoicePDFs\Model\DeliveryResponse
+sendDocument($document_id, $delivery_send_request): \InvoicePDFs\Model\DeliveryResponse
 ```
 
 Send Document
@@ -1002,10 +942,10 @@ $document_id = 'document_id_example'; // string
 $delivery_send_request = new \InvoicePDFs\Model\DeliverySendRequest(); // \InvoicePDFs\Model\DeliverySendRequest
 
 try {
-    $result = $apiInstance->sendDocumentApiV1DocumentsDocumentIdSendPost($document_id, $delivery_send_request);
+    $result = $apiInstance->sendDocument($document_id, $delivery_send_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->sendDocumentApiV1DocumentsDocumentIdSendPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->sendDocument: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1033,10 +973,70 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `validateDocumentApiV1DocumentsValidatePost()`
+## `updateDocument()`
 
 ```php
-validateDocumentApiV1DocumentsValidatePost($document_validate_request): \InvoicePDFs\Model\DocumentValidateResponse
+updateDocument($document_id, $document_patch_request): \InvoicePDFs\Model\DocumentResponse
+```
+
+Update Document
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new InvoicePDFs\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$document_id = 'document_id_example'; // string
+$document_patch_request = new \InvoicePDFs\Model\DocumentPatchRequest(); // \InvoicePDFs\Model\DocumentPatchRequest
+
+try {
+    $result = $apiInstance->updateDocument($document_id, $document_patch_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->updateDocument: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **document_id** | **string**|  | |
+| **document_patch_request** | [**\InvoicePDFs\Model\DocumentPatchRequest**](../Model/DocumentPatchRequest.md)|  | |
+
+### Return type
+
+[**\InvoicePDFs\Model\DocumentResponse**](../Model/DocumentResponse.md)
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `validateDocument()`
+
+```php
+validateDocument($document_validate_request): \InvoicePDFs\Model\DocumentValidateResponse
 ```
 
 Validate Document
@@ -1061,10 +1061,10 @@ $apiInstance = new InvoicePDFs\Api\DocumentsApi(
 $document_validate_request = new \InvoicePDFs\Model\DocumentValidateRequest(); // \InvoicePDFs\Model\DocumentValidateRequest
 
 try {
-    $result = $apiInstance->validateDocumentApiV1DocumentsValidatePost($document_validate_request);
+    $result = $apiInstance->validateDocument($document_validate_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->validateDocumentApiV1DocumentsValidatePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->validateDocument: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -1091,10 +1091,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `voidDocumentApiV1DocumentsDocumentIdVoidPost()`
+## `voidDocument()`
 
 ```php
-voidDocumentApiV1DocumentsDocumentIdVoidPost($document_id): \InvoicePDFs\Model\DocumentResponse
+voidDocument($document_id): \InvoicePDFs\Model\DocumentResponse
 ```
 
 Void Document
@@ -1119,10 +1119,10 @@ $apiInstance = new InvoicePDFs\Api\DocumentsApi(
 $document_id = 'document_id_example'; // string
 
 try {
-    $result = $apiInstance->voidDocumentApiV1DocumentsDocumentIdVoidPost($document_id);
+    $result = $apiInstance->voidDocument($document_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentsApi->voidDocumentApiV1DocumentsDocumentIdVoidPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentsApi->voidDocument: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

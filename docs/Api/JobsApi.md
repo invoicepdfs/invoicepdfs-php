@@ -4,15 +4,15 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**cancelJobApiV1JobsJobIdCancelPost()**](JobsApi.md#cancelJobApiV1JobsJobIdCancelPost) | **POST** /api/v1/jobs/{job_id}/cancel | Cancel Job |
-| [**getJobApiV1JobsJobIdGet()**](JobsApi.md#getJobApiV1JobsJobIdGet) | **GET** /api/v1/jobs/{job_id} | Get Job |
-| [**retryJobApiV1JobsJobIdRetryPost()**](JobsApi.md#retryJobApiV1JobsJobIdRetryPost) | **POST** /api/v1/jobs/{job_id}/retry | Retry Job |
+| [**cancelJob()**](JobsApi.md#cancelJob) | **POST** /api/v1/jobs/{job_id}/cancel | Cancel Job |
+| [**getJob()**](JobsApi.md#getJob) | **GET** /api/v1/jobs/{job_id} | Get Job |
+| [**retryJob()**](JobsApi.md#retryJob) | **POST** /api/v1/jobs/{job_id}/retry | Retry Job |
 
 
-## `cancelJobApiV1JobsJobIdCancelPost()`
+## `cancelJob()`
 
 ```php
-cancelJobApiV1JobsJobIdCancelPost($job_id): \InvoicePDFs\Model\JobResponse
+cancelJob($job_id): \InvoicePDFs\Model\JobResponse
 ```
 
 Cancel Job
@@ -37,10 +37,10 @@ $apiInstance = new InvoicePDFs\Api\JobsApi(
 $job_id = 'job_id_example'; // string
 
 try {
-    $result = $apiInstance->cancelJobApiV1JobsJobIdCancelPost($job_id);
+    $result = $apiInstance->cancelJob($job_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling JobsApi->cancelJobApiV1JobsJobIdCancelPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling JobsApi->cancelJob: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -67,10 +67,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getJobApiV1JobsJobIdGet()`
+## `getJob()`
 
 ```php
-getJobApiV1JobsJobIdGet($job_id): \InvoicePDFs\Model\JobResponse
+getJob($job_id): \InvoicePDFs\Model\JobResponse
 ```
 
 Get Job
@@ -95,10 +95,10 @@ $apiInstance = new InvoicePDFs\Api\JobsApi(
 $job_id = 'job_id_example'; // string
 
 try {
-    $result = $apiInstance->getJobApiV1JobsJobIdGet($job_id);
+    $result = $apiInstance->getJob($job_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling JobsApi->getJobApiV1JobsJobIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling JobsApi->getJob: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -125,10 +125,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `retryJobApiV1JobsJobIdRetryPost()`
+## `retryJob()`
 
 ```php
-retryJobApiV1JobsJobIdRetryPost($job_id): \InvoicePDFs\Model\JobResponse
+retryJob($job_id): \InvoicePDFs\Model\JobResponse
 ```
 
 Retry Job
@@ -153,10 +153,10 @@ $apiInstance = new InvoicePDFs\Api\JobsApi(
 $job_id = 'job_id_example'; // string
 
 try {
-    $result = $apiInstance->retryJobApiV1JobsJobIdRetryPost($job_id);
+    $result = $apiInstance->retryJob($job_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling JobsApi->retryJobApiV1JobsJobIdRetryPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling JobsApi->retryJob: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

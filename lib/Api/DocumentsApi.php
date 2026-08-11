@@ -71,61 +71,61 @@ class DocumentsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'archiveDocumentApiV1DocumentsDocumentIdArchivePost' => [
+        'archiveDocument' => [
             'application/json',
         ],
-        'calculateDocumentApiV1DocumentsCalculatePost' => [
+        'calculateDocument' => [
             'application/json',
         ],
-        'createDocumentApiV1DocumentsPost' => [
+        'createDocument' => [
             'application/json',
         ],
-        'deleteDocumentApiV1DocumentsDocumentIdDelete' => [
+        'createDocumentRender' => [
             'application/json',
         ],
-        'duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost' => [
+        'deleteDocument' => [
             'application/json',
         ],
-        'finalizeDocumentApiV1DocumentsDocumentIdFinalizePost' => [
+        'duplicateDocument' => [
             'application/json',
         ],
-        'getDocumentApiV1DocumentsDocumentIdGet' => [
+        'finalizeDocument' => [
             'application/json',
         ],
-        'listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet' => [
+        'getDocument' => [
             'application/json',
         ],
-        'listDocumentsApiV1DocumentsGet' => [
+        'listDocumentDeliveries' => [
             'application/json',
         ],
-        'markPaidApiV1DocumentsDocumentIdMarkPaidPost' => [
+        'listDocuments' => [
             'application/json',
         ],
-        'markSentApiV1DocumentsDocumentIdMarkSentPost' => [
+        'markPaid' => [
             'application/json',
         ],
-        'markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost' => [
+        'markSent' => [
             'application/json',
         ],
-        'patchDocumentApiV1DocumentsDocumentIdPatch' => [
+        'markUnpaid' => [
             'application/json',
         ],
-        'renderDocumentApiV1DocumentsDocumentIdRendersPost' => [
+        'renderDocument' => [
             'application/json',
         ],
-        'renderDocumentApiV1DocumentsRenderPost' => [
+        'restoreDocument' => [
             'application/json',
         ],
-        'restoreDocumentApiV1DocumentsDocumentIdRestorePost' => [
+        'sendDocument' => [
             'application/json',
         ],
-        'sendDocumentApiV1DocumentsDocumentIdSendPost' => [
+        'updateDocument' => [
             'application/json',
         ],
-        'validateDocumentApiV1DocumentsValidatePost' => [
+        'validateDocument' => [
             'application/json',
         ],
-        'voidDocumentApiV1DocumentsDocumentIdVoidPost' => [
+        'voidDocument' => [
             'application/json',
         ],
     ];
@@ -177,38 +177,38 @@ class DocumentsApi
     }
 
     /**
-     * Operation archiveDocumentApiV1DocumentsDocumentIdArchivePost
+     * Operation archiveDocument
      *
      * Archive Document
      *
      * @param  string $document_id document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['archiveDocumentApiV1DocumentsDocumentIdArchivePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['archiveDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function archiveDocumentApiV1DocumentsDocumentIdArchivePost($document_id, string $contentType = self::contentTypes['archiveDocumentApiV1DocumentsDocumentIdArchivePost'][0])
+    public function archiveDocument($document_id, string $contentType = self::contentTypes['archiveDocument'][0])
     {
-        list($response) = $this->archiveDocumentApiV1DocumentsDocumentIdArchivePostWithHttpInfo($document_id, $contentType);
+        list($response) = $this->archiveDocumentWithHttpInfo($document_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation archiveDocumentApiV1DocumentsDocumentIdArchivePostWithHttpInfo
+     * Operation archiveDocumentWithHttpInfo
      *
      * Archive Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['archiveDocumentApiV1DocumentsDocumentIdArchivePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['archiveDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function archiveDocumentApiV1DocumentsDocumentIdArchivePostWithHttpInfo($document_id, string $contentType = self::contentTypes['archiveDocumentApiV1DocumentsDocumentIdArchivePost'][0])
+    public function archiveDocumentWithHttpInfo($document_id, string $contentType = self::contentTypes['archiveDocument'][0])
     {
-        $request = $this->archiveDocumentApiV1DocumentsDocumentIdArchivePostRequest($document_id, $contentType);
+        $request = $this->archiveDocumentRequest($document_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -354,19 +354,19 @@ class DocumentsApi
     }
 
     /**
-     * Operation archiveDocumentApiV1DocumentsDocumentIdArchivePostAsync
+     * Operation archiveDocumentAsync
      *
      * Archive Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['archiveDocumentApiV1DocumentsDocumentIdArchivePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['archiveDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function archiveDocumentApiV1DocumentsDocumentIdArchivePostAsync($document_id, string $contentType = self::contentTypes['archiveDocumentApiV1DocumentsDocumentIdArchivePost'][0])
+    public function archiveDocumentAsync($document_id, string $contentType = self::contentTypes['archiveDocument'][0])
     {
-        return $this->archiveDocumentApiV1DocumentsDocumentIdArchivePostAsyncWithHttpInfo($document_id, $contentType)
+        return $this->archiveDocumentAsyncWithHttpInfo($document_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -375,20 +375,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation archiveDocumentApiV1DocumentsDocumentIdArchivePostAsyncWithHttpInfo
+     * Operation archiveDocumentAsyncWithHttpInfo
      *
      * Archive Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['archiveDocumentApiV1DocumentsDocumentIdArchivePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['archiveDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function archiveDocumentApiV1DocumentsDocumentIdArchivePostAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['archiveDocumentApiV1DocumentsDocumentIdArchivePost'][0])
+    public function archiveDocumentAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['archiveDocument'][0])
     {
         $returnType = '\InvoicePDFs\Model\DocumentResponse';
-        $request = $this->archiveDocumentApiV1DocumentsDocumentIdArchivePostRequest($document_id, $contentType);
+        $request = $this->archiveDocumentRequest($document_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -427,21 +427,21 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'archiveDocumentApiV1DocumentsDocumentIdArchivePost'
+     * Create request for operation 'archiveDocument'
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['archiveDocumentApiV1DocumentsDocumentIdArchivePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['archiveDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function archiveDocumentApiV1DocumentsDocumentIdArchivePostRequest($document_id, string $contentType = self::contentTypes['archiveDocumentApiV1DocumentsDocumentIdArchivePost'][0])
+    public function archiveDocumentRequest($document_id, string $contentType = self::contentTypes['archiveDocument'][0])
     {
 
         // verify the required parameter 'document_id' is set
         if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling archiveDocumentApiV1DocumentsDocumentIdArchivePost'
+                'Missing the required parameter $document_id when calling archiveDocument'
             );
         }
 
@@ -523,38 +523,38 @@ class DocumentsApi
     }
 
     /**
-     * Operation calculateDocumentApiV1DocumentsCalculatePost
+     * Operation calculateDocument
      *
      * Calculate Document
      *
      * @param  \InvoicePDFs\Model\DocumentCalculateRequest $document_calculate_request document_calculate_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DocumentCalculateResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function calculateDocumentApiV1DocumentsCalculatePost($document_calculate_request, string $contentType = self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'][0])
+    public function calculateDocument($document_calculate_request, string $contentType = self::contentTypes['calculateDocument'][0])
     {
-        list($response) = $this->calculateDocumentApiV1DocumentsCalculatePostWithHttpInfo($document_calculate_request, $contentType);
+        list($response) = $this->calculateDocumentWithHttpInfo($document_calculate_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation calculateDocumentApiV1DocumentsCalculatePostWithHttpInfo
+     * Operation calculateDocumentWithHttpInfo
      *
      * Calculate Document
      *
      * @param  \InvoicePDFs\Model\DocumentCalculateRequest $document_calculate_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DocumentCalculateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function calculateDocumentApiV1DocumentsCalculatePostWithHttpInfo($document_calculate_request, string $contentType = self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'][0])
+    public function calculateDocumentWithHttpInfo($document_calculate_request, string $contentType = self::contentTypes['calculateDocument'][0])
     {
-        $request = $this->calculateDocumentApiV1DocumentsCalculatePostRequest($document_calculate_request, $contentType);
+        $request = $this->calculateDocumentRequest($document_calculate_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -700,19 +700,19 @@ class DocumentsApi
     }
 
     /**
-     * Operation calculateDocumentApiV1DocumentsCalculatePostAsync
+     * Operation calculateDocumentAsync
      *
      * Calculate Document
      *
      * @param  \InvoicePDFs\Model\DocumentCalculateRequest $document_calculate_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function calculateDocumentApiV1DocumentsCalculatePostAsync($document_calculate_request, string $contentType = self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'][0])
+    public function calculateDocumentAsync($document_calculate_request, string $contentType = self::contentTypes['calculateDocument'][0])
     {
-        return $this->calculateDocumentApiV1DocumentsCalculatePostAsyncWithHttpInfo($document_calculate_request, $contentType)
+        return $this->calculateDocumentAsyncWithHttpInfo($document_calculate_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -721,20 +721,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation calculateDocumentApiV1DocumentsCalculatePostAsyncWithHttpInfo
+     * Operation calculateDocumentAsyncWithHttpInfo
      *
      * Calculate Document
      *
      * @param  \InvoicePDFs\Model\DocumentCalculateRequest $document_calculate_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function calculateDocumentApiV1DocumentsCalculatePostAsyncWithHttpInfo($document_calculate_request, string $contentType = self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'][0])
+    public function calculateDocumentAsyncWithHttpInfo($document_calculate_request, string $contentType = self::contentTypes['calculateDocument'][0])
     {
         $returnType = '\InvoicePDFs\Model\DocumentCalculateResponse';
-        $request = $this->calculateDocumentApiV1DocumentsCalculatePostRequest($document_calculate_request, $contentType);
+        $request = $this->calculateDocumentRequest($document_calculate_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -773,21 +773,21 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'calculateDocumentApiV1DocumentsCalculatePost'
+     * Create request for operation 'calculateDocument'
      *
      * @param  \InvoicePDFs\Model\DocumentCalculateRequest $document_calculate_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['calculateDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function calculateDocumentApiV1DocumentsCalculatePostRequest($document_calculate_request, string $contentType = self::contentTypes['calculateDocumentApiV1DocumentsCalculatePost'][0])
+    public function calculateDocumentRequest($document_calculate_request, string $contentType = self::contentTypes['calculateDocument'][0])
     {
 
         // verify the required parameter 'document_calculate_request' is set
         if ($document_calculate_request === null || (is_array($document_calculate_request) && count($document_calculate_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_calculate_request when calling calculateDocumentApiV1DocumentsCalculatePost'
+                'Missing the required parameter $document_calculate_request when calling calculateDocument'
             );
         }
 
@@ -868,40 +868,40 @@ class DocumentsApi
     }
 
     /**
-     * Operation createDocumentApiV1DocumentsPost
+     * Operation createDocument
      *
      * Create Document
      *
      * @param  \InvoicePDFs\Model\DocumentCreateRequest $document_create_request document_create_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentApiV1DocumentsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function createDocumentApiV1DocumentsPost($document_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createDocumentApiV1DocumentsPost'][0])
+    public function createDocument($document_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createDocument'][0])
     {
-        list($response) = $this->createDocumentApiV1DocumentsPostWithHttpInfo($document_create_request, $idempotency_key, $contentType);
+        list($response) = $this->createDocumentWithHttpInfo($document_create_request, $idempotency_key, $contentType);
         return $response;
     }
 
     /**
-     * Operation createDocumentApiV1DocumentsPostWithHttpInfo
+     * Operation createDocumentWithHttpInfo
      *
      * Create Document
      *
      * @param  \InvoicePDFs\Model\DocumentCreateRequest $document_create_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentApiV1DocumentsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createDocumentApiV1DocumentsPostWithHttpInfo($document_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createDocumentApiV1DocumentsPost'][0])
+    public function createDocumentWithHttpInfo($document_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createDocument'][0])
     {
-        $request = $this->createDocumentApiV1DocumentsPostRequest($document_create_request, $idempotency_key, $contentType);
+        $request = $this->createDocumentRequest($document_create_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1047,20 +1047,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation createDocumentApiV1DocumentsPostAsync
+     * Operation createDocumentAsync
      *
      * Create Document
      *
      * @param  \InvoicePDFs\Model\DocumentCreateRequest $document_create_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentApiV1DocumentsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDocumentApiV1DocumentsPostAsync($document_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createDocumentApiV1DocumentsPost'][0])
+    public function createDocumentAsync($document_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createDocument'][0])
     {
-        return $this->createDocumentApiV1DocumentsPostAsyncWithHttpInfo($document_create_request, $idempotency_key, $contentType)
+        return $this->createDocumentAsyncWithHttpInfo($document_create_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1069,21 +1069,21 @@ class DocumentsApi
     }
 
     /**
-     * Operation createDocumentApiV1DocumentsPostAsyncWithHttpInfo
+     * Operation createDocumentAsyncWithHttpInfo
      *
      * Create Document
      *
      * @param  \InvoicePDFs\Model\DocumentCreateRequest $document_create_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentApiV1DocumentsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createDocumentApiV1DocumentsPostAsyncWithHttpInfo($document_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createDocumentApiV1DocumentsPost'][0])
+    public function createDocumentAsyncWithHttpInfo($document_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createDocument'][0])
     {
         $returnType = '\InvoicePDFs\Model\DocumentResponse';
-        $request = $this->createDocumentApiV1DocumentsPostRequest($document_create_request, $idempotency_key, $contentType);
+        $request = $this->createDocumentRequest($document_create_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1122,22 +1122,22 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'createDocumentApiV1DocumentsPost'
+     * Create request for operation 'createDocument'
      *
      * @param  \InvoicePDFs\Model\DocumentCreateRequest $document_create_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentApiV1DocumentsPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createDocumentApiV1DocumentsPostRequest($document_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createDocumentApiV1DocumentsPost'][0])
+    public function createDocumentRequest($document_create_request, $idempotency_key = null, string $contentType = self::contentTypes['createDocument'][0])
     {
 
         // verify the required parameter 'document_create_request' is set
         if ($document_create_request === null || (is_array($document_create_request) && count($document_create_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_create_request when calling createDocumentApiV1DocumentsPost'
+                'Missing the required parameter $document_create_request when calling createDocument'
             );
         }
 
@@ -1223,38 +1223,413 @@ class DocumentsApi
     }
 
     /**
-     * Operation deleteDocumentApiV1DocumentsDocumentIdDelete
+     * Operation createDocumentRender
+     *
+     * Create Document Render
+     *
+     * @param  string $document_id document_id (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderOptions $document_render_options document_render_options (required)
+     * @param  string $idempotency_key idempotency_key (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentRender'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return mixed|\InvoicePDFs\Model\ApiErrorResponse
+     */
+    public function createDocumentRender($document_id, $document_render_options, $idempotency_key = null, string $contentType = self::contentTypes['createDocumentRender'][0])
+    {
+        list($response) = $this->createDocumentRenderWithHttpInfo($document_id, $document_render_options, $idempotency_key, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createDocumentRenderWithHttpInfo
+     *
+     * Create Document Render
+     *
+     * @param  string $document_id (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderOptions $document_render_options (required)
+     * @param  string $idempotency_key (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentRender'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of mixed|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createDocumentRenderWithHttpInfo($document_id, $document_render_options, $idempotency_key = null, string $contentType = self::contentTypes['createDocumentRender'][0])
+    {
+        $request = $this->createDocumentRenderRequest($document_id, $document_render_options, $idempotency_key, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('mixed' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('mixed' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'mixed', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'mixed';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'mixed',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createDocumentRenderAsync
+     *
+     * Create Document Render
+     *
+     * @param  string $document_id (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderOptions $document_render_options (required)
+     * @param  string $idempotency_key (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentRender'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createDocumentRenderAsync($document_id, $document_render_options, $idempotency_key = null, string $contentType = self::contentTypes['createDocumentRender'][0])
+    {
+        return $this->createDocumentRenderAsyncWithHttpInfo($document_id, $document_render_options, $idempotency_key, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createDocumentRenderAsyncWithHttpInfo
+     *
+     * Create Document Render
+     *
+     * @param  string $document_id (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderOptions $document_render_options (required)
+     * @param  string $idempotency_key (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentRender'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createDocumentRenderAsyncWithHttpInfo($document_id, $document_render_options, $idempotency_key = null, string $contentType = self::contentTypes['createDocumentRender'][0])
+    {
+        $returnType = 'mixed';
+        $request = $this->createDocumentRenderRequest($document_id, $document_render_options, $idempotency_key, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createDocumentRender'
+     *
+     * @param  string $document_id (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderOptions $document_render_options (required)
+     * @param  string $idempotency_key (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createDocumentRender'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createDocumentRenderRequest($document_id, $document_render_options, $idempotency_key = null, string $contentType = self::contentTypes['createDocumentRender'][0])
+    {
+
+        // verify the required parameter 'document_id' is set
+        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $document_id when calling createDocumentRender'
+            );
+        }
+
+        // verify the required parameter 'document_render_options' is set
+        if ($document_render_options === null || (is_array($document_render_options) && count($document_render_options) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $document_render_options when calling createDocumentRender'
+            );
+        }
+
+
+
+        $resourcePath = '/api/v1/documents/{document_id}/renders';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($idempotency_key !== null) {
+            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
+        }
+
+        // path params
+        if ($document_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'document_id' . '}',
+                ObjectSerializer::toPathValue($document_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($document_render_options)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($document_render_options));
+            } else {
+                $httpBody = $document_render_options;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteDocument
      *
      * Delete Document
      *
      * @param  string $document_id document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDocumentApiV1DocumentsDocumentIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function deleteDocumentApiV1DocumentsDocumentIdDelete($document_id, string $contentType = self::contentTypes['deleteDocumentApiV1DocumentsDocumentIdDelete'][0])
+    public function deleteDocument($document_id, string $contentType = self::contentTypes['deleteDocument'][0])
     {
-        list($response) = $this->deleteDocumentApiV1DocumentsDocumentIdDeleteWithHttpInfo($document_id, $contentType);
+        list($response) = $this->deleteDocumentWithHttpInfo($document_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation deleteDocumentApiV1DocumentsDocumentIdDeleteWithHttpInfo
+     * Operation deleteDocumentWithHttpInfo
      *
      * Delete Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDocumentApiV1DocumentsDocumentIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\SimpleBoolResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteDocumentApiV1DocumentsDocumentIdDeleteWithHttpInfo($document_id, string $contentType = self::contentTypes['deleteDocumentApiV1DocumentsDocumentIdDelete'][0])
+    public function deleteDocumentWithHttpInfo($document_id, string $contentType = self::contentTypes['deleteDocument'][0])
     {
-        $request = $this->deleteDocumentApiV1DocumentsDocumentIdDeleteRequest($document_id, $contentType);
+        $request = $this->deleteDocumentRequest($document_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1400,19 +1775,19 @@ class DocumentsApi
     }
 
     /**
-     * Operation deleteDocumentApiV1DocumentsDocumentIdDeleteAsync
+     * Operation deleteDocumentAsync
      *
      * Delete Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDocumentApiV1DocumentsDocumentIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDocumentApiV1DocumentsDocumentIdDeleteAsync($document_id, string $contentType = self::contentTypes['deleteDocumentApiV1DocumentsDocumentIdDelete'][0])
+    public function deleteDocumentAsync($document_id, string $contentType = self::contentTypes['deleteDocument'][0])
     {
-        return $this->deleteDocumentApiV1DocumentsDocumentIdDeleteAsyncWithHttpInfo($document_id, $contentType)
+        return $this->deleteDocumentAsyncWithHttpInfo($document_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1421,20 +1796,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation deleteDocumentApiV1DocumentsDocumentIdDeleteAsyncWithHttpInfo
+     * Operation deleteDocumentAsyncWithHttpInfo
      *
      * Delete Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDocumentApiV1DocumentsDocumentIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDocumentApiV1DocumentsDocumentIdDeleteAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['deleteDocumentApiV1DocumentsDocumentIdDelete'][0])
+    public function deleteDocumentAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['deleteDocument'][0])
     {
         $returnType = '\InvoicePDFs\Model\SimpleBoolResponse';
-        $request = $this->deleteDocumentApiV1DocumentsDocumentIdDeleteRequest($document_id, $contentType);
+        $request = $this->deleteDocumentRequest($document_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1473,21 +1848,21 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'deleteDocumentApiV1DocumentsDocumentIdDelete'
+     * Create request for operation 'deleteDocument'
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDocumentApiV1DocumentsDocumentIdDelete'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteDocumentApiV1DocumentsDocumentIdDeleteRequest($document_id, string $contentType = self::contentTypes['deleteDocumentApiV1DocumentsDocumentIdDelete'][0])
+    public function deleteDocumentRequest($document_id, string $contentType = self::contentTypes['deleteDocument'][0])
     {
 
         // verify the required parameter 'document_id' is set
         if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling deleteDocumentApiV1DocumentsDocumentIdDelete'
+                'Missing the required parameter $document_id when calling deleteDocument'
             );
         }
 
@@ -1569,38 +1944,38 @@ class DocumentsApi
     }
 
     /**
-     * Operation duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost
+     * Operation duplicateDocument
      *
      * Duplicate Document
      *
      * @param  string $document_id document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost($document_id, string $contentType = self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'][0])
+    public function duplicateDocument($document_id, string $contentType = self::contentTypes['duplicateDocument'][0])
     {
-        list($response) = $this->duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostWithHttpInfo($document_id, $contentType);
+        list($response) = $this->duplicateDocumentWithHttpInfo($document_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostWithHttpInfo
+     * Operation duplicateDocumentWithHttpInfo
      *
      * Duplicate Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostWithHttpInfo($document_id, string $contentType = self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'][0])
+    public function duplicateDocumentWithHttpInfo($document_id, string $contentType = self::contentTypes['duplicateDocument'][0])
     {
-        $request = $this->duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest($document_id, $contentType);
+        $request = $this->duplicateDocumentRequest($document_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1746,19 +2121,19 @@ class DocumentsApi
     }
 
     /**
-     * Operation duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostAsync
+     * Operation duplicateDocumentAsync
      *
      * Duplicate Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostAsync($document_id, string $contentType = self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'][0])
+    public function duplicateDocumentAsync($document_id, string $contentType = self::contentTypes['duplicateDocument'][0])
     {
-        return $this->duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostAsyncWithHttpInfo($document_id, $contentType)
+        return $this->duplicateDocumentAsyncWithHttpInfo($document_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1767,20 +2142,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostAsyncWithHttpInfo
+     * Operation duplicateDocumentAsyncWithHttpInfo
      *
      * Duplicate Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'][0])
+    public function duplicateDocumentAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['duplicateDocument'][0])
     {
         $returnType = '\InvoicePDFs\Model\DocumentResponse';
-        $request = $this->duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest($document_id, $contentType);
+        $request = $this->duplicateDocumentRequest($document_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1819,21 +2194,21 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'
+     * Create request for operation 'duplicateDocument'
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['duplicateDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function duplicateDocumentApiV1DocumentsDocumentIdDuplicatePostRequest($document_id, string $contentType = self::contentTypes['duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'][0])
+    public function duplicateDocumentRequest($document_id, string $contentType = self::contentTypes['duplicateDocument'][0])
     {
 
         // verify the required parameter 'document_id' is set
         if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling duplicateDocumentApiV1DocumentsDocumentIdDuplicatePost'
+                'Missing the required parameter $document_id when calling duplicateDocument'
             );
         }
 
@@ -1915,38 +2290,38 @@ class DocumentsApi
     }
 
     /**
-     * Operation finalizeDocumentApiV1DocumentsDocumentIdFinalizePost
+     * Operation finalizeDocument
      *
      * Finalize Document
      *
      * @param  string $document_id document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeDocumentApiV1DocumentsDocumentIdFinalizePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function finalizeDocumentApiV1DocumentsDocumentIdFinalizePost($document_id, string $contentType = self::contentTypes['finalizeDocumentApiV1DocumentsDocumentIdFinalizePost'][0])
+    public function finalizeDocument($document_id, string $contentType = self::contentTypes['finalizeDocument'][0])
     {
-        list($response) = $this->finalizeDocumentApiV1DocumentsDocumentIdFinalizePostWithHttpInfo($document_id, $contentType);
+        list($response) = $this->finalizeDocumentWithHttpInfo($document_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation finalizeDocumentApiV1DocumentsDocumentIdFinalizePostWithHttpInfo
+     * Operation finalizeDocumentWithHttpInfo
      *
      * Finalize Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeDocumentApiV1DocumentsDocumentIdFinalizePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function finalizeDocumentApiV1DocumentsDocumentIdFinalizePostWithHttpInfo($document_id, string $contentType = self::contentTypes['finalizeDocumentApiV1DocumentsDocumentIdFinalizePost'][0])
+    public function finalizeDocumentWithHttpInfo($document_id, string $contentType = self::contentTypes['finalizeDocument'][0])
     {
-        $request = $this->finalizeDocumentApiV1DocumentsDocumentIdFinalizePostRequest($document_id, $contentType);
+        $request = $this->finalizeDocumentRequest($document_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2092,19 +2467,19 @@ class DocumentsApi
     }
 
     /**
-     * Operation finalizeDocumentApiV1DocumentsDocumentIdFinalizePostAsync
+     * Operation finalizeDocumentAsync
      *
      * Finalize Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeDocumentApiV1DocumentsDocumentIdFinalizePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function finalizeDocumentApiV1DocumentsDocumentIdFinalizePostAsync($document_id, string $contentType = self::contentTypes['finalizeDocumentApiV1DocumentsDocumentIdFinalizePost'][0])
+    public function finalizeDocumentAsync($document_id, string $contentType = self::contentTypes['finalizeDocument'][0])
     {
-        return $this->finalizeDocumentApiV1DocumentsDocumentIdFinalizePostAsyncWithHttpInfo($document_id, $contentType)
+        return $this->finalizeDocumentAsyncWithHttpInfo($document_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2113,20 +2488,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation finalizeDocumentApiV1DocumentsDocumentIdFinalizePostAsyncWithHttpInfo
+     * Operation finalizeDocumentAsyncWithHttpInfo
      *
      * Finalize Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeDocumentApiV1DocumentsDocumentIdFinalizePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function finalizeDocumentApiV1DocumentsDocumentIdFinalizePostAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['finalizeDocumentApiV1DocumentsDocumentIdFinalizePost'][0])
+    public function finalizeDocumentAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['finalizeDocument'][0])
     {
         $returnType = '\InvoicePDFs\Model\DocumentResponse';
-        $request = $this->finalizeDocumentApiV1DocumentsDocumentIdFinalizePostRequest($document_id, $contentType);
+        $request = $this->finalizeDocumentRequest($document_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2165,21 +2540,21 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'finalizeDocumentApiV1DocumentsDocumentIdFinalizePost'
+     * Create request for operation 'finalizeDocument'
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeDocumentApiV1DocumentsDocumentIdFinalizePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['finalizeDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function finalizeDocumentApiV1DocumentsDocumentIdFinalizePostRequest($document_id, string $contentType = self::contentTypes['finalizeDocumentApiV1DocumentsDocumentIdFinalizePost'][0])
+    public function finalizeDocumentRequest($document_id, string $contentType = self::contentTypes['finalizeDocument'][0])
     {
 
         // verify the required parameter 'document_id' is set
         if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling finalizeDocumentApiV1DocumentsDocumentIdFinalizePost'
+                'Missing the required parameter $document_id when calling finalizeDocument'
             );
         }
 
@@ -2261,38 +2636,38 @@ class DocumentsApi
     }
 
     /**
-     * Operation getDocumentApiV1DocumentsDocumentIdGet
+     * Operation getDocument
      *
      * Get Document
      *
      * @param  string $document_id document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocumentApiV1DocumentsDocumentIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function getDocumentApiV1DocumentsDocumentIdGet($document_id, string $contentType = self::contentTypes['getDocumentApiV1DocumentsDocumentIdGet'][0])
+    public function getDocument($document_id, string $contentType = self::contentTypes['getDocument'][0])
     {
-        list($response) = $this->getDocumentApiV1DocumentsDocumentIdGetWithHttpInfo($document_id, $contentType);
+        list($response) = $this->getDocumentWithHttpInfo($document_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation getDocumentApiV1DocumentsDocumentIdGetWithHttpInfo
+     * Operation getDocumentWithHttpInfo
      *
      * Get Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocumentApiV1DocumentsDocumentIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDocumentApiV1DocumentsDocumentIdGetWithHttpInfo($document_id, string $contentType = self::contentTypes['getDocumentApiV1DocumentsDocumentIdGet'][0])
+    public function getDocumentWithHttpInfo($document_id, string $contentType = self::contentTypes['getDocument'][0])
     {
-        $request = $this->getDocumentApiV1DocumentsDocumentIdGetRequest($document_id, $contentType);
+        $request = $this->getDocumentRequest($document_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2438,19 +2813,19 @@ class DocumentsApi
     }
 
     /**
-     * Operation getDocumentApiV1DocumentsDocumentIdGetAsync
+     * Operation getDocumentAsync
      *
      * Get Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocumentApiV1DocumentsDocumentIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDocumentApiV1DocumentsDocumentIdGetAsync($document_id, string $contentType = self::contentTypes['getDocumentApiV1DocumentsDocumentIdGet'][0])
+    public function getDocumentAsync($document_id, string $contentType = self::contentTypes['getDocument'][0])
     {
-        return $this->getDocumentApiV1DocumentsDocumentIdGetAsyncWithHttpInfo($document_id, $contentType)
+        return $this->getDocumentAsyncWithHttpInfo($document_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2459,20 +2834,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation getDocumentApiV1DocumentsDocumentIdGetAsyncWithHttpInfo
+     * Operation getDocumentAsyncWithHttpInfo
      *
      * Get Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocumentApiV1DocumentsDocumentIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDocumentApiV1DocumentsDocumentIdGetAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['getDocumentApiV1DocumentsDocumentIdGet'][0])
+    public function getDocumentAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['getDocument'][0])
     {
         $returnType = '\InvoicePDFs\Model\DocumentResponse';
-        $request = $this->getDocumentApiV1DocumentsDocumentIdGetRequest($document_id, $contentType);
+        $request = $this->getDocumentRequest($document_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2511,21 +2886,21 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'getDocumentApiV1DocumentsDocumentIdGet'
+     * Create request for operation 'getDocument'
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocumentApiV1DocumentsDocumentIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDocumentApiV1DocumentsDocumentIdGetRequest($document_id, string $contentType = self::contentTypes['getDocumentApiV1DocumentsDocumentIdGet'][0])
+    public function getDocumentRequest($document_id, string $contentType = self::contentTypes['getDocument'][0])
     {
 
         // verify the required parameter 'document_id' is set
         if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling getDocumentApiV1DocumentsDocumentIdGet'
+                'Missing the required parameter $document_id when calling getDocument'
             );
         }
 
@@ -2607,42 +2982,42 @@ class DocumentsApi
     }
 
     /**
-     * Operation listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet
+     * Operation listDocumentDeliveries
      *
      * List Document Deliveries
      *
      * @param  string $document_id document_id (required)
      * @param  int $limit limit (optional, default to 50)
      * @param  string $cursor cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentDeliveries'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DeliveriesListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet'][0])
+    public function listDocumentDeliveries($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentDeliveries'][0])
     {
-        list($response) = $this->listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetWithHttpInfo($document_id, $limit, $cursor, $contentType);
+        list($response) = $this->listDocumentDeliveriesWithHttpInfo($document_id, $limit, $cursor, $contentType);
         return $response;
     }
 
     /**
-     * Operation listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetWithHttpInfo
+     * Operation listDocumentDeliveriesWithHttpInfo
      *
      * List Document Deliveries
      *
      * @param  string $document_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentDeliveries'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DeliveriesListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetWithHttpInfo($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet'][0])
+    public function listDocumentDeliveriesWithHttpInfo($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentDeliveries'][0])
     {
-        $request = $this->listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest($document_id, $limit, $cursor, $contentType);
+        $request = $this->listDocumentDeliveriesRequest($document_id, $limit, $cursor, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2788,21 +3163,21 @@ class DocumentsApi
     }
 
     /**
-     * Operation listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetAsync
+     * Operation listDocumentDeliveriesAsync
      *
      * List Document Deliveries
      *
      * @param  string $document_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentDeliveries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetAsync($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet'][0])
+    public function listDocumentDeliveriesAsync($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentDeliveries'][0])
     {
-        return $this->listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetAsyncWithHttpInfo($document_id, $limit, $cursor, $contentType)
+        return $this->listDocumentDeliveriesAsyncWithHttpInfo($document_id, $limit, $cursor, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2811,22 +3186,22 @@ class DocumentsApi
     }
 
     /**
-     * Operation listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetAsyncWithHttpInfo
+     * Operation listDocumentDeliveriesAsyncWithHttpInfo
      *
      * List Document Deliveries
      *
      * @param  string $document_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentDeliveries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetAsyncWithHttpInfo($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet'][0])
+    public function listDocumentDeliveriesAsyncWithHttpInfo($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentDeliveries'][0])
     {
         $returnType = '\InvoicePDFs\Model\DeliveriesListResponse';
-        $request = $this->listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest($document_id, $limit, $cursor, $contentType);
+        $request = $this->listDocumentDeliveriesRequest($document_id, $limit, $cursor, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2865,31 +3240,31 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet'
+     * Create request for operation 'listDocumentDeliveries'
      *
      * @param  string $document_id (required)
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentDeliveries'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGetRequest($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet'][0])
+    public function listDocumentDeliveriesRequest($document_id, $limit = 50, $cursor = null, string $contentType = self::contentTypes['listDocumentDeliveries'][0])
     {
 
         // verify the required parameter 'document_id' is set
         if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet'
+                'Missing the required parameter $document_id when calling listDocumentDeliveries'
             );
         }
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling DocumentsApi.listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DocumentsApi.listDocumentDeliveries, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling DocumentsApi.listDocumentDeliveriesApiV1DocumentsDocumentIdDeliveriesGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DocumentsApi.listDocumentDeliveries, must be bigger than or equal to 1.');
         }
         
 
@@ -2989,7 +3364,7 @@ class DocumentsApi
     }
 
     /**
-     * Operation listDocumentsApiV1DocumentsGet
+     * Operation listDocuments
      *
      * List Documents
      *
@@ -2997,20 +3372,20 @@ class DocumentsApi
      * @param  string $cursor cursor (optional)
      * @param  string $document_type document_type (optional)
      * @param  string $status status (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentsApiV1DocumentsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocuments'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DocumentsListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function listDocumentsApiV1DocumentsGet($limit = 50, $cursor = null, $document_type = null, $status = null, string $contentType = self::contentTypes['listDocumentsApiV1DocumentsGet'][0])
+    public function listDocuments($limit = 50, $cursor = null, $document_type = null, $status = null, string $contentType = self::contentTypes['listDocuments'][0])
     {
-        list($response) = $this->listDocumentsApiV1DocumentsGetWithHttpInfo($limit, $cursor, $document_type, $status, $contentType);
+        list($response) = $this->listDocumentsWithHttpInfo($limit, $cursor, $document_type, $status, $contentType);
         return $response;
     }
 
     /**
-     * Operation listDocumentsApiV1DocumentsGetWithHttpInfo
+     * Operation listDocumentsWithHttpInfo
      *
      * List Documents
      *
@@ -3018,15 +3393,15 @@ class DocumentsApi
      * @param  string $cursor (optional)
      * @param  string $document_type (optional)
      * @param  string $status (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentsApiV1DocumentsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocuments'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DocumentsListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listDocumentsApiV1DocumentsGetWithHttpInfo($limit = 50, $cursor = null, $document_type = null, $status = null, string $contentType = self::contentTypes['listDocumentsApiV1DocumentsGet'][0])
+    public function listDocumentsWithHttpInfo($limit = 50, $cursor = null, $document_type = null, $status = null, string $contentType = self::contentTypes['listDocuments'][0])
     {
-        $request = $this->listDocumentsApiV1DocumentsGetRequest($limit, $cursor, $document_type, $status, $contentType);
+        $request = $this->listDocumentsRequest($limit, $cursor, $document_type, $status, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3172,7 +3547,7 @@ class DocumentsApi
     }
 
     /**
-     * Operation listDocumentsApiV1DocumentsGetAsync
+     * Operation listDocumentsAsync
      *
      * List Documents
      *
@@ -3180,14 +3555,14 @@ class DocumentsApi
      * @param  string $cursor (optional)
      * @param  string $document_type (optional)
      * @param  string $status (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentsApiV1DocumentsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocuments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDocumentsApiV1DocumentsGetAsync($limit = 50, $cursor = null, $document_type = null, $status = null, string $contentType = self::contentTypes['listDocumentsApiV1DocumentsGet'][0])
+    public function listDocumentsAsync($limit = 50, $cursor = null, $document_type = null, $status = null, string $contentType = self::contentTypes['listDocuments'][0])
     {
-        return $this->listDocumentsApiV1DocumentsGetAsyncWithHttpInfo($limit, $cursor, $document_type, $status, $contentType)
+        return $this->listDocumentsAsyncWithHttpInfo($limit, $cursor, $document_type, $status, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3196,7 +3571,7 @@ class DocumentsApi
     }
 
     /**
-     * Operation listDocumentsApiV1DocumentsGetAsyncWithHttpInfo
+     * Operation listDocumentsAsyncWithHttpInfo
      *
      * List Documents
      *
@@ -3204,15 +3579,15 @@ class DocumentsApi
      * @param  string $cursor (optional)
      * @param  string $document_type (optional)
      * @param  string $status (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentsApiV1DocumentsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocuments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDocumentsApiV1DocumentsGetAsyncWithHttpInfo($limit = 50, $cursor = null, $document_type = null, $status = null, string $contentType = self::contentTypes['listDocumentsApiV1DocumentsGet'][0])
+    public function listDocumentsAsyncWithHttpInfo($limit = 50, $cursor = null, $document_type = null, $status = null, string $contentType = self::contentTypes['listDocuments'][0])
     {
         $returnType = '\InvoicePDFs\Model\DocumentsListResponse';
-        $request = $this->listDocumentsApiV1DocumentsGetRequest($limit, $cursor, $document_type, $status, $contentType);
+        $request = $this->listDocumentsRequest($limit, $cursor, $document_type, $status, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3251,25 +3626,25 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'listDocumentsApiV1DocumentsGet'
+     * Create request for operation 'listDocuments'
      *
      * @param  int $limit (optional, default to 50)
      * @param  string $cursor (optional)
      * @param  string $document_type (optional)
      * @param  string $status (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocumentsApiV1DocumentsGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listDocuments'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listDocumentsApiV1DocumentsGetRequest($limit = 50, $cursor = null, $document_type = null, $status = null, string $contentType = self::contentTypes['listDocumentsApiV1DocumentsGet'][0])
+    public function listDocumentsRequest($limit = 50, $cursor = null, $document_type = null, $status = null, string $contentType = self::contentTypes['listDocuments'][0])
     {
 
         if ($limit !== null && $limit > 100) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling DocumentsApi.listDocumentsApiV1DocumentsGet, must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DocumentsApi.listDocuments, must be smaller than or equal to 100.');
         }
         if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling DocumentsApi.listDocumentsApiV1DocumentsGet, must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid value for "$limit" when calling DocumentsApi.listDocuments, must be bigger than or equal to 1.');
         }
         
 
@@ -3381,38 +3756,38 @@ class DocumentsApi
     }
 
     /**
-     * Operation markPaidApiV1DocumentsDocumentIdMarkPaidPost
+     * Operation markPaid
      *
      * Mark Paid
      *
      * @param  string $document_id document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markPaidApiV1DocumentsDocumentIdMarkPaidPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markPaid'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function markPaidApiV1DocumentsDocumentIdMarkPaidPost($document_id, string $contentType = self::contentTypes['markPaidApiV1DocumentsDocumentIdMarkPaidPost'][0])
+    public function markPaid($document_id, string $contentType = self::contentTypes['markPaid'][0])
     {
-        list($response) = $this->markPaidApiV1DocumentsDocumentIdMarkPaidPostWithHttpInfo($document_id, $contentType);
+        list($response) = $this->markPaidWithHttpInfo($document_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation markPaidApiV1DocumentsDocumentIdMarkPaidPostWithHttpInfo
+     * Operation markPaidWithHttpInfo
      *
      * Mark Paid
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markPaidApiV1DocumentsDocumentIdMarkPaidPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markPaid'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function markPaidApiV1DocumentsDocumentIdMarkPaidPostWithHttpInfo($document_id, string $contentType = self::contentTypes['markPaidApiV1DocumentsDocumentIdMarkPaidPost'][0])
+    public function markPaidWithHttpInfo($document_id, string $contentType = self::contentTypes['markPaid'][0])
     {
-        $request = $this->markPaidApiV1DocumentsDocumentIdMarkPaidPostRequest($document_id, $contentType);
+        $request = $this->markPaidRequest($document_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3558,19 +3933,19 @@ class DocumentsApi
     }
 
     /**
-     * Operation markPaidApiV1DocumentsDocumentIdMarkPaidPostAsync
+     * Operation markPaidAsync
      *
      * Mark Paid
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markPaidApiV1DocumentsDocumentIdMarkPaidPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markPaid'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markPaidApiV1DocumentsDocumentIdMarkPaidPostAsync($document_id, string $contentType = self::contentTypes['markPaidApiV1DocumentsDocumentIdMarkPaidPost'][0])
+    public function markPaidAsync($document_id, string $contentType = self::contentTypes['markPaid'][0])
     {
-        return $this->markPaidApiV1DocumentsDocumentIdMarkPaidPostAsyncWithHttpInfo($document_id, $contentType)
+        return $this->markPaidAsyncWithHttpInfo($document_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3579,20 +3954,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation markPaidApiV1DocumentsDocumentIdMarkPaidPostAsyncWithHttpInfo
+     * Operation markPaidAsyncWithHttpInfo
      *
      * Mark Paid
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markPaidApiV1DocumentsDocumentIdMarkPaidPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markPaid'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markPaidApiV1DocumentsDocumentIdMarkPaidPostAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['markPaidApiV1DocumentsDocumentIdMarkPaidPost'][0])
+    public function markPaidAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['markPaid'][0])
     {
         $returnType = '\InvoicePDFs\Model\DocumentResponse';
-        $request = $this->markPaidApiV1DocumentsDocumentIdMarkPaidPostRequest($document_id, $contentType);
+        $request = $this->markPaidRequest($document_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3631,21 +4006,21 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'markPaidApiV1DocumentsDocumentIdMarkPaidPost'
+     * Create request for operation 'markPaid'
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markPaidApiV1DocumentsDocumentIdMarkPaidPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markPaid'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function markPaidApiV1DocumentsDocumentIdMarkPaidPostRequest($document_id, string $contentType = self::contentTypes['markPaidApiV1DocumentsDocumentIdMarkPaidPost'][0])
+    public function markPaidRequest($document_id, string $contentType = self::contentTypes['markPaid'][0])
     {
 
         // verify the required parameter 'document_id' is set
         if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling markPaidApiV1DocumentsDocumentIdMarkPaidPost'
+                'Missing the required parameter $document_id when calling markPaid'
             );
         }
 
@@ -3727,38 +4102,38 @@ class DocumentsApi
     }
 
     /**
-     * Operation markSentApiV1DocumentsDocumentIdMarkSentPost
+     * Operation markSent
      *
      * Mark Sent
      *
      * @param  string $document_id document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markSentApiV1DocumentsDocumentIdMarkSentPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markSent'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function markSentApiV1DocumentsDocumentIdMarkSentPost($document_id, string $contentType = self::contentTypes['markSentApiV1DocumentsDocumentIdMarkSentPost'][0])
+    public function markSent($document_id, string $contentType = self::contentTypes['markSent'][0])
     {
-        list($response) = $this->markSentApiV1DocumentsDocumentIdMarkSentPostWithHttpInfo($document_id, $contentType);
+        list($response) = $this->markSentWithHttpInfo($document_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation markSentApiV1DocumentsDocumentIdMarkSentPostWithHttpInfo
+     * Operation markSentWithHttpInfo
      *
      * Mark Sent
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markSentApiV1DocumentsDocumentIdMarkSentPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markSent'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function markSentApiV1DocumentsDocumentIdMarkSentPostWithHttpInfo($document_id, string $contentType = self::contentTypes['markSentApiV1DocumentsDocumentIdMarkSentPost'][0])
+    public function markSentWithHttpInfo($document_id, string $contentType = self::contentTypes['markSent'][0])
     {
-        $request = $this->markSentApiV1DocumentsDocumentIdMarkSentPostRequest($document_id, $contentType);
+        $request = $this->markSentRequest($document_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3904,19 +4279,19 @@ class DocumentsApi
     }
 
     /**
-     * Operation markSentApiV1DocumentsDocumentIdMarkSentPostAsync
+     * Operation markSentAsync
      *
      * Mark Sent
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markSentApiV1DocumentsDocumentIdMarkSentPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markSent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markSentApiV1DocumentsDocumentIdMarkSentPostAsync($document_id, string $contentType = self::contentTypes['markSentApiV1DocumentsDocumentIdMarkSentPost'][0])
+    public function markSentAsync($document_id, string $contentType = self::contentTypes['markSent'][0])
     {
-        return $this->markSentApiV1DocumentsDocumentIdMarkSentPostAsyncWithHttpInfo($document_id, $contentType)
+        return $this->markSentAsyncWithHttpInfo($document_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3925,20 +4300,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation markSentApiV1DocumentsDocumentIdMarkSentPostAsyncWithHttpInfo
+     * Operation markSentAsyncWithHttpInfo
      *
      * Mark Sent
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markSentApiV1DocumentsDocumentIdMarkSentPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markSent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markSentApiV1DocumentsDocumentIdMarkSentPostAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['markSentApiV1DocumentsDocumentIdMarkSentPost'][0])
+    public function markSentAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['markSent'][0])
     {
         $returnType = '\InvoicePDFs\Model\DocumentResponse';
-        $request = $this->markSentApiV1DocumentsDocumentIdMarkSentPostRequest($document_id, $contentType);
+        $request = $this->markSentRequest($document_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3977,21 +4352,21 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'markSentApiV1DocumentsDocumentIdMarkSentPost'
+     * Create request for operation 'markSent'
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markSentApiV1DocumentsDocumentIdMarkSentPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markSent'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function markSentApiV1DocumentsDocumentIdMarkSentPostRequest($document_id, string $contentType = self::contentTypes['markSentApiV1DocumentsDocumentIdMarkSentPost'][0])
+    public function markSentRequest($document_id, string $contentType = self::contentTypes['markSent'][0])
     {
 
         // verify the required parameter 'document_id' is set
         if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling markSentApiV1DocumentsDocumentIdMarkSentPost'
+                'Missing the required parameter $document_id when calling markSent'
             );
         }
 
@@ -4073,38 +4448,38 @@ class DocumentsApi
     }
 
     /**
-     * Operation markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost
+     * Operation markUnpaid
      *
      * Mark Unpaid
      *
      * @param  string $document_id document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markUnpaid'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost($document_id, string $contentType = self::contentTypes['markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost'][0])
+    public function markUnpaid($document_id, string $contentType = self::contentTypes['markUnpaid'][0])
     {
-        list($response) = $this->markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostWithHttpInfo($document_id, $contentType);
+        list($response) = $this->markUnpaidWithHttpInfo($document_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostWithHttpInfo
+     * Operation markUnpaidWithHttpInfo
      *
      * Mark Unpaid
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markUnpaid'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostWithHttpInfo($document_id, string $contentType = self::contentTypes['markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost'][0])
+    public function markUnpaidWithHttpInfo($document_id, string $contentType = self::contentTypes['markUnpaid'][0])
     {
-        $request = $this->markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostRequest($document_id, $contentType);
+        $request = $this->markUnpaidRequest($document_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4250,19 +4625,19 @@ class DocumentsApi
     }
 
     /**
-     * Operation markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostAsync
+     * Operation markUnpaidAsync
      *
      * Mark Unpaid
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markUnpaid'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostAsync($document_id, string $contentType = self::contentTypes['markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost'][0])
+    public function markUnpaidAsync($document_id, string $contentType = self::contentTypes['markUnpaid'][0])
     {
-        return $this->markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostAsyncWithHttpInfo($document_id, $contentType)
+        return $this->markUnpaidAsyncWithHttpInfo($document_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4271,20 +4646,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostAsyncWithHttpInfo
+     * Operation markUnpaidAsyncWithHttpInfo
      *
      * Mark Unpaid
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markUnpaid'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost'][0])
+    public function markUnpaidAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['markUnpaid'][0])
     {
         $returnType = '\InvoicePDFs\Model\DocumentResponse';
-        $request = $this->markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostRequest($document_id, $contentType);
+        $request = $this->markUnpaidRequest($document_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4323,21 +4698,21 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost'
+     * Create request for operation 'markUnpaid'
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['markUnpaid'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPostRequest($document_id, string $contentType = self::contentTypes['markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost'][0])
+    public function markUnpaidRequest($document_id, string $contentType = self::contentTypes['markUnpaid'][0])
     {
 
         // verify the required parameter 'document_id' is set
         if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling markUnpaidApiV1DocumentsDocumentIdMarkUnpaidPost'
+                'Missing the required parameter $document_id when calling markUnpaid'
             );
         }
 
@@ -4419,407 +4794,40 @@ class DocumentsApi
     }
 
     /**
-     * Operation patchDocumentApiV1DocumentsDocumentIdPatch
-     *
-     * Patch Document
-     *
-     * @param  string $document_id document_id (required)
-     * @param  \InvoicePDFs\Model\DocumentPatchRequest $document_patch_request document_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDocumentApiV1DocumentsDocumentIdPatch'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse
-     */
-    public function patchDocumentApiV1DocumentsDocumentIdPatch($document_id, $document_patch_request, string $contentType = self::contentTypes['patchDocumentApiV1DocumentsDocumentIdPatch'][0])
-    {
-        list($response) = $this->patchDocumentApiV1DocumentsDocumentIdPatchWithHttpInfo($document_id, $document_patch_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation patchDocumentApiV1DocumentsDocumentIdPatchWithHttpInfo
-     *
-     * Patch Document
-     *
-     * @param  string $document_id (required)
-     * @param  \InvoicePDFs\Model\DocumentPatchRequest $document_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDocumentApiV1DocumentsDocumentIdPatch'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function patchDocumentApiV1DocumentsDocumentIdPatchWithHttpInfo($document_id, $document_patch_request, string $contentType = self::contentTypes['patchDocumentApiV1DocumentsDocumentIdPatch'][0])
-    {
-        $request = $this->patchDocumentApiV1DocumentsDocumentIdPatchRequest($document_id, $document_patch_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\InvoicePDFs\Model\DocumentResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\DocumentResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\DocumentResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\InvoicePDFs\Model\DocumentResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\DocumentResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation patchDocumentApiV1DocumentsDocumentIdPatchAsync
-     *
-     * Patch Document
-     *
-     * @param  string $document_id (required)
-     * @param  \InvoicePDFs\Model\DocumentPatchRequest $document_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDocumentApiV1DocumentsDocumentIdPatch'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function patchDocumentApiV1DocumentsDocumentIdPatchAsync($document_id, $document_patch_request, string $contentType = self::contentTypes['patchDocumentApiV1DocumentsDocumentIdPatch'][0])
-    {
-        return $this->patchDocumentApiV1DocumentsDocumentIdPatchAsyncWithHttpInfo($document_id, $document_patch_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation patchDocumentApiV1DocumentsDocumentIdPatchAsyncWithHttpInfo
-     *
-     * Patch Document
-     *
-     * @param  string $document_id (required)
-     * @param  \InvoicePDFs\Model\DocumentPatchRequest $document_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDocumentApiV1DocumentsDocumentIdPatch'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function patchDocumentApiV1DocumentsDocumentIdPatchAsyncWithHttpInfo($document_id, $document_patch_request, string $contentType = self::contentTypes['patchDocumentApiV1DocumentsDocumentIdPatch'][0])
-    {
-        $returnType = '\InvoicePDFs\Model\DocumentResponse';
-        $request = $this->patchDocumentApiV1DocumentsDocumentIdPatchRequest($document_id, $document_patch_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'patchDocumentApiV1DocumentsDocumentIdPatch'
-     *
-     * @param  string $document_id (required)
-     * @param  \InvoicePDFs\Model\DocumentPatchRequest $document_patch_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['patchDocumentApiV1DocumentsDocumentIdPatch'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function patchDocumentApiV1DocumentsDocumentIdPatchRequest($document_id, $document_patch_request, string $contentType = self::contentTypes['patchDocumentApiV1DocumentsDocumentIdPatch'][0])
-    {
-
-        // verify the required parameter 'document_id' is set
-        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling patchDocumentApiV1DocumentsDocumentIdPatch'
-            );
-        }
-
-        // verify the required parameter 'document_patch_request' is set
-        if ($document_patch_request === null || (is_array($document_patch_request) && count($document_patch_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $document_patch_request when calling patchDocumentApiV1DocumentsDocumentIdPatch'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/documents/{document_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($document_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'document_id' . '}',
-                ObjectSerializer::toPathValue($document_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($document_patch_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($document_patch_request));
-            } else {
-                $httpBody = $document_patch_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PATCH',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation renderDocumentApiV1DocumentsDocumentIdRendersPost
+     * Operation renderDocument
      *
      * Render Document
      *
-     * @param  string $document_id document_id (required)
-     * @param  \InvoicePDFs\Model\AppDocumentsSchemasDocumentRenderRequest $app_documents_schemas_document_render_request app_documents_schemas_document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request document_render_request (required)
      * @param  string $idempotency_key idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsDocumentIdRendersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return mixed|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function renderDocumentApiV1DocumentsDocumentIdRendersPost($document_id, $app_documents_schemas_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocumentApiV1DocumentsDocumentIdRendersPost'][0])
+    public function renderDocument($document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocument'][0])
     {
-        list($response) = $this->renderDocumentApiV1DocumentsDocumentIdRendersPostWithHttpInfo($document_id, $app_documents_schemas_document_render_request, $idempotency_key, $contentType);
+        list($response) = $this->renderDocumentWithHttpInfo($document_render_request, $idempotency_key, $contentType);
         return $response;
     }
 
     /**
-     * Operation renderDocumentApiV1DocumentsDocumentIdRendersPostWithHttpInfo
+     * Operation renderDocumentWithHttpInfo
      *
      * Render Document
      *
-     * @param  string $document_id (required)
-     * @param  \InvoicePDFs\Model\AppDocumentsSchemasDocumentRenderRequest $app_documents_schemas_document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsDocumentIdRendersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of mixed|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function renderDocumentApiV1DocumentsDocumentIdRendersPostWithHttpInfo($document_id, $app_documents_schemas_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocumentApiV1DocumentsDocumentIdRendersPost'][0])
+    public function renderDocumentWithHttpInfo($document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocument'][0])
     {
-        $request = $this->renderDocumentApiV1DocumentsDocumentIdRendersPostRequest($document_id, $app_documents_schemas_document_render_request, $idempotency_key, $contentType);
+        $request = $this->renderDocumentRequest($document_render_request, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4965,21 +4973,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation renderDocumentApiV1DocumentsDocumentIdRendersPostAsync
+     * Operation renderDocumentAsync
      *
      * Render Document
      *
-     * @param  string $document_id (required)
-     * @param  \InvoicePDFs\Model\AppDocumentsSchemasDocumentRenderRequest $app_documents_schemas_document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsDocumentIdRendersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function renderDocumentApiV1DocumentsDocumentIdRendersPostAsync($document_id, $app_documents_schemas_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocumentApiV1DocumentsDocumentIdRendersPost'][0])
+    public function renderDocumentAsync($document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocument'][0])
     {
-        return $this->renderDocumentApiV1DocumentsDocumentIdRendersPostAsyncWithHttpInfo($document_id, $app_documents_schemas_document_render_request, $idempotency_key, $contentType)
+        return $this->renderDocumentAsyncWithHttpInfo($document_render_request, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4988,22 +4995,21 @@ class DocumentsApi
     }
 
     /**
-     * Operation renderDocumentApiV1DocumentsDocumentIdRendersPostAsyncWithHttpInfo
+     * Operation renderDocumentAsyncWithHttpInfo
      *
      * Render Document
      *
-     * @param  string $document_id (required)
-     * @param  \InvoicePDFs\Model\AppDocumentsSchemasDocumentRenderRequest $app_documents_schemas_document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsDocumentIdRendersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function renderDocumentApiV1DocumentsDocumentIdRendersPostAsyncWithHttpInfo($document_id, $app_documents_schemas_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocumentApiV1DocumentsDocumentIdRendersPost'][0])
+    public function renderDocumentAsyncWithHttpInfo($document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocument'][0])
     {
         $returnType = 'mixed';
-        $request = $this->renderDocumentApiV1DocumentsDocumentIdRendersPostRequest($document_id, $app_documents_schemas_document_render_request, $idempotency_key, $contentType);
+        $request = $this->renderDocumentRequest($document_render_request, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5042,393 +5048,22 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'renderDocumentApiV1DocumentsDocumentIdRendersPost'
+     * Create request for operation 'renderDocument'
      *
-     * @param  string $document_id (required)
-     * @param  \InvoicePDFs\Model\AppDocumentsSchemasDocumentRenderRequest $app_documents_schemas_document_render_request (required)
+     * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
      * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsDocumentIdRendersPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function renderDocumentApiV1DocumentsDocumentIdRendersPostRequest($document_id, $app_documents_schemas_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocumentApiV1DocumentsDocumentIdRendersPost'][0])
+    public function renderDocumentRequest($document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocument'][0])
     {
 
-        // verify the required parameter 'document_id' is set
-        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
+        // verify the required parameter 'document_render_request' is set
+        if ($document_render_request === null || (is_array($document_render_request) && count($document_render_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling renderDocumentApiV1DocumentsDocumentIdRendersPost'
-            );
-        }
-
-        // verify the required parameter 'app_documents_schemas_document_render_request' is set
-        if ($app_documents_schemas_document_render_request === null || (is_array($app_documents_schemas_document_render_request) && count($app_documents_schemas_document_render_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $app_documents_schemas_document_render_request when calling renderDocumentApiV1DocumentsDocumentIdRendersPost'
-            );
-        }
-
-
-
-        $resourcePath = '/api/v1/documents/{document_id}/renders';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($idempotency_key !== null) {
-            $headerParams['Idempotency-Key'] = ObjectSerializer::toHeaderValue($idempotency_key);
-        }
-
-        // path params
-        if ($document_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'document_id' . '}',
-                ObjectSerializer::toPathValue($document_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($app_documents_schemas_document_render_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($app_documents_schemas_document_render_request));
-            } else {
-                $httpBody = $app_documents_schemas_document_render_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation renderDocumentApiV1DocumentsRenderPost
-     *
-     * Render Document
-     *
-     * @param  \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest $app_schemas_v1_document_render_request app_schemas_v1_document_render_request (required)
-     * @param  string $idempotency_key idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsRenderPost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return mixed|\InvoicePDFs\Model\ApiErrorResponse
-     */
-    public function renderDocumentApiV1DocumentsRenderPost($app_schemas_v1_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocumentApiV1DocumentsRenderPost'][0])
-    {
-        list($response) = $this->renderDocumentApiV1DocumentsRenderPostWithHttpInfo($app_schemas_v1_document_render_request, $idempotency_key, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation renderDocumentApiV1DocumentsRenderPostWithHttpInfo
-     *
-     * Render Document
-     *
-     * @param  \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest $app_schemas_v1_document_render_request (required)
-     * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsRenderPost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of mixed|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function renderDocumentApiV1DocumentsRenderPostWithHttpInfo($app_schemas_v1_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocumentApiV1DocumentsRenderPost'][0])
-    {
-        $request = $this->renderDocumentApiV1DocumentsRenderPostRequest($app_schemas_v1_document_render_request, $idempotency_key, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('mixed' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('mixed' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'mixed', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'mixed';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'mixed',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation renderDocumentApiV1DocumentsRenderPostAsync
-     *
-     * Render Document
-     *
-     * @param  \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest $app_schemas_v1_document_render_request (required)
-     * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsRenderPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function renderDocumentApiV1DocumentsRenderPostAsync($app_schemas_v1_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocumentApiV1DocumentsRenderPost'][0])
-    {
-        return $this->renderDocumentApiV1DocumentsRenderPostAsyncWithHttpInfo($app_schemas_v1_document_render_request, $idempotency_key, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation renderDocumentApiV1DocumentsRenderPostAsyncWithHttpInfo
-     *
-     * Render Document
-     *
-     * @param  \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest $app_schemas_v1_document_render_request (required)
-     * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsRenderPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function renderDocumentApiV1DocumentsRenderPostAsyncWithHttpInfo($app_schemas_v1_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocumentApiV1DocumentsRenderPost'][0])
-    {
-        $returnType = 'mixed';
-        $request = $this->renderDocumentApiV1DocumentsRenderPostRequest($app_schemas_v1_document_render_request, $idempotency_key, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'renderDocumentApiV1DocumentsRenderPost'
-     *
-     * @param  \InvoicePDFs\Model\AppSchemasV1DocumentRenderRequest $app_schemas_v1_document_render_request (required)
-     * @param  string $idempotency_key (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['renderDocumentApiV1DocumentsRenderPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function renderDocumentApiV1DocumentsRenderPostRequest($app_schemas_v1_document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocumentApiV1DocumentsRenderPost'][0])
-    {
-
-        // verify the required parameter 'app_schemas_v1_document_render_request' is set
-        if ($app_schemas_v1_document_render_request === null || (is_array($app_schemas_v1_document_render_request) && count($app_schemas_v1_document_render_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $app_schemas_v1_document_render_request when calling renderDocumentApiV1DocumentsRenderPost'
+                'Missing the required parameter $document_render_request when calling renderDocument'
             );
         }
 
@@ -5456,12 +5091,12 @@ class DocumentsApi
         );
 
         // for model (json/xml)
-        if (isset($app_schemas_v1_document_render_request)) {
+        if (isset($document_render_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($app_schemas_v1_document_render_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($document_render_request));
             } else {
-                $httpBody = $app_schemas_v1_document_render_request;
+                $httpBody = $document_render_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5514,38 +5149,38 @@ class DocumentsApi
     }
 
     /**
-     * Operation restoreDocumentApiV1DocumentsDocumentIdRestorePost
+     * Operation restoreDocument
      *
      * Restore Document
      *
      * @param  string $document_id document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDocumentApiV1DocumentsDocumentIdRestorePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function restoreDocumentApiV1DocumentsDocumentIdRestorePost($document_id, string $contentType = self::contentTypes['restoreDocumentApiV1DocumentsDocumentIdRestorePost'][0])
+    public function restoreDocument($document_id, string $contentType = self::contentTypes['restoreDocument'][0])
     {
-        list($response) = $this->restoreDocumentApiV1DocumentsDocumentIdRestorePostWithHttpInfo($document_id, $contentType);
+        list($response) = $this->restoreDocumentWithHttpInfo($document_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation restoreDocumentApiV1DocumentsDocumentIdRestorePostWithHttpInfo
+     * Operation restoreDocumentWithHttpInfo
      *
      * Restore Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDocumentApiV1DocumentsDocumentIdRestorePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function restoreDocumentApiV1DocumentsDocumentIdRestorePostWithHttpInfo($document_id, string $contentType = self::contentTypes['restoreDocumentApiV1DocumentsDocumentIdRestorePost'][0])
+    public function restoreDocumentWithHttpInfo($document_id, string $contentType = self::contentTypes['restoreDocument'][0])
     {
-        $request = $this->restoreDocumentApiV1DocumentsDocumentIdRestorePostRequest($document_id, $contentType);
+        $request = $this->restoreDocumentRequest($document_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5691,19 +5326,19 @@ class DocumentsApi
     }
 
     /**
-     * Operation restoreDocumentApiV1DocumentsDocumentIdRestorePostAsync
+     * Operation restoreDocumentAsync
      *
      * Restore Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDocumentApiV1DocumentsDocumentIdRestorePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function restoreDocumentApiV1DocumentsDocumentIdRestorePostAsync($document_id, string $contentType = self::contentTypes['restoreDocumentApiV1DocumentsDocumentIdRestorePost'][0])
+    public function restoreDocumentAsync($document_id, string $contentType = self::contentTypes['restoreDocument'][0])
     {
-        return $this->restoreDocumentApiV1DocumentsDocumentIdRestorePostAsyncWithHttpInfo($document_id, $contentType)
+        return $this->restoreDocumentAsyncWithHttpInfo($document_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5712,20 +5347,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation restoreDocumentApiV1DocumentsDocumentIdRestorePostAsyncWithHttpInfo
+     * Operation restoreDocumentAsyncWithHttpInfo
      *
      * Restore Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDocumentApiV1DocumentsDocumentIdRestorePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function restoreDocumentApiV1DocumentsDocumentIdRestorePostAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['restoreDocumentApiV1DocumentsDocumentIdRestorePost'][0])
+    public function restoreDocumentAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['restoreDocument'][0])
     {
         $returnType = '\InvoicePDFs\Model\DocumentResponse';
-        $request = $this->restoreDocumentApiV1DocumentsDocumentIdRestorePostRequest($document_id, $contentType);
+        $request = $this->restoreDocumentRequest($document_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5764,21 +5399,21 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'restoreDocumentApiV1DocumentsDocumentIdRestorePost'
+     * Create request for operation 'restoreDocument'
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDocumentApiV1DocumentsDocumentIdRestorePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['restoreDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function restoreDocumentApiV1DocumentsDocumentIdRestorePostRequest($document_id, string $contentType = self::contentTypes['restoreDocumentApiV1DocumentsDocumentIdRestorePost'][0])
+    public function restoreDocumentRequest($document_id, string $contentType = self::contentTypes['restoreDocument'][0])
     {
 
         // verify the required parameter 'document_id' is set
         if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling restoreDocumentApiV1DocumentsDocumentIdRestorePost'
+                'Missing the required parameter $document_id when calling restoreDocument'
             );
         }
 
@@ -5860,40 +5495,40 @@ class DocumentsApi
     }
 
     /**
-     * Operation sendDocumentApiV1DocumentsDocumentIdSendPost
+     * Operation sendDocument
      *
      * Send Document
      *
      * @param  string $document_id document_id (required)
      * @param  \InvoicePDFs\Model\DeliverySendRequest $delivery_send_request delivery_send_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocumentApiV1DocumentsDocumentIdSendPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DeliveryResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function sendDocumentApiV1DocumentsDocumentIdSendPost($document_id, $delivery_send_request, string $contentType = self::contentTypes['sendDocumentApiV1DocumentsDocumentIdSendPost'][0])
+    public function sendDocument($document_id, $delivery_send_request, string $contentType = self::contentTypes['sendDocument'][0])
     {
-        list($response) = $this->sendDocumentApiV1DocumentsDocumentIdSendPostWithHttpInfo($document_id, $delivery_send_request, $contentType);
+        list($response) = $this->sendDocumentWithHttpInfo($document_id, $delivery_send_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation sendDocumentApiV1DocumentsDocumentIdSendPostWithHttpInfo
+     * Operation sendDocumentWithHttpInfo
      *
      * Send Document
      *
      * @param  string $document_id (required)
      * @param  \InvoicePDFs\Model\DeliverySendRequest $delivery_send_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocumentApiV1DocumentsDocumentIdSendPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DeliveryResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendDocumentApiV1DocumentsDocumentIdSendPostWithHttpInfo($document_id, $delivery_send_request, string $contentType = self::contentTypes['sendDocumentApiV1DocumentsDocumentIdSendPost'][0])
+    public function sendDocumentWithHttpInfo($document_id, $delivery_send_request, string $contentType = self::contentTypes['sendDocument'][0])
     {
-        $request = $this->sendDocumentApiV1DocumentsDocumentIdSendPostRequest($document_id, $delivery_send_request, $contentType);
+        $request = $this->sendDocumentRequest($document_id, $delivery_send_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6039,20 +5674,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation sendDocumentApiV1DocumentsDocumentIdSendPostAsync
+     * Operation sendDocumentAsync
      *
      * Send Document
      *
      * @param  string $document_id (required)
      * @param  \InvoicePDFs\Model\DeliverySendRequest $delivery_send_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocumentApiV1DocumentsDocumentIdSendPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendDocumentApiV1DocumentsDocumentIdSendPostAsync($document_id, $delivery_send_request, string $contentType = self::contentTypes['sendDocumentApiV1DocumentsDocumentIdSendPost'][0])
+    public function sendDocumentAsync($document_id, $delivery_send_request, string $contentType = self::contentTypes['sendDocument'][0])
     {
-        return $this->sendDocumentApiV1DocumentsDocumentIdSendPostAsyncWithHttpInfo($document_id, $delivery_send_request, $contentType)
+        return $this->sendDocumentAsyncWithHttpInfo($document_id, $delivery_send_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6061,21 +5696,21 @@ class DocumentsApi
     }
 
     /**
-     * Operation sendDocumentApiV1DocumentsDocumentIdSendPostAsyncWithHttpInfo
+     * Operation sendDocumentAsyncWithHttpInfo
      *
      * Send Document
      *
      * @param  string $document_id (required)
      * @param  \InvoicePDFs\Model\DeliverySendRequest $delivery_send_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocumentApiV1DocumentsDocumentIdSendPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendDocumentApiV1DocumentsDocumentIdSendPostAsyncWithHttpInfo($document_id, $delivery_send_request, string $contentType = self::contentTypes['sendDocumentApiV1DocumentsDocumentIdSendPost'][0])
+    public function sendDocumentAsyncWithHttpInfo($document_id, $delivery_send_request, string $contentType = self::contentTypes['sendDocument'][0])
     {
         $returnType = '\InvoicePDFs\Model\DeliveryResponse';
-        $request = $this->sendDocumentApiV1DocumentsDocumentIdSendPostRequest($document_id, $delivery_send_request, $contentType);
+        $request = $this->sendDocumentRequest($document_id, $delivery_send_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6114,29 +5749,29 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'sendDocumentApiV1DocumentsDocumentIdSendPost'
+     * Create request for operation 'sendDocument'
      *
      * @param  string $document_id (required)
      * @param  \InvoicePDFs\Model\DeliverySendRequest $delivery_send_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocumentApiV1DocumentsDocumentIdSendPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendDocumentApiV1DocumentsDocumentIdSendPostRequest($document_id, $delivery_send_request, string $contentType = self::contentTypes['sendDocumentApiV1DocumentsDocumentIdSendPost'][0])
+    public function sendDocumentRequest($document_id, $delivery_send_request, string $contentType = self::contentTypes['sendDocument'][0])
     {
 
         // verify the required parameter 'document_id' is set
         if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling sendDocumentApiV1DocumentsDocumentIdSendPost'
+                'Missing the required parameter $document_id when calling sendDocument'
             );
         }
 
         // verify the required parameter 'delivery_send_request' is set
         if ($delivery_send_request === null || (is_array($delivery_send_request) && count($delivery_send_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $delivery_send_request when calling sendDocumentApiV1DocumentsDocumentIdSendPost'
+                'Missing the required parameter $delivery_send_request when calling sendDocument'
             );
         }
 
@@ -6225,383 +5860,40 @@ class DocumentsApi
     }
 
     /**
-     * Operation validateDocumentApiV1DocumentsValidatePost
+     * Operation updateDocument
      *
-     * Validate Document
-     *
-     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request document_validate_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocumentApiV1DocumentsValidatePost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\DocumentValidateResponse|\InvoicePDFs\Model\ApiErrorResponse
-     */
-    public function validateDocumentApiV1DocumentsValidatePost($document_validate_request, string $contentType = self::contentTypes['validateDocumentApiV1DocumentsValidatePost'][0])
-    {
-        list($response) = $this->validateDocumentApiV1DocumentsValidatePostWithHttpInfo($document_validate_request, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation validateDocumentApiV1DocumentsValidatePostWithHttpInfo
-     *
-     * Validate Document
-     *
-     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocumentApiV1DocumentsValidatePost'] to see the possible values for this operation
-     *
-     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\DocumentValidateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function validateDocumentApiV1DocumentsValidatePostWithHttpInfo($document_validate_request, string $contentType = self::contentTypes['validateDocumentApiV1DocumentsValidatePost'][0])
-    {
-        $request = $this->validateDocumentApiV1DocumentsValidatePostRequest($document_validate_request, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\InvoicePDFs\Model\DocumentValidateResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\DocumentValidateResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\DocumentValidateResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\InvoicePDFs\Model\DocumentValidateResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\DocumentValidateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\InvoicePDFs\Model\ApiErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation validateDocumentApiV1DocumentsValidatePostAsync
-     *
-     * Validate Document
-     *
-     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocumentApiV1DocumentsValidatePost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function validateDocumentApiV1DocumentsValidatePostAsync($document_validate_request, string $contentType = self::contentTypes['validateDocumentApiV1DocumentsValidatePost'][0])
-    {
-        return $this->validateDocumentApiV1DocumentsValidatePostAsyncWithHttpInfo($document_validate_request, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation validateDocumentApiV1DocumentsValidatePostAsyncWithHttpInfo
-     *
-     * Validate Document
-     *
-     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocumentApiV1DocumentsValidatePost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function validateDocumentApiV1DocumentsValidatePostAsyncWithHttpInfo($document_validate_request, string $contentType = self::contentTypes['validateDocumentApiV1DocumentsValidatePost'][0])
-    {
-        $returnType = '\InvoicePDFs\Model\DocumentValidateResponse';
-        $request = $this->validateDocumentApiV1DocumentsValidatePostRequest($document_validate_request, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'validateDocumentApiV1DocumentsValidatePost'
-     *
-     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocumentApiV1DocumentsValidatePost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function validateDocumentApiV1DocumentsValidatePostRequest($document_validate_request, string $contentType = self::contentTypes['validateDocumentApiV1DocumentsValidatePost'][0])
-    {
-
-        // verify the required parameter 'document_validate_request' is set
-        if ($document_validate_request === null || (is_array($document_validate_request) && count($document_validate_request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $document_validate_request when calling validateDocumentApiV1DocumentsValidatePost'
-            );
-        }
-
-
-        $resourcePath = '/api/v1/documents/validate';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($document_validate_request)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($document_validate_request));
-            } else {
-                $httpBody = $document_validate_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation voidDocumentApiV1DocumentsDocumentIdVoidPost
-     *
-     * Void Document
+     * Update Document
      *
      * @param  string $document_id document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voidDocumentApiV1DocumentsDocumentIdVoidPost'] to see the possible values for this operation
+     * @param  \InvoicePDFs\Model\DocumentPatchRequest $document_patch_request document_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function voidDocumentApiV1DocumentsDocumentIdVoidPost($document_id, string $contentType = self::contentTypes['voidDocumentApiV1DocumentsDocumentIdVoidPost'][0])
+    public function updateDocument($document_id, $document_patch_request, string $contentType = self::contentTypes['updateDocument'][0])
     {
-        list($response) = $this->voidDocumentApiV1DocumentsDocumentIdVoidPostWithHttpInfo($document_id, $contentType);
+        list($response) = $this->updateDocumentWithHttpInfo($document_id, $document_patch_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation voidDocumentApiV1DocumentsDocumentIdVoidPostWithHttpInfo
+     * Operation updateDocumentWithHttpInfo
      *
-     * Void Document
+     * Update Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voidDocumentApiV1DocumentsDocumentIdVoidPost'] to see the possible values for this operation
+     * @param  \InvoicePDFs\Model\DocumentPatchRequest $document_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDocument'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function voidDocumentApiV1DocumentsDocumentIdVoidPostWithHttpInfo($document_id, string $contentType = self::contentTypes['voidDocumentApiV1DocumentsDocumentIdVoidPost'][0])
+    public function updateDocumentWithHttpInfo($document_id, $document_patch_request, string $contentType = self::contentTypes['updateDocument'][0])
     {
-        $request = $this->voidDocumentApiV1DocumentsDocumentIdVoidPostRequest($document_id, $contentType);
+        $request = $this->updateDocumentRequest($document_id, $document_patch_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6747,19 +6039,20 @@ class DocumentsApi
     }
 
     /**
-     * Operation voidDocumentApiV1DocumentsDocumentIdVoidPostAsync
+     * Operation updateDocumentAsync
      *
-     * Void Document
+     * Update Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voidDocumentApiV1DocumentsDocumentIdVoidPost'] to see the possible values for this operation
+     * @param  \InvoicePDFs\Model\DocumentPatchRequest $document_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function voidDocumentApiV1DocumentsDocumentIdVoidPostAsync($document_id, string $contentType = self::contentTypes['voidDocumentApiV1DocumentsDocumentIdVoidPost'][0])
+    public function updateDocumentAsync($document_id, $document_patch_request, string $contentType = self::contentTypes['updateDocument'][0])
     {
-        return $this->voidDocumentApiV1DocumentsDocumentIdVoidPostAsyncWithHttpInfo($document_id, $contentType)
+        return $this->updateDocumentAsyncWithHttpInfo($document_id, $document_patch_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6768,20 +6061,21 @@ class DocumentsApi
     }
 
     /**
-     * Operation voidDocumentApiV1DocumentsDocumentIdVoidPostAsyncWithHttpInfo
+     * Operation updateDocumentAsyncWithHttpInfo
      *
-     * Void Document
+     * Update Document
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voidDocumentApiV1DocumentsDocumentIdVoidPost'] to see the possible values for this operation
+     * @param  \InvoicePDFs\Model\DocumentPatchRequest $document_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function voidDocumentApiV1DocumentsDocumentIdVoidPostAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['voidDocumentApiV1DocumentsDocumentIdVoidPost'][0])
+    public function updateDocumentAsyncWithHttpInfo($document_id, $document_patch_request, string $contentType = self::contentTypes['updateDocument'][0])
     {
         $returnType = '\InvoicePDFs\Model\DocumentResponse';
-        $request = $this->voidDocumentApiV1DocumentsDocumentIdVoidPostRequest($document_id, $contentType);
+        $request = $this->updateDocumentRequest($document_id, $document_patch_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6820,21 +6114,727 @@ class DocumentsApi
     }
 
     /**
-     * Create request for operation 'voidDocumentApiV1DocumentsDocumentIdVoidPost'
+     * Create request for operation 'updateDocument'
      *
      * @param  string $document_id (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voidDocumentApiV1DocumentsDocumentIdVoidPost'] to see the possible values for this operation
+     * @param  \InvoicePDFs\Model\DocumentPatchRequest $document_patch_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function voidDocumentApiV1DocumentsDocumentIdVoidPostRequest($document_id, string $contentType = self::contentTypes['voidDocumentApiV1DocumentsDocumentIdVoidPost'][0])
+    public function updateDocumentRequest($document_id, $document_patch_request, string $contentType = self::contentTypes['updateDocument'][0])
     {
 
         // verify the required parameter 'document_id' is set
         if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $document_id when calling voidDocumentApiV1DocumentsDocumentIdVoidPost'
+                'Missing the required parameter $document_id when calling updateDocument'
+            );
+        }
+
+        // verify the required parameter 'document_patch_request' is set
+        if ($document_patch_request === null || (is_array($document_patch_request) && count($document_patch_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $document_patch_request when calling updateDocument'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/documents/{document_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($document_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'document_id' . '}',
+                ObjectSerializer::toPathValue($document_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($document_patch_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($document_patch_request));
+            } else {
+                $httpBody = $document_patch_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PATCH',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation validateDocument
+     *
+     * Validate Document
+     *
+     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request document_validate_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocument'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\DocumentValidateResponse|\InvoicePDFs\Model\ApiErrorResponse
+     */
+    public function validateDocument($document_validate_request, string $contentType = self::contentTypes['validateDocument'][0])
+    {
+        list($response) = $this->validateDocumentWithHttpInfo($document_validate_request, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation validateDocumentWithHttpInfo
+     *
+     * Validate Document
+     *
+     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocument'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\DocumentValidateResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function validateDocumentWithHttpInfo($document_validate_request, string $contentType = self::contentTypes['validateDocument'][0])
+    {
+        $request = $this->validateDocumentRequest($document_validate_request, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\DocumentValidateResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\DocumentValidateResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\DocumentValidateResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\DocumentValidateResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\DocumentValidateResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation validateDocumentAsync
+     *
+     * Validate Document
+     *
+     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function validateDocumentAsync($document_validate_request, string $contentType = self::contentTypes['validateDocument'][0])
+    {
+        return $this->validateDocumentAsyncWithHttpInfo($document_validate_request, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation validateDocumentAsyncWithHttpInfo
+     *
+     * Validate Document
+     *
+     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function validateDocumentAsyncWithHttpInfo($document_validate_request, string $contentType = self::contentTypes['validateDocument'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\DocumentValidateResponse';
+        $request = $this->validateDocumentRequest($document_validate_request, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'validateDocument'
+     *
+     * @param  \InvoicePDFs\Model\DocumentValidateRequest $document_validate_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validateDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function validateDocumentRequest($document_validate_request, string $contentType = self::contentTypes['validateDocument'][0])
+    {
+
+        // verify the required parameter 'document_validate_request' is set
+        if ($document_validate_request === null || (is_array($document_validate_request) && count($document_validate_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $document_validate_request when calling validateDocument'
+            );
+        }
+
+
+        $resourcePath = '/api/v1/documents/validate';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($document_validate_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($document_validate_request));
+            } else {
+                $httpBody = $document_validate_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation voidDocument
+     *
+     * Void Document
+     *
+     * @param  string $document_id document_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voidDocument'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse
+     */
+    public function voidDocument($document_id, string $contentType = self::contentTypes['voidDocument'][0])
+    {
+        list($response) = $this->voidDocumentWithHttpInfo($document_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation voidDocumentWithHttpInfo
+     *
+     * Void Document
+     *
+     * @param  string $document_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voidDocument'] to see the possible values for this operation
+     *
+     * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \InvoicePDFs\Model\DocumentResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function voidDocumentWithHttpInfo($document_id, string $contentType = self::contentTypes['voidDocument'][0])
+    {
+        $request = $this->voidDocumentRequest($document_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\InvoicePDFs\Model\DocumentResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\DocumentResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\DocumentResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\InvoicePDFs\Model\ApiErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\ApiErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\ApiErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\InvoicePDFs\Model\DocumentResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\DocumentResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\ApiErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation voidDocumentAsync
+     *
+     * Void Document
+     *
+     * @param  string $document_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voidDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function voidDocumentAsync($document_id, string $contentType = self::contentTypes['voidDocument'][0])
+    {
+        return $this->voidDocumentAsyncWithHttpInfo($document_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation voidDocumentAsyncWithHttpInfo
+     *
+     * Void Document
+     *
+     * @param  string $document_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voidDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function voidDocumentAsyncWithHttpInfo($document_id, string $contentType = self::contentTypes['voidDocument'][0])
+    {
+        $returnType = '\InvoicePDFs\Model\DocumentResponse';
+        $request = $this->voidDocumentRequest($document_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'voidDocument'
+     *
+     * @param  string $document_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['voidDocument'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function voidDocumentRequest($document_id, string $contentType = self::contentTypes['voidDocument'][0])
+    {
+
+        // verify the required parameter 'document_id' is set
+        if ($document_id === null || (is_array($document_id) && count($document_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $document_id when calling voidDocument'
             );
         }
 
