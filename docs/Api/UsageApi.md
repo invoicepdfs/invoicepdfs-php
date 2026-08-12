@@ -67,7 +67,7 @@ This endpoint does not need any parameter.
 ## `getUsageLimits()`
 
 ```php
-getUsageLimits(): array<string,mixed>
+getUsageLimits(): \InvoicePDFs\Model\UsageLimitsResponse
 ```
 
 Get Usage Limits
@@ -104,7 +104,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**array<string,mixed>**
+[**\InvoicePDFs\Model\UsageLimitsResponse**](../Model/UsageLimitsResponse.md)
 
 ### Authorization
 
@@ -122,7 +122,7 @@ This endpoint does not need any parameter.
 ## `listUsageEvents()`
 
 ```php
-listUsageEvents($limit, $cursor): array<string,mixed>
+listUsageEvents($limit, $cursor): \InvoicePDFs\Model\UsageEventsListResponse
 ```
 
 List Usage Events
@@ -164,7 +164,7 @@ try {
 
 ### Return type
 
-**array<string,mixed>**
+[**\InvoicePDFs\Model\UsageEventsListResponse**](../Model/UsageEventsListResponse.md)
 
 ### Authorization
 

@@ -15,7 +15,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `listCountries()`
 
 ```php
-listCountries(): array<string,mixed>
+listCountries(): \InvoicePDFs\Model\CountriesListResponse
 ```
 
 List Countries
@@ -48,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**array<string,mixed>**
+[**\InvoicePDFs\Model\CountriesListResponse**](../Model/CountriesListResponse.md)
 
 ### Authorization
 
@@ -66,7 +66,7 @@ No authorization required
 ## `listCurrencies()`
 
 ```php
-listCurrencies(): array<string,mixed>
+listCurrencies(): \InvoicePDFs\Model\CurrenciesListResponse
 ```
 
 List Currencies
@@ -99,7 +99,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**array<string,mixed>**
+[**\InvoicePDFs\Model\CurrenciesListResponse**](../Model/CurrenciesListResponse.md)
 
 ### Authorization
 
@@ -117,7 +117,7 @@ No authorization required
 ## `listDocumentTypes()`
 
 ```php
-listDocumentTypes(): array<string,mixed>
+listDocumentTypes(): \InvoicePDFs\Model\DocumentTypesListResponse
 ```
 
 List Document Types
@@ -152,7 +152,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**array<string,mixed>**
+[**\InvoicePDFs\Model\DocumentTypesListResponse**](../Model/DocumentTypesListResponse.md)
 
 ### Authorization
 
@@ -170,7 +170,7 @@ No authorization required
 ## `listLocales()`
 
 ```php
-listLocales(): array<string,mixed>
+listLocales(): \InvoicePDFs\Model\LocalesListResponse
 ```
 
 List Locales
@@ -203,7 +203,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**array<string,mixed>**
+[**\InvoicePDFs\Model\LocalesListResponse**](../Model/LocalesListResponse.md)
 
 ### Authorization
 
@@ -221,7 +221,7 @@ No authorization required
 ## `listPageSizes()`
 
 ```php
-listPageSizes(): array<string,mixed>
+listPageSizes(): \InvoicePDFs\Model\PageSizesListResponse
 ```
 
 List Page Sizes
@@ -254,7 +254,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**array<string,mixed>**
+[**\InvoicePDFs\Model\PageSizesListResponse**](../Model/PageSizesListResponse.md)
 
 ### Authorization
 
@@ -272,7 +272,7 @@ No authorization required
 ## `listTimezones()`
 
 ```php
-listTimezones(): array<string,mixed>
+listTimezones(): \InvoicePDFs\Model\TimezonesListResponse
 ```
 
 List Timezones
@@ -305,7 +305,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**array<string,mixed>**
+[**\InvoicePDFs\Model\TimezonesListResponse**](../Model/TimezonesListResponse.md)
 
 ### Authorization
 

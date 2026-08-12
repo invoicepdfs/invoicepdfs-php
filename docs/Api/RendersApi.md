@@ -69,7 +69,7 @@ try {
 ## `getRender()`
 
 ```php
-getRender($render_id): array<string,mixed>
+getRender($render_id): \InvoicePDFs\Model\RenderResponse
 ```
 
 Get Render
@@ -109,7 +109,7 @@ try {
 
 ### Return type
 
-**array<string,mixed>**
+[**\InvoicePDFs\Model\RenderResponse**](../Model/RenderResponse.md)
 
 ### Authorization
 

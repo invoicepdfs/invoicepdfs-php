@@ -146,7 +146,7 @@ class ReferenceApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>
+     * @return \InvoicePDFs\Model\CountriesListResponse
      */
     public function listCountries(string $contentType = self::contentTypes['listCountries'][0])
     {
@@ -163,7 +163,7 @@ class ReferenceApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\CountriesListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listCountriesWithHttpInfo(string $contentType = self::contentTypes['listCountries'][0])
     {
@@ -206,11 +206,11 @@ class ReferenceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\CountriesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('array<string,mixed>' !== 'string') {
+                        if ('\InvoicePDFs\Model\CountriesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -228,13 +228,13 @@ class ReferenceApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,mixed>', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\CountriesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'array<string,mixed>';
+            $returnType = '\InvoicePDFs\Model\CountriesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -267,7 +267,7 @@ class ReferenceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,mixed>',
+                        '\InvoicePDFs\Model\CountriesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -309,7 +309,7 @@ class ReferenceApi
      */
     public function listCountriesAsyncWithHttpInfo(string $contentType = self::contentTypes['listCountries'][0])
     {
-        $returnType = 'array<string,mixed>';
+        $returnType = '\InvoicePDFs\Model\CountriesListResponse';
         $request = $this->listCountriesRequest($contentType);
 
         return $this->client
@@ -433,7 +433,7 @@ class ReferenceApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>
+     * @return \InvoicePDFs\Model\CurrenciesListResponse
      */
     public function listCurrencies(string $contentType = self::contentTypes['listCurrencies'][0])
     {
@@ -450,7 +450,7 @@ class ReferenceApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\CurrenciesListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listCurrenciesWithHttpInfo(string $contentType = self::contentTypes['listCurrencies'][0])
     {
@@ -493,11 +493,11 @@ class ReferenceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\CurrenciesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('array<string,mixed>' !== 'string') {
+                        if ('\InvoicePDFs\Model\CurrenciesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -515,13 +515,13 @@ class ReferenceApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,mixed>', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\CurrenciesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'array<string,mixed>';
+            $returnType = '\InvoicePDFs\Model\CurrenciesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -554,7 +554,7 @@ class ReferenceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,mixed>',
+                        '\InvoicePDFs\Model\CurrenciesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -596,7 +596,7 @@ class ReferenceApi
      */
     public function listCurrenciesAsyncWithHttpInfo(string $contentType = self::contentTypes['listCurrencies'][0])
     {
-        $returnType = 'array<string,mixed>';
+        $returnType = '\InvoicePDFs\Model\CurrenciesListResponse';
         $request = $this->listCurrenciesRequest($contentType);
 
         return $this->client
@@ -720,7 +720,7 @@ class ReferenceApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>
+     * @return \InvoicePDFs\Model\DocumentTypesListResponse
      */
     public function listDocumentTypes(string $contentType = self::contentTypes['listDocumentTypes'][0])
     {
@@ -737,7 +737,7 @@ class ReferenceApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\DocumentTypesListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listDocumentTypesWithHttpInfo(string $contentType = self::contentTypes['listDocumentTypes'][0])
     {
@@ -780,11 +780,11 @@ class ReferenceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\DocumentTypesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('array<string,mixed>' !== 'string') {
+                        if ('\InvoicePDFs\Model\DocumentTypesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -802,13 +802,13 @@ class ReferenceApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,mixed>', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\DocumentTypesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'array<string,mixed>';
+            $returnType = '\InvoicePDFs\Model\DocumentTypesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -841,7 +841,7 @@ class ReferenceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,mixed>',
+                        '\InvoicePDFs\Model\DocumentTypesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -883,7 +883,7 @@ class ReferenceApi
      */
     public function listDocumentTypesAsyncWithHttpInfo(string $contentType = self::contentTypes['listDocumentTypes'][0])
     {
-        $returnType = 'array<string,mixed>';
+        $returnType = '\InvoicePDFs\Model\DocumentTypesListResponse';
         $request = $this->listDocumentTypesRequest($contentType);
 
         return $this->client
@@ -1007,7 +1007,7 @@ class ReferenceApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>
+     * @return \InvoicePDFs\Model\LocalesListResponse
      */
     public function listLocales(string $contentType = self::contentTypes['listLocales'][0])
     {
@@ -1024,7 +1024,7 @@ class ReferenceApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\LocalesListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listLocalesWithHttpInfo(string $contentType = self::contentTypes['listLocales'][0])
     {
@@ -1067,11 +1067,11 @@ class ReferenceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\LocalesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('array<string,mixed>' !== 'string') {
+                        if ('\InvoicePDFs\Model\LocalesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1089,13 +1089,13 @@ class ReferenceApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,mixed>', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\LocalesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'array<string,mixed>';
+            $returnType = '\InvoicePDFs\Model\LocalesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1128,7 +1128,7 @@ class ReferenceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,mixed>',
+                        '\InvoicePDFs\Model\LocalesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1170,7 +1170,7 @@ class ReferenceApi
      */
     public function listLocalesAsyncWithHttpInfo(string $contentType = self::contentTypes['listLocales'][0])
     {
-        $returnType = 'array<string,mixed>';
+        $returnType = '\InvoicePDFs\Model\LocalesListResponse';
         $request = $this->listLocalesRequest($contentType);
 
         return $this->client
@@ -1294,7 +1294,7 @@ class ReferenceApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>
+     * @return \InvoicePDFs\Model\PageSizesListResponse
      */
     public function listPageSizes(string $contentType = self::contentTypes['listPageSizes'][0])
     {
@@ -1311,7 +1311,7 @@ class ReferenceApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\PageSizesListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listPageSizesWithHttpInfo(string $contentType = self::contentTypes['listPageSizes'][0])
     {
@@ -1354,11 +1354,11 @@ class ReferenceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\PageSizesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('array<string,mixed>' !== 'string') {
+                        if ('\InvoicePDFs\Model\PageSizesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1376,13 +1376,13 @@ class ReferenceApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,mixed>', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\PageSizesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'array<string,mixed>';
+            $returnType = '\InvoicePDFs\Model\PageSizesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1415,7 +1415,7 @@ class ReferenceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,mixed>',
+                        '\InvoicePDFs\Model\PageSizesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1457,7 +1457,7 @@ class ReferenceApi
      */
     public function listPageSizesAsyncWithHttpInfo(string $contentType = self::contentTypes['listPageSizes'][0])
     {
-        $returnType = 'array<string,mixed>';
+        $returnType = '\InvoicePDFs\Model\PageSizesListResponse';
         $request = $this->listPageSizesRequest($contentType);
 
         return $this->client
@@ -1581,7 +1581,7 @@ class ReferenceApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>
+     * @return \InvoicePDFs\Model\TimezonesListResponse
      */
     public function listTimezones(string $contentType = self::contentTypes['listTimezones'][0])
     {
@@ -1598,7 +1598,7 @@ class ReferenceApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\TimezonesListResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listTimezonesWithHttpInfo(string $contentType = self::contentTypes['listTimezones'][0])
     {
@@ -1641,11 +1641,11 @@ class ReferenceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\TimezonesListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('array<string,mixed>' !== 'string') {
+                        if ('\InvoicePDFs\Model\TimezonesListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1663,13 +1663,13 @@ class ReferenceApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,mixed>', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\TimezonesListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'array<string,mixed>';
+            $returnType = '\InvoicePDFs\Model\TimezonesListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1702,7 +1702,7 @@ class ReferenceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,mixed>',
+                        '\InvoicePDFs\Model\TimezonesListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1744,7 +1744,7 @@ class ReferenceApi
      */
     public function listTimezonesAsyncWithHttpInfo(string $contentType = self::contentTypes['listTimezones'][0])
     {
-        $returnType = 'array<string,mixed>';
+        $returnType = '\InvoicePDFs\Model\TimezonesListResponse';
         $request = $this->listTimezonesRequest($contentType);
 
         return $this->client

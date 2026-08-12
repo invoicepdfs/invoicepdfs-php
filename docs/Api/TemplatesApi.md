@@ -482,7 +482,7 @@ This endpoint does not need any parameter.
 ## `previewTemplate()`
 
 ```php
-previewTemplate($template_id, $document_render_request, $idempotency_key): mixed
+previewTemplate($template_id, $document_render_request, $idempotency_key): \InvoicePDFs\Model\RenderResponse
 ```
 
 Preview Template
@@ -526,7 +526,7 @@ try {
 
 ### Return type
 
-**mixed**
+[**\InvoicePDFs\Model\RenderResponse**](../Model/RenderResponse.md)
 
 ### Authorization
 
@@ -535,7 +535,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: `application/json`, `application/pdf`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

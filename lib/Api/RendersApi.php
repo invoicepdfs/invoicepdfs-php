@@ -481,7 +481,7 @@ class RendersApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\InvoicePDFs\Model\ApiErrorResponse
+     * @return \InvoicePDFs\Model\RenderResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function getRender($render_id, string $contentType = self::contentTypes['getRender'][0])
     {
@@ -499,7 +499,7 @@ class RendersApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\RenderResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getRenderWithHttpInfo($render_id, string $contentType = self::contentTypes['getRender'][0])
     {
@@ -542,11 +542,11 @@ class RendersApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\RenderResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('array<string,mixed>' !== 'string') {
+                        if ('\InvoicePDFs\Model\RenderResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -564,7 +564,7 @@ class RendersApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,mixed>', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\RenderResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -597,7 +597,7 @@ class RendersApi
                     ];
             }
 
-            $returnType = 'array<string,mixed>';
+            $returnType = '\InvoicePDFs\Model\RenderResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -630,7 +630,7 @@ class RendersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,mixed>',
+                        '\InvoicePDFs\Model\RenderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -682,7 +682,7 @@ class RendersApi
      */
     public function getRenderAsyncWithHttpInfo($render_id, string $contentType = self::contentTypes['getRender'][0])
     {
-        $returnType = 'array<string,mixed>';
+        $returnType = '\InvoicePDFs\Model\RenderResponse';
         $request = $this->getRenderRequest($render_id, $contentType);
 
         return $this->client

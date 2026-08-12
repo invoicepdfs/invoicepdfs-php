@@ -2787,7 +2787,7 @@ class TemplatesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\InvoicePDFs\Model\ApiErrorResponse
+     * @return \InvoicePDFs\Model\RenderResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function previewTemplate($template_id, $document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
     {
@@ -2807,7 +2807,7 @@ class TemplatesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\RenderResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function previewTemplateWithHttpInfo($template_id, $document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
     {
@@ -2850,11 +2850,11 @@ class TemplatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('mixed' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\RenderResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('mixed' !== 'string') {
+                        if ('\InvoicePDFs\Model\RenderResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2872,7 +2872,7 @@ class TemplatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'mixed', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\RenderResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2905,7 +2905,7 @@ class TemplatesApi
                     ];
             }
 
-            $returnType = 'mixed';
+            $returnType = '\InvoicePDFs\Model\RenderResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2938,7 +2938,7 @@ class TemplatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'mixed',
+                        '\InvoicePDFs\Model\RenderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2994,7 +2994,7 @@ class TemplatesApi
      */
     public function previewTemplateAsyncWithHttpInfo($template_id, $document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
     {
-        $returnType = 'mixed';
+        $returnType = '\InvoicePDFs\Model\RenderResponse';
         $request = $this->previewTemplateRequest($template_id, $document_render_request, $idempotency_key, $contentType);
 
         return $this->client
@@ -3087,7 +3087,7 @@ class TemplatesApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/json', 'application/pdf', ],
             $contentType,
             $multipart
         );

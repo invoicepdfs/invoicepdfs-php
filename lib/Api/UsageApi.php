@@ -428,7 +428,7 @@ class UsageApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>
+     * @return \InvoicePDFs\Model\UsageLimitsResponse
      */
     public function getUsageLimits(string $contentType = self::contentTypes['getUsageLimits'][0])
     {
@@ -445,7 +445,7 @@ class UsageApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\UsageLimitsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUsageLimitsWithHttpInfo(string $contentType = self::contentTypes['getUsageLimits'][0])
     {
@@ -488,11 +488,11 @@ class UsageApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\UsageLimitsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('array<string,mixed>' !== 'string') {
+                        if ('\InvoicePDFs\Model\UsageLimitsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -510,13 +510,13 @@ class UsageApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,mixed>', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\UsageLimitsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'array<string,mixed>';
+            $returnType = '\InvoicePDFs\Model\UsageLimitsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -549,7 +549,7 @@ class UsageApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,mixed>',
+                        '\InvoicePDFs\Model\UsageLimitsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -591,7 +591,7 @@ class UsageApi
      */
     public function getUsageLimitsAsyncWithHttpInfo(string $contentType = self::contentTypes['getUsageLimits'][0])
     {
-        $returnType = 'array<string,mixed>';
+        $returnType = '\InvoicePDFs\Model\UsageLimitsResponse';
         $request = $this->getUsageLimitsRequest($contentType);
 
         return $this->client
@@ -721,7 +721,7 @@ class UsageApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\InvoicePDFs\Model\ApiErrorResponse
+     * @return \InvoicePDFs\Model\UsageEventsListResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function listUsageEvents($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEvents'][0])
     {
@@ -740,7 +740,7 @@ class UsageApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\UsageEventsListResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listUsageEventsWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEvents'][0])
     {
@@ -783,11 +783,11 @@ class UsageApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\UsageEventsListResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('array<string,mixed>' !== 'string') {
+                        if ('\InvoicePDFs\Model\UsageEventsListResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -805,7 +805,7 @@ class UsageApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,mixed>', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\UsageEventsListResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -838,7 +838,7 @@ class UsageApi
                     ];
             }
 
-            $returnType = 'array<string,mixed>';
+            $returnType = '\InvoicePDFs\Model\UsageEventsListResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -871,7 +871,7 @@ class UsageApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,mixed>',
+                        '\InvoicePDFs\Model\UsageEventsListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -925,7 +925,7 @@ class UsageApi
      */
     public function listUsageEventsAsyncWithHttpInfo($limit = 50, $cursor = null, string $contentType = self::contentTypes['listUsageEvents'][0])
     {
-        $returnType = 'array<string,mixed>';
+        $returnType = '\InvoicePDFs\Model\UsageEventsListResponse';
         $request = $this->listUsageEventsRequest($limit, $cursor, $contentType);
 
         return $this->client

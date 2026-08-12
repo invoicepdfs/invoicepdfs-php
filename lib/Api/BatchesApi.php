@@ -838,7 +838,7 @@ class BatchesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return mixed|\InvoicePDFs\Model\ApiErrorResponse
+     * @return \SplFileObject|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function downloadBatch($batch_id, string $contentType = self::contentTypes['downloadBatch'][0])
     {
@@ -856,7 +856,7 @@ class BatchesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of mixed|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function downloadBatchWithHttpInfo($batch_id, string $contentType = self::contentTypes['downloadBatch'][0])
     {
@@ -899,11 +899,11 @@ class BatchesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('mixed' === '\SplFileObject') {
+                    if ('\SplFileObject' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('mixed' !== 'string') {
+                        if ('\SplFileObject' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -921,7 +921,7 @@ class BatchesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'mixed', []),
+                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -954,7 +954,7 @@ class BatchesApi
                     ];
             }
 
-            $returnType = 'mixed';
+            $returnType = '\SplFileObject';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -987,7 +987,7 @@ class BatchesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'mixed',
+                        '\SplFileObject',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1039,7 +1039,7 @@ class BatchesApi
      */
     public function downloadBatchAsyncWithHttpInfo($batch_id, string $contentType = self::contentTypes['downloadBatch'][0])
     {
-        $returnType = 'mixed';
+        $returnType = '\SplFileObject';
         $request = $this->downloadBatchRequest($batch_id, $contentType);
 
         return $this->client
@@ -1118,7 +1118,7 @@ class BatchesApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/zip', 'application/json', ],
             $contentType,
             $multipart
         );

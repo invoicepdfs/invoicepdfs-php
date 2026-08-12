@@ -204,7 +204,7 @@ try {
 ## `createDocumentRender()`
 
 ```php
-createDocumentRender($document_id, $document_render_options, $idempotency_key): mixed
+createDocumentRender($document_id, $document_render_options, $idempotency_key): \InvoicePDFs\Model\RenderResponse
 ```
 
 Create Document Render
@@ -248,7 +248,7 @@ try {
 
 ### Return type
 
-**mixed**
+[**\InvoicePDFs\Model\RenderResponse**](../Model/RenderResponse.md)
 
 ### Authorization
 
@@ -798,7 +798,7 @@ try {
 ## `renderDocument()`
 
 ```php
-renderDocument($document_render_request, $idempotency_key): mixed
+renderDocument($document_render_request, $idempotency_key): \InvoicePDFs\Model\RenderResponse
 ```
 
 Render Document
@@ -840,7 +840,7 @@ try {
 
 ### Return type
 
-**mixed**
+[**\InvoicePDFs\Model\RenderResponse**](../Model/RenderResponse.md)
 
 ### Authorization
 
@@ -849,7 +849,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: `application/json`, `application/pdf`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
