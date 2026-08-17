@@ -235,6 +235,12 @@ class DocumentCalculateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     public const DOCUMENT_TYPE_INVOICE = 'invoice';
+    public const DOCUMENT_TYPE_CREDIT_NOTE = 'credit_note';
+    public const DOCUMENT_TYPE_QUOTE = 'quote';
+    public const DOCUMENT_TYPE_RECEIPT = 'receipt';
+    public const DOCUMENT_TYPE_PROFORMA = 'proforma';
+    public const DOCUMENT_TYPE_PURCHASE_ORDER = 'purchase_order';
+    public const DOCUMENT_TYPE_DELIVERY_NOTE = 'delivery_note';
 
     /**
      * Gets allowable values of the enum
@@ -245,6 +251,12 @@ class DocumentCalculateRequest implements ModelInterface, ArrayAccess, \JsonSeri
     {
         return [
             self::DOCUMENT_TYPE_INVOICE,
+            self::DOCUMENT_TYPE_CREDIT_NOTE,
+            self::DOCUMENT_TYPE_QUOTE,
+            self::DOCUMENT_TYPE_RECEIPT,
+            self::DOCUMENT_TYPE_PROFORMA,
+            self::DOCUMENT_TYPE_PURCHASE_ORDER,
+            self::DOCUMENT_TYPE_DELIVERY_NOTE,
         ];
     }
 
