@@ -1,6 +1,6 @@
 <?php
 /**
- * CalculationBreakdown
+ * NumberingNextOut
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \InvoicePDFs\ObjectSerializer;
 
 /**
- * CalculationBreakdown Class Doc Comment
+ * NumberingNextOut Class Doc Comment
  *
  * @category Class
+ * @description What POST /numbering-sequences/{id}/next allocated.  The number is the point of the call. It used to answer with the sequence row instead, so a caller burned a number and had to reconstruct the string itself from prefix, date pattern and padding — the one thing the endpoint exists to do for them.
  * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializable
+class NumberingNextOut implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CalculationBreakdown';
+    protected static $openAPIModelName = 'NumberingNextOut';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +58,9 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'subtotal' => '\InvoicePDFs\Model\Money',
-        'discount_total' => '\InvoicePDFs\Model\Money',
-        'document_discount_total' => '\InvoicePDFs\Model\Money',
-        'tax_total' => '\InvoicePDFs\Model\Money',
-        'shipping_total' => '\InvoicePDFs\Model\Money',
-        'total' => '\InvoicePDFs\Model\Money'
+        'number' => 'string',
+        'sequence_id' => 'string',
+        'next_number' => 'int'
     ];
 
     /**
@@ -73,12 +71,9 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'subtotal' => null,
-        'discount_total' => null,
-        'document_discount_total' => null,
-        'tax_total' => null,
-        'shipping_total' => null,
-        'total' => null
+        'number' => null,
+        'sequence_id' => null,
+        'next_number' => null
     ];
 
     /**
@@ -87,12 +82,9 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'subtotal' => false,
-        'discount_total' => false,
-        'document_discount_total' => false,
-        'tax_total' => false,
-        'shipping_total' => false,
-        'total' => false
+        'number' => false,
+        'sequence_id' => false,
+        'next_number' => false
     ];
 
     /**
@@ -181,12 +173,9 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'subtotal' => 'subtotal',
-        'discount_total' => 'discount_total',
-        'document_discount_total' => 'document_discount_total',
-        'tax_total' => 'tax_total',
-        'shipping_total' => 'shipping_total',
-        'total' => 'total'
+        'number' => 'number',
+        'sequence_id' => 'sequence_id',
+        'next_number' => 'next_number'
     ];
 
     /**
@@ -195,12 +184,9 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'subtotal' => 'setSubtotal',
-        'discount_total' => 'setDiscountTotal',
-        'document_discount_total' => 'setDocumentDiscountTotal',
-        'tax_total' => 'setTaxTotal',
-        'shipping_total' => 'setShippingTotal',
-        'total' => 'setTotal'
+        'number' => 'setNumber',
+        'sequence_id' => 'setSequenceId',
+        'next_number' => 'setNextNumber'
     ];
 
     /**
@@ -209,12 +195,9 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'subtotal' => 'getSubtotal',
-        'discount_total' => 'getDiscountTotal',
-        'document_discount_total' => 'getDocumentDiscountTotal',
-        'tax_total' => 'getTaxTotal',
-        'shipping_total' => 'getShippingTotal',
-        'total' => 'getTotal'
+        'number' => 'getNumber',
+        'sequence_id' => 'getSequenceId',
+        'next_number' => 'getNextNumber'
     ];
 
     /**
@@ -274,12 +257,9 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('subtotal', $data ?? [], null);
-        $this->setIfExists('discount_total', $data ?? [], null);
-        $this->setIfExists('document_discount_total', $data ?? [], null);
-        $this->setIfExists('tax_total', $data ?? [], null);
-        $this->setIfExists('shipping_total', $data ?? [], null);
-        $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('number', $data ?? [], null);
+        $this->setIfExists('sequence_id', $data ?? [], null);
+        $this->setIfExists('next_number', $data ?? [], null);
     }
 
     /**
@@ -309,20 +289,14 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['subtotal'] === null) {
-            $invalidProperties[] = "'subtotal' can't be null";
+        if ($this->container['number'] === null) {
+            $invalidProperties[] = "'number' can't be null";
         }
-        if ($this->container['discount_total'] === null) {
-            $invalidProperties[] = "'discount_total' can't be null";
+        if ($this->container['sequence_id'] === null) {
+            $invalidProperties[] = "'sequence_id' can't be null";
         }
-        if ($this->container['tax_total'] === null) {
-            $invalidProperties[] = "'tax_total' can't be null";
-        }
-        if ($this->container['shipping_total'] === null) {
-            $invalidProperties[] = "'shipping_total' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
+        if ($this->container['next_number'] === null) {
+            $invalidProperties[] = "'next_number' can't be null";
         }
         return $invalidProperties;
     }
@@ -340,163 +314,82 @@ class CalculationBreakdown implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets subtotal
+     * Gets number
      *
-     * @return \InvoicePDFs\Model\Money
+     * @return string
      */
-    public function getSubtotal()
+    public function getNumber()
     {
-        return $this->container['subtotal'];
+        return $this->container['number'];
     }
 
     /**
-     * Sets subtotal
+     * Sets number
      *
-     * @param \InvoicePDFs\Model\Money $subtotal subtotal
+     * @param string $number number
      *
      * @return self
      */
-    public function setSubtotal($subtotal)
+    public function setNumber($number)
     {
-        if (is_null($subtotal)) {
-            throw new \InvalidArgumentException('non-nullable subtotal cannot be null');
+        if (is_null($number)) {
+            throw new \InvalidArgumentException('non-nullable number cannot be null');
         }
-        $this->container['subtotal'] = $subtotal;
+        $this->container['number'] = $number;
 
         return $this;
     }
 
     /**
-     * Gets discount_total
+     * Gets sequence_id
      *
-     * @return \InvoicePDFs\Model\Money
+     * @return string
      */
-    public function getDiscountTotal()
+    public function getSequenceId()
     {
-        return $this->container['discount_total'];
+        return $this->container['sequence_id'];
     }
 
     /**
-     * Sets discount_total
+     * Sets sequence_id
      *
-     * @param \InvoicePDFs\Model\Money $discount_total discount_total
+     * @param string $sequence_id sequence_id
      *
      * @return self
      */
-    public function setDiscountTotal($discount_total)
+    public function setSequenceId($sequence_id)
     {
-        if (is_null($discount_total)) {
-            throw new \InvalidArgumentException('non-nullable discount_total cannot be null');
+        if (is_null($sequence_id)) {
+            throw new \InvalidArgumentException('non-nullable sequence_id cannot be null');
         }
-        $this->container['discount_total'] = $discount_total;
+        $this->container['sequence_id'] = $sequence_id;
 
         return $this;
     }
 
     /**
-     * Gets document_discount_total
+     * Gets next_number
      *
-     * @return \InvoicePDFs\Model\Money|null
+     * @return int
      */
-    public function getDocumentDiscountTotal()
+    public function getNextNumber()
     {
-        return $this->container['document_discount_total'];
+        return $this->container['next_number'];
     }
 
     /**
-     * Sets document_discount_total
+     * Sets next_number
      *
-     * @param \InvoicePDFs\Model\Money|null $document_discount_total document_discount_total
+     * @param int $next_number The counter after this allocation
      *
      * @return self
      */
-    public function setDocumentDiscountTotal($document_discount_total)
+    public function setNextNumber($next_number)
     {
-        if (is_null($document_discount_total)) {
-            throw new \InvalidArgumentException('non-nullable document_discount_total cannot be null');
+        if (is_null($next_number)) {
+            throw new \InvalidArgumentException('non-nullable next_number cannot be null');
         }
-        $this->container['document_discount_total'] = $document_discount_total;
-
-        return $this;
-    }
-
-    /**
-     * Gets tax_total
-     *
-     * @return \InvoicePDFs\Model\Money
-     */
-    public function getTaxTotal()
-    {
-        return $this->container['tax_total'];
-    }
-
-    /**
-     * Sets tax_total
-     *
-     * @param \InvoicePDFs\Model\Money $tax_total tax_total
-     *
-     * @return self
-     */
-    public function setTaxTotal($tax_total)
-    {
-        if (is_null($tax_total)) {
-            throw new \InvalidArgumentException('non-nullable tax_total cannot be null');
-        }
-        $this->container['tax_total'] = $tax_total;
-
-        return $this;
-    }
-
-    /**
-     * Gets shipping_total
-     *
-     * @return \InvoicePDFs\Model\Money
-     */
-    public function getShippingTotal()
-    {
-        return $this->container['shipping_total'];
-    }
-
-    /**
-     * Sets shipping_total
-     *
-     * @param \InvoicePDFs\Model\Money $shipping_total shipping_total
-     *
-     * @return self
-     */
-    public function setShippingTotal($shipping_total)
-    {
-        if (is_null($shipping_total)) {
-            throw new \InvalidArgumentException('non-nullable shipping_total cannot be null');
-        }
-        $this->container['shipping_total'] = $shipping_total;
-
-        return $this;
-    }
-
-    /**
-     * Gets total
-     *
-     * @return \InvoicePDFs\Model\Money
-     */
-    public function getTotal()
-    {
-        return $this->container['total'];
-    }
-
-    /**
-     * Sets total
-     *
-     * @param \InvoicePDFs\Model\Money $total total
-     *
-     * @return self
-     */
-    public function setTotal($total)
-    {
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
-        }
-        $this->container['total'] = $total;
+        $this->container['next_number'] = $next_number;
 
         return $this;
     }

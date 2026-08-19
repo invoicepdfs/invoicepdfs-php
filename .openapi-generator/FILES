@@ -163,6 +163,8 @@ docs/Model/LocaleOut.md
 docs/Model/LocalesListResponse.md
 docs/Model/Money.md
 docs/Model/MoneyOut.md
+docs/Model/NumberingNextOut.md
+docs/Model/NumberingNextResponse.md
 docs/Model/NumberingSequenceCreateRequest.md
 docs/Model/NumberingSequenceOut.md
 docs/Model/NumberingSequencePatchRequest.md
@@ -403,6 +405,8 @@ lib/Model/LocalesListResponse.php
 lib/Model/ModelInterface.php
 lib/Model/Money.php
 lib/Model/MoneyOut.php
+lib/Model/NumberingNextOut.php
+lib/Model/NumberingNextResponse.php
 lib/Model/NumberingSequenceCreateRequest.php
 lib/Model/NumberingSequenceOut.php
 lib/Model/NumberingSequencePatchRequest.php
@@ -479,3 +483,5 @@ lib/Model/WorkspaceResponse.php
 lib/Model/WorkspacesListResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/NumberingNextOutTest.php
+test/Model/NumberingNextResponseTest.php

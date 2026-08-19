@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **subtotal** | [**\InvoicePDFs\Model\Money**](Money.md) |  |
 **discount_total** | [**\InvoicePDFs\Model\Money**](Money.md) |  |
+**document_discount_total** | [**\InvoicePDFs\Model\Money**](Money.md) |  | [optional]
 **tax_total** | [**\InvoicePDFs\Model\Money**](Money.md) |  |
 **shipping_total** | [**\InvoicePDFs\Model\Money**](Money.md) |  |
 **total** | [**\InvoicePDFs\Model\Money**](Money.md) |  |

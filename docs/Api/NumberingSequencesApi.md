@@ -16,7 +16,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `consumeSequenceNumber()`
 
 ```php
-consumeSequenceNumber($sequence_id): \InvoicePDFs\Model\NumberingSequenceResponse
+consumeSequenceNumber($sequence_id): \InvoicePDFs\Model\NumberingNextResponse
 ```
 
 Consume Sequence Number
@@ -58,7 +58,7 @@ try {
 
 ### Return type
 
-[**\InvoicePDFs\Model\NumberingSequenceResponse**](../Model/NumberingSequenceResponse.md)
+[**\InvoicePDFs\Model\NumberingNextResponse**](../Model/NumberingNextResponse.md)
 
 ### Authorization
 

@@ -150,7 +150,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse
+     * @return \InvoicePDFs\Model\NumberingNextResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function consumeSequenceNumber($sequence_id, string $contentType = self::contentTypes['consumeSequenceNumber'][0])
     {
@@ -168,7 +168,7 @@ class NumberingSequencesApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\NumberingSequenceResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\NumberingNextResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function consumeSequenceNumberWithHttpInfo($sequence_id, string $contentType = self::contentTypes['consumeSequenceNumber'][0])
     {
@@ -211,11 +211,11 @@ class NumberingSequencesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\InvoicePDFs\Model\NumberingSequenceResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\NumberingNextResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\NumberingSequenceResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\NumberingNextResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -233,7 +233,7 @@ class NumberingSequencesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\NumberingSequenceResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\NumberingNextResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -266,7 +266,7 @@ class NumberingSequencesApi
                     ];
             }
 
-            $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
+            $returnType = '\InvoicePDFs\Model\NumberingNextResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -299,7 +299,7 @@ class NumberingSequencesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\NumberingSequenceResponse',
+                        '\InvoicePDFs\Model\NumberingNextResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -351,7 +351,7 @@ class NumberingSequencesApi
      */
     public function consumeSequenceNumberAsyncWithHttpInfo($sequence_id, string $contentType = self::contentTypes['consumeSequenceNumber'][0])
     {
-        $returnType = '\InvoicePDFs\Model\NumberingSequenceResponse';
+        $returnType = '\InvoicePDFs\Model\NumberingNextResponse';
         $request = $this->consumeSequenceNumberRequest($sequence_id, $contentType);
 
         return $this->client
