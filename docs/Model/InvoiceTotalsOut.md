@@ -4,8 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**gross_subtotal** | [**\InvoicePDFs\Model\MoneyOut**](MoneyOut.md) |  | [optional]
 **subtotal** | [**\InvoicePDFs\Model\MoneyOut**](MoneyOut.md) |  |
 **discount_total** | [**\InvoicePDFs\Model\MoneyOut**](MoneyOut.md) |  |
+**document_discount_total** | [**\InvoicePDFs\Model\MoneyOut**](MoneyOut.md) |  | [optional]
 **tax_total** | [**\InvoicePDFs\Model\MoneyOut**](MoneyOut.md) |  |
 **shipping_total** | [**\InvoicePDFs\Model\MoneyOut**](MoneyOut.md) |  |
 **total** | [**\InvoicePDFs\Model\MoneyOut**](MoneyOut.md) |  |

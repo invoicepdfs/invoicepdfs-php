@@ -57,8 +57,10 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'gross_subtotal' => '\InvoicePDFs\Model\MoneyOut',
         'subtotal' => '\InvoicePDFs\Model\MoneyOut',
         'discount_total' => '\InvoicePDFs\Model\MoneyOut',
+        'document_discount_total' => '\InvoicePDFs\Model\MoneyOut',
         'tax_total' => '\InvoicePDFs\Model\MoneyOut',
         'shipping_total' => '\InvoicePDFs\Model\MoneyOut',
         'total' => '\InvoicePDFs\Model\MoneyOut'
@@ -72,8 +74,10 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'gross_subtotal' => null,
         'subtotal' => null,
         'discount_total' => null,
+        'document_discount_total' => null,
         'tax_total' => null,
         'shipping_total' => null,
         'total' => null
@@ -85,8 +89,10 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'gross_subtotal' => false,
         'subtotal' => false,
         'discount_total' => false,
+        'document_discount_total' => false,
         'tax_total' => false,
         'shipping_total' => false,
         'total' => false
@@ -178,8 +184,10 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'gross_subtotal' => 'gross_subtotal',
         'subtotal' => 'subtotal',
         'discount_total' => 'discount_total',
+        'document_discount_total' => 'document_discount_total',
         'tax_total' => 'tax_total',
         'shipping_total' => 'shipping_total',
         'total' => 'total'
@@ -191,8 +199,10 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'gross_subtotal' => 'setGrossSubtotal',
         'subtotal' => 'setSubtotal',
         'discount_total' => 'setDiscountTotal',
+        'document_discount_total' => 'setDocumentDiscountTotal',
         'tax_total' => 'setTaxTotal',
         'shipping_total' => 'setShippingTotal',
         'total' => 'setTotal'
@@ -204,8 +214,10 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'gross_subtotal' => 'getGrossSubtotal',
         'subtotal' => 'getSubtotal',
         'discount_total' => 'getDiscountTotal',
+        'document_discount_total' => 'getDocumentDiscountTotal',
         'tax_total' => 'getTaxTotal',
         'shipping_total' => 'getShippingTotal',
         'total' => 'getTotal'
@@ -268,8 +280,10 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('gross_subtotal', $data ?? [], null);
         $this->setIfExists('subtotal', $data ?? [], null);
         $this->setIfExists('discount_total', $data ?? [], null);
+        $this->setIfExists('document_discount_total', $data ?? [], null);
         $this->setIfExists('tax_total', $data ?? [], null);
         $this->setIfExists('shipping_total', $data ?? [], null);
         $this->setIfExists('total', $data ?? [], null);
@@ -333,6 +347,33 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets gross_subtotal
+     *
+     * @return \InvoicePDFs\Model\MoneyOut|null
+     */
+    public function getGrossSubtotal()
+    {
+        return $this->container['gross_subtotal'];
+    }
+
+    /**
+     * Sets gross_subtotal
+     *
+     * @param \InvoicePDFs\Model\MoneyOut|null $gross_subtotal gross_subtotal
+     *
+     * @return self
+     */
+    public function setGrossSubtotal($gross_subtotal)
+    {
+        if (is_null($gross_subtotal)) {
+            throw new \InvalidArgumentException('non-nullable gross_subtotal cannot be null');
+        }
+        $this->container['gross_subtotal'] = $gross_subtotal;
+
+        return $this;
+    }
+
+    /**
      * Gets subtotal
      *
      * @return \InvoicePDFs\Model\MoneyOut
@@ -382,6 +423,33 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable discount_total cannot be null');
         }
         $this->container['discount_total'] = $discount_total;
+
+        return $this;
+    }
+
+    /**
+     * Gets document_discount_total
+     *
+     * @return \InvoicePDFs\Model\MoneyOut|null
+     */
+    public function getDocumentDiscountTotal()
+    {
+        return $this->container['document_discount_total'];
+    }
+
+    /**
+     * Sets document_discount_total
+     *
+     * @param \InvoicePDFs\Model\MoneyOut|null $document_discount_total document_discount_total
+     *
+     * @return self
+     */
+    public function setDocumentDiscountTotal($document_discount_total)
+    {
+        if (is_null($document_discount_total)) {
+            throw new \InvalidArgumentException('non-nullable document_discount_total cannot be null');
+        }
+        $this->container['document_discount_total'] = $document_discount_total;
 
         return $this;
     }
