@@ -63,7 +63,9 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'document_discount_total' => '\InvoicePDFs\Model\MoneyOut',
         'tax_total' => '\InvoicePDFs\Model\MoneyOut',
         'shipping_total' => '\InvoicePDFs\Model\MoneyOut',
-        'total' => '\InvoicePDFs\Model\MoneyOut'
+        'total' => '\InvoicePDFs\Model\MoneyOut',
+        'recomputed_total' => '\InvoicePDFs\Model\MoneyOut',
+        'totals_drift' => '\InvoicePDFs\Model\MoneyOut'
     ];
 
     /**
@@ -80,7 +82,9 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'document_discount_total' => null,
         'tax_total' => null,
         'shipping_total' => null,
-        'total' => null
+        'total' => null,
+        'recomputed_total' => null,
+        'totals_drift' => null
     ];
 
     /**
@@ -95,7 +99,9 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'document_discount_total' => false,
         'tax_total' => false,
         'shipping_total' => false,
-        'total' => false
+        'total' => false,
+        'recomputed_total' => true,
+        'totals_drift' => true
     ];
 
     /**
@@ -190,7 +196,9 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'document_discount_total' => 'document_discount_total',
         'tax_total' => 'tax_total',
         'shipping_total' => 'shipping_total',
-        'total' => 'total'
+        'total' => 'total',
+        'recomputed_total' => 'recomputed_total',
+        'totals_drift' => 'totals_drift'
     ];
 
     /**
@@ -205,7 +213,9 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'document_discount_total' => 'setDocumentDiscountTotal',
         'tax_total' => 'setTaxTotal',
         'shipping_total' => 'setShippingTotal',
-        'total' => 'setTotal'
+        'total' => 'setTotal',
+        'recomputed_total' => 'setRecomputedTotal',
+        'totals_drift' => 'setTotalsDrift'
     ];
 
     /**
@@ -220,7 +230,9 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'document_discount_total' => 'getDocumentDiscountTotal',
         'tax_total' => 'getTaxTotal',
         'shipping_total' => 'getShippingTotal',
-        'total' => 'getTotal'
+        'total' => 'getTotal',
+        'recomputed_total' => 'getRecomputedTotal',
+        'totals_drift' => 'getTotalsDrift'
     ];
 
     /**
@@ -287,6 +299,8 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('tax_total', $data ?? [], null);
         $this->setIfExists('shipping_total', $data ?? [], null);
         $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('recomputed_total', $data ?? [], null);
+        $this->setIfExists('totals_drift', $data ?? [], null);
     }
 
     /**
@@ -531,6 +545,74 @@ class InvoiceTotalsOut implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable total cannot be null');
         }
         $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets recomputed_total
+     *
+     * @return \InvoicePDFs\Model\MoneyOut|null
+     */
+    public function getRecomputedTotal()
+    {
+        return $this->container['recomputed_total'];
+    }
+
+    /**
+     * Sets recomputed_total
+     *
+     * @param \InvoicePDFs\Model\MoneyOut|null $recomputed_total recomputed_total
+     *
+     * @return self
+     */
+    public function setRecomputedTotal($recomputed_total)
+    {
+        if (is_null($recomputed_total)) {
+            array_push($this->openAPINullablesSetToNull, 'recomputed_total');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('recomputed_total', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['recomputed_total'] = $recomputed_total;
+
+        return $this;
+    }
+
+    /**
+     * Gets totals_drift
+     *
+     * @return \InvoicePDFs\Model\MoneyOut|null
+     */
+    public function getTotalsDrift()
+    {
+        return $this->container['totals_drift'];
+    }
+
+    /**
+     * Sets totals_drift
+     *
+     * @param \InvoicePDFs\Model\MoneyOut|null $totals_drift totals_drift
+     *
+     * @return self
+     */
+    public function setTotalsDrift($totals_drift)
+    {
+        if (is_null($totals_drift)) {
+            array_push($this->openAPINullablesSetToNull, 'totals_drift');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('totals_drift', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['totals_drift'] = $totals_drift;
 
         return $this;
     }
