@@ -58,7 +58,8 @@ class DocumentShippingInput implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPITypes = [
         'description' => 'string',
-        'amount' => 'string'
+        'amount' => 'string',
+        'taxable' => 'bool'
     ];
 
     /**
@@ -70,7 +71,8 @@ class DocumentShippingInput implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPIFormats = [
         'description' => null,
-        'amount' => null
+        'amount' => null,
+        'taxable' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class DocumentShippingInput implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static array $openAPINullables = [
         'description' => false,
-        'amount' => false
+        'amount' => false,
+        'taxable' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class DocumentShippingInput implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $attributeMap = [
         'description' => 'description',
-        'amount' => 'amount'
+        'amount' => 'amount',
+        'taxable' => 'taxable'
     ];
 
     /**
@@ -180,7 +184,8 @@ class DocumentShippingInput implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $setters = [
         'description' => 'setDescription',
-        'amount' => 'setAmount'
+        'amount' => 'setAmount',
+        'taxable' => 'setTaxable'
     ];
 
     /**
@@ -190,7 +195,8 @@ class DocumentShippingInput implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $getters = [
         'description' => 'getDescription',
-        'amount' => 'getAmount'
+        'amount' => 'getAmount',
+        'taxable' => 'getTaxable'
     ];
 
     /**
@@ -252,6 +258,7 @@ class DocumentShippingInput implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $this->setIfExists('description', $data ?? [], 'Shipping');
         $this->setIfExists('amount', $data ?? [], null);
+        $this->setIfExists('taxable', $data ?? [], false);
     }
 
     /**
@@ -349,6 +356,33 @@ class DocumentShippingInput implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
         $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets taxable
+     *
+     * @return bool|null
+     */
+    public function getTaxable()
+    {
+        return $this->container['taxable'];
+    }
+
+    /**
+     * Sets taxable
+     *
+     * @param bool|null $taxable taxable
+     *
+     * @return self
+     */
+    public function setTaxable($taxable)
+    {
+        if (is_null($taxable)) {
+            throw new \InvalidArgumentException('non-nullable taxable cannot be null');
+        }
+        $this->container['taxable'] = $taxable;
 
         return $this;
     }

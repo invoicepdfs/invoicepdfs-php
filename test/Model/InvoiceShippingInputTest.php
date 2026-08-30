@@ -96,4 +96,13 @@ class InvoiceShippingInputTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "taxable"
+     */
+    public function testPropertyTaxable()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }
