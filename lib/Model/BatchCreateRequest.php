@@ -320,6 +320,10 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['items'] === null) {
             $invalidProperties[] = "'items' can't be null";
         }
+        if ((count($this->container['items']) > 500)) {
+            $invalidProperties[] = "invalid value for 'items', number of items must be less than or equal to 500.";
+        }
+
         if ((count($this->container['items']) < 1)) {
             $invalidProperties[] = "invalid value for 'items', number of items must be greater than or equal to 1.";
         }
@@ -399,7 +403,9 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable items cannot be null');
         }
 
-
+        if ((count($items) > 500)) {
+            throw new \InvalidArgumentException('invalid value for $items when calling BatchCreateRequest., number of items must be less than or equal to 500.');
+        }
         if ((count($items) < 1)) {
             throw new \InvalidArgumentException('invalid length for $items when calling BatchCreateRequest., number of items must be greater than or equal to 1.');
         }
