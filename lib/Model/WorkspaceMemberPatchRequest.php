@@ -77,7 +77,7 @@ class WorkspaceMemberPatchRequest implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'role' => true
+        'role' => false
     ];
 
     /**
@@ -335,17 +335,10 @@ class WorkspaceMemberPatchRequest implements ModelInterface, ArrayAccess, \JsonS
     public function setRole($role)
     {
         if (is_null($role)) {
-            array_push($this->openAPINullablesSetToNull, 'role');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('role', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable role cannot be null');
         }
         $allowedValues = $this->getRoleAllowableValues();
-        if (!is_null($role) && !in_array($role, $allowedValues, true)) {
+        if (!in_array($role, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'role', must be one of '%s'",

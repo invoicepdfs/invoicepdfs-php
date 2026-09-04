@@ -83,10 +83,10 @@ class WebhookEndpointPatchRequest implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'url' => true,
+        'url' => false,
         'description' => true,
-        'events' => true,
-        'is_active' => true
+        'events' => false,
+        'is_active' => false
     ];
 
     /**
@@ -330,14 +330,7 @@ class WebhookEndpointPatchRequest implements ModelInterface, ArrayAccess, \JsonS
     public function setUrl($url)
     {
         if (is_null($url)) {
-            array_push($this->openAPINullablesSetToNull, 'url');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('url', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
         $this->container['url'] = $url;
 
@@ -398,14 +391,7 @@ class WebhookEndpointPatchRequest implements ModelInterface, ArrayAccess, \JsonS
     public function setEvents($events)
     {
         if (is_null($events)) {
-            array_push($this->openAPINullablesSetToNull, 'events');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('events', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable events cannot be null');
         }
         $this->container['events'] = $events;
 
@@ -432,14 +418,7 @@ class WebhookEndpointPatchRequest implements ModelInterface, ArrayAccess, \JsonS
     public function setIsActive($is_active)
     {
         if (is_null($is_active)) {
-            array_push($this->openAPINullablesSetToNull, 'is_active');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_active', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable is_active cannot be null');
         }
         $this->container['is_active'] = $is_active;
 

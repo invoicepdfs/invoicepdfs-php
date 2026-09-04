@@ -91,14 +91,14 @@ class BrandingProfilePatchRequest implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
-        'primary_color' => true,
-        'accent_color' => true,
+        'name' => false,
+        'primary_color' => false,
+        'accent_color' => false,
         'font_family' => true,
         'header_text' => true,
-        'footer_text' => true,
-        'hide_invoicepdfs_branding' => true,
-        'is_default' => true
+        'footer_text' => false,
+        'hide_invoicepdfs_branding' => false,
+        'is_default' => false
     ];
 
     /**
@@ -358,14 +358,7 @@ class BrandingProfilePatchRequest implements ModelInterface, ArrayAccess, \JsonS
     public function setName($name)
     {
         if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -392,14 +385,7 @@ class BrandingProfilePatchRequest implements ModelInterface, ArrayAccess, \JsonS
     public function setPrimaryColor($primary_color)
     {
         if (is_null($primary_color)) {
-            array_push($this->openAPINullablesSetToNull, 'primary_color');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('primary_color', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable primary_color cannot be null');
         }
         $this->container['primary_color'] = $primary_color;
 
@@ -426,14 +412,7 @@ class BrandingProfilePatchRequest implements ModelInterface, ArrayAccess, \JsonS
     public function setAccentColor($accent_color)
     {
         if (is_null($accent_color)) {
-            array_push($this->openAPINullablesSetToNull, 'accent_color');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('accent_color', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable accent_color cannot be null');
         }
         $this->container['accent_color'] = $accent_color;
 
@@ -528,14 +507,7 @@ class BrandingProfilePatchRequest implements ModelInterface, ArrayAccess, \JsonS
     public function setFooterText($footer_text)
     {
         if (is_null($footer_text)) {
-            array_push($this->openAPINullablesSetToNull, 'footer_text');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('footer_text', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable footer_text cannot be null');
         }
         $this->container['footer_text'] = $footer_text;
 
@@ -562,14 +534,7 @@ class BrandingProfilePatchRequest implements ModelInterface, ArrayAccess, \JsonS
     public function setHideInvoicepdfsBranding($hide_invoicepdfs_branding)
     {
         if (is_null($hide_invoicepdfs_branding)) {
-            array_push($this->openAPINullablesSetToNull, 'hide_invoicepdfs_branding');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('hide_invoicepdfs_branding', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable hide_invoicepdfs_branding cannot be null');
         }
         $this->container['hide_invoicepdfs_branding'] = $hide_invoicepdfs_branding;
 
@@ -596,14 +561,7 @@ class BrandingProfilePatchRequest implements ModelInterface, ArrayAccess, \JsonS
     public function setIsDefault($is_default)
     {
         if (is_null($is_default)) {
-            array_push($this->openAPINullablesSetToNull, 'is_default');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_default', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable is_default cannot be null');
         }
         $this->container['is_default'] = $is_default;
 

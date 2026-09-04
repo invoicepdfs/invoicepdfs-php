@@ -85,11 +85,11 @@ class TaxRatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
-        'rate' => true,
-        'inclusive' => true,
+        'name' => false,
+        'rate' => false,
+        'inclusive' => false,
         'jurisdiction' => true,
-        'is_active' => true
+        'is_active' => false
     ];
 
     /**
@@ -337,14 +337,7 @@ class TaxRatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setName($name)
     {
         if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -371,14 +364,7 @@ class TaxRatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setRate($rate)
     {
         if (is_null($rate)) {
-            array_push($this->openAPINullablesSetToNull, 'rate');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('rate', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable rate cannot be null');
         }
         $this->container['rate'] = $rate;
 
@@ -405,14 +391,7 @@ class TaxRatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setInclusive($inclusive)
     {
         if (is_null($inclusive)) {
-            array_push($this->openAPINullablesSetToNull, 'inclusive');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('inclusive', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable inclusive cannot be null');
         }
         $this->container['inclusive'] = $inclusive;
 
@@ -473,14 +452,7 @@ class TaxRatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setIsActive($is_active)
     {
         if (is_null($is_active)) {
-            array_push($this->openAPINullablesSetToNull, 'is_active');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('is_active', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable is_active cannot be null');
         }
         $this->container['is_active'] = $is_active;
 

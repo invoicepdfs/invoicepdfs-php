@@ -81,9 +81,9 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
+        'name' => false,
         'description' => true,
-        'config' => true
+        'config' => false
     ];
 
     /**
@@ -331,19 +331,12 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setName($name)
     {
         if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        if (!is_null($name) && (mb_strlen($name) > 256)) {
+        if ((mb_strlen($name) > 256)) {
             throw new \InvalidArgumentException('invalid length for $name when calling TemplatePatchRequest., must be smaller than or equal to 256.');
         }
-        if (!is_null($name) && (mb_strlen($name) < 1)) {
+        if ((mb_strlen($name) < 1)) {
             throw new \InvalidArgumentException('invalid length for $name when calling TemplatePatchRequest., must be bigger than or equal to 1.');
         }
 
@@ -406,14 +399,7 @@ class TemplatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setConfig($config)
     {
         if (is_null($config)) {
-            array_push($this->openAPINullablesSetToNull, 'config');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('config', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable config cannot be null');
         }
         $this->container['config'] = $config;
 

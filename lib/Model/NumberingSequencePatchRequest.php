@@ -87,12 +87,12 @@ class NumberingSequencePatchRequest implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
-        'prefix' => true,
-        'date_pattern' => true,
-        'padding' => true,
-        'next_number' => true,
-        'reset' => true
+        'name' => false,
+        'prefix' => false,
+        'date_pattern' => false,
+        'padding' => false,
+        'next_number' => false,
+        'reset' => false
     ];
 
     /**
@@ -382,14 +382,7 @@ class NumberingSequencePatchRequest implements ModelInterface, ArrayAccess, \Jso
     public function setName($name)
     {
         if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
 
@@ -416,14 +409,7 @@ class NumberingSequencePatchRequest implements ModelInterface, ArrayAccess, \Jso
     public function setPrefix($prefix)
     {
         if (is_null($prefix)) {
-            array_push($this->openAPINullablesSetToNull, 'prefix');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('prefix', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable prefix cannot be null');
         }
         $this->container['prefix'] = $prefix;
 
@@ -450,14 +436,7 @@ class NumberingSequencePatchRequest implements ModelInterface, ArrayAccess, \Jso
     public function setDatePattern($date_pattern)
     {
         if (is_null($date_pattern)) {
-            array_push($this->openAPINullablesSetToNull, 'date_pattern');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('date_pattern', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable date_pattern cannot be null');
         }
         $this->container['date_pattern'] = $date_pattern;
 
@@ -484,20 +463,13 @@ class NumberingSequencePatchRequest implements ModelInterface, ArrayAccess, \Jso
     public function setPadding($padding)
     {
         if (is_null($padding)) {
-            array_push($this->openAPINullablesSetToNull, 'padding');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('padding', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable padding cannot be null');
         }
 
-        if (!is_null($padding) && ($padding > 10)) {
+        if (($padding > 10)) {
             throw new \InvalidArgumentException('invalid value for $padding when calling NumberingSequencePatchRequest., must be smaller than or equal to 10.');
         }
-        if (!is_null($padding) && ($padding < 1)) {
+        if (($padding < 1)) {
             throw new \InvalidArgumentException('invalid value for $padding when calling NumberingSequencePatchRequest., must be bigger than or equal to 1.');
         }
 
@@ -526,17 +498,10 @@ class NumberingSequencePatchRequest implements ModelInterface, ArrayAccess, \Jso
     public function setNextNumber($next_number)
     {
         if (is_null($next_number)) {
-            array_push($this->openAPINullablesSetToNull, 'next_number');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('next_number', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable next_number cannot be null');
         }
 
-        if (!is_null($next_number) && ($next_number < 1)) {
+        if (($next_number < 1)) {
             throw new \InvalidArgumentException('invalid value for $next_number when calling NumberingSequencePatchRequest., must be bigger than or equal to 1.');
         }
 
@@ -565,17 +530,10 @@ class NumberingSequencePatchRequest implements ModelInterface, ArrayAccess, \Jso
     public function setReset($reset)
     {
         if (is_null($reset)) {
-            array_push($this->openAPINullablesSetToNull, 'reset');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('reset', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable reset cannot be null');
         }
         $allowedValues = $this->getResetAllowableValues();
-        if (!is_null($reset) && !in_array($reset, $allowedValues, true)) {
+        if (!in_array($reset, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'reset', must be one of '%s'",

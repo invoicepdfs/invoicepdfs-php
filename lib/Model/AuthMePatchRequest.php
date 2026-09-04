@@ -79,7 +79,7 @@ class AuthMePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
+        'name' => false,
         'email' => true
     ];
 
@@ -324,16 +324,9 @@ class AuthMePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setName($name)
     {
         if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        if (!is_null($name) && (mb_strlen($name) > 256)) {
+        if ((mb_strlen($name) > 256)) {
             throw new \InvalidArgumentException('invalid length for $name when calling AuthMePatchRequest., must be smaller than or equal to 256.');
         }
 

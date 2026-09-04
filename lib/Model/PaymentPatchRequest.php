@@ -85,8 +85,8 @@ class PaymentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'amount' => true,
-        'paid_at' => true,
+        'amount' => false,
+        'paid_at' => false,
         'method' => true,
         'reference' => true,
         'notes' => true
@@ -337,14 +337,7 @@ class PaymentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setAmount($amount)
     {
         if (is_null($amount)) {
-            array_push($this->openAPINullablesSetToNull, 'amount');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('amount', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable amount cannot be null');
         }
         $this->container['amount'] = $amount;
 
@@ -371,14 +364,7 @@ class PaymentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setPaidAt($paid_at)
     {
         if (is_null($paid_at)) {
-            array_push($this->openAPINullablesSetToNull, 'paid_at');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('paid_at', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable paid_at cannot be null');
         }
         $this->container['paid_at'] = $paid_at;
 

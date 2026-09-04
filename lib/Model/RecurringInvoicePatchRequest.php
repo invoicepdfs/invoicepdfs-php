@@ -89,13 +89,13 @@ class RecurringInvoicePatchRequest implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'frequency' => true,
-        'interval' => true,
+        'frequency' => false,
+        'interval' => false,
         'end_date' => true,
         'max_occurrences' => true,
         'numbering_sequence_id' => true,
-        'auto_finalize' => true,
-        'invoice_template' => true
+        'auto_finalize' => false,
+        'invoice_template' => false
     ];
 
     /**
@@ -359,14 +359,7 @@ class RecurringInvoicePatchRequest implements ModelInterface, ArrayAccess, \Json
     public function setFrequency($frequency)
     {
         if (is_null($frequency)) {
-            array_push($this->openAPINullablesSetToNull, 'frequency');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('frequency', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable frequency cannot be null');
         }
         $this->container['frequency'] = $frequency;
 
@@ -393,17 +386,10 @@ class RecurringInvoicePatchRequest implements ModelInterface, ArrayAccess, \Json
     public function setInterval($interval)
     {
         if (is_null($interval)) {
-            array_push($this->openAPINullablesSetToNull, 'interval');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('interval', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable interval cannot be null');
         }
 
-        if (!is_null($interval) && ($interval < 1)) {
+        if (($interval < 1)) {
             throw new \InvalidArgumentException('invalid value for $interval when calling RecurringInvoicePatchRequest., must be bigger than or equal to 1.');
         }
 
@@ -539,14 +525,7 @@ class RecurringInvoicePatchRequest implements ModelInterface, ArrayAccess, \Json
     public function setAutoFinalize($auto_finalize)
     {
         if (is_null($auto_finalize)) {
-            array_push($this->openAPINullablesSetToNull, 'auto_finalize');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('auto_finalize', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable auto_finalize cannot be null');
         }
         $this->container['auto_finalize'] = $auto_finalize;
 
@@ -573,14 +552,7 @@ class RecurringInvoicePatchRequest implements ModelInterface, ArrayAccess, \Json
     public function setInvoiceTemplate($invoice_template)
     {
         if (is_null($invoice_template)) {
-            array_push($this->openAPINullablesSetToNull, 'invoice_template');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('invoice_template', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable invoice_template cannot be null');
         }
         $this->container['invoice_template'] = $invoice_template;
 

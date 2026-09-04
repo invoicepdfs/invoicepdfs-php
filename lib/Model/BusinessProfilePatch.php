@@ -97,7 +97,7 @@ class BusinessProfilePatch implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'legal_name' => true,
+        'legal_name' => false,
         'display_name' => true,
         'email' => true,
         'phone' => true,
@@ -379,14 +379,7 @@ class BusinessProfilePatch implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setLegalName($legal_name)
     {
         if (is_null($legal_name)) {
-            array_push($this->openAPINullablesSetToNull, 'legal_name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('legal_name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable legal_name cannot be null');
         }
         $this->container['legal_name'] = $legal_name;
 
