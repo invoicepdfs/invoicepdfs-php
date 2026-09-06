@@ -58,7 +58,8 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'renders' => '\InvoicePDFs\Model\UsageRenderLimits',
-        'rate_limit' => '\InvoicePDFs\Model\UsageRateLimit'
+        'rate_limit' => '\InvoicePDFs\Model\UsageRateLimit',
+        'overage' => '\InvoicePDFs\Model\UsageOverage'
     ];
 
     /**
@@ -70,7 +71,8 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'renders' => null,
-        'rate_limit' => null
+        'rate_limit' => null,
+        'overage' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'renders' => false,
-        'rate_limit' => false
+        'rate_limit' => false,
+        'overage' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'renders' => 'renders',
-        'rate_limit' => 'rate_limit'
+        'rate_limit' => 'rate_limit',
+        'overage' => 'overage'
     ];
 
     /**
@@ -180,7 +184,8 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'renders' => 'setRenders',
-        'rate_limit' => 'setRateLimit'
+        'rate_limit' => 'setRateLimit',
+        'overage' => 'setOverage'
     ];
 
     /**
@@ -190,7 +195,8 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'renders' => 'getRenders',
-        'rate_limit' => 'getRateLimit'
+        'rate_limit' => 'getRateLimit',
+        'overage' => 'getOverage'
     ];
 
     /**
@@ -252,6 +258,7 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('renders', $data ?? [], null);
         $this->setIfExists('rate_limit', $data ?? [], null);
+        $this->setIfExists('overage', $data ?? [], null);
     }
 
     /**
@@ -352,6 +359,33 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable rate_limit cannot be null');
         }
         $this->container['rate_limit'] = $rate_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets overage
+     *
+     * @return \InvoicePDFs\Model\UsageOverage|null
+     */
+    public function getOverage()
+    {
+        return $this->container['overage'];
+    }
+
+    /**
+     * Sets overage
+     *
+     * @param \InvoicePDFs\Model\UsageOverage|null $overage overage
+     *
+     * @return self
+     */
+    public function setOverage($overage)
+    {
+        if (is_null($overage)) {
+            throw new \InvalidArgumentException('non-nullable overage cannot be null');
+        }
+        $this->container['overage'] = $overage;
 
         return $this;
     }

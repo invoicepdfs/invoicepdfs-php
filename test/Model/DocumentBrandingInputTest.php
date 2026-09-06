@@ -123,4 +123,13 @@ class DocumentBrandingInputTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "hide_invoicepdfs_branding"
+     */
+    public function testPropertyHideInvoicepdfsBranding()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

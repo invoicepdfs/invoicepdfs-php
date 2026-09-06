@@ -10,5 +10,8 @@ Name | Type | Description | Notes
 **plan_name** | **string** |  |
 **stripe_configured** | **bool** |  | [optional] [default to false]
 **has_billing_account** | **bool** |  | [optional] [default to false]
+**overage_enabled** | **bool** |  | [optional] [default to false]
+**overage_available** | **bool** |  | [optional] [default to false]
+**overage_price_millicents** | **int** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

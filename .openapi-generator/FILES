@@ -72,6 +72,9 @@ docs/Model/BatchesListResponse.md
 docs/Model/BillingCheckoutData.md
 docs/Model/BillingCheckoutRequest.md
 docs/Model/BillingCheckoutResponse.md
+docs/Model/BillingOverageData.md
+docs/Model/BillingOverageRequest.md
+docs/Model/BillingOverageResponse.md
 docs/Model/BillingPlan.md
 docs/Model/BillingPlansListResponse.md
 docs/Model/BillingPortalData.md
@@ -215,6 +218,7 @@ docs/Model/UsageEventOut.md
 docs/Model/UsageEventsListResponse.md
 docs/Model/UsageLimitsData.md
 docs/Model/UsageLimitsResponse.md
+docs/Model/UsageOverage.md
 docs/Model/UsagePeriod.md
 docs/Model/UsageRateLimit.md
 docs/Model/UsageRenderLimits.md
@@ -313,6 +317,9 @@ lib/Model/BatchesListResponse.php
 lib/Model/BillingCheckoutData.php
 lib/Model/BillingCheckoutRequest.php
 lib/Model/BillingCheckoutResponse.php
+lib/Model/BillingOverageData.php
+lib/Model/BillingOverageRequest.php
+lib/Model/BillingOverageResponse.php
 lib/Model/BillingPlan.php
 lib/Model/BillingPlansListResponse.php
 lib/Model/BillingPortalData.php
@@ -457,6 +464,7 @@ lib/Model/UsageEventOut.php
 lib/Model/UsageEventsListResponse.php
 lib/Model/UsageLimitsData.php
 lib/Model/UsageLimitsResponse.php
+lib/Model/UsageOverage.php
 lib/Model/UsagePeriod.php
 lib/Model/UsageRateLimit.php
 lib/Model/UsageRenderLimits.php
@@ -553,6 +561,9 @@ test/Model/BatchesListResponseTest.php
 test/Model/BillingCheckoutDataTest.php
 test/Model/BillingCheckoutRequestTest.php
 test/Model/BillingCheckoutResponseTest.php
+test/Model/BillingOverageDataTest.php
+test/Model/BillingOverageRequestTest.php
+test/Model/BillingOverageResponseTest.php
 test/Model/BillingPlanTest.php
 test/Model/BillingPlansListResponseTest.php
 test/Model/BillingPortalDataTest.php
@@ -696,6 +707,7 @@ test/Model/UsageEventOutTest.php
 test/Model/UsageEventsListResponseTest.php
 test/Model/UsageLimitsDataTest.php
 test/Model/UsageLimitsResponseTest.php
+test/Model/UsageOverageTest.php
 test/Model/UsagePeriodTest.php
 test/Model/UsageRateLimitTest.php
 test/Model/UsageRenderLimitsTest.php

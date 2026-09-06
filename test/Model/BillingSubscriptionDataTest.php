@@ -132,4 +132,31 @@ class BillingSubscriptionDataTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "overage_enabled"
+     */
+    public function testPropertyOverageEnabled()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "overage_available"
+     */
+    public function testPropertyOverageAvailable()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "overage_price_millicents"
+     */
+    public function testPropertyOveragePriceMillicents()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

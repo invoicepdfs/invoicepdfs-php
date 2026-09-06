@@ -96,4 +96,13 @@ class UsageLimitsDataTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "overage"
+     */
+    public function testPropertyOverage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

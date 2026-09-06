@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingPlan
+ * UsageOverage
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \InvoicePDFs\ObjectSerializer;
 
 /**
- * BillingPlan Class Doc Comment
+ * UsageOverage Class Doc Comment
  *
  * @category Class
+ * @description Renders past the quota this period, and what they cost.
  * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
+class UsageOverage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BillingPlan';
+    protected static $openAPIModelName = 'UsageOverage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +58,11 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'price_id' => 'string',
-        'price_id_annual' => 'string',
-        'monthly_render_quota' => 'int',
-        'allow_branding_removal' => 'bool',
-        'overage_price_millicents' => 'int'
+        'enabled' => 'bool',
+        'available' => 'bool',
+        'renders' => 'int',
+        'price_millicents' => 'int',
+        'estimated_cost_cents' => 'int'
     ];
 
     /**
@@ -74,13 +73,11 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'price_id' => null,
-        'price_id_annual' => null,
-        'monthly_render_quota' => null,
-        'allow_branding_removal' => null,
-        'overage_price_millicents' => null
+        'enabled' => null,
+        'available' => null,
+        'renders' => null,
+        'price_millicents' => null,
+        'estimated_cost_cents' => null
     ];
 
     /**
@@ -89,13 +86,11 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'name' => false,
-        'price_id' => false,
-        'price_id_annual' => true,
-        'monthly_render_quota' => false,
-        'allow_branding_removal' => false,
-        'overage_price_millicents' => true
+        'enabled' => false,
+        'available' => false,
+        'renders' => false,
+        'price_millicents' => true,
+        'estimated_cost_cents' => false
     ];
 
     /**
@@ -184,13 +179,11 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'price_id' => 'price_id',
-        'price_id_annual' => 'price_id_annual',
-        'monthly_render_quota' => 'monthly_render_quota',
-        'allow_branding_removal' => 'allow_branding_removal',
-        'overage_price_millicents' => 'overage_price_millicents'
+        'enabled' => 'enabled',
+        'available' => 'available',
+        'renders' => 'renders',
+        'price_millicents' => 'price_millicents',
+        'estimated_cost_cents' => 'estimated_cost_cents'
     ];
 
     /**
@@ -199,13 +192,11 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'price_id' => 'setPriceId',
-        'price_id_annual' => 'setPriceIdAnnual',
-        'monthly_render_quota' => 'setMonthlyRenderQuota',
-        'allow_branding_removal' => 'setAllowBrandingRemoval',
-        'overage_price_millicents' => 'setOveragePriceMillicents'
+        'enabled' => 'setEnabled',
+        'available' => 'setAvailable',
+        'renders' => 'setRenders',
+        'price_millicents' => 'setPriceMillicents',
+        'estimated_cost_cents' => 'setEstimatedCostCents'
     ];
 
     /**
@@ -214,13 +205,11 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'price_id' => 'getPriceId',
-        'price_id_annual' => 'getPriceIdAnnual',
-        'monthly_render_quota' => 'getMonthlyRenderQuota',
-        'allow_branding_removal' => 'getAllowBrandingRemoval',
-        'overage_price_millicents' => 'getOveragePriceMillicents'
+        'enabled' => 'getEnabled',
+        'available' => 'getAvailable',
+        'renders' => 'getRenders',
+        'price_millicents' => 'getPriceMillicents',
+        'estimated_cost_cents' => 'getEstimatedCostCents'
     ];
 
     /**
@@ -280,13 +269,11 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('price_id', $data ?? [], null);
-        $this->setIfExists('price_id_annual', $data ?? [], null);
-        $this->setIfExists('monthly_render_quota', $data ?? [], null);
-        $this->setIfExists('allow_branding_removal', $data ?? [], false);
-        $this->setIfExists('overage_price_millicents', $data ?? [], null);
+        $this->setIfExists('enabled', $data ?? [], false);
+        $this->setIfExists('available', $data ?? [], false);
+        $this->setIfExists('renders', $data ?? [], 0);
+        $this->setIfExists('price_millicents', $data ?? [], null);
+        $this->setIfExists('estimated_cost_cents', $data ?? [], 0);
     }
 
     /**
@@ -316,18 +303,6 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['price_id'] === null) {
-            $invalidProperties[] = "'price_id' can't be null";
-        }
-        if ($this->container['monthly_render_quota'] === null) {
-            $invalidProperties[] = "'monthly_render_quota' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -344,204 +319,143 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets price_id
-     *
-     * @return string
-     */
-    public function getPriceId()
-    {
-        return $this->container['price_id'];
-    }
-
-    /**
-     * Sets price_id
-     *
-     * @param string $price_id price_id
-     *
-     * @return self
-     */
-    public function setPriceId($price_id)
-    {
-        if (is_null($price_id)) {
-            throw new \InvalidArgumentException('non-nullable price_id cannot be null');
-        }
-        $this->container['price_id'] = $price_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets price_id_annual
-     *
-     * @return string|null
-     */
-    public function getPriceIdAnnual()
-    {
-        return $this->container['price_id_annual'];
-    }
-
-    /**
-     * Sets price_id_annual
-     *
-     * @param string|null $price_id_annual price_id_annual
-     *
-     * @return self
-     */
-    public function setPriceIdAnnual($price_id_annual)
-    {
-        if (is_null($price_id_annual)) {
-            array_push($this->openAPINullablesSetToNull, 'price_id_annual');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('price_id_annual', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['price_id_annual'] = $price_id_annual;
-
-        return $this;
-    }
-
-    /**
-     * Gets monthly_render_quota
-     *
-     * @return int
-     */
-    public function getMonthlyRenderQuota()
-    {
-        return $this->container['monthly_render_quota'];
-    }
-
-    /**
-     * Sets monthly_render_quota
-     *
-     * @param int $monthly_render_quota monthly_render_quota
-     *
-     * @return self
-     */
-    public function setMonthlyRenderQuota($monthly_render_quota)
-    {
-        if (is_null($monthly_render_quota)) {
-            throw new \InvalidArgumentException('non-nullable monthly_render_quota cannot be null');
-        }
-        $this->container['monthly_render_quota'] = $monthly_render_quota;
-
-        return $this;
-    }
-
-    /**
-     * Gets allow_branding_removal
+     * Gets enabled
      *
      * @return bool|null
      */
-    public function getAllowBrandingRemoval()
+    public function getEnabled()
     {
-        return $this->container['allow_branding_removal'];
+        return $this->container['enabled'];
     }
 
     /**
-     * Sets allow_branding_removal
+     * Sets enabled
      *
-     * @param bool|null $allow_branding_removal allow_branding_removal
+     * @param bool|null $enabled enabled
      *
      * @return self
      */
-    public function setAllowBrandingRemoval($allow_branding_removal)
+    public function setEnabled($enabled)
     {
-        if (is_null($allow_branding_removal)) {
-            throw new \InvalidArgumentException('non-nullable allow_branding_removal cannot be null');
+        if (is_null($enabled)) {
+            throw new \InvalidArgumentException('non-nullable enabled cannot be null');
         }
-        $this->container['allow_branding_removal'] = $allow_branding_removal;
+        $this->container['enabled'] = $enabled;
 
         return $this;
     }
 
     /**
-     * Gets overage_price_millicents
+     * Gets available
      *
-     * @return int|null
+     * @return bool|null
      */
-    public function getOveragePriceMillicents()
+    public function getAvailable()
     {
-        return $this->container['overage_price_millicents'];
+        return $this->container['available'];
     }
 
     /**
-     * Sets overage_price_millicents
+     * Sets available
      *
-     * @param int|null $overage_price_millicents overage_price_millicents
+     * @param bool|null $available available
      *
      * @return self
      */
-    public function setOveragePriceMillicents($overage_price_millicents)
+    public function setAvailable($available)
     {
-        if (is_null($overage_price_millicents)) {
-            array_push($this->openAPINullablesSetToNull, 'overage_price_millicents');
+        if (is_null($available)) {
+            throw new \InvalidArgumentException('non-nullable available cannot be null');
+        }
+        $this->container['available'] = $available;
+
+        return $this;
+    }
+
+    /**
+     * Gets renders
+     *
+     * @return int|null
+     */
+    public function getRenders()
+    {
+        return $this->container['renders'];
+    }
+
+    /**
+     * Sets renders
+     *
+     * @param int|null $renders renders
+     *
+     * @return self
+     */
+    public function setRenders($renders)
+    {
+        if (is_null($renders)) {
+            throw new \InvalidArgumentException('non-nullable renders cannot be null');
+        }
+        $this->container['renders'] = $renders;
+
+        return $this;
+    }
+
+    /**
+     * Gets price_millicents
+     *
+     * @return int|null
+     */
+    public function getPriceMillicents()
+    {
+        return $this->container['price_millicents'];
+    }
+
+    /**
+     * Sets price_millicents
+     *
+     * @param int|null $price_millicents price_millicents
+     *
+     * @return self
+     */
+    public function setPriceMillicents($price_millicents)
+    {
+        if (is_null($price_millicents)) {
+            array_push($this->openAPINullablesSetToNull, 'price_millicents');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('overage_price_millicents', $nullablesSetToNull);
+            $index = array_search('price_millicents', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['overage_price_millicents'] = $overage_price_millicents;
+        $this->container['price_millicents'] = $price_millicents;
+
+        return $this;
+    }
+
+    /**
+     * Gets estimated_cost_cents
+     *
+     * @return int|null
+     */
+    public function getEstimatedCostCents()
+    {
+        return $this->container['estimated_cost_cents'];
+    }
+
+    /**
+     * Sets estimated_cost_cents
+     *
+     * @param int|null $estimated_cost_cents estimated_cost_cents
+     *
+     * @return self
+     */
+    public function setEstimatedCostCents($estimated_cost_cents)
+    {
+        if (is_null($estimated_cost_cents)) {
+            throw new \InvalidArgumentException('non-nullable estimated_cost_cents cannot be null');
+        }
+        $this->container['estimated_cost_cents'] = $estimated_cost_cents;
 
         return $this;
     }

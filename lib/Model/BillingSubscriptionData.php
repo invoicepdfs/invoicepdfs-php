@@ -62,7 +62,10 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         'plan_id' => 'string',
         'plan_name' => 'string',
         'stripe_configured' => 'bool',
-        'has_billing_account' => 'bool'
+        'has_billing_account' => 'bool',
+        'overage_enabled' => 'bool',
+        'overage_available' => 'bool',
+        'overage_price_millicents' => 'int'
     ];
 
     /**
@@ -78,7 +81,10 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         'plan_id' => null,
         'plan_name' => null,
         'stripe_configured' => null,
-        'has_billing_account' => null
+        'has_billing_account' => null,
+        'overage_enabled' => null,
+        'overage_available' => null,
+        'overage_price_millicents' => null
     ];
 
     /**
@@ -92,7 +98,10 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         'plan_id' => false,
         'plan_name' => false,
         'stripe_configured' => false,
-        'has_billing_account' => false
+        'has_billing_account' => false,
+        'overage_enabled' => false,
+        'overage_available' => false,
+        'overage_price_millicents' => true
     ];
 
     /**
@@ -186,7 +195,10 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         'plan_id' => 'plan_id',
         'plan_name' => 'plan_name',
         'stripe_configured' => 'stripe_configured',
-        'has_billing_account' => 'has_billing_account'
+        'has_billing_account' => 'has_billing_account',
+        'overage_enabled' => 'overage_enabled',
+        'overage_available' => 'overage_available',
+        'overage_price_millicents' => 'overage_price_millicents'
     ];
 
     /**
@@ -200,7 +212,10 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         'plan_id' => 'setPlanId',
         'plan_name' => 'setPlanName',
         'stripe_configured' => 'setStripeConfigured',
-        'has_billing_account' => 'setHasBillingAccount'
+        'has_billing_account' => 'setHasBillingAccount',
+        'overage_enabled' => 'setOverageEnabled',
+        'overage_available' => 'setOverageAvailable',
+        'overage_price_millicents' => 'setOveragePriceMillicents'
     ];
 
     /**
@@ -214,7 +229,10 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         'plan_id' => 'getPlanId',
         'plan_name' => 'getPlanName',
         'stripe_configured' => 'getStripeConfigured',
-        'has_billing_account' => 'getHasBillingAccount'
+        'has_billing_account' => 'getHasBillingAccount',
+        'overage_enabled' => 'getOverageEnabled',
+        'overage_available' => 'getOverageAvailable',
+        'overage_price_millicents' => 'getOveragePriceMillicents'
     ];
 
     /**
@@ -280,6 +298,9 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('plan_name', $data ?? [], null);
         $this->setIfExists('stripe_configured', $data ?? [], false);
         $this->setIfExists('has_billing_account', $data ?? [], false);
+        $this->setIfExists('overage_enabled', $data ?? [], false);
+        $this->setIfExists('overage_available', $data ?? [], false);
+        $this->setIfExists('overage_price_millicents', $data ?? [], null);
     }
 
     /**
@@ -502,6 +523,94 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable has_billing_account cannot be null');
         }
         $this->container['has_billing_account'] = $has_billing_account;
+
+        return $this;
+    }
+
+    /**
+     * Gets overage_enabled
+     *
+     * @return bool|null
+     */
+    public function getOverageEnabled()
+    {
+        return $this->container['overage_enabled'];
+    }
+
+    /**
+     * Sets overage_enabled
+     *
+     * @param bool|null $overage_enabled overage_enabled
+     *
+     * @return self
+     */
+    public function setOverageEnabled($overage_enabled)
+    {
+        if (is_null($overage_enabled)) {
+            throw new \InvalidArgumentException('non-nullable overage_enabled cannot be null');
+        }
+        $this->container['overage_enabled'] = $overage_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets overage_available
+     *
+     * @return bool|null
+     */
+    public function getOverageAvailable()
+    {
+        return $this->container['overage_available'];
+    }
+
+    /**
+     * Sets overage_available
+     *
+     * @param bool|null $overage_available overage_available
+     *
+     * @return self
+     */
+    public function setOverageAvailable($overage_available)
+    {
+        if (is_null($overage_available)) {
+            throw new \InvalidArgumentException('non-nullable overage_available cannot be null');
+        }
+        $this->container['overage_available'] = $overage_available;
+
+        return $this;
+    }
+
+    /**
+     * Gets overage_price_millicents
+     *
+     * @return int|null
+     */
+    public function getOveragePriceMillicents()
+    {
+        return $this->container['overage_price_millicents'];
+    }
+
+    /**
+     * Sets overage_price_millicents
+     *
+     * @param int|null $overage_price_millicents overage_price_millicents
+     *
+     * @return self
+     */
+    public function setOveragePriceMillicents($overage_price_millicents)
+    {
+        if (is_null($overage_price_millicents)) {
+            array_push($this->openAPINullablesSetToNull, 'overage_price_millicents');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('overage_price_millicents', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['overage_price_millicents'] = $overage_price_millicents;
 
         return $this;
     }

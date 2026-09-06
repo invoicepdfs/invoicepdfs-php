@@ -118,4 +118,16 @@ class BillingApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for updateOverageSettings
+     *
+     * Update Overage Settings.
+     *
+     */
+    public function testUpdateOverageSettings()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingPlanTest
+ * BillingOverageDataTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace InvoicePDFs\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * BillingPlanTest Class Doc Comment
+ * BillingOverageDataTest Class Doc Comment
  *
  * @category    Class
- * @description BillingPlan
+ * @description BillingOverageData
  * @package     InvoicePDFs
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class BillingPlanTest extends TestCase
+class BillingOverageDataTest extends TestCase
 {
 
     /**
@@ -71,63 +71,27 @@ class BillingPlanTest extends TestCase
     }
 
     /**
-     * Test "BillingPlan"
+     * Test "BillingOverageData"
      */
-    public function testBillingPlan()
+    public function testBillingOverageData()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "overage_enabled"
      */
-    public function testPropertyId()
+    public function testPropertyOverageEnabled()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "overage_available"
      */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "price_id"
-     */
-    public function testPropertyPriceId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "price_id_annual"
-     */
-    public function testPropertyPriceIdAnnual()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "monthly_render_quota"
-     */
-    public function testPropertyMonthlyRenderQuota()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "allow_branding_removal"
-     */
-    public function testPropertyAllowBrandingRemoval()
+    public function testPropertyOverageAvailable()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

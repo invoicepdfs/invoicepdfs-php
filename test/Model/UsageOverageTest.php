@@ -1,6 +1,6 @@
 <?php
 /**
- * BillingPlanTest
+ * UsageOverageTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace InvoicePDFs\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * BillingPlanTest Class Doc Comment
+ * UsageOverageTest Class Doc Comment
  *
  * @category    Class
- * @description BillingPlan
+ * @description Renders past the quota this period, and what they cost.
  * @package     InvoicePDFs
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class BillingPlanTest extends TestCase
+class UsageOverageTest extends TestCase
 {
 
     /**
@@ -71,72 +71,54 @@ class BillingPlanTest extends TestCase
     }
 
     /**
-     * Test "BillingPlan"
+     * Test "UsageOverage"
      */
-    public function testBillingPlan()
+    public function testUsageOverage()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "enabled"
      */
-    public function testPropertyId()
+    public function testPropertyEnabled()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "available"
      */
-    public function testPropertyName()
+    public function testPropertyAvailable()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "price_id"
+     * Test attribute "renders"
      */
-    public function testPropertyPriceId()
+    public function testPropertyRenders()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "price_id_annual"
+     * Test attribute "price_millicents"
      */
-    public function testPropertyPriceIdAnnual()
+    public function testPropertyPriceMillicents()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "monthly_render_quota"
+     * Test attribute "estimated_cost_cents"
      */
-    public function testPropertyMonthlyRenderQuota()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "allow_branding_removal"
-     */
-    public function testPropertyAllowBrandingRemoval()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "overage_price_millicents"
-     */
-    public function testPropertyOveragePriceMillicents()
+    public function testPropertyEstimatedCostCents()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

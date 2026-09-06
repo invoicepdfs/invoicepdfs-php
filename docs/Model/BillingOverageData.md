@@ -1,15 +1,11 @@
-# # BillingPlan
+# # BillingOverageData
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  |
-**name** | **string** |  |
-**price_id** | **string** |  |
-**price_id_annual** | **string** |  | [optional]
-**monthly_render_quota** | **int** |  |
-**allow_branding_removal** | **bool** |  | [optional] [default to false]
+**overage_enabled** | **bool** |  |
+**overage_available** | **bool** |  |
 **overage_price_millicents** | **int** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
