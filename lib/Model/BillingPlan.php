@@ -61,6 +61,8 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'price_id' => 'string',
         'price_id_annual' => 'string',
+        'price_cents' => 'int',
+        'price_cents_annual' => 'int',
         'monthly_render_quota' => 'int',
         'allow_branding_removal' => 'bool',
         'overage_price_millicents' => 'int'
@@ -78,6 +80,8 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'price_id' => null,
         'price_id_annual' => null,
+        'price_cents' => null,
+        'price_cents_annual' => null,
         'monthly_render_quota' => null,
         'allow_branding_removal' => null,
         'overage_price_millicents' => null
@@ -93,6 +97,8 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
         'price_id' => false,
         'price_id_annual' => true,
+        'price_cents' => true,
+        'price_cents_annual' => true,
         'monthly_render_quota' => false,
         'allow_branding_removal' => false,
         'overage_price_millicents' => true
@@ -188,6 +194,8 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'price_id' => 'price_id',
         'price_id_annual' => 'price_id_annual',
+        'price_cents' => 'price_cents',
+        'price_cents_annual' => 'price_cents_annual',
         'monthly_render_quota' => 'monthly_render_quota',
         'allow_branding_removal' => 'allow_branding_removal',
         'overage_price_millicents' => 'overage_price_millicents'
@@ -203,6 +211,8 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'price_id' => 'setPriceId',
         'price_id_annual' => 'setPriceIdAnnual',
+        'price_cents' => 'setPriceCents',
+        'price_cents_annual' => 'setPriceCentsAnnual',
         'monthly_render_quota' => 'setMonthlyRenderQuota',
         'allow_branding_removal' => 'setAllowBrandingRemoval',
         'overage_price_millicents' => 'setOveragePriceMillicents'
@@ -218,6 +228,8 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'price_id' => 'getPriceId',
         'price_id_annual' => 'getPriceIdAnnual',
+        'price_cents' => 'getPriceCents',
+        'price_cents_annual' => 'getPriceCentsAnnual',
         'monthly_render_quota' => 'getMonthlyRenderQuota',
         'allow_branding_removal' => 'getAllowBrandingRemoval',
         'overage_price_millicents' => 'getOveragePriceMillicents'
@@ -284,6 +296,8 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('price_id', $data ?? [], null);
         $this->setIfExists('price_id_annual', $data ?? [], null);
+        $this->setIfExists('price_cents', $data ?? [], null);
+        $this->setIfExists('price_cents_annual', $data ?? [], null);
         $this->setIfExists('monthly_render_quota', $data ?? [], null);
         $this->setIfExists('allow_branding_removal', $data ?? [], false);
         $this->setIfExists('overage_price_millicents', $data ?? [], null);
@@ -454,6 +468,74 @@ class BillingPlan implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['price_id_annual'] = $price_id_annual;
+
+        return $this;
+    }
+
+    /**
+     * Gets price_cents
+     *
+     * @return int|null
+     */
+    public function getPriceCents()
+    {
+        return $this->container['price_cents'];
+    }
+
+    /**
+     * Sets price_cents
+     *
+     * @param int|null $price_cents price_cents
+     *
+     * @return self
+     */
+    public function setPriceCents($price_cents)
+    {
+        if (is_null($price_cents)) {
+            array_push($this->openAPINullablesSetToNull, 'price_cents');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price_cents', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['price_cents'] = $price_cents;
+
+        return $this;
+    }
+
+    /**
+     * Gets price_cents_annual
+     *
+     * @return int|null
+     */
+    public function getPriceCentsAnnual()
+    {
+        return $this->container['price_cents_annual'];
+    }
+
+    /**
+     * Sets price_cents_annual
+     *
+     * @param int|null $price_cents_annual price_cents_annual
+     *
+     * @return self
+     */
+    public function setPriceCentsAnnual($price_cents_annual)
+    {
+        if (is_null($price_cents_annual)) {
+            array_push($this->openAPINullablesSetToNull, 'price_cents_annual');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('price_cents_annual', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['price_cents_annual'] = $price_cents_annual;
 
         return $this;
     }

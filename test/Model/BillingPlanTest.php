@@ -116,6 +116,24 @@ class BillingPlanTest extends TestCase
     }
 
     /**
+     * Test attribute "price_cents"
+     */
+    public function testPropertyPriceCents()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "price_cents_annual"
+     */
+    public function testPropertyPriceCentsAnnual()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "monthly_render_quota"
      */
     public function testPropertyMonthlyRenderQuota()
