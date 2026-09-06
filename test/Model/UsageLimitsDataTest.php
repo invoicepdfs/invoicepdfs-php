@@ -98,6 +98,15 @@ class UsageLimitsDataTest extends TestCase
     }
 
     /**
+     * Test attribute "api_log_retention"
+     */
+    public function testPropertyApiLogRetention()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "overage"
      */
     public function testPropertyOverage()

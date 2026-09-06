@@ -65,7 +65,8 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         'has_billing_account' => 'bool',
         'overage_enabled' => 'bool',
         'overage_available' => 'bool',
-        'overage_price_millicents' => 'int'
+        'overage_price_millicents' => 'int',
+        'allow_branding_removal' => 'bool'
     ];
 
     /**
@@ -84,7 +85,8 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         'has_billing_account' => null,
         'overage_enabled' => null,
         'overage_available' => null,
-        'overage_price_millicents' => null
+        'overage_price_millicents' => null,
+        'allow_branding_removal' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         'has_billing_account' => false,
         'overage_enabled' => false,
         'overage_available' => false,
-        'overage_price_millicents' => true
+        'overage_price_millicents' => true,
+        'allow_branding_removal' => false
     ];
 
     /**
@@ -198,7 +201,8 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         'has_billing_account' => 'has_billing_account',
         'overage_enabled' => 'overage_enabled',
         'overage_available' => 'overage_available',
-        'overage_price_millicents' => 'overage_price_millicents'
+        'overage_price_millicents' => 'overage_price_millicents',
+        'allow_branding_removal' => 'allow_branding_removal'
     ];
 
     /**
@@ -215,7 +219,8 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         'has_billing_account' => 'setHasBillingAccount',
         'overage_enabled' => 'setOverageEnabled',
         'overage_available' => 'setOverageAvailable',
-        'overage_price_millicents' => 'setOveragePriceMillicents'
+        'overage_price_millicents' => 'setOveragePriceMillicents',
+        'allow_branding_removal' => 'setAllowBrandingRemoval'
     ];
 
     /**
@@ -232,7 +237,8 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         'has_billing_account' => 'getHasBillingAccount',
         'overage_enabled' => 'getOverageEnabled',
         'overage_available' => 'getOverageAvailable',
-        'overage_price_millicents' => 'getOveragePriceMillicents'
+        'overage_price_millicents' => 'getOveragePriceMillicents',
+        'allow_branding_removal' => 'getAllowBrandingRemoval'
     ];
 
     /**
@@ -301,6 +307,7 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('overage_enabled', $data ?? [], false);
         $this->setIfExists('overage_available', $data ?? [], false);
         $this->setIfExists('overage_price_millicents', $data ?? [], null);
+        $this->setIfExists('allow_branding_removal', $data ?? [], false);
     }
 
     /**
@@ -611,6 +618,33 @@ class BillingSubscriptionData implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['overage_price_millicents'] = $overage_price_millicents;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_branding_removal
+     *
+     * @return bool|null
+     */
+    public function getAllowBrandingRemoval()
+    {
+        return $this->container['allow_branding_removal'];
+    }
+
+    /**
+     * Sets allow_branding_removal
+     *
+     * @param bool|null $allow_branding_removal allow_branding_removal
+     *
+     * @return self
+     */
+    public function setAllowBrandingRemoval($allow_branding_removal)
+    {
+        if (is_null($allow_branding_removal)) {
+            throw new \InvalidArgumentException('non-nullable allow_branding_removal cannot be null');
+        }
+        $this->container['allow_branding_removal'] = $allow_branding_removal;
 
         return $this;
     }

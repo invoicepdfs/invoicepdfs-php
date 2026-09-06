@@ -59,6 +59,7 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'renders' => '\InvoicePDFs\Model\UsageRenderLimits',
         'rate_limit' => '\InvoicePDFs\Model\UsageRateLimit',
+        'api_log_retention' => 'int',
         'overage' => '\InvoicePDFs\Model\UsageOverage'
     ];
 
@@ -72,6 +73,7 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'renders' => null,
         'rate_limit' => null,
+        'api_log_retention' => null,
         'overage' => null
     ];
 
@@ -83,6 +85,7 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'renders' => false,
         'rate_limit' => false,
+        'api_log_retention' => false,
         'overage' => false
     ];
 
@@ -174,6 +177,7 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'renders' => 'renders',
         'rate_limit' => 'rate_limit',
+        'api_log_retention' => 'api_log_retention',
         'overage' => 'overage'
     ];
 
@@ -185,6 +189,7 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'renders' => 'setRenders',
         'rate_limit' => 'setRateLimit',
+        'api_log_retention' => 'setApiLogRetention',
         'overage' => 'setOverage'
     ];
 
@@ -196,6 +201,7 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'renders' => 'getRenders',
         'rate_limit' => 'getRateLimit',
+        'api_log_retention' => 'getApiLogRetention',
         'overage' => 'getOverage'
     ];
 
@@ -258,6 +264,7 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('renders', $data ?? [], null);
         $this->setIfExists('rate_limit', $data ?? [], null);
+        $this->setIfExists('api_log_retention', $data ?? [], 0);
         $this->setIfExists('overage', $data ?? [], null);
     }
 
@@ -359,6 +366,33 @@ class UsageLimitsData implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable rate_limit cannot be null');
         }
         $this->container['rate_limit'] = $rate_limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets api_log_retention
+     *
+     * @return int|null
+     */
+    public function getApiLogRetention()
+    {
+        return $this->container['api_log_retention'];
+    }
+
+    /**
+     * Sets api_log_retention
+     *
+     * @param int|null $api_log_retention api_log_retention
+     *
+     * @return self
+     */
+    public function setApiLogRetention($api_log_retention)
+    {
+        if (is_null($api_log_retention)) {
+            throw new \InvalidArgumentException('non-nullable api_log_retention cannot be null');
+        }
+        $this->container['api_log_retention'] = $api_log_retention;
 
         return $this;
     }

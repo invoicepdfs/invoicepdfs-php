@@ -159,4 +159,13 @@ class BillingSubscriptionDataTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "allow_branding_removal"
+     */
+    public function testPropertyAllowBrandingRemoval()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }
