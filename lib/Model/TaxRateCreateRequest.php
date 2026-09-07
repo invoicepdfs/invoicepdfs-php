@@ -60,7 +60,8 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'string',
         'rate' => 'string',
         'inclusive' => 'bool',
-        'jurisdiction' => 'string'
+        'jurisdiction' => 'string',
+        'category' => '\InvoicePDFs\Model\TaxCategory'
     ];
 
     /**
@@ -74,7 +75,8 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => null,
         'rate' => null,
         'inclusive' => null,
-        'jurisdiction' => null
+        'jurisdiction' => null,
+        'category' => null
     ];
 
     /**
@@ -86,7 +88,8 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => false,
         'rate' => false,
         'inclusive' => false,
-        'jurisdiction' => true
+        'jurisdiction' => true,
+        'category' => true
     ];
 
     /**
@@ -178,7 +181,8 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'name',
         'rate' => 'rate',
         'inclusive' => 'inclusive',
-        'jurisdiction' => 'jurisdiction'
+        'jurisdiction' => 'jurisdiction',
+        'category' => 'category'
     ];
 
     /**
@@ -190,7 +194,8 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'setName',
         'rate' => 'setRate',
         'inclusive' => 'setInclusive',
-        'jurisdiction' => 'setJurisdiction'
+        'jurisdiction' => 'setJurisdiction',
+        'category' => 'setCategory'
     ];
 
     /**
@@ -202,7 +207,8 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'getName',
         'rate' => 'getRate',
         'inclusive' => 'getInclusive',
-        'jurisdiction' => 'getJurisdiction'
+        'jurisdiction' => 'getJurisdiction',
+        'category' => 'getCategory'
     ];
 
     /**
@@ -266,6 +272,7 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('rate', $data ?? [], null);
         $this->setIfExists('inclusive', $data ?? [], false);
         $this->setIfExists('jurisdiction', $data ?? [], null);
+        $this->setIfExists('category', $data ?? [], null);
     }
 
     /**
@@ -427,6 +434,40 @@ class TaxRateCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializ
             }
         }
         $this->container['jurisdiction'] = $jurisdiction;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return \InvoicePDFs\Model\TaxCategory|null
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param \InvoicePDFs\Model\TaxCategory|null $category category
+     *
+     * @return self
+     */
+    public function setCategory($category)
+    {
+        if (is_null($category)) {
+            array_push($this->openAPINullablesSetToNull, 'category');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['category'] = $category;
 
         return $this;
     }

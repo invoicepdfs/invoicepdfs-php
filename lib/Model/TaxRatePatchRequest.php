@@ -61,7 +61,8 @@ class TaxRatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'rate' => 'string',
         'inclusive' => 'bool',
         'jurisdiction' => 'string',
-        'is_active' => 'bool'
+        'is_active' => 'bool',
+        'category' => '\InvoicePDFs\Model\TaxCategory'
     ];
 
     /**
@@ -76,7 +77,8 @@ class TaxRatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'rate' => null,
         'inclusive' => null,
         'jurisdiction' => null,
-        'is_active' => null
+        'is_active' => null,
+        'category' => null
     ];
 
     /**
@@ -89,7 +91,8 @@ class TaxRatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'rate' => false,
         'inclusive' => false,
         'jurisdiction' => true,
-        'is_active' => false
+        'is_active' => false,
+        'category' => true
     ];
 
     /**
@@ -182,7 +185,8 @@ class TaxRatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'rate' => 'rate',
         'inclusive' => 'inclusive',
         'jurisdiction' => 'jurisdiction',
-        'is_active' => 'is_active'
+        'is_active' => 'is_active',
+        'category' => 'category'
     ];
 
     /**
@@ -195,7 +199,8 @@ class TaxRatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'rate' => 'setRate',
         'inclusive' => 'setInclusive',
         'jurisdiction' => 'setJurisdiction',
-        'is_active' => 'setIsActive'
+        'is_active' => 'setIsActive',
+        'category' => 'setCategory'
     ];
 
     /**
@@ -208,7 +213,8 @@ class TaxRatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'rate' => 'getRate',
         'inclusive' => 'getInclusive',
         'jurisdiction' => 'getJurisdiction',
-        'is_active' => 'getIsActive'
+        'is_active' => 'getIsActive',
+        'category' => 'getCategory'
     ];
 
     /**
@@ -273,6 +279,7 @@ class TaxRatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('inclusive', $data ?? [], null);
         $this->setIfExists('jurisdiction', $data ?? [], null);
         $this->setIfExists('is_active', $data ?? [], null);
+        $this->setIfExists('category', $data ?? [], null);
     }
 
     /**
@@ -455,6 +462,40 @@ class TaxRatePatchRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable is_active cannot be null');
         }
         $this->container['is_active'] = $is_active;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return \InvoicePDFs\Model\TaxCategory|null
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param \InvoicePDFs\Model\TaxCategory|null $category category
+     *
+     * @return self
+     */
+    public function setCategory($category)
+    {
+        if (is_null($category)) {
+            array_push($this->openAPINullablesSetToNull, 'category');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['category'] = $category;
 
         return $this;
     }

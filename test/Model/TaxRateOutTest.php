@@ -125,6 +125,15 @@ class TaxRateOutTest extends TestCase
     }
 
     /**
+     * Test attribute "category"
+     */
+    public function testPropertyCategory()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "is_active"
      */
     public function testPropertyIsActive()

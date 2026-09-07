@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **rate** | **string** |  |
 **inclusive** | **bool** |  |
 **jurisdiction** | **string** |  | [optional]
+**category** | [**\InvoicePDFs\Model\TaxCategory**](TaxCategory.md) |  | [optional]
 **is_active** | **bool** |  |
 **created_at** | **string** |  |
 **updated_at** | **string** |  |

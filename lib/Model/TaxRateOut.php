@@ -62,6 +62,7 @@ class TaxRateOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'rate' => 'string',
         'inclusive' => 'bool',
         'jurisdiction' => 'string',
+        'category' => '\InvoicePDFs\Model\TaxCategory',
         'is_active' => 'bool',
         'created_at' => 'string',
         'updated_at' => 'string'
@@ -80,6 +81,7 @@ class TaxRateOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'rate' => null,
         'inclusive' => null,
         'jurisdiction' => null,
+        'category' => null,
         'is_active' => null,
         'created_at' => null,
         'updated_at' => null
@@ -96,6 +98,7 @@ class TaxRateOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'rate' => false,
         'inclusive' => false,
         'jurisdiction' => true,
+        'category' => true,
         'is_active' => false,
         'created_at' => false,
         'updated_at' => false
@@ -192,6 +195,7 @@ class TaxRateOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'rate' => 'rate',
         'inclusive' => 'inclusive',
         'jurisdiction' => 'jurisdiction',
+        'category' => 'category',
         'is_active' => 'is_active',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -208,6 +212,7 @@ class TaxRateOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'rate' => 'setRate',
         'inclusive' => 'setInclusive',
         'jurisdiction' => 'setJurisdiction',
+        'category' => 'setCategory',
         'is_active' => 'setIsActive',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -224,6 +229,7 @@ class TaxRateOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'rate' => 'getRate',
         'inclusive' => 'getInclusive',
         'jurisdiction' => 'getJurisdiction',
+        'category' => 'getCategory',
         'is_active' => 'getIsActive',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -291,6 +297,7 @@ class TaxRateOut implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('rate', $data ?? [], null);
         $this->setIfExists('inclusive', $data ?? [], null);
         $this->setIfExists('jurisdiction', $data ?? [], null);
+        $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('is_active', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
@@ -497,6 +504,40 @@ class TaxRateOut implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['jurisdiction'] = $jurisdiction;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return \InvoicePDFs\Model\TaxCategory|null
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param \InvoicePDFs\Model\TaxCategory|null $category category
+     *
+     * @return self
+     */
+    public function setCategory($category)
+    {
+        if (is_null($category)) {
+            array_push($this->openAPINullablesSetToNull, 'category');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['category'] = $category;
 
         return $this;
     }
