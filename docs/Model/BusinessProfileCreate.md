@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **website** | **string** |  | [optional]
 **tax_id** | **string** |  | [optional]
 **address** | [**\InvoicePDFs\Model\PostalAddress**](PostalAddress.md) |  | [optional]
+**electronic_address** | [**\InvoicePDFs\Model\ElectronicAddress**](ElectronicAddress.md) |  | [optional]
 **default_currency** | **string** |  | [optional]
 **default_locale** | **string** |  | [optional]
 **default_timezone** | **string** |  | [optional]

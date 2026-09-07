@@ -143,6 +143,15 @@ class BusinessProfilePatchTest extends TestCase
     }
 
     /**
+     * Test attribute "electronic_address"
+     */
+    public function testPropertyElectronicAddress()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "default_currency"
      */
     public function testPropertyDefaultCurrency()

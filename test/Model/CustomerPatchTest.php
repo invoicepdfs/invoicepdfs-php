@@ -134,6 +134,15 @@ class CustomerPatchTest extends TestCase
     }
 
     /**
+     * Test attribute "electronic_address"
+     */
+    public function testPropertyElectronicAddress()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "metadata"
      */
     public function testPropertyMetadata()

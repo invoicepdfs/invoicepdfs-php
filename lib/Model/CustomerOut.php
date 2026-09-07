@@ -63,6 +63,7 @@ class CustomerOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_id' => 'string',
         'billing_address' => '\InvoicePDFs\Model\PostalAddress',
         'shipping_address' => '\InvoicePDFs\Model\PostalAddress',
+        'electronic_address' => '\InvoicePDFs\Model\ElectronicAddress',
         'metadata' => 'array<string,mixed>',
         'id' => 'string',
         'created_at' => 'string',
@@ -83,6 +84,7 @@ class CustomerOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_id' => null,
         'billing_address' => null,
         'shipping_address' => null,
+        'electronic_address' => null,
         'metadata' => null,
         'id' => null,
         'created_at' => null,
@@ -101,6 +103,7 @@ class CustomerOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_id' => true,
         'billing_address' => true,
         'shipping_address' => true,
+        'electronic_address' => true,
         'metadata' => true,
         'id' => false,
         'created_at' => false,
@@ -199,6 +202,7 @@ class CustomerOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_id' => 'tax_id',
         'billing_address' => 'billing_address',
         'shipping_address' => 'shipping_address',
+        'electronic_address' => 'electronic_address',
         'metadata' => 'metadata',
         'id' => 'id',
         'created_at' => 'created_at',
@@ -217,6 +221,7 @@ class CustomerOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_id' => 'setTaxId',
         'billing_address' => 'setBillingAddress',
         'shipping_address' => 'setShippingAddress',
+        'electronic_address' => 'setElectronicAddress',
         'metadata' => 'setMetadata',
         'id' => 'setId',
         'created_at' => 'setCreatedAt',
@@ -235,6 +240,7 @@ class CustomerOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'tax_id' => 'getTaxId',
         'billing_address' => 'getBillingAddress',
         'shipping_address' => 'getShippingAddress',
+        'electronic_address' => 'getElectronicAddress',
         'metadata' => 'getMetadata',
         'id' => 'getId',
         'created_at' => 'getCreatedAt',
@@ -304,6 +310,7 @@ class CustomerOut implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('tax_id', $data ?? [], null);
         $this->setIfExists('billing_address', $data ?? [], null);
         $this->setIfExists('shipping_address', $data ?? [], null);
+        $this->setIfExists('electronic_address', $data ?? [], null);
         $this->setIfExists('metadata', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
@@ -557,6 +564,40 @@ class CustomerOut implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['shipping_address'] = $shipping_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets electronic_address
+     *
+     * @return \InvoicePDFs\Model\ElectronicAddress|null
+     */
+    public function getElectronicAddress()
+    {
+        return $this->container['electronic_address'];
+    }
+
+    /**
+     * Sets electronic_address
+     *
+     * @param \InvoicePDFs\Model\ElectronicAddress|null $electronic_address electronic_address
+     *
+     * @return self
+     */
+    public function setElectronicAddress($electronic_address)
+    {
+        if (is_null($electronic_address)) {
+            array_push($this->openAPINullablesSetToNull, 'electronic_address');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('electronic_address', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['electronic_address'] = $electronic_address;
 
         return $this;
     }

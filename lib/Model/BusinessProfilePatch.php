@@ -64,6 +64,7 @@ class BusinessProfilePatch implements ModelInterface, ArrayAccess, \JsonSerializ
         'website' => 'string',
         'tax_id' => 'string',
         'address' => '\InvoicePDFs\Model\PostalAddress',
+        'electronic_address' => '\InvoicePDFs\Model\ElectronicAddress',
         'default_currency' => 'string',
         'default_locale' => 'string',
         'default_timezone' => 'string',
@@ -85,6 +86,7 @@ class BusinessProfilePatch implements ModelInterface, ArrayAccess, \JsonSerializ
         'website' => null,
         'tax_id' => null,
         'address' => null,
+        'electronic_address' => null,
         'default_currency' => null,
         'default_locale' => null,
         'default_timezone' => null,
@@ -104,6 +106,7 @@ class BusinessProfilePatch implements ModelInterface, ArrayAccess, \JsonSerializ
         'website' => true,
         'tax_id' => true,
         'address' => true,
+        'electronic_address' => true,
         'default_currency' => true,
         'default_locale' => true,
         'default_timezone' => true,
@@ -203,6 +206,7 @@ class BusinessProfilePatch implements ModelInterface, ArrayAccess, \JsonSerializ
         'website' => 'website',
         'tax_id' => 'tax_id',
         'address' => 'address',
+        'electronic_address' => 'electronic_address',
         'default_currency' => 'default_currency',
         'default_locale' => 'default_locale',
         'default_timezone' => 'default_timezone',
@@ -222,6 +226,7 @@ class BusinessProfilePatch implements ModelInterface, ArrayAccess, \JsonSerializ
         'website' => 'setWebsite',
         'tax_id' => 'setTaxId',
         'address' => 'setAddress',
+        'electronic_address' => 'setElectronicAddress',
         'default_currency' => 'setDefaultCurrency',
         'default_locale' => 'setDefaultLocale',
         'default_timezone' => 'setDefaultTimezone',
@@ -241,6 +246,7 @@ class BusinessProfilePatch implements ModelInterface, ArrayAccess, \JsonSerializ
         'website' => 'getWebsite',
         'tax_id' => 'getTaxId',
         'address' => 'getAddress',
+        'electronic_address' => 'getElectronicAddress',
         'default_currency' => 'getDefaultCurrency',
         'default_locale' => 'getDefaultLocale',
         'default_timezone' => 'getDefaultTimezone',
@@ -311,6 +317,7 @@ class BusinessProfilePatch implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('website', $data ?? [], null);
         $this->setIfExists('tax_id', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
+        $this->setIfExists('electronic_address', $data ?? [], null);
         $this->setIfExists('default_currency', $data ?? [], null);
         $this->setIfExists('default_locale', $data ?? [], null);
         $this->setIfExists('default_timezone', $data ?? [], null);
@@ -586,6 +593,40 @@ class BusinessProfilePatch implements ModelInterface, ArrayAccess, \JsonSerializ
             }
         }
         $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets electronic_address
+     *
+     * @return \InvoicePDFs\Model\ElectronicAddress|null
+     */
+    public function getElectronicAddress()
+    {
+        return $this->container['electronic_address'];
+    }
+
+    /**
+     * Sets electronic_address
+     *
+     * @param \InvoicePDFs\Model\ElectronicAddress|null $electronic_address electronic_address
+     *
+     * @return self
+     */
+    public function setElectronicAddress($electronic_address)
+    {
+        if (is_null($electronic_address)) {
+            array_push($this->openAPINullablesSetToNull, 'electronic_address');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('electronic_address', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['electronic_address'] = $electronic_address;
 
         return $this;
     }

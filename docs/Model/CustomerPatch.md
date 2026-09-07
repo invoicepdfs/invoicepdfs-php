@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **tax_id** | **string** |  | [optional]
 **billing_address** | [**\InvoicePDFs\Model\PostalAddress**](PostalAddress.md) |  | [optional]
 **shipping_address** | [**\InvoicePDFs\Model\PostalAddress**](PostalAddress.md) |  | [optional]
+**electronic_address** | [**\InvoicePDFs\Model\ElectronicAddress**](ElectronicAddress.md) |  | [optional]
 **metadata** | **array<string,mixed>** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
