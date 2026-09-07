@@ -133,6 +133,7 @@ docs/Model/DocumentTypesListResponse.md
 docs/Model/DocumentValidateRequest.md
 docs/Model/DocumentValidateResponse.md
 docs/Model/DocumentsListResponse.md
+docs/Model/ElectronicAddress.md
 docs/Model/FileOut.md
 docs/Model/FileResponse.md
 docs/Model/HealthResponse.md
@@ -379,6 +380,7 @@ lib/Model/DocumentTypesListResponse.php
 lib/Model/DocumentValidateRequest.php
 lib/Model/DocumentValidateResponse.php
 lib/Model/DocumentsListResponse.php
+lib/Model/ElectronicAddress.php
 lib/Model/FileOut.php
 lib/Model/FileResponse.php
 lib/Model/HealthResponse.php
@@ -624,6 +626,7 @@ test/Model/DocumentTypesListResponseTest.php
 test/Model/DocumentValidateRequestTest.php
 test/Model/DocumentValidateResponseTest.php
 test/Model/DocumentsListResponseTest.php
+test/Model/ElectronicAddressTest.php
 test/Model/FileOutTest.php
 test/Model/FileResponseTest.php
 test/Model/HealthResponseTest.php

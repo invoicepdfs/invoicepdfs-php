@@ -65,7 +65,8 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
         'tax_id' => 'string',
         'registration_number' => 'string',
         'address' => '\InvoicePDFs\Model\PostalAddress',
-        'bank_account' => '\InvoicePDFs\Model\InvoiceBankAccountInput'
+        'bank_account' => '\InvoicePDFs\Model\InvoiceBankAccountInput',
+        'electronic_address' => '\InvoicePDFs\Model\ElectronicAddress'
     ];
 
     /**
@@ -84,7 +85,8 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
         'tax_id' => null,
         'registration_number' => null,
         'address' => null,
-        'bank_account' => null
+        'bank_account' => null,
+        'electronic_address' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
         'tax_id' => true,
         'registration_number' => true,
         'address' => true,
-        'bank_account' => true
+        'bank_account' => true,
+        'electronic_address' => true
     ];
 
     /**
@@ -198,7 +201,8 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
         'tax_id' => 'tax_id',
         'registration_number' => 'registration_number',
         'address' => 'address',
-        'bank_account' => 'bank_account'
+        'bank_account' => 'bank_account',
+        'electronic_address' => 'electronic_address'
     ];
 
     /**
@@ -215,7 +219,8 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
         'tax_id' => 'setTaxId',
         'registration_number' => 'setRegistrationNumber',
         'address' => 'setAddress',
-        'bank_account' => 'setBankAccount'
+        'bank_account' => 'setBankAccount',
+        'electronic_address' => 'setElectronicAddress'
     ];
 
     /**
@@ -232,7 +237,8 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
         'tax_id' => 'getTaxId',
         'registration_number' => 'getRegistrationNumber',
         'address' => 'getAddress',
-        'bank_account' => 'getBankAccount'
+        'bank_account' => 'getBankAccount',
+        'electronic_address' => 'getElectronicAddress'
     ];
 
     /**
@@ -301,6 +307,7 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('registration_number', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
         $this->setIfExists('bank_account', $data ?? [], null);
+        $this->setIfExists('electronic_address', $data ?? [], null);
     }
 
     /**
@@ -643,6 +650,40 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['bank_account'] = $bank_account;
+
+        return $this;
+    }
+
+    /**
+     * Gets electronic_address
+     *
+     * @return \InvoicePDFs\Model\ElectronicAddress|null
+     */
+    public function getElectronicAddress()
+    {
+        return $this->container['electronic_address'];
+    }
+
+    /**
+     * Sets electronic_address
+     *
+     * @param \InvoicePDFs\Model\ElectronicAddress|null $electronic_address electronic_address
+     *
+     * @return self
+     */
+    public function setElectronicAddress($electronic_address)
+    {
+        if (is_null($electronic_address)) {
+            array_push($this->openAPINullablesSetToNull, 'electronic_address');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('electronic_address', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['electronic_address'] = $electronic_address;
 
         return $this;
     }

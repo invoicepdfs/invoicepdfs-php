@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentPartyInputTest
+ * ElectronicAddressTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace InvoicePDFs\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DocumentPartyInputTest Class Doc Comment
+ * ElectronicAddressTest Class Doc Comment
  *
  * @category    Class
- * @description DocumentPartyInput
+ * @description BT-34 / BT-49 — where a document is routed on Peppol or DBNA.  Both halves are required: an identifier without its scheme cannot be resolved, because the same string means different things in different code lists. This is not the tax id, which identifies a company to a tax authority rather than a mailbox on a network.
  * @package     InvoicePDFs
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DocumentPartyInputTest extends TestCase
+class ElectronicAddressTest extends TestCase
 {
 
     /**
@@ -71,99 +71,27 @@ class DocumentPartyInputTest extends TestCase
     }
 
     /**
-     * Test "DocumentPartyInput"
+     * Test "ElectronicAddress"
      */
-    public function testDocumentPartyInput()
+    public function testElectronicAddress()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "value"
      */
-    public function testPropertyName()
+    public function testPropertyValue()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "legal_name"
+     * Test attribute "scheme_id"
      */
-    public function testPropertyLegalName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "email"
-     */
-    public function testPropertyEmail()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "phone"
-     */
-    public function testPropertyPhone()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "website"
-     */
-    public function testPropertyWebsite()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "tax_id"
-     */
-    public function testPropertyTaxId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "registration_number"
-     */
-    public function testPropertyRegistrationNumber()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "address"
-     */
-    public function testPropertyAddress()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "bank_account"
-     */
-    public function testPropertyBankAccount()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "electronic_address"
-     */
-    public function testPropertyElectronicAddress()
+    public function testPropertySchemeId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
