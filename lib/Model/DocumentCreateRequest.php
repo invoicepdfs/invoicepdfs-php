@@ -68,6 +68,7 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'source_document_id' => 'string',
         'reason' => 'string',
         'ship_to' => '\InvoicePDFs\Model\PostalAddress',
+        'buyer_reference' => 'string',
         'line_items' => '\InvoicePDFs\Model\StandardLineItemInput[]',
         'discounts' => '\InvoicePDFs\Model\LineItemDiscountInput[]',
         'shipping' => '\InvoicePDFs\Model\InvoiceShippingInput',
@@ -98,6 +99,7 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'source_document_id' => null,
         'reason' => null,
         'ship_to' => null,
+        'buyer_reference' => null,
         'line_items' => null,
         'discounts' => null,
         'shipping' => null,
@@ -126,6 +128,7 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'source_document_id' => true,
         'reason' => true,
         'ship_to' => true,
+        'buyer_reference' => true,
         'line_items' => false,
         'discounts' => false,
         'shipping' => true,
@@ -234,6 +237,7 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'source_document_id' => 'source_document_id',
         'reason' => 'reason',
         'ship_to' => 'ship_to',
+        'buyer_reference' => 'buyer_reference',
         'line_items' => 'line_items',
         'discounts' => 'discounts',
         'shipping' => 'shipping',
@@ -262,6 +266,7 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'source_document_id' => 'setSourceDocumentId',
         'reason' => 'setReason',
         'ship_to' => 'setShipTo',
+        'buyer_reference' => 'setBuyerReference',
         'line_items' => 'setLineItems',
         'discounts' => 'setDiscounts',
         'shipping' => 'setShipping',
@@ -290,6 +295,7 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'source_document_id' => 'getSourceDocumentId',
         'reason' => 'getReason',
         'ship_to' => 'getShipTo',
+        'buyer_reference' => 'getBuyerReference',
         'line_items' => 'getLineItems',
         'discounts' => 'getDiscounts',
         'shipping' => 'getShipping',
@@ -394,6 +400,7 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('source_document_id', $data ?? [], null);
         $this->setIfExists('reason', $data ?? [], null);
         $this->setIfExists('ship_to', $data ?? [], null);
+        $this->setIfExists('buyer_reference', $data ?? [], null);
         $this->setIfExists('line_items', $data ?? [], null);
         $this->setIfExists('discounts', $data ?? [], null);
         $this->setIfExists('shipping', $data ?? [], null);
@@ -827,6 +834,40 @@ class DocumentCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         $this->container['ship_to'] = $ship_to;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_reference
+     *
+     * @return string|null
+     */
+    public function getBuyerReference()
+    {
+        return $this->container['buyer_reference'];
+    }
+
+    /**
+     * Sets buyer_reference
+     *
+     * @param string|null $buyer_reference buyer_reference
+     *
+     * @return self
+     */
+    public function setBuyerReference($buyer_reference)
+    {
+        if (is_null($buyer_reference)) {
+            array_push($this->openAPINullablesSetToNull, 'buyer_reference');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('buyer_reference', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['buyer_reference'] = $buyer_reference;
 
         return $this;
     }

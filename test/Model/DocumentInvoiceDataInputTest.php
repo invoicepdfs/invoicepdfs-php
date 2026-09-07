@@ -143,6 +143,15 @@ class DocumentInvoiceDataInputTest extends TestCase
     }
 
     /**
+     * Test attribute "buyer_reference"
+     */
+    public function testPropertyBuyerReference()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "line_items"
      */
     public function testPropertyLineItems()

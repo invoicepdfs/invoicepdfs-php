@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **source_document_id** | **string** |  | [optional]
 **reason** | **string** |  | [optional]
 **ship_to** | [**\InvoicePDFs\Model\PostalAddress**](PostalAddress.md) |  | [optional]
+**buyer_reference** | **string** |  | [optional]
 **line_items** | [**\InvoicePDFs\Model\StandardLineItemInput[]**](StandardLineItemInput.md) |  | [optional]
 **discounts** | [**\InvoicePDFs\Model\LineItemDiscountInput[]**](LineItemDiscountInput.md) |  | [optional]
 **shipping** | [**\InvoicePDFs\Model\InvoiceShippingInput**](InvoiceShippingInput.md) |  | [optional]

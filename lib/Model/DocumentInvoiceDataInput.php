@@ -64,6 +64,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'seller' => '\InvoicePDFs\Model\DocumentPartyInput',
         'buyer' => '\InvoicePDFs\Model\DocumentPartyInput',
         'ship_to' => '\InvoicePDFs\Model\DocumentPartyInput',
+        'buyer_reference' => 'string',
         'line_items' => '\InvoicePDFs\Model\DocumentLineItemInput[]',
         'discounts' => '\InvoicePDFs\Model\DocumentDiscountInput[]',
         'shipping' => '\InvoicePDFs\Model\DocumentShippingInput',
@@ -87,6 +88,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'seller' => null,
         'buyer' => null,
         'ship_to' => null,
+        'buyer_reference' => null,
         'line_items' => null,
         'discounts' => null,
         'shipping' => null,
@@ -108,6 +110,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'seller' => false,
         'buyer' => false,
         'ship_to' => true,
+        'buyer_reference' => true,
         'line_items' => false,
         'discounts' => false,
         'shipping' => true,
@@ -209,6 +212,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'seller' => 'seller',
         'buyer' => 'buyer',
         'ship_to' => 'ship_to',
+        'buyer_reference' => 'buyer_reference',
         'line_items' => 'line_items',
         'discounts' => 'discounts',
         'shipping' => 'shipping',
@@ -230,6 +234,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'seller' => 'setSeller',
         'buyer' => 'setBuyer',
         'ship_to' => 'setShipTo',
+        'buyer_reference' => 'setBuyerReference',
         'line_items' => 'setLineItems',
         'discounts' => 'setDiscounts',
         'shipping' => 'setShipping',
@@ -251,6 +256,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'seller' => 'getSeller',
         'buyer' => 'getBuyer',
         'ship_to' => 'getShipTo',
+        'buyer_reference' => 'getBuyerReference',
         'line_items' => 'getLineItems',
         'discounts' => 'getDiscounts',
         'shipping' => 'getShipping',
@@ -323,6 +329,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('seller', $data ?? [], null);
         $this->setIfExists('buyer', $data ?? [], null);
         $this->setIfExists('ship_to', $data ?? [], null);
+        $this->setIfExists('buyer_reference', $data ?? [], null);
         $this->setIfExists('line_items', $data ?? [], null);
         $this->setIfExists('discounts', $data ?? [], null);
         $this->setIfExists('shipping', $data ?? [], null);
@@ -590,6 +597,40 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
             }
         }
         $this->container['ship_to'] = $ship_to;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_reference
+     *
+     * @return string|null
+     */
+    public function getBuyerReference()
+    {
+        return $this->container['buyer_reference'];
+    }
+
+    /**
+     * Sets buyer_reference
+     *
+     * @param string|null $buyer_reference buyer_reference
+     *
+     * @return self
+     */
+    public function setBuyerReference($buyer_reference)
+    {
+        if (is_null($buyer_reference)) {
+            array_push($this->openAPINullablesSetToNull, 'buyer_reference');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('buyer_reference', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['buyer_reference'] = $buyer_reference;
 
         return $this;
     }

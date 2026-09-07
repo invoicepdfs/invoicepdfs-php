@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **seller** | [**\InvoicePDFs\Model\DocumentPartyInput**](DocumentPartyInput.md) |  |
 **buyer** | [**\InvoicePDFs\Model\DocumentPartyInput**](DocumentPartyInput.md) |  |
 **ship_to** | [**\InvoicePDFs\Model\DocumentPartyInput**](DocumentPartyInput.md) |  | [optional]
+**buyer_reference** | **string** |  | [optional]
 **line_items** | [**\InvoicePDFs\Model\DocumentLineItemInput[]**](DocumentLineItemInput.md) |  |
 **discounts** | [**\InvoicePDFs\Model\DocumentDiscountInput[]**](DocumentDiscountInput.md) |  | [optional]
 **shipping** | [**\InvoicePDFs\Model\DocumentShippingInput**](DocumentShippingInput.md) |  | [optional]

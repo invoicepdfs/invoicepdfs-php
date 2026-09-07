@@ -125,6 +125,15 @@ class DocumentLineItemInputTest extends TestCase
     }
 
     /**
+     * Test attribute "unit_code"
+     */
+    public function testPropertyUnitCode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "sku"
      */
     public function testPropertySku()
