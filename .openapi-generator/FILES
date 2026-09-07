@@ -92,6 +92,8 @@ docs/Model/BusinessProfilePatch.md
 docs/Model/BusinessProfileResponse.md
 docs/Model/BusinessProfilesListResponse.md
 docs/Model/CalculationBreakdown.md
+docs/Model/ComplianceCheckOut.md
+docs/Model/ComplianceViolationOut.md
 docs/Model/CountriesListResponse.md
 docs/Model/CountryOut.md
 docs/Model/CurrenciesListResponse.md
@@ -112,6 +114,8 @@ docs/Model/DeliverySendRequest.md
 docs/Model/DocumentBrandingInput.md
 docs/Model/DocumentCalculateRequest.md
 docs/Model/DocumentCalculateResponse.md
+docs/Model/DocumentComplianceRequest.md
+docs/Model/DocumentComplianceResponse.md
 docs/Model/DocumentCreateRequest.md
 docs/Model/DocumentCustomFieldInput.md
 docs/Model/DocumentDiscountInput.md
@@ -339,6 +343,8 @@ lib/Model/BusinessProfilePatch.php
 lib/Model/BusinessProfileResponse.php
 lib/Model/BusinessProfilesListResponse.php
 lib/Model/CalculationBreakdown.php
+lib/Model/ComplianceCheckOut.php
+lib/Model/ComplianceViolationOut.php
 lib/Model/CountriesListResponse.php
 lib/Model/CountryOut.php
 lib/Model/CurrenciesListResponse.php
@@ -359,6 +365,8 @@ lib/Model/DeliverySendRequest.php
 lib/Model/DocumentBrandingInput.php
 lib/Model/DocumentCalculateRequest.php
 lib/Model/DocumentCalculateResponse.php
+lib/Model/DocumentComplianceRequest.php
+lib/Model/DocumentComplianceResponse.php
 lib/Model/DocumentCreateRequest.php
 lib/Model/DocumentCustomFieldInput.php
 lib/Model/DocumentDiscountInput.php
@@ -585,6 +593,8 @@ test/Model/BusinessProfilePatchTest.php
 test/Model/BusinessProfileResponseTest.php
 test/Model/BusinessProfilesListResponseTest.php
 test/Model/CalculationBreakdownTest.php
+test/Model/ComplianceCheckOutTest.php
+test/Model/ComplianceViolationOutTest.php
 test/Model/CountriesListResponseTest.php
 test/Model/CountryOutTest.php
 test/Model/CurrenciesListResponseTest.php
@@ -605,6 +615,8 @@ test/Model/DeliverySendRequestTest.php
 test/Model/DocumentBrandingInputTest.php
 test/Model/DocumentCalculateRequestTest.php
 test/Model/DocumentCalculateResponseTest.php
+test/Model/DocumentComplianceRequestTest.php
+test/Model/DocumentComplianceResponseTest.php
 test/Model/DocumentCreateRequestTest.php
 test/Model/DocumentCustomFieldInputTest.php
 test/Model/DocumentDiscountInputTest.php

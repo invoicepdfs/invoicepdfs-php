@@ -21,6 +21,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**restoreDocument()**](DocumentsApi.md#restoreDocument) | **POST** /api/v1/documents/{document_id}/restore | Restore Document |
 | [**sendDocument()**](DocumentsApi.md#sendDocument) | **POST** /api/v1/documents/{document_id}/send | Send Document |
 | [**updateDocument()**](DocumentsApi.md#updateDocument) | **PATCH** /api/v1/documents/{document_id} | Update Document |
+| [**validateCompliance()**](DocumentsApi.md#validateCompliance) | **POST** /api/v1/documents/validate-compliance | Validate Compliance |
 | [**validateDocument()**](DocumentsApi.md#validateDocument) | **POST** /api/v1/documents/validate | Validate Document |
 | [**voidDocument()**](DocumentsApi.md#voidDocument) | **POST** /api/v1/documents/{document_id}/void | Void Document |
 
@@ -1019,6 +1020,66 @@ try {
 ### Return type
 
 [**\InvoicePDFs\Model\DocumentResponse**](../Model/DocumentResponse.md)
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `validateCompliance()`
+
+```php
+validateCompliance($document_compliance_request): \InvoicePDFs\Model\DocumentComplianceResponse
+```
+
+Validate Compliance
+
+Check a document against an e-invoicing ruleset without rendering it.  Costs no renders: nothing is stored and no PDF is produced, so a caller can check every invoice they are about to send rather than discovering the problem from a rejection weeks later.  This is the semantic half — mandatory fields and conditional requirements. Schematron is the authoritative check and is not wired up yet, so a document that passes here is not thereby proven conformant. It says what it can prove is wrong, which is the useful half early.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new InvoicePDFs\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$document_compliance_request = new \InvoicePDFs\Model\DocumentComplianceRequest(); // \InvoicePDFs\Model\DocumentComplianceRequest
+
+try {
+    $result = $apiInstance->validateCompliance($document_compliance_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->validateCompliance: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **document_compliance_request** | [**\InvoicePDFs\Model\DocumentComplianceRequest**](../Model/DocumentComplianceRequest.md)|  | |
+
+### Return type
+
+[**\InvoicePDFs\Model\DocumentComplianceResponse**](../Model/DocumentComplianceResponse.md)
 
 ### Authorization
 

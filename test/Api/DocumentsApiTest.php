@@ -276,6 +276,18 @@ class DocumentsApiTest extends TestCase
     }
 
     /**
+     * Test case for validateCompliance
+     *
+     * Validate Compliance.
+     *
+     */
+    public function testValidateCompliance()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for validateDocument
      *
      * Validate Document.
