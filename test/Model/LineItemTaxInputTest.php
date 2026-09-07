@@ -114,4 +114,13 @@ class LineItemTaxInputTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "category"
+     */
+    public function testPropertyCategory()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

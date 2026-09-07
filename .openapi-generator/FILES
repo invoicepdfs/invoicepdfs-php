@@ -196,6 +196,7 @@ docs/Model/StatsCounts.md
 docs/Model/StatsOverview.md
 docs/Model/StatsRecentInvoice.md
 docs/Model/StatsResponse.md
+docs/Model/TaxCategory.md
 docs/Model/TaxRateCreateRequest.md
 docs/Model/TaxRateOut.md
 docs/Model/TaxRatePatchRequest.md
@@ -442,6 +443,7 @@ lib/Model/StatsCounts.php
 lib/Model/StatsOverview.php
 lib/Model/StatsRecentInvoice.php
 lib/Model/StatsResponse.php
+lib/Model/TaxCategory.php
 lib/Model/TaxRateCreateRequest.php
 lib/Model/TaxRateOut.php
 lib/Model/TaxRatePatchRequest.php
@@ -685,6 +687,7 @@ test/Model/StatsCountsTest.php
 test/Model/StatsOverviewTest.php
 test/Model/StatsRecentInvoiceTest.php
 test/Model/StatsResponseTest.php
+test/Model/TaxCategoryTest.php
 test/Model/TaxRateCreateRequestTest.php
 test/Model/TaxRateOutTest.php
 test/Model/TaxRatePatchRequestTest.php

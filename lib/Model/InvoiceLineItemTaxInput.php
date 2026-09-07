@@ -60,7 +60,8 @@ class InvoiceLineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSeria
         'tax_rate_id' => 'string',
         'name' => 'string',
         'rate' => 'string',
-        'inclusive' => 'bool'
+        'inclusive' => 'bool',
+        'category' => '\InvoicePDFs\Model\TaxCategory'
     ];
 
     /**
@@ -74,7 +75,8 @@ class InvoiceLineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSeria
         'tax_rate_id' => null,
         'name' => null,
         'rate' => null,
-        'inclusive' => null
+        'inclusive' => null,
+        'category' => null
     ];
 
     /**
@@ -86,7 +88,8 @@ class InvoiceLineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSeria
         'tax_rate_id' => true,
         'name' => true,
         'rate' => true,
-        'inclusive' => false
+        'inclusive' => false,
+        'category' => true
     ];
 
     /**
@@ -178,7 +181,8 @@ class InvoiceLineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSeria
         'tax_rate_id' => 'tax_rate_id',
         'name' => 'name',
         'rate' => 'rate',
-        'inclusive' => 'inclusive'
+        'inclusive' => 'inclusive',
+        'category' => 'category'
     ];
 
     /**
@@ -190,7 +194,8 @@ class InvoiceLineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSeria
         'tax_rate_id' => 'setTaxRateId',
         'name' => 'setName',
         'rate' => 'setRate',
-        'inclusive' => 'setInclusive'
+        'inclusive' => 'setInclusive',
+        'category' => 'setCategory'
     ];
 
     /**
@@ -202,7 +207,8 @@ class InvoiceLineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSeria
         'tax_rate_id' => 'getTaxRateId',
         'name' => 'getName',
         'rate' => 'getRate',
-        'inclusive' => 'getInclusive'
+        'inclusive' => 'getInclusive',
+        'category' => 'getCategory'
     ];
 
     /**
@@ -266,6 +272,7 @@ class InvoiceLineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('rate', $data ?? [], null);
         $this->setIfExists('inclusive', $data ?? [], false);
+        $this->setIfExists('category', $data ?? [], null);
     }
 
     /**
@@ -435,6 +442,40 @@ class InvoiceLineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable inclusive cannot be null');
         }
         $this->container['inclusive'] = $inclusive;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return \InvoicePDFs\Model\TaxCategory|null
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param \InvoicePDFs\Model\TaxCategory|null $category category
+     *
+     * @return self
+     */
+    public function setCategory($category)
+    {
+        if (is_null($category)) {
+            array_push($this->openAPINullablesSetToNull, 'category');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('category', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['category'] = $category;
 
         return $this;
     }

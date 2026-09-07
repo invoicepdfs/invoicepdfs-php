@@ -1,6 +1,6 @@
 <?php
 /**
- * LineItemTaxInput
+ * TaxCategory
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \InvoicePDFs\ObjectSerializer;
 
 /**
- * LineItemTaxInput Class Doc Comment
+ * TaxCategory Class Doc Comment
  *
  * @category Class
+ * @description How a tax is treated, as opposed to what it is called.  &#x60;name&#x60; and &#x60;rate&#x60; do not say this: two taxes at 0% may be zero-rated, exempt, reverse-charge or outside scope, and EN 16931 keeps them in separate VAT breakdown groups with different mandatory fields. Optional, so an invoice that never mentions a category calculates exactly as before.
  * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSerializable
+class TaxCategory implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class LineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LineItemTaxInput';
+    protected static $openAPIModelName = 'TaxCategory';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +58,9 @@ class LineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'tax_rate_id' => 'string',
-        'name' => 'string',
-        'rate' => 'string',
-        'inclusive' => 'bool',
-        'category' => '\InvoicePDFs\Model\TaxCategory'
+        'code' => 'string',
+        'exemption_reason' => 'string',
+        'exemption_reason_code' => 'string'
     ];
 
     /**
@@ -72,11 +71,9 @@ class LineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'tax_rate_id' => null,
-        'name' => null,
-        'rate' => null,
-        'inclusive' => null,
-        'category' => null
+        'code' => null,
+        'exemption_reason' => null,
+        'exemption_reason_code' => null
     ];
 
     /**
@@ -85,11 +82,9 @@ class LineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'tax_rate_id' => true,
-        'name' => true,
-        'rate' => true,
-        'inclusive' => false,
-        'category' => true
+        'code' => false,
+        'exemption_reason' => true,
+        'exemption_reason_code' => true
     ];
 
     /**
@@ -178,11 +173,9 @@ class LineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'tax_rate_id' => 'tax_rate_id',
-        'name' => 'name',
-        'rate' => 'rate',
-        'inclusive' => 'inclusive',
-        'category' => 'category'
+        'code' => 'code',
+        'exemption_reason' => 'exemption_reason',
+        'exemption_reason_code' => 'exemption_reason_code'
     ];
 
     /**
@@ -191,11 +184,9 @@ class LineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'tax_rate_id' => 'setTaxRateId',
-        'name' => 'setName',
-        'rate' => 'setRate',
-        'inclusive' => 'setInclusive',
-        'category' => 'setCategory'
+        'code' => 'setCode',
+        'exemption_reason' => 'setExemptionReason',
+        'exemption_reason_code' => 'setExemptionReasonCode'
     ];
 
     /**
@@ -204,11 +195,9 @@ class LineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'tax_rate_id' => 'getTaxRateId',
-        'name' => 'getName',
-        'rate' => 'getRate',
-        'inclusive' => 'getInclusive',
-        'category' => 'getCategory'
+        'code' => 'getCode',
+        'exemption_reason' => 'getExemptionReason',
+        'exemption_reason_code' => 'getExemptionReasonCode'
     ];
 
     /**
@@ -268,11 +257,9 @@ class LineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('tax_rate_id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('rate', $data ?? [], null);
-        $this->setIfExists('inclusive', $data ?? [], false);
-        $this->setIfExists('category', $data ?? [], null);
+        $this->setIfExists('code', $data ?? [], null);
+        $this->setIfExists('exemption_reason', $data ?? [], null);
+        $this->setIfExists('exemption_reason_code', $data ?? [], null);
     }
 
     /**
@@ -302,6 +289,13 @@ class LineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
+        if ((mb_strlen($this->container['code']) < 1)) {
+            $invalidProperties[] = "invalid value for 'code', the character length must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -318,164 +312,101 @@ class LineItemTaxInput implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets tax_rate_id
+     * Gets code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string $code UNCL5305 tax category code — S standard, Z zero-rated, E exempt, AE reverse charge, K intra-community, G export, O outside scope
+     *
+     * @return self
+     */
+    public function setCode($code)
+    {
+        if (is_null($code)) {
+            throw new \InvalidArgumentException('non-nullable code cannot be null');
+        }
+
+        if ((mb_strlen($code) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $code when calling TaxCategory., must be bigger than or equal to 1.');
+        }
+
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets exemption_reason
      *
      * @return string|null
      */
-    public function getTaxRateId()
+    public function getExemptionReason()
     {
-        return $this->container['tax_rate_id'];
+        return $this->container['exemption_reason'];
     }
 
     /**
-     * Sets tax_rate_id
+     * Sets exemption_reason
      *
-     * @param string|null $tax_rate_id tax_rate_id
+     * @param string|null $exemption_reason exemption_reason
      *
      * @return self
      */
-    public function setTaxRateId($tax_rate_id)
+    public function setExemptionReason($exemption_reason)
     {
-        if (is_null($tax_rate_id)) {
-            array_push($this->openAPINullablesSetToNull, 'tax_rate_id');
+        if (is_null($exemption_reason)) {
+            array_push($this->openAPINullablesSetToNull, 'exemption_reason');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tax_rate_id', $nullablesSetToNull);
+            $index = array_search('exemption_reason', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['tax_rate_id'] = $tax_rate_id;
+        $this->container['exemption_reason'] = $exemption_reason;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets exemption_reason_code
      *
      * @return string|null
      */
-    public function getName()
+    public function getExemptionReasonCode()
     {
-        return $this->container['name'];
+        return $this->container['exemption_reason_code'];
     }
 
     /**
-     * Sets name
+     * Sets exemption_reason_code
      *
-     * @param string|null $name name
+     * @param string|null $exemption_reason_code exemption_reason_code
      *
      * @return self
      */
-    public function setName($name)
+    public function setExemptionReasonCode($exemption_reason_code)
     {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
+        if (is_null($exemption_reason_code)) {
+            array_push($this->openAPINullablesSetToNull, 'exemption_reason_code');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
+            $index = array_search('exemption_reason_code', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets rate
-     *
-     * @return string|null
-     */
-    public function getRate()
-    {
-        return $this->container['rate'];
-    }
-
-    /**
-     * Sets rate
-     *
-     * @param string|null $rate rate
-     *
-     * @return self
-     */
-    public function setRate($rate)
-    {
-        if (is_null($rate)) {
-            array_push($this->openAPINullablesSetToNull, 'rate');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('rate', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['rate'] = $rate;
-
-        return $this;
-    }
-
-    /**
-     * Gets inclusive
-     *
-     * @return bool|null
-     */
-    public function getInclusive()
-    {
-        return $this->container['inclusive'];
-    }
-
-    /**
-     * Sets inclusive
-     *
-     * @param bool|null $inclusive inclusive
-     *
-     * @return self
-     */
-    public function setInclusive($inclusive)
-    {
-        if (is_null($inclusive)) {
-            throw new \InvalidArgumentException('non-nullable inclusive cannot be null');
-        }
-        $this->container['inclusive'] = $inclusive;
-
-        return $this;
-    }
-
-    /**
-     * Gets category
-     *
-     * @return \InvoicePDFs\Model\TaxCategory|null
-     */
-    public function getCategory()
-    {
-        return $this->container['category'];
-    }
-
-    /**
-     * Sets category
-     *
-     * @param \InvoicePDFs\Model\TaxCategory|null $category category
-     *
-     * @return self
-     */
-    public function setCategory($category)
-    {
-        if (is_null($category)) {
-            array_push($this->openAPINullablesSetToNull, 'category');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('category', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['category'] = $category;
+        $this->container['exemption_reason_code'] = $exemption_reason_code;
 
         return $this;
     }

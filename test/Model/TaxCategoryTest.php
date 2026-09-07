@@ -1,6 +1,6 @@
 <?php
 /**
- * InvoiceLineItemTaxInputTest
+ * TaxCategoryTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace InvoicePDFs\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * InvoiceLineItemTaxInputTest Class Doc Comment
+ * TaxCategoryTest Class Doc Comment
  *
  * @category    Class
- * @description InvoiceLineItemTaxInput
+ * @description How a tax is treated, as opposed to what it is called.  &#x60;name&#x60; and &#x60;rate&#x60; do not say this: two taxes at 0% may be zero-rated, exempt, reverse-charge or outside scope, and EN 16931 keeps them in separate VAT breakdown groups with different mandatory fields. Optional, so an invoice that never mentions a category calculates exactly as before.
  * @package     InvoicePDFs
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class InvoiceLineItemTaxInputTest extends TestCase
+class TaxCategoryTest extends TestCase
 {
 
     /**
@@ -71,54 +71,36 @@ class InvoiceLineItemTaxInputTest extends TestCase
     }
 
     /**
-     * Test "InvoiceLineItemTaxInput"
+     * Test "TaxCategory"
      */
-    public function testInvoiceLineItemTaxInput()
+    public function testTaxCategory()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "tax_rate_id"
+     * Test attribute "code"
      */
-    public function testPropertyTaxRateId()
+    public function testPropertyCode()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "exemption_reason"
      */
-    public function testPropertyName()
+    public function testPropertyExemptionReason()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "rate"
+     * Test attribute "exemption_reason_code"
      */
-    public function testPropertyRate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "inclusive"
-     */
-    public function testPropertyInclusive()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "category"
-     */
-    public function testPropertyCategory()
+    public function testPropertyExemptionReasonCode()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
