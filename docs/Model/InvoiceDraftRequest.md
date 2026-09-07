@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **business_profile_id** | **string** |  |
 **customer_id** | **string** |  |
 **ship_to** | [**\InvoicePDFs\Model\PostalAddress**](PostalAddress.md) |  | [optional]
+**buyer_reference** | **string** |  | [optional]
+**preceding_invoice_number** | **string** |  | [optional]
 **line_items** | [**\InvoicePDFs\Model\InvoiceLineItemInput[]**](InvoiceLineItemInput.md) |  |
 **discounts** | [**\InvoicePDFs\Model\InvoiceDiscountInput[]**](InvoiceDiscountInput.md) |  | [optional]
 **shipping** | [**\InvoicePDFs\Model\InvoiceShippingInput**](InvoiceShippingInput.md) |  | [optional]

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **quantity** | **string** | Decimal string |
 **unit_price** | **string** | Decimal string in major units |
 **unit** | **string** |  | [optional]
+**unit_code** | **string** |  | [optional]
 **sku** | **string** |  | [optional]
 **discount** | [**\InvoicePDFs\Model\InvoiceDiscountInput**](InvoiceDiscountInput.md) |  | [optional]
 **taxes** | [**\InvoicePDFs\Model\InvoiceLineItemTaxInput[]**](InvoiceLineItemTaxInput.md) |  | [optional]

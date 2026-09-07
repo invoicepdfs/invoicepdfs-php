@@ -62,6 +62,7 @@ class InvoiceLineItemInput implements ModelInterface, ArrayAccess, \JsonSerializ
         'quantity' => 'string',
         'unit_price' => 'string',
         'unit' => 'string',
+        'unit_code' => 'string',
         'sku' => 'string',
         'discount' => '\InvoicePDFs\Model\InvoiceDiscountInput',
         'taxes' => '\InvoicePDFs\Model\InvoiceLineItemTaxInput[]'
@@ -80,6 +81,7 @@ class InvoiceLineItemInput implements ModelInterface, ArrayAccess, \JsonSerializ
         'quantity' => null,
         'unit_price' => null,
         'unit' => null,
+        'unit_code' => null,
         'sku' => null,
         'discount' => null,
         'taxes' => null
@@ -96,6 +98,7 @@ class InvoiceLineItemInput implements ModelInterface, ArrayAccess, \JsonSerializ
         'quantity' => false,
         'unit_price' => false,
         'unit' => true,
+        'unit_code' => true,
         'sku' => true,
         'discount' => true,
         'taxes' => false
@@ -192,6 +195,7 @@ class InvoiceLineItemInput implements ModelInterface, ArrayAccess, \JsonSerializ
         'quantity' => 'quantity',
         'unit_price' => 'unit_price',
         'unit' => 'unit',
+        'unit_code' => 'unit_code',
         'sku' => 'sku',
         'discount' => 'discount',
         'taxes' => 'taxes'
@@ -208,6 +212,7 @@ class InvoiceLineItemInput implements ModelInterface, ArrayAccess, \JsonSerializ
         'quantity' => 'setQuantity',
         'unit_price' => 'setUnitPrice',
         'unit' => 'setUnit',
+        'unit_code' => 'setUnitCode',
         'sku' => 'setSku',
         'discount' => 'setDiscount',
         'taxes' => 'setTaxes'
@@ -224,6 +229,7 @@ class InvoiceLineItemInput implements ModelInterface, ArrayAccess, \JsonSerializ
         'quantity' => 'getQuantity',
         'unit_price' => 'getUnitPrice',
         'unit' => 'getUnit',
+        'unit_code' => 'getUnitCode',
         'sku' => 'getSku',
         'discount' => 'getDiscount',
         'taxes' => 'getTaxes'
@@ -291,6 +297,7 @@ class InvoiceLineItemInput implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('quantity', $data ?? [], null);
         $this->setIfExists('unit_price', $data ?? [], null);
         $this->setIfExists('unit', $data ?? [], null);
+        $this->setIfExists('unit_code', $data ?? [], null);
         $this->setIfExists('sku', $data ?? [], null);
         $this->setIfExists('discount', $data ?? [], null);
         $this->setIfExists('taxes', $data ?? [], null);
@@ -492,6 +499,40 @@ class InvoiceLineItemInput implements ModelInterface, ArrayAccess, \JsonSerializ
             }
         }
         $this->container['unit'] = $unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets unit_code
+     *
+     * @return string|null
+     */
+    public function getUnitCode()
+    {
+        return $this->container['unit_code'];
+    }
+
+    /**
+     * Sets unit_code
+     *
+     * @param string|null $unit_code unit_code
+     *
+     * @return self
+     */
+    public function setUnitCode($unit_code)
+    {
+        if (is_null($unit_code)) {
+            array_push($this->openAPINullablesSetToNull, 'unit_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unit_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['unit_code'] = $unit_code;
 
         return $this;
     }

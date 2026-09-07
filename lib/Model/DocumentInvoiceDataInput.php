@@ -65,6 +65,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'buyer' => '\InvoicePDFs\Model\DocumentPartyInput',
         'ship_to' => '\InvoicePDFs\Model\DocumentPartyInput',
         'buyer_reference' => 'string',
+        'preceding_invoice_number' => 'string',
         'line_items' => '\InvoicePDFs\Model\DocumentLineItemInput[]',
         'discounts' => '\InvoicePDFs\Model\DocumentDiscountInput[]',
         'shipping' => '\InvoicePDFs\Model\DocumentShippingInput',
@@ -89,6 +90,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'buyer' => null,
         'ship_to' => null,
         'buyer_reference' => null,
+        'preceding_invoice_number' => null,
         'line_items' => null,
         'discounts' => null,
         'shipping' => null,
@@ -111,6 +113,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'buyer' => false,
         'ship_to' => true,
         'buyer_reference' => true,
+        'preceding_invoice_number' => true,
         'line_items' => false,
         'discounts' => false,
         'shipping' => true,
@@ -213,6 +216,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'buyer' => 'buyer',
         'ship_to' => 'ship_to',
         'buyer_reference' => 'buyer_reference',
+        'preceding_invoice_number' => 'preceding_invoice_number',
         'line_items' => 'line_items',
         'discounts' => 'discounts',
         'shipping' => 'shipping',
@@ -235,6 +239,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'buyer' => 'setBuyer',
         'ship_to' => 'setShipTo',
         'buyer_reference' => 'setBuyerReference',
+        'preceding_invoice_number' => 'setPrecedingInvoiceNumber',
         'line_items' => 'setLineItems',
         'discounts' => 'setDiscounts',
         'shipping' => 'setShipping',
@@ -257,6 +262,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'buyer' => 'getBuyer',
         'ship_to' => 'getShipTo',
         'buyer_reference' => 'getBuyerReference',
+        'preceding_invoice_number' => 'getPrecedingInvoiceNumber',
         'line_items' => 'getLineItems',
         'discounts' => 'getDiscounts',
         'shipping' => 'getShipping',
@@ -330,6 +336,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('buyer', $data ?? [], null);
         $this->setIfExists('ship_to', $data ?? [], null);
         $this->setIfExists('buyer_reference', $data ?? [], null);
+        $this->setIfExists('preceding_invoice_number', $data ?? [], null);
         $this->setIfExists('line_items', $data ?? [], null);
         $this->setIfExists('discounts', $data ?? [], null);
         $this->setIfExists('shipping', $data ?? [], null);
@@ -631,6 +638,40 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
             }
         }
         $this->container['buyer_reference'] = $buyer_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets preceding_invoice_number
+     *
+     * @return string|null
+     */
+    public function getPrecedingInvoiceNumber()
+    {
+        return $this->container['preceding_invoice_number'];
+    }
+
+    /**
+     * Sets preceding_invoice_number
+     *
+     * @param string|null $preceding_invoice_number preceding_invoice_number
+     *
+     * @return self
+     */
+    public function setPrecedingInvoiceNumber($preceding_invoice_number)
+    {
+        if (is_null($preceding_invoice_number)) {
+            array_push($this->openAPINullablesSetToNull, 'preceding_invoice_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('preceding_invoice_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['preceding_invoice_number'] = $preceding_invoice_number;
 
         return $this;
     }

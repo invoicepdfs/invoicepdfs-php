@@ -66,6 +66,8 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'business_profile_id' => 'string',
         'customer_id' => 'string',
         'ship_to' => '\InvoicePDFs\Model\PostalAddress',
+        'buyer_reference' => 'string',
+        'preceding_invoice_number' => 'string',
         'line_items' => '\InvoicePDFs\Model\InvoiceLineItemInput[]',
         'discounts' => '\InvoicePDFs\Model\InvoiceDiscountInput[]',
         'shipping' => '\InvoicePDFs\Model\InvoiceShippingInput',
@@ -93,6 +95,8 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'business_profile_id' => null,
         'customer_id' => null,
         'ship_to' => null,
+        'buyer_reference' => null,
+        'preceding_invoice_number' => null,
         'line_items' => null,
         'discounts' => null,
         'shipping' => null,
@@ -118,6 +122,8 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'business_profile_id' => false,
         'customer_id' => false,
         'ship_to' => true,
+        'buyer_reference' => true,
+        'preceding_invoice_number' => true,
         'line_items' => false,
         'discounts' => false,
         'shipping' => true,
@@ -223,6 +229,8 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'business_profile_id' => 'business_profile_id',
         'customer_id' => 'customer_id',
         'ship_to' => 'ship_to',
+        'buyer_reference' => 'buyer_reference',
+        'preceding_invoice_number' => 'preceding_invoice_number',
         'line_items' => 'line_items',
         'discounts' => 'discounts',
         'shipping' => 'shipping',
@@ -248,6 +256,8 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'business_profile_id' => 'setBusinessProfileId',
         'customer_id' => 'setCustomerId',
         'ship_to' => 'setShipTo',
+        'buyer_reference' => 'setBuyerReference',
+        'preceding_invoice_number' => 'setPrecedingInvoiceNumber',
         'line_items' => 'setLineItems',
         'discounts' => 'setDiscounts',
         'shipping' => 'setShipping',
@@ -273,6 +283,8 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'business_profile_id' => 'getBusinessProfileId',
         'customer_id' => 'getCustomerId',
         'ship_to' => 'getShipTo',
+        'buyer_reference' => 'getBuyerReference',
+        'preceding_invoice_number' => 'getPrecedingInvoiceNumber',
         'line_items' => 'getLineItems',
         'discounts' => 'getDiscounts',
         'shipping' => 'getShipping',
@@ -374,6 +386,8 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('business_profile_id', $data ?? [], null);
         $this->setIfExists('customer_id', $data ?? [], null);
         $this->setIfExists('ship_to', $data ?? [], null);
+        $this->setIfExists('buyer_reference', $data ?? [], null);
+        $this->setIfExists('preceding_invoice_number', $data ?? [], null);
         $this->setIfExists('line_items', $data ?? [], null);
         $this->setIfExists('discounts', $data ?? [], null);
         $this->setIfExists('shipping', $data ?? [], null);
@@ -723,6 +737,74 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['ship_to'] = $ship_to;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_reference
+     *
+     * @return string|null
+     */
+    public function getBuyerReference()
+    {
+        return $this->container['buyer_reference'];
+    }
+
+    /**
+     * Sets buyer_reference
+     *
+     * @param string|null $buyer_reference buyer_reference
+     *
+     * @return self
+     */
+    public function setBuyerReference($buyer_reference)
+    {
+        if (is_null($buyer_reference)) {
+            array_push($this->openAPINullablesSetToNull, 'buyer_reference');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('buyer_reference', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['buyer_reference'] = $buyer_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets preceding_invoice_number
+     *
+     * @return string|null
+     */
+    public function getPrecedingInvoiceNumber()
+    {
+        return $this->container['preceding_invoice_number'];
+    }
+
+    /**
+     * Sets preceding_invoice_number
+     *
+     * @param string|null $preceding_invoice_number preceding_invoice_number
+     *
+     * @return self
+     */
+    public function setPrecedingInvoiceNumber($preceding_invoice_number)
+    {
+        if (is_null($preceding_invoice_number)) {
+            array_push($this->openAPINullablesSetToNull, 'preceding_invoice_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('preceding_invoice_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['preceding_invoice_number'] = $preceding_invoice_number;
 
         return $this;
     }
