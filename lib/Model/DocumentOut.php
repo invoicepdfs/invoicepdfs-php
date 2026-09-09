@@ -326,6 +326,7 @@ class DocumentOut implements ModelInterface, ArrayAccess, \JsonSerializable
 
     public const DOCUMENT_TYPE_INVOICE = 'invoice';
     public const DOCUMENT_TYPE_CREDIT_NOTE = 'credit_note';
+    public const DOCUMENT_TYPE_DEBIT_NOTE = 'debit_note';
     public const DOCUMENT_TYPE_QUOTE = 'quote';
     public const DOCUMENT_TYPE_RECEIPT = 'receipt';
     public const DOCUMENT_TYPE_PROFORMA = 'proforma';
@@ -342,6 +343,7 @@ class DocumentOut implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::DOCUMENT_TYPE_INVOICE,
             self::DOCUMENT_TYPE_CREDIT_NOTE,
+            self::DOCUMENT_TYPE_DEBIT_NOTE,
             self::DOCUMENT_TYPE_QUOTE,
             self::DOCUMENT_TYPE_RECEIPT,
             self::DOCUMENT_TYPE_PROFORMA,
