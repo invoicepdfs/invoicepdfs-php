@@ -105,4 +105,13 @@ class DocumentRenderOptionsTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "format"
+     */
+    public function testPropertyFormat()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

@@ -241,6 +241,7 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     public const FORMAT_PDF = 'pdf';
+    public const FORMAT_FACTURX_PDF = 'facturx_pdf';
     public const DELIVERY_URL = 'url';
     public const DELIVERY_BINARY = 'binary';
 
@@ -253,6 +254,7 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         return [
             self::FORMAT_PDF,
+            self::FORMAT_FACTURX_PDF,
         ];
     }
 

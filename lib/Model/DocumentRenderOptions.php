@@ -60,7 +60,8 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'template_id' => 'string',
         'page_size' => 'string',
-        'expires_in' => 'int'
+        'expires_in' => 'int',
+        'format' => 'string'
     ];
 
     /**
@@ -73,7 +74,8 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPIFormats = [
         'template_id' => null,
         'page_size' => null,
-        'expires_in' => null
+        'expires_in' => null,
+        'format' => null
     ];
 
     /**
@@ -84,7 +86,8 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static array $openAPINullables = [
         'template_id' => false,
         'page_size' => false,
-        'expires_in' => false
+        'expires_in' => false,
+        'format' => false
     ];
 
     /**
@@ -175,7 +178,8 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $attributeMap = [
         'template_id' => 'template_id',
         'page_size' => 'page_size',
-        'expires_in' => 'expires_in'
+        'expires_in' => 'expires_in',
+        'format' => 'format'
     ];
 
     /**
@@ -186,7 +190,8 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $setters = [
         'template_id' => 'setTemplateId',
         'page_size' => 'setPageSize',
-        'expires_in' => 'setExpiresIn'
+        'expires_in' => 'setExpiresIn',
+        'format' => 'setFormat'
     ];
 
     /**
@@ -197,7 +202,8 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $getters = [
         'template_id' => 'getTemplateId',
         'page_size' => 'getPageSize',
-        'expires_in' => 'getExpiresIn'
+        'expires_in' => 'getExpiresIn',
+        'format' => 'getFormat'
     ];
 
     /**
@@ -241,6 +247,21 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const FORMAT_PDF = 'pdf';
+    public const FORMAT_FACTURX_PDF = 'facturx_pdf';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFormatAllowableValues()
+    {
+        return [
+            self::FORMAT_PDF,
+            self::FORMAT_FACTURX_PDF,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -260,6 +281,7 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('template_id', $data ?? [], 'tpl_modern');
         $this->setIfExists('page_size', $data ?? [], 'LETTER');
         $this->setIfExists('expires_in', $data ?? [], 3600);
+        $this->setIfExists('format', $data ?? [], 'pdf');
     }
 
     /**
@@ -288,6 +310,15 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'format', must be one of '%s'",
+                $this->container['format'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -381,6 +412,43 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable expires_in cannot be null');
         }
         $this->container['expires_in'] = $expires_in;
+
+        return $this;
+    }
+
+    /**
+     * Gets format
+     *
+     * @return string|null
+     */
+    public function getFormat()
+    {
+        return $this->container['format'];
+    }
+
+    /**
+     * Sets format
+     *
+     * @param string|null $format `facturx_pdf` embeds the EN 16931 CII XML in a PDF/A-3, which is what a French or German counterparty means by Factur-X or ZUGFeRD.
+     *
+     * @return self
+     */
+    public function setFormat($format)
+    {
+        if (is_null($format)) {
+            throw new \InvalidArgumentException('non-nullable format cannot be null');
+        }
+        $allowedValues = $this->getFormatAllowableValues();
+        if (!in_array($format, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'format', must be one of '%s'",
+                    $format,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['format'] = $format;
 
         return $this;
     }

@@ -9,6 +9,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**createDocument()**](DocumentsApi.md#createDocument) | **POST** /api/v1/documents | Create Document |
 | [**createDocumentRender()**](DocumentsApi.md#createDocumentRender) | **POST** /api/v1/documents/{document_id}/renders | Create Document Render |
 | [**deleteDocument()**](DocumentsApi.md#deleteDocument) | **DELETE** /api/v1/documents/{document_id} | Delete Document |
+| [**downloadDocumentXml()**](DocumentsApi.md#downloadDocumentXml) | **GET** /api/v1/documents/{document_id}/xml | Download Document Xml |
 | [**duplicateDocument()**](DocumentsApi.md#duplicateDocument) | **POST** /api/v1/documents/{document_id}/duplicate | Duplicate Document |
 | [**finalizeDocument()**](DocumentsApi.md#finalizeDocument) | **POST** /api/v1/documents/{document_id}/finalize | Finalize Document |
 | [**getDocument()**](DocumentsApi.md#getDocument) | **GET** /api/v1/documents/{document_id} | Get Document |
@@ -18,6 +19,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**markSent()**](DocumentsApi.md#markSent) | **POST** /api/v1/documents/{document_id}/mark-sent | Mark Sent |
 | [**markUnpaid()**](DocumentsApi.md#markUnpaid) | **POST** /api/v1/documents/{document_id}/mark-unpaid | Mark Unpaid |
 | [**renderDocument()**](DocumentsApi.md#renderDocument) | **POST** /api/v1/documents/render | Render Document |
+| [**renderDocumentXml()**](DocumentsApi.md#renderDocumentXml) | **POST** /api/v1/documents/xml | Render Document Xml |
 | [**restoreDocument()**](DocumentsApi.md#restoreDocument) | **POST** /api/v1/documents/{document_id}/restore | Restore Document |
 | [**sendDocument()**](DocumentsApi.md#sendDocument) | **POST** /api/v1/documents/{document_id}/send | Send Document |
 | [**updateDocument()**](DocumentsApi.md#updateDocument) | **PATCH** /api/v1/documents/{document_id} | Update Document |
@@ -317,6 +319,68 @@ try {
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `downloadDocumentXml()`
+
+```php
+downloadDocumentXml($document_id, $profile): string
+```
+
+Download Document Xml
+
+The e-invoicing XML for a document already stored here.  Reads `data_json` directly rather than going through the render path's reconstruction: the status, the logo and the source document's number are all attached there for the *PDF*, and none of them belong in the XML. The credit note's BG-3 reference is already in the stored payload, resolved when the document was written.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new InvoicePDFs\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$document_id = 'document_id_example'; // string
+$profile = peppol_bis_billing_3; // string | Which ruleset to write this against. No default: a document valid under one can be rejected by another, so the choice is the request.
+
+try {
+    $result = $apiInstance->downloadDocumentXml($document_id, $profile);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->downloadDocumentXml: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **document_id** | **string**|  | |
+| **profile** | **string**| Which ruleset to write this against. No default: a document valid under one can be rejected by another, so the choice is the request. | |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/xml`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -851,6 +915,66 @@ try {
 
 - **Content-Type**: `application/json`
 - **Accept**: `application/json`, `application/pdf`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `renderDocumentXml()`
+
+```php
+renderDocumentXml($document_compliance_request): string
+```
+
+Render Document Xml
+
+The e-invoicing XML for a document, without storing anything.  Takes the same body as `/validate-compliance`, and the pairing is the point: check first, then take the XML once it passes. Nothing here validates against the ruleset — a document missing mandatory fields serialises to XML missing those elements, which is a more useful artefact to look at than a refusal, and `/validate-compliance` is where the refusal belongs.  The syntax is not a parameter. It follows from the profile, because a profile already is a syntax plus a ruleset, and asking a caller for both is asking them to know that Peppol means UBL.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new InvoicePDFs\Api\DocumentsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$document_compliance_request = new \InvoicePDFs\Model\DocumentComplianceRequest(); // \InvoicePDFs\Model\DocumentComplianceRequest
+
+try {
+    $result = $apiInstance->renderDocumentXml($document_compliance_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DocumentsApi->renderDocumentXml: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **document_compliance_request** | [**\InvoicePDFs\Model\DocumentComplianceRequest**](../Model/DocumentComplianceRequest.md)|  | |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/xml`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
