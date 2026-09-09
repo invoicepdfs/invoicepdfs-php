@@ -170,6 +170,15 @@ class InvoiceDraftRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "delivery_date"
+     */
+    public function testPropertyDeliveryDate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "preceding_invoice_number"
      */
     public function testPropertyPrecedingInvoiceNumber()

@@ -69,6 +69,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'reason' => 'string',
         'ship_to' => '\InvoicePDFs\Model\PostalAddress',
         'buyer_reference' => 'string',
+        'delivery_date' => '\DateTime',
         'line_items' => '\InvoicePDFs\Model\StandardLineItemInput[]',
         'discounts' => '\InvoicePDFs\Model\LineItemDiscountInput[]',
         'shipping' => '\InvoicePDFs\Model\InvoiceShippingInput',
@@ -99,6 +100,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'reason' => null,
         'ship_to' => null,
         'buyer_reference' => null,
+        'delivery_date' => 'date',
         'line_items' => null,
         'discounts' => null,
         'shipping' => null,
@@ -127,6 +129,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'reason' => true,
         'ship_to' => true,
         'buyer_reference' => true,
+        'delivery_date' => true,
         'line_items' => true,
         'discounts' => true,
         'shipping' => true,
@@ -235,6 +238,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'reason' => 'reason',
         'ship_to' => 'ship_to',
         'buyer_reference' => 'buyer_reference',
+        'delivery_date' => 'delivery_date',
         'line_items' => 'line_items',
         'discounts' => 'discounts',
         'shipping' => 'shipping',
@@ -263,6 +267,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'reason' => 'setReason',
         'ship_to' => 'setShipTo',
         'buyer_reference' => 'setBuyerReference',
+        'delivery_date' => 'setDeliveryDate',
         'line_items' => 'setLineItems',
         'discounts' => 'setDiscounts',
         'shipping' => 'setShipping',
@@ -291,6 +296,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'reason' => 'getReason',
         'ship_to' => 'getShipTo',
         'buyer_reference' => 'getBuyerReference',
+        'delivery_date' => 'getDeliveryDate',
         'line_items' => 'getLineItems',
         'discounts' => 'getDiscounts',
         'shipping' => 'getShipping',
@@ -397,6 +403,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('reason', $data ?? [], null);
         $this->setIfExists('ship_to', $data ?? [], null);
         $this->setIfExists('buyer_reference', $data ?? [], null);
+        $this->setIfExists('delivery_date', $data ?? [], null);
         $this->setIfExists('line_items', $data ?? [], null);
         $this->setIfExists('discounts', $data ?? [], null);
         $this->setIfExists('shipping', $data ?? [], null);
@@ -887,6 +894,40 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
             }
         }
         $this->container['buyer_reference'] = $buyer_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_date
+     *
+     * @return \DateTime|null
+     */
+    public function getDeliveryDate()
+    {
+        return $this->container['delivery_date'];
+    }
+
+    /**
+     * Sets delivery_date
+     *
+     * @param \DateTime|null $delivery_date delivery_date
+     *
+     * @return self
+     */
+    public function setDeliveryDate($delivery_date)
+    {
+        if (is_null($delivery_date)) {
+            array_push($this->openAPINullablesSetToNull, 'delivery_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('delivery_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['delivery_date'] = $delivery_date;
 
         return $this;
     }

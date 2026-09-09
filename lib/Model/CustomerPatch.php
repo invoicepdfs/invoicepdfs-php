@@ -58,6 +58,7 @@ class CustomerPatch implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'name' => 'string',
+        'contact_name' => 'string',
         'email' => 'string',
         'phone' => 'string',
         'tax_id' => 'string',
@@ -76,6 +77,7 @@ class CustomerPatch implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'name' => null,
+        'contact_name' => null,
         'email' => null,
         'phone' => null,
         'tax_id' => null,
@@ -92,6 +94,7 @@ class CustomerPatch implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'name' => false,
+        'contact_name' => true,
         'email' => true,
         'phone' => true,
         'tax_id' => true,
@@ -188,6 +191,7 @@ class CustomerPatch implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'name' => 'name',
+        'contact_name' => 'contact_name',
         'email' => 'email',
         'phone' => 'phone',
         'tax_id' => 'tax_id',
@@ -204,6 +208,7 @@ class CustomerPatch implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'name' => 'setName',
+        'contact_name' => 'setContactName',
         'email' => 'setEmail',
         'phone' => 'setPhone',
         'tax_id' => 'setTaxId',
@@ -220,6 +225,7 @@ class CustomerPatch implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'name' => 'getName',
+        'contact_name' => 'getContactName',
         'email' => 'getEmail',
         'phone' => 'getPhone',
         'tax_id' => 'getTaxId',
@@ -287,6 +293,7 @@ class CustomerPatch implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('contact_name', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
         $this->setIfExists('tax_id', $data ?? [], null);
@@ -361,6 +368,40 @@ class CustomerPatch implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets contact_name
+     *
+     * @return string|null
+     */
+    public function getContactName()
+    {
+        return $this->container['contact_name'];
+    }
+
+    /**
+     * Sets contact_name
+     *
+     * @param string|null $contact_name contact_name
+     *
+     * @return self
+     */
+    public function setContactName($contact_name)
+    {
+        if (is_null($contact_name)) {
+            array_push($this->openAPINullablesSetToNull, 'contact_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('contact_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['contact_name'] = $contact_name;
 
         return $this;
     }

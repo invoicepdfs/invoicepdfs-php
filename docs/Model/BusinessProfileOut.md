@@ -6,11 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **legal_name** | **string** |  |
 **display_name** | **string** |  | [optional]
+**contact_name** | **string** |  | [optional]
 **email** | **string** |  | [optional]
 **phone** | **string** |  | [optional]
 **website** | **string** |  | [optional]
 **tax_id** | **string** |  | [optional]
 **address** | [**\InvoicePDFs\Model\PostalAddress**](PostalAddress.md) |  | [optional]
+**bank_account** | [**\InvoicePDFs\Model\InvoiceBankAccountInput**](InvoiceBankAccountInput.md) |  | [optional]
 **electronic_address** | [**\InvoicePDFs\Model\ElectronicAddress**](ElectronicAddress.md) |  | [optional]
 **default_currency** | **string** |  | [optional]
 **default_locale** | **string** |  | [optional]

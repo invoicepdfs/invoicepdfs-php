@@ -59,11 +59,13 @@ class BusinessProfileOut implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'legal_name' => 'string',
         'display_name' => 'string',
+        'contact_name' => 'string',
         'email' => 'string',
         'phone' => 'string',
         'website' => 'string',
         'tax_id' => 'string',
         'address' => '\InvoicePDFs\Model\PostalAddress',
+        'bank_account' => '\InvoicePDFs\Model\InvoiceBankAccountInput',
         'electronic_address' => '\InvoicePDFs\Model\ElectronicAddress',
         'default_currency' => 'string',
         'default_locale' => 'string',
@@ -84,11 +86,13 @@ class BusinessProfileOut implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'legal_name' => null,
         'display_name' => null,
+        'contact_name' => null,
         'email' => null,
         'phone' => null,
         'website' => null,
         'tax_id' => null,
         'address' => null,
+        'bank_account' => null,
         'electronic_address' => null,
         'default_currency' => null,
         'default_locale' => null,
@@ -107,11 +111,13 @@ class BusinessProfileOut implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static array $openAPINullables = [
         'legal_name' => false,
         'display_name' => true,
+        'contact_name' => true,
         'email' => true,
         'phone' => true,
         'website' => true,
         'tax_id' => true,
         'address' => true,
+        'bank_account' => true,
         'electronic_address' => true,
         'default_currency' => true,
         'default_locale' => true,
@@ -210,11 +216,13 @@ class BusinessProfileOut implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'legal_name' => 'legal_name',
         'display_name' => 'display_name',
+        'contact_name' => 'contact_name',
         'email' => 'email',
         'phone' => 'phone',
         'website' => 'website',
         'tax_id' => 'tax_id',
         'address' => 'address',
+        'bank_account' => 'bank_account',
         'electronic_address' => 'electronic_address',
         'default_currency' => 'default_currency',
         'default_locale' => 'default_locale',
@@ -233,11 +241,13 @@ class BusinessProfileOut implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $setters = [
         'legal_name' => 'setLegalName',
         'display_name' => 'setDisplayName',
+        'contact_name' => 'setContactName',
         'email' => 'setEmail',
         'phone' => 'setPhone',
         'website' => 'setWebsite',
         'tax_id' => 'setTaxId',
         'address' => 'setAddress',
+        'bank_account' => 'setBankAccount',
         'electronic_address' => 'setElectronicAddress',
         'default_currency' => 'setDefaultCurrency',
         'default_locale' => 'setDefaultLocale',
@@ -256,11 +266,13 @@ class BusinessProfileOut implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $getters = [
         'legal_name' => 'getLegalName',
         'display_name' => 'getDisplayName',
+        'contact_name' => 'getContactName',
         'email' => 'getEmail',
         'phone' => 'getPhone',
         'website' => 'getWebsite',
         'tax_id' => 'getTaxId',
         'address' => 'getAddress',
+        'bank_account' => 'getBankAccount',
         'electronic_address' => 'getElectronicAddress',
         'default_currency' => 'getDefaultCurrency',
         'default_locale' => 'getDefaultLocale',
@@ -330,11 +342,13 @@ class BusinessProfileOut implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $this->setIfExists('legal_name', $data ?? [], null);
         $this->setIfExists('display_name', $data ?? [], null);
+        $this->setIfExists('contact_name', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
         $this->setIfExists('website', $data ?? [], null);
         $this->setIfExists('tax_id', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
+        $this->setIfExists('bank_account', $data ?? [], null);
         $this->setIfExists('electronic_address', $data ?? [], null);
         $this->setIfExists('default_currency', $data ?? [], null);
         $this->setIfExists('default_locale', $data ?? [], null);
@@ -456,6 +470,40 @@ class BusinessProfileOut implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['display_name'] = $display_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets contact_name
+     *
+     * @return string|null
+     */
+    public function getContactName()
+    {
+        return $this->container['contact_name'];
+    }
+
+    /**
+     * Sets contact_name
+     *
+     * @param string|null $contact_name contact_name
+     *
+     * @return self
+     */
+    public function setContactName($contact_name)
+    {
+        if (is_null($contact_name)) {
+            array_push($this->openAPINullablesSetToNull, 'contact_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('contact_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['contact_name'] = $contact_name;
 
         return $this;
     }
@@ -626,6 +674,40 @@ class BusinessProfileOut implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets bank_account
+     *
+     * @return \InvoicePDFs\Model\InvoiceBankAccountInput|null
+     */
+    public function getBankAccount()
+    {
+        return $this->container['bank_account'];
+    }
+
+    /**
+     * Sets bank_account
+     *
+     * @param \InvoicePDFs\Model\InvoiceBankAccountInput|null $bank_account bank_account
+     *
+     * @return self
+     */
+    public function setBankAccount($bank_account)
+    {
+        if (is_null($bank_account)) {
+            array_push($this->openAPINullablesSetToNull, 'bank_account');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bank_account', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['bank_account'] = $bank_account;
 
         return $this;
     }

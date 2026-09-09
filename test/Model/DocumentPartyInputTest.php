@@ -98,6 +98,15 @@ class DocumentPartyInputTest extends TestCase
     }
 
     /**
+     * Test attribute "contact_name"
+     */
+    public function testPropertyContactName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "email"
      */
     public function testPropertyEmail()

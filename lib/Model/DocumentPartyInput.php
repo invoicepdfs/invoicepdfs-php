@@ -59,6 +59,7 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'name' => 'string',
         'legal_name' => 'string',
+        'contact_name' => 'string',
         'email' => 'string',
         'phone' => 'string',
         'website' => 'string',
@@ -79,6 +80,7 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'name' => null,
         'legal_name' => null,
+        'contact_name' => null,
         'email' => null,
         'phone' => null,
         'website' => null,
@@ -97,6 +99,7 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static array $openAPINullables = [
         'name' => false,
         'legal_name' => true,
+        'contact_name' => true,
         'email' => true,
         'phone' => true,
         'website' => true,
@@ -195,6 +198,7 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'name' => 'name',
         'legal_name' => 'legal_name',
+        'contact_name' => 'contact_name',
         'email' => 'email',
         'phone' => 'phone',
         'website' => 'website',
@@ -213,6 +217,7 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $setters = [
         'name' => 'setName',
         'legal_name' => 'setLegalName',
+        'contact_name' => 'setContactName',
         'email' => 'setEmail',
         'phone' => 'setPhone',
         'website' => 'setWebsite',
@@ -231,6 +236,7 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $getters = [
         'name' => 'getName',
         'legal_name' => 'getLegalName',
+        'contact_name' => 'getContactName',
         'email' => 'getEmail',
         'phone' => 'getPhone',
         'website' => 'getWebsite',
@@ -300,6 +306,7 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('legal_name', $data ?? [], null);
+        $this->setIfExists('contact_name', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone', $data ?? [], null);
         $this->setIfExists('website', $data ?? [], null);
@@ -412,6 +419,40 @@ class DocumentPartyInput implements ModelInterface, ArrayAccess, \JsonSerializab
             }
         }
         $this->container['legal_name'] = $legal_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets contact_name
+     *
+     * @return string|null
+     */
+    public function getContactName()
+    {
+        return $this->container['contact_name'];
+    }
+
+    /**
+     * Sets contact_name
+     *
+     * @param string|null $contact_name contact_name
+     *
+     * @return self
+     */
+    public function setContactName($contact_name)
+    {
+        if (is_null($contact_name)) {
+            array_push($this->openAPINullablesSetToNull, 'contact_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('contact_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['contact_name'] = $contact_name;
 
         return $this;
     }

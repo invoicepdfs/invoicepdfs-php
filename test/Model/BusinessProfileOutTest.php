@@ -98,6 +98,15 @@ class BusinessProfileOutTest extends TestCase
     }
 
     /**
+     * Test attribute "contact_name"
+     */
+    public function testPropertyContactName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "email"
      */
     public function testPropertyEmail()
@@ -137,6 +146,15 @@ class BusinessProfileOutTest extends TestCase
      * Test attribute "address"
      */
     public function testPropertyAddress()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "bank_account"
+     */
+    public function testPropertyBankAccount()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

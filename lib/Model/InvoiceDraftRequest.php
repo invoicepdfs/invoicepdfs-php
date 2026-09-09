@@ -67,6 +67,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'customer_id' => 'string',
         'ship_to' => '\InvoicePDFs\Model\PostalAddress',
         'buyer_reference' => 'string',
+        'delivery_date' => '\DateTime',
         'preceding_invoice_number' => 'string',
         'line_items' => '\InvoicePDFs\Model\InvoiceLineItemInput[]',
         'discounts' => '\InvoicePDFs\Model\InvoiceDiscountInput[]',
@@ -96,6 +97,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'customer_id' => null,
         'ship_to' => null,
         'buyer_reference' => null,
+        'delivery_date' => 'date',
         'preceding_invoice_number' => null,
         'line_items' => null,
         'discounts' => null,
@@ -123,6 +125,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'customer_id' => false,
         'ship_to' => true,
         'buyer_reference' => true,
+        'delivery_date' => true,
         'preceding_invoice_number' => true,
         'line_items' => false,
         'discounts' => false,
@@ -230,6 +233,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'customer_id' => 'customer_id',
         'ship_to' => 'ship_to',
         'buyer_reference' => 'buyer_reference',
+        'delivery_date' => 'delivery_date',
         'preceding_invoice_number' => 'preceding_invoice_number',
         'line_items' => 'line_items',
         'discounts' => 'discounts',
@@ -257,6 +261,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'customer_id' => 'setCustomerId',
         'ship_to' => 'setShipTo',
         'buyer_reference' => 'setBuyerReference',
+        'delivery_date' => 'setDeliveryDate',
         'preceding_invoice_number' => 'setPrecedingInvoiceNumber',
         'line_items' => 'setLineItems',
         'discounts' => 'setDiscounts',
@@ -284,6 +289,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'customer_id' => 'getCustomerId',
         'ship_to' => 'getShipTo',
         'buyer_reference' => 'getBuyerReference',
+        'delivery_date' => 'getDeliveryDate',
         'preceding_invoice_number' => 'getPrecedingInvoiceNumber',
         'line_items' => 'getLineItems',
         'discounts' => 'getDiscounts',
@@ -389,6 +395,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('customer_id', $data ?? [], null);
         $this->setIfExists('ship_to', $data ?? [], null);
         $this->setIfExists('buyer_reference', $data ?? [], null);
+        $this->setIfExists('delivery_date', $data ?? [], null);
         $this->setIfExists('preceding_invoice_number', $data ?? [], null);
         $this->setIfExists('line_items', $data ?? [], null);
         $this->setIfExists('discounts', $data ?? [], null);
@@ -773,6 +780,40 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['buyer_reference'] = $buyer_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_date
+     *
+     * @return \DateTime|null
+     */
+    public function getDeliveryDate()
+    {
+        return $this->container['delivery_date'];
+    }
+
+    /**
+     * Sets delivery_date
+     *
+     * @param \DateTime|null $delivery_date delivery_date
+     *
+     * @return self
+     */
+    public function setDeliveryDate($delivery_date)
+    {
+        if (is_null($delivery_date)) {
+            array_push($this->openAPINullablesSetToNull, 'delivery_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('delivery_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['delivery_date'] = $delivery_date;
 
         return $this;
     }

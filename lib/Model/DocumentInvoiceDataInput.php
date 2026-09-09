@@ -64,6 +64,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'seller' => '\InvoicePDFs\Model\DocumentPartyInput',
         'buyer' => '\InvoicePDFs\Model\DocumentPartyInput',
         'ship_to' => '\InvoicePDFs\Model\DocumentPartyInput',
+        'delivery_date' => '\DateTime',
         'buyer_reference' => 'string',
         'preceding_invoice_number' => 'string',
         'line_items' => '\InvoicePDFs\Model\DocumentLineItemInput[]',
@@ -89,6 +90,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'seller' => null,
         'buyer' => null,
         'ship_to' => null,
+        'delivery_date' => 'date',
         'buyer_reference' => null,
         'preceding_invoice_number' => null,
         'line_items' => null,
@@ -112,6 +114,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'seller' => false,
         'buyer' => false,
         'ship_to' => true,
+        'delivery_date' => true,
         'buyer_reference' => true,
         'preceding_invoice_number' => true,
         'line_items' => false,
@@ -215,6 +218,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'seller' => 'seller',
         'buyer' => 'buyer',
         'ship_to' => 'ship_to',
+        'delivery_date' => 'delivery_date',
         'buyer_reference' => 'buyer_reference',
         'preceding_invoice_number' => 'preceding_invoice_number',
         'line_items' => 'line_items',
@@ -238,6 +242,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'seller' => 'setSeller',
         'buyer' => 'setBuyer',
         'ship_to' => 'setShipTo',
+        'delivery_date' => 'setDeliveryDate',
         'buyer_reference' => 'setBuyerReference',
         'preceding_invoice_number' => 'setPrecedingInvoiceNumber',
         'line_items' => 'setLineItems',
@@ -261,6 +266,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         'seller' => 'getSeller',
         'buyer' => 'getBuyer',
         'ship_to' => 'getShipTo',
+        'delivery_date' => 'getDeliveryDate',
         'buyer_reference' => 'getBuyerReference',
         'preceding_invoice_number' => 'getPrecedingInvoiceNumber',
         'line_items' => 'getLineItems',
@@ -335,6 +341,7 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('seller', $data ?? [], null);
         $this->setIfExists('buyer', $data ?? [], null);
         $this->setIfExists('ship_to', $data ?? [], null);
+        $this->setIfExists('delivery_date', $data ?? [], null);
         $this->setIfExists('buyer_reference', $data ?? [], null);
         $this->setIfExists('preceding_invoice_number', $data ?? [], null);
         $this->setIfExists('line_items', $data ?? [], null);
@@ -604,6 +611,40 @@ class DocumentInvoiceDataInput implements ModelInterface, ArrayAccess, \JsonSeri
             }
         }
         $this->container['ship_to'] = $ship_to;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_date
+     *
+     * @return \DateTime|null
+     */
+    public function getDeliveryDate()
+    {
+        return $this->container['delivery_date'];
+    }
+
+    /**
+     * Sets delivery_date
+     *
+     * @param \DateTime|null $delivery_date delivery_date
+     *
+     * @return self
+     */
+    public function setDeliveryDate($delivery_date)
+    {
+        if (is_null($delivery_date)) {
+            array_push($this->openAPINullablesSetToNull, 'delivery_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('delivery_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['delivery_date'] = $delivery_date;
 
         return $this;
     }

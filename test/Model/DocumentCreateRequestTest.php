@@ -188,6 +188,15 @@ class DocumentCreateRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "delivery_date"
+     */
+    public function testPropertyDeliveryDate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "line_items"
      */
     public function testPropertyLineItems()
