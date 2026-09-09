@@ -107,6 +107,24 @@ class ComplianceCheckOutTest extends TestCase
     }
 
     /**
+     * Test attribute "fully_checked"
+     */
+    public function testPropertyFullyChecked()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "rulesets"
+     */
+    public function testPropertyRulesets()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "violations"
      */
     public function testPropertyViolations()

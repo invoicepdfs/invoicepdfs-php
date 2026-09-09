@@ -1,6 +1,6 @@
 <?php
 /**
- * ComplianceViolationOut
+ * ComplianceRulesetOut
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \InvoicePDFs\ObjectSerializer;
 
 /**
- * ComplianceViolationOut Class Doc Comment
+ * ComplianceRulesetOut Class Doc Comment
  *
  * @category Class
+ * @description One ruleset the document was held to, and whether it actually ran.
  * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ComplianceViolationOut implements ModelInterface, ArrayAccess, \JsonSerializable
+class ComplianceRulesetOut implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class ComplianceViolationOut implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ComplianceViolationOut';
+    protected static $openAPIModelName = 'ComplianceRulesetOut';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +58,11 @@ class ComplianceViolationOut implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'rule' => 'string',
-        'path' => 'string',
-        'message' => 'string',
-        'severity' => 'string',
-        'ruleset' => 'string'
+        'id' => 'string',
+        'label' => 'string',
+        'version' => 'string',
+        'ran' => 'bool',
+        'reason' => 'string'
     ];
 
     /**
@@ -72,11 +73,11 @@ class ComplianceViolationOut implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'rule' => null,
-        'path' => null,
-        'message' => null,
-        'severity' => null,
-        'ruleset' => null
+        'id' => null,
+        'label' => null,
+        'version' => null,
+        'ran' => null,
+        'reason' => null
     ];
 
     /**
@@ -85,11 +86,11 @@ class ComplianceViolationOut implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'rule' => false,
-        'path' => false,
-        'message' => false,
-        'severity' => false,
-        'ruleset' => false
+        'id' => false,
+        'label' => false,
+        'version' => false,
+        'ran' => false,
+        'reason' => true
     ];
 
     /**
@@ -178,11 +179,11 @@ class ComplianceViolationOut implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'rule' => 'rule',
-        'path' => 'path',
-        'message' => 'message',
-        'severity' => 'severity',
-        'ruleset' => 'ruleset'
+        'id' => 'id',
+        'label' => 'label',
+        'version' => 'version',
+        'ran' => 'ran',
+        'reason' => 'reason'
     ];
 
     /**
@@ -191,11 +192,11 @@ class ComplianceViolationOut implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'rule' => 'setRule',
-        'path' => 'setPath',
-        'message' => 'setMessage',
-        'severity' => 'setSeverity',
-        'ruleset' => 'setRuleset'
+        'id' => 'setId',
+        'label' => 'setLabel',
+        'version' => 'setVersion',
+        'ran' => 'setRan',
+        'reason' => 'setReason'
     ];
 
     /**
@@ -204,11 +205,11 @@ class ComplianceViolationOut implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'rule' => 'getRule',
-        'path' => 'getPath',
-        'message' => 'getMessage',
-        'severity' => 'getSeverity',
-        'ruleset' => 'getRuleset'
+        'id' => 'getId',
+        'label' => 'getLabel',
+        'version' => 'getVersion',
+        'ran' => 'getRan',
+        'reason' => 'getReason'
     ];
 
     /**
@@ -268,11 +269,11 @@ class ComplianceViolationOut implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('rule', $data ?? [], null);
-        $this->setIfExists('path', $data ?? [], null);
-        $this->setIfExists('message', $data ?? [], null);
-        $this->setIfExists('severity', $data ?? [], 'fatal');
-        $this->setIfExists('ruleset', $data ?? [], 'semantic');
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('label', $data ?? [], null);
+        $this->setIfExists('version', $data ?? [], '');
+        $this->setIfExists('ran', $data ?? [], null);
+        $this->setIfExists('reason', $data ?? [], null);
     }
 
     /**
@@ -302,14 +303,14 @@ class ComplianceViolationOut implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['rule'] === null) {
-            $invalidProperties[] = "'rule' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['path'] === null) {
-            $invalidProperties[] = "'path' can't be null";
+        if ($this->container['label'] === null) {
+            $invalidProperties[] = "'label' can't be null";
         }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['ran'] === null) {
+            $invalidProperties[] = "'ran' can't be null";
         }
         return $invalidProperties;
     }
@@ -327,136 +328,143 @@ class ComplianceViolationOut implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets rule
+     * Gets id
      *
      * @return string
      */
-    public function getRule()
+    public function getId()
     {
-        return $this->container['rule'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets rule
+     * Sets id
      *
-     * @param string $rule The identifier the standard uses — a business term from the mandatory-field check, a rule id from Schematron. A rule id is what a rejection notice from an access point quotes.
+     * @param string $id id
      *
      * @return self
      */
-    public function setRule($rule)
+    public function setId($id)
     {
-        if (is_null($rule)) {
-            throw new \InvalidArgumentException('non-nullable rule cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['rule'] = $rule;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets path
+     * Gets label
      *
      * @return string
      */
-    public function getPath()
+    public function getLabel()
     {
-        return $this->container['path'];
+        return $this->container['label'];
     }
 
     /**
-     * Sets path
+     * Sets label
      *
-     * @param string $path Where the problem is. The mandatory-field check names a field of the request; Schematron names the node in the generated XML.
+     * @param string $label label
      *
      * @return self
      */
-    public function setPath($path)
+    public function setLabel($label)
     {
-        if (is_null($path)) {
-            throw new \InvalidArgumentException('non-nullable path cannot be null');
+        if (is_null($label)) {
+            throw new \InvalidArgumentException('non-nullable label cannot be null');
         }
-        $this->container['path'] = $path;
+        $this->container['label'] = $label;
 
         return $this;
     }
 
     /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message message
-     *
-     * @return self
-     */
-    public function setMessage($message)
-    {
-        if (is_null($message)) {
-            throw new \InvalidArgumentException('non-nullable message cannot be null');
-        }
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets severity
+     * Gets version
      *
      * @return string|null
      */
-    public function getSeverity()
+    public function getVersion()
     {
-        return $this->container['severity'];
+        return $this->container['version'];
     }
 
     /**
-     * Sets severity
+     * Sets version
      *
-     * @param string|null $severity `fatal` would get the document rejected. `warning` is a recommendation — both EN 16931 and Peppol grade a large share of their rules as advisory, and `valid` ignores those.
+     * @param string|null $version The upstream release of the rules. Empty for checks with no version of their own.
      *
      * @return self
      */
-    public function setSeverity($severity)
+    public function setVersion($version)
     {
-        if (is_null($severity)) {
-            throw new \InvalidArgumentException('non-nullable severity cannot be null');
+        if (is_null($version)) {
+            throw new \InvalidArgumentException('non-nullable version cannot be null');
         }
-        $this->container['severity'] = $severity;
+        $this->container['version'] = $version;
 
         return $this;
     }
 
     /**
-     * Gets ruleset
+     * Gets ran
      *
-     * @return string|null
+     * @return bool
      */
-    public function getRuleset()
+    public function getRan()
     {
-        return $this->container['ruleset'];
+        return $this->container['ran'];
     }
 
     /**
-     * Sets ruleset
+     * Sets ran
      *
-     * @param string|null $ruleset Which ruleset found it — matches an `id` in `rulesets`.
+     * @param bool $ran False when this ruleset could not be run at all. A ruleset that did not run is not a pass — `valid` only reports what was checked.
      *
      * @return self
      */
-    public function setRuleset($ruleset)
+    public function setRan($ran)
     {
-        if (is_null($ruleset)) {
-            throw new \InvalidArgumentException('non-nullable ruleset cannot be null');
+        if (is_null($ran)) {
+            throw new \InvalidArgumentException('non-nullable ran cannot be null');
         }
-        $this->container['ruleset'] = $ruleset;
+        $this->container['ran'] = $ran;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string|null
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string|null $reason reason
+     *
+     * @return self
+     */
+    public function setReason($reason)
+    {
+        if (is_null($reason)) {
+            array_push($this->openAPINullablesSetToNull, 'reason');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reason', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['reason'] = $reason;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * ComplianceViolationOutTest
+ * ComplianceRulesetOutTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace InvoicePDFs\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ComplianceViolationOutTest Class Doc Comment
+ * ComplianceRulesetOutTest Class Doc Comment
  *
  * @category    Class
- * @description ComplianceViolationOut
+ * @description One ruleset the document was held to, and whether it actually ran.
  * @package     InvoicePDFs
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ComplianceViolationOutTest extends TestCase
+class ComplianceRulesetOutTest extends TestCase
 {
 
     /**
@@ -71,54 +71,54 @@ class ComplianceViolationOutTest extends TestCase
     }
 
     /**
-     * Test "ComplianceViolationOut"
+     * Test "ComplianceRulesetOut"
      */
-    public function testComplianceViolationOut()
+    public function testComplianceRulesetOut()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "rule"
+     * Test attribute "id"
      */
-    public function testPropertyRule()
+    public function testPropertyId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "path"
+     * Test attribute "label"
      */
-    public function testPropertyPath()
+    public function testPropertyLabel()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "message"
+     * Test attribute "version"
      */
-    public function testPropertyMessage()
+    public function testPropertyVersion()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "severity"
+     * Test attribute "ran"
      */
-    public function testPropertySeverity()
+    public function testPropertyRan()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "ruleset"
+     * Test attribute "reason"
      */
-    public function testPropertyRuleset()
+    public function testPropertyReason()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

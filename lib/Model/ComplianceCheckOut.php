@@ -60,6 +60,8 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'profile' => 'string',
         'ruleset_version' => 'string',
         'valid' => 'bool',
+        'fully_checked' => 'bool',
+        'rulesets' => '\InvoicePDFs\Model\ComplianceRulesetOut[]',
         'violations' => '\InvoicePDFs\Model\ComplianceViolationOut[]'
     ];
 
@@ -74,6 +76,8 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'profile' => null,
         'ruleset_version' => null,
         'valid' => null,
+        'fully_checked' => null,
+        'rulesets' => null,
         'violations' => null
     ];
 
@@ -86,6 +90,8 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'profile' => false,
         'ruleset_version' => false,
         'valid' => false,
+        'fully_checked' => false,
+        'rulesets' => false,
         'violations' => false
     ];
 
@@ -178,6 +184,8 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'profile' => 'profile',
         'ruleset_version' => 'ruleset_version',
         'valid' => 'valid',
+        'fully_checked' => 'fully_checked',
+        'rulesets' => 'rulesets',
         'violations' => 'violations'
     ];
 
@@ -190,6 +198,8 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'profile' => 'setProfile',
         'ruleset_version' => 'setRulesetVersion',
         'valid' => 'setValid',
+        'fully_checked' => 'setFullyChecked',
+        'rulesets' => 'setRulesets',
         'violations' => 'setViolations'
     ];
 
@@ -202,6 +212,8 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'profile' => 'getProfile',
         'ruleset_version' => 'getRulesetVersion',
         'valid' => 'getValid',
+        'fully_checked' => 'getFullyChecked',
+        'rulesets' => 'getRulesets',
         'violations' => 'getViolations'
     ];
 
@@ -265,6 +277,8 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('profile', $data ?? [], null);
         $this->setIfExists('ruleset_version', $data ?? [], null);
         $this->setIfExists('valid', $data ?? [], null);
+        $this->setIfExists('fully_checked', $data ?? [], true);
+        $this->setIfExists('rulesets', $data ?? [], null);
         $this->setIfExists('violations', $data ?? [], null);
     }
 
@@ -359,7 +373,7 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets ruleset_version
      *
-     * @param string $ruleset_version The version these rules came from. Worth recording alongside any document you file — rulesets revise, and 'which rules did this pass?' is what an audit asks years later.
+     * @param string $ruleset_version The version these rules came from. Worth recording alongside any document you file — rulesets revise, and 'which rules did this pass?' is what an audit asks years later. `rulesets` breaks the same answer down per ruleset.
      *
      * @return self
      */
@@ -386,7 +400,7 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets valid
      *
-     * @param bool $valid valid
+     * @param bool $valid Nothing fatal was found. Read it with `fully_checked` — on its own it says what was checked came back clean, not that everything was checked.
      *
      * @return self
      */
@@ -396,6 +410,60 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable valid cannot be null');
         }
         $this->container['valid'] = $valid;
+
+        return $this;
+    }
+
+    /**
+     * Gets fully_checked
+     *
+     * @return bool|null
+     */
+    public function getFullyChecked()
+    {
+        return $this->container['fully_checked'];
+    }
+
+    /**
+     * Sets fully_checked
+     *
+     * @param bool|null $fully_checked Every ruleset that applies to this profile ran. False means at least one could not, and `rulesets` says which and why.
+     *
+     * @return self
+     */
+    public function setFullyChecked($fully_checked)
+    {
+        if (is_null($fully_checked)) {
+            throw new \InvalidArgumentException('non-nullable fully_checked cannot be null');
+        }
+        $this->container['fully_checked'] = $fully_checked;
+
+        return $this;
+    }
+
+    /**
+     * Gets rulesets
+     *
+     * @return \InvoicePDFs\Model\ComplianceRulesetOut[]|null
+     */
+    public function getRulesets()
+    {
+        return $this->container['rulesets'];
+    }
+
+    /**
+     * Sets rulesets
+     *
+     * @param \InvoicePDFs\Model\ComplianceRulesetOut[]|null $rulesets Every ruleset the document was held to, including the mandatory-field check, at the version that ran.
+     *
+     * @return self
+     */
+    public function setRulesets($rulesets)
+    {
+        if (is_null($rulesets)) {
+            throw new \InvalidArgumentException('non-nullable rulesets cannot be null');
+        }
+        $this->container['rulesets'] = $rulesets;
 
         return $this;
     }
@@ -413,7 +481,7 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets violations
      *
-     * @param \InvoicePDFs\Model\ComplianceViolationOut[]|null $violations Every violation found, not the first — fixing one field per round trip is the experience this avoids.
+     * @param \InvoicePDFs\Model\ComplianceViolationOut[]|null $violations Every violation found, not the first — fixing one field per round trip is the experience this avoids. Ordered mandatory-field findings first, since those name a field you can go and change.
      *
      * @return self
      */
