@@ -60,6 +60,7 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'profile' => 'string',
         'ruleset_version' => 'string',
         'valid' => 'bool',
+        'in_scope' => 'bool',
         'fully_checked' => 'bool',
         'rulesets' => '\InvoicePDFs\Model\ComplianceRulesetOut[]',
         'violations' => '\InvoicePDFs\Model\ComplianceViolationOut[]'
@@ -76,6 +77,7 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'profile' => null,
         'ruleset_version' => null,
         'valid' => null,
+        'in_scope' => null,
         'fully_checked' => null,
         'rulesets' => null,
         'violations' => null
@@ -90,6 +92,7 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'profile' => false,
         'ruleset_version' => false,
         'valid' => false,
+        'in_scope' => false,
         'fully_checked' => false,
         'rulesets' => false,
         'violations' => false
@@ -184,6 +187,7 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'profile' => 'profile',
         'ruleset_version' => 'ruleset_version',
         'valid' => 'valid',
+        'in_scope' => 'in_scope',
         'fully_checked' => 'fully_checked',
         'rulesets' => 'rulesets',
         'violations' => 'violations'
@@ -198,6 +202,7 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'profile' => 'setProfile',
         'ruleset_version' => 'setRulesetVersion',
         'valid' => 'setValid',
+        'in_scope' => 'setInScope',
         'fully_checked' => 'setFullyChecked',
         'rulesets' => 'setRulesets',
         'violations' => 'setViolations'
@@ -212,6 +217,7 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'profile' => 'getProfile',
         'ruleset_version' => 'getRulesetVersion',
         'valid' => 'getValid',
+        'in_scope' => 'getInScope',
         'fully_checked' => 'getFullyChecked',
         'rulesets' => 'getRulesets',
         'violations' => 'getViolations'
@@ -277,6 +283,7 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('profile', $data ?? [], null);
         $this->setIfExists('ruleset_version', $data ?? [], null);
         $this->setIfExists('valid', $data ?? [], null);
+        $this->setIfExists('in_scope', $data ?? [], true);
         $this->setIfExists('fully_checked', $data ?? [], true);
         $this->setIfExists('rulesets', $data ?? [], null);
         $this->setIfExists('violations', $data ?? [], null);
@@ -410,6 +417,33 @@ class ComplianceCheckOut implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable valid cannot be null');
         }
         $this->container['valid'] = $valid;
+
+        return $this;
+    }
+
+    /**
+     * Gets in_scope
+     *
+     * @return bool|null
+     */
+    public function getInScope()
+    {
+        return $this->container['in_scope'];
+    }
+
+    /**
+     * Sets in_scope
+     *
+     * @param bool|null $in_scope Whether any of these rulesets is likely to apply to this document at all. False when neither party is in a country that uses one — these are European e-invoicing rulesets, and for a wholly domestic US invoice, say, `valid` is answering a question nobody asked. Advisory: it never changes the verdict or withholds the check, because an open network means a US seller invoicing a Dutch buyer genuinely needs it.
+     *
+     * @return self
+     */
+    public function setInScope($in_scope)
+    {
+        if (is_null($in_scope)) {
+            throw new \InvalidArgumentException('non-nullable in_scope cannot be null');
+        }
+        $this->container['in_scope'] = $in_scope;
 
         return $this;
     }

@@ -107,6 +107,15 @@ class ComplianceCheckOutTest extends TestCase
     }
 
     /**
+     * Test attribute "in_scope"
+     */
+    public function testPropertyInScope()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "fully_checked"
      */
     public function testPropertyFullyChecked()

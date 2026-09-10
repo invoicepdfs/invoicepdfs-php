@@ -67,6 +67,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'customer_id' => 'string',
         'ship_to' => '\InvoicePDFs\Model\PostalAddress',
         'buyer_reference' => 'string',
+        'tax_scheme' => 'string',
         'delivery_date' => '\DateTime',
         'preceding_invoice_number' => 'string',
         'line_items' => '\InvoicePDFs\Model\InvoiceLineItemInput[]',
@@ -97,6 +98,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'customer_id' => null,
         'ship_to' => null,
         'buyer_reference' => null,
+        'tax_scheme' => null,
         'delivery_date' => 'date',
         'preceding_invoice_number' => null,
         'line_items' => null,
@@ -125,6 +127,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'customer_id' => false,
         'ship_to' => true,
         'buyer_reference' => true,
+        'tax_scheme' => true,
         'delivery_date' => true,
         'preceding_invoice_number' => true,
         'line_items' => false,
@@ -233,6 +236,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'customer_id' => 'customer_id',
         'ship_to' => 'ship_to',
         'buyer_reference' => 'buyer_reference',
+        'tax_scheme' => 'tax_scheme',
         'delivery_date' => 'delivery_date',
         'preceding_invoice_number' => 'preceding_invoice_number',
         'line_items' => 'line_items',
@@ -261,6 +265,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'customer_id' => 'setCustomerId',
         'ship_to' => 'setShipTo',
         'buyer_reference' => 'setBuyerReference',
+        'tax_scheme' => 'setTaxScheme',
         'delivery_date' => 'setDeliveryDate',
         'preceding_invoice_number' => 'setPrecedingInvoiceNumber',
         'line_items' => 'setLineItems',
@@ -289,6 +294,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'customer_id' => 'getCustomerId',
         'ship_to' => 'getShipTo',
         'buyer_reference' => 'getBuyerReference',
+        'tax_scheme' => 'getTaxScheme',
         'delivery_date' => 'getDeliveryDate',
         'preceding_invoice_number' => 'getPrecedingInvoiceNumber',
         'line_items' => 'getLineItems',
@@ -395,6 +401,7 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('customer_id', $data ?? [], null);
         $this->setIfExists('ship_to', $data ?? [], null);
         $this->setIfExists('buyer_reference', $data ?? [], null);
+        $this->setIfExists('tax_scheme', $data ?? [], null);
         $this->setIfExists('delivery_date', $data ?? [], null);
         $this->setIfExists('preceding_invoice_number', $data ?? [], null);
         $this->setIfExists('line_items', $data ?? [], null);
@@ -780,6 +787,40 @@ class InvoiceDraftRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['buyer_reference'] = $buyer_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_scheme
+     *
+     * @return string|null
+     */
+    public function getTaxScheme()
+    {
+        return $this->container['tax_scheme'];
+    }
+
+    /**
+     * Sets tax_scheme
+     *
+     * @param string|null $tax_scheme tax_scheme
+     *
+     * @return self
+     */
+    public function setTaxScheme($tax_scheme)
+    {
+        if (is_null($tax_scheme)) {
+            array_push($this->openAPINullablesSetToNull, 'tax_scheme');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tax_scheme', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['tax_scheme'] = $tax_scheme;
 
         return $this;
     }

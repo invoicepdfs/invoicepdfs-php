@@ -69,6 +69,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'reason' => 'string',
         'ship_to' => '\InvoicePDFs\Model\PostalAddress',
         'buyer_reference' => 'string',
+        'tax_scheme' => 'string',
         'delivery_date' => '\DateTime',
         'line_items' => '\InvoicePDFs\Model\StandardLineItemInput[]',
         'discounts' => '\InvoicePDFs\Model\LineItemDiscountInput[]',
@@ -100,6 +101,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'reason' => null,
         'ship_to' => null,
         'buyer_reference' => null,
+        'tax_scheme' => null,
         'delivery_date' => 'date',
         'line_items' => null,
         'discounts' => null,
@@ -129,6 +131,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'reason' => true,
         'ship_to' => true,
         'buyer_reference' => true,
+        'tax_scheme' => true,
         'delivery_date' => true,
         'line_items' => true,
         'discounts' => true,
@@ -238,6 +241,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'reason' => 'reason',
         'ship_to' => 'ship_to',
         'buyer_reference' => 'buyer_reference',
+        'tax_scheme' => 'tax_scheme',
         'delivery_date' => 'delivery_date',
         'line_items' => 'line_items',
         'discounts' => 'discounts',
@@ -267,6 +271,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'reason' => 'setReason',
         'ship_to' => 'setShipTo',
         'buyer_reference' => 'setBuyerReference',
+        'tax_scheme' => 'setTaxScheme',
         'delivery_date' => 'setDeliveryDate',
         'line_items' => 'setLineItems',
         'discounts' => 'setDiscounts',
@@ -296,6 +301,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'reason' => 'getReason',
         'ship_to' => 'getShipTo',
         'buyer_reference' => 'getBuyerReference',
+        'tax_scheme' => 'getTaxScheme',
         'delivery_date' => 'getDeliveryDate',
         'line_items' => 'getLineItems',
         'discounts' => 'getDiscounts',
@@ -403,6 +409,7 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->setIfExists('reason', $data ?? [], null);
         $this->setIfExists('ship_to', $data ?? [], null);
         $this->setIfExists('buyer_reference', $data ?? [], null);
+        $this->setIfExists('tax_scheme', $data ?? [], null);
         $this->setIfExists('delivery_date', $data ?? [], null);
         $this->setIfExists('line_items', $data ?? [], null);
         $this->setIfExists('discounts', $data ?? [], null);
@@ -894,6 +901,40 @@ class DocumentPatchRequest implements ModelInterface, ArrayAccess, \JsonSerializ
             }
         }
         $this->container['buyer_reference'] = $buyer_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets tax_scheme
+     *
+     * @return string|null
+     */
+    public function getTaxScheme()
+    {
+        return $this->container['tax_scheme'];
+    }
+
+    /**
+     * Sets tax_scheme
+     *
+     * @param string|null $tax_scheme tax_scheme
+     *
+     * @return self
+     */
+    public function setTaxScheme($tax_scheme)
+    {
+        if (is_null($tax_scheme)) {
+            array_push($this->openAPINullablesSetToNull, 'tax_scheme');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tax_scheme', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['tax_scheme'] = $tax_scheme;
 
         return $this;
     }

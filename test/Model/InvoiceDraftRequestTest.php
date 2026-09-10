@@ -170,6 +170,15 @@ class InvoiceDraftRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "tax_scheme"
+     */
+    public function testPropertyTaxScheme()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "delivery_date"
      */
     public function testPropertyDeliveryDate()
