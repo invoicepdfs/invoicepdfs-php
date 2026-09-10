@@ -2782,6 +2782,7 @@ class TemplatesApi
      *
      * @param  string $template_id template_id (required)
      * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request document_render_request (required)
+     * @param  int $version Preview the config this version recorded rather than the template&#39;s current config. Only a custom (&#x60;ctpl_&#x60;) template has versions. (optional)
      * @param  string $idempotency_key idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplate'] to see the possible values for this operation
      *
@@ -2789,9 +2790,9 @@ class TemplatesApi
      * @throws \InvalidArgumentException
      * @return \InvoicePDFs\Model\RenderResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function previewTemplate($template_id, $document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
+    public function previewTemplate($template_id, $document_render_request, $version = null, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
     {
-        list($response) = $this->previewTemplateWithHttpInfo($template_id, $document_render_request, $idempotency_key, $contentType);
+        list($response) = $this->previewTemplateWithHttpInfo($template_id, $document_render_request, $version, $idempotency_key, $contentType);
         return $response;
     }
 
@@ -2802,6 +2803,7 @@ class TemplatesApi
      *
      * @param  string $template_id (required)
      * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
+     * @param  int $version Preview the config this version recorded rather than the template&#39;s current config. Only a custom (&#x60;ctpl_&#x60;) template has versions. (optional)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplate'] to see the possible values for this operation
      *
@@ -2809,9 +2811,9 @@ class TemplatesApi
      * @throws \InvalidArgumentException
      * @return array of \InvoicePDFs\Model\RenderResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function previewTemplateWithHttpInfo($template_id, $document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
+    public function previewTemplateWithHttpInfo($template_id, $document_render_request, $version = null, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
     {
-        $request = $this->previewTemplateRequest($template_id, $document_render_request, $idempotency_key, $contentType);
+        $request = $this->previewTemplateRequest($template_id, $document_render_request, $version, $idempotency_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2963,15 +2965,16 @@ class TemplatesApi
      *
      * @param  string $template_id (required)
      * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
+     * @param  int $version Preview the config this version recorded rather than the template&#39;s current config. Only a custom (&#x60;ctpl_&#x60;) template has versions. (optional)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewTemplateAsync($template_id, $document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
+    public function previewTemplateAsync($template_id, $document_render_request, $version = null, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
     {
-        return $this->previewTemplateAsyncWithHttpInfo($template_id, $document_render_request, $idempotency_key, $contentType)
+        return $this->previewTemplateAsyncWithHttpInfo($template_id, $document_render_request, $version, $idempotency_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2986,16 +2989,17 @@ class TemplatesApi
      *
      * @param  string $template_id (required)
      * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
+     * @param  int $version Preview the config this version recorded rather than the template&#39;s current config. Only a custom (&#x60;ctpl_&#x60;) template has versions. (optional)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function previewTemplateAsyncWithHttpInfo($template_id, $document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
+    public function previewTemplateAsyncWithHttpInfo($template_id, $document_render_request, $version = null, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
     {
         $returnType = '\InvoicePDFs\Model\RenderResponse';
-        $request = $this->previewTemplateRequest($template_id, $document_render_request, $idempotency_key, $contentType);
+        $request = $this->previewTemplateRequest($template_id, $document_render_request, $version, $idempotency_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3038,13 +3042,14 @@ class TemplatesApi
      *
      * @param  string $template_id (required)
      * @param  \InvoicePDFs\Model\DocumentRenderRequest $document_render_request (required)
+     * @param  int $version Preview the config this version recorded rather than the template&#39;s current config. Only a custom (&#x60;ctpl_&#x60;) template has versions. (optional)
      * @param  string $idempotency_key (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['previewTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function previewTemplateRequest($template_id, $document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
+    public function previewTemplateRequest($template_id, $document_render_request, $version = null, $idempotency_key = null, string $contentType = self::contentTypes['previewTemplate'][0])
     {
 
         // verify the required parameter 'template_id' is set
@@ -3061,6 +3066,10 @@ class TemplatesApi
             );
         }
 
+        if ($version !== null && $version < 1) {
+            throw new \InvalidArgumentException('invalid value for "$version" when calling TemplatesApi.previewTemplate, must be bigger than or equal to 1.');
+        }
+        
 
 
         $resourcePath = '/api/v1/templates/{template_id}/preview';
@@ -3070,6 +3079,15 @@ class TemplatesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $version,
+            'version', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
         // header params
         if ($idempotency_key !== null) {

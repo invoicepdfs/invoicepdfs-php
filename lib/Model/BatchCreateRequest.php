@@ -60,6 +60,7 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'operation' => 'string',
         'items' => '\InvoicePDFs\Model\BatchItemInput[]',
         'template_id' => 'string',
+        'template_version' => 'int',
         'output' => '\InvoicePDFs\Model\BatchOutputOptions'
     ];
 
@@ -74,6 +75,7 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'operation' => null,
         'items' => null,
         'template_id' => null,
+        'template_version' => null,
         'output' => null
     ];
 
@@ -86,6 +88,7 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'operation' => false,
         'items' => false,
         'template_id' => false,
+        'template_version' => true,
         'output' => false
     ];
 
@@ -178,6 +181,7 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'operation' => 'operation',
         'items' => 'items',
         'template_id' => 'template_id',
+        'template_version' => 'template_version',
         'output' => 'output'
     ];
 
@@ -190,6 +194,7 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'operation' => 'setOperation',
         'items' => 'setItems',
         'template_id' => 'setTemplateId',
+        'template_version' => 'setTemplateVersion',
         'output' => 'setOutput'
     ];
 
@@ -202,6 +207,7 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         'operation' => 'getOperation',
         'items' => 'getItems',
         'template_id' => 'getTemplateId',
+        'template_version' => 'getTemplateVersion',
         'output' => 'getOutput'
     ];
 
@@ -278,6 +284,7 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('operation', $data ?? [], 'render');
         $this->setIfExists('items', $data ?? [], null);
         $this->setIfExists('template_id', $data ?? [], 'tpl_modern');
+        $this->setIfExists('template_version', $data ?? [], null);
         $this->setIfExists('output', $data ?? [], null);
     }
 
@@ -326,6 +333,10 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
         if ((count($this->container['items']) < 1)) {
             $invalidProperties[] = "invalid value for 'items', number of items must be greater than or equal to 1.";
+        }
+
+        if (!is_null($this->container['template_version']) && ($this->container['template_version'] < 1)) {
+            $invalidProperties[] = "invalid value for 'template_version', must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -437,6 +448,45 @@ class BatchCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable template_id cannot be null');
         }
         $this->container['template_id'] = $template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_version
+     *
+     * @return int|null
+     */
+    public function getTemplateVersion()
+    {
+        return $this->container['template_version'];
+    }
+
+    /**
+     * Sets template_version
+     *
+     * @param int|null $template_version template_version
+     *
+     * @return self
+     */
+    public function setTemplateVersion($template_version)
+    {
+        if (is_null($template_version)) {
+            array_push($this->openAPINullablesSetToNull, 'template_version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('template_version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($template_version) && ($template_version < 1)) {
+            throw new \InvalidArgumentException('invalid value for $template_version when calling BatchCreateRequest., must be bigger than or equal to 1.');
+        }
+
+        $this->container['template_version'] = $template_version;
 
         return $this;
     }

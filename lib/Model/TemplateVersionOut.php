@@ -62,7 +62,7 @@ class TemplateVersionOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'version' => 'int',
         'label' => 'string',
         'changelog' => 'string',
-        'config' => 'array<string,mixed>',
+        'config' => '\InvoicePDFs\Model\TemplateConfig',
         'created_at' => 'string'
     ];
 
@@ -498,7 +498,7 @@ class TemplateVersionOut implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets config
      *
-     * @return array<string,mixed>
+     * @return \InvoicePDFs\Model\TemplateConfig
      */
     public function getConfig()
     {
@@ -508,7 +508,7 @@ class TemplateVersionOut implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets config
      *
-     * @param array<string,mixed> $config config
+     * @param \InvoicePDFs\Model\TemplateConfig $config config
      *
      * @return self
      */

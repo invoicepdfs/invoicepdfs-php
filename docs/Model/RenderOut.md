@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **id** | **string** |  |
 **status** | **string** |  |
 **document_type** | **string** |  |
+**template_id** | **string** |  |
+**template_version** | **int** |  | [optional]
 **format** | **string** |  |
 **download_url** | **string** |  |
 **expires_at** | **string** |  |

@@ -58,8 +58,7 @@ class TemplateVersionCreateRequest implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPITypes = [
         'label' => 'string',
-        'changelog' => 'string',
-        'config' => 'array<string,mixed>'
+        'changelog' => 'string'
     ];
 
     /**
@@ -71,8 +70,7 @@ class TemplateVersionCreateRequest implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPIFormats = [
         'label' => null,
-        'changelog' => null,
-        'config' => null
+        'changelog' => null
     ];
 
     /**
@@ -82,8 +80,7 @@ class TemplateVersionCreateRequest implements ModelInterface, ArrayAccess, \Json
       */
     protected static array $openAPINullables = [
         'label' => true,
-        'changelog' => true,
-        'config' => false
+        'changelog' => true
     ];
 
     /**
@@ -173,8 +170,7 @@ class TemplateVersionCreateRequest implements ModelInterface, ArrayAccess, \Json
      */
     protected static $attributeMap = [
         'label' => 'label',
-        'changelog' => 'changelog',
-        'config' => 'config'
+        'changelog' => 'changelog'
     ];
 
     /**
@@ -184,8 +180,7 @@ class TemplateVersionCreateRequest implements ModelInterface, ArrayAccess, \Json
      */
     protected static $setters = [
         'label' => 'setLabel',
-        'changelog' => 'setChangelog',
-        'config' => 'setConfig'
+        'changelog' => 'setChangelog'
     ];
 
     /**
@@ -195,8 +190,7 @@ class TemplateVersionCreateRequest implements ModelInterface, ArrayAccess, \Json
      */
     protected static $getters = [
         'label' => 'getLabel',
-        'changelog' => 'getChangelog',
-        'config' => 'getConfig'
+        'changelog' => 'getChangelog'
     ];
 
     /**
@@ -258,7 +252,6 @@ class TemplateVersionCreateRequest implements ModelInterface, ArrayAccess, \Json
     {
         $this->setIfExists('label', $data ?? [], null);
         $this->setIfExists('changelog', $data ?? [], null);
-        $this->setIfExists('config', $data ?? [], null);
     }
 
     /**
@@ -367,33 +360,6 @@ class TemplateVersionCreateRequest implements ModelInterface, ArrayAccess, \Json
             }
         }
         $this->container['changelog'] = $changelog;
-
-        return $this;
-    }
-
-    /**
-     * Gets config
-     *
-     * @return array<string,mixed>|null
-     */
-    public function getConfig()
-    {
-        return $this->container['config'];
-    }
-
-    /**
-     * Sets config
-     *
-     * @param array<string,mixed>|null $config config
-     *
-     * @return self
-     */
-    public function setConfig($config)
-    {
-        if (is_null($config)) {
-            throw new \InvalidArgumentException('non-nullable config cannot be null');
-        }
-        $this->container['config'] = $config;
 
         return $this;
     }

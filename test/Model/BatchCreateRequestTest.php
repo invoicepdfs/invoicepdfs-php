@@ -107,6 +107,15 @@ class BatchCreateRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "template_version"
+     */
+    public function testPropertyTemplateVersion()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "output"
      */
     public function testPropertyOutput()

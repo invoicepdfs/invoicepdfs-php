@@ -7,6 +7,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**createTemplateVersion()**](TemplateVersionsApi.md#createTemplateVersion) | **POST** /api/v1/templates/{template_id}/versions | Create Template Version |
 | [**getTemplateVersion()**](TemplateVersionsApi.md#getTemplateVersion) | **GET** /api/v1/templates/{template_id}/versions/{version} | Get Template Version |
 | [**listTemplateVersions()**](TemplateVersionsApi.md#listTemplateVersions) | **GET** /api/v1/templates/{template_id}/versions | List Template Versions |
+| [**restoreTemplateVersion()**](TemplateVersionsApi.md#restoreTemplateVersion) | **POST** /api/v1/templates/{template_id}/versions/{version}/restore | Restore Template Version |
 
 
 ## `createTemplateVersion()`
@@ -173,6 +174,68 @@ try {
 ### Return type
 
 [**\InvoicePDFs\Model\TemplateVersionsListResponse**](../Model/TemplateVersionsListResponse.md)
+
+### Authorization
+
+[HTTPBearer](../../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `restoreTemplateVersion()`
+
+```php
+restoreTemplateVersion($template_id, $version): \InvoicePDFs\Model\TemplateVersionResponse
+```
+
+Restore Template Version
+
+Put a template back to the config a version recorded.  The template moves; the version does not. Restoring v1 over v3's config does not delete v3 or renumber anything — the next snapshot is v4, and the history stays a record of what happened rather than a record of the last decision. Take a version first if the config being replaced is worth keeping.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: HTTPBearer
+$config = InvoicePDFs\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new InvoicePDFs\Api\TemplateVersionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$template_id = 'template_id_example'; // string
+$version = 56; // int
+
+try {
+    $result = $apiInstance->restoreTemplateVersion($template_id, $version);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TemplateVersionsApi->restoreTemplateVersion: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **template_id** | **string**|  | |
+| **version** | **int**|  | |
+
+### Return type
+
+[**\InvoicePDFs\Model\TemplateVersionResponse**](../Model/TemplateVersionResponse.md)
 
 ### Authorization
 

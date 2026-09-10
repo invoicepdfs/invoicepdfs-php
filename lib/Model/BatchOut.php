@@ -61,6 +61,7 @@ class BatchOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'string',
         'operation' => 'string',
         'template_id' => 'string',
+        'template_version' => 'int',
         'total_items' => 'int',
         'completed_items' => 'int',
         'failed_items' => 'int',
@@ -81,6 +82,7 @@ class BatchOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => null,
         'operation' => null,
         'template_id' => null,
+        'template_version' => null,
         'total_items' => null,
         'completed_items' => null,
         'failed_items' => null,
@@ -99,6 +101,7 @@ class BatchOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => false,
         'operation' => false,
         'template_id' => false,
+        'template_version' => true,
         'total_items' => false,
         'completed_items' => false,
         'failed_items' => false,
@@ -197,6 +200,7 @@ class BatchOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'status',
         'operation' => 'operation',
         'template_id' => 'template_id',
+        'template_version' => 'template_version',
         'total_items' => 'total_items',
         'completed_items' => 'completed_items',
         'failed_items' => 'failed_items',
@@ -215,6 +219,7 @@ class BatchOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'setStatus',
         'operation' => 'setOperation',
         'template_id' => 'setTemplateId',
+        'template_version' => 'setTemplateVersion',
         'total_items' => 'setTotalItems',
         'completed_items' => 'setCompletedItems',
         'failed_items' => 'setFailedItems',
@@ -233,6 +238,7 @@ class BatchOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'getStatus',
         'operation' => 'getOperation',
         'template_id' => 'getTemplateId',
+        'template_version' => 'getTemplateVersion',
         'total_items' => 'getTotalItems',
         'completed_items' => 'getCompletedItems',
         'failed_items' => 'getFailedItems',
@@ -323,6 +329,7 @@ class BatchOut implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('operation', $data ?? [], null);
         $this->setIfExists('template_id', $data ?? [], null);
+        $this->setIfExists('template_version', $data ?? [], null);
         $this->setIfExists('total_items', $data ?? [], null);
         $this->setIfExists('completed_items', $data ?? [], null);
         $this->setIfExists('failed_items', $data ?? [], null);
@@ -523,6 +530,40 @@ class BatchOut implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable template_id cannot be null');
         }
         $this->container['template_id'] = $template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_version
+     *
+     * @return int|null
+     */
+    public function getTemplateVersion()
+    {
+        return $this->container['template_version'];
+    }
+
+    /**
+     * Sets template_version
+     *
+     * @param int|null $template_version template_version
+     *
+     * @return self
+     */
+    public function setTemplateVersion($template_version)
+    {
+        if (is_null($template_version)) {
+            array_push($this->openAPINullablesSetToNull, 'template_version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('template_version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['template_version'] = $template_version;
 
         return $this;
     }

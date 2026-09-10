@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** |  |
 **description** | **string** |  | [optional]
 **base_template_id** | **string** |  |
-**config** | **array<string,mixed>** |  | [optional]
+**config** | [**\InvoicePDFs\Model\TemplateConfig**](TemplateConfig.md) |  | [optional]
 **status** | **string** |  |
 **is_default** | **bool** |  | [optional] [default to false]
 **created_at** | **string** |  |

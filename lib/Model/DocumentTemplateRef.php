@@ -57,7 +57,8 @@ class DocumentTemplateRef implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string'
+        'id' => 'string',
+        'version' => 'int'
     ];
 
     /**
@@ -68,7 +69,8 @@ class DocumentTemplateRef implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null
+        'id' => null,
+        'version' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class DocumentTemplateRef implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false
+        'id' => false,
+        'version' => true
     ];
 
     /**
@@ -166,7 +169,8 @@ class DocumentTemplateRef implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id'
+        'id' => 'id',
+        'version' => 'version'
     ];
 
     /**
@@ -175,7 +179,8 @@ class DocumentTemplateRef implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'id' => 'setId',
+        'version' => 'setVersion'
     ];
 
     /**
@@ -184,7 +189,8 @@ class DocumentTemplateRef implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'id' => 'getId',
+        'version' => 'getVersion'
     ];
 
     /**
@@ -245,6 +251,7 @@ class DocumentTemplateRef implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('version', $data ?? [], null);
     }
 
     /**
@@ -277,6 +284,10 @@ class DocumentTemplateRef implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        if (!is_null($this->container['version']) && ($this->container['version'] < 1)) {
+            $invalidProperties[] = "invalid value for 'version', must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -315,6 +326,45 @@ class DocumentTemplateRef implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return int|null
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param int|null $version version
+     *
+     * @return self
+     */
+    public function setVersion($version)
+    {
+        if (is_null($version)) {
+            array_push($this->openAPINullablesSetToNull, 'version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($version) && ($version < 1)) {
+            throw new \InvalidArgumentException('invalid value for $version when calling DocumentTemplateRef., must be bigger than or equal to 1.');
+        }
+
+        $this->container['version'] = $version;
 
         return $this;
     }

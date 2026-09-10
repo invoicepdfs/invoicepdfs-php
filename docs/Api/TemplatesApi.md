@@ -482,7 +482,7 @@ This endpoint does not need any parameter.
 ## `previewTemplate()`
 
 ```php
-previewTemplate($template_id, $document_render_request, $idempotency_key): \InvoicePDFs\Model\RenderResponse
+previewTemplate($template_id, $document_render_request, $version, $idempotency_key): \InvoicePDFs\Model\RenderResponse
 ```
 
 Preview Template
@@ -506,10 +506,11 @@ $apiInstance = new InvoicePDFs\Api\TemplatesApi(
 );
 $template_id = 'template_id_example'; // string
 $document_render_request = new \InvoicePDFs\Model\DocumentRenderRequest(); // \InvoicePDFs\Model\DocumentRenderRequest
+$version = 56; // int | Preview the config this version recorded rather than the template's current config. Only a custom (`ctpl_`) template has versions.
 $idempotency_key = 'idempotency_key_example'; // string
 
 try {
-    $result = $apiInstance->previewTemplate($template_id, $document_render_request, $idempotency_key);
+    $result = $apiInstance->previewTemplate($template_id, $document_render_request, $version, $idempotency_key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TemplatesApi->previewTemplate: ', $e->getMessage(), PHP_EOL;
@@ -522,6 +523,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **template_id** | **string**|  | |
 | **document_render_request** | [**\InvoicePDFs\Model\DocumentRenderRequest**](../Model/DocumentRenderRequest.md)|  | |
+| **version** | **int**| Preview the config this version recorded rather than the template&#39;s current config. Only a custom (&#x60;ctpl_&#x60;) template has versions. | [optional] |
 | **idempotency_key** | **string**|  | [optional] |
 
 ### Return type

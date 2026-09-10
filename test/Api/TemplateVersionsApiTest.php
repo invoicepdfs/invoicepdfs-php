@@ -106,4 +106,16 @@ class TemplateVersionsApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for restoreTemplateVersion
+     *
+     * Restore Template Version.
+     *
+     */
+    public function testRestoreTemplateVersion()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

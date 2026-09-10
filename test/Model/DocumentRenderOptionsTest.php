@@ -89,6 +89,15 @@ class DocumentRenderOptionsTest extends TestCase
     }
 
     /**
+     * Test attribute "template_version"
+     */
+    public function testPropertyTemplateVersion()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "page_size"
      */
     public function testPropertyPageSize()

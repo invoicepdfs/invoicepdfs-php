@@ -60,6 +60,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'status' => 'string',
         'document_type' => 'string',
+        'template_id' => 'string',
+        'template_version' => 'int',
         'format' => 'string',
         'download_url' => 'string',
         'expires_at' => 'string',
@@ -78,6 +80,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => null,
         'status' => null,
         'document_type' => null,
+        'template_id' => null,
+        'template_version' => null,
         'format' => null,
         'download_url' => null,
         'expires_at' => null,
@@ -94,6 +98,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => false,
         'status' => false,
         'document_type' => false,
+        'template_id' => false,
+        'template_version' => true,
         'format' => false,
         'download_url' => false,
         'expires_at' => false,
@@ -190,6 +196,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'status' => 'status',
         'document_type' => 'document_type',
+        'template_id' => 'template_id',
+        'template_version' => 'template_version',
         'format' => 'format',
         'download_url' => 'download_url',
         'expires_at' => 'expires_at',
@@ -206,6 +214,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'status' => 'setStatus',
         'document_type' => 'setDocumentType',
+        'template_id' => 'setTemplateId',
+        'template_version' => 'setTemplateVersion',
         'format' => 'setFormat',
         'download_url' => 'setDownloadUrl',
         'expires_at' => 'setExpiresAt',
@@ -222,6 +232,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'status' => 'getStatus',
         'document_type' => 'getDocumentType',
+        'template_id' => 'getTemplateId',
+        'template_version' => 'getTemplateVersion',
         'format' => 'getFormat',
         'download_url' => 'getDownloadUrl',
         'expires_at' => 'getExpiresAt',
@@ -342,6 +354,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('document_type', $data ?? [], null);
+        $this->setIfExists('template_id', $data ?? [], null);
+        $this->setIfExists('template_version', $data ?? [], null);
         $this->setIfExists('format', $data ?? [], null);
         $this->setIfExists('download_url', $data ?? [], null);
         $this->setIfExists('expires_at', $data ?? [], null);
@@ -403,6 +417,9 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['template_id'] === null) {
+            $invalidProperties[] = "'template_id' can't be null";
+        }
         if ($this->container['format'] === null) {
             $invalidProperties[] = "'format' can't be null";
         }
@@ -539,6 +556,67 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['document_type'] = $document_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_id
+     *
+     * @return string
+     */
+    public function getTemplateId()
+    {
+        return $this->container['template_id'];
+    }
+
+    /**
+     * Sets template_id
+     *
+     * @param string $template_id template_id
+     *
+     * @return self
+     */
+    public function setTemplateId($template_id)
+    {
+        if (is_null($template_id)) {
+            throw new \InvalidArgumentException('non-nullable template_id cannot be null');
+        }
+        $this->container['template_id'] = $template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_version
+     *
+     * @return int|null
+     */
+    public function getTemplateVersion()
+    {
+        return $this->container['template_version'];
+    }
+
+    /**
+     * Sets template_version
+     *
+     * @param int|null $template_version template_version
+     *
+     * @return self
+     */
+    public function setTemplateVersion($template_version)
+    {
+        if (is_null($template_version)) {
+            array_push($this->openAPINullablesSetToNull, 'template_version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('template_version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['template_version'] = $template_version;
 
         return $this;
     }

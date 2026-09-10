@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomTemplateOut
+ * TemplateConfig
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \InvoicePDFs\ObjectSerializer;
 
 /**
- * CustomTemplateOut Class Doc Comment
+ * TemplateConfig Class Doc Comment
  *
  * @category Class
+ * @description What a custom template is: a built-in design plus the brand to render it in.  A custom template is not a design of its own — it names one of the built-ins in &#x60;&#x60;base_template_id&#x60;&#x60; and carries the values below, which are the same ones &#x60;&#x60;data.branding&#x60;&#x60; carries. They are applied *underneath* a request&#39;s own branding, so a document that states a colour still wins and one template can serve several brands.  Typed rather than the free-form object it used to be: nothing read that object, so every key in it was equally correct and a caller could keep sending &#x60;&#x60;primary_colour&#x60;&#x60; forever without a word back. Unset here means \&quot;the template has no opinion\&quot; — unlike &#x60;&#x60;Branding&#x60;&#x60;, whose every field has a non-empty default and so cannot say that.
  * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CustomTemplateOut implements ModelInterface, ArrayAccess, \JsonSerializable
+class TemplateConfig implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class CustomTemplateOut implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CustomTemplateOut';
+    protected static $openAPIModelName = 'TemplateConfig';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,16 +58,11 @@ class CustomTemplateOut implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'description' => 'string',
-        'base_template_id' => 'string',
-        'config' => '\InvoicePDFs\Model\TemplateConfig',
-        'status' => 'string',
-        'is_default' => 'bool',
-        'created_at' => 'string',
-        'updated_at' => 'string',
-        'published_at' => 'string'
+        'primary_color' => 'string',
+        'accent_color' => 'string',
+        'font_family' => 'string',
+        'header_text' => 'string',
+        'footer_text' => 'string'
     ];
 
     /**
@@ -77,16 +73,11 @@ class CustomTemplateOut implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'description' => null,
-        'base_template_id' => null,
-        'config' => null,
-        'status' => null,
-        'is_default' => null,
-        'created_at' => null,
-        'updated_at' => null,
-        'published_at' => null
+        'primary_color' => null,
+        'accent_color' => null,
+        'font_family' => null,
+        'header_text' => null,
+        'footer_text' => null
     ];
 
     /**
@@ -95,16 +86,11 @@ class CustomTemplateOut implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'name' => false,
-        'description' => true,
-        'base_template_id' => false,
-        'config' => false,
-        'status' => false,
-        'is_default' => false,
-        'created_at' => false,
-        'updated_at' => false,
-        'published_at' => true
+        'primary_color' => true,
+        'accent_color' => true,
+        'font_family' => true,
+        'header_text' => true,
+        'footer_text' => true
     ];
 
     /**
@@ -193,16 +179,11 @@ class CustomTemplateOut implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'description' => 'description',
-        'base_template_id' => 'base_template_id',
-        'config' => 'config',
-        'status' => 'status',
-        'is_default' => 'is_default',
-        'created_at' => 'created_at',
-        'updated_at' => 'updated_at',
-        'published_at' => 'published_at'
+        'primary_color' => 'primary_color',
+        'accent_color' => 'accent_color',
+        'font_family' => 'font_family',
+        'header_text' => 'header_text',
+        'footer_text' => 'footer_text'
     ];
 
     /**
@@ -211,16 +192,11 @@ class CustomTemplateOut implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'description' => 'setDescription',
-        'base_template_id' => 'setBaseTemplateId',
-        'config' => 'setConfig',
-        'status' => 'setStatus',
-        'is_default' => 'setIsDefault',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
-        'published_at' => 'setPublishedAt'
+        'primary_color' => 'setPrimaryColor',
+        'accent_color' => 'setAccentColor',
+        'font_family' => 'setFontFamily',
+        'header_text' => 'setHeaderText',
+        'footer_text' => 'setFooterText'
     ];
 
     /**
@@ -229,16 +205,11 @@ class CustomTemplateOut implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'description' => 'getDescription',
-        'base_template_id' => 'getBaseTemplateId',
-        'config' => 'getConfig',
-        'status' => 'getStatus',
-        'is_default' => 'getIsDefault',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
-        'published_at' => 'getPublishedAt'
+        'primary_color' => 'getPrimaryColor',
+        'accent_color' => 'getAccentColor',
+        'font_family' => 'getFontFamily',
+        'header_text' => 'getHeaderText',
+        'footer_text' => 'getFooterText'
     ];
 
     /**
@@ -298,16 +269,11 @@ class CustomTemplateOut implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('base_template_id', $data ?? [], null);
-        $this->setIfExists('config', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('is_default', $data ?? [], false);
-        $this->setIfExists('created_at', $data ?? [], null);
-        $this->setIfExists('updated_at', $data ?? [], null);
-        $this->setIfExists('published_at', $data ?? [], null);
+        $this->setIfExists('primary_color', $data ?? [], null);
+        $this->setIfExists('accent_color', $data ?? [], null);
+        $this->setIfExists('font_family', $data ?? [], null);
+        $this->setIfExists('header_text', $data ?? [], null);
+        $this->setIfExists('footer_text', $data ?? [], null);
     }
 
     /**
@@ -337,24 +303,14 @@ class CustomTemplateOut implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if (!is_null($this->container['primary_color']) && !preg_match("/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/", $this->container['primary_color'])) {
+            $invalidProperties[] = "invalid value for 'primary_color', must be conform to the pattern /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+
+        if (!is_null($this->container['accent_color']) && !preg_match("/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/", $this->container['accent_color'])) {
+            $invalidProperties[] = "invalid value for 'accent_color', must be conform to the pattern /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.";
         }
-        if ($this->container['base_template_id'] === null) {
-            $invalidProperties[] = "'base_template_id' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -371,285 +327,181 @@ class CustomTemplateOut implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets primary_color
      *
      * @return string|null
      */
-    public function getDescription()
+    public function getPrimaryColor()
     {
-        return $this->container['description'];
+        return $this->container['primary_color'];
     }
 
     /**
-     * Sets description
+     * Sets primary_color
      *
-     * @param string|null $description description
+     * @param string|null $primary_color primary_color
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setPrimaryColor($primary_color)
     {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
+        if (is_null($primary_color)) {
+            array_push($this->openAPINullablesSetToNull, 'primary_color');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
+            $index = array_search('primary_color', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['description'] = $description;
 
-        return $this;
-    }
-
-    /**
-     * Gets base_template_id
-     *
-     * @return string
-     */
-    public function getBaseTemplateId()
-    {
-        return $this->container['base_template_id'];
-    }
-
-    /**
-     * Sets base_template_id
-     *
-     * @param string $base_template_id base_template_id
-     *
-     * @return self
-     */
-    public function setBaseTemplateId($base_template_id)
-    {
-        if (is_null($base_template_id)) {
-            throw new \InvalidArgumentException('non-nullable base_template_id cannot be null');
+        if (!is_null($primary_color) && (!preg_match("/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/", ObjectSerializer::toString($primary_color)))) {
+            throw new \InvalidArgumentException("invalid value for \$primary_color when calling TemplateConfig., must conform to the pattern /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.");
         }
-        $this->container['base_template_id'] = $base_template_id;
+
+        $this->container['primary_color'] = $primary_color;
 
         return $this;
     }
 
     /**
-     * Gets config
-     *
-     * @return \InvoicePDFs\Model\TemplateConfig|null
-     */
-    public function getConfig()
-    {
-        return $this->container['config'];
-    }
-
-    /**
-     * Sets config
-     *
-     * @param \InvoicePDFs\Model\TemplateConfig|null $config config
-     *
-     * @return self
-     */
-    public function setConfig($config)
-    {
-        if (is_null($config)) {
-            throw new \InvalidArgumentException('non-nullable config cannot be null');
-        }
-        $this->container['config'] = $config;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_default
-     *
-     * @return bool|null
-     */
-    public function getIsDefault()
-    {
-        return $this->container['is_default'];
-    }
-
-    /**
-     * Sets is_default
-     *
-     * @param bool|null $is_default is_default
-     *
-     * @return self
-     */
-    public function setIsDefault($is_default)
-    {
-        if (is_null($is_default)) {
-            throw new \InvalidArgumentException('non-nullable is_default cannot be null');
-        }
-        $this->container['is_default'] = $is_default;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return string
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param string $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        if (is_null($created_at)) {
-            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
-        }
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return string
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param string $updated_at updated_at
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        if (is_null($updated_at)) {
-            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
-        }
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets published_at
+     * Gets accent_color
      *
      * @return string|null
      */
-    public function getPublishedAt()
+    public function getAccentColor()
     {
-        return $this->container['published_at'];
+        return $this->container['accent_color'];
     }
 
     /**
-     * Sets published_at
+     * Sets accent_color
      *
-     * @param string|null $published_at published_at
+     * @param string|null $accent_color accent_color
      *
      * @return self
      */
-    public function setPublishedAt($published_at)
+    public function setAccentColor($accent_color)
     {
-        if (is_null($published_at)) {
-            array_push($this->openAPINullablesSetToNull, 'published_at');
+        if (is_null($accent_color)) {
+            array_push($this->openAPINullablesSetToNull, 'accent_color');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('published_at', $nullablesSetToNull);
+            $index = array_search('accent_color', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['published_at'] = $published_at;
+
+        if (!is_null($accent_color) && (!preg_match("/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/", ObjectSerializer::toString($accent_color)))) {
+            throw new \InvalidArgumentException("invalid value for \$accent_color when calling TemplateConfig., must conform to the pattern /^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.");
+        }
+
+        $this->container['accent_color'] = $accent_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets font_family
+     *
+     * @return string|null
+     */
+    public function getFontFamily()
+    {
+        return $this->container['font_family'];
+    }
+
+    /**
+     * Sets font_family
+     *
+     * @param string|null $font_family font_family
+     *
+     * @return self
+     */
+    public function setFontFamily($font_family)
+    {
+        if (is_null($font_family)) {
+            array_push($this->openAPINullablesSetToNull, 'font_family');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('font_family', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['font_family'] = $font_family;
+
+        return $this;
+    }
+
+    /**
+     * Gets header_text
+     *
+     * @return string|null
+     */
+    public function getHeaderText()
+    {
+        return $this->container['header_text'];
+    }
+
+    /**
+     * Sets header_text
+     *
+     * @param string|null $header_text header_text
+     *
+     * @return self
+     */
+    public function setHeaderText($header_text)
+    {
+        if (is_null($header_text)) {
+            array_push($this->openAPINullablesSetToNull, 'header_text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('header_text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['header_text'] = $header_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets footer_text
+     *
+     * @return string|null
+     */
+    public function getFooterText()
+    {
+        return $this->container['footer_text'];
+    }
+
+    /**
+     * Sets footer_text
+     *
+     * @param string|null $footer_text footer_text
+     *
+     * @return self
+     */
+    public function setFooterText($footer_text)
+    {
+        if (is_null($footer_text)) {
+            array_push($this->openAPINullablesSetToNull, 'footer_text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('footer_text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['footer_text'] = $footer_text;
 
         return $this;
     }

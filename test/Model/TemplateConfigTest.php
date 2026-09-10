@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateVersionCreateRequestTest
+ * TemplateConfigTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace InvoicePDFs\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TemplateVersionCreateRequestTest Class Doc Comment
+ * TemplateConfigTest Class Doc Comment
  *
  * @category    Class
- * @description TemplateVersionCreateRequest
+ * @description What a custom template is: a built-in design plus the brand to render it in.  A custom template is not a design of its own — it names one of the built-ins in &#x60;&#x60;base_template_id&#x60;&#x60; and carries the values below, which are the same ones &#x60;&#x60;data.branding&#x60;&#x60; carries. They are applied *underneath* a request&#39;s own branding, so a document that states a colour still wins and one template can serve several brands.  Typed rather than the free-form object it used to be: nothing read that object, so every key in it was equally correct and a caller could keep sending &#x60;&#x60;primary_colour&#x60;&#x60; forever without a word back. Unset here means \&quot;the template has no opinion\&quot; — unlike &#x60;&#x60;Branding&#x60;&#x60;, whose every field has a non-empty default and so cannot say that.
  * @package     InvoicePDFs
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TemplateVersionCreateRequestTest extends TestCase
+class TemplateConfigTest extends TestCase
 {
 
     /**
@@ -71,27 +71,54 @@ class TemplateVersionCreateRequestTest extends TestCase
     }
 
     /**
-     * Test "TemplateVersionCreateRequest"
+     * Test "TemplateConfig"
      */
-    public function testTemplateVersionCreateRequest()
+    public function testTemplateConfig()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "label"
+     * Test attribute "primary_color"
      */
-    public function testPropertyLabel()
+    public function testPropertyPrimaryColor()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "changelog"
+     * Test attribute "accent_color"
      */
-    public function testPropertyChangelog()
+    public function testPropertyAccentColor()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "font_family"
+     */
+    public function testPropertyFontFamily()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "header_text"
+     */
+    public function testPropertyHeaderText()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "footer_text"
+     */
+    public function testPropertyFooterText()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

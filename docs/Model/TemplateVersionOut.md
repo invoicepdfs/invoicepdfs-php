@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **version** | **int** |  |
 **label** | **string** |  | [optional]
 **changelog** | **string** |  | [optional]
-**config** | **array<string,mixed>** |  |
+**config** | [**\InvoicePDFs\Model\TemplateConfig**](TemplateConfig.md) |  |
 **created_at** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

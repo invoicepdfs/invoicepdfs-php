@@ -59,6 +59,7 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPITypes = [
         'template_id' => 'string',
+        'template_version' => 'int',
         'page_size' => 'string',
         'expires_in' => 'int',
         'format' => 'string'
@@ -73,6 +74,7 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static $openAPIFormats = [
         'template_id' => null,
+        'template_version' => null,
         'page_size' => null,
         'expires_in' => null,
         'format' => null
@@ -85,6 +87,7 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       */
     protected static array $openAPINullables = [
         'template_id' => false,
+        'template_version' => true,
         'page_size' => false,
         'expires_in' => false,
         'format' => false
@@ -177,6 +180,7 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $attributeMap = [
         'template_id' => 'template_id',
+        'template_version' => 'template_version',
         'page_size' => 'page_size',
         'expires_in' => 'expires_in',
         'format' => 'format'
@@ -189,6 +193,7 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $setters = [
         'template_id' => 'setTemplateId',
+        'template_version' => 'setTemplateVersion',
         'page_size' => 'setPageSize',
         'expires_in' => 'setExpiresIn',
         'format' => 'setFormat'
@@ -201,6 +206,7 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $getters = [
         'template_id' => 'getTemplateId',
+        'template_version' => 'getTemplateVersion',
         'page_size' => 'getPageSize',
         'expires_in' => 'getExpiresIn',
         'format' => 'getFormat'
@@ -279,6 +285,7 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     public function __construct(array $data = null)
     {
         $this->setIfExists('template_id', $data ?? [], 'tpl_modern');
+        $this->setIfExists('template_version', $data ?? [], null);
         $this->setIfExists('page_size', $data ?? [], 'LETTER');
         $this->setIfExists('expires_in', $data ?? [], 3600);
         $this->setIfExists('format', $data ?? [], 'pdf');
@@ -310,6 +317,10 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['template_version']) && ($this->container['template_version'] < 1)) {
+            $invalidProperties[] = "invalid value for 'template_version', must be bigger than or equal to 1.";
+        }
 
         $allowedValues = $this->getFormatAllowableValues();
         if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
@@ -358,6 +369,45 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable template_id cannot be null');
         }
         $this->container['template_id'] = $template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets template_version
+     *
+     * @return int|null
+     */
+    public function getTemplateVersion()
+    {
+        return $this->container['template_version'];
+    }
+
+    /**
+     * Sets template_version
+     *
+     * @param int|null $template_version template_version
+     *
+     * @return self
+     */
+    public function setTemplateVersion($template_version)
+    {
+        if (is_null($template_version)) {
+            array_push($this->openAPINullablesSetToNull, 'template_version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('template_version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($template_version) && ($template_version < 1)) {
+            throw new \InvalidArgumentException('invalid value for $template_version when calling DocumentRenderOptions., must be bigger than or equal to 1.');
+        }
+
+        $this->container['template_version'] = $template_version;
 
         return $this;
     }

@@ -107,6 +107,24 @@ class RenderOutTest extends TestCase
     }
 
     /**
+     * Test attribute "template_id"
+     */
+    public function testPropertyTemplateId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "template_version"
+     */
+    public function testPropertyTemplateVersion()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "format"
      */
     public function testPropertyFormat()

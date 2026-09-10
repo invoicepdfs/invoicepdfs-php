@@ -60,7 +60,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         'name' => 'string',
         'description' => 'string',
         'base_template_id' => 'string',
-        'config' => 'array<string,mixed>'
+        'config' => '\InvoicePDFs\Model\TemplateConfig'
     ];
 
     /**
@@ -419,7 +419,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets config
      *
-     * @return array<string,mixed>|null
+     * @return \InvoicePDFs\Model\TemplateConfig|null
      */
     public function getConfig()
     {
@@ -429,7 +429,7 @@ class TemplateCreateRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets config
      *
-     * @param array<string,mixed>|null $config config
+     * @param \InvoicePDFs\Model\TemplateConfig|null $config config
      *
      * @return self
      */

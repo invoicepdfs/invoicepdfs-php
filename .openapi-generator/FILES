@@ -208,6 +208,7 @@ docs/Model/TaxRateOut.md
 docs/Model/TaxRatePatchRequest.md
 docs/Model/TaxRateResponse.md
 docs/Model/TaxRatesListResponse.md
+docs/Model/TemplateConfig.md
 docs/Model/TemplateCreateRequest.md
 docs/Model/TemplateDetail.md
 docs/Model/TemplateDetailResponse.md
@@ -461,6 +462,7 @@ lib/Model/TaxRateOut.php
 lib/Model/TaxRatePatchRequest.php
 lib/Model/TaxRateResponse.php
 lib/Model/TaxRatesListResponse.php
+lib/Model/TemplateConfig.php
 lib/Model/TemplateCreateRequest.php
 lib/Model/TemplateDetail.php
 lib/Model/TemplateDetailResponse.php
@@ -711,6 +713,7 @@ test/Model/TaxRateOutTest.php
 test/Model/TaxRatePatchRequestTest.php
 test/Model/TaxRateResponseTest.php
 test/Model/TaxRatesListResponseTest.php
+test/Model/TemplateConfigTest.php
 test/Model/TemplateCreateRequestTest.php
 test/Model/TemplateDetailResponseTest.php
 test/Model/TemplateDetailTest.php
