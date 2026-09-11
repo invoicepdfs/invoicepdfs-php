@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentOutputOptions
+ * CodeListResponse
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \InvoicePDFs\ObjectSerializer;
 
 /**
- * DocumentOutputOptions Class Doc Comment
+ * CodeListResponse Class Doc Comment
  *
  * @category Class
+ * @description A coded list from a standard, and whether it is the whole of one.  &#x60;exhaustive&#x60; is the field that changes what a client does. &#x60;true&#x60; means a value outside &#x60;data&#x60; is wrong, so the list can back a picker with no escape hatch. &#x60;false&#x60; means &#x60;data&#x60; is a shortlist of the codes an invoice usually needs — the API accepts any code, nothing validates against this, and treating it as closed rejects values that are perfectly valid.
  * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSerializable
+class CodeListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DocumentOutputOptions';
+    protected static $openAPIModelName = 'CodeListResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +58,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'format' => 'string',
-        'delivery' => 'string',
-        'expires_in' => 'int'
+        'data' => '\InvoicePDFs\Model\CodeOut[]',
+        'standard' => 'string',
+        'exhaustive' => 'bool'
     ];
 
     /**
@@ -70,9 +71,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'format' => null,
-        'delivery' => null,
-        'expires_in' => null
+        'data' => null,
+        'standard' => null,
+        'exhaustive' => null
     ];
 
     /**
@@ -81,9 +82,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'format' => false,
-        'delivery' => false,
-        'expires_in' => false
+        'data' => false,
+        'standard' => false,
+        'exhaustive' => false
     ];
 
     /**
@@ -172,9 +173,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'format' => 'format',
-        'delivery' => 'delivery',
-        'expires_in' => 'expires_in'
+        'data' => 'data',
+        'standard' => 'standard',
+        'exhaustive' => 'exhaustive'
     ];
 
     /**
@@ -183,9 +184,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'format' => 'setFormat',
-        'delivery' => 'setDelivery',
-        'expires_in' => 'setExpiresIn'
+        'data' => 'setData',
+        'standard' => 'setStandard',
+        'exhaustive' => 'setExhaustive'
     ];
 
     /**
@@ -194,9 +195,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'format' => 'getFormat',
-        'delivery' => 'getDelivery',
-        'expires_in' => 'getExpiresIn'
+        'data' => 'getData',
+        'standard' => 'getStandard',
+        'exhaustive' => 'getExhaustive'
     ];
 
     /**
@@ -240,36 +241,6 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-    public const FORMAT_PDF = 'pdf';
-    public const FORMAT_FACTURX_PDF = 'facturx_pdf';
-    public const DELIVERY_URL = 'url';
-    public const DELIVERY_BINARY = 'binary';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFormatAllowableValues()
-    {
-        return [
-            self::FORMAT_PDF,
-            self::FORMAT_FACTURX_PDF,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDeliveryAllowableValues()
-    {
-        return [
-            self::DELIVERY_URL,
-            self::DELIVERY_BINARY,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -286,9 +257,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('format', $data ?? [], 'pdf');
-        $this->setIfExists('delivery', $data ?? [], 'url');
-        $this->setIfExists('expires_in', $data ?? [], 3600);
+        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('standard', $data ?? [], null);
+        $this->setIfExists('exhaustive', $data ?? [], null);
     }
 
     /**
@@ -318,32 +289,15 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'format', must be one of '%s'",
-                $this->container['format'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
         }
-
-        $allowedValues = $this->getDeliveryAllowableValues();
-        if (!is_null($this->container['delivery']) && !in_array($this->container['delivery'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'delivery', must be one of '%s'",
-                $this->container['delivery'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['standard'] === null) {
+            $invalidProperties[] = "'standard' can't be null";
         }
-
-        if (!is_null($this->container['expires_in']) && ($this->container['expires_in'] > 604800)) {
-            $invalidProperties[] = "invalid value for 'expires_in', must be smaller than or equal to 604800.";
+        if ($this->container['exhaustive'] === null) {
+            $invalidProperties[] = "'exhaustive' can't be null";
         }
-
-        if (!is_null($this->container['expires_in']) && ($this->container['expires_in'] < 60)) {
-            $invalidProperties[] = "invalid value for 'expires_in', must be bigger than or equal to 60.";
-        }
-
         return $invalidProperties;
     }
 
@@ -360,110 +314,82 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets format
+     * Gets data
      *
-     * @return string|null
+     * @return \InvoicePDFs\Model\CodeOut[]
      */
-    public function getFormat()
+    public function getData()
     {
-        return $this->container['format'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets format
+     * Sets data
      *
-     * @param string|null $format format
+     * @param \InvoicePDFs\Model\CodeOut[] $data data
      *
      * @return self
      */
-    public function setFormat($format)
+    public function setData($data)
     {
-        if (is_null($format)) {
-            throw new \InvalidArgumentException('non-nullable format cannot be null');
+        if (is_null($data)) {
+            throw new \InvalidArgumentException('non-nullable data cannot be null');
         }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($format, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'format', must be one of '%s'",
-                    $format,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['format'] = $format;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets delivery
+     * Gets standard
      *
-     * @return string|null
+     * @return string
      */
-    public function getDelivery()
+    public function getStandard()
     {
-        return $this->container['delivery'];
+        return $this->container['standard'];
     }
 
     /**
-     * Sets delivery
+     * Sets standard
      *
-     * @param string|null $delivery delivery
+     * @param string $standard The code list these values come from.
      *
      * @return self
      */
-    public function setDelivery($delivery)
+    public function setStandard($standard)
     {
-        if (is_null($delivery)) {
-            throw new \InvalidArgumentException('non-nullable delivery cannot be null');
+        if (is_null($standard)) {
+            throw new \InvalidArgumentException('non-nullable standard cannot be null');
         }
-        $allowedValues = $this->getDeliveryAllowableValues();
-        if (!in_array($delivery, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'delivery', must be one of '%s'",
-                    $delivery,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['delivery'] = $delivery;
+        $this->container['standard'] = $standard;
 
         return $this;
     }
 
     /**
-     * Gets expires_in
+     * Gets exhaustive
      *
-     * @return int|null
+     * @return bool
      */
-    public function getExpiresIn()
+    public function getExhaustive()
     {
-        return $this->container['expires_in'];
+        return $this->container['exhaustive'];
     }
 
     /**
-     * Sets expires_in
+     * Sets exhaustive
      *
-     * @param int|null $expires_in How long the render stays downloadable, in seconds (1 minute to 7 days). It is also the lifetime of the signature in `download_url`, which is why it is bounded: an unbounded value meant an unbounded grant. A value below the floor used to be accepted and produced a render that had already expired.
+     * @param bool $exhaustive Whether `data` is the complete list. When false it is a shortlist and other codes remain valid.
      *
      * @return self
      */
-    public function setExpiresIn($expires_in)
+    public function setExhaustive($exhaustive)
     {
-        if (is_null($expires_in)) {
-            throw new \InvalidArgumentException('non-nullable expires_in cannot be null');
+        if (is_null($exhaustive)) {
+            throw new \InvalidArgumentException('non-nullable exhaustive cannot be null');
         }
-
-        if (($expires_in > 604800)) {
-            throw new \InvalidArgumentException('invalid value for $expires_in when calling DocumentOutputOptions., must be smaller than or equal to 604800.');
-        }
-        if (($expires_in < 60)) {
-            throw new \InvalidArgumentException('invalid value for $expires_in when calling DocumentOutputOptions., must be bigger than or equal to 60.');
-        }
-
-        $this->container['expires_in'] = $expires_in;
+        $this->container['exhaustive'] = $exhaustive;
 
         return $this;
     }

@@ -9,7 +9,10 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**listDocumentTypes()**](ReferenceApi.md#listDocumentTypes) | **GET** /api/v1/reference/document-types | List Document Types |
 | [**listLocales()**](ReferenceApi.md#listLocales) | **GET** /api/v1/reference/locales | List Locales |
 | [**listPageSizes()**](ReferenceApi.md#listPageSizes) | **GET** /api/v1/reference/page-sizes | List Page Sizes |
+| [**listTaxCategories()**](ReferenceApi.md#listTaxCategories) | **GET** /api/v1/reference/tax-categories | List Tax Categories |
+| [**listTaxSchemes()**](ReferenceApi.md#listTaxSchemes) | **GET** /api/v1/reference/tax-schemes | List Tax Schemes |
 | [**listTimezones()**](ReferenceApi.md#listTimezones) | **GET** /api/v1/reference/timezones | List Timezones |
+| [**listUnitCodes()**](ReferenceApi.md#listUnitCodes) | **GET** /api/v1/reference/unit-codes | List Unit Codes |
 
 
 ## `listCountries()`
@@ -269,6 +272,112 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listTaxCategories()`
+
+```php
+listTaxCategories(): \InvoicePDFs\Model\CodeListResponse
+```
+
+List Tax Categories
+
+UNCL5305, in full — the VAT treatment of a line, which its rate does not say.  Two lines at 0% may be zero-rated, exempt, reverse-charge or outside scope, and EN 16931 puts them in separate VAT breakdown groups with different mandatory fields. Exhaustive: a category outside this list is wrong.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new InvoicePDFs\Api\ReferenceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->listTaxCategories();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReferenceApi->listTaxCategories: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\InvoicePDFs\Model\CodeListResponse**](../Model/CodeListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listTaxSchemes()`
+
+```php
+listTaxSchemes(): \InvoicePDFs\Model\CodeListResponse
+```
+
+List Tax Schemes
+
+UNCL5153 — which tax regime a document is issued under, one per document.  `VAT` is the only member an e-invoice can carry; the others exist so a caller can state that their tax is *not* VAT and be told so, rather than have VAT assumed on their behalf. There is no default: a PDF does not need a scheme, and guessing one puts a claim in a document a tax authority reads that the caller never made.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new InvoicePDFs\Api\ReferenceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->listTaxSchemes();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReferenceApi->listTaxSchemes: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\InvoicePDFs\Model\CodeListResponse**](../Model/CodeListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `listTimezones()`
 
 ```php
@@ -306,6 +415,59 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\InvoicePDFs\Model\TimezonesListResponse**](../Model/TimezonesListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listUnitCodes()`
+
+```php
+listUnitCodes(): \InvoicePDFs\Model\CodeListResponse
+```
+
+List Unit Codes
+
+UN/ECE Recommendation 20 — the unit a line item is measured in.  A **shortlist**: twenty-one of hundreds, ordered by how often an invoice needs them. `exhaustive` is false, and it means it — `unit_code` accepts any value, nothing validates against this list, and an uncommon code is still correct. Offered because the field takes a code rather than the printed label: mapping \"hrs\" to HUR is an inference that is right until it silently is not, and the audience for the result is a tax authority.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new InvoicePDFs\Api\ReferenceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->listUnitCodes();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReferenceApi->listUnitCodes: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\InvoicePDFs\Model\CodeListResponse**](../Model/CodeListResponse.md)
 
 ### Authorization
 

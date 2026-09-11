@@ -132,12 +132,48 @@ class ReferenceApiTest extends TestCase
     }
 
     /**
+     * Test case for listTaxCategories
+     *
+     * List Tax Categories.
+     *
+     */
+    public function testListTaxCategories()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for listTaxSchemes
+     *
+     * List Tax Schemes.
+     *
+     */
+    public function testListTaxSchemes()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for listTimezones
      *
      * List Timezones.
      *
      */
     public function testListTimezones()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for listUnitCodes
+     *
+     * List Unit Codes.
+     *
+     */
+    public function testListUnitCodes()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

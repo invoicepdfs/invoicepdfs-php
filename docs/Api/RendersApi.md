@@ -11,10 +11,12 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `downloadRender()`
 
 ```php
-downloadRender($render_id): \SplFileObject
+downloadRender($render_id, $token): \SplFileObject
 ```
 
 Download Render
+
+Fetch the PDF, by signature or by API key.  Two ways in, and the signature is checked *first* — before the row is looked up — so a forged token cannot be used to tell a real render id from an invented one. It also means the token path costs no auth work at all, which matters because this is the one endpoint a browser hits directly.
 
 ### Example
 
@@ -34,9 +36,10 @@ $apiInstance = new InvoicePDFs\Api\RendersApi(
     $config
 );
 $render_id = 'render_id_example'; // string
+$token = 'token_example'; // string | The signature from this render's `download_url`. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally.
 
 try {
-    $result = $apiInstance->downloadRender($render_id);
+    $result = $apiInstance->downloadRender($render_id, $token);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RendersApi->downloadRender: ', $e->getMessage(), PHP_EOL;
@@ -48,6 +51,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **render_id** | **string**|  | |
+| **token** | **string**| The signature from this render&#39;s &#x60;download_url&#x60;. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally. | [optional] |
 
 ### Return type
 

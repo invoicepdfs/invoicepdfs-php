@@ -131,15 +131,16 @@ class RendersApi
      * Download Render
      *
      * @param  string $render_id render_id (required)
+     * @param  string $token The signature from this render&#39;s &#x60;download_url&#x60;. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRender'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \SplFileObject|\InvoicePDFs\Model\ApiErrorResponse
      */
-    public function downloadRender($render_id, string $contentType = self::contentTypes['downloadRender'][0])
+    public function downloadRender($render_id, $token = null, string $contentType = self::contentTypes['downloadRender'][0])
     {
-        list($response) = $this->downloadRenderWithHttpInfo($render_id, $contentType);
+        list($response) = $this->downloadRenderWithHttpInfo($render_id, $token, $contentType);
         return $response;
     }
 
@@ -149,15 +150,16 @@ class RendersApi
      * Download Render
      *
      * @param  string $render_id (required)
+     * @param  string $token The signature from this render&#39;s &#x60;download_url&#x60;. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRender'] to see the possible values for this operation
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function downloadRenderWithHttpInfo($render_id, string $contentType = self::contentTypes['downloadRender'][0])
+    public function downloadRenderWithHttpInfo($render_id, $token = null, string $contentType = self::contentTypes['downloadRender'][0])
     {
-        $request = $this->downloadRenderRequest($render_id, $contentType);
+        $request = $this->downloadRenderRequest($render_id, $token, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -308,14 +310,15 @@ class RendersApi
      * Download Render
      *
      * @param  string $render_id (required)
+     * @param  string $token The signature from this render&#39;s &#x60;download_url&#x60;. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRender'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadRenderAsync($render_id, string $contentType = self::contentTypes['downloadRender'][0])
+    public function downloadRenderAsync($render_id, $token = null, string $contentType = self::contentTypes['downloadRender'][0])
     {
-        return $this->downloadRenderAsyncWithHttpInfo($render_id, $contentType)
+        return $this->downloadRenderAsyncWithHttpInfo($render_id, $token, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -329,15 +332,16 @@ class RendersApi
      * Download Render
      *
      * @param  string $render_id (required)
+     * @param  string $token The signature from this render&#39;s &#x60;download_url&#x60;. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRender'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadRenderAsyncWithHttpInfo($render_id, string $contentType = self::contentTypes['downloadRender'][0])
+    public function downloadRenderAsyncWithHttpInfo($render_id, $token = null, string $contentType = self::contentTypes['downloadRender'][0])
     {
         $returnType = '\SplFileObject';
-        $request = $this->downloadRenderRequest($render_id, $contentType);
+        $request = $this->downloadRenderRequest($render_id, $token, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -379,12 +383,13 @@ class RendersApi
      * Create request for operation 'downloadRender'
      *
      * @param  string $render_id (required)
+     * @param  string $token The signature from this render&#39;s &#x60;download_url&#x60;. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['downloadRender'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function downloadRenderRequest($render_id, string $contentType = self::contentTypes['downloadRender'][0])
+    public function downloadRenderRequest($render_id, $token = null, string $contentType = self::contentTypes['downloadRender'][0])
     {
 
         // verify the required parameter 'render_id' is set
@@ -395,6 +400,7 @@ class RendersApi
         }
 
 
+
         $resourcePath = '/api/v1/renders/{render_id}/download';
         $formParams = [];
         $queryParams = [];
@@ -402,6 +408,15 @@ class RendersApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $token,
+            'token', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params

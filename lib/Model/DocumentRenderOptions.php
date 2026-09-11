@@ -322,6 +322,14 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
             $invalidProperties[] = "invalid value for 'template_version', must be bigger than or equal to 1.";
         }
 
+        if (!is_null($this->container['expires_in']) && ($this->container['expires_in'] > 604800)) {
+            $invalidProperties[] = "invalid value for 'expires_in', must be smaller than or equal to 604800.";
+        }
+
+        if (!is_null($this->container['expires_in']) && ($this->container['expires_in'] < 60)) {
+            $invalidProperties[] = "invalid value for 'expires_in', must be bigger than or equal to 60.";
+        }
+
         $allowedValues = $this->getFormatAllowableValues();
         if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -452,7 +460,7 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets expires_in
      *
-     * @param int|null $expires_in expires_in
+     * @param int|null $expires_in How long the render stays downloadable, in seconds (1 minute to 7 days). It is also the lifetime of the signature in `download_url`, which is why it is bounded: an unbounded value meant an unbounded grant. A value below the floor used to be accepted and produced a render that had already expired.
      *
      * @return self
      */
@@ -461,6 +469,14 @@ class DocumentRenderOptions implements ModelInterface, ArrayAccess, \JsonSeriali
         if (is_null($expires_in)) {
             throw new \InvalidArgumentException('non-nullable expires_in cannot be null');
         }
+
+        if (($expires_in > 604800)) {
+            throw new \InvalidArgumentException('invalid value for $expires_in when calling DocumentRenderOptions., must be smaller than or equal to 604800.');
+        }
+        if (($expires_in < 60)) {
+            throw new \InvalidArgumentException('invalid value for $expires_in when calling DocumentRenderOptions., must be bigger than or equal to 60.');
+        }
+
         $this->container['expires_in'] = $expires_in;
 
         return $this;

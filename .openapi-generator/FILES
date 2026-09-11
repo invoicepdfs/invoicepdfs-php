@@ -92,6 +92,8 @@ docs/Model/BusinessProfilePatch.md
 docs/Model/BusinessProfileResponse.md
 docs/Model/BusinessProfilesListResponse.md
 docs/Model/CalculationBreakdown.md
+docs/Model/CodeListResponse.md
+docs/Model/CodeOut.md
 docs/Model/ComplianceCheckOut.md
 docs/Model/ComplianceRulesetOut.md
 docs/Model/ComplianceViolationOut.md
@@ -345,6 +347,8 @@ lib/Model/BusinessProfilePatch.php
 lib/Model/BusinessProfileResponse.php
 lib/Model/BusinessProfilesListResponse.php
 lib/Model/CalculationBreakdown.php
+lib/Model/CodeListResponse.php
+lib/Model/CodeOut.php
 lib/Model/ComplianceCheckOut.php
 lib/Model/ComplianceRulesetOut.php
 lib/Model/ComplianceViolationOut.php
@@ -597,6 +601,8 @@ test/Model/BusinessProfilePatchTest.php
 test/Model/BusinessProfileResponseTest.php
 test/Model/BusinessProfilesListResponseTest.php
 test/Model/CalculationBreakdownTest.php
+test/Model/CodeListResponseTest.php
+test/Model/CodeOutTest.php
 test/Model/ComplianceCheckOutTest.php
 test/Model/ComplianceRulesetOutTest.php
 test/Model/ComplianceViolationOutTest.php
