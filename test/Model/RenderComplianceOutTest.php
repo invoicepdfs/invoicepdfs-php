@@ -1,6 +1,6 @@
 <?php
 /**
- * RenderOutTest
+ * RenderComplianceOutTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace InvoicePDFs\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * RenderOutTest Class Doc Comment
+ * RenderComplianceOutTest Class Doc Comment
  *
  * @category    Class
- * @description RenderOut
+ * @description What this PDF was held to, for a render that carries embedded XML.  Absent on a plain &#x60;pdf&#x60;: no ruleset was applied, so there is no claim to report. A render that was produced at all satisfied every fatal rule that ran — the render is refused otherwise — so the useful questions are which rules those were, and whether all of them ran.
  * @package     InvoicePDFs
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class RenderOutTest extends TestCase
+class RenderComplianceOutTest extends TestCase
 {
 
     /**
@@ -71,108 +71,45 @@ class RenderOutTest extends TestCase
     }
 
     /**
-     * Test "RenderOut"
+     * Test "RenderComplianceOut"
      */
-    public function testRenderOut()
+    public function testRenderComplianceOut()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "profile"
      */
-    public function testPropertyId()
+    public function testPropertyProfile()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "status"
+     * Test attribute "ruleset_version"
      */
-    public function testPropertyStatus()
+    public function testPropertyRulesetVersion()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "document_type"
+     * Test attribute "fully_checked"
      */
-    public function testPropertyDocumentType()
+    public function testPropertyFullyChecked()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "template_id"
+     * Test attribute "advisories"
      */
-    public function testPropertyTemplateId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "template_version"
-     */
-    public function testPropertyTemplateVersion()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "format"
-     */
-    public function testPropertyFormat()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "download_url"
-     */
-    public function testPropertyDownloadUrl()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "expires_at"
-     */
-    public function testPropertyExpiresAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "calculation"
-     */
-    public function testPropertyCalculation()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "created_at"
-     */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "compliance"
-     */
-    public function testPropertyCompliance()
+    public function testPropertyAdvisories()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

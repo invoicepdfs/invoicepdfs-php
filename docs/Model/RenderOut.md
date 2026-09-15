@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **expires_at** | **string** |  |
 **calculation** | [**\InvoicePDFs\Model\CalculationBreakdown**](CalculationBreakdown.md) |  |
 **created_at** | **string** |  |
+**compliance** | [**\InvoicePDFs\Model\RenderComplianceOut**](RenderComplianceOut.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

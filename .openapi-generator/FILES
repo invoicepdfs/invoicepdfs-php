@@ -196,6 +196,7 @@ docs/Model/RecurringInvoiceOut.md
 docs/Model/RecurringInvoicePatchRequest.md
 docs/Model/RecurringInvoiceResponse.md
 docs/Model/RecurringInvoicesListResponse.md
+docs/Model/RenderComplianceOut.md
 docs/Model/RenderOut.md
 docs/Model/RenderResponse.md
 docs/Model/SimpleBoolResponse.md
@@ -452,6 +453,7 @@ lib/Model/RecurringInvoiceOut.php
 lib/Model/RecurringInvoicePatchRequest.php
 lib/Model/RecurringInvoiceResponse.php
 lib/Model/RecurringInvoicesListResponse.php
+lib/Model/RenderComplianceOut.php
 lib/Model/RenderOut.php
 lib/Model/RenderResponse.php
 lib/Model/SimpleBoolResponse.php
@@ -705,6 +707,7 @@ test/Model/RecurringInvoiceOutTest.php
 test/Model/RecurringInvoicePatchRequestTest.php
 test/Model/RecurringInvoiceResponseTest.php
 test/Model/RecurringInvoicesListResponseTest.php
+test/Model/RenderComplianceOutTest.php
 test/Model/RenderOutTest.php
 test/Model/RenderResponseTest.php
 test/Model/SimpleBoolResponseTest.php

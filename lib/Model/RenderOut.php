@@ -66,7 +66,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'download_url' => 'string',
         'expires_at' => 'string',
         'calculation' => '\InvoicePDFs\Model\CalculationBreakdown',
-        'created_at' => 'string'
+        'created_at' => 'string',
+        'compliance' => '\InvoicePDFs\Model\RenderComplianceOut'
     ];
 
     /**
@@ -86,7 +87,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'download_url' => null,
         'expires_at' => null,
         'calculation' => null,
-        'created_at' => null
+        'created_at' => null,
+        'compliance' => null
     ];
 
     /**
@@ -104,7 +106,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'download_url' => false,
         'expires_at' => false,
         'calculation' => false,
-        'created_at' => false
+        'created_at' => false,
+        'compliance' => true
     ];
 
     /**
@@ -202,7 +205,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'download_url' => 'download_url',
         'expires_at' => 'expires_at',
         'calculation' => 'calculation',
-        'created_at' => 'created_at'
+        'created_at' => 'created_at',
+        'compliance' => 'compliance'
     ];
 
     /**
@@ -220,7 +224,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'download_url' => 'setDownloadUrl',
         'expires_at' => 'setExpiresAt',
         'calculation' => 'setCalculation',
-        'created_at' => 'setCreatedAt'
+        'created_at' => 'setCreatedAt',
+        'compliance' => 'setCompliance'
     ];
 
     /**
@@ -238,7 +243,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'download_url' => 'getDownloadUrl',
         'expires_at' => 'getExpiresAt',
         'calculation' => 'getCalculation',
-        'created_at' => 'getCreatedAt'
+        'created_at' => 'getCreatedAt',
+        'compliance' => 'getCompliance'
     ];
 
     /**
@@ -361,6 +367,7 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('expires_at', $data ?? [], null);
         $this->setIfExists('calculation', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('compliance', $data ?? [], null);
     }
 
     /**
@@ -762,6 +769,40 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable created_at cannot be null');
         }
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets compliance
+     *
+     * @return \InvoicePDFs\Model\RenderComplianceOut|null
+     */
+    public function getCompliance()
+    {
+        return $this->container['compliance'];
+    }
+
+    /**
+     * Sets compliance
+     *
+     * @param \InvoicePDFs\Model\RenderComplianceOut|null $compliance compliance
+     *
+     * @return self
+     */
+    public function setCompliance($compliance)
+    {
+        if (is_null($compliance)) {
+            array_push($this->openAPINullablesSetToNull, 'compliance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('compliance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['compliance'] = $compliance;
 
         return $this;
     }
