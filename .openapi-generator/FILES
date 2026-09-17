@@ -169,6 +169,7 @@ docs/Model/InvoicesListResponse.md
 docs/Model/JobOut.md
 docs/Model/JobProgressOut.md
 docs/Model/JobResponse.md
+docs/Model/JobsListResponse.md
 docs/Model/LineItemDiscountInput.md
 docs/Model/LineItemTaxInput.md
 docs/Model/LocaleOut.md
@@ -426,6 +427,7 @@ lib/Model/InvoicesListResponse.php
 lib/Model/JobOut.php
 lib/Model/JobProgressOut.php
 lib/Model/JobResponse.php
+lib/Model/JobsListResponse.php
 lib/Model/LineItemDiscountInput.php
 lib/Model/LineItemTaxInput.php
 lib/Model/LocaleOut.php
@@ -682,6 +684,7 @@ test/Model/InvoicesListResponseTest.php
 test/Model/JobOutTest.php
 test/Model/JobProgressOutTest.php
 test/Model/JobResponseTest.php
+test/Model/JobsListResponseTest.php
 test/Model/LineItemDiscountInputTest.php
 test/Model/LineItemTaxInputTest.php
 test/Model/LocaleOutTest.php

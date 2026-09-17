@@ -553,7 +553,7 @@ class BatchesApi
             }
 
             switch($statusCode) {
-                case 200:
+                case 202:
                     if ('\InvoicePDFs\Model\BatchResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -639,7 +639,7 @@ class BatchesApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
+                case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\InvoicePDFs\Model\BatchResponse',
