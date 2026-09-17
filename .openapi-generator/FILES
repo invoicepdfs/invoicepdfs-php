@@ -9,6 +9,7 @@ docs/Api/BatchesApi.md
 docs/Api/BillingApi.md
 docs/Api/BrandingProfilesApi.md
 docs/Api/BusinessProfilesApi.md
+docs/Api/ComplianceApi.md
 docs/Api/CustomersApi.md
 docs/Api/DeliveriesApi.md
 docs/Api/DocumentAttachmentsApi.md
@@ -262,6 +263,7 @@ lib/Api/BatchesApi.php
 lib/Api/BillingApi.php
 lib/Api/BrandingProfilesApi.php
 lib/Api/BusinessProfilesApi.php
+lib/Api/ComplianceApi.php
 lib/Api/CustomersApi.php
 lib/Api/DeliveriesApi.php
 lib/Api/DocumentAttachmentsApi.php
@@ -520,6 +522,7 @@ test/Api/BatchesApiTest.php
 test/Api/BillingApiTest.php
 test/Api/BrandingProfilesApiTest.php
 test/Api/BusinessProfilesApiTest.php
+test/Api/ComplianceApiTest.php
 test/Api/CustomersApiTest.php
 test/Api/DeliveriesApiTest.php
 test/Api/DocumentAttachmentsApiTest.php

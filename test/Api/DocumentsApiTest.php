@@ -132,18 +132,6 @@ class DocumentsApiTest extends TestCase
     }
 
     /**
-     * Test case for downloadDocumentXml
-     *
-     * Download Document Xml.
-     *
-     */
-    public function testDownloadDocumentXml()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for duplicateDocument
      *
      * Duplicate Document.
@@ -252,18 +240,6 @@ class DocumentsApiTest extends TestCase
     }
 
     /**
-     * Test case for renderDocumentXml
-     *
-     * Render Document Xml.
-     *
-     */
-    public function testRenderDocumentXml()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for restoreDocument
      *
      * Restore Document.
@@ -294,18 +270,6 @@ class DocumentsApiTest extends TestCase
      *
      */
     public function testUpdateDocument()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for validateCompliance
-     *
-     * Validate Compliance.
-     *
-     */
-    public function testValidateCompliance()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
