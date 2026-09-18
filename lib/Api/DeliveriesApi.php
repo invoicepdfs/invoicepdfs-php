@@ -541,7 +541,7 @@ class DeliveriesApi
             }
 
             switch($statusCode) {
-                case 200:
+                case 202:
                     if ('\InvoicePDFs\Model\DeliveryResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -627,7 +627,7 @@ class DeliveriesApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
+                case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\InvoicePDFs\Model\DeliveryResponse',

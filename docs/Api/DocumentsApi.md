@@ -921,6 +921,8 @@ sendDocument($document_id, $delivery_send_request): \InvoicePDFs\Model\DeliveryR
 
 Send Document
 
+Queue the document to be emailed.  Returns 202 with the delivery in `queued`. The mail is sent in the background and retried on transient failure; poll `GET /deliveries/{id}` for the outcome.
+
 ### Example
 
 ```php
