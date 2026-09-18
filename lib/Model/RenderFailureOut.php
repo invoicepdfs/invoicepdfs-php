@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentOutputOptions
+ * RenderFailureOut
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \InvoicePDFs\ObjectSerializer;
 
 /**
- * DocumentOutputOptions Class Doc Comment
+ * RenderFailureOut Class Doc Comment
  *
  * @category Class
+ * @description Why a render failed, in the same shape the synchronous path returns.  A synchronous render of a document EN 16931 would reject answers &#x60;422 compliance_failed&#x60; with every violation at once — a list of fields to go and fill in. A queued render has to be able to say the same thing: the caller who chose &#x60;async&#x60; did not choose a worse answer.
  * @package  InvoicePDFs
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSerializable
+class RenderFailureOut implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DocumentOutputOptions';
+    protected static $openAPIModelName = 'RenderFailureOut';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +58,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'format' => 'string',
-        'delivery' => 'string',
-        'mode' => 'string',
-        'expires_in' => 'int'
+        'code' => 'string',
+        'message' => 'string',
+        'details' => 'array<string,mixed>'
     ];
 
     /**
@@ -71,10 +71,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'format' => null,
-        'delivery' => null,
-        'mode' => null,
-        'expires_in' => null
+        'code' => null,
+        'message' => null,
+        'details' => null
     ];
 
     /**
@@ -83,10 +82,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'format' => false,
-        'delivery' => false,
-        'mode' => false,
-        'expires_in' => false
+        'code' => false,
+        'message' => false,
+        'details' => true
     ];
 
     /**
@@ -175,10 +173,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'format' => 'format',
-        'delivery' => 'delivery',
-        'mode' => 'mode',
-        'expires_in' => 'expires_in'
+        'code' => 'code',
+        'message' => 'message',
+        'details' => 'details'
     ];
 
     /**
@@ -187,10 +184,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'format' => 'setFormat',
-        'delivery' => 'setDelivery',
-        'mode' => 'setMode',
-        'expires_in' => 'setExpiresIn'
+        'code' => 'setCode',
+        'message' => 'setMessage',
+        'details' => 'setDetails'
     ];
 
     /**
@@ -199,10 +195,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'format' => 'getFormat',
-        'delivery' => 'getDelivery',
-        'mode' => 'getMode',
-        'expires_in' => 'getExpiresIn'
+        'code' => 'getCode',
+        'message' => 'getMessage',
+        'details' => 'getDetails'
     ];
 
     /**
@@ -246,51 +241,6 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-    public const FORMAT_PDF = 'pdf';
-    public const FORMAT_FACTURX_PDF = 'facturx_pdf';
-    public const DELIVERY_URL = 'url';
-    public const DELIVERY_BINARY = 'binary';
-    public const MODE_SYNC = 'sync';
-    public const MODE_ASYNC = 'async';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFormatAllowableValues()
-    {
-        return [
-            self::FORMAT_PDF,
-            self::FORMAT_FACTURX_PDF,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getDeliveryAllowableValues()
-    {
-        return [
-            self::DELIVERY_URL,
-            self::DELIVERY_BINARY,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getModeAllowableValues()
-    {
-        return [
-            self::MODE_SYNC,
-            self::MODE_ASYNC,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -307,10 +257,9 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('format', $data ?? [], 'pdf');
-        $this->setIfExists('delivery', $data ?? [], 'url');
-        $this->setIfExists('mode', $data ?? [], 'sync');
-        $this->setIfExists('expires_in', $data ?? [], 3600);
+        $this->setIfExists('code', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
+        $this->setIfExists('details', $data ?? [], null);
     }
 
     /**
@@ -340,41 +289,12 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'format', must be one of '%s'",
-                $this->container['format'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
         }
-
-        $allowedValues = $this->getDeliveryAllowableValues();
-        if (!is_null($this->container['delivery']) && !in_array($this->container['delivery'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'delivery', must be one of '%s'",
-                $this->container['delivery'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
         }
-
-        $allowedValues = $this->getModeAllowableValues();
-        if (!is_null($this->container['mode']) && !in_array($this->container['mode'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'mode', must be one of '%s'",
-                $this->container['mode'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if (!is_null($this->container['expires_in']) && ($this->container['expires_in'] > 604800)) {
-            $invalidProperties[] = "invalid value for 'expires_in', must be smaller than or equal to 604800.";
-        }
-
-        if (!is_null($this->container['expires_in']) && ($this->container['expires_in'] < 60)) {
-            $invalidProperties[] = "invalid value for 'expires_in', must be bigger than or equal to 60.";
-        }
-
         return $invalidProperties;
     }
 
@@ -391,147 +311,89 @@ class DocumentOutputOptions implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets format
+     * Gets code
      *
-     * @return string|null
+     * @return string
      */
-    public function getFormat()
+    public function getCode()
     {
-        return $this->container['format'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets format
+     * Sets code
      *
-     * @param string|null $format format
+     * @param string $code `compliance_failed` for a document that is well-formed and would be rejected by the ruleset it asked for; `unprocessable_entity` for one the renderer could not make sense of. The same codes the synchronous path returns.
      *
      * @return self
      */
-    public function setFormat($format)
+    public function setCode($code)
     {
-        if (is_null($format)) {
-            throw new \InvalidArgumentException('non-nullable format cannot be null');
+        if (is_null($code)) {
+            throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
-        $allowedValues = $this->getFormatAllowableValues();
-        if (!in_array($format, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'format', must be one of '%s'",
-                    $format,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['format'] = $format;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets delivery
+     * Gets message
      *
-     * @return string|null
+     * @return string
      */
-    public function getDelivery()
+    public function getMessage()
     {
-        return $this->container['delivery'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets delivery
+     * Sets message
      *
-     * @param string|null $delivery delivery
+     * @param string $message message
      *
      * @return self
      */
-    public function setDelivery($delivery)
+    public function setMessage($message)
     {
-        if (is_null($delivery)) {
-            throw new \InvalidArgumentException('non-nullable delivery cannot be null');
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
-        $allowedValues = $this->getDeliveryAllowableValues();
-        if (!in_array($delivery, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'delivery', must be one of '%s'",
-                    $delivery,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['delivery'] = $delivery;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets mode
+     * Gets details
      *
-     * @return string|null
+     * @return array<string,mixed>|null
      */
-    public function getMode()
+    public function getDetails()
     {
-        return $this->container['mode'];
+        return $this->container['details'];
     }
 
     /**
-     * Sets mode
+     * Sets details
      *
-     * @param string|null $mode `sync` renders inside the request and answers with the finished document. `async` returns `202` with a `queued` render a worker picks up; follow it with `GET /renders/{id}`. Use it for bursts — rendering is CPU-bound, so a hundred at once queue behind each other whichever mode you ask for, and only one of the two holds a connection open while they do.
+     * @param array<string,mixed>|null $details details
      *
      * @return self
      */
-    public function setMode($mode)
+    public function setDetails($details)
     {
-        if (is_null($mode)) {
-            throw new \InvalidArgumentException('non-nullable mode cannot be null');
+        if (is_null($details)) {
+            array_push($this->openAPINullablesSetToNull, 'details');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('details', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $allowedValues = $this->getModeAllowableValues();
-        if (!in_array($mode, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'mode', must be one of '%s'",
-                    $mode,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['mode'] = $mode;
-
-        return $this;
-    }
-
-    /**
-     * Gets expires_in
-     *
-     * @return int|null
-     */
-    public function getExpiresIn()
-    {
-        return $this->container['expires_in'];
-    }
-
-    /**
-     * Sets expires_in
-     *
-     * @param int|null $expires_in How long the render stays downloadable, in seconds (1 minute to 7 days). It is also the lifetime of the signature in `download_url`, which is why it is bounded: an unbounded value meant an unbounded grant. A value below the floor used to be accepted and produced a render that had already expired.
-     *
-     * @return self
-     */
-    public function setExpiresIn($expires_in)
-    {
-        if (is_null($expires_in)) {
-            throw new \InvalidArgumentException('non-nullable expires_in cannot be null');
-        }
-
-        if (($expires_in > 604800)) {
-            throw new \InvalidArgumentException('invalid value for $expires_in when calling DocumentOutputOptions., must be smaller than or equal to 604800.');
-        }
-        if (($expires_in < 60)) {
-            throw new \InvalidArgumentException('invalid value for $expires_in when calling DocumentOutputOptions., must be bigger than or equal to 60.');
-        }
-
-        $this->container['expires_in'] = $expires_in;
+        $this->container['details'] = $details;
 
         return $this;
     }

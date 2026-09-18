@@ -177,4 +177,13 @@ class RenderOutTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "failure"
+     */
+    public function testPropertyFailure()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

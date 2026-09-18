@@ -67,7 +67,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'expires_at' => 'string',
         'calculation' => '\InvoicePDFs\Model\CalculationBreakdown',
         'created_at' => 'string',
-        'compliance' => '\InvoicePDFs\Model\RenderComplianceOut'
+        'compliance' => '\InvoicePDFs\Model\RenderComplianceOut',
+        'failure' => '\InvoicePDFs\Model\RenderFailureOut'
     ];
 
     /**
@@ -88,7 +89,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'expires_at' => null,
         'calculation' => null,
         'created_at' => null,
-        'compliance' => null
+        'compliance' => null,
+        'failure' => null
     ];
 
     /**
@@ -103,11 +105,12 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'template_id' => false,
         'template_version' => true,
         'format' => false,
-        'download_url' => false,
-        'expires_at' => false,
+        'download_url' => true,
+        'expires_at' => true,
         'calculation' => false,
         'created_at' => false,
-        'compliance' => true
+        'compliance' => true,
+        'failure' => true
     ];
 
     /**
@@ -206,7 +209,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'expires_at' => 'expires_at',
         'calculation' => 'calculation',
         'created_at' => 'created_at',
-        'compliance' => 'compliance'
+        'compliance' => 'compliance',
+        'failure' => 'failure'
     ];
 
     /**
@@ -225,7 +229,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'expires_at' => 'setExpiresAt',
         'calculation' => 'setCalculation',
         'created_at' => 'setCreatedAt',
-        'compliance' => 'setCompliance'
+        'compliance' => 'setCompliance',
+        'failure' => 'setFailure'
     ];
 
     /**
@@ -244,7 +249,8 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'expires_at' => 'getExpiresAt',
         'calculation' => 'getCalculation',
         'created_at' => 'getCreatedAt',
-        'compliance' => 'getCompliance'
+        'compliance' => 'getCompliance',
+        'failure' => 'getFailure'
     ];
 
     /**
@@ -288,7 +294,10 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const STATUS_QUEUED = 'queued';
+    public const STATUS_PROCESSING = 'processing';
     public const STATUS_COMPLETED = 'completed';
+    public const STATUS_FAILED = 'failed';
     public const DOCUMENT_TYPE_INVOICE = 'invoice';
     public const DOCUMENT_TYPE_CREDIT_NOTE = 'credit_note';
     public const DOCUMENT_TYPE_DEBIT_NOTE = 'debit_note';
@@ -307,7 +316,10 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
     public function getStatusAllowableValues()
     {
         return [
+            self::STATUS_QUEUED,
+            self::STATUS_PROCESSING,
             self::STATUS_COMPLETED,
+            self::STATUS_FAILED,
         ];
     }
 
@@ -368,6 +380,7 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('calculation', $data ?? [], null);
         $this->setIfExists('created_at', $data ?? [], null);
         $this->setIfExists('compliance', $data ?? [], null);
+        $this->setIfExists('failure', $data ?? [], null);
     }
 
     /**
@@ -439,12 +452,6 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
-        if ($this->container['download_url'] === null) {
-            $invalidProperties[] = "'download_url' can't be null";
-        }
-        if ($this->container['expires_at'] === null) {
-            $invalidProperties[] = "'expires_at' can't be null";
-        }
         if ($this->container['calculation'] === null) {
             $invalidProperties[] = "'calculation' can't be null";
         }
@@ -668,7 +675,7 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets download_url
      *
-     * @return string
+     * @return string|null
      */
     public function getDownloadUrl()
     {
@@ -678,14 +685,21 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets download_url
      *
-     * @param string $download_url download_url
+     * @param string|null $download_url download_url
      *
      * @return self
      */
     public function setDownloadUrl($download_url)
     {
         if (is_null($download_url)) {
-            throw new \InvalidArgumentException('non-nullable download_url cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'download_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('download_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['download_url'] = $download_url;
 
@@ -695,7 +709,7 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets expires_at
      *
-     * @return string
+     * @return string|null
      */
     public function getExpiresAt()
     {
@@ -705,14 +719,21 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets expires_at
      *
-     * @param string $expires_at expires_at
+     * @param string|null $expires_at expires_at
      *
      * @return self
      */
     public function setExpiresAt($expires_at)
     {
         if (is_null($expires_at)) {
-            throw new \InvalidArgumentException('non-nullable expires_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expires_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expires_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expires_at'] = $expires_at;
 
@@ -803,6 +824,40 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['compliance'] = $compliance;
+
+        return $this;
+    }
+
+    /**
+     * Gets failure
+     *
+     * @return \InvoicePDFs\Model\RenderFailureOut|null
+     */
+    public function getFailure()
+    {
+        return $this->container['failure'];
+    }
+
+    /**
+     * Sets failure
+     *
+     * @param \InvoicePDFs\Model\RenderFailureOut|null $failure failure
+     *
+     * @return self
+     */
+    public function setFailure($failure)
+    {
+        if (is_null($failure)) {
+            array_push($this->openAPINullablesSetToNull, 'failure');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('failure', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['failure'] = $failure;
 
         return $this;
     }

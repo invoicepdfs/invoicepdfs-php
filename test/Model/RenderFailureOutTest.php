@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentOutputOptionsTest
+ * RenderFailureOutTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace InvoicePDFs\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DocumentOutputOptionsTest Class Doc Comment
+ * RenderFailureOutTest Class Doc Comment
  *
  * @category    Class
- * @description DocumentOutputOptions
+ * @description Why a render failed, in the same shape the synchronous path returns.  A synchronous render of a document EN 16931 would reject answers &#x60;422 compliance_failed&#x60; with every violation at once — a list of fields to go and fill in. A queued render has to be able to say the same thing: the caller who chose &#x60;async&#x60; did not choose a worse answer.
  * @package     InvoicePDFs
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DocumentOutputOptionsTest extends TestCase
+class RenderFailureOutTest extends TestCase
 {
 
     /**
@@ -71,45 +71,36 @@ class DocumentOutputOptionsTest extends TestCase
     }
 
     /**
-     * Test "DocumentOutputOptions"
+     * Test "RenderFailureOut"
      */
-    public function testDocumentOutputOptions()
+    public function testRenderFailureOut()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "format"
+     * Test attribute "code"
      */
-    public function testPropertyFormat()
+    public function testPropertyCode()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "delivery"
+     * Test attribute "message"
      */
-    public function testPropertyDelivery()
+    public function testPropertyMessage()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "mode"
+     * Test attribute "details"
      */
-    public function testPropertyMode()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "expires_in"
-     */
-    public function testPropertyExpiresIn()
+    public function testPropertyDetails()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

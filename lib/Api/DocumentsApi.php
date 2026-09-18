@@ -4839,7 +4839,7 @@ class DocumentsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\RenderResponse|\InvoicePDFs\Model\ApiErrorResponse
+     * @return \InvoicePDFs\Model\RenderResponse|\InvoicePDFs\Model\RenderResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function renderDocument($document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocument'][0])
     {
@@ -4858,7 +4858,7 @@ class DocumentsApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\RenderResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\RenderResponse|\InvoicePDFs\Model\RenderResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function renderDocumentWithHttpInfo($document_render_request, $idempotency_key = null, string $contentType = self::contentTypes['renderDocument'][0])
     {
@@ -4901,6 +4901,33 @@ class DocumentsApi
 
             switch($statusCode) {
                 case 200:
+                    if ('\InvoicePDFs\Model\RenderResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\InvoicePDFs\Model\RenderResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\RenderResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 202:
                     if ('\InvoicePDFs\Model\RenderResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
@@ -4987,6 +5014,14 @@ class DocumentsApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\InvoicePDFs\Model\RenderResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\InvoicePDFs\Model\RenderResponse',
