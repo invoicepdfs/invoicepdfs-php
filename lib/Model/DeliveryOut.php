@@ -65,7 +65,7 @@ class DeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'subject' => 'string',
         'message' => 'string',
         'attach_pdf' => 'bool',
-        'status' => 'string',
+        'status' => '\InvoicePDFs\Model\DeliveryStatus',
         'created_at' => 'string',
         'sent_at' => 'string'
     ];
@@ -288,23 +288,6 @@ class DeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const STATUS_QUEUED = 'queued';
-    public const STATUS_SENT = 'sent';
-    public const STATUS_FAILED = 'failed';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_QUEUED,
-            self::STATUS_SENT,
-            self::STATUS_FAILED,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -385,15 +368,6 @@ class DeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['created_at'] === null) {
             $invalidProperties[] = "'created_at' can't be null";
         }
@@ -638,7 +612,7 @@ class DeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return string
+     * @return \InvoicePDFs\Model\DeliveryStatus
      */
     public function getStatus()
     {
@@ -648,7 +622,7 @@ class DeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param \InvoicePDFs\Model\DeliveryStatus $status status
      *
      * @return self
      */
@@ -656,16 +630,6 @@ class DeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($status)) {
             throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['status'] = $status;
 

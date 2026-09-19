@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** |  |
 **document_type** | **string** |  |
 **number** | **string** |  |
-**status** | **string** |  |
+**status** | [**\InvoicePDFs\Model\DocumentStatus**](DocumentStatus.md) |  |
 **issue_date** | **\DateTime** |  |
 **due_date** | **\DateTime** |  | [optional]
 **currency** | **string** |  |

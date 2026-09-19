@@ -65,10 +65,12 @@ docs/Model/AuthTokenResponse.md
 docs/Model/BatchCreateRequest.md
 docs/Model/BatchItemInput.md
 docs/Model/BatchItemOut.md
+docs/Model/BatchItemStatus.md
 docs/Model/BatchItemsListResponse.md
 docs/Model/BatchOut.md
 docs/Model/BatchOutputOptions.md
 docs/Model/BatchResponse.md
+docs/Model/BatchStatus.md
 docs/Model/BatchesListResponse.md
 docs/Model/BillingCheckoutData.md
 docs/Model/BillingCheckoutRequest.md
@@ -115,6 +117,7 @@ docs/Model/DeliveriesListResponse.md
 docs/Model/DeliveryOut.md
 docs/Model/DeliveryResponse.md
 docs/Model/DeliverySendRequest.md
+docs/Model/DeliveryStatus.md
 docs/Model/DocumentBrandingInput.md
 docs/Model/DocumentCalculateRequest.md
 docs/Model/DocumentCalculateResponse.md
@@ -135,6 +138,7 @@ docs/Model/DocumentRenderOptions.md
 docs/Model/DocumentRenderRequest.md
 docs/Model/DocumentResponse.md
 docs/Model/DocumentShippingInput.md
+docs/Model/DocumentStatus.md
 docs/Model/DocumentTemplateRef.md
 docs/Model/DocumentTypeOut.md
 docs/Model/DocumentTypesListResponse.md
@@ -148,6 +152,7 @@ docs/Model/HealthResponse.md
 docs/Model/ImportCreateRequest.md
 docs/Model/ImportOut.md
 docs/Model/ImportResponse.md
+docs/Model/ImportStatus.md
 docs/Model/InvoiceAttachmentCreateRequest.md
 docs/Model/InvoiceAttachmentOut.md
 docs/Model/InvoiceAttachmentResponse.md
@@ -169,6 +174,7 @@ docs/Model/InvoicesListResponse.md
 docs/Model/JobOut.md
 docs/Model/JobProgressOut.md
 docs/Model/JobResponse.md
+docs/Model/JobStatus.md
 docs/Model/JobsListResponse.md
 docs/Model/LineItemDiscountInput.md
 docs/Model/LineItemTaxInput.md
@@ -197,11 +203,13 @@ docs/Model/RecurringInvoiceCreateRequest.md
 docs/Model/RecurringInvoiceOut.md
 docs/Model/RecurringInvoicePatchRequest.md
 docs/Model/RecurringInvoiceResponse.md
+docs/Model/RecurringInvoiceStatus.md
 docs/Model/RecurringInvoicesListResponse.md
 docs/Model/RenderComplianceOut.md
 docs/Model/RenderFailureOut.md
 docs/Model/RenderOut.md
 docs/Model/RenderResponse.md
+docs/Model/RenderStatus.md
 docs/Model/SimpleBoolResponse.md
 docs/Model/StandardLineItemInput.md
 docs/Model/StatsCounts.md
@@ -242,6 +250,7 @@ docs/Model/VersionResponse.md
 docs/Model/WebhookDeliveriesListResponse.md
 docs/Model/WebhookDeliveryOut.md
 docs/Model/WebhookDeliveryResponse.md
+docs/Model/WebhookDeliveryStatus.md
 docs/Model/WebhookEndpointCreateRequest.md
 docs/Model/WebhookEndpointOut.md
 docs/Model/WebhookEndpointPatchRequest.md
@@ -324,10 +333,12 @@ lib/Model/AuthTokenResponse.php
 lib/Model/BatchCreateRequest.php
 lib/Model/BatchItemInput.php
 lib/Model/BatchItemOut.php
+lib/Model/BatchItemStatus.php
 lib/Model/BatchItemsListResponse.php
 lib/Model/BatchOut.php
 lib/Model/BatchOutputOptions.php
 lib/Model/BatchResponse.php
+lib/Model/BatchStatus.php
 lib/Model/BatchesListResponse.php
 lib/Model/BillingCheckoutData.php
 lib/Model/BillingCheckoutRequest.php
@@ -374,6 +385,7 @@ lib/Model/DeliveriesListResponse.php
 lib/Model/DeliveryOut.php
 lib/Model/DeliveryResponse.php
 lib/Model/DeliverySendRequest.php
+lib/Model/DeliveryStatus.php
 lib/Model/DocumentBrandingInput.php
 lib/Model/DocumentCalculateRequest.php
 lib/Model/DocumentCalculateResponse.php
@@ -394,6 +406,7 @@ lib/Model/DocumentRenderOptions.php
 lib/Model/DocumentRenderRequest.php
 lib/Model/DocumentResponse.php
 lib/Model/DocumentShippingInput.php
+lib/Model/DocumentStatus.php
 lib/Model/DocumentTemplateRef.php
 lib/Model/DocumentTypeOut.php
 lib/Model/DocumentTypesListResponse.php
@@ -407,6 +420,7 @@ lib/Model/HealthResponse.php
 lib/Model/ImportCreateRequest.php
 lib/Model/ImportOut.php
 lib/Model/ImportResponse.php
+lib/Model/ImportStatus.php
 lib/Model/InvoiceAttachmentCreateRequest.php
 lib/Model/InvoiceAttachmentOut.php
 lib/Model/InvoiceAttachmentResponse.php
@@ -428,6 +442,7 @@ lib/Model/InvoicesListResponse.php
 lib/Model/JobOut.php
 lib/Model/JobProgressOut.php
 lib/Model/JobResponse.php
+lib/Model/JobStatus.php
 lib/Model/JobsListResponse.php
 lib/Model/LineItemDiscountInput.php
 lib/Model/LineItemTaxInput.php
@@ -457,11 +472,13 @@ lib/Model/RecurringInvoiceCreateRequest.php
 lib/Model/RecurringInvoiceOut.php
 lib/Model/RecurringInvoicePatchRequest.php
 lib/Model/RecurringInvoiceResponse.php
+lib/Model/RecurringInvoiceStatus.php
 lib/Model/RecurringInvoicesListResponse.php
 lib/Model/RenderComplianceOut.php
 lib/Model/RenderFailureOut.php
 lib/Model/RenderOut.php
 lib/Model/RenderResponse.php
+lib/Model/RenderStatus.php
 lib/Model/SimpleBoolResponse.php
 lib/Model/StandardLineItemInput.php
 lib/Model/StatsCounts.php
@@ -502,6 +519,7 @@ lib/Model/VersionResponse.php
 lib/Model/WebhookDeliveriesListResponse.php
 lib/Model/WebhookDeliveryOut.php
 lib/Model/WebhookDeliveryResponse.php
+lib/Model/WebhookDeliveryStatus.php
 lib/Model/WebhookEndpointCreateRequest.php
 lib/Model/WebhookEndpointOut.php
 lib/Model/WebhookEndpointPatchRequest.php
@@ -582,10 +600,12 @@ test/Model/AuthTokenResponseTest.php
 test/Model/BatchCreateRequestTest.php
 test/Model/BatchItemInputTest.php
 test/Model/BatchItemOutTest.php
+test/Model/BatchItemStatusTest.php
 test/Model/BatchItemsListResponseTest.php
 test/Model/BatchOutTest.php
 test/Model/BatchOutputOptionsTest.php
 test/Model/BatchResponseTest.php
+test/Model/BatchStatusTest.php
 test/Model/BatchesListResponseTest.php
 test/Model/BillingCheckoutDataTest.php
 test/Model/BillingCheckoutRequestTest.php
@@ -632,6 +652,7 @@ test/Model/DeliveriesListResponseTest.php
 test/Model/DeliveryOutTest.php
 test/Model/DeliveryResponseTest.php
 test/Model/DeliverySendRequestTest.php
+test/Model/DeliveryStatusTest.php
 test/Model/DocumentBrandingInputTest.php
 test/Model/DocumentCalculateRequestTest.php
 test/Model/DocumentCalculateResponseTest.php
@@ -652,6 +673,7 @@ test/Model/DocumentRenderOptionsTest.php
 test/Model/DocumentRenderRequestTest.php
 test/Model/DocumentResponseTest.php
 test/Model/DocumentShippingInputTest.php
+test/Model/DocumentStatusTest.php
 test/Model/DocumentTemplateRefTest.php
 test/Model/DocumentTypeOutTest.php
 test/Model/DocumentTypesListResponseTest.php
@@ -665,6 +687,7 @@ test/Model/HealthResponseTest.php
 test/Model/ImportCreateRequestTest.php
 test/Model/ImportOutTest.php
 test/Model/ImportResponseTest.php
+test/Model/ImportStatusTest.php
 test/Model/InvoiceAttachmentCreateRequestTest.php
 test/Model/InvoiceAttachmentOutTest.php
 test/Model/InvoiceAttachmentResponseTest.php
@@ -686,6 +709,7 @@ test/Model/InvoicesListResponseTest.php
 test/Model/JobOutTest.php
 test/Model/JobProgressOutTest.php
 test/Model/JobResponseTest.php
+test/Model/JobStatusTest.php
 test/Model/JobsListResponseTest.php
 test/Model/LineItemDiscountInputTest.php
 test/Model/LineItemTaxInputTest.php
@@ -714,11 +738,13 @@ test/Model/RecurringInvoiceCreateRequestTest.php
 test/Model/RecurringInvoiceOutTest.php
 test/Model/RecurringInvoicePatchRequestTest.php
 test/Model/RecurringInvoiceResponseTest.php
+test/Model/RecurringInvoiceStatusTest.php
 test/Model/RecurringInvoicesListResponseTest.php
 test/Model/RenderComplianceOutTest.php
 test/Model/RenderFailureOutTest.php
 test/Model/RenderOutTest.php
 test/Model/RenderResponseTest.php
+test/Model/RenderStatusTest.php
 test/Model/SimpleBoolResponseTest.php
 test/Model/StandardLineItemInputTest.php
 test/Model/StatsCountsTest.php
@@ -759,6 +785,7 @@ test/Model/VersionResponseTest.php
 test/Model/WebhookDeliveriesListResponseTest.php
 test/Model/WebhookDeliveryOutTest.php
 test/Model/WebhookDeliveryResponseTest.php
+test/Model/WebhookDeliveryStatusTest.php
 test/Model/WebhookEndpointCreateRequestTest.php
 test/Model/WebhookEndpointOutTest.php
 test/Model/WebhookEndpointPatchRequestTest.php

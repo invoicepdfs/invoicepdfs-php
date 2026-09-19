@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  |
-**status** | **string** |  |
+**status** | [**\InvoicePDFs\Model\DocumentStatus**](DocumentStatus.md) |  |
 **invoice_number** | **string** |  |
 **document_type** | **string** |  |
 **issue_date** | **\DateTime** |  |

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **endpoint_id** | **string** |  |
 **event_id** | **string** |  |
 **event_type** | **string** |  |
-**status** | **string** |  |
+**status** | [**\InvoicePDFs\Model\WebhookDeliveryStatus**](WebhookDeliveryStatus.md) |  |
 **http_status** | **int** |  | [optional]
 **attempts** | **int** |  |
 **error_message** | **string** |  | [optional]

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  |
-**status** | **string** |  |
+**status** | [**\InvoicePDFs\Model\RenderStatus**](RenderStatus.md) |  |
 **document_type** | **string** |  |
 **template_id** | **string** |  |
 **template_version** | **int** |  | [optional]

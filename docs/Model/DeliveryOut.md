@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **subject** | **string** |  |
 **message** | **string** |  | [optional]
 **attach_pdf** | **bool** |  |
-**status** | **string** |  |
+**status** | [**\InvoicePDFs\Model\DeliveryStatus**](DeliveryStatus.md) |  |
 **created_at** | **string** |  |
 **sent_at** | **string** |  | [optional]
 

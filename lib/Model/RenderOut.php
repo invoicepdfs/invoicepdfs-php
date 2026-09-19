@@ -58,7 +58,7 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'status' => 'string',
+        'status' => '\InvoicePDFs\Model\RenderStatus',
         'document_type' => 'string',
         'template_id' => 'string',
         'template_version' => 'int',
@@ -294,10 +294,6 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const STATUS_QUEUED = 'queued';
-    public const STATUS_PROCESSING = 'processing';
-    public const STATUS_COMPLETED = 'completed';
-    public const STATUS_FAILED = 'failed';
     public const DOCUMENT_TYPE_INVOICE = 'invoice';
     public const DOCUMENT_TYPE_CREDIT_NOTE = 'credit_note';
     public const DOCUMENT_TYPE_DEBIT_NOTE = 'debit_note';
@@ -307,21 +303,6 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DOCUMENT_TYPE_PURCHASE_ORDER = 'purchase_order';
     public const DOCUMENT_TYPE_DELIVERY_NOTE = 'delivery_note';
     public const FORMAT_PDF = 'pdf';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_QUEUED,
-            self::STATUS_PROCESSING,
-            self::STATUS_COMPLETED,
-            self::STATUS_FAILED,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -416,15 +397,6 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['document_type'] === null) {
             $invalidProperties[] = "'document_type' can't be null";
         }
@@ -503,7 +475,7 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return string
+     * @return \InvoicePDFs\Model\RenderStatus
      */
     public function getStatus()
     {
@@ -513,7 +485,7 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param \InvoicePDFs\Model\RenderStatus $status status
      *
      * @return self
      */
@@ -521,16 +493,6 @@ class RenderOut implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($status)) {
             throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['status'] = $status;
 

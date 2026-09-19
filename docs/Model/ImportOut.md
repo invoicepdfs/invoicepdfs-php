@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  |
 **source_format** | **string** |  |
-**status** | **string** |  |
+**status** | [**\InvoicePDFs\Model\ImportStatus**](ImportStatus.md) |  |
 **total_rows** | **int** |  |
 **imported_rows** | **int** |  |
 **failed_rows** | **int** |  |

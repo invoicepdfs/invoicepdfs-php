@@ -61,7 +61,7 @@ class WebhookDeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializab
         'endpoint_id' => 'string',
         'event_id' => 'string',
         'event_type' => 'string',
-        'status' => 'string',
+        'status' => '\InvoicePDFs\Model\WebhookDeliveryStatus',
         'http_status' => 'int',
         'attempts' => 'int',
         'error_message' => 'string',
@@ -282,25 +282,6 @@ class WebhookDeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializab
         return self::$openAPIModelName;
     }
 
-    public const STATUS_PENDING = 'pending';
-    public const STATUS_RETRYING = 'retrying';
-    public const STATUS_DELIVERED = 'delivered';
-    public const STATUS_FAILED = 'failed';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_PENDING,
-            self::STATUS_RETRYING,
-            self::STATUS_DELIVERED,
-            self::STATUS_FAILED,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -371,15 +352,6 @@ class WebhookDeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'status', must be one of '%s'",
-                $this->container['status'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['attempts'] === null) {
             $invalidProperties[] = "'attempts' can't be null";
         }
@@ -512,7 +484,7 @@ class WebhookDeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets status
      *
-     * @return string
+     * @return \InvoicePDFs\Model\WebhookDeliveryStatus
      */
     public function getStatus()
     {
@@ -522,7 +494,7 @@ class WebhookDeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param \InvoicePDFs\Model\WebhookDeliveryStatus $status status
      *
      * @return self
      */
@@ -530,16 +502,6 @@ class WebhookDeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         if (is_null($status)) {
             throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'status', must be one of '%s'",
-                    $status,
-                    implode("', '", $allowedValues)
-                )
-            );
         }
         $this->container['status'] = $status;
 

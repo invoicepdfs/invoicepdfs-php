@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  |
-**status** | **string** |  |
+**status** | [**\InvoicePDFs\Model\RecurringInvoiceStatus**](RecurringInvoiceStatus.md) |  |
 **business_profile_id** | **string** |  |
 **customer_id** | **string** |  |
 **frequency** | **string** |  |

@@ -58,7 +58,7 @@ class RecurringInvoiceOut implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'status' => 'string',
+        'status' => '\InvoicePDFs\Model\RecurringInvoiceStatus',
         'business_profile_id' => 'string',
         'customer_id' => 'string',
         'frequency' => 'string',
@@ -452,7 +452,7 @@ class RecurringInvoiceOut implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets status
      *
-     * @return string
+     * @return \InvoicePDFs\Model\RecurringInvoiceStatus
      */
     public function getStatus()
     {
@@ -462,7 +462,7 @@ class RecurringInvoiceOut implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param \InvoicePDFs\Model\RecurringInvoiceStatus $status status
      *
      * @return self
      */

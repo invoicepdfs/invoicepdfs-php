@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** |  |
 **external_id** | **string** |  | [optional]
 **document_type** | **string** |  |
-**status** | **string** |  |
+**status** | [**\InvoicePDFs\Model\BatchItemStatus**](BatchItemStatus.md) |  |
 **render_id** | **string** |  | [optional]
 **error_message** | **string** |  | [optional]
 **created_at** | **string** |  |

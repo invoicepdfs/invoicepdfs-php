@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  |
 **type** | **string** |  |
-**status** | **string** |  |
+**status** | [**\InvoicePDFs\Model\JobStatus**](JobStatus.md) |  |
 **progress** | [**\InvoicePDFs\Model\JobProgressOut**](JobProgressOut.md) |  |
 **result** | **array<string,mixed>** |  | [optional]
 **error** | **string** |  | [optional]

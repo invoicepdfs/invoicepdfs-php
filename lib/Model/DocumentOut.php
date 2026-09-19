@@ -60,7 +60,7 @@ class DocumentOut implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'document_type' => 'string',
         'number' => 'string',
-        'status' => 'string',
+        'status' => '\InvoicePDFs\Model\DocumentStatus',
         'issue_date' => '\DateTime',
         'due_date' => '\DateTime',
         'currency' => 'string',
@@ -567,7 +567,7 @@ class DocumentOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return string
+     * @return \InvoicePDFs\Model\DocumentStatus
      */
     public function getStatus()
     {
@@ -577,7 +577,7 @@ class DocumentOut implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param \InvoicePDFs\Model\DocumentStatus $status status
      *
      * @return self
      */
