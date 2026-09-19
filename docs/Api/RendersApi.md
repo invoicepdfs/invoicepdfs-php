@@ -78,6 +78,8 @@ getRender($render_id): \InvoicePDFs\Model\RenderResponse
 
 Get Render
 
+One render: its status, its totals, and how to download it.  `download_url` and `expires_at` are `null` until the render is `completed`, and a `failed` render carries a `failure` explaining why. Poll this after an asynchronous render.
+
 ### Example
 
 ```php
