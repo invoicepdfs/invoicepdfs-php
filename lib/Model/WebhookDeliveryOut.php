@@ -283,6 +283,7 @@ class WebhookDeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     public const STATUS_PENDING = 'pending';
+    public const STATUS_RETRYING = 'retrying';
     public const STATUS_DELIVERED = 'delivered';
     public const STATUS_FAILED = 'failed';
 
@@ -295,6 +296,7 @@ class WebhookDeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         return [
             self::STATUS_PENDING,
+            self::STATUS_RETRYING,
             self::STATUS_DELIVERED,
             self::STATUS_FAILED,
         ];

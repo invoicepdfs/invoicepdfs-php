@@ -290,8 +290,6 @@ class DeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializable
 
     public const STATUS_QUEUED = 'queued';
     public const STATUS_SENT = 'sent';
-    public const STATUS_DELIVERED = 'delivered';
-    public const STATUS_BOUNCED = 'bounced';
     public const STATUS_FAILED = 'failed';
 
     /**
@@ -304,8 +302,6 @@ class DeliveryOut implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::STATUS_QUEUED,
             self::STATUS_SENT,
-            self::STATUS_DELIVERED,
-            self::STATUS_BOUNCED,
             self::STATUS_FAILED,
         ];
     }
