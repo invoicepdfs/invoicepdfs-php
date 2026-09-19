@@ -18,6 +18,8 @@ cancelJob($job_id): \InvoicePDFs\Model\JobResponse
 
 Cancel Job
 
+Stop a job that has not finished.
+
 ### Example
 
 ```php
@@ -75,6 +77,8 @@ getJob($job_id): \InvoicePDFs\Model\JobResponse
 ```
 
 Get Job
+
+One job's status and progress.
 
 ### Example
 
@@ -195,6 +199,8 @@ retryJob($job_id): \InvoicePDFs\Model\JobResponse
 ```
 
 Retry Job
+
+Return a `failed` or `cancelled` job to `queued`, clearing its progress and error.  `409` from any other status.
 
 ### Example
 

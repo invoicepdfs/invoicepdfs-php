@@ -17,6 +17,8 @@ createDocumentAttachment($document_id, $invoice_attachment_create_request): \Inv
 
 Create Document Attachment
 
+Attach an already-uploaded file to a document.  Takes the `file_id` from `upload_file` rather than the bytes, so one upload can be attached to several documents.
+
 ### Example
 
 ```php
@@ -77,6 +79,8 @@ deleteDocumentAttachment($document_id, $attachment_id): \InvoicePDFs\Model\Simpl
 
 Delete Document Attachment
 
+Detach a file from this document. The file itself is kept.
+
 ### Example
 
 ```php
@@ -136,6 +140,8 @@ listDocumentAttachments($document_id): \InvoicePDFs\Model\InvoiceAttachmentsList
 ```
 
 List Document Attachments
+
+Files attached to this document.
 
 ### Example
 

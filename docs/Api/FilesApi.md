@@ -17,6 +17,8 @@ deleteFile($file_id): \InvoicePDFs\Model\SimpleBoolResponse
 
 Delete File
 
+Remove a stored file.  `409` if a branding profile or a document attachment still references it.
+
 ### Example
 
 ```php
@@ -75,6 +77,8 @@ getFile($file_id): \InvoicePDFs\Model\FileResponse
 
 Get File
 
+A stored file's metadata — name, type and size.
+
 ### Example
 
 ```php
@@ -132,6 +136,8 @@ uploadFile($file, $idempotency_key): \InvoicePDFs\Model\FileResponse
 ```
 
 Upload File
+
+Store a file and get an id for it.  Where logos and document attachments come from: upload once, then reference the returned `file_id` from a branding profile or an attachment.
 
 ### Example
 

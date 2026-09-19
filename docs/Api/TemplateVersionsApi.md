@@ -18,6 +18,8 @@ createTemplateVersion($template_id, $template_version_create_request): \InvoiceP
 
 Create Template Version
 
+Snapshot a template's current configuration as a new version.  A document can pin a version, so a render months later reproduces the design that was live when it was issued rather than today's.
+
 ### Example
 
 ```php
@@ -78,6 +80,8 @@ getTemplateVersion($template_id, $version): \InvoicePDFs\Model\TemplateVersionRe
 
 Get Template Version
 
+One version's stored configuration.
+
 ### Example
 
 ```php
@@ -137,6 +141,8 @@ listTemplateVersions($template_id): \InvoicePDFs\Model\TemplateVersionsListRespo
 ```
 
 List Template Versions
+
+Every published version of a custom template, newest first.
 
 ### Example
 

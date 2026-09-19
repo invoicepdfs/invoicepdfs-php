@@ -18,6 +18,8 @@ cancelImport($import_id): \InvoicePDFs\Model\ImportResponse
 
 Cancel Import
 
+Discard an import without creating anything. Only while it is `pending` or `processing`.
+
 ### Example
 
 ```php
@@ -75,6 +77,8 @@ confirmImport($import_id): \InvoicePDFs\Model\ImportResponse
 ```
 
 Confirm Import
+
+Commit a reviewed import, creating its documents.  Only from `pending` — an import already confirmed or cancelled returns `409`.
 
 ### Example
 
@@ -134,6 +138,8 @@ createImport($import_create_request): \InvoicePDFs\Model\ImportResponse
 
 Create Import
 
+Upload rows to be turned into documents, for review first.  Nothing is created yet: the rows are parsed and held so you can check them. `confirm_import` commits them, `cancel_import` discards them.
+
 ### Example
 
 ```php
@@ -191,6 +197,8 @@ getImport($import_id): \InvoicePDFs\Model\ImportResponse
 ```
 
 Get Import
+
+An import's status and how many rows it holds.
 
 ### Example
 
