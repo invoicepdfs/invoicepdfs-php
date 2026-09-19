@@ -19,6 +19,8 @@ createCustomer($customer_create, $idempotency_key): \InvoicePDFs\Model\CustomerR
 
 Create Customer
 
+Store a customer you can bill repeatedly.  `tax_id` and `electronic_address` are what e-invoicing needs: a buyer VAT number and the Peppol identifier a receiver is addressed by. Neither is required for a plain PDF.
+
 ### Example
 
 ```php
@@ -79,6 +81,8 @@ deleteCustomer($customer_id): \InvoicePDFs\Model\SimpleBoolResponse
 
 Delete Customer
 
+Remove a customer.  `409` if any document still references them, naming what does. History is kept rather than rewritten.
+
 ### Example
 
 ```php
@@ -137,6 +141,8 @@ getCustomer($customer_id): \InvoicePDFs\Model\CustomerResponse
 
 Get Customer
 
+One stored customer.
+
 ### Example
 
 ```php
@@ -194,6 +200,8 @@ listCustomers($limit, $cursor): \InvoicePDFs\Model\CustomersListResponse
 ```
 
 List Customers
+
+The people and companies you bill, newest first.  Cursor-paginated. A customer is optional — the stateless render endpoints take a buyer inline — but storing one lets a document reference it by id.
 
 ### Example
 
@@ -254,6 +262,8 @@ updateCustomer($customer_id, $customer_patch, $idempotency_key): \InvoicePDFs\Mo
 ```
 
 Update Customer
+
+Change a stored customer.  Only the fields you send are changed — omit one to leave it alone, send `null` to clear it. Documents already issued keep the details they were issued with; this does not rewrite them.
 
 ### Example
 

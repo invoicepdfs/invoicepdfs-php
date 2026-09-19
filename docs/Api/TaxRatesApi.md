@@ -19,6 +19,8 @@ createTaxRate($tax_rate_create_request): \InvoicePDFs\Model\TaxRateResponse
 
 Create Tax Rate
 
+Store a reusable tax rate.  `inclusive` decides whether the rate is already inside the unit price or added to it — the difference is the total, so it is worth being sure. The tax `category` travels with the rate into e-invoicing XML.
+
 ### Example
 
 ```php
@@ -76,6 +78,8 @@ deleteTaxRate($tax_rate_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Tax Rate
+
+Remove a stored tax rate. Documents already issued are unaffected.
 
 ### Example
 
@@ -135,6 +139,8 @@ getTaxRate($tax_rate_id): \InvoicePDFs\Model\TaxRateResponse
 
 Get Tax Rate
 
+One stored tax rate.
+
 ### Example
 
 ```php
@@ -192,6 +198,8 @@ listTaxRates($limit, $cursor): \InvoicePDFs\Model\TaxRatesListResponse
 ```
 
 List Tax Rates
+
+Named tax rates you can apply by reference, newest first.  A convenience, not a requirement: a line item can state its rate inline instead. Storing one means a rate change is made in a single place.
 
 ### Example
 
@@ -252,6 +260,8 @@ updateTaxRate($tax_rate_id, $tax_rate_patch_request): \InvoicePDFs\Model\TaxRate
 ```
 
 Update Tax Rate
+
+Change a stored tax rate.  Documents already issued keep the rate they were calculated with. This affects future documents only.
 
 ### Example
 

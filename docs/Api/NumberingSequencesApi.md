@@ -81,6 +81,8 @@ createSequence($numbering_sequence_create_request): \InvoicePDFs\Model\Numbering
 
 Create Sequence
 
+Define how a document type's numbers are built.  A prefix, an optional date pattern, and a zero-padded counter — `INV-2026-0001`. `reset` decides whether the counter returns to one each year.
+
 ### Example
 
 ```php
@@ -138,6 +140,8 @@ deleteSequence($sequence_id): \InvoicePDFs\Model\SimpleBoolResponse
 ```
 
 Delete Sequence
+
+Remove a numbering scheme.  Documents of that type then need their number supplied explicitly.
 
 ### Example
 
@@ -197,6 +201,8 @@ getSequence($sequence_id): \InvoicePDFs\Model\NumberingSequenceResponse
 
 Get Sequence
 
+One numbering sequence, including the number it will issue next.
+
 ### Example
 
 ```php
@@ -254,6 +260,8 @@ listSequences($limit, $cursor): \InvoicePDFs\Model\NumberingSequencesListRespons
 ```
 
 List Sequences
+
+The numbering schemes that produce document numbers, newest first.  Each names the document type it numbers, so invoices and credit notes can run on separate counters.
 
 ### Example
 
@@ -315,6 +323,8 @@ previewSequence($sequence_id): \InvoicePDFs\Model\NumberingSequencePreviewRespon
 
 Preview Sequence
 
+Show the next number **without consuming it**.  Nothing is claimed, so calling this twice returns the same number and the number stays available. Use `consume_sequence_number` to take it.
+
 ### Example
 
 ```php
@@ -372,6 +382,8 @@ updateSequence($sequence_id, $numbering_sequence_patch_request): \InvoicePDFs\Mo
 ```
 
 Update Sequence
+
+Change a numbering scheme.  Numbers already issued are not rewritten, so a change takes effect from the next document. Moving the counter backwards can collide with a number already used.
 
 ### Example
 
