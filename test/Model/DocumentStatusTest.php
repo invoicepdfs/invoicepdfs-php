@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * DocumentStatusTest Class Doc Comment
  *
  * @category    Class
- * @description The document lifecycle. The transitions between these live in app/documents/base.py, which is the only thing that moves a document.
+ * @description The document lifecycle.
  * @package     InvoicePDFs
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

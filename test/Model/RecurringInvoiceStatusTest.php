@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * RecurringInvoiceStatusTest Class Doc Comment
  *
  * @category    Class
- * @description &#x60;completed&#x60; is the schedule running out, not a failure — set by app/recurring/processor.py when the end date or occurrence count is reached. &#x60;RecurringInvoiceOut.status&#x60; was an unconstrained &#x60;str&#x60;, so this is the first time the set has been written down anywhere.
+ * @description Where a recurring schedule is in its life.  &#x60;completed&#x60; is the schedule running out, not a failure: it is set automatically once the end date or the occurrence count is reached.
  * @package     InvoicePDFs
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
