@@ -16,6 +16,8 @@ getAuditEvent($audit_event_id): \InvoicePDFs\Model\AuditEventResponse
 
 Get Audit Event
 
+One audit event by id.
+
 ### Example
 
 ```php
@@ -73,6 +75,8 @@ listAuditEvents($limit, $cursor, $action, $resource_type, $resource_id): \Invoic
 ```
 
 List Audit Events
+
+Who changed what on this account, newest first.  Filter by `action`, `resource_type` and `resource_id` to follow a single object's history.
 
 ### Example
 

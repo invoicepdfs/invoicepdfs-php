@@ -15,6 +15,8 @@ getStats(): \InvoicePDFs\Model\StatsResponse
 
 Get Stats
 
+Counts and recent activity for the account, in one call.  Totals for documents, customers and business profiles, a breakdown of documents by status, and the ten most recent documents — cheaper than paging each collection to build a dashboard.  The `invoice`-prefixed fields cover every document type, not only invoices.
+
 ### Example
 
 ```php
