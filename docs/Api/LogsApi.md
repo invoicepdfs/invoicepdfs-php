@@ -15,6 +15,8 @@ listLogs($status, $limit): \InvoicePDFs\Model\ApiRequestLogsListResponse
 
 List Logs
 
+Recent API requests made with your keys, newest first.  Method, path, status, duration and the request and response bodies, so you can see what an integration actually sent rather than what it meant to.  Filter to `success` or `error` with `status`. How long these are kept depends on the plan — `get_usage_limits` reports the retention.
+
 ### Example
 
 ```php

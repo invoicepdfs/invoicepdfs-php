@@ -23,6 +23,8 @@ addWorkspaceMember($workspace_id, $workspace_member_create_request, $idempotency
 
 Add Workspace Member
 
+Add someone to a workspace by email address.  Refused with 409 if that email is already a member. The address does not have to belong to an existing account.
+
 ### Example
 
 ```php
@@ -85,6 +87,8 @@ createWorkspace($workspace_create_request, $idempotency_key): \InvoicePDFs\Model
 
 Create Workspace
 
+Create a workspace, owned by this account.  The creating account is added as its first member with the `owner` role.  Send an `Idempotency-Key` header to make retrying safe: a repeat with the same key and body returns the original workspace instead of a second one.
+
 ### Example
 
 ```php
@@ -145,6 +149,8 @@ deleteWorkspace($workspace_id): \InvoicePDFs\Model\SimpleBoolResponse
 
 Delete Workspace
 
+Delete a workspace and its membership list.  Every member record goes with it. This cannot be undone, and documents are unaffected — they belong to the account, not the workspace.
+
 ### Example
 
 ```php
@@ -202,6 +208,8 @@ getWorkspace($workspace_id): \InvoicePDFs\Model\WorkspaceResponse
 ```
 
 Get Workspace
+
+One workspace by id.
 
 ### Example
 
@@ -261,6 +269,8 @@ listWorkspaceMembers($workspace_id): \InvoicePDFs\Model\WorkspaceMembersListResp
 
 List Workspace Members
 
+Everyone on a workspace, with their role.
+
 ### Example
 
 ```php
@@ -318,6 +328,8 @@ listWorkspaces($limit, $cursor): \InvoicePDFs\Model\WorkspacesListResponse
 ```
 
 List Workspaces
+
+Workspaces this account owns, newest first.
 
 ### Example
 
@@ -379,6 +391,8 @@ removeWorkspaceMember($workspace_id, $member_id): \InvoicePDFs\Model\SimpleBoolR
 
 Remove Workspace Member
 
+Remove someone from a workspace.  Removes the membership only; nothing they created is affected.
+
 ### Example
 
 ```php
@@ -438,6 +452,8 @@ updateWorkspace($workspace_id, $workspace_patch_request, $idempotency_key): \Inv
 ```
 
 Update Workspace
+
+Rename a workspace.  Only the fields you send are changed.
 
 ### Example
 
@@ -500,6 +516,8 @@ updateWorkspaceMember($workspace_id, $member_id, $workspace_member_patch_request
 ```
 
 Update Workspace Member
+
+Change a member's role.
 
 ### Example
 
