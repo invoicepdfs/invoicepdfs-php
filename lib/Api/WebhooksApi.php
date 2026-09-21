@@ -159,7 +159,7 @@ class WebhooksApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\ApiErrorResponse
+     * @return \InvoicePDFs\Model\WebhookEndpointCreatedResponse|\InvoicePDFs\Model\ApiErrorResponse
      */
     public function createWebhookEndpoint($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpoint'][0])
     {
@@ -177,7 +177,7 @@ class WebhooksApi
      *
      * @throws \InvoicePDFs\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \InvoicePDFs\Model\WebhookEndpointResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \InvoicePDFs\Model\WebhookEndpointCreatedResponse|\InvoicePDFs\Model\ApiErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createWebhookEndpointWithHttpInfo($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpoint'][0])
     {
@@ -220,11 +220,11 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\InvoicePDFs\Model\WebhookEndpointResponse' === '\SplFileObject') {
+                    if ('\InvoicePDFs\Model\WebhookEndpointCreatedResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\InvoicePDFs\Model\WebhookEndpointResponse' !== 'string') {
+                        if ('\InvoicePDFs\Model\WebhookEndpointCreatedResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -242,7 +242,7 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WebhookEndpointResponse', []),
+                        ObjectSerializer::deserialize($content, '\InvoicePDFs\Model\WebhookEndpointCreatedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -275,7 +275,7 @@ class WebhooksApi
                     ];
             }
 
-            $returnType = '\InvoicePDFs\Model\WebhookEndpointResponse';
+            $returnType = '\InvoicePDFs\Model\WebhookEndpointCreatedResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -308,7 +308,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\InvoicePDFs\Model\WebhookEndpointResponse',
+                        '\InvoicePDFs\Model\WebhookEndpointCreatedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -360,7 +360,7 @@ class WebhooksApi
      */
     public function createWebhookEndpointAsyncWithHttpInfo($webhook_endpoint_create_request, string $contentType = self::contentTypes['createWebhookEndpoint'][0])
     {
-        $returnType = '\InvoicePDFs\Model\WebhookEndpointResponse';
+        $returnType = '\InvoicePDFs\Model\WebhookEndpointCreatedResponse';
         $request = $this->createWebhookEndpointRequest($webhook_endpoint_create_request, $contentType);
 
         return $this->client

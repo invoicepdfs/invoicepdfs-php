@@ -19,12 +19,12 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `createWebhookEndpoint()`
 
 ```php
-createWebhookEndpoint($webhook_endpoint_create_request): \InvoicePDFs\Model\WebhookEndpointResponse
+createWebhookEndpoint($webhook_endpoint_create_request): \InvoicePDFs\Model\WebhookEndpointCreatedResponse
 ```
 
 Create Webhook Endpoint
 
-Register a URL to receive events.  The endpoint starts active and begins receiving the events you list.  A signing secret is generated but is **not** returned here. Call `rotate_webhook_secret` to obtain one before you can verify signatures.
+Register a URL to receive events.  The endpoint starts active and begins receiving the events you list.  The response carries the signing secret, and is the only one that ever will — store it now. Reading or listing endpoints never returns it, and the only way to get another is `rotate_webhook_secret`, which stops this one working.
 
 ### Example
 
@@ -61,7 +61,7 @@ try {
 
 ### Return type
 
-[**\InvoicePDFs\Model\WebhookEndpointResponse**](../Model/WebhookEndpointResponse.md)
+[**\InvoicePDFs\Model\WebhookEndpointCreatedResponse**](../Model/WebhookEndpointCreatedResponse.md)
 
 ### Authorization
 
@@ -508,7 +508,7 @@ testWebhookEndpoint($endpoint_id): \InvoicePDFs\Model\WebhookDeliveryResponse
 
 Test Webhook Endpoint
 
-Record a test event against this endpoint.  Creates a `test` event and a delivery in `pending`, which you can inspect with `get_webhook_delivery`.  This call does not send the delivery. Pass the returned delivery id to `retry_webhook_delivery` to have it dispatched.
+Send a test event to this endpoint.  Delivers a `test` event immediately, so you can confirm the URL is reachable and your signature check works before real events depend on it.  Returns straight away with the delivery in `pending`; follow it with `get_webhook_delivery` to see whether it arrived.
 
 ### Example
 

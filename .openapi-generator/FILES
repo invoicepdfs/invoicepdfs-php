@@ -252,6 +252,8 @@ docs/Model/WebhookDeliveryOut.md
 docs/Model/WebhookDeliveryResponse.md
 docs/Model/WebhookDeliveryStatus.md
 docs/Model/WebhookEndpointCreateRequest.md
+docs/Model/WebhookEndpointCreatedOut.md
+docs/Model/WebhookEndpointCreatedResponse.md
 docs/Model/WebhookEndpointOut.md
 docs/Model/WebhookEndpointPatchRequest.md
 docs/Model/WebhookEndpointResponse.md
@@ -521,6 +523,8 @@ lib/Model/WebhookDeliveryOut.php
 lib/Model/WebhookDeliveryResponse.php
 lib/Model/WebhookDeliveryStatus.php
 lib/Model/WebhookEndpointCreateRequest.php
+lib/Model/WebhookEndpointCreatedOut.php
+lib/Model/WebhookEndpointCreatedResponse.php
 lib/Model/WebhookEndpointOut.php
 lib/Model/WebhookEndpointPatchRequest.php
 lib/Model/WebhookEndpointResponse.php
@@ -787,6 +791,8 @@ test/Model/WebhookDeliveryOutTest.php
 test/Model/WebhookDeliveryResponseTest.php
 test/Model/WebhookDeliveryStatusTest.php
 test/Model/WebhookEndpointCreateRequestTest.php
+test/Model/WebhookEndpointCreatedOutTest.php
+test/Model/WebhookEndpointCreatedResponseTest.php
 test/Model/WebhookEndpointOutTest.php
 test/Model/WebhookEndpointPatchRequestTest.php
 test/Model/WebhookEndpointResponseTest.php
