@@ -96,4 +96,22 @@ class ReadyResponseTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "workers"
+     */
+    public function testPropertyWorkers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "degraded"
+     */
+    public function testPropertyDegraded()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

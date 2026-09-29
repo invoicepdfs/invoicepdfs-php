@@ -58,7 +58,9 @@ class ReadyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'status' => 'string',
-        'dependencies' => 'array<string,string>'
+        'dependencies' => 'array<string,string>',
+        'workers' => 'array<string,string>',
+        'degraded' => 'string[]'
     ];
 
     /**
@@ -70,7 +72,9 @@ class ReadyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'status' => null,
-        'dependencies' => null
+        'dependencies' => null,
+        'workers' => null,
+        'degraded' => null
     ];
 
     /**
@@ -80,7 +84,9 @@ class ReadyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'status' => false,
-        'dependencies' => false
+        'dependencies' => false,
+        'workers' => false,
+        'degraded' => true
     ];
 
     /**
@@ -170,7 +176,9 @@ class ReadyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'status' => 'status',
-        'dependencies' => 'dependencies'
+        'dependencies' => 'dependencies',
+        'workers' => 'workers',
+        'degraded' => 'degraded'
     ];
 
     /**
@@ -180,7 +188,9 @@ class ReadyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'status' => 'setStatus',
-        'dependencies' => 'setDependencies'
+        'dependencies' => 'setDependencies',
+        'workers' => 'setWorkers',
+        'degraded' => 'setDegraded'
     ];
 
     /**
@@ -190,7 +200,9 @@ class ReadyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'status' => 'getStatus',
-        'dependencies' => 'getDependencies'
+        'dependencies' => 'getDependencies',
+        'workers' => 'getWorkers',
+        'degraded' => 'getDegraded'
     ];
 
     /**
@@ -282,6 +294,8 @@ class ReadyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('dependencies', $data ?? [], null);
+        $this->setIfExists('workers', $data ?? [], null);
+        $this->setIfExists('degraded', $data ?? [], null);
     }
 
     /**
@@ -410,6 +424,67 @@ class ReadyResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['dependencies'] = $dependencies;
+
+        return $this;
+    }
+
+    /**
+     * Gets workers
+     *
+     * @return array<string,string>|null
+     */
+    public function getWorkers()
+    {
+        return $this->container['workers'];
+    }
+
+    /**
+     * Sets workers
+     *
+     * @param array<string,string>|null $workers workers
+     *
+     * @return self
+     */
+    public function setWorkers($workers)
+    {
+        if (is_null($workers)) {
+            throw new \InvalidArgumentException('non-nullable workers cannot be null');
+        }
+        $this->container['workers'] = $workers;
+
+        return $this;
+    }
+
+    /**
+     * Gets degraded
+     *
+     * @return string[]|null
+     */
+    public function getDegraded()
+    {
+        return $this->container['degraded'];
+    }
+
+    /**
+     * Sets degraded
+     *
+     * @param string[]|null $degraded degraded
+     *
+     * @return self
+     */
+    public function setDegraded($degraded)
+    {
+        if (is_null($degraded)) {
+            array_push($this->openAPINullablesSetToNull, 'degraded');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('degraded', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['degraded'] = $degraded;
 
         return $this;
     }
